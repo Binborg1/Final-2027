@@ -5,7 +5,7 @@
 The map follows a student from left to right: set up courses, read, get help, practise,
 prepare for exams, manage the plan. Release 1 is the ENSE 400 scope (due 1 December 2026).
 Release 2 is ENSE 477 (Winter 2027, tentative). Requirement IDs refer to
-`05. Project Requirements.docx`.
+`05. Project Requirements.pdf`.
 
 ## Release 1 — Fall 2026 (ENSE 400)
 
