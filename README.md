@@ -64,7 +64,8 @@ Project management is shared and the work is split by feature.
 
 Each work package is a GitHub issue (#1 to #18), labelled by type and by who is accountable,
 and grouped into two milestones: **ENSE 400 - Fall 2026** (due 1 December 2026) and
-**ENSE 477 - Winter 2027** (due 9 April 2027, tentative).
+**ENSE 477 - Winter 2027** (due 9 April 2027, tentative). Progress is tracked on the
+[Kanban board](https://github.com/users/Binborg1/projects/1) (Backlog, Doing, Review, Done).
 
 ## Design process status
 
