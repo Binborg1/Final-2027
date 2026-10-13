@@ -35,6 +35,7 @@ Business Case.
 | `docs/02-workshop-2/` | Workshop 2 deliverables — User Analysis, Business Model Analysis |
 | `docs/03-pitch/` | Three-project pitch deck (.pptx and .pdf), delivered 15 Sept 2026 |
 | `docs/04-workshop-3/` | Workshop 3 planning documents, user story map and Gantt chart |
+| `docs/05-vlog-1/` | Vlog 1 script, shot list and requirement coverage |
 
 ### Workshop 3 documents
 
@@ -95,6 +96,13 @@ Primary-research interviews completed so far:
 Everything else in the deliverable tables (the graduate and design-partner user types,
 demographics, habits, and all three business models) is reasoned extension rather than
 validated research, and still needs to be tested with real students.
+
+## Vlogs
+
+| # | Due | Link |
+|---|---|---|
+| 1 | 13 Oct 2026, 11:30 am | _YouTube link to be added after upload_ · [script and shot list](docs/05-vlog-1/Vlog%201%20Script.md) |
+| 2 | 1 Dec 2026 | — |
 
 ## Upcoming
 
