@@ -33,7 +33,7 @@ Business Case.
 | `docs/00-lectures/` | Design Workshop 1 to 3 slides from Dr. Maciag |
 | `docs/01-workshop-1/` | Workshop 1 deliverables — Project Ideation, Competitor Analysis |
 | `docs/02-workshop-2/` | Workshop 2 deliverables — User Analysis, Business Model Analysis |
-| `docs/03-pitch/` | Three-project pitch deck (.pptx and .pdf), delivered 15 Sept 2026 |
+| `docs/03-pitch/` | Three-project pitch deck (15 Sept 2026) and final pitch deck for Cultivator HQ (13 Oct 2026), each as .pptx and .pdf |
 | `docs/04-workshop-3/` | Workshop 3 planning documents, user story map and Gantt chart |
 
 ### Workshop 3 documents
