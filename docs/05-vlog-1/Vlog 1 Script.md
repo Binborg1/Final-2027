@@ -33,7 +33,7 @@ They're filmed separately, at different times, and joined afterwards in Clipcham
 | 7 | SCREEN | Who it's for, then the user table | Pitch deck slide 3, then `docs/02-workshop-2/1. User Analysis.pdf` | Chop |
 | 8 | SCREEN | Stakeholder table | `docs/04-workshop-3/03. Stakeholder Analysis.pdf` | Aubin |
 | 9 | SCREEN | Free and Pro plans | Pitch deck, slide 7 | Aubin |
-| 10 | SCREEN | **The Funza app** (the most important shot) | `app/`: run `npm run dev`, open http://localhost:3000 | Chop |
+| 10 | SCREEN | **The Funza app** (the most important shot) | `app/`: run `npm run dev`, open http://localhost:3000, attach `docs/05-vlog-1/Textbook.pdf` | Chop |
 | 11 | SCREEN | Release plan | `docs/04-workshop-3/User Story Map.png` | Aubin |
 | 12 | CAMERA | Chop | — | Chop |
 | 13 | SCREEN | The code | VS Code with the `app/src` folder open | Aubin |
@@ -178,9 +178,9 @@ A camera clip followed by a screen clip in the same voice (2 then 3, or 4 then 5
 
 ### Part 5 — What we're building (about 2:00)
 
-**SHOT 10 — SCREEN: Chop's voice.** The Funza app. Add a course, attach a PDF, open a lesson and turn the voice on. Answer one question wrong on purpose, show the hint, then answer it right. `PMBOK: Requirements`
+**SHOT 10 — SCREEN: Chop's voice.** The Funza app. Add a course, attach `Textbook.pdf` (in `docs/05-vlog-1/`), open a lesson and turn the voice on. Answer one question wrong on purpose, show the hint, then answer it right. `PMBOK: Requirements`
 
-Before you record: add a free Gemini or Groq key (copy `app/.env.example` to `app/.env.local`, as the app README explains). Without a key, the app can't explain an idea a different way or ask you a new question. Do one practice run first. If the lessons made from your own PDF look rough, use a built-in sample course instead (Physics or Mathematics).
+Before you record: add a free Gemini or Groq key (copy `app/.env.example` to `app/.env.local`, as the app README explains). Without a key, the app can't explain an idea a different way or ask you a new question. Do one practice run first. The demo PDF is a one-page textbook chapter on parallel circuits, written for this shot: it has five clear headings, which the app turns into separate concepts. It uses the same 12 V and 6 Ω example as the tutor slide in the pitch deck.
 
 **CHOP:** This is our prototype. You add a course and attach your PDFs. Then the tutor teaches you one idea at a time. It explains it, asks you a question, and checks your answer. If you get it wrong, you get a hint. If you're still stuck, it explains it a different way and asks you a new question, so you don't move on until you actually get it. And it can read everything out loud.
 
