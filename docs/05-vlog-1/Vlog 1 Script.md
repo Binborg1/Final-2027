@@ -87,10 +87,10 @@ Each person records their own voice-over shots, so you can do them separately:
 4. Drag them onto the timeline in order, 1 to 17.
 5. Trim each clip. Click where the talking starts, press **S** to split, and delete the dead bit. Do the same at the end, and for any retakes.
 6. Click **Text** to add:
-   - your names under you in shot 1,
-   - the `BAD:` / `PMBOK:` captions where the script shows them,
-   - WHY, HOW and WHAT in shot 6,
-   - the GitHub link in shot 17.
+    - your names under you in shot 1,
+    - the `BAD:` / `PMBOK:` captions where the script shows them,
+    - WHY, HOW and WHAT in shot 6,
+    - the GitHub link in shot 17.
 7. Play the whole thing once. Check the volume stays steady between camera and screen clips. Clipchamp's **Audio → Volume** fixes a clip that's too quiet or too loud.
 8. **Export → 1080p.** Check it's under 15 minutes.
 
