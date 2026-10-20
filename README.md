@@ -19,7 +19,7 @@ explanations, the student picks a model from a list sorted from least to most ex
 The free model is the default; paid models are unlocked by a Pro subscription that covers
 their cost. The project is self-funded.
 
-Selected from three ideas pitched on 15 September 2026 (see `docs/03-pitch/`). The two
+Selected from three ideas pitched on 15 September 2026 (see `docs/03_pitch/`). The two
 alternatives were **uofrEats**, a campus food ordering and pickup platform, and
 **AI-Assisted Drones** for crop scouting and fire detection. The AI Learning Environment was
 chosen because it is backed by a real student interview, it needs no hardware or outside
@@ -28,15 +28,17 @@ Business Case.
 
 ## What's where
 
+Naming: everything under `docs/` is lowercase `snake_case`. Files are `NN_name.ext`, numbered in order within their folder; a deliverable kept in two formats (for example .pptx and .pdf) shares one number. Folders are `NN_name` in course order.
+
 | Folder | Contents |
 |---|---|
-| `docs/00-lectures/` | Design Workshop 1 to 3 slides from Dr. Maciag |
-| `docs/01-workshop-1/` | Workshop 1 deliverables — Project Ideation, Competitor Analysis |
-| `docs/02-workshop-2/` | Workshop 2 deliverables — User Analysis, Business Model Analysis |
-| `docs/03-pitch/` | Three-project pitch deck (15 Sept 2026) and final pitch deck for Cultivator HQ (13 Oct 2026), each as .pptx and .pdf |
-| `docs/04-workshop-3/` | Workshop 3 planning documents, user story map and Gantt chart |
-| `docs/05-vlog-1/` | Vlog 1 script, shot list and requirement coverage |
-| `docs/06-usability-bazaar/` | Usability bazaar (20 Oct 2026): low-fidelity wireframes (five screens, printable HTML), facilitator plan with task cards and observation sheet, and the participant questionnaire (SUS, design directions, open questions). The high-fidelity prototype is the app in `app/` |
+| `docs/00_lectures/` | Design Workshop 1 to 3 slides from Dr. Maciag |
+| `docs/01_workshop_1/` | Workshop 1 deliverables — Project Ideation, Competitor Analysis |
+| `docs/02_workshop_2/` | Workshop 2 deliverables — User Analysis, Business Model Analysis |
+| `docs/03_pitch/` | Three-project pitch deck (15 Sept 2026) and final pitch deck for Cultivator HQ (13 Oct 2026), each as .pptx and .pdf |
+| `docs/04_workshop_3/` | Workshop 3 planning documents, user story map and Gantt chart |
+| `docs/05_vlog_1/` | Vlog 1 script, shot list and requirement coverage |
+| `docs/06_usability_bazaar/` | Usability bazaar (20 Oct 2026): low-fidelity wireframes (five screens, printable HTML), facilitator plan with task cards and observation sheet, and the participant questionnaire (SUS, design directions, open questions). The high-fidelity prototype is the app in `app/` |
 
 ### Workshop 3 documents
 
@@ -52,8 +54,8 @@ Business Case.
 | 08 | Milestone-Based Schedule | 13 milestones |
 | 09 | Project Roles and Responsibilities | Feature ownership and shared work |
 | 10 | RACI Chart | 18 activities across the team and stakeholders |
-| — | [User Story Map](docs/04-workshop-3/User%20Story%20Map.md) | Student journey with Release 1 (Fall) and Release 2 (Winter) stories |
-| — | [Gantt Chart](docs/04-workshop-3/Gantt%20Chart.png) | Visual schedule built from document 07 |
+| 11 | [User Story Map](docs/04_workshop_3/11_user_story_map.md) | Student journey with Release 1 (Fall) and Release 2 (Winter) stories |
+| 12 | [Gantt Chart](docs/04_workshop_3/12_gantt_chart.png) | Visual schedule built from document 07 |
 
 ## Who owns what
 
@@ -79,10 +81,10 @@ Workshop 1 set out a nine-step research design process:
 | 2 | Key users | Done |
 | 3 | Key user problems / needs | Done |
 | 4 | Solutions and features | Done |
-| 5 | Requirements | Done — `05. Project Requirements` |
+| 5 | Requirements | Done — `05_project_requirements.pdf` |
 | 6 | Unique value proposition | In the pitch deck, not yet in a table |
 | 7 | Competitive strategy | Done |
-| 8 | Business goals and KPIs | Done — goals, SMART objectives and KPIs in `02. Project Charter` |
+| 8 | Business goals and KPIs | Done — goals, SMART objectives and KPIs in `02_project_charter.pdf` |
 | 9 | User and business pain points | Not started |
 
 ## Research evidence
@@ -102,7 +104,7 @@ validated research, and still needs to be tested with real students.
 
 | # | Due | Link |
 |---|---|---|
-| 1 | 13 Oct 2026, 11:30 am | _YouTube link to be added after upload_ · [script and shot list](docs/05-vlog-1/Vlog%201%20Script.md) |
+| 1 | 13 Oct 2026, 11:30 am | _YouTube link to be added after upload_ · [script and shot list](docs/05_vlog_1/01_vlog_1_script.md) |
 | 2 | 1 Dec 2026 | — |
 
 ## Upcoming
