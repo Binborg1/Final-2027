@@ -15,6 +15,9 @@
   .frame h2 { margin: 0 0 8px; font-size: 15px; }
   .screen { border: 1.5px solid var(--ink); background: #fff; display: grid; grid-template-columns: 110px 1fr; min-height: 300px; font-size: 11px; }
   .screen.one { grid-template-columns: 1fr; }
+  .screen.right { grid-template-columns: 1fr 110px; }
+  .screen.right .side { grid-column: 2; grid-row: 1; border-right: none; border-left: 1.5px solid var(--ink); }
+  .screen.right .main { grid-column: 1; grid-row: 1; }
   .side { border-right: 1.5px solid var(--ink); padding: 8px; }
   .main { padding: 10px; }
   .box { border: 1.5px solid var(--ink); border-radius: 4px; padding: 6px; margin: 6px 0; background: #fff; position: relative; }
@@ -22,17 +25,17 @@
   .box.grey { background: #eee; }
   .row { display: flex; gap: 6px; }
   .row > * { flex: 1; }
-  .btn { display: inline-block; border: 1.5px solid var(--ink); border-radius: 12px; padding: 3px 10px; margin: 2px 4px 2px 0; background: #fff; }
+  .btn { position: relative; display: inline-block; border: 1.5px solid var(--ink); border-radius: 12px; padding: 3px 10px; margin: 2px 4px 2px 0; background: #fff; }
   .btn.primary { background: #ccc; font-weight: 700; }
   .pill { display: inline-block; border: 1px solid var(--mid); border-radius: 10px; padding: 1px 7px; margin: 2px 3px 2px 0; color: var(--mid); }
   .text { height: 8px; background: repeating-linear-gradient(90deg, var(--light) 0 60%, transparent 60% 100%); margin: 4px 0; border-radius: 2px; }
   .text.short { width: 55%; }
-  .face { width: 54px; height: 54px; border: 1.5px solid var(--ink); border-radius: 50%; margin: 0 auto 6px; display: grid; place-items: center; font-size: 9px; color: var(--mid); }
-  .bubble { border: 1.5px solid var(--ink); border-radius: 10px; padding: 6px; font-size: 10px; }
+  .face { position: relative; width: 54px; height: 54px; border: 1.5px solid var(--ink); border-radius: 50%; margin: 0 auto 6px; display: grid; place-items: center; font-size: 9px; color: var(--mid); }
+  .bubble { position: relative; border: 1.5px solid var(--ink); border-radius: 10px; padding: 6px; font-size: 10px; }
   .badge { position: absolute; top: -9px; left: -9px; width: 18px; height: 18px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 10px; font-weight: 700; display: grid; place-items: center; }
   .notes { margin: 10px 0 0; padding-left: 18px; font-size: 12px; line-height: 1.45; }
   .notes b { color: var(--ink); }
-  .demo { border: 1.5px solid var(--ink); height: 70px; display: flex; align-items: center; justify-content: space-around; font-size: 10px; color: var(--mid); background: #fafafa; }
+  .demo { position: relative; border: 1.5px solid var(--ink); height: 70px; display: flex; align-items: center; justify-content: space-around; font-size: 10px; color: var(--mid); background: #fafafa; }
   .demo .node { border: 1.5px solid var(--ink); border-radius: 4px; padding: 2px 6px; color: var(--ink); background: #fff; }
   .demo .pkt { border: 1.5px solid var(--ink); border-radius: 3px; padding: 1px 4px; background: #eee; color: var(--ink); }
   .legend { margin-top: 20px; font-size: 12px; color: var(--mid); }
@@ -101,14 +104,14 @@
   <!-- 3 Lesson -->
   <section class="frame">
     <h2>3. Lesson &mdash; explain, ask, hint</h2>
-    <div class="screen">
-      <div class="side" style="border-right:none; border-left:1.5px solid var(--ink); order:2">
+    <div class="screen right">
+      <div class="side">
         <div class="face"><span class="badge">1</span>mascot</div>
         <div class="bubble">Hey! Here's the idea. &hellip; Now you try.<div class="text"></div><div class="text short"></div><span class="pill">Voice off</span></div>
         <span class="btn primary" style="display:block; text-align:center; margin-top:6px"><span class="badge">2</span>Start Tutor Mode</span>
         <div class="box dashed" style="font-size:9px">In this topic: &#10003; &#9675; &#9675; &#9675;</div>
       </div>
-      <div class="main" style="order:1">
+      <div class="main">
         <div class="box"><span class="pill">Topic</span> &nbsp; Concept 2 of 4 &nbsp; ▬▬░░░░</div>
         <div class="box"><b>Messages are split into packets</b><div class="text"></div><div class="text"></div><div class="text short"></div></div>
         <div class="box"><span class="badge">3</span><b>?</b> Apply it: What happens to a message before it arrives?<div class="box dashed">(a) one big file</div><div class="box grey">(b) split into packets</div><div class="box dashed">(c) made into a video</div><span class="btn primary">Check understanding</span></div>
@@ -126,12 +129,12 @@
   <!-- 4 Demo + prediction -->
   <section class="frame">
     <h2>4. Lesson with an interactive demo</h2>
-    <div class="screen">
-      <div class="side" style="border-right:none; border-left:1.5px solid var(--ink); order:2">
+    <div class="screen right">
+      <div class="side">
         <div class="face">mascot</div>
         <div class="bubble"><span class="badge">3</span>Quick prediction before I show the next part &hellip;</div>
       </div>
-      <div class="main" style="order:1">
+      <div class="main">
         <div class="box"><b>Packet transmission</b> &nbsp; <span style="float:right">Step 3 of 5</span>
           <div class="demo"><span class="badge">1</span><span class="node">Sender</span> <span class="pkt">1</span><span class="pkt">2</span> &rarr; R1 &rarr; <span class="pkt">3</span> &rarr; <span class="node">Receiver</span></div>
           <div class="text"></div>

@@ -2,7 +2,7 @@
 
 **When:** ENSE 400, Tuesday 20 October 2026. **Format:** teams pair up; each team gets about 30 minutes to run a usability evaluation of its prototype with the other team as participants. Expect two or three pairings over the class.
 
-**Prototypes:** high-fidelity is Funza itself, the working app in `app/`. Low-fidelity is `01_low_fidelity_wireframes.html` in this folder: five grey-box screens (home, course page, lesson, lesson with demo, ask Funza and screen share), each with the questions it is meant to answer. Open it in a browser and print it; use the sheets when a pairing wants to talk structure rather than click, and to mark up changes with a pen in the debrief. The pitch deck and the user story map give the bigger picture if asked.
+**Prototypes:** high-fidelity is Funza itself, the working app in `app/`. Low-fidelity is `01_low_fidelity_wireframes.html` in this folder: five grey-box screens (home, course page, lesson, lesson with demo, ask Funza and screen share), each with the questions it is meant to answer. Print `01_low_fidelity_wireframes.pdf`; use the sheets when a pairing wants to talk structure rather than click, and to mark up changes with a pen in the debrief. The same five screens exist as desktop-sized SVGs in `04_wireframes_figma/` for the Figma file (https://www.figma.com/design/2EKJLy3nigXgurkl4vLqE2): drag them onto the canvas and they arrive as editable frames. The pitch deck and the user story map give the bigger picture if asked.
 
 **Roles (swap each pairing):**
 
@@ -20,7 +20,7 @@ Two participants per pairing is the goal, one at a time if they only have one la
 - [ ] Browser is Chrome or Edge, and the **voice works**: open a lesson, click "Voice off" to turn it on, hear the mascot. Volume up.
 - [ ] A short lecture PDF on the desktop for task 5: any lecture PDF you have (one from ENSE 472 works); copy it to the desktop and name it `Lecture.pdf`.
 - [ ] AI key in `app/.env.local` if you want the AI features visible (free Groq or Gemini key). Without it the app still runs; tasks 1 to 5 do not need it.
-- [ ] Four printed copies of `03_usability_questionnaire.md` (or open it on a second laptop/phone) and four copies of the observation sheet below.
+- [ ] Four printed copies of `03_usability_questionnaire.pdf` (or open it on a second laptop/phone) and four copies of the observation sheet below.
 - [ ] A timer (phone) and a pen.
 - [ ] One of you has tried every task below once, today, so nothing surprises you.
 

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1000" viewBox="0 0 1280 1000" font-family="Nunito, Inter, 'Segoe UI', sans-serif">
+<title>2. Course page — PDFs and topics</title>
+<rect x="0" y="0" width="1280" height="1000" fill="#FFFFFF"/>
+<rect x="0" y="0" width="256" height="800" rx="0" fill="#F5F5F5"/>
+<line x1="256" y1="0" x2="256" y2="800" stroke="#BBBBBB" stroke-width="1"/>
+<circle cx="36" cy="40" r="15" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="60" y="47" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="20" font-weight="800" fill="#222222" text-anchor="start">Funza</text>
+<rect x="20" y="84" width="216" height="40" rx="20" fill="#E6E6E6"/>
+<text x="40" y="109" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#222222" text-anchor="start">My courses</text>
+<text x="40" y="157" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#777777" text-anchor="start">Progress</text>
+<text x="296" y="52" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#777777" text-anchor="start">← My courses</text>
+<text x="296" y="96" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="30" font-weight="800" fill="#222222" text-anchor="start">ENSE 472</text>
+<rect x="296" y="118" width="944" height="44" rx="14" fill="#F5F5F5" stroke="#BBBBBB" stroke-width="1"/>
+<rect x="310" y="130" width="113" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="366.5" y="144" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">FROM YOUR PDFS</text>
+<text x="446" y="145" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#777777" text-anchor="start">Lessons were generated on this device from your PDFs. Questions can be rough; every explanation is quoted from the file.</text>
+<circle cx="298" cy="118" r="11" fill="#222222"/>
+<text x="298" y="122" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="296" y="190" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="15" font-weight="800" fill="#222222" text-anchor="start">Files</text>
+<circle cx="288" cy="170" r="11" fill="#222222"/>
+<text x="288" y="174" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<rect x="296" y="204" width="330" height="74" rx="14" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="312" y="230" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#222222" text-anchor="start">Lecture.pdf</text>
+<rect x="312" y="242" width="52" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="338.0" y="256" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">NOTES</text>
+<text x="382" y="256" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#777777" text-anchor="start">12 concepts · 3 topics</text>
+<rect x="296" y="290" width="330" height="74" rx="14" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="312" y="316" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#222222" text-anchor="start">Tutorial 3.pdf</text>
+<rect x="312" y="328" width="79" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="351.5" y="342" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">QUESTIONS</text>
+<text x="404" y="342" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#777777" text-anchor="start">8 questions · Guide me / Answers</text>
+<rect x="296" y="380" width="112" height="36" rx="18" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="352.0" y="403" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#222222" text-anchor="middle">Attach PDF</text>
+<rect x="296" y="436" width="330" height="70" rx="14" fill="#FFFFFF" stroke="#777777" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="312" y="462" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#777777" text-anchor="start">Plan AI lessons from Lecture.pdf</text>
+<text x="312" y="482" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="400" fill="#777777" text-anchor="start">Sends the text to the AI provider, after asking you first.</text>
+<text x="658" y="190" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="15" font-weight="800" fill="#222222" text-anchor="start">Topics</text>
+<circle cx="650" cy="170" r="11" fill="#222222"/>
+<text x="650" y="174" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<rect x="658" y="204" width="582" height="80" rx="14" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="674" y="234" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="15" font-weight="800" fill="#222222" text-anchor="start">HTTP/2 basics</text>
+<text x="674" y="254" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#777777" text-anchor="start">4 concepts · 1 completed</text>
+<rect x="674" y="264" width="422" height="10" rx="5" fill="#E6E6E6"/>
+<rect x="674" y="264" width="106" height="10" rx="5" fill="#777777"/>
+<rect x="1134" y="226" width="90" height="36" rx="18" fill="#E6E6E6" stroke="#222222" stroke-width="1.5"/>
+<text x="1179.0" y="249" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#222222" text-anchor="middle">Start</text>
+<rect x="658" y="296" width="582" height="80" rx="14" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="674" y="326" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="15" font-weight="800" fill="#222222" text-anchor="start">Flow control</text>
+<text x="674" y="346" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#777777" text-anchor="start">3 concepts · not started</text>
+<rect x="674" y="356" width="422" height="10" rx="5" fill="#E6E6E6"/>
+<rect x="1134" y="318" width="90" height="36" rx="18" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="1179.0" y="341" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#222222" text-anchor="middle">Start</text>
+<rect x="658" y="388" width="582" height="80" rx="14" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="674" y="418" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="15" font-weight="800" fill="#222222" text-anchor="start">Server push</text>
+<text x="674" y="438" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#777777" text-anchor="start">3 concepts · not started</text>
+<rect x="674" y="448" width="422" height="10" rx="5" fill="#E6E6E6"/>
+<rect x="1134" y="410" width="90" height="36" rx="18" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="1179.0" y="433" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#222222" text-anchor="middle">Start</text>
+<rect x="0" y="800" width="1280" height="200" rx="0" fill="#F5F5F5"/>
+<line x1="0" y1="800" x2="1280" y2="800" stroke="#222222" stroke-width="1.5"/>
+<text x="40" y="830" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="800" fill="#222222" text-anchor="start">What we want to learn</text>
+<circle cx="51" cy="854" r="11" fill="#222222"/>
+<text x="51" y="858" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="70" y="858" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12.5" fill="#222222"><tspan font-weight="700">Source banner.</tspan> Is &quot;from your PDFs&quot; versus &quot;sample&quot; versus &quot;adaptive AI&quot; clear and reassuring?</text>
+<circle cx="51" cy="881" r="11" fill="#222222"/>
+<text x="51" y="885" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="70" y="885" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12.5" fill="#222222"><tspan font-weight="700">Files.</tspan> Does the notes / questions split make sense? Would they flip a wrong classification?</text>
+<circle cx="51" cy="908" r="11" fill="#222222"/>
+<text x="51" y="912" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="70" y="912" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12.5" fill="#222222"><tspan font-weight="700">Topics.</tspan> Is &quot;concept&quot; the right word? Do they want to pick a concept directly?</text>
+<rect x="0.75" y="0.75" width="1278.5" height="998.5" rx="6" fill="none" stroke="#222222" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1000" viewBox="0 0 1280 1000" font-family="Nunito, Inter, 'Segoe UI', sans-serif">
+<title>1. Home — my courses</title>
+<rect x="0" y="0" width="1280" height="1000" fill="#FFFFFF"/>
+<rect x="0" y="0" width="256" height="800" rx="0" fill="#F5F5F5"/>
+<line x1="256" y1="0" x2="256" y2="800" stroke="#BBBBBB" stroke-width="1"/>
+<circle cx="36" cy="40" r="15" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="60" y="47" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="20" font-weight="800" fill="#222222" text-anchor="start">Funza</text>
+<rect x="20" y="84" width="216" height="40" rx="20" fill="#E6E6E6"/>
+<text x="40" y="109" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#222222" text-anchor="start">My courses</text>
+<text x="40" y="157" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#777777" text-anchor="start">Progress</text>
+<circle cx="332" cy="72" r="36" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="332" y="76" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="10" font-weight="400" fill="#777777" text-anchor="middle">mascot</text>
+<text x="386" y="66" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="30" font-weight="800" fill="#222222" text-anchor="start">What are we learning today?</text>
+<circle cx="376" cy="42" r="11" fill="#222222"/>
+<text x="376" y="46" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="386" y="94" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="15" font-weight="400" fill="#777777" text-anchor="start">Pick a course to continue, or add one with your lecture PDFs.</text>
+<rect x="1110" y="48" width="130" height="36" rx="18" fill="#E6E6E6" stroke="#222222" stroke-width="1.5"/>
+<text x="1175.0" y="71" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#222222" text-anchor="middle">Add Course</text>
+<circle cx="1108" cy="46" r="11" fill="#222222"/>
+<text x="1108" y="50" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<rect x="296" y="150" width="300" height="160" rx="20" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<rect x="316" y="170" width="44" height="44" rx="14" fill="#E6E6E6"/>
+<text x="338" y="198" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="18" font-weight="800" fill="#777777" text-anchor="middle">C</text>
+<text x="372" y="188" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="16" font-weight="800" fill="#222222" text-anchor="start">Computer Networks</text>
+<rect x="372" y="198" width="59" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="401.5" y="212" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">SAMPLE</text>
+<text x="372" y="234" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#777777" text-anchor="start">Built-in lessons</text>
+<rect x="316" y="256" width="260" height="10" rx="5" fill="#E6E6E6"/>
+<rect x="316" y="256" width="104" height="10" rx="5" fill="#777777"/>
+<text x="316" y="286" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="start">2 of 5 concepts completed</text>
+<rect x="620" y="150" width="300" height="160" rx="20" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<rect x="640" y="170" width="44" height="44" rx="14" fill="#E6E6E6"/>
+<text x="662" y="198" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="18" font-weight="800" fill="#777777" text-anchor="middle">M</text>
+<text x="696" y="188" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="16" font-weight="800" fill="#222222" text-anchor="start">Mathematics</text>
+<rect x="696" y="198" width="59" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="725.5" y="212" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">SAMPLE</text>
+<text x="696" y="234" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#777777" text-anchor="start">Built-in lessons</text>
+<rect x="640" y="256" width="260" height="10" rx="5" fill="#E6E6E6"/>
+<text x="640" y="286" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="start">No lessons started</text>
+<rect x="944" y="150" width="300" height="160" rx="20" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<rect x="964" y="170" width="44" height="44" rx="14" fill="#E6E6E6"/>
+<text x="986" y="198" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="18" font-weight="800" fill="#777777" text-anchor="middle">P</text>
+<text x="1020" y="188" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="16" font-weight="800" fill="#222222" text-anchor="start">Physics</text>
+<rect x="1020" y="198" width="59" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="1049.5" y="212" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">SAMPLE</text>
+<text x="1020" y="234" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#777777" text-anchor="start">Built-in lessons</text>
+<rect x="964" y="256" width="260" height="10" rx="5" fill="#E6E6E6"/>
+<text x="964" y="286" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="start">No lessons started</text>
+<circle cx="370" cy="196" r="11" fill="#222222"/>
+<text x="370" y="200" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<rect x="296" y="334" width="300" height="60" rx="20" fill="#FFFFFF" stroke="#777777" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="316" y="370" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="#777777" text-anchor="start">Computer Science · SAMPLE</text>
+<rect x="620" y="334" width="300" height="60" rx="20" fill="#FFFFFF" stroke="#777777" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="640" y="370" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="#777777" text-anchor="start">Biology · SAMPLE</text>
+<text x="296" y="450" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="800" fill="#777777" text-anchor="start">Try a built-in sample</text>
+<text x="296" y="470" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#777777" text-anchor="start">Short lessons with interactive demos. Remove them whenever you like.</text>
+<rect x="296" y="486" width="150" height="36" rx="18" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="371.0" y="509" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#222222" text-anchor="middle">Add Mathematics</text>
+<rect x="456" y="486" width="120" height="36" rx="18" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="516.0" y="509" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#222222" text-anchor="middle">Add Physics</text>
+<rect x="0" y="800" width="1280" height="200" rx="0" fill="#F5F5F5"/>
+<line x1="0" y1="800" x2="1280" y2="800" stroke="#222222" stroke-width="1.5"/>
+<text x="40" y="830" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="800" fill="#222222" text-anchor="start">What we want to learn</text>
+<circle cx="51" cy="854" r="11" fill="#222222"/>
+<text x="51" y="858" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="70" y="858" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12.5" fill="#222222"><tspan font-weight="700">Greeting.</tspan> Does a first-time student know this is a study app, not a chat bot?</text>
+<circle cx="51" cy="881" r="11" fill="#222222"/>
+<text x="51" y="885" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="70" y="885" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12.5" fill="#222222"><tspan font-weight="700">Add course.</tspan> Is it obvious that a course comes from the student&#x27;s own PDFs?</text>
+<circle cx="51" cy="908" r="11" fill="#222222"/>
+<text x="51" y="912" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="70" y="912" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12.5" fill="#222222"><tspan font-weight="700">Sample badge.</tspan> Do students understand that &quot;sample&quot; means built-in lessons they can delete?</text>
+<rect x="0.75" y="0.75" width="1278.5" height="998.5" rx="6" fill="none" stroke="#222222" stroke-width="1.5"/>
+</svg>
