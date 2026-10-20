@@ -2,7 +2,7 @@
 
 **When:** ENSE 400, Tuesday 20 October 2026. **Format:** teams pair up; each team gets about 30 minutes to run a usability evaluation of its prototype with the other team as participants. Expect two or three pairings over the class.
 
-**Prototype under test:** Funza, the working app in `app/` (high-fidelity). The pitch deck and the user story map stand in as the low-fidelity material if a pairing asks for the bigger picture.
+**Prototypes:** high-fidelity is Funza itself, the working app in `app/`. Low-fidelity is `Low-fidelity wireframes.html` in this folder: five grey-box screens (home, course page, lesson, lesson with demo, ask Funza and screen share), each with the questions it is meant to answer. Open it in a browser and print it; use the sheets when a pairing wants to talk structure rather than click, and to mark up changes with a pen in the debrief. The pitch deck and the user story map give the bigger picture if asked.
 
 **Roles (swap each pairing):**
 

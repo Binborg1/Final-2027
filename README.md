@@ -36,7 +36,7 @@ Business Case.
 | `docs/03-pitch/` | Three-project pitch deck (15 Sept 2026) and final pitch deck for Cultivator HQ (13 Oct 2026), each as .pptx and .pdf |
 | `docs/04-workshop-3/` | Workshop 3 planning documents, user story map and Gantt chart |
 | `docs/05-vlog-1/` | Vlog 1 script, shot list and requirement coverage |
-| `docs/06-usability-bazaar/` | Usability bazaar (20 Oct 2026): facilitator plan with task cards and observation sheet, and the participant questionnaire (SUS, design directions, open questions) |
+| `docs/06-usability-bazaar/` | Usability bazaar (20 Oct 2026): low-fidelity wireframes (five screens, printable HTML), facilitator plan with task cards and observation sheet, and the participant questionnaire (SUS, design directions, open questions). The high-fidelity prototype is the app in `app/` |
 
 ### Workshop 3 documents
 

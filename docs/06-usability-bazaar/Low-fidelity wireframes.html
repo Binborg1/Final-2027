@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Funza low-fidelity wireframes</title>
+<style>
+  :root { --ink: #222; --mid: #777; --light: #ddd; --paper: #fff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; font-family: "Segoe UI", system-ui, sans-serif; color: var(--ink); background: #f3f3f3; }
+  h1 { margin: 0 0 4px; font-size: 22px; }
+  .sub { margin: 0 0 20px; color: var(--mid); font-size: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 24px; }
+  .frame { background: var(--paper); border: 2px solid var(--ink); border-radius: 6px; padding: 12px; page-break-inside: avoid; }
+  .frame h2 { margin: 0 0 8px; font-size: 15px; }
+  .screen { border: 1.5px solid var(--ink); background: #fff; display: grid; grid-template-columns: 110px 1fr; min-height: 300px; font-size: 11px; }
+  .screen.one { grid-template-columns: 1fr; }
+  .side { border-right: 1.5px solid var(--ink); padding: 8px; }
+  .main { padding: 10px; }
+  .box { border: 1.5px solid var(--ink); border-radius: 4px; padding: 6px; margin: 6px 0; background: #fff; position: relative; }
+  .box.dashed { border-style: dashed; color: var(--mid); }
+  .box.grey { background: #eee; }
+  .row { display: flex; gap: 6px; }
+  .row > * { flex: 1; }
+  .btn { display: inline-block; border: 1.5px solid var(--ink); border-radius: 12px; padding: 3px 10px; margin: 2px 4px 2px 0; background: #fff; }
+  .btn.primary { background: #ccc; font-weight: 700; }
+  .pill { display: inline-block; border: 1px solid var(--mid); border-radius: 10px; padding: 1px 7px; margin: 2px 3px 2px 0; color: var(--mid); }
+  .text { height: 8px; background: repeating-linear-gradient(90deg, var(--light) 0 60%, transparent 60% 100%); margin: 4px 0; border-radius: 2px; }
+  .text.short { width: 55%; }
+  .face { width: 54px; height: 54px; border: 1.5px solid var(--ink); border-radius: 50%; margin: 0 auto 6px; display: grid; place-items: center; font-size: 9px; color: var(--mid); }
+  .bubble { border: 1.5px solid var(--ink); border-radius: 10px; padding: 6px; font-size: 10px; }
+  .badge { position: absolute; top: -9px; left: -9px; width: 18px; height: 18px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 10px; font-weight: 700; display: grid; place-items: center; }
+  .notes { margin: 10px 0 0; padding-left: 18px; font-size: 12px; line-height: 1.45; }
+  .notes b { color: var(--ink); }
+  .demo { border: 1.5px solid var(--ink); height: 70px; display: flex; align-items: center; justify-content: space-around; font-size: 10px; color: var(--mid); background: #fafafa; }
+  .demo .node { border: 1.5px solid var(--ink); border-radius: 4px; padding: 2px 6px; color: var(--ink); background: #fff; }
+  .demo .pkt { border: 1.5px solid var(--ink); border-radius: 3px; padding: 1px 4px; background: #eee; color: var(--ink); }
+  .legend { margin-top: 20px; font-size: 12px; color: var(--mid); }
+  @media print { body { background: #fff; padding: 0; } .grid { gap: 14px; } .frame { border-width: 1.5px; } }
+</style>
+</head>
+<body>
+<h1>Funza &mdash; low-fidelity wireframes</h1>
+<p class="sub">Version 1, 19 October 2026 &middot; Aubin Chriss Izere and Chop Kur, ENSE 400 &middot; Five screens, grey boxes only. Each screen lists what we want to learn from participants; the numbered callouts are the parts we ask about.</p>
+
+<div class="grid">
+
+  <!-- 1 Home -->
+  <section class="frame">
+    <h2>1. Home &mdash; my courses</h2>
+    <div class="screen">
+      <div class="side">
+        <div class="box grey">Funza</div>
+        <div class="box">My courses</div>
+        <div class="box dashed">Progress</div>
+      </div>
+      <div class="main">
+        <div class="row">
+          <div class="box" style="flex:3"><span class="badge">1</span>What are we learning today?<div class="text short"></div></div>
+          <div class="box grey" style="flex:1; text-align:center"><span class="badge">2</span>+ Add course</div>
+        </div>
+        <div class="row">
+          <div class="box"><span class="badge">3</span>Computer Networks <span class="pill">SAMPLE</span><div class="text"></div><div class="text short"></div>progress bar ▬▬▬▬░░░░</div>
+          <div class="box">Mathematics <span class="pill">SAMPLE</span><div class="text"></div><div class="text short"></div>progress bar ░░░░░░░░</div>
+          <div class="box">Physics <span class="pill">SAMPLE</span><div class="text"></div><div class="text short"></div>progress bar ░░░░░░░░</div>
+        </div>
+        <div class="box dashed">Try a built-in sample: [Biology] [Computer Science]</div>
+      </div>
+    </div>
+    <ol class="notes">
+      <li><b>Greeting.</b> Does a first-time student know this is a study app, not a chat bot?</li>
+      <li><b>Add course.</b> Is it obvious that a course comes from the student's own PDFs?</li>
+      <li><b>Sample badge.</b> Do students understand "sample" means built-in lessons, and that they can delete it?</li>
+    </ol>
+  </section>
+
+  <!-- 2 Course page -->
+  <section class="frame">
+    <h2>2. Course page &mdash; PDFs and topics</h2>
+    <div class="screen">
+      <div class="side">
+        <div class="box grey">Funza</div>
+        <div class="box">My courses</div>
+        <div class="box dashed">Progress</div>
+      </div>
+      <div class="main">
+        <div class="box"><span class="badge">1</span>&larr; ENSE 472 &nbsp; <span class="pill">FROM YOUR PDFS</span><div class="text short"></div></div>
+        <div class="row">
+          <div class="box" style="flex:1"><span class="badge">2</span>Files<div class="box dashed">Lecture.pdf &middot; notes &middot; 12 concepts</div><div class="box dashed">Tutorial 3.pdf &middot; questions &middot; 8</div><span class="btn">Attach PDF</span></div>
+          <div class="box" style="flex:2"><span class="badge">3</span>Topics<div class="box">HTTP/2 basics &middot; 4 concepts &middot; 1 done <span class="btn primary">Start</span></div><div class="box">Flow control &middot; 3 concepts <span class="btn">Start</span></div><div class="box dashed">Plan AI lessons from Lecture.pdf (asks first)</div></div>
+        </div>
+      </div>
+    </div>
+    <ol class="notes">
+      <li><b>Source banner.</b> Is "from your PDFs" versus "sample" versus "adaptive AI" clear and reassuring?</li>
+      <li><b>Files.</b> Does the notes/questions split make sense? Would they flip a wrong classification?</li>
+      <li><b>Topics.</b> Is "concept" the right word? Do they want to pick a concept directly?</li>
+    </ol>
+  </section>
+
+  <!-- 3 Lesson -->
+  <section class="frame">
+    <h2>3. Lesson &mdash; explain, ask, hint</h2>
+    <div class="screen">
+      <div class="side" style="border-right:none; border-left:1.5px solid var(--ink); order:2">
+        <div class="face"><span class="badge">1</span>mascot</div>
+        <div class="bubble">Hey! Here's the idea. &hellip; Now you try.<div class="text"></div><div class="text short"></div><span class="pill">Voice off</span></div>
+        <span class="btn primary" style="display:block; text-align:center; margin-top:6px"><span class="badge">2</span>Start Tutor Mode</span>
+        <div class="box dashed" style="font-size:9px">In this topic: &#10003; &#9675; &#9675; &#9675;</div>
+      </div>
+      <div class="main" style="order:1">
+        <div class="box"><span class="pill">Topic</span> &nbsp; Concept 2 of 4 &nbsp; ▬▬░░░░</div>
+        <div class="box"><b>Messages are split into packets</b><div class="text"></div><div class="text"></div><div class="text short"></div></div>
+        <div class="box"><span class="badge">3</span><b>?</b> Apply it: What happens to a message before it arrives?<div class="box dashed">(a) one big file</div><div class="box grey">(b) split into packets</div><div class="box dashed">(c) made into a video</div><span class="btn primary">Check understanding</span></div>
+        <div class="box dashed"><span class="badge">4</span>Not quite. Here's a hint &hellip; &nbsp; Another way to think about it &hellip; &nbsp; <span class="btn">Try again</span> attempt 1 of 3</div>
+      </div>
+    </div>
+    <ol class="notes">
+      <li><b>Mascot and bubble.</b> Tutor or gimmick? Do they turn the voice on?</li>
+      <li><b>Tutor Mode.</b> Do they understand it narrates the whole topic and waits for them?</li>
+      <li><b>Question.</b> Do they read the explanation first or go straight to the options?</li>
+      <li><b>Hint instead of answer.</b> Helpful or annoying? Is "3 attempts before the answer" fair?</li>
+    </ol>
+  </section>
+
+  <!-- 4 Demo + prediction -->
+  <section class="frame">
+    <h2>4. Lesson with an interactive demo</h2>
+    <div class="screen">
+      <div class="side" style="border-right:none; border-left:1.5px solid var(--ink); order:2">
+        <div class="face">mascot</div>
+        <div class="bubble"><span class="badge">3</span>Quick prediction before I show the next part &hellip;</div>
+      </div>
+      <div class="main" style="order:1">
+        <div class="box"><b>Packet transmission</b> &nbsp; <span style="float:right">Step 3 of 5</span>
+          <div class="demo"><span class="badge">1</span><span class="node">Sender</span> <span class="pkt">1</span><span class="pkt">2</span> &rarr; R1 &rarr; <span class="pkt">3</span> &rarr; <span class="node">Receiver</span></div>
+          <div class="text"></div>
+          <div class="box dashed"><span class="badge">2</span>Predict what happens next: Will they arrive in order? &nbsp; ( ) Always &nbsp; ( ) Not necessarily &nbsp; ( ) Reverse</div>
+          <span class="btn primary">Play</span><span class="btn">Step</span><span class="btn">Reset</span>
+          <div class="box dashed"><span class="badge">4</span>Packets ▬▬●▬▬ 3 &nbsp;&nbsp; Lose a packet [None &#9662;]</div>
+        </div>
+      </div>
+    </div>
+    <ol class="notes">
+      <li><b>Animation.</b> Does the picture explain more than the text? Are the captions read?</li>
+      <li><b>Prediction stop.</b> Do they realise the demo stopped on purpose, and that nothing is revealed until they answer?</li>
+      <li><b>Mascot sync.</b> Does the mascot saying the same thing as the demo help or feel like noise?</li>
+      <li><b>Sliders.</b> Do they discover the settings? Do they try a second run?</li>
+    </ol>
+  </section>
+
+  <!-- 5 Ask Funza / screen share -->
+  <section class="frame">
+    <h2>5. Ask Funza about this screen (and optional screen share)</h2>
+    <div class="screen one">
+      <div class="main">
+        <div class="row">
+          <div class="box" style="flex:2"><span class="badge">1</span>Ask about this screen&hellip; <span class="btn primary">Ask</span><br /><span class="pill">What am I looking at?</span><span class="pill">Explain the diagram</span><span class="pill">Where did I go wrong?</span><span class="pill">Give me a hint</span><span class="pill">Show me another way</span></div>
+          <div class="box" style="flex:2"><div class="face">mascot</div><div class="bubble"><span class="badge">2</span>You're in Computer Networks, concept 2 of 4 &hellip; You've made 1 attempt. Want a hint?</div></div>
+        </div>
+        <div class="box dashed"><span class="badge">3</span>&#9662; Share a screen (optional) &nbsp; Nothing is recorded; one screenshot only when you press Analyze. &nbsp; <span class="btn">Share screen</span></div>
+        <div class="row">
+          <div class="box"><span class="badge">4</span>&#9679; Sharing a window &nbsp; [live thumbnail] &nbsp; <span class="btn primary">Analyze current screen</span> <span class="btn">Stop sharing</span><br /><span class="pill">&#9744; Keep screenshots on this device</span></div>
+          <div class="box"><span class="badge">5</span><b>Check this screenshot before it is sent</b><div class="box grey" style="height:40px">[screenshot preview]</div>Warning: names, passwords, messages, restricted course material. &nbsp; &#9744; I'm allowed to share this &nbsp; <span class="btn primary">Send</span> <span class="btn">Retake</span> <span class="btn">Discard</span></div>
+        </div>
+      </div>
+    </div>
+    <ol class="notes">
+      <li><b>Ask box.</b> Do they type, or use the buttons? Is it clear it knows the current question?</li>
+      <li><b>Answer.</b> Useful, or just repeating the screen? Does it give away answers?</li>
+      <li><b>Opt-in sharing.</b> Would they ever press this? What do they expect it to see?</li>
+      <li><b>While sharing.</b> Is the indicator reassuring enough? Is Stop easy to find?</li>
+      <li><b>Review before send.</b> Does the consent step feel like safety or friction?</li>
+    </ol>
+  </section>
+
+</div>
+
+<p class="legend">Low fidelity on purpose: layout and flow only, no colour, no copy. The high-fidelity prototype is the working app in <code>app/</code> (run with <code>npm run dev</code>). Use these sheets when a pairing wants to talk about structure rather than click through, and to mark up changes with a pen during the debrief.</p>
+</body>
+</html>
