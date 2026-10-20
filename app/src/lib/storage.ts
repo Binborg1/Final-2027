@@ -95,6 +95,12 @@ export const sourcesStore = new LocalStore<SourcesStore>(SOURCES_KEY, {});
 export const aiLessonStore = new LocalStore<AiLessonStore>(AI_LESSONS_KEY, {});
 /** Whether the tutor voice is on. Off until the student turns it on. */
 export const voiceStore = new LocalStore<boolean>("funza.voice.v1", false);
+/** Local-only screen sharing: screenshots stay on this device and are never sent to the AI provider. */
+export const screenLocalOnlyStore = new LocalStore<boolean>("funza.screen-local-only.v1", false);
+
+export function useScreenLocalOnly() {
+  return useSyncExternalStore(screenLocalOnlyStore.subscribe, screenLocalOnlyStore.get, screenLocalOnlyStore.getServer);
+}
 
 export function useCourses() {
   return useSyncExternalStore(coursesStore.subscribe, coursesStore.get, coursesStore.getServer);

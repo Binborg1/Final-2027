@@ -15,6 +15,11 @@ export type TutorSession = {
   pause: () => void;
   resume: () => void;
   exit: () => void;
+  /**
+   * Says something outside the script (an answer to "what am I looking at?"),
+   * then lets the interrupted step settle where it was heading.
+   */
+  interject: (text: string) => Promise<void>;
 };
 
 type LessonActions = {
@@ -52,9 +57,26 @@ export function useTutorSession(ctx: TutorScriptContext, speech: Speech, actions
     setLine({ key: `tutor-${counter.current}`, state, text });
   }, []);
 
+  /** The plan whose utterances are still being spoken, so an interjection can finish its job afterwards. */
+  const inFlight = useRef<TutorPlan | null>(null);
+
+  /** Where a plan ends up once its words are done: the step, the standing line, and any lesson action. */
+  const settle = useCallback(
+    (plan: TutorPlan) => {
+      setStep(plan.thenStep);
+      if (plan.thenLine) show(plan.thenStep, plan.thenLine.state, plan.thenLine.text);
+      const { retry, visualization } = actionsRef.current;
+      if (plan.thenAction === "retry") retry();
+      else if (plan.thenAction === "viz-start") visualization?.start();
+      else if (plan.thenAction === "viz-resume") visualization?.resume();
+    },
+    [show],
+  );
+
   const run = useCallback(
     async (plan: TutorPlan) => {
       const mine = ++generation.current;
+      inFlight.current = plan;
       if (plan.preStep) setStep(plan.preStep);
       for (const u of plan.utterances) {
         if (generation.current !== mine) return;
@@ -63,14 +85,22 @@ export function useTutorSession(ctx: TutorScriptContext, speech: Speech, actions
         if (generation.current !== mine || !finished) return;
       }
       if (generation.current !== mine) return;
-      setStep(plan.thenStep);
-      if (plan.thenLine) show(plan.thenStep, plan.thenLine.state, plan.thenLine.text);
-      const { retry, visualization } = actionsRef.current;
-      if (plan.thenAction === "retry") retry();
-      else if (plan.thenAction === "viz-start") visualization?.start();
-      else if (plan.thenAction === "viz-resume") visualization?.resume();
+      inFlight.current = null;
+      settle(plan);
     },
-    [say, show],
+    [say, show, settle],
+  );
+
+  const interject = useCallback(
+    async (text: string) => {
+      const pending = inFlight.current;
+      inFlight.current = null;
+      const mine = ++generation.current; // the step being spoken stops; its outcome is applied after the answer
+      const finished = await say(text);
+      if (generation.current !== mine || !finished) return;
+      if (pending) settle(pending);
+    },
+    [say, settle],
   );
 
   const signature = ctx.finished ? "done" : `${ctx.concept?.id}:${ctx.phase}:${ctx.attempts}:${ctx.notice ? "n" : ""}:${vizSignature(ctx.viz)}`;
@@ -95,6 +125,7 @@ export function useTutorSession(ctx: TutorScriptContext, speech: Speech, actions
 
   const exit = useCallback(() => {
     generation.current++;
+    inFlight.current = null;
     lastSignature.current = null;
     stop();
     actionsRef.current.visualization?.pause();
@@ -103,5 +134,5 @@ export function useTutorSession(ctx: TutorScriptContext, speech: Speech, actions
     setLine(null);
   }, [stop]);
 
-  return { active, paused, step, line, start, pause: pauseSpeech, resume: resumeSpeech, exit };
+  return { active, paused, step, line, start, pause: pauseSpeech, resume: resumeSpeech, exit, interject };
 }

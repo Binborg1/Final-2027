@@ -1,3 +1,4 @@
+import { illustrationCaptions } from "@/lib/lessons/illustrations";
 import type { IllustrationId } from "@/lib/types";
 
 const ink = "#252525";
@@ -143,8 +144,8 @@ function Layers() {
 }
 
 const pictures: Record<IllustrationId, { Picture: () => React.ReactElement; caption: string }> = {
-  packets: { Picture: Packets, caption: "One message becomes several packets, each with its own header." },
-  routes: { Picture: Routes, caption: "Routers forward each packet hop by hop; packets can take different routes." },
-  handshake: { Picture: Handshake, caption: "Three messages open a TCP connection before any data is sent." },
-  layers: { Picture: Layers, caption: "Data passes down the layers to send and back up to receive." },
+  packets: { Picture: Packets, caption: illustrationCaptions.packets },
+  routes: { Picture: Routes, caption: illustrationCaptions.routes },
+  handshake: { Picture: Handshake, caption: illustrationCaptions.handshake },
+  layers: { Picture: Layers, caption: illustrationCaptions.layers },
 };

@@ -50,9 +50,6 @@ export function Sidebar() {
           );
         })}
       </nav>
-      <p className="mt-auto hidden rounded-2xl bg-sand px-4 py-3 text-xs leading-5 text-smoke md:block">
-        Prototype. Courses and progress are saved in this browser only.
-      </p>
     </aside>
   );
 }

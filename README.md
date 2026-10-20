@@ -36,6 +36,7 @@ Business Case.
 | `docs/03-pitch/` | Three-project pitch deck (15 Sept 2026) and final pitch deck for Cultivator HQ (13 Oct 2026), each as .pptx and .pdf |
 | `docs/04-workshop-3/` | Workshop 3 planning documents, user story map and Gantt chart |
 | `docs/05-vlog-1/` | Vlog 1 script, shot list and requirement coverage |
+| `docs/06-usability-bazaar/` | Usability bazaar (20 Oct 2026): facilitator plan with task cards and observation sheet, and the participant questionnaire (SUS, design directions, open questions) |
 
 ### Workshop 3 documents
 
@@ -121,3 +122,7 @@ validated research, and still needs to be tested with real students.
 3. Test the free cloud models for explanation quality, speed and rate limits — the main
    technical unknown.
 4. Workshop 4: low- and high-fidelity prototypes and the usability questionnaire.
+
+## Application
+
+The first prototype, **Funza**, lives in [`app/`](app/): a Next.js + TypeScript + Tailwind app that teaches one concept at a time from built-in TCP/IP demo lessons, with hints and retries instead of answers. See [app/README.md](app/README.md) to run it.

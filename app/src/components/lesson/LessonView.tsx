@@ -10,13 +10,15 @@ import { LearningVisualization } from "@/components/visualizations/LearningVisua
 import { evaluateAnswer } from "@/lib/engine/evaluate";
 import { useSpeech } from "@/lib/speech/useSpeech";
 import { recordConceptResult, useProgress } from "@/lib/storage";
-import { REVEAL_AFTER_ATTEMPTS, type LessonPhase } from "@/lib/tutor/tutorLine";
+import { REVEAL_AFTER_ATTEMPTS, vizSignature, type LessonPhase } from "@/lib/tutor/tutorLine";
+import { useAskFunza } from "@/lib/tutor/useAskFunza";
 import { useTutorGuide } from "@/lib/tutor/useTutorGuide";
 import { useTutorSession } from "@/lib/tutor/useTutorSession";
 import type { Concept, ConceptStatus, Course, LessonSource, Topic } from "@/lib/types";
 import { conceptKey } from "@/lib/types";
 import { tutorStateOf } from "@/lib/visualizations/tutorState";
 import { usePlayer, type Player } from "@/lib/visualizations/usePlayer";
+import { lessonWorkspace, visualizationWorkspace } from "@/lib/workspace/context";
 import { Illustration } from "./Illustration";
 import { McqInput } from "./McqInput";
 import { ShortAnswerInput } from "./ShortAnswerInput";
@@ -44,6 +46,7 @@ export function LessonView({ course, topic, source }: Props) {
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("asking");
   const [answer, setAnswer] = useState("");
+  const [lastSubmitted, setLastSubmitted] = useState<string | null>(null);
   const [attempts, setAttempts] = useState(0);
   const [notice, setNotice] = useState<string | null>(null);
   const [sessionResults, setSessionResults] = useState<Record<string, ConceptStatus>>({});
@@ -75,9 +78,33 @@ export function LessonView({ course, topic, source }: Props) {
   // While the demo runs, the bubble mirrors its caption in both modes.
   const line = session.active && session.line && viz?.status !== "showing" ? session.line : guideLine;
 
+  // What the tutor can see of this screen, and the "ask Funza" box that answers from it.
+  const workspace = concept
+    ? lessonWorkspace({
+        course,
+        topic,
+        concept,
+        index,
+        total,
+        phase,
+        answer,
+        lastSubmitted,
+        attempts,
+        notice,
+        visualization: visualizationWorkspace(player),
+        tutor: { active: session.active, step: session.step, paused: session.paused },
+      })
+    : null;
+  const ask = useAskFunza(workspace, speech, {
+    clearKey: `${concept?.id ?? "none"}:${phase}:${attempts}:${vizSignature(viz)}`,
+    interject: session.active ? session.interject : null,
+  });
+  const shownLine = ask.line ?? line;
+
   function resetConceptState() {
     setPhase("asking");
     setAnswer("");
+    setLastSubmitted(null);
     setAttempts(0);
     setNotice(null);
   }
@@ -88,6 +115,7 @@ export function LessonView({ course, topic, source }: Props) {
     const result = evaluateAnswer(concept.question, answer);
     setNotice(result.message);
     if (result.incomplete) return;
+    setLastSubmitted(answer);
     if (result.correct) {
       setPhase("correct");
       setSessionResults((prev) => ({ ...prev, [concept.id]: "completed" }));
@@ -186,8 +214,8 @@ export function LessonView({ course, topic, source }: Props) {
         </AnimatePresence>
       </div>
 
-      <div className="order-first lg:order-none lg:col-start-2 lg:row-start-1 lg:sticky lg:top-6 lg:self-start">
-        <TutorPanel line={line} speech={speech} session={session} />
+      <div className="order-first lg:order-none lg:col-start-2 lg:row-start-1 lg:self-start">
+        <TutorPanel line={shownLine} speech={speech} session={session} ask={ask} />
       </div>
 
       <aside className="space-y-4 lg:col-start-2 lg:row-start-2">

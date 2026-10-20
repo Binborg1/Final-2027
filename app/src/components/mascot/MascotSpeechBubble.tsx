@@ -36,7 +36,7 @@ export function MascotSpeechBubble({ lineKey, text, speech, hideStop = false }: 
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="max-h-56 overflow-y-auto text-sm leading-6 text-charcoal"
+            className="text-sm leading-6 text-charcoal"
             aria-live="polite"
           >
             {text}

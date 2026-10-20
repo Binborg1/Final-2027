@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Button, ButtonLink } from "@/components/Button";
+import { AskFunza } from "@/components/mascot/AskFunza";
 import { FunzaMascot } from "@/components/mascot/FunzaMascot";
 import { MascotSpeechBubble } from "@/components/mascot/MascotSpeechBubble";
 import { SourceBanner } from "@/components/SourceBanner";
@@ -12,10 +13,12 @@ import { LearningVisualization } from "@/components/visualizations/LearningVisua
 import { useSpeech } from "@/lib/speech/useSpeech";
 import { GIVE_UP_AFTER, useTeachingSession, type TeachingSession } from "@/lib/teaching/useTeachingSession";
 import { checkpointSpeech, vizSignature, type TutorLine } from "@/lib/tutor/tutorLine";
+import { useAskFunza } from "@/lib/tutor/useAskFunza";
 import { useSpokenLine } from "@/lib/tutor/useTutorGuide";
 import type { ConceptStatus, Course, SourceSection, Topic } from "@/lib/types";
 import { tutorStateOf, type VisualizationTutorState } from "@/lib/visualizations/tutorState";
 import { usePlayer, type Player } from "@/lib/visualizations/usePlayer";
+import { teachWorkspace, visualizationWorkspace } from "@/lib/workspace/context";
 
 type Props = { course: Course; topic: Topic; sections: SourceSection[]; savedStatus: (id: string) => ConceptStatus | undefined };
 
@@ -35,6 +38,10 @@ export function TeachView({ course, topic, sections, savedStatus }: Props) {
   const viz = tutorStateOf(player);
   const line = teachLine(t, topic, viz);
   useSpokenLine(line, speech);
+  // What the tutor can see of this screen, and the "ask Funza" box that answers from it.
+  const workspace = teachWorkspace({ course, topic, t, visualization: visualizationWorkspace(player) });
+  const ask = useAskFunza(workspace, speech, { clearKey: `${t.concept?.id ?? "none"}:${t.phase}:${t.attempts}:${vizSignature(viz)}` });
+  const shown = ask.line ?? line;
   const percent = t.total === 0 ? 100 : Math.round((Math.min(t.index, t.total) / t.total) * 100);
 
   return (
@@ -68,12 +75,13 @@ export function TeachView({ course, topic, sections, savedStatus }: Props) {
         </AnimatePresence>
       </div>
 
-      <div className="order-first lg:order-none lg:col-start-2 lg:row-start-1 lg:sticky lg:top-6 lg:self-start">
+      <div className="order-first lg:order-none lg:col-start-2 lg:row-start-1 lg:self-start">
         <section aria-label="Funza tutor" className="flex flex-col items-center">
-          <FunzaMascot state={line.state} talking={speech.speaking} size={112} />
+          <FunzaMascot state={shown.state} talking={speech.speaking} size={112} />
           <div className="mt-1 w-full">
-            <MascotSpeechBubble lineKey={line.key} text={line.text} speech={speech} />
+            <MascotSpeechBubble lineKey={shown.key} text={shown.text} speech={speech} />
           </div>
+          <AskFunza ask={ask} />
         </section>
       </div>
 
