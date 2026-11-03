@@ -16,6 +16,9 @@ export function Sidebar() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" || pathname.startsWith("/courses") : pathname.startsWith(href);
 
+  // The questionnaire is a standalone page for participants on their phones: no app navigation.
+  if (pathname.startsWith("/survey")) return null;
+
   return (
     <aside className="flex w-full flex-row items-center gap-4 border-b border-line bg-cream px-4 py-3 md:sticky md:top-0 md:h-screen md:w-64 md:shrink-0 md:flex-col md:items-stretch md:gap-1 md:border-r md:border-b-0 md:px-5 md:py-7">
       <Link href="/" className="flex items-center gap-2.5 px-2 md:mb-8">

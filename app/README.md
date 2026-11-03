@@ -117,6 +117,10 @@ Screenshots and the screen description are treated as untrusted data: the prompt
 
 **Limits.** The ask box lives in the two lesson views (fixed lessons and AI lessons); the question-sheet workspace does not have the talking mascot yet. Screen sharing needs a desktop browser with `getDisplayMedia`. The tutor describes what it is given; it does not read the page itself, so anything outside the lesson state (for example text in another tab) only reaches it through an explicit screenshot.
 
+## Usability questionnaire
+
+`/survey` is the usability questionnaire for participants' phones (the same items as `docs/06_usability_bazaar/03_usability_questionnaire.md`, defined once in `src/lib/survey/questionnaire.ts`). Sending stores one sanitized JSON response in a private Vercel Blob store (`responses/` prefix) through `POST /api/survey`; the page is standalone, without the app sidebar. `GET /api/survey?key=<SURVEY_ADMIN_KEY>` downloads every response as a CSV with one column per item and a computed SUS score (`&format=json` for raw JSON). Both `BLOB_READ_WRITE_TOKEN` (added when the store was linked) and `SURVEY_ADMIN_KEY` live in the Vercel project's environment; without them the page tells participants to use a paper copy. Responses hold no names unless someone types one.
+
 ## Adaptive AI lessons
 
 With an AI key configured, the course page offers "Plan AI lessons" for each notes PDF. Funza then:

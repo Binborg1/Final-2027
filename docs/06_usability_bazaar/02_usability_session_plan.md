@@ -20,7 +20,8 @@ Two participants per pairing is the goal, one at a time if they only have one la
 - [ ] Browser is Chrome or Edge, and the **voice works**: open a lesson, click "Voice off" to turn it on, hear the mascot. Volume up.
 - [ ] A short lecture PDF on the desktop for task 5: any lecture PDF you have (one from ENSE 472 works); copy it to the desktop and name it `Lecture.pdf`.
 - [ ] AI key in `app/.env.local` if you want the AI features visible (free Groq or Gemini key). Without it the app still runs; tasks 1 to 5 do not need it.
-- [ ] Four printed copies of `03_usability_questionnaire.pdf` (or open it on a second laptop/phone) and four copies of the observation sheet below.
+- [ ] The questionnaire on phones: participants scan `05_questionnaire_qr_sign.pdf` (print it and stand it on the table) or open https://funza-lemon.vercel.app/survey. Tell each participant their number (P1, P2, ...) to type at the top. Answers save to the server; download them all as a CSV from `https://funza-lemon.vercel.app/api/survey?key=...` with the admin key (in `app/.env.local` as `SURVEY_ADMIN_KEY`).
+- [ ] Two printed copies of `03_usability_questionnaire.pdf` as a backup for anyone without a phone, and four copies of the observation sheet below.
 - [ ] A timer (phone) and a pen.
 - [ ] One of you has tried every task below once, today, so nothing surprises you.
 
@@ -95,7 +96,7 @@ Overall: first reaction to the mascot: ____________________ Biggest frustration:
 
 ## After class: turning it into the 27 October analysis
 
-1. **Score SUS** for each questionnaire: for odd items (1, 3, 5, 7, 9) score = answer − 1; for even items (2, 4, 6, 8, 10) score = 5 − answer; add the ten scores and multiply by 2.5. Above 68 is above average; above 80 is good.
+1. **Score SUS** for each questionnaire: for odd items (1, 3, 5, 7, 9) score = answer − 1; for even items (2, 4, 6, 8, 10) score = 5 − answer; add the ten scores and multiply by 2.5. Above 68 is above average; above 80 is good. The CSV export already has a `sus` column for phone responses; type the paper ones into the same sheet.
 2. **Completion table:** one row per participant with the six task outcomes, SUS, and the top issue. Completion rate per task = Yes ÷ participants.
 3. **Issue list:** every wrong turn or complaint from the sheets and the open questions, grouped by screen. For each: how many participants hit it (frequency) and how bad (blocked the task / slowed it / cosmetic).
 4. **Design directions:** average the Part C items and tally the Part D ranking to see which of the five directions (hints over answers, voice tutor, demos with predictions, PDF lessons, screen-aware tutor) participants value most.
