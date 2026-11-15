@@ -25,7 +25,17 @@ import { ShortAnswerInput } from "./ShortAnswerInput";
 
 type Phase = LessonPhase;
 
-type Props = { course: Course; topic: Topic; source: LessonSource };
+type Props = {
+  course: Course;
+  topic: Topic;
+  source: LessonSource;
+  /** Where "back" goes; the course page unless a class lecture says otherwise. */
+  backHref?: string;
+  /** Who reviewed the lessons, for the class banner. */
+  reviewedBy?: string;
+  /** The "ask Funza" box writes new text live; off where students must see only reviewed material. */
+  allowAsk?: boolean;
+};
 
 const cardSwap = {
   initial: { opacity: 0, y: 14 },
@@ -40,7 +50,7 @@ const cardSwap = {
  * The tutor mascot narrates each step and reacts to the answers. A concept
  * with a visualization also gets a demo the tutor runs and asks about.
  */
-export function LessonView({ course, topic, source }: Props) {
+export function LessonView({ course, topic, source, backHref = `/courses/${course.id}`, reviewedBy, allowAsk = true }: Props) {
   const progress = useProgress();
   const [queue, setQueue] = useState<Concept[]>(topic.concepts);
   const [index, setIndex] = useState(0);
@@ -159,7 +169,7 @@ export function LessonView({ course, topic, source }: Props) {
       <div className="min-w-0 lg:col-start-1 lg:row-span-2 lg:row-start-1">
         <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
           <Link
-            href={`/courses/${course.id}`}
+            href={backHref}
             className="rounded-full px-3 py-1.5 font-bold text-smoke transition-colors hover:bg-sand hover:text-charcoal"
           >
             &larr; {course.name}
@@ -177,7 +187,7 @@ export function LessonView({ course, topic, source }: Props) {
           />
         </div>
         <div className="mt-4">
-          <SourceBanner source={source} />
+          <SourceBanner source={source} by={reviewedBy} />
         </div>
 
         <AnimatePresence mode="wait" initial={false}>
@@ -202,7 +212,8 @@ export function LessonView({ course, topic, source }: Props) {
           ) : (
             <motion.div key="summary" {...cardSwap}>
               <Summary
-                course={course}
+                backHref={backHref}
+                showProgressLink={source !== "class"}
                 topic={topic}
                 statusOf={statusOf}
                 missed={missed}
@@ -215,7 +226,7 @@ export function LessonView({ course, topic, source }: Props) {
       </div>
 
       <div className="order-first lg:order-none lg:col-start-2 lg:row-start-1 lg:self-start">
-        <TutorPanel line={shownLine} speech={speech} session={session} ask={ask} />
+        <TutorPanel line={shownLine} speech={speech} session={session} ask={allowAsk ? ask : undefined} />
       </div>
 
       <aside className="space-y-4 lg:col-start-2 lg:row-start-2">
@@ -399,7 +410,8 @@ const feedbackMotion = {
 } as const;
 
 type SummaryProps = {
-  course: Course;
+  backHref: string;
+  showProgressLink: boolean;
   topic: Topic;
   statusOf: (conceptId: string) => ConceptStatus | undefined;
   missed: Concept[];
@@ -407,7 +419,7 @@ type SummaryProps = {
   onPractiseMissed: () => void;
 };
 
-function Summary({ course, topic, statusOf, missed, completed, onPractiseMissed }: SummaryProps) {
+function Summary({ backHref, showProgressLink, topic, statusOf, missed, completed, onPractiseMissed }: SummaryProps) {
   return (
     <article className="mt-6 rounded-3xl border border-line bg-linear-to-b from-white to-[#fffaf2] p-6 shadow-card md:p-8">
       <div className="text-center">
@@ -431,12 +443,14 @@ function Summary({ course, topic, statusOf, missed, completed, onPractiseMissed 
             Practise the {missed.length} I missed
           </Button>
         )}
-        <ButtonLink href={`/courses/${course.id}`} variant={missed.length > 0 ? "secondary" : "primary"}>
-          Back to course
+        <ButtonLink href={backHref} variant={missed.length > 0 ? "secondary" : "primary"}>
+          {showProgressLink ? "Back to course" : "Back to class"}
         </ButtonLink>
-        <ButtonLink href="/progress" variant="secondary">
-          See progress
-        </ButtonLink>
+        {showProgressLink && (
+          <ButtonLink href="/progress" variant="secondary">
+            See progress
+          </ButtonLink>
+        )}
       </div>
     </article>
   );

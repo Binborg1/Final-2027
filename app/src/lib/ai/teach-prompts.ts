@@ -22,6 +22,17 @@ export function lessonPrompt(courseName: string, concept: { title: string; objec
   };
 }
 
+const DRAFTER =
+  "You are Funza, helping a university professor turn their own lecture notes (the PDF excerpts you are given) into study material for their students. The notes are the authority: never contradict them and never invent facts about them. Write plain text: short sentences, no markdown headings, no emoji.";
+
+/** A whole concept drafted up front, for the professor to review before students see any of it. */
+export function draftPrompt(courseName: string, concept: { title: string; objective?: string }, source: string) {
+  return {
+    system: `${DRAFTER} ${JSON_ONLY}`,
+    user: `Course: ${courseName}\nConcept: ${concept.title}\nObjective: ${concept.objective ?? "Understand the concept"}\n\nDraft study material for this concept. The professor will review and edit it before any student sees it, so every statement must be checkable against the excerpts below.\n- "explanation": 90 to 160 words that teach the idea in the notes' own terms. Teach it; do not summarise the document.\n- "alternateExplanation": 40 to 100 words explaining the same idea from a different angle, such as an analogy or a small worked example. Students read it after a wrong answer.\n- "question": one ORIGINAL multiple-choice question that tests the objective and needs reasoning, not recall of a phrase. Exactly 4 options, one correct; the wrong options should reflect real misconceptions. No "all of the above" or "none of the above". "correctIndex" is the position (0 to 3) of the correct option.\n- "hints": exactly 2 hints for a student who chose a wrong option. The first is a gentle nudge, the second a more specific pointer. Neither may name or give away the correct option.\n- "whyCorrect": 1 to 3 sentences on why the correct option is correct.\n\nJSON shape:\n{"explanation": string, "alternateExplanation": string, "question": {"prompt": string, "options": [string, string, string, string], "correctIndex": number}, "hints": [string, string], "whyCorrect": string}\n\nPDF excerpts:\n\n${source}`,
+  };
+}
+
 export function evaluatePrompt(input: {
   courseName: string;
   concept: { title: string; objective?: string };

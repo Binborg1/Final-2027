@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { AiError, aiConfig, complete } from "@/lib/ai/server";
-import { evaluatePrompt, lessonPrompt, planPrompt, questionPrompt } from "@/lib/ai/teach-prompts";
-import { parseJsonObject, SchemaError, validateEvaluation, validateLesson, validatePlan, validateQuestion } from "@/lib/ai/teach-schema";
+import { draftPrompt, evaluatePrompt, lessonPrompt, planPrompt, questionPrompt } from "@/lib/ai/teach-prompts";
+import { parseJsonObject, SchemaError, validateDraft, validateEvaluation, validateLesson, validatePlan, validateQuestion } from "@/lib/ai/teach-schema";
 import { validateQuestion as validateAiQuestion } from "@/lib/ai/teach-schema";
 
 export const runtime = "nodejs";
@@ -51,6 +51,13 @@ export async function POST(request: Request) {
         const { system, user } = lessonPrompt(courseName, conceptOf(body.concept), source);
         const raw = await complete({ system, user, maxTokens: 4000 });
         return NextResponse.json({ ok: true, data: validateLesson(parseJsonObject(raw)) });
+      }
+      case "draft": {
+        const source = text(body.source, LIMITS.source);
+        if (!source) return bad("Missing source excerpts.");
+        const { system, user } = draftPrompt(courseName, conceptOf(body.concept), source);
+        const raw = await complete({ system, user, maxTokens: 3000 });
+        return NextResponse.json({ ok: true, data: validateDraft(parseJsonObject(raw)) });
       }
       case "evaluate": {
         const answer = text(body.answer, LIMITS.answer).trim();

@@ -59,7 +59,8 @@ export type Topic = {
   objectives?: string[];
 };
 
-export type LessonSource = "demo" | "pdf";
+/** "class": published by a professor after review (see lib/classes). */
+export type LessonSource = "demo" | "pdf" | "class";
 
 export type CourseFileStatus = "ready" | "no-text" | "error";
 export type CourseFileKind = "notes" | "questions";

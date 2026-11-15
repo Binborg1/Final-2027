@@ -4,16 +4,19 @@ import { useState } from "react";
 import { AddCourseForm } from "@/components/AddCourseForm";
 import { BrainMascot } from "@/components/BrainMascot";
 import { Button } from "@/components/Button";
+import { ClassCard } from "@/components/classes/ClassCard";
+import { JoinClassForm } from "@/components/classes/JoinClassForm";
 import { CourseCard } from "@/components/CourseCard";
 import { Item, Rise, Stagger } from "@/components/motion";
 import { sampleCourses } from "@/lib/lessons/sample";
-import { addSampleCourse, useCourses, useHydrated, useLessons, useProgress } from "@/lib/storage";
+import { addSampleCourse, useCourses, useHydrated, useJoinedClasses, useLessons, useProgress } from "@/lib/storage";
 
 export default function HomePage() {
   const courses = useCourses();
   const progress = useProgress();
   const lessons = useLessons();
   const hydrated = useHydrated();
+  const joined = useJoinedClasses();
   const [adding, setAdding] = useState(false);
   const missingSamples = sampleCourses.filter((s) => !courses.some((c) => c.id === s.id));
 
@@ -32,7 +35,27 @@ export default function HomePage() {
 
       {adding && <AddCourseForm onCancel={() => setAdding(false)} />}
 
-      <section className="mt-10" aria-label="My courses">
+      <section className="mt-10" aria-label="Your classes">
+        <h2 className="text-xl font-extrabold">Your classes</h2>
+        <p className="mt-1 text-sm text-smoke">
+          Lessons your professor reviewed and published. Join with the code they shared.
+        </p>
+        <div className="mt-4 rounded-3xl border border-line bg-white p-5 shadow-card">
+          <JoinClassForm />
+        </div>
+        {hydrated && joined.length > 0 && (
+          <Stagger className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {joined.map((c, index) => (
+              <Item key={c.code}>
+                <ClassCard href={`/class/${c.code}`} name={c.name} detail={c.professor} code={c.code} index={index} />
+              </Item>
+            ))}
+          </Stagger>
+        )}
+      </section>
+
+      <h2 className="mt-12 text-xl font-extrabold">Your own courses</h2>
+      <section className="mt-4" aria-label="My courses">
         {!hydrated ? null : courses.length === 0 ? (
           <Rise className="flex flex-col items-center rounded-3xl border border-dashed border-line bg-white/60 p-10 text-center">
             <BrainMascot mood="thinking" size={96} animate />

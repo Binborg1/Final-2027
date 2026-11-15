@@ -1,7 +1,19 @@
 import type { LessonSource } from "@/lib/types";
 
 /** Tells the student where the lessons on this screen come from. */
-export function SourceBanner({ source }: { source: LessonSource | "ai" }) {
+export function SourceBanner({ source, by }: { source: LessonSource | "ai"; by?: string }) {
+  if (source === "class") {
+    return (
+      <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-mint bg-mint/60 px-4 py-3 text-sm text-charcoal">
+        <span className="rounded-full bg-mint-dark px-2.5 py-0.5 text-[11px] font-extrabold tracking-wide text-white">
+          REVIEWED BY YOUR PROFESSOR
+        </span>
+        <span>
+          {by || "Your professor"} checked every explanation, question and hint here before publishing it.
+        </span>
+      </div>
+    );
+  }
   if (source === "ai") {
     return (
       <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-lavender bg-lavender/60 px-4 py-3 text-sm text-charcoal">
