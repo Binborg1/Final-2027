@@ -1,4 +1,4 @@
-import type { AiEvaluation, AiLesson, AiQuestion } from "@/lib/types";
+import type { AiEvaluation, AiLesson, AiQuestion, McqQuestion } from "@/lib/types";
 import { validateVisualization } from "@/lib/visualizations/registry";
 
 /** Validation of model output before anything reaches the screen. Throws on anything malformed. */
@@ -85,6 +85,47 @@ export function validateLesson(raw: Record<string, unknown>): AiLesson {
     visualization: validateVisualization(raw.visualization),
     question: validateQuestion(raw.question),
     generatedAt: new Date().toISOString(),
+  };
+}
+
+/** A drafted concept's content, in the shape the fixed lesson screen shows. */
+export type DraftContent = {
+  explanation: string;
+  alternateExplanation: string;
+  question: McqQuestion;
+  hints: string[];
+  whyCorrect: string;
+};
+
+/** Checks a drafted concept and shuffles its options, so the correct one is not always where the model put it. */
+export function validateDraft(raw: Record<string, unknown>, random: () => number = Math.random): DraftContent {
+  const q = raw.question && typeof raw.question === "object" ? (raw.question as Record<string, unknown>) : null;
+  if (!q) throw new SchemaError("Missing question.");
+  const texts = (Array.isArray(q.options) ? q.options : [])
+    .map((o) => (typeof o === "string" ? o : o && typeof o === "object" ? (o as Record<string, unknown>).text : null))
+    .filter((t): t is string => typeof t === "string" && t.trim().length > 0)
+    .map((t) => t.trim().slice(0, 300));
+  if (texts.length < 3 || texts.length > 6) throw new SchemaError("The question needs 3 to 6 options.");
+  if (new Set(texts.map((t) => t.toLowerCase())).size !== texts.length) throw new SchemaError("The options repeat.");
+  const correctIndex = typeof q.correctIndex === "string" ? Number(q.correctIndex) : q.correctIndex;
+  if (!Number.isInteger(correctIndex) || (correctIndex as number) < 0 || (correctIndex as number) >= texts.length) {
+    throw new SchemaError('Missing a valid "correctIndex".');
+  }
+  const order = texts.map((_, i) => i);
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  const options = order.map((from, i) => ({ id: String.fromCharCode(97 + i), text: texts[from] }));
+  const correct = options[order.indexOf(correctIndex as number)];
+  const hints = strList(raw.hints, 3).map((h) => h.slice(0, 800));
+  if (hints.length === 0) throw new SchemaError("Missing hints.");
+  return {
+    explanation: str(raw.explanation, "explanation", 3000),
+    alternateExplanation: str(raw.alternateExplanation, "alternateExplanation", 2000),
+    question: { kind: "mcq", prompt: str(q.prompt, "question prompt", 1200), options, correctOptionId: correct.id },
+    hints,
+    whyCorrect: str(raw.whyCorrect, "whyCorrect", 1500),
   };
 }
 

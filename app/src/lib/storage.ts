@@ -95,6 +95,27 @@ export const sourcesStore = new LocalStore<SourcesStore>(SOURCES_KEY, {});
 export const aiLessonStore = new LocalStore<AiLessonStore>(AI_LESSONS_KEY, {});
 /** Whether the tutor voice is on. Off until the student turns it on. */
 export const voiceStore = new LocalStore<boolean>("funza.voice.v1", false);
+/** Local-only screen sharing: screenshots stay on this device and are never sent to the AI provider. */
+export const screenLocalOnlyStore = new LocalStore<boolean>("funza.screen-local-only.v1", false);
+
+/** Classes this browser teaches, each with the edit key that lets it change the class on the server. */
+export type TeachingEntry = { code: string; editKey: string; name: string; addedAt: string };
+export const teachingStore = new LocalStore<TeachingEntry[]>("funza.teaching.v1", []);
+/** Classes this browser has joined as a student. The class itself lives on the server. */
+export type JoinedClass = { code: string; name: string; professor: string; joinedAt: string };
+export const joinedClassesStore = new LocalStore<JoinedClass[]>("funza.joined-classes.v1", []);
+
+export function useTeaching() {
+  return useSyncExternalStore(teachingStore.subscribe, teachingStore.get, teachingStore.getServer);
+}
+
+export function useJoinedClasses() {
+  return useSyncExternalStore(joinedClassesStore.subscribe, joinedClassesStore.get, joinedClassesStore.getServer);
+}
+
+export function useScreenLocalOnly() {
+  return useSyncExternalStore(screenLocalOnlyStore.subscribe, screenLocalOnlyStore.get, screenLocalOnlyStore.getServer);
+}
 
 export function useCourses() {
   return useSyncExternalStore(coursesStore.subscribe, coursesStore.get, coursesStore.getServer);

@@ -1,6 +1,6 @@
 "use client";
 
-import type { PlanResponse } from "@/lib/ai/teach-schema";
+import type { DraftContent, PlanResponse } from "@/lib/ai/teach-schema";
 import type { AiEvaluation, AiLesson, AiQuestion } from "@/lib/types";
 
 export type TeachResult<T> = { ok: true; data: T } | { ok: false; reason: string; message: string };
@@ -24,6 +24,8 @@ export const teachApi = {
   plan: (input: { courseName: string; fileName: string; outline: string; sectionCount: number }) =>
     call<PlanResponse>({ task: "plan", ...input }),
   lesson: (input: { courseName: string; concept: ConceptRef; source: string }) => call<AiLesson>({ task: "lesson", ...input }),
+  /** A whole concept written up front, for a professor to review before students see it. */
+  draft: (input: { courseName: string; concept: ConceptRef; source: string }) => call<DraftContent>({ task: "draft", ...input }),
   evaluate: (input: {
     courseName: string;
     concept: ConceptRef;

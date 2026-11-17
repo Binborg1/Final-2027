@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { supportsVision, type ImageInput } from "./vision";
 
 /**
  * Server-side AI access. Keys live only in environment variables on the
@@ -38,7 +39,7 @@ export function aiConfig(): AiConfig | null {
 
 export class AiError extends Error {
   constructor(
-    public code: "not-configured" | "auth" | "rate-limit" | "refused" | "provider" | "empty",
+    public code: "not-configured" | "auth" | "rate-limit" | "refused" | "provider" | "empty" | "no-vision",
     message: string,
   ) {
     super(message);
@@ -59,6 +60,101 @@ export async function complete(input: Completion): Promise<string> {
       return openAiCompatible(cfg, "https://api.groq.com/openai/v1", input);
     case "openrouter":
       return openAiCompatible(cfg, "https://openrouter.ai/api/v1", input);
+  }
+}
+
+/**
+ * The same completion with one image attached (a screenshot the student chose
+ * to send). Refused up front when the configured model cannot read images, so
+ * the caller can say so instead of pretending. The image is forwarded for
+ * this one request and never written anywhere.
+ */
+export async function completeWithImage(input: Completion & { image: ImageInput }): Promise<string> {
+  const cfg = aiConfig();
+  if (!cfg) throw new AiError("not-configured", "No AI provider is configured on the server.");
+  if (!supportsVision(cfg.provider, cfg.model, process.env.FUNZA_AI_VISION)) {
+    throw new AiError("no-vision", `The configured AI model (${cfg.model}) cannot read images.`);
+  }
+  const { system, user, maxTokens, image } = input;
+  const dataUrl = `data:${image.mediaType};base64,${image.data}`;
+  switch (cfg.provider) {
+    case "anthropic": {
+      const client = new Anthropic({ apiKey: cfg.key });
+      try {
+        const response = await client.messages.create({
+          model: cfg.model,
+          max_tokens: maxTokens,
+          system,
+          messages: [
+            {
+              role: "user",
+              content: [
+                { type: "image", source: { type: "base64", media_type: image.mediaType, data: image.data } },
+                { type: "text", text: user },
+              ],
+            },
+          ],
+        });
+        if (response.stop_reason === "refusal") throw new AiError("refused", "The model declined to answer this question.");
+        const text = response.content
+          .filter((block): block is Anthropic.TextBlock => block.type === "text")
+          .map((block) => block.text)
+          .join("\n")
+          .trim();
+        if (!text) throw new AiError("empty", "The model returned no text.");
+        return text;
+      } catch (error) {
+        if (error instanceof AiError) throw error;
+        if (error instanceof Anthropic.AuthenticationError) throw new AiError("auth", "The Anthropic API key was rejected.");
+        if (error instanceof Anthropic.RateLimitError) throw new AiError("rate-limit", "Rate limited by Anthropic; try again in a moment.");
+        if (error instanceof Anthropic.APIError) throw new AiError("provider", `Anthropic error ${error.status}: ${error.message}`);
+        throw error;
+      }
+    }
+    case "gemini": {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(cfg.model)}:generateContent?key=${encodeURIComponent(cfg.key)}`;
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: system }] },
+          contents: [{ role: "user", parts: [{ inlineData: { mimeType: image.mediaType, data: image.data } }, { text: user }] }],
+          generationConfig: { maxOutputTokens: maxTokens },
+        }),
+      });
+      await throwForStatus(res, cfg.provider);
+      const data = (await res.json()) as { candidates?: { content?: { parts?: { text?: string }[] } }[] };
+      const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? "").join("").trim();
+      if (!text) throw new AiError("empty", "The model returned no text.");
+      return text;
+    }
+    case "groq":
+    case "openrouter": {
+      const base = (process.env.FUNZA_AI_BASE_URL || (cfg.provider === "groq" ? "https://api.groq.com/openai/v1" : "https://openrouter.ai/api/v1")).replace(/\/+$/, "");
+      const res = await fetch(`${base}/chat/completions`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${cfg.key}` },
+        body: JSON.stringify({
+          model: cfg.model,
+          max_tokens: maxTokens,
+          messages: [
+            { role: "system", content: system },
+            {
+              role: "user",
+              content: [
+                { type: "text", text: user },
+                { type: "image_url", image_url: { url: dataUrl } },
+              ],
+            },
+          ],
+        }),
+      });
+      await throwForStatus(res, cfg.provider);
+      const data = (await res.json()) as { choices?: { message?: { content?: string } }[] };
+      const text = data.choices?.[0]?.message?.content?.trim();
+      if (!text) throw new AiError("empty", "The model returned no text.");
+      return text;
+    }
   }
 }
 

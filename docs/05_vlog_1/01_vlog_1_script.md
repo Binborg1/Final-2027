@@ -30,19 +30,19 @@ They're filmed separately, at different times, and joined afterwards in Clipcham
 | 4 | CAMERA | Aubin | — | Aubin |
 | 5 | SCREEN | Competitor table | Pitch deck, slide 6 | Aubin |
 | 6 | CAMERA | Both of you | — | Both |
-| 7 | SCREEN | Who it's for, then the user table | Pitch deck slide 3, then `docs/02-workshop-2/1. User Analysis.pdf` | Chop |
-| 8 | SCREEN | Stakeholder table | `docs/04-workshop-3/03. Stakeholder Analysis.pdf` | Aubin |
+| 7 | SCREEN | Who it's for, then the user table | Pitch deck slide 3, then `docs/02_workshop_2/01_user_analysis.pdf` | Chop |
+| 8 | SCREEN | Stakeholder table | `docs/04_workshop_3/03_stakeholder_analysis.pdf` | Aubin |
 | 9 | SCREEN | Free and Pro plans | Pitch deck, slide 7 | Aubin |
-| 10 | SCREEN | **The Funza app** (the most important shot) | `app/`: run `npm run dev`, open http://localhost:3000, attach `docs/05-vlog-1/Textbook.pdf` | Chop |
-| 11 | SCREEN | Release plan | `docs/04-workshop-3/User Story Map.png` | Aubin |
+| 10 | SCREEN | **The Funza app** (the most important shot) | `app/`: run `npm run dev`, open http://localhost:3000, attach a short lecture PDF (not kept in the repo) | Chop |
+| 11 | SCREEN | Release plan | `docs/04_workshop_3/11_user_story_map.png` | Aubin |
 | 12 | CAMERA | Chop | — | Chop |
 | 13 | SCREEN | The code | VS Code with the `app/src` folder open | Aubin |
-| 14 | SCREEN | RACI chart | `docs/04-workshop-3/10. RACI Chart.pdf` | Chop |
-| 15 | SCREEN | Schedule | `docs/04-workshop-3/Gantt Chart.png` | Aubin |
+| 14 | SCREEN | RACI chart | `docs/04_workshop_3/10_raci_chart.pdf` | Chop |
+| 15 | SCREEN | Schedule | `docs/04_workshop_3/12_gantt_chart.png` | Aubin |
 | 16 | SCREEN | Kanban board | https://github.com/users/Binborg1/projects/1 | Aubin |
 | 17 | CAMERA | Both of you | — | Both |
 
-Pitch deck = `docs/03-pitch/ENSE400_Final_Pitch_Cultivator.pptx`. Open it in PowerPoint and press **F5** for full screen.
+Pitch deck = `docs/03_pitch/02_final_pitch_cultivator_hq.pptx`. Open it in PowerPoint and press **F5** for full screen.
 
 ### Session 1 — Camera (shots 1, 2, 4, 6, 12, 17)
 
@@ -178,7 +178,7 @@ A camera clip followed by a screen clip in the same voice (2 then 3, or 4 then 5
 
 ### Part 5 — What we're building (about 2:00)
 
-**SHOT 10 — SCREEN: Chop's voice.** The Funza app. Add a course, attach `Textbook.pdf` (in `docs/05-vlog-1/`), open a lesson and turn the voice on. Answer one question wrong on purpose, show the hint, then answer it right. `PMBOK: Requirements`
+**SHOT 10 — SCREEN: Chop's voice.** The Funza app. Add a course, attach a short lecture PDF (not kept in the repo), open a lesson and turn the voice on. Answer one question wrong on purpose, show the hint, then answer it right. `PMBOK: Requirements`
 
 Before you record: add a free Gemini or Groq key (copy `app/.env.example` to `app/.env.local`, as the app README explains). Without a key, the app can't explain an idea a different way or ask you a new question. Do one practice run first. The demo PDF is a one-page textbook chapter on parallel circuits, written for this shot: it has five clear headings, which the app turns into separate concepts. It uses the same 12 V and 6 Ω example as the tutor slide in the pitch deck.
 

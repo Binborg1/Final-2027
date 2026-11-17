@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1000" viewBox="0 0 1280 1000" font-family="Nunito, Inter, 'Segoe UI', sans-serif">
+<title>4. Lesson with an interactive demo</title>
+<rect x="0" y="0" width="1280" height="1000" fill="#FFFFFF"/>
+<rect x="0" y="0" width="256" height="800" rx="0" fill="#F5F5F5"/>
+<line x1="256" y1="0" x2="256" y2="800" stroke="#BBBBBB" stroke-width="1"/>
+<circle cx="36" cy="40" r="15" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="60" y="47" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="20" font-weight="800" fill="#222222" text-anchor="start">Funza</text>
+<rect x="20" y="84" width="216" height="40" rx="20" fill="#E6E6E6"/>
+<text x="40" y="109" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#222222" text-anchor="start">My courses</text>
+<text x="40" y="157" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#777777" text-anchor="start">Progress</text>
+<text x="296" y="48" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#777777" text-anchor="start">← Computer Networks</text>
+<rect x="896" y="34" width="113" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="952.5" y="48" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">Concept 1 of 5</text>
+<rect x="296" y="64" width="660" height="10" rx="5" fill="#E6E6E6"/>
+<rect x="296" y="64" width="66" height="10" rx="5" fill="#777777"/>
+<rect x="296" y="86" width="660" height="36" rx="12" fill="#F5F5F5" stroke="#BBBBBB" stroke-width="1"/>
+<rect x="308" y="94" width="59" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="337.5" y="108" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">SAMPLE</text>
+<text x="386" y="108" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#777777" text-anchor="start">These lessons are built in, not from a PDF.</text>
+<rect x="296" y="136" width="660" height="630" rx="20" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<rect x="320" y="156" width="264" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="452.0" y="170" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">HOW DATA TRAVELS ACROSS THE INTERNET</text>
+<text x="320" y="202" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="24" font-weight="800" fill="#222222" text-anchor="start">Messages are split into packets</text>
+<rect x="320" y="222" width="612" height="7" rx="3" fill="#E6E6E6"/>
+<rect x="320" y="236" width="367" height="7" rx="3" fill="#E6E6E6"/>
+<rect x="320" y="264" width="612" height="478" rx="16" fill="#F5F5F5" stroke="#BBBBBB" stroke-width="1"/>
+<text x="336" y="290" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="800" fill="#222222" text-anchor="start">Packet transmission</text>
+<text x="916" y="290" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#777777" text-anchor="end">Step 3 of 5</text>
+<rect x="332" y="304" width="588" height="140" rx="12" fill="#FFFFFF" stroke="#BBBBBB" stroke-width="1"/>
+<circle cx="330" cy="302" r="11" fill="#222222"/>
+<text x="330" y="306" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<rect x="352" y="354" width="90" height="60" rx="12" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="397" y="432" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#222222" text-anchor="middle">Sender</text>
+<rect x="810" y="354" width="90" height="60" rx="12" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="855" y="432" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#222222" text-anchor="middle">Receiver</text>
+<line x1="442" y1="384" x2="532" y2="338" stroke="#BBBBBB" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="532" y1="338" x2="720" y2="338" stroke="#BBBBBB" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="720" y1="338" x2="810" y2="384" stroke="#BBBBBB" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="442" y1="384" x2="626.0" y2="432" stroke="#BBBBBB" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="626.0" y1="432" x2="810" y2="384" stroke="#BBBBBB" stroke-width="1.5" stroke-dasharray="5 4"/>
+<circle cx="532" cy="338" r="13" fill="#E6E6E6" stroke="#222222" stroke-width="1.5"/>
+<text x="532" y="342" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#222222" text-anchor="middle">R1</text>
+<circle cx="720" cy="338" r="13" fill="#E6E6E6" stroke="#222222" stroke-width="1.5"/>
+<text x="720" y="342" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#222222" text-anchor="middle">R2</text>
+<circle cx="626.0" cy="432" r="13" fill="#E6E6E6" stroke="#222222" stroke-width="1.5"/>
+<text x="626.0" y="436" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#222222" text-anchor="middle">R3</text>
+<rect x="482" y="354" width="30" height="18" rx="5" fill="#E6E6E6" stroke="#222222" stroke-width="1.5"/>
+<text x="497" y="367" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#222222" text-anchor="middle">1</text>
+<rect x="620" y="322" width="30" height="18" rx="5" fill="#E6E6E6" stroke="#222222" stroke-width="1.5"/>
+<text x="635" y="335" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#222222" text-anchor="middle">3</text>
+<rect x="566.0" y="400" width="30" height="18" rx="5" fill="#E6E6E6" stroke="#222222" stroke-width="1.5"/>
+<text x="581.0" y="413" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="10" font-weight="700" fill="#222222" text-anchor="middle">2</text>
+<circle cx="340" cy="464" r="3" fill="#E6E6E6"/>
+<circle cx="352" cy="464" r="3" fill="#E6E6E6"/>
+<circle cx="364" cy="464" r="3" fill="#222222"/>
+<circle cx="376" cy="464" r="3" fill="#E6E6E6"/>
+<circle cx="388" cy="464" r="3" fill="#E6E6E6"/>
+<text x="408" y="468" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#222222" text-anchor="start">Each packet travels on its own. Routers forward them hop by hop, and packets can take different routes.</text>
+<rect x="332" y="484" width="588" height="112" rx="14" fill="#FFFFFF" stroke="#777777" stroke-width="1" stroke-dasharray="5 4"/>
+<circle cx="330" cy="482" r="11" fill="#222222"/>
+<text x="330" y="486" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="346" y="506" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="800" fill="#777777" text-anchor="start">Predict what happens next</text>
+<text x="346" y="526" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#222222" text-anchor="start">The packets took different routes. Will they arrive in the order they were sent?</text>
+<circle cx="354" cy="548" r="5" fill="#FFFFFF" stroke="#222222" stroke-width="1.2"/>
+<text x="366" y="552" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11.5" font-weight="600" fill="#777777" text-anchor="start">(a) Always. The network keeps packets in order.</text>
+<circle cx="354" cy="568" r="5" fill="#FFFFFF" stroke="#222222" stroke-width="1.2"/>
+<text x="366" y="572" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11.5" font-weight="600" fill="#777777" text-anchor="start">(b) Not necessarily. The receiver uses the sequence numbers.</text>
+<circle cx="354" cy="588" r="5" fill="#FFFFFF" stroke="#222222" stroke-width="1.2"/>
+<text x="366" y="592" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11.5" font-weight="600" fill="#777777" text-anchor="start">(c) They arrive in reverse order.</text>
+<rect x="332" y="610" width="70" height="36" rx="18" fill="#E6E6E6" stroke="#222222" stroke-width="1.5"/>
+<text x="367.0" y="633" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#222222" text-anchor="middle">Play</text>
+<rect x="410" y="610" width="70" height="36" rx="18" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="445.0" y="633" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#222222" text-anchor="middle">Step</text>
+<text x="498" y="633" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="#777777" text-anchor="start">Reset</text>
+<line x1="332" y1="660" x2="920" y2="660" stroke="#BBBBBB" stroke-width="1"/>
+<circle cx="330" cy="658" r="11" fill="#222222"/>
+<text x="330" y="662" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+<text x="342" y="678" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#777777" text-anchor="start">Packets</text>
+<text x="582" y="678" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#222222" text-anchor="end">3</text>
+<rect x="342" y="686" width="240" height="6" rx="3" fill="#E6E6E6"/>
+<circle cx="402" cy="689" r="7" fill="#222222"/>
+<text x="632" y="678" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#777777" text-anchor="start">Lose a packet</text>
+<rect x="632" y="684" width="200" height="26" rx="10" fill="#FFFFFF" stroke="#BBBBBB" stroke-width="1"/>
+<text x="644" y="702" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#222222" text-anchor="start">None</text>
+<text x="820" y="702" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#777777" text-anchor="end">▾</text>
+<text x="336" y="730" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#777777" text-anchor="start">▸ Read every step as text</text>
+<circle cx="1124.0" cy="70" r="34" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="1124.0" y="74" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="10" font-weight="400" fill="#777777" text-anchor="middle">mascot</text>
+<rect x="988" y="120" width="272" height="148" rx="14" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="1002" y="146" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="400" fill="#222222" text-anchor="start">Quick prediction before I show</text>
+<text x="1002" y="166" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="400" fill="#222222" text-anchor="start">the next part. The packets took</text>
+<text x="1002" y="186" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="400" fill="#222222" text-anchor="start">different routes. Will they arrive</text>
+<text x="1002" y="206" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="400" fill="#222222" text-anchor="start">in the order they were sent?</text>
+<line x1="1002" y1="232" x2="1246" y2="232" stroke="#BBBBBB" stroke-width="1"/>
+<rect x="1002" y="240" width="79" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="1041.5" y="254" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">Voice off</text>
+<rect x="1082" y="240" width="59" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="1111.5" y="254" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">Replay</text>
+<rect x="988" y="288" width="168" height="20" rx="10" fill="#FFFFFF" stroke="#777777" stroke-width="1"/>
+<text x="1072.0" y="302" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#777777" text-anchor="middle">Tutor: Your prediction</text>
+<rect x="1164" y="280" width="70" height="36" rx="18" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="1199.0" y="303" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#222222" text-anchor="middle">Pause</text>
+<text x="1252" y="303" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="#777777" text-anchor="start">Exit</text>
+<circle cx="986" cy="118" r="11" fill="#222222"/>
+<text x="986" y="122" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<rect x="988" y="332" width="272" height="134" rx="14" fill="#FFFFFF" stroke="#222222" stroke-width="1.5"/>
+<text x="1004" y="354" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="800" fill="#222222" text-anchor="start">In this topic</text>
+<circle cx="1012" cy="374" r="7" fill="#E6E6E6" stroke="#222222" stroke-width="1.5"/>
+<text x="1028" y="378" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="700" fill="#222222" text-anchor="start">Messages are split into packets</text>
+<circle cx="1012" cy="400" r="7" fill="#FFFFFF" stroke="#BBBBBB" stroke-width="1.5"/>
+<text x="1028" y="404" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#777777" text-anchor="start">Why small pieces beat one big block</text>
+<circle cx="1012" cy="426" r="7" fill="#FFFFFF" stroke="#BBBBBB" stroke-width="1.5"/>
+<text x="1028" y="430" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#777777" text-anchor="start">Every packet carries an address</text>
+<circle cx="1012" cy="452" r="7" fill="#FFFFFF" stroke="#BBBBBB" stroke-width="1.5"/>
+<text x="1028" y="456" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#777777" text-anchor="start">Routers choose the path</text>
+<rect x="0" y="800" width="1280" height="200" rx="0" fill="#F5F5F5"/>
+<line x1="0" y1="800" x2="1280" y2="800" stroke="#222222" stroke-width="1.5"/>
+<text x="40" y="830" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="800" fill="#222222" text-anchor="start">What we want to learn</text>
+<circle cx="51" cy="854" r="11" fill="#222222"/>
+<text x="51" y="858" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="70" y="858" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12.5" fill="#222222"><tspan font-weight="700">Animation.</tspan> Does the picture explain more than the text? Are the captions read?</text>
+<circle cx="51" cy="881" r="11" fill="#222222"/>
+<text x="51" y="885" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="70" y="885" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12.5" fill="#222222"><tspan font-weight="700">Prediction stop.</tspan> Do they realise the demo stopped on purpose, and that nothing is revealed until they answer?</text>
+<circle cx="51" cy="908" r="11" fill="#222222"/>
+<text x="51" y="912" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="70" y="912" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12.5" fill="#222222"><tspan font-weight="700">Mascot sync.</tspan> Does the mascot saying the same thing as the demo help, or feel like noise?</text>
+<circle cx="51" cy="935" r="11" fill="#222222"/>
+<text x="51" y="939" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+<text x="70" y="939" font-family="Nunito, Inter, 'Segoe UI', sans-serif" font-size="12.5" fill="#222222"><tspan font-weight="700">Sliders.</tspan> Do they discover the settings? Do they try a second run?</text>
+<rect x="0.75" y="0.75" width="1278.5" height="998.5" rx="6" fill="none" stroke="#222222" stroke-width="1.5"/>
+</svg>

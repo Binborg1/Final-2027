@@ -1,10 +1,12 @@
 "use client";
 
 import { Button } from "@/components/Button";
+import { AskFunza } from "@/components/mascot/AskFunza";
 import { FunzaMascot } from "@/components/mascot/FunzaMascot";
 import { MascotSpeechBubble } from "@/components/mascot/MascotSpeechBubble";
 import type { Speech } from "@/lib/speech/useSpeech";
 import type { TutorLine, TutorStep } from "@/lib/tutor/tutorLine";
+import type { AskFunza as AskFunzaState } from "@/lib/tutor/useAskFunza";
 import type { TutorSession } from "@/lib/tutor/useTutorSession";
 
 const stepLabels: Record<TutorStep, string> = {
@@ -23,7 +25,7 @@ const stepLabels: Record<TutorStep, string> = {
 const small = "px-3 py-1.5 text-xs";
 
 /** The mascot and its speech bubble, sitting beside the lesson like a tutor at the desk. */
-export function TutorPanel({ line, speech, session }: { line: TutorLine; speech: Speech; session: TutorSession }) {
+export function TutorPanel({ line, speech, session, ask }: { line: TutorLine; speech: Speech; session: TutorSession; ask?: AskFunzaState }) {
   return (
     <section aria-label="Funza tutor" className="flex flex-col items-center">
       <FunzaMascot state={line.state} talking={speech.speaking} size={112} />
@@ -61,6 +63,7 @@ export function TutorPanel({ line, speech, session }: { line: TutorLine; speech:
           </>
         )}
       </div>
+      {ask && <AskFunza ask={ask} />}
     </section>
   );
 }

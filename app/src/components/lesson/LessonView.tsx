@@ -10,20 +10,32 @@ import { LearningVisualization } from "@/components/visualizations/LearningVisua
 import { evaluateAnswer } from "@/lib/engine/evaluate";
 import { useSpeech } from "@/lib/speech/useSpeech";
 import { recordConceptResult, useProgress } from "@/lib/storage";
-import { REVEAL_AFTER_ATTEMPTS, type LessonPhase } from "@/lib/tutor/tutorLine";
+import { REVEAL_AFTER_ATTEMPTS, vizSignature, type LessonPhase } from "@/lib/tutor/tutorLine";
+import { useAskFunza } from "@/lib/tutor/useAskFunza";
 import { useTutorGuide } from "@/lib/tutor/useTutorGuide";
 import { useTutorSession } from "@/lib/tutor/useTutorSession";
 import type { Concept, ConceptStatus, Course, LessonSource, Topic } from "@/lib/types";
 import { conceptKey } from "@/lib/types";
 import { tutorStateOf } from "@/lib/visualizations/tutorState";
 import { usePlayer, type Player } from "@/lib/visualizations/usePlayer";
+import { lessonWorkspace, visualizationWorkspace } from "@/lib/workspace/context";
 import { Illustration } from "./Illustration";
 import { McqInput } from "./McqInput";
 import { ShortAnswerInput } from "./ShortAnswerInput";
 
 type Phase = LessonPhase;
 
-type Props = { course: Course; topic: Topic; source: LessonSource };
+type Props = {
+  course: Course;
+  topic: Topic;
+  source: LessonSource;
+  /** Where "back" goes; the course page unless a class lecture says otherwise. */
+  backHref?: string;
+  /** Who reviewed the lessons, for the class banner. */
+  reviewedBy?: string;
+  /** The "ask Funza" box writes new text live; off where students must see only reviewed material. */
+  allowAsk?: boolean;
+};
 
 const cardSwap = {
   initial: { opacity: 0, y: 14 },
@@ -38,12 +50,13 @@ const cardSwap = {
  * The tutor mascot narrates each step and reacts to the answers. A concept
  * with a visualization also gets a demo the tutor runs and asks about.
  */
-export function LessonView({ course, topic, source }: Props) {
+export function LessonView({ course, topic, source, backHref = `/courses/${course.id}`, reviewedBy, allowAsk = true }: Props) {
   const progress = useProgress();
   const [queue, setQueue] = useState<Concept[]>(topic.concepts);
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("asking");
   const [answer, setAnswer] = useState("");
+  const [lastSubmitted, setLastSubmitted] = useState<string | null>(null);
   const [attempts, setAttempts] = useState(0);
   const [notice, setNotice] = useState<string | null>(null);
   const [sessionResults, setSessionResults] = useState<Record<string, ConceptStatus>>({});
@@ -75,9 +88,33 @@ export function LessonView({ course, topic, source }: Props) {
   // While the demo runs, the bubble mirrors its caption in both modes.
   const line = session.active && session.line && viz?.status !== "showing" ? session.line : guideLine;
 
+  // What the tutor can see of this screen, and the "ask Funza" box that answers from it.
+  const workspace = concept
+    ? lessonWorkspace({
+        course,
+        topic,
+        concept,
+        index,
+        total,
+        phase,
+        answer,
+        lastSubmitted,
+        attempts,
+        notice,
+        visualization: visualizationWorkspace(player),
+        tutor: { active: session.active, step: session.step, paused: session.paused },
+      })
+    : null;
+  const ask = useAskFunza(workspace, speech, {
+    clearKey: `${concept?.id ?? "none"}:${phase}:${attempts}:${vizSignature(viz)}`,
+    interject: session.active ? session.interject : null,
+  });
+  const shownLine = ask.line ?? line;
+
   function resetConceptState() {
     setPhase("asking");
     setAnswer("");
+    setLastSubmitted(null);
     setAttempts(0);
     setNotice(null);
   }
@@ -88,6 +125,7 @@ export function LessonView({ course, topic, source }: Props) {
     const result = evaluateAnswer(concept.question, answer);
     setNotice(result.message);
     if (result.incomplete) return;
+    setLastSubmitted(answer);
     if (result.correct) {
       setPhase("correct");
       setSessionResults((prev) => ({ ...prev, [concept.id]: "completed" }));
@@ -131,7 +169,7 @@ export function LessonView({ course, topic, source }: Props) {
       <div className="min-w-0 lg:col-start-1 lg:row-span-2 lg:row-start-1">
         <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
           <Link
-            href={`/courses/${course.id}`}
+            href={backHref}
             className="rounded-full px-3 py-1.5 font-bold text-smoke transition-colors hover:bg-sand hover:text-charcoal"
           >
             &larr; {course.name}
@@ -149,7 +187,7 @@ export function LessonView({ course, topic, source }: Props) {
           />
         </div>
         <div className="mt-4">
-          <SourceBanner source={source} />
+          <SourceBanner source={source} by={reviewedBy} />
         </div>
 
         <AnimatePresence mode="wait" initial={false}>
@@ -174,7 +212,8 @@ export function LessonView({ course, topic, source }: Props) {
           ) : (
             <motion.div key="summary" {...cardSwap}>
               <Summary
-                course={course}
+                backHref={backHref}
+                showProgressLink={source !== "class"}
                 topic={topic}
                 statusOf={statusOf}
                 missed={missed}
@@ -186,8 +225,8 @@ export function LessonView({ course, topic, source }: Props) {
         </AnimatePresence>
       </div>
 
-      <div className="order-first lg:order-none lg:col-start-2 lg:row-start-1 lg:sticky lg:top-6 lg:self-start">
-        <TutorPanel line={line} speech={speech} session={session} />
+      <div className="order-first lg:order-none lg:col-start-2 lg:row-start-1 lg:self-start">
+        <TutorPanel line={shownLine} speech={speech} session={session} ask={allowAsk ? ask : undefined} />
       </div>
 
       <aside className="space-y-4 lg:col-start-2 lg:row-start-2">
@@ -371,7 +410,8 @@ const feedbackMotion = {
 } as const;
 
 type SummaryProps = {
-  course: Course;
+  backHref: string;
+  showProgressLink: boolean;
   topic: Topic;
   statusOf: (conceptId: string) => ConceptStatus | undefined;
   missed: Concept[];
@@ -379,7 +419,7 @@ type SummaryProps = {
   onPractiseMissed: () => void;
 };
 
-function Summary({ course, topic, statusOf, missed, completed, onPractiseMissed }: SummaryProps) {
+function Summary({ backHref, showProgressLink, topic, statusOf, missed, completed, onPractiseMissed }: SummaryProps) {
   return (
     <article className="mt-6 rounded-3xl border border-line bg-linear-to-b from-white to-[#fffaf2] p-6 shadow-card md:p-8">
       <div className="text-center">
@@ -403,12 +443,14 @@ function Summary({ course, topic, statusOf, missed, completed, onPractiseMissed 
             Practise the {missed.length} I missed
           </Button>
         )}
-        <ButtonLink href={`/courses/${course.id}`} variant={missed.length > 0 ? "secondary" : "primary"}>
-          Back to course
+        <ButtonLink href={backHref} variant={missed.length > 0 ? "secondary" : "primary"}>
+          {showProgressLink ? "Back to course" : "Back to class"}
         </ButtonLink>
-        <ButtonLink href="/progress" variant="secondary">
-          See progress
-        </ButtonLink>
+        {showProgressLink && (
+          <ButtonLink href="/progress" variant="secondary">
+            See progress
+          </ButtonLink>
+        )}
       </div>
     </article>
   );
