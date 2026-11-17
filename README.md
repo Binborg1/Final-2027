@@ -26,6 +26,21 @@ chosen because it is backed by a real student interview, it needs no hardware or
 partners, and both team members have the problem themselves. The full reasoning is in the
 Business Case.
 
+## Pivot (October 2026)
+
+On 19 October 2026 the team proposed widening the product from a student PDF study tool to
+**Folio**, a desktop app that works like VS Code with Claude Code built in, but for people
+who do not code, with **Funza** (the prototype's name, look and brain mascot) as the assistant
+inside it. Open a folder; read PDFs and get explanations that cite the page; press one
+button for flashcards, a quiz, a summary or a document; create notes, drawings and
+interactive pages; and let Funza read the folder and make things in it, with a permission
+card before every change. A Student or Everyday mode sets Funza's buttons. Every Fall
+requirement and the schedule stay the same. The change request is pending Dr. Maciag's
+approval.
+
+- [Product Requirements Document](docs/06-pivot/01.%20Product%20Requirements%20Document.md) — users, screens, requirements, AI architecture, plugins
+- [Development Phases and Plan](docs/06-pivot/02.%20Development%20Phases%20and%20Plan.md) — architecture, phases, week-by-week plan, testing, budget, risks, and the change request (Appendix A)
+
 ## What's where
 
 | Folder | Contents |
@@ -36,6 +51,8 @@ Business Case.
 | `docs/03-pitch/` | Three-project pitch deck (15 Sept 2026) and final pitch deck for Cultivator HQ (13 Oct 2026), each as .pptx and .pdf |
 | `docs/04-workshop-3/` | Workshop 3 planning documents, user story map and Gantt chart |
 | `docs/05-vlog-1/` | Vlog 1 script, shot list and requirement coverage |
+| `docs/06-pivot/` | Pivot proposal (October 2026): Product Requirements Document and Development Phases and Plan |
+| `docs/07-workshop-4/` | Folio usability questionnaire (printable PDF with a QR code to the Figma prototype), the Google Form script that collects and scores answers online, and the PDF's build source |
 
 ### Workshop 3 documents
 
