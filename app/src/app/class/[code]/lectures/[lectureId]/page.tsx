@@ -37,6 +37,7 @@ export default function ClassLecturePage() {
       source="class"
       backHref={`/class/${cls.code}`}
       reviewedBy={cls.professor}
+      outcome={lecture.outcome ?? null}
       allowAsk={false}
     />
   );

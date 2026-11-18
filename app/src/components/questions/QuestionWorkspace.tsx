@@ -109,7 +109,7 @@ export function QuestionWorkspace({ course, set, topics }: Props) {
         <AiBadge status={ai} />
       </div>
       <header className="mt-3">
-        <h1 className="text-3xl font-extrabold tracking-tight">{set.title}</h1>
+        <h1 className="text-3xl font-bold tracking-tight">{set.title}</h1>
         <p className="mt-1 text-smoke">
           {set.questions.length} question{set.questions.length === 1 ? "" : "s"} from {set.fileName}
         </p>
@@ -164,7 +164,7 @@ export function QuestionWorkspace({ course, set, topics }: Props) {
                           }`}
                         >
                           <span
-                            className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-xl text-xs font-extrabold ${
+                            className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-xl text-xs font-bold ${
                               active ? "bg-coral text-white" : done ? "bg-mint text-mint-dark" : "bg-sand text-smoke"
                             }`}
                           >
@@ -244,7 +244,7 @@ function ModeChooser({ onPick }: { onPick: (mode: WorkMode) => void }) {
   ];
   return (
     <section className="mt-8">
-      <h2 className="text-xl font-extrabold">Do you want guidance, or the answers right away?</h2>
+      <h2 className="text-xl font-bold">Do you want guidance, or the answers right away?</h2>
       <p className="mt-1 text-sm text-smoke">You can switch at any time.</p>
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         {options.map((o) => (
@@ -259,7 +259,7 @@ function ModeChooser({ onPick }: { onPick: (mode: WorkMode) => void }) {
           >
             <BrainMascot mood={o.mood} size={72} />
             <span>
-              <span className="block text-lg font-extrabold">{o.title}</span>
+              <span className="block text-lg font-bold">{o.title}</span>
               <span className="mt-1 block text-sm leading-6 text-smoke">{o.body}</span>
             </span>
           </motion.button>
@@ -292,7 +292,7 @@ function ModeSwitch({ mode, onChange }: { mode: WorkMode; onChange: (mode: WorkM
             {active && (
               <motion.span
                 layoutId="mode-active"
-                className="absolute inset-0 rounded-full bg-linear-to-b from-[#ff8c62] to-[#f06f45] shadow-button"
+                className="absolute inset-0 rounded-full bg-linear-to-b from-[#6a4ff0] to-[#5b3fd9] shadow-button"
                 transition={spring}
                 aria-hidden="true"
               />
@@ -333,7 +333,7 @@ function QuestionCard({ question }: { question: QuestionItem }) {
         <ol className="mt-3 space-y-2">
           {question.parts.map((p) => (
             <li key={p.label} className="flex gap-3 text-base leading-7">
-              <span className="font-extrabold text-smoke">({p.label})</span>
+              <span className="font-bold text-smoke">({p.label})</span>
               <span>{p.text}</span>
             </li>
           ))}
@@ -522,7 +522,7 @@ function AnswerPanel({ question, state, topics, ai, onSolve, onGuide }: AnswerPr
         <AnswerBody question={question} state={state} passages={passages} ai={ai} onSolve={onSolve} onGuide={onGuide} />
       </section>
       <section className={`p-5 md:p-6 ${cardClass}`}>
-        <h3 className="text-sm font-extrabold">From your notes</h3>
+        <h3 className="text-sm font-bold">From your notes</h3>
         <div className="mt-3">
           <PassageList passages={passages} />
         </div>
@@ -603,10 +603,10 @@ function Step({ n, title, children }: { n: number; title: string; children: Reac
   return (
     <section className={`p-5 md:p-6 ${cardClass}`}>
       <div className="flex items-center gap-3">
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-linear-to-b from-[#ff8c62] to-[#f06f45] text-xs font-extrabold text-white shadow-button">
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-linear-to-b from-[#6a4ff0] to-[#5b3fd9] text-xs font-bold text-white shadow-button">
           {n}
         </span>
-        <h3 className="text-base font-extrabold">{title}</h3>
+        <h3 className="text-base font-bold">{title}</h3>
       </div>
       <div className="mt-3">{children}</div>
     </section>
@@ -628,7 +628,7 @@ function Note({ tone, title, children }: { tone: "sky" | "lavender" | "mint" | "
       transition={{ type: "spring", stiffness: 380, damping: 30 }}
       className={`mt-3 rounded-2xl border px-4 py-3.5 text-sm leading-6 text-charcoal ${styles}`}
     >
-      <h4 className="font-extrabold">{title}</h4>
+      <h4 className="font-bold">{title}</h4>
       <div className="mt-1">{children}</div>
     </motion.div>
   );
@@ -645,9 +645,9 @@ function PassageList({ passages }: { passages: Passage[]; courseId?: string }) {
   return (
     <ul className="space-y-3">
       {passages.map((p) => (
-        <li key={`${p.topicId}/${p.conceptId}`} className="rounded-2xl border border-line bg-white px-4 py-3 text-sm shadow-[0_1px_2px_rgba(90,60,30,0.05)]">
+        <li key={`${p.topicId}/${p.conceptId}`} className="rounded-2xl border border-line bg-white px-4 py-3 text-sm shadow-[0_1px_2px_rgba(20,30,60,0.06)]">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <span className="font-extrabold">{p.conceptTitle}</span>
+            <span className="font-bold">{p.conceptTitle}</span>
             <span className="text-xs font-semibold text-smoke">{p.topicTitle}</span>
           </div>
           <p className="mt-1 leading-6 text-charcoal/85">{p.text}</p>

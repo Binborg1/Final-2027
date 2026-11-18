@@ -34,7 +34,7 @@ export default function ProgressPage() {
 
   return (
     <div>
-      <h1 className="text-4xl font-extrabold tracking-tight">Progress</h1>
+      <h1 className="text-4xl font-bold tracking-tight">Progress</h1>
       <p className="mt-2 text-smoke">
         {courses.length} course{courses.length === 1 ? "" : "s"}, tracked in this browser.
       </p>
@@ -65,7 +65,7 @@ export default function ProgressPage() {
             </Item>
           </Stagger>
 
-          <h2 className="mt-10 text-xl font-extrabold">By course</h2>
+          <h2 className="mt-10 text-xl font-bold">By course</h2>
           <Stagger className="mt-4 space-y-6">
             {summaries.map(({ course, topics, entries }) => {
               const done: ConceptItem[] = [];
@@ -80,7 +80,7 @@ export default function ProgressPage() {
               return (
                 <Item key={course.id}>
                   <section className="rounded-3xl border border-line bg-white p-6 shadow-card md:p-7">
-                    <h3 className="text-lg font-extrabold">
+                    <h3 className="text-lg font-bold">
                       <Link href={`/courses/${course.id}`} className="transition-colors hover:text-coral-dark">
                         {course.name}
                       </Link>
@@ -129,7 +129,7 @@ function ConceptList({
   const badge = tone === "good" ? "bg-mint text-mint-dark" : "bg-peach text-peach-dark";
   return (
     <div>
-      <h4 className="flex items-center gap-2 text-sm font-extrabold">
+      <h4 className="flex items-center gap-2 text-sm font-bold">
         {title}
         <span className={`rounded-full px-2 py-0.5 text-xs ${badge}`}>{items.length}</span>
       </h4>

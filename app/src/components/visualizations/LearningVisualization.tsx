@@ -61,7 +61,7 @@ export function LearningVisualization({ config = null, player: given, className 
   return (
     <figure aria-labelledby={`${id}-title`} aria-describedby={`${id}-summary`} className={`rounded-2xl border border-line bg-sand p-4 ${className}`}>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h3 id={`${id}-title`} className="text-sm font-extrabold">
+        <h3 id={`${id}-title`} className="text-sm font-bold">
           {title}
         </h3>
         <span className="text-[11px] font-bold text-smoke" aria-live="off">
@@ -113,7 +113,7 @@ export function LearningVisualization({ config = null, player: given, className 
             aria-labelledby={`${id}-predict`}
             className="mt-3 rounded-2xl border border-sky bg-sky/60 px-4 py-3.5 text-sm leading-6"
           >
-            <p id={`${id}-predict`} className="font-extrabold text-sky-dark">
+            <p id={`${id}-predict`} className="font-bold text-sky-dark">
               Predict what happens next
             </p>
             <p className="mt-1 text-charcoal">{checkpoint.prompt}</p>
@@ -133,7 +133,7 @@ export function LearningVisualization({ config = null, player: given, className 
                       right ? "border-mint-dark bg-mint" : selected ? "border-coral bg-peach/70" : "border-line bg-white enabled:hover:border-coral/60 enabled:hover:bg-sand"
                     }`}
                   >
-                    <span className="font-extrabold text-smoke">({o.id})</span>
+                    <span className="font-bold text-smoke">({o.id})</span>
                     <span>{o.text}</span>
                   </button>
                 );
@@ -233,7 +233,7 @@ function ParamField({ control, player, id }: { control: ParamControl; player: Pl
       <label htmlFor={id} className="block text-xs font-bold text-smoke">
         <span className="flex justify-between">
           <span>{control.label}</span>
-          <output htmlFor={id} className="font-extrabold text-charcoal">
+          <output htmlFor={id} className="font-bold text-charcoal">
             {n}
             {control.unit ? ` ${control.unit}` : ""}
           </output>

@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import { isPdfFile } from "@/components/AddCourseForm";
 import { BrainMascot } from "@/components/BrainMascot";
 import { Button, ButtonLink } from "@/components/Button";
-import { ClassGate, CopyButton, LectureStateChip, SaveIndicator } from "@/components/classes/ui";
+import { ClassCode, ClassGate, CopyButton, LectureStateChip, PageHeader, SaveIndicator } from "@/components/classes/ui";
 import { accents } from "@/components/CourseCard";
 import { Item, Rise, Stagger } from "@/components/motion";
 import { Spinner } from "@/components/Spinner";
@@ -55,26 +55,34 @@ export default function TeachClassPage() {
 
   return (
     <div>
-      <nav className="text-sm font-semibold text-smoke" aria-label="Breadcrumb">
+      <nav className="text-sm font-medium text-smoke" aria-label="Breadcrumb">
         <Link href="/teach" className="transition-colors hover:text-charcoal">
-          Teach
+          Dashboard
         </Link>
         <span className="mx-1.5">/</span>
         <span className="text-charcoal">{record.name}</span>
       </nav>
 
-      <header className="mt-4 flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h1 className="text-4xl font-extrabold tracking-tight">{record.name}</h1>
-          <p className="mt-2 text-smoke">{[record.term, record.professor].filter(Boolean).join(" · ")}</p>
-        </div>
-        <SaveIndicator state={saveState} error={saveError} onRetry={() => void save()} />
-      </header>
+      <div className="mt-4">
+        <PageHeader
+          eyebrow="Class"
+          title={record.name}
+          description={[record.term, record.professor].filter(Boolean).join(" · ")}
+          actions={
+            <>
+              <SaveIndicator state={saveState} error={saveError} onRetry={() => void save()} />
+              <ButtonLink href={`/teach/${code}/insights`} variant="secondary">
+                Insights
+              </ButtonLink>
+            </>
+          }
+        />
+      </div>
 
-      <section aria-label="Join code" className="mt-8 rounded-3xl border border-line bg-white p-6 shadow-card md:p-8">
-        <h2 className="text-sm font-extrabold text-smoke">Students join with this code</h2>
-        <div className="mt-2 flex flex-wrap items-center justify-between gap-4">
-          <p className="text-5xl font-extrabold tracking-[0.12em]">{code}</p>
+      <section aria-label="Join code" className="mt-8 rounded-2xl border border-line bg-white p-6 shadow-card md:p-7">
+        <h2 className="text-sm font-semibold text-smoke">Students join with this code</h2>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-5">
+          <ClassCode code={code} />
           <div className="flex flex-wrap gap-2">
             <CopyButton text={code} label="Copy code" />
             <CopyButton text={studentLink} label="Copy join link" />
@@ -88,10 +96,15 @@ export default function TeachClassPage() {
 
       <section className="mt-10" aria-label="Lectures">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-xl font-extrabold">Lectures</h2>
-          <Button onClick={() => fileInput.current?.click()} disabled={drafting !== null}>
-            Add a lecture PDF
-          </Button>
+          <h2 className="text-xl font-bold">Lessons</h2>
+          <div className="flex flex-wrap gap-2">
+            <ButtonLink href={`/teach/${code}/curriculum`} variant="secondary">
+              Curriculum lesson
+            </ButtonLink>
+            <Button onClick={() => fileInput.current?.click()} disabled={drafting !== null}>
+              Add a lecture PDF
+            </Button>
+          </div>
         </div>
         <p className="mt-1 text-xs text-smoke">
           {ai === null
@@ -105,7 +118,7 @@ export default function TeachClassPage() {
           <Rise className="mt-4 flex items-center gap-4 rounded-3xl border border-lavender bg-lavender/50 p-5" role="status">
             <BrainMascot mood="thinking" size={64} animate />
             <div>
-              <p className="font-extrabold">Drafting your lecture</p>
+              <p className="font-bold">Drafting your lecture</p>
               <p className="mt-0.5 flex items-center gap-2 text-sm text-smoke">
                 <Spinner className="h-3 w-3" /> {drafting}
               </p>
@@ -117,9 +130,10 @@ export default function TeachClassPage() {
         {record.lectures.length === 0 && !drafting ? (
           <Rise className="mt-4 flex flex-col items-center rounded-3xl border border-dashed border-line bg-white/60 p-10 text-center">
             <BrainMascot mood="thinking" size={96} animate />
-            <p className="mt-4 text-lg font-extrabold">No lectures yet</p>
+            <p className="mt-4 text-lg font-bold">No lessons yet</p>
             <p className="mt-1 max-w-md text-sm text-smoke">
-              Add the PDF of one lecture. Funza drafts the study material, and you review every concept before students see it.
+              Build a curriculum lesson from an official outcome, or add the PDF of one lecture. Either way you review
+              every part before students see it.
             </p>
           </Rise>
         ) : (
@@ -132,19 +146,25 @@ export default function TeachClassPage() {
                 <Item key={lecture.id}>
                   <div className="flex flex-wrap items-center gap-4 rounded-3xl border border-line bg-white p-5 shadow-card md:p-6">
                     <span
-                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-lg font-extrabold shadow-edge ${accent.bg} ${accent.text}`}
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-display text-lg font-bold ${accent.bg} ${accent.text}`}
                       aria-hidden="true"
                     >
                       {i + 1}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-lg font-extrabold">{lecture.title}</h3>
+                      <h3 className="text-lg font-bold">{lecture.title}</h3>
                       <div className="mt-2 flex flex-wrap items-center gap-2 text-xs font-bold">
                         <LectureStateChip state={state} pending={counts.pending} />
                         <span className="rounded-full bg-sand px-2.5 py-0.5 text-smoke">
                           {counts.approved} of {counts.kept} approved
                         </span>
-                        <span className="rounded-full bg-sky px-2.5 py-0.5 text-sky-dark">{lecture.fileName}</span>
+                        {lecture.curriculum ? (
+                          <span className="rounded-full bg-mint px-2.5 py-0.5 text-mint-dark">
+                            {lecture.curriculum.course} · {lecture.curriculum.code}
+                          </span>
+                        ) : (
+                          <span className="rounded-full bg-sky px-2.5 py-0.5 text-sky-dark">{lecture.fileName}</span>
+                        )}
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -165,7 +185,7 @@ export default function TeachClassPage() {
 
       {editKey && (
         <section aria-label="Private edit link" className="mt-12 rounded-3xl border border-line bg-white/60 p-6">
-          <h2 className="font-extrabold">Private edit link</h2>
+          <h2 className="font-bold">Private edit link</h2>
           <p className="mt-1 max-w-2xl text-sm text-smoke">
             This browser holds the key to edit this class. To edit it on another computer, open this link there. Anyone
             with the link can change the class, so keep it to yourself.

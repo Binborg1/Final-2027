@@ -135,6 +135,21 @@ The loop lives in `src/lib/teaching/useTeachingSession.ts` (teaching state), `sr
 
 **Privacy.** Rule-based lessons never leave the device. Planning AI lessons sends the extracted text of that one PDF to the configured provider, after a confirmation dialog; teaching a concept sends its relevant sections, the question and the student's answer. The server does not log them. Extracted section text is also kept in this browser's localStorage so lessons can be taught later without re-reading the PDF.
 
+## Curriculum-aligned lessons (Saskatchewan pilot)
+
+A teacher can build a lesson aligned to an official Saskatchewan outcome, check its alignment evidence, edit and approve it block by block, and publish it to a class. The first outcome with a lesson is **SCI10-FM2** (Science 10, Force and Motion in Our World). Design: `docs/architecture-evolution/`.
+
+**Try it:** **Teach → Dashboard** → create (or open) a class → **Curriculum lesson** (or **Teach → Curriculum** and choose the class) → Saskatchewan → Science 10 → Force and Motion in Our World → SCI10-FM2 → **Create lesson**. The **lesson builder** has three panels: blocks (left), the active block (centre), curriculum verification and publishing (right); on smaller screens they stack. For each block: read it, tick the judgment items, **Approve block** (or **Reject** / **Regenerate**). When all five block kinds are approved, **Publish to students**. **Alignment report** opens a printable report. Students join with the class code as before.
+
+**Screens:** dashboard `src/app/teach/page.tsx` (real counts loaded from your classes), explorer `src/components/curriculum/CurriculumExplorer.tsx` (`/teach/curriculum`, or `/teach/CODE/curriculum`), builder `src/components/curriculum/LessonBuilder.tsx`, report `src/app/teach/[code]/lectures/[lectureId]/report/page.tsx`, insights `/teach/insights` (planned; shows no data because none is collected). Activities render through `src/components/activity/ActivityStage.tsx`, the single place a future 3D renderer would plug in. Design tokens (midnight navy frame, warm off-white workspace, violet primary, teal accent) live in `src/app/globals.css`.
+
+- **Catalog** (`src/lib/curriculum/catalog.ts`): official outcomes only, each with its source URL, retrieval date, verification status and a SHA-256 fingerprint of the exact wording. Indicators are listed only once independently verified; for SCI10-FM2 they are pending, and the interface says so.
+- **Lesson blocks** (`src/lib/curriculum/lesson.ts`): learning objective, concept explanation, interactive distance-time graph, prediction, assessment. A block is the source of truth: its student-facing concepts and its graph (an existing `function-graph` visualization) are derived from it.
+- **Checks** (`src/lib/curriculum/checks.ts`): *structural* (cites only the outcome Funza supplied, indicators verified, required content, valid activity), *factual* (answers recomputed: distance = speed × time and its rearrangements, the fastest or slowest object, the graph's slopes), and *teacher judgment* items the teacher must confirm. There is no overall alignment score. Every edit re-runs the checks; an approval is tied to a fingerprint of the content, so any material change sends the block back to review, and the server re-checks it on every save.
+- **Generation**: with an AI key, `/api/teach` (`curriculum-lesson`, `curriculum-block`) looks the outcome up in the catalog itself and rejects any reply that cites an id it did not supply. Without a key, or if the AI fails, the lesson starts from Funza's starter template (`src/lib/curriculum/templates/sci10-fm2.ts`), clearly labelled.
+- **Publishing**: students only ever receive the published snapshot of approved blocks. The class save route refuses a new snapshot unless the lesson is publishable and the snapshot is exactly its approved content (`publishingProblems` in `src/lib/classes/model.ts`).
+- **Tests**: `tests/curriculum.test.ts`.
+
 ## AI tutor setup
 
 Copy `.env.example` to `.env.local`, add one key, restart. Keys stay on the server; the browser calls `/api/ai`, which holds the key and sends only the question, the student's attempt and the matching note excerpts. Providers: Anthropic (official SDK), Groq, OpenRouter and Gemini (REST). Groq, OpenRouter and Gemini have free tiers.

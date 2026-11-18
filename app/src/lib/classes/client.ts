@@ -1,6 +1,6 @@
 "use client";
 
-import type { ClassRecord, PublicClass } from "@/lib/classes/model";
+import type { ClassRecord, Lecture, PublicClass } from "@/lib/classes/model";
 import { joinedClassesStore, teachingStore } from "@/lib/storage";
 
 export type ApiResult<T> = { ok: true; data: T } | { ok: false; reason: string; message: string };
@@ -39,6 +39,18 @@ export const classApi = {
     ),
   loadPublic: (code: string) => call(`/api/classes/${encodeURIComponent(code)}`, {}, (b) => b.class as PublicClass),
 };
+
+/**
+ * Adds a lesson to a class this browser teaches: loads the latest version,
+ * appends, saves. Used where no editing session for that class is open.
+ */
+export async function addLectureToClass(code: string, lecture: Lecture): Promise<ApiResult<ClassRecord>> {
+  const key = editKeyFor(code);
+  if (!key) return { ok: false, reason: "no-key", message: "This browser cannot edit that class." };
+  const loaded = await classApi.loadForEdit(code, key);
+  if (!loaded.ok) return loaded;
+  return classApi.save({ ...loaded.data, lectures: [...loaded.data.lectures, lecture] }, key);
+}
 
 /* ---------- this browser's classes ---------- */
 

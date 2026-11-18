@@ -111,7 +111,7 @@ export default function CoursePage() {
       </nav>
 
       <header className="mt-4">
-        <h1 className="text-4xl font-extrabold tracking-tight">{course.name}</h1>
+        <h1 className="text-4xl font-bold tracking-tight">{course.name}</h1>
         <p className="mt-2 text-smoke">
           {topics.length} topic{topics.length === 1 ? "" : "s"} · {conceptCount} concept{conceptCount === 1 ? "" : "s"}
           {sets.length > 0 ? ` · ${sets.length} question set${sets.length === 1 ? "" : "s"} (${questionCount} questions)` : ""}
@@ -123,11 +123,11 @@ export default function CoursePage() {
       </div>
 
       <section className="mt-10" aria-label="Topics">
-        <h2 className="text-xl font-extrabold">Topics</h2>
+        <h2 className="text-xl font-bold">Topics</h2>
         {topics.length === 0 ? (
           <Rise className="mt-4 flex flex-col items-center rounded-3xl border border-dashed border-line bg-white/60 p-10 text-center">
             <BrainMascot mood="thinking" size={96} animate />
-            <p className="mt-4 text-lg font-extrabold">No lessons yet</p>
+            <p className="mt-4 text-lg font-bold">No lessons yet</p>
             <p className="mt-1 max-w-md text-sm text-smoke">
               Add a PDF of lecture notes with selectable text and Funza will build topics from its headings. Add a
               sheet of questions and it becomes a question set below instead.
@@ -147,13 +147,13 @@ export default function CoursePage() {
                 <Item key={topic.id}>
                   <LiftCard className="flex flex-wrap items-center gap-4 p-5 md:p-6">
                     <span
-                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-lg font-extrabold shadow-edge ${accent.bg} ${accent.text}`}
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-display text-lg font-bold ${accent.bg} ${accent.text}`}
                       aria-hidden="true"
                     >
                       {i + 1}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-lg font-extrabold">{topic.title}</h3>
+                      <h3 className="text-lg font-bold">{topic.title}</h3>
                       <p className="mt-1 text-sm text-smoke">{topic.summary}</p>
                       <div className="mt-3 flex flex-wrap items-center gap-2 text-xs font-bold">
                         {topic.kind === "ai" && (
@@ -180,7 +180,7 @@ export default function CoursePage() {
 
       {notesWithSources.length > 0 && (
         <section className="mt-10" aria-label="Adaptive AI lessons">
-          <h2 className="text-xl font-extrabold">Adaptive AI lessons</h2>
+          <h2 className="text-xl font-bold">Adaptive AI lessons</h2>
           <p className="mt-1 text-sm text-smoke">
             Funza plans concepts and objectives from a notes PDF, then teaches each one: explain, ask, check your
             reasoning, hint or reteach, and verify with a new question before moving on.
@@ -220,7 +220,7 @@ export default function CoursePage() {
 
       {sets.length > 0 && (
         <section className="mt-10" aria-label="Question sets">
-          <h2 className="text-xl font-extrabold">Question sets</h2>
+          <h2 className="text-xl font-bold">Question sets</h2>
           <p className="mt-1 text-sm text-smoke">
             PDFs of questions are kept apart from notes. Open one to choose between guidance and answers.
           </p>
@@ -231,13 +231,13 @@ export default function CoursePage() {
                 <Item key={set.id}>
                   <LiftCard className="flex flex-wrap items-center gap-4 p-5 md:p-6">
                     <span
-                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-lg font-extrabold shadow-edge ${accent.bg} ${accent.text}`}
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-display text-lg font-bold ${accent.bg} ${accent.text}`}
                       aria-hidden="true"
                     >
                       ?
                     </span>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-lg font-extrabold">{set.title}</h3>
+                      <h3 className="text-lg font-bold">{set.title}</h3>
                       <div className="mt-2 flex flex-wrap items-center gap-2 text-xs font-bold">
                         <span className="rounded-full bg-sand px-2.5 py-0.5 text-smoke">
                           {set.questions.length} question{set.questions.length === 1 ? "" : "s"}
@@ -264,7 +264,7 @@ export default function CoursePage() {
       ) : (
         <section className="mt-12" aria-label="Course PDFs">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h2 className="text-xl font-extrabold">Course PDFs</h2>
+            <h2 className="text-xl font-bold">Course PDFs</h2>
             <Button variant="secondary" onClick={() => fileInput.current?.click()} disabled={busy !== null}>
               {busy ? <Spinner /> : null}
               {busy ?? "Add PDFs"}

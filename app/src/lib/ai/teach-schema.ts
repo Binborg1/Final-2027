@@ -1,3 +1,4 @@
+import { sanitizeBlock, type BlockKind, type CurriculumBlock } from "@/lib/curriculum/lesson";
 import type { AiEvaluation, AiLesson, AiQuestion, McqQuestion } from "@/lib/types";
 import { validateVisualization } from "@/lib/visualizations/registry";
 
@@ -126,6 +127,84 @@ export function validateDraft(raw: Record<string, unknown>, random: () => number
     question: { kind: "mcq", prompt: str(q.prompt, "question prompt", 1200), options, correctOptionId: correct.id },
     hints,
     whyCorrect: str(raw.whyCorrect, "whyCorrect", 1500),
+  };
+}
+
+/**
+ * Checks AI-written curriculum blocks. The reply is refused outright if it cites
+ * any outcome or indicator id the application did not supply, or if its blocks
+ * are not the kinds asked for, in order. Content quality is left to the
+ * deterministic checks and the teacher.
+ */
+export function validateCurriculumBlocks(
+  raw: Record<string, unknown>,
+  ctx: { allowedOutcomeIds: readonly string[]; allowedIndicatorIds: readonly string[]; kinds: readonly BlockKind[]; ids?: readonly string[] },
+  random: () => number = Math.random,
+): CurriculumBlock[] {
+  const list = Array.isArray(raw.blocks) ? raw.blocks : [];
+  if (list.length !== ctx.kinds.length) throw new SchemaError(`Expected ${ctx.kinds.length} block(s), got ${list.length}.`);
+  return list.map((b, i): CurriculumBlock => {
+    if (!b || typeof b !== "object") throw new SchemaError(`Block ${i + 1} is not an object.`);
+    const r = b as Record<string, unknown>;
+    const kind = ctx.kinds[i];
+    if (r.kind !== kind) throw new SchemaError(`Block ${i + 1} should be "${kind}", not ${JSON.stringify(r.kind)}.`);
+    const outcomeIds = strList(r.outcomeIds, 6);
+    const unknown = outcomeIds.find((id) => !ctx.allowedOutcomeIds.includes(id));
+    if (unknown !== undefined) throw new SchemaError(`Block ${i + 1} cites "${unknown.slice(0, 40)}", which is not an outcome the application supplied.`);
+    if (outcomeIds.length === 0) throw new SchemaError(`Block ${i + 1} cites no outcome.`);
+    const indicatorIds = strList(r.indicatorIds, 12);
+    const badIndicator = indicatorIds.find((id) => !ctx.allowedIndicatorIds.includes(id));
+    if (badIndicator !== undefined) throw new SchemaError(`Block ${i + 1} cites indicator "${badIndicator.slice(0, 40)}", which is not verified.`);
+    const items = (Array.isArray(r.items) ? r.items : []).map((it, j) => curriculumItem(it, j, i, random));
+    if (items.length === 0) throw new SchemaError(`Block ${i + 1} has no questions.`);
+    const motion = r.motion && typeof r.motion === "object" ? (r.motion as Record<string, unknown>) : null;
+    const block = sanitizeBlock({
+      id: ctx.ids?.[i] ?? `b-${kind}`,
+      kind,
+      title: str(r.title, "title", 140),
+      body: str(r.body, "body", 3000),
+      secondLook: optStr(r.secondLook, 2000) ?? "",
+      teaches: optStr(r.teaches, 600) ?? "",
+      evidence: optStr(r.evidence, 600) ?? "",
+      outcomeIds,
+      indicatorIds,
+      motion,
+      items,
+      origin: "ai",
+      acknowledged: null,
+      approvedFingerprint: null,
+    });
+    if (!block) throw new SchemaError(`Block ${i + 1} could not be read.`);
+    return block;
+  });
+}
+
+function curriculumItem(raw: unknown, j: number, blockIndex: number, random: () => number) {
+  if (!raw || typeof raw !== "object") throw new SchemaError(`Block ${blockIndex + 1}, question ${j + 1} is not an object.`);
+  const q = raw as Record<string, unknown>;
+  const texts = (Array.isArray(q.options) ? q.options : [])
+    .map((o) => (typeof o === "string" ? o : o && typeof o === "object" ? (o as Record<string, unknown>).text : null))
+    .filter((t): t is string => typeof t === "string" && t.trim().length > 0)
+    .map((t) => t.trim().slice(0, 300));
+  if (texts.length < 2 || texts.length > 6) throw new SchemaError(`Block ${blockIndex + 1}, question ${j + 1} needs 2 to 6 options.`);
+  const correctIndex = typeof q.correctIndex === "string" ? Number(q.correctIndex) : q.correctIndex;
+  if (!Number.isInteger(correctIndex) || (correctIndex as number) < 0 || (correctIndex as number) >= texts.length) {
+    throw new SchemaError(`Block ${blockIndex + 1}, question ${j + 1} has no valid "correctIndex".`);
+  }
+  const order = texts.map((_, k) => k);
+  for (let k = order.length - 1; k > 0; k--) {
+    const r = Math.floor(random() * (k + 1));
+    [order[k], order[r]] = [order[r], order[k]];
+  }
+  const options = order.map((from, k) => ({ id: String.fromCharCode(97 + k), text: texts[from] }));
+  return {
+    id: `q${j + 1}`,
+    prompt: str(q.prompt, "question prompt", 1200),
+    options,
+    correctOptionId: options[order.indexOf(correctIndex as number)].id,
+    hints: strList(q.hints, 3).map((h) => h.slice(0, 800)),
+    whyCorrect: optStr(q.whyCorrect, 1500) ?? "",
+    fact: q.fact ?? null,
   };
 }
 

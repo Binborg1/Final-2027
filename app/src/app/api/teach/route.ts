@@ -1,7 +1,19 @@
+import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { AiError, aiConfig, complete } from "@/lib/ai/server";
-import { draftPrompt, evaluatePrompt, lessonPrompt, planPrompt, questionPrompt } from "@/lib/ai/teach-prompts";
-import { parseJsonObject, SchemaError, validateDraft, validateEvaluation, validateLesson, validatePlan, validateQuestion } from "@/lib/ai/teach-schema";
+import { curriculumPrompt, draftPrompt, evaluatePrompt, lessonPrompt, planPrompt, questionPrompt } from "@/lib/ai/teach-prompts";
+import {
+  parseJsonObject,
+  SchemaError,
+  validateCurriculumBlocks,
+  validateDraft,
+  validateEvaluation,
+  validateLesson,
+  validatePlan,
+  validateQuestion,
+} from "@/lib/ai/teach-schema";
+import { allowedIndicatorIds, usableOutcome } from "@/lib/curriculum/catalog";
+import { BLOCK_KINDS, type BlockKind } from "@/lib/curriculum/lesson";
 import { validateQuestion as validateAiQuestion } from "@/lib/ai/teach-schema";
 
 export const runtime = "nodejs";
@@ -22,10 +34,9 @@ const conceptOf = (v: unknown) => {
   return { title: text(c.title, 120, "Concept"), objective: text(c.objective, 300) || undefined };
 };
 
+const sha256 = (s: string) => createHash("sha256").update(s, "utf8").digest("hex");
+
 export async function POST(request: Request) {
-  if (!aiConfig()) {
-    return NextResponse.json({ ok: false, reason: "not-configured", message: "No AI provider is configured on the server." });
-  }
   let body: Body;
   try {
     body = (await request.json()) as Body;
@@ -35,8 +46,40 @@ export async function POST(request: Request) {
   const task = body.task;
   const courseName = text(body.courseName, 80, "this course");
 
+  // Curriculum tasks: the outcome must be in the verified catalog, with its wording intact, before anything else.
+  let outcome: Extract<ReturnType<typeof usableOutcome>, { ok: true }>["found"] | null = null;
+  if (task === "curriculum-lesson" || task === "curriculum-block") {
+    const usable = usableOutcome(body.outcomeId, sha256);
+    if (!usable.ok) return NextResponse.json({ ok: false, reason: "invalid-outcome", message: usable.reason }, { status: 400 });
+    outcome = usable.found;
+  }
+
+  if (!aiConfig()) {
+    return NextResponse.json({ ok: false, reason: "not-configured", message: "No AI provider is configured on the server." });
+  }
+
   try {
     switch (task) {
+      case "curriculum-lesson":
+      case "curriculum-block": {
+        if (!outcome) return bad("Missing outcome.");
+        const kinds: BlockKind[] =
+          task === "curriculum-lesson" ? [...BLOCK_KINDS] : BLOCK_KINDS.filter((k) => k === body.kind);
+        if (kinds.length === 0) return bad("Unknown block kind.");
+        const o = outcome.outcome;
+        const { system, user } = curriculumPrompt(
+          { id: o.id, code: o.code, statement: o.statement, course: outcome.course.name, unit: outcome.unit.name },
+          kinds,
+        );
+        const raw = await complete({ system, user, maxTokens: task === "curriculum-lesson" ? 7000 : 2500 });
+        const blocks = validateCurriculumBlocks(parseJsonObject(raw), {
+          allowedOutcomeIds: [o.id],
+          allowedIndicatorIds: [...allowedIndicatorIds(o)],
+          kinds,
+          ids: task === "curriculum-block" && typeof body.blockId === "string" ? [body.blockId.slice(0, 40)] : undefined,
+        });
+        return NextResponse.json({ ok: true, data: blocks });
+      }
       case "plan": {
         const outline = text(body.outline, LIMITS.outline);
         const sectionCount = Number.isInteger(body.sectionCount) ? (body.sectionCount as number) : 0;

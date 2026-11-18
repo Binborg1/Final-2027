@@ -22,7 +22,7 @@ export function ConceptReviewCard({ concept, index, onChange }: Props) {
       <article className="flex flex-wrap items-center gap-3 rounded-3xl border border-dashed border-line bg-white/50 px-5 py-4">
         <ConceptNumber index={index} muted />
         <p className="min-w-0 flex-1 font-bold text-smoke line-through">{concept.title || "Untitled concept"}</p>
-        <span className="rounded-full bg-sand px-2.5 py-0.5 text-xs font-extrabold text-smoke">Removed</span>
+        <span className="rounded-full bg-sand px-2.5 py-0.5 text-xs font-bold text-smoke">Removed</span>
         <Button variant="secondary" className="px-4 py-2 text-xs" onClick={() => set({ review: "pending" })}>
           Restore
         </Button>
@@ -36,8 +36,8 @@ export function ConceptReviewCard({ concept, index, onChange }: Props) {
       <article className="rounded-3xl border border-mint bg-white p-5 shadow-card md:p-6">
         <div className="flex flex-wrap items-center gap-3">
           <ConceptNumber index={index} />
-          <h3 className="min-w-0 flex-1 text-lg font-extrabold">{concept.title}</h3>
-          <span className="rounded-full bg-mint px-2.5 py-0.5 text-xs font-extrabold text-mint-dark">Approved</span>
+          <h3 className="min-w-0 flex-1 text-lg font-bold">{concept.title}</h3>
+          <span className="rounded-full bg-mint px-2.5 py-0.5 text-xs font-bold text-mint-dark">Approved</span>
         </div>
         <p className="mt-3 line-clamp-3 text-sm leading-6 text-charcoal/85">{concept.explanation}</p>
         <div className="mt-4 rounded-2xl bg-sand/70 px-4 py-3 text-sm">
@@ -79,7 +79,7 @@ export function ConceptReviewCard({ concept, index, onChange }: Props) {
     <article className="rounded-3xl border border-line bg-white p-5 shadow-card md:p-6">
       <div className="flex flex-wrap items-center gap-3">
         <ConceptNumber index={index} />
-        <span className="rounded-full bg-peach px-2.5 py-0.5 text-xs font-extrabold text-peach-dark">Needs your review</span>
+        <span className="rounded-full bg-peach px-2.5 py-0.5 text-xs font-bold text-peach-dark">Needs your review</span>
       </div>
 
       <TextField label="Title" value={concept.title} max={LIMITS.title} onChange={(title) => set({ title })} single />
@@ -101,7 +101,7 @@ export function ConceptReviewCard({ concept, index, onChange }: Props) {
       />
 
       <fieldset className="mt-6 rounded-2xl border border-line bg-cream/60 p-4">
-        <legend className="px-1 text-sm font-extrabold">Question</legend>
+        <legend className="px-1 text-sm font-bold">Question</legend>
         <TextField
           label="Question text"
           value={concept.question.prompt}
@@ -140,18 +140,18 @@ export function ConceptReviewCard({ concept, index, onChange }: Props) {
   );
 }
 
-function ConceptNumber({ index, muted = false }: { index: number; muted?: boolean }) {
+export function ConceptNumber({ index, muted = false }: { index: number; muted?: boolean }) {
   return (
     <span
       aria-hidden="true"
-      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl text-sm font-extrabold shadow-edge ${muted ? "bg-sand text-smoke" : "bg-lavender text-lavender-dark"}`}
+      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg font-display text-base font-bold ${muted ? "bg-sand text-smoke" : "bg-lavender text-lavender-dark"}`}
     >
       {index + 1}
     </span>
   );
 }
 
-function TextField({
+export function TextField({
   label,
   hint,
   value,
@@ -186,7 +186,7 @@ function TextField({
   );
 }
 
-function McqEditor({ question, groupName, onChange }: { question: McqQuestion; groupName: string; onChange: (q: McqQuestion) => void }) {
+export function McqEditor({ question, groupName, onChange }: { question: McqQuestion; groupName: string; onChange: (q: McqQuestion) => void }) {
   const setOption = (id: string, text: string) => onChange({ ...question, options: question.options.map((o) => (o.id === id ? { ...o, text } : o)) });
   const remove = (id: string) => {
     const options = question.options.filter((o) => o.id !== id);
@@ -207,7 +207,7 @@ function McqEditor({ question, groupName, onChange }: { question: McqQuestion; g
               checked={question.correctOptionId === o.id}
               onChange={() => onChange({ ...question, correctOptionId: o.id })}
               aria-label={`Option ${i + 1} is the correct answer`}
-              className="h-5 w-5 shrink-0 accent-[#ea6a3f]"
+              className="h-5 w-5 shrink-0 accent-[#e4402f]"
             />
             <input
               value={o.text}
@@ -216,7 +216,7 @@ function McqEditor({ question, groupName, onChange }: { question: McqQuestion; g
               aria-label={`Option ${i + 1}`}
               className={`${fieldBase} w-full min-w-0`}
             />
-            <span className={`w-14 shrink-0 text-xs font-extrabold text-mint-dark ${question.correctOptionId === o.id ? "" : "invisible"}`}>
+            <span className={`w-14 shrink-0 text-xs font-bold text-mint-dark ${question.correctOptionId === o.id ? "" : "invisible"}`}>
               Correct
             </span>
             {question.options.length > 2 && (
@@ -302,7 +302,7 @@ function ShortEditor({ question, onChange }: { question: ShortAnswerQuestion; on
   );
 }
 
-function HintsEditor({ hints, onChange }: { hints: string[]; onChange: (hints: string[]) => void }) {
+export function HintsEditor({ hints, onChange }: { hints: string[]; onChange: (hints: string[]) => void }) {
   const list = hints.length > 0 ? hints : [""];
   return (
     <div className="mt-4">
@@ -347,7 +347,7 @@ function HintsEditor({ hints, onChange }: { hints: string[]; onChange: (hints: s
   );
 }
 
-function Field({ label, hint, children }: { label: string; hint?: string; children: (id: string) => ReactNode }) {
+export function Field({ label, hint, children }: { label: string; hint?: string; children: (id: string) => ReactNode }) {
   const id = useId();
   return (
     <div className="mt-4">

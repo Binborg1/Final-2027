@@ -14,7 +14,7 @@ export function isPdfFile(file: { name: string; type: string }) {
 }
 
 const fieldClass =
-  "mt-1.5 w-full rounded-2xl border border-line bg-white px-4 py-2.5 text-sm shadow-[inset_0_1px_2px_rgba(90,60,30,0.06)] outline-none transition-shadow focus:border-coral focus:ring-4 focus:ring-coral/20";
+  "mt-1.5 w-full rounded-2xl border border-line bg-white px-4 py-2.5 text-sm shadow-[inset_0_1px_2px_rgba(20,30,60,0.07)] outline-none transition-shadow focus:border-coral focus:ring-4 focus:ring-coral/20";
 
 export function AddCourseForm({ onCancel }: { onCancel: () => void }) {
   const router = useRouter();
@@ -53,7 +53,7 @@ export function AddCourseForm({ onCancel }: { onCancel: () => void }) {
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="mt-6 rounded-3xl border border-line bg-white p-6 shadow-card md:p-8"
     >
-      <h2 className="text-xl font-extrabold">New course</h2>
+      <h2 className="text-xl font-bold">New course</h2>
       <div className="mt-5 grid gap-5 md:grid-cols-2">
         <label className="block text-sm">
           <span className="font-bold text-charcoal">Course name</span>

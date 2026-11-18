@@ -33,6 +33,26 @@ export function draftPrompt(courseName: string, concept: { title: string; object
   };
 }
 
+const CURRICULUM_WRITER =
+  "You are Funza, helping a Saskatchewan high school science teacher prepare a short interactive lesson. The curriculum outcome is fixed and supplied by the application: never invent, rename or guess outcome or indicator codes, and cite only the outcome ids you are given. Write plain text for Grade 10 students: short sentences, SI units, no markdown, no emoji. The teacher will review every word before students see it.";
+
+const BLOCK_SPECS: Record<string, string> = {
+  objective: `"objective": a learning objective in student-friendly words with what students will be able to do; one warm-up multiple-choice question; "motion": null.`,
+  explanation: `"explanation": teaches speed = distance ÷ time and why constant speed gives a straight distance-time line, with one worked example; one calculation question whose "fact" is {"kind":"distance","speed":S,"time":T} (or speed/time); "motion": null.`,
+  graph: `"graph": two or three named objects moving at different constant speeds from the same start, compared on a distance-time graph. "motion": {"objects":[{"label":"Ava","speed":4},{"label":"Ben","speed":2}],"duration":D,"askTime":null} with speeds between 1 and 20 m/s and D between 5 and 20 s. One question asking which object is faster, whose correct option names the fastest object and whose wrong options do not name it; "fact": {"kind":"fastest"}.`,
+  prediction: `"prediction": one named object at a constant speed; students predict its distance at a time inside the graph, then check. "motion": {"objects":[{"label":"Cart","speed":S}],"duration":D,"askTime":T} with T < D. One question asking the distance at T whose "fact" is {"kind":"distance","speed":S,"time":T}.`,
+  assessment: `"assessment": exactly 3 questions applying the idea: at least two calculations (each with a "fact" of kind "distance", "speed" or "time" holding the numbers used) and one about reading a distance-time graph ("fact": null). "motion": null.`,
+};
+
+/** One or more lesson blocks for an outcome the application looked up in its verified catalog. */
+export function curriculumPrompt(outcome: { id: string; code: string; statement: string; course: string; unit: string }, kinds: readonly string[]) {
+  const single = kinds.length === 1;
+  return {
+    system: `${CURRICULUM_WRITER} ${JSON_ONLY}`,
+    user: `Course: ${outcome.course}, unit: ${outcome.unit}.\nOutcome supplied by the application (cite it by id only):\n${JSON.stringify({ id: outcome.id, code: outcome.code, statement: outcome.statement })}\nNo indicators are verified for this outcome, so "indicatorIds" must be an empty list.\n\nWrite ${single ? `one lesson block of kind "${kinds[0]}"` : `exactly ${kinds.length} lesson blocks, in this order: ${kinds.join(", ")}`}.\n${kinds.map((k) => `- ${BLOCK_SPECS[k] ?? ""}`).join("\n")}\n\nEvery block has: "kind", "title" (at most 8 words), "body" (60 to 140 words), "secondLook" (a different explanation for after a wrong answer, 25 to 70 words), "teaches" (one sentence for the teacher: what the activity teaches), "evidence" (one sentence: how students demonstrate understanding), "outcomeIds": ["${outcome.id}"], "indicatorIds": [], "motion", and "items". Each item has "prompt", "options" (exactly 4 distinct strings; wrong options should reflect real misconceptions; no "all of the above"), "correctIndex" (0 to 3), "hints" (2 hints, gentle then specific, never revealing the answer), "whyCorrect" (1 or 2 sentences), and "fact".\n\nJSON shape:\n{"blocks": [{"kind": string, "title": string, "body": string, "secondLook": string, "teaches": string, "evidence": string, "outcomeIds": [string], "indicatorIds": [], "motion": null | {"objects": [{"label": string, "speed": number}], "duration": number, "askTime": number | null}, "items": [{"prompt": string, "options": [string, string, string, string], "correctIndex": number, "hints": [string, string], "whyCorrect": string, "fact": null | object}]}]}`,
+  };
+}
+
 export function evaluatePrompt(input: {
   courseName: string;
   concept: { title: string; objective?: string };

@@ -1,11 +1,11 @@
 import { illustrationCaptions } from "@/lib/lessons/illustrations";
 import type { IllustrationId } from "@/lib/types";
 
-const ink = "#252525";
-const muted = "#6b645c";
-const line = "#cdbfae";
-const coral = "#ff8055";
-const peach = "#ffe3d3";
+const ink = "#1d2130";
+const muted = "#586074";
+const line = "#c6cedb";
+const coral = "#e4402f";
+const peach = "#ffedbf";
 
 export function Illustration({ id }: { id: IllustrationId }) {
   const { Picture, caption } = pictures[id];

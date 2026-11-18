@@ -104,7 +104,7 @@ export function AskFunza({ ask }: { ask: AskFunzaState }) {
         {shareStatus === "requesting" && <p className="mt-2 text-[11px] font-semibold text-smoke">Waiting for you to pick what to share...</p>}
         {shareStatus === "sharing" && (
           <div className="mt-2 rounded-xl border border-coral bg-peach/50 p-2" role="status" aria-live="polite">
-            <p className="flex items-center gap-1.5 text-[11px] font-extrabold text-peach-dark">
+            <p className="flex items-center gap-1.5 text-[11px] font-bold text-peach-dark">
               <span className="h-2 w-2 rounded-full bg-coral motion-safe:animate-pulse" aria-hidden="true" />
               Sharing {shareLabel}
             </p>
@@ -185,14 +185,14 @@ function ScreenshotReview({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-charcoal/50 p-4" role="dialog" aria-modal="true" aria-labelledby="review-title">
       <div className="max-h-full w-full max-w-lg overflow-y-auto rounded-3xl border border-line bg-white p-5 shadow-card">
-        <h2 id="review-title" className="text-lg font-extrabold">
+        <h2 id="review-title" className="text-lg font-bold">
           Check this screenshot before it is sent
         </h2>
         <p className="mt-1 text-sm text-smoke">This is the only image that would leave your device, and only if you press Send. It is not saved anywhere.</p>
         {/* eslint-disable-next-line @next/next/no-img-element -- a data URL held in memory for review; nothing to optimize or fetch */}
         <img src={image} alt="The screenshot you are about to send" className="mt-3 w-full rounded-xl border border-line" />
         <div className="mt-3 rounded-2xl border border-peach bg-peach/60 px-4 py-3 text-sm leading-6 text-charcoal">
-          <p className="font-extrabold text-peach-dark">Look for anything private</p>
+          <p className="font-bold text-peach-dark">Look for anything private</p>
           <p>
             Screenshots can show names, messages, passwords, email, and course material you are not allowed to share with an AI provider. If you see any,
             close it and press Retake, or press Discard.

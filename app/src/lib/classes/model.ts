@@ -1,20 +1,37 @@
+import { approvalStillValid, lessonContext, lessonPublishProblems } from "@/lib/curriculum/checks";
+import {
+  blockConcepts,
+  curriculumFromCatalog,
+  sanitizeBlock,
+  type CurriculumBlock,
+  type LessonCurriculum,
+} from "@/lib/curriculum/lesson";
 import type { Concept, IllustrationId, Question } from "@/lib/types";
+import { validateVisualization } from "@/lib/visualizations/registry";
 
 /**
- * Classes: a professor turns lecture PDFs into reviewed study material and
- * publishes it; students join with the class code and study only what was
+ * Classes: a professor or teacher turns material into reviewed study content
+ * and publishes it; students join with the class code and study only what was
  * published. Pure data and rules, shared by the server routes and the pages.
+ *
+ * Two kinds of lecture share these rules:
+ * - university lectures: concepts drafted from a PDF (the original Model 2 flow);
+ * - curriculum lessons: typed blocks aligned to a catalog outcome
+ *   (src/lib/curriculum), each carried on its concept as `block`.
  */
 
 export type ReviewStatus = "pending" | "approved" | "removed";
 
-/** A drafted concept and where it stands in the professor's review. */
-export type DraftConcept = Concept & { review: ReviewStatus };
+/** A drafted concept and where it stands in review. Curriculum lessons carry their block, the source of truth. */
+export type DraftConcept = Concept & { review: ReviewStatus; block?: CurriculumBlock };
 
-/** How the drafts were made: by the AI provider, or by the on-device rules when no AI is set up. */
-export type DraftSource = "ai" | "rules";
+/** How the drafts were made: by the AI provider, by the on-device rules, or from Funza's starter template. */
+export type DraftSource = "ai" | "rules" | "template";
 
-export type PublishedSnapshot = { at: string; title: string; concepts: Concept[] };
+/** The outcome shown to students with a published curriculum lesson. */
+export type PublishedOutcome = { code: string; statement: string; sourceUrl: string };
+
+export type PublishedSnapshot = { at: string; title: string; concepts: Concept[]; outcome?: PublishedOutcome | null };
 
 export type Lecture = {
   id: string;
@@ -27,13 +44,15 @@ export type Lecture = {
   updatedAt: string;
   /** What students see: the approved concepts as they were at the last publish. Null until published. */
   published: PublishedSnapshot | null;
+  /** Set for curriculum lessons: the catalog outcome the lesson is aligned to. */
+  curriculum?: LessonCurriculum | null;
 };
 
 export type ClassInfo = { code: string; name: string; term: string; professor: string; createdAt: string };
 
 export type ClassRecord = ClassInfo & { updatedAt: string; lectures: Lecture[] };
 
-export type PublicLecture = { id: string; title: string; publishedAt: string; concepts: Concept[] };
+export type PublicLecture = { id: string; title: string; publishedAt: string; concepts: Concept[]; outcome?: PublishedOutcome | null };
 
 /** The student's view of a class: published lectures only, no drafts. */
 export type PublicClass = ClassInfo & { lectures: PublicLecture[] };
@@ -72,28 +91,59 @@ export function reviewCounts(lecture: Lecture) {
   return { ...counts, kept: counts.approved + counts.pending };
 }
 
-/** Every concept left in has been approved, and at least one is. */
+/** A curriculum lesson: linked to an outcome, or made of blocks (even if its link was lost). */
+export function isCurriculumLesson(lecture: Lecture): boolean {
+  return !!lecture.curriculum || lecture.concepts.some((c) => !!c.block);
+}
+
+/** For a curriculum lesson, what stops publishing; empty for a university lecture. */
+export function curriculumProblems(lecture: Lecture): string[] {
+  if (!isCurriculumLesson(lecture)) return [];
+  if (lecture.concepts.some((c) => !c.block)) return ["Every part of a curriculum lesson must be a lesson block."];
+  return lessonPublishProblems(
+    lecture.curriculum ?? null,
+    lecture.concepts.map((c) => ({ block: c.block as CurriculumBlock, review: c.review })),
+  );
+}
+
+/** Every concept left in has been approved, at least one is, and a curriculum lesson passes its checks. */
 export function canPublish(lecture: Lecture): boolean {
   const { approved, pending } = reviewCounts(lecture);
-  return pending === 0 && approved > 0;
+  return pending === 0 && approved > 0 && curriculumProblems(lecture).length === 0;
 }
 
 /** The approved concepts as students will get them: normalized, and only those complete enough to show. */
 export function approvedConcepts(lecture: Lecture): Concept[] {
   return lecture.concepts
     .filter((c) => c.review === "approved")
-    .map((c) => sanitizeConcept(stripReview(c)))
+    .flatMap((c) => (c.block ? blockConcepts(c.block) : [stripReview(c)]))
+    .map((c) => sanitizeConcept(c))
     .filter((c): c is Concept => c !== null);
 }
 
 function stripReview(concept: DraftConcept): Concept {
   const copy: Partial<DraftConcept> = { ...concept };
   delete copy.review;
+  delete copy.block;
   return copy as Concept;
 }
 
+/** A block as a concept in review: the block is kept, and the concept fields are derived from it. */
+export function draftFromBlock(block: CurriculumBlock, review: ReviewStatus): DraftConcept {
+  return { ...blockConcepts(block)[0], id: block.id, review, block };
+}
+
+function publishedOutcome(lecture: Lecture): PublishedOutcome | null {
+  const c = lecture.curriculum;
+  return c ? { code: c.code, statement: c.statement, sourceUrl: c.sourceUrl } : null;
+}
+
 export function publishLecture(lecture: Lecture, now: string): Lecture {
-  return { ...lecture, updatedAt: now, published: { at: now, title: lecture.title, concepts: approvedConcepts(lecture) } };
+  return {
+    ...lecture,
+    updatedAt: now,
+    published: { at: now, title: lecture.title, concepts: approvedConcepts(lecture), outcome: publishedOutcome(lecture) },
+  };
 }
 
 export function unpublishLecture(lecture: Lecture, now: string): Lecture {
@@ -120,8 +170,39 @@ export function publicView(record: ClassRecord): PublicClass {
     createdAt: record.createdAt,
     lectures: record.lectures
       .filter((l): l is Lecture & { published: PublishedSnapshot } => l.published !== null && l.published.concepts.length > 0)
-      .map((l) => ({ id: l.id, title: l.published.title, publishedAt: l.published.at, concepts: l.published.concepts })),
+      .map((l) => ({
+        id: l.id,
+        title: l.published.title,
+        publishedAt: l.published.at,
+        concepts: l.published.concepts,
+        ...(l.published.outcome ? { outcome: l.published.outcome } : {}),
+      })),
   };
+}
+
+/**
+ * Server-side guard on publishing: a lecture whose snapshot is new in `next`
+ * must be publishable, and its snapshot must be exactly its approved content.
+ * Returns one message per refused lecture; empty means the save may go ahead.
+ */
+export function publishingProblems(prev: ClassRecord | null, next: ClassRecord): string[] {
+  const problems: string[] = [];
+  for (const lecture of next.lectures) {
+    if (!lecture.published) continue;
+    const before = prev?.lectures.find((l) => l.id === lecture.id)?.published ?? null;
+    if (before && before.at === lecture.published.at) continue; // an existing snapshot, unchanged
+    const name = `"${lecture.title}"`;
+    if (!canPublish(lecture)) {
+      const why = curriculumProblems(lecture)[0] ?? "every kept part must be approved first";
+      problems.push(`${name} cannot be published: ${why}`);
+      continue;
+    }
+    const canon = (list: Concept[]) => JSON.stringify(list.map(sanitizeConcept));
+    if (canon(lecture.published.concepts) !== canon(approvedConcepts(lecture))) {
+      problems.push(`${name} cannot be published: the snapshot must be exactly its approved content.`);
+    }
+  }
+  return problems;
 }
 
 /* ---------- validation of what a professor's browser sends ---------- */
@@ -215,6 +296,8 @@ export function sanitizeConcept(raw: unknown): Concept | null {
     .slice(0, LIMITS.hints);
   const objective = clean(raw.objective, 300);
   const illustration = ILLUSTRATIONS.find((i) => i === raw.illustration);
+  // Only a registered demo with valid, in-range parameters survives (the same gate AI-chosen demos pass).
+  const visualization = raw.visualization === undefined ? null : validateVisualization(raw.visualization);
   return {
     id,
     title,
@@ -225,6 +308,7 @@ export function sanitizeConcept(raw: unknown): Concept | null {
     hints: hints.length > 0 ? hints : ["Read the explanation again and look for the idea the question is about."],
     ...(objective ? { objective } : {}),
     ...(illustration ? { illustration } : {}),
+    ...(visualization ? { visualization } : {}),
   };
 }
 
@@ -268,6 +352,11 @@ function sanitizeDraftConcept(raw: unknown): DraftConcept | null {
   const id = clean(raw.id, 80);
   if (!ID_PATTERN.test(id)) return null;
   const wanted: ReviewStatus = raw.review === "approved" || raw.review === "removed" ? raw.review : "pending";
+  if (raw.block !== undefined) {
+    // A curriculum block: the block is the source of truth; the concept fields are re-derived from it.
+    const block = sanitizeBlock(raw.block);
+    return block ? draftFromBlock(block, wanted) : null;
+  }
   const complete = sanitizeConcept(raw);
   if (complete && conceptProblems(complete).length === 0) return { ...complete, review: wanted };
   const objective = clean(raw.objective, 300);
@@ -311,6 +400,15 @@ function sanitizeLecture(raw: unknown, now: string): Lecture | null {
     .slice(0, LIMITS.conceptsPerLecture);
   const seen = new Set<string>();
   const unique = concepts.filter((c) => (seen.has(c.id) ? false : (seen.add(c.id), true)));
+  // The outcome comes from the catalog, never from what the browser says it is.
+  const curriculum = isObject(raw.curriculum) ? curriculumFromCatalog(raw.curriculum.outcomeId) : null;
+  // An approval stands only for the exact content approved, and only while it passes its checks.
+  const ctx = lessonContext(curriculum);
+  const reviewed = unique.map((c) =>
+    c.block && c.review === "approved" && !approvalStillValid(c.block, ctx, curriculum)
+      ? draftFromBlock({ ...c.block, approvedFingerprint: null }, "pending")
+      : c,
+  );
   let published: PublishedSnapshot | null = null;
   if (isObject(raw.published)) {
     const pc = (Array.isArray(raw.published.concepts) ? raw.published.concepts : [])
@@ -318,22 +416,28 @@ function sanitizeLecture(raw: unknown, now: string): Lecture | null {
       .filter((c): c is Concept => c !== null)
       .slice(0, LIMITS.conceptsPerLecture);
     if (pc.length > 0) {
-      published = { at: iso(raw.published.at, now), title: clean(raw.published.title, LIMITS.title) || "Lecture", concepts: pc };
+      published = {
+        at: iso(raw.published.at, now),
+        title: clean(raw.published.title, LIMITS.title) || "Lecture",
+        concepts: pc,
+        ...(curriculum ? { outcome: { code: curriculum.code, statement: curriculum.statement, sourceUrl: curriculum.sourceUrl } } : {}),
+      };
     }
   }
   return {
     id,
     title: clean(raw.title, LIMITS.title) || "Untitled lecture",
     fileName: clean(raw.fileName, LIMITS.fileName),
-    draftedBy: raw.draftedBy === "ai" ? "ai" : "rules",
+    draftedBy: raw.draftedBy === "ai" ? "ai" : raw.draftedBy === "template" ? "template" : "rules",
     objectives: (Array.isArray(raw.objectives) ? raw.objectives : [])
       .map((o) => clean(o, 300))
       .filter(Boolean)
       .slice(0, LIMITS.objectives),
-    concepts: unique,
+    concepts: reviewed,
     createdAt: iso(raw.createdAt, now),
     updatedAt: iso(raw.updatedAt, now),
     published,
+    ...(curriculum ? { curriculum } : {}),
   };
 }
 

@@ -5,11 +5,11 @@ import { cardClass, lift, MotionLink, press, spring } from "@/components/motion"
 import type { Course, LessonsStore, ProgressStore } from "@/lib/types";
 import { summarizeCourse } from "@/lib/progress";
 
-/** Pastel accents cycle through courses so each card feels distinct. */
+/** Soft tinted tiles cycle through courses so each card feels distinct. */
 export const accents = [
+  { bg: "bg-lavender", text: "text-lavender-dark" },
   { bg: "bg-mint", text: "text-mint-dark" },
   { bg: "bg-sky", text: "text-sky-dark" },
-  { bg: "bg-lavender", text: "text-lavender-dark" },
   { bg: "bg-peach", text: "text-peach-dark" },
 ];
 
@@ -37,16 +37,16 @@ export function CourseCard({
     >
       <div className="flex items-center gap-3">
         <span
-          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-lg font-extrabold shadow-edge ${accent.bg} ${accent.text}`}
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl font-display text-lg font-bold ${accent.bg} ${accent.text}`}
           aria-hidden="true"
         >
           {course.name.replace(/^sample:\s*/i, "").trim().charAt(0).toUpperCase() || "?"}
         </span>
         <div className="min-w-0">
-          <h3 className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base leading-tight font-extrabold">
+          <h3 className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base leading-tight font-bold">
             <span>{course.name}</span>
             {course.sample && (
-              <span className="shrink-0 rounded-full bg-peach px-2 py-0.5 text-[10px] font-extrabold tracking-wide text-peach-dark">
+              <span className="shrink-0 rounded-full bg-peach px-2 py-0.5 text-[10px] font-bold tracking-wide text-peach-dark">
                 SAMPLE
               </span>
             )}
@@ -60,7 +60,7 @@ export function CourseCard({
       </div>
       <div className="mt-5 h-2.5 w-full overflow-hidden rounded-full bg-sand shadow-track">
         <motion.div
-          className="h-full rounded-full bg-coral"
+          className="h-full rounded-full bg-linear-to-r from-[#7c62f5] to-[#5b3fd9]"
           initial={false}
           animate={{ width: `${percent}%` }}
           transition={{ type: "spring", stiffness: 160, damping: 26 }}

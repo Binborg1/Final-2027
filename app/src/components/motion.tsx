@@ -7,8 +7,8 @@ import type { ReactNode } from "react";
 
 /* One spring for every hover and press, so the whole app moves the same way. */
 export const spring = { type: "spring", stiffness: 420, damping: 32, mass: 0.8 } as const;
-export const lift = { y: -4, scale: 1.012 } as const;
-export const press = { scale: 0.985 } as const;
+export const lift = { y: -2 } as const;
+export const press = { scale: 0.995 } as const;
 
 export const MotionLink = motion.create(Link);
 
@@ -63,9 +63,9 @@ export function Rise(props: HTMLMotionProps<"div">) {
   );
 }
 
-/** The card surface: soft gradient, layered shadow, deeper shadow on hover. */
+/** The card surface: white, a hairline border and soft elevation that deepens on hover. */
 export const cardClass =
-  "rounded-3xl border border-line bg-linear-to-b from-white to-[#fff6ea] shadow-card transition-shadow duration-300 hover:shadow-card-hover";
+  "rounded-2xl border border-line bg-white shadow-card transition-shadow duration-300 hover:shadow-card-hover";
 
 /** A card that lifts and scales a touch under the pointer. */
 export function LiftCard({ className = "", ...rest }: HTMLMotionProps<"div">) {

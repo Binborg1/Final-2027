@@ -35,7 +35,7 @@ export function JoinClassForm() {
           autoComplete="off"
           spellCheck={false}
           aria-describedby={error ? "join-error" : undefined}
-          className="mt-1.5 w-full rounded-2xl border border-line bg-white px-4 py-2.5 text-sm font-bold tracking-widest shadow-[inset_0_1px_2px_rgba(90,60,30,0.06)] outline-none transition-shadow focus:border-coral focus:ring-4 focus:ring-coral/20"
+          className="mt-1.5 w-full rounded-2xl border border-line bg-white px-4 py-2.5 text-sm font-bold tracking-widest shadow-[inset_0_1px_2px_rgba(20,30,60,0.07)] outline-none transition-shadow focus:border-coral focus:ring-4 focus:ring-coral/20"
         />
       </label>
       <Button type="submit">Join class</Button>

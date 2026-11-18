@@ -12,11 +12,12 @@ export function formatDay(iso: string) {
 
 export function lectureAsTopic(cls: PublicClass, lecture: PublicLecture): Topic {
   const n = lecture.concepts.length;
+  const aligned = lecture.outcome ? ` This lesson is aligned to ${lecture.outcome.code}: “${lecture.outcome.statement}”` : "";
   return {
     id: lecture.id,
     title: lecture.title,
-    summary: lecture.concepts.map((c) => c.title).join(" · "),
-    whyItMatters: `${cls.professor} reviewed and published these ${n} concept${n === 1 ? "" : "s"} on ${formatDay(lecture.publishedAt)}. Nothing here was written live by an AI.`,
+    summary: lecture.outcome ? `${lecture.outcome.code} · ${lecture.outcome.statement}` : lecture.concepts.map((c) => c.title).join(" · "),
+    whyItMatters: `${cls.professor} reviewed and published these ${n} part${n === 1 ? "" : "s"} on ${formatDay(lecture.publishedAt)}. Nothing here was written live by an AI.${aligned}`,
     concepts: lecture.concepts,
   };
 }

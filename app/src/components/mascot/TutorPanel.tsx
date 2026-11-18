@@ -35,7 +35,7 @@ export function TutorPanel({ line, speech, session, ask }: { line: TutorLine; sp
       <div className="mt-3 w-full">
         {session.active ? (
           <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="Tutor mode controls">
-            <span className="rounded-full bg-lavender px-3 py-1 text-xs font-extrabold text-lavender-dark" aria-live="polite">
+            <span className="rounded-full bg-lavender px-3 py-1 text-xs font-bold text-lavender-dark" aria-live="polite">
               Tutor: {session.paused ? "Paused" : stepLabels[session.step]}
             </span>
             {session.paused ? (

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ClassValidationError, normalizeCode, publicView, sanitizeRecord } from "@/lib/classes/model";
+import { ClassValidationError, normalizeCode, publicView, publishingProblems, sanitizeRecord } from "@/lib/classes/model";
 import { EDIT_KEY_HEADER, keyMatches, readClass, storageConfigured, withoutKey, writeClass } from "@/lib/classes/server";
 
 export const runtime = "nodejs";
@@ -45,6 +45,9 @@ export async function PUT(request: Request, { params }: Context) {
   } catch (error) {
     return fail(400, "bad-request", error instanceof ClassValidationError ? error.message : "Invalid class.");
   }
+  // A new snapshot is accepted only for a publishable lecture, and only as its exact approved content.
+  const refused = publishingProblems(withoutKey(stored), record);
+  if (refused.length > 0) return fail(400, "not-publishable", refused[0]);
   try {
     await writeClass({ ...record, editKeyHash: stored.editKeyHash }, { create: false });
     return NextResponse.json({ ok: true, class: record });

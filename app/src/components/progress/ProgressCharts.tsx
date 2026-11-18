@@ -22,7 +22,7 @@ function ChartCard({ title, aside, children }: { title: string; aside?: ReactNod
   return (
     <figure className={`p-5 md:p-6 ${cardClass}`}>
       <figcaption className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
-        <h2 className="text-sm font-extrabold">{title}</h2>
+        <h2 className="text-sm font-bold">{title}</h2>
         {aside}
       </figcaption>
       {children}
@@ -74,7 +74,7 @@ export function KpiRow({ kpis }: { kpis: Kpis }) {
         <Item key={t.label}>
           <LiftCard className="p-4 md:p-5">
             <p className="text-xs font-bold text-smoke">{t.label}</p>
-            <p className="mt-1 text-4xl font-extrabold tracking-tight">{t.value}</p>
+            <p className="mt-1 text-4xl font-bold tracking-tight">{t.value}</p>
             <p className={`mt-1 text-xs font-semibold ${t.delta.good ? "text-chart-good" : "text-smoke"}`}>{t.delta.text}</p>
           </LiftCard>
         </Item>

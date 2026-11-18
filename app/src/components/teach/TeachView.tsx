@@ -9,7 +9,7 @@ import { FunzaMascot } from "@/components/mascot/FunzaMascot";
 import { MascotSpeechBubble } from "@/components/mascot/MascotSpeechBubble";
 import { SourceBanner } from "@/components/SourceBanner";
 import { Spinner } from "@/components/Spinner";
-import { LearningVisualization } from "@/components/visualizations/LearningVisualization";
+import { ActivityStage } from "@/components/activity/ActivityStage";
 import { useSpeech } from "@/lib/speech/useSpeech";
 import { GIVE_UP_AFTER, useTeachingSession, type TeachingSession } from "@/lib/teaching/useTeachingSession";
 import { checkpointSpeech, vizSignature, type TutorLine } from "@/lib/tutor/tutorLine";
@@ -87,7 +87,7 @@ export function TeachView({ course, topic, sections, savedStatus }: Props) {
 
       <aside className="space-y-4 lg:col-start-2 lg:row-start-2">
         <section className="rounded-3xl border border-line bg-white p-5 shadow-card">
-          <h2 className="text-sm font-extrabold">In this topic</h2>
+          <h2 className="text-sm font-bold">In this topic</h2>
           <ol className="mt-3 space-y-2.5 text-sm">
             {topic.concepts.map((c, i) => {
               const status = t.statusOf(c.id);
@@ -96,7 +96,7 @@ export function TeachView({ course, topic, sections, savedStatus }: Props) {
                 <li key={c.id} className={`flex items-start gap-2.5 ${current ? "font-bold text-charcoal" : "font-semibold text-smoke"}`}>
                   <span
                     aria-hidden="true"
-                    className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-extrabold ${
+                    className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
                       status === "completed" ? "bg-mint-dark text-white" : status === "needs-practice" ? "bg-peach text-peach-dark" : current ? "border-2 border-coral bg-peach/60" : "border-2 border-line bg-white"
                     }`}
                   >
@@ -110,7 +110,7 @@ export function TeachView({ course, topic, sections, savedStatus }: Props) {
         </section>
         {topic.objectives && topic.objectives.length > 0 && (
           <section className="rounded-3xl border border-sky bg-sky/50 p-5">
-            <h2 className="text-sm font-extrabold text-sky-dark">Learning objectives</h2>
+            <h2 className="text-sm font-bold text-sky-dark">Learning objectives</h2>
             <ul className="mt-2 list-disc space-y-1 pl-4 text-sm leading-6 text-charcoal">
               {topic.objectives.map((o) => (
                 <li key={o}>{o}</li>
@@ -133,12 +133,12 @@ function ConceptStage({ t, topic, player }: { t: TeachingSession; topic: Topic; 
   const busy = t.phase === "evaluating" || t.phase === "verifying";
 
   return (
-    <article className="mt-6 rounded-3xl border border-line bg-linear-to-b from-white to-[#fffaf2] p-6 shadow-card md:p-8">
+    <article className="mt-6 rounded-3xl border border-line bg-linear-to-b from-white to-[#f7f9fc] p-6 shadow-card md:p-8">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="rounded-full bg-lavender px-3 py-1 text-xs font-extrabold text-lavender-dark">{topic.title}</span>
+        <span className="rounded-full bg-lavender px-3 py-1 text-xs font-bold text-lavender-dark">{topic.title}</span>
         <span className="rounded-full bg-sand px-3 py-1 text-xs font-bold text-smoke">Adaptive AI</span>
       </div>
-      <h1 className="mt-3 text-3xl font-extrabold tracking-tight">{concept.title}</h1>
+      <h1 className="mt-3 text-3xl font-bold tracking-tight">{concept.title}</h1>
       {concept.objective && <p className="mt-1 text-sm font-semibold text-smoke">Goal: {concept.objective}</p>}
 
       {t.phase === "loading" && (
@@ -176,7 +176,7 @@ function ConceptStage({ t, topic, player }: { t: TeachingSession; topic: Topic; 
           {lesson.visualization && (
             <>
               <Label>See it happen</Label>
-              <LearningVisualization player={player} className="mt-1" />
+              <ActivityStage player={player} className="mt-1" />
             </>
           )}
 
@@ -196,9 +196,9 @@ function ConceptStage({ t, topic, player }: { t: TeachingSession; topic: Topic; 
           {q && t.phase !== "explain" && t.phase !== "complete" && (
             <section className="mt-8 border-t border-line pt-6">
               <div className="flex items-start gap-3">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-linear-to-b from-[#ff8c62] to-[#f06f45] text-sm font-extrabold text-white shadow-button">?</span>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-linear-to-b from-[#6a4ff0] to-[#5b3fd9] text-sm font-bold text-white shadow-button">?</span>
                 <div className="min-w-0 flex-1">
-                  <h2 className="text-lg font-extrabold">{t.questionKind === "verification" ? "One more, to be sure" : "Your turn"}</h2>
+                  <h2 className="text-lg font-bold">{t.questionKind === "verification" ? "One more, to be sure" : "Your turn"}</h2>
                   {t.questionKind === "verification" && <p className="text-xs font-semibold text-smoke">A new question on the same idea.</p>}
                   <p className="mt-2 text-sm leading-6 text-charcoal/85">{q.prompt}</p>
 
@@ -218,7 +218,7 @@ function ConceptStage({ t, topic, player }: { t: TeachingSession; topic: Topic; 
                               selected ? "border-coral bg-peach/60" : "border-line bg-white hover:border-coral/60 hover:bg-sand"
                             }`}
                           >
-                            <span className="font-extrabold text-smoke">({o.id})</span>
+                            <span className="font-bold text-smoke">({o.id})</span>
                             {o.text}
                           </button>
                         );
@@ -325,9 +325,9 @@ function ConceptStage({ t, topic, player }: { t: TeachingSession; topic: Topic; 
 function Finished({ course, topic, statusOf }: { course: Course; topic: Topic; statusOf: (id: string) => ConceptStatus | undefined }) {
   const completed = topic.concepts.filter((c) => statusOf(c.id) === "completed").length;
   return (
-    <article className="mt-6 rounded-3xl border border-line bg-linear-to-b from-white to-[#fffaf2] p-6 shadow-card md:p-8">
+    <article className="mt-6 rounded-3xl border border-line bg-linear-to-b from-white to-[#f7f9fc] p-6 shadow-card md:p-8">
       <div className="text-center">
-        <h1 className="text-3xl font-extrabold tracking-tight">Topic complete</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Topic complete</h1>
         <p className="mx-auto mt-2 max-w-md text-charcoal/85">
           You showed understanding of {completed} of {topic.concepts.length} concepts.
         </p>
@@ -339,7 +339,7 @@ function Finished({ course, topic, statusOf }: { course: Course; topic: Topic; s
             <li key={c.id} className="flex items-center justify-between gap-3 bg-white px-4 py-3">
               <span className="font-semibold">{c.title}</span>
               <span
-                className={`rounded-full px-2.5 py-0.5 text-xs font-extrabold ${
+                className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${
                   status === "completed" ? "bg-mint text-mint-dark" : status === "needs-practice" ? "bg-peach text-peach-dark" : "bg-sand text-smoke"
                 }`}
               >
@@ -362,7 +362,7 @@ function Finished({ course, topic, statusOf }: { course: Course; topic: Topic; s
 /* ---------- pieces ---------- */
 
 function Label({ children }: { children: ReactNode }) {
-  return <p className="mt-5 text-[11px] font-extrabold tracking-wide text-smoke uppercase">{children}</p>;
+  return <p className="mt-5 text-[11px] font-bold tracking-wide text-smoke uppercase">{children}</p>;
 }
 
 function Box({ tone, title, badge, children }: { tone: "mint" | "sky" | "peach" | "lavender" | "sand"; title: string; badge?: string; children: ReactNode }) {
@@ -376,8 +376,8 @@ function Box({ tone, title, badge, children }: { tone: "mint" | "sky" | "peach" 
   return (
     <div className={`mt-4 rounded-2xl border px-4 py-3.5 text-sm leading-6 text-charcoal ${styles}`}>
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h3 className="font-extrabold">{title}</h3>
-        {badge && <span className="rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-extrabold tracking-wide text-smoke uppercase">{badge}</span>}
+        <h3 className="font-bold">{title}</h3>
+        {badge && <span className="rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-bold tracking-wide text-smoke uppercase">{badge}</span>}
       </div>
       <div className="mt-1">{children}</div>
     </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { BrainMascot } from "@/components/BrainMascot";
 import { Button, ButtonLink } from "@/components/Button";
-import { ClassMissing } from "@/components/classes/ui";
+import { ClassMissing, PageHeader } from "@/components/classes/ui";
 import { accents } from "@/components/CourseCard";
 import { Item, LiftCard, Rise, Stagger } from "@/components/motion";
 import { SourceBanner } from "@/components/SourceBanner";
@@ -51,23 +51,24 @@ export default function ClassPage() {
         <span className="text-charcoal">{cls.name}</span>
       </nav>
 
-      <header className="mt-4">
-        <h1 className="text-4xl font-extrabold tracking-tight">{cls.name}</h1>
-        <p className="mt-2 text-smoke">
-          {[cls.professor, cls.term].filter(Boolean).join(" · ")} · {cls.lectures.length} lecture{cls.lectures.length === 1 ? "" : "s"}
-        </p>
-      </header>
+      <div className="mt-4">
+        <PageHeader
+          eyebrow="Class"
+          title={cls.name}
+          description={`${[cls.professor, cls.term].filter(Boolean).join(" · ")} · ${cls.lectures.length} published lesson${cls.lectures.length === 1 ? "" : "s"}`}
+        />
+      </div>
 
       <div className="mt-6">
         <SourceBanner source="class" by={cls.professor} />
       </div>
 
       <section className="mt-10" aria-label="Lectures">
-        <h2 className="text-xl font-extrabold">Lectures</h2>
+        <h2 className="text-xl font-bold">Lessons</h2>
         {cls.lectures.length === 0 ? (
           <Rise className="mt-4 flex flex-col items-center rounded-3xl border border-dashed border-line bg-white/60 p-10 text-center">
             <BrainMascot mood="thinking" size={96} animate />
-            <p className="mt-4 text-lg font-extrabold">Nothing published yet</p>
+            <p className="mt-4 text-lg font-bold">Nothing published yet</p>
             <p className="mt-1 max-w-md text-sm text-smoke">
               Lectures show up here once {cls.professor} reviews and publishes them. You are in the class, so just check back.
             </p>
@@ -83,16 +84,19 @@ export default function ClassPage() {
                 <Item key={lecture.id}>
                   <LiftCard className="flex flex-wrap items-center gap-4 p-5 md:p-6">
                     <span
-                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-lg font-extrabold shadow-edge ${accent.bg} ${accent.text}`}
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-display text-lg font-bold ${accent.bg} ${accent.text}`}
                       aria-hidden="true"
                     >
                       {i + 1}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-lg font-extrabold">{lecture.title}</h3>
+                      <h3 className="text-lg font-bold">{lecture.title}</h3>
                       <p className="mt-1 line-clamp-2 text-sm text-smoke">{topic.summary}</p>
                       <div className="mt-3 flex flex-wrap items-center gap-2 text-xs font-bold">
-                        <span className="rounded-full bg-sand px-2.5 py-0.5 text-smoke">{s.total} concepts</span>
+                        {lecture.outcome && (
+                          <span className="rounded-full bg-lavender px-2.5 py-0.5 text-lavender-dark">Aligned to {lecture.outcome.code}</span>
+                        )}
+                        <span className="rounded-full bg-sand px-2.5 py-0.5 text-smoke">{s.total} steps</span>
                         <span className="rounded-full bg-mint px-2.5 py-0.5 text-mint-dark">{s.completed} completed</span>
                         {s.needsPractice > 0 && (
                           <span className="rounded-full bg-peach px-2.5 py-0.5 text-peach-dark">{s.needsPractice} to practise</span>

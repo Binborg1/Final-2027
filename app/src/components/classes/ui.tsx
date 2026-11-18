@@ -10,7 +10,7 @@ import type { LoadState, SaveState } from "@/lib/classes/useEditableClass";
 
 /** An input's look without margin or width, for rows that set their own. */
 export const fieldBase =
-  "rounded-2xl border border-line bg-white px-4 py-2.5 text-sm leading-6 shadow-[inset_0_1px_2px_rgba(90,60,30,0.06)] outline-none transition-shadow focus:border-coral focus:ring-4 focus:ring-coral/20";
+  "rounded-xl border border-line bg-white px-3.5 py-2.5 text-sm leading-6 shadow-[inset_0_1px_1px_rgba(17,24,52,0.04)] outline-none transition-shadow focus:border-coral focus:ring-4 focus:ring-coral/15";
 
 export const fieldClass = `mt-1.5 w-full ${fieldBase}`;
 
@@ -54,13 +54,13 @@ export function SaveIndicator({ state, error, onRetry }: { state: SaveState; err
 
 export function LectureStateChip({ state, pending }: { state: LectureState; pending: number }) {
   if (state === "published") {
-    return <span className="rounded-full bg-mint px-2.5 py-0.5 text-xs font-extrabold text-mint-dark">Published</span>;
+    return <span className="rounded-full bg-mint px-2.5 py-0.5 text-xs font-bold text-mint-dark">Published</span>;
   }
   if (state === "changed") {
-    return <span className="rounded-full bg-peach px-2.5 py-0.5 text-xs font-extrabold text-peach-dark">Changes not published</span>;
+    return <span className="rounded-full bg-peach px-2.5 py-0.5 text-xs font-bold text-peach-dark">Changes not published</span>;
   }
   return (
-    <span className="rounded-full bg-sand px-2.5 py-0.5 text-xs font-extrabold text-smoke">
+    <span className="rounded-full bg-sand px-2.5 py-0.5 text-xs font-bold text-smoke">
       Draft{pending > 0 ? ` · ${pending} to review` : ""}
     </span>
   );
@@ -87,7 +87,7 @@ export function ClassGate({ load, code }: { load: LoadState; code: string }) {
   if (load.status === "no-key") {
     return (
       <Panel mood="sad">
-        <p className="mt-4 text-lg font-extrabold">This browser can&apos;t edit class {code}</p>
+        <p className="mt-4 text-lg font-bold">This browser can&apos;t edit class {code}</p>
         <p className="mt-1 max-w-md text-sm text-smoke">
           Only the browser that created a class can edit it. Open the private edit link you copied on that browser, or
           ask whoever created the class for it. Students join with the code on the My Courses page instead.
@@ -101,7 +101,7 @@ export function ClassGate({ load, code }: { load: LoadState; code: string }) {
   if (load.status === "error") {
     return (
       <Panel mood="sad">
-        <p className="mt-4 text-lg font-extrabold">Class {code} could not be loaded</p>
+        <p className="mt-4 text-lg font-bold">Class {code} could not be loaded</p>
         <p className="mt-1 max-w-md text-sm text-smoke">{load.message}</p>
         <Button className="mt-6" onClick={() => window.location.reload()}>
           Try again
@@ -112,10 +112,68 @@ export function ClassGate({ load, code }: { load: LoadState; code: string }) {
   return null;
 }
 
+/** A class code, one character per box so it is easy to read off a projector or copy by hand. */
+export function ClassCode({ code, size = "lg" }: { code: string; size?: "lg" | "sm" }) {
+  const box =
+    size === "lg"
+      ? "h-14 w-11 rounded-xl border border-line bg-white text-2xl text-charcoal shadow-card sm:h-16 sm:w-12 sm:text-3xl"
+      : "h-6 w-5 rounded-md bg-lavender text-xs text-lavender-dark";
+  return (
+    <span className={`inline-flex ${size === "lg" ? "flex-wrap gap-2" : "shrink-0 gap-0.5"}`}>
+      <span className="sr-only">{code}</span>
+      {code.split("").map((ch, i) => (
+        <span key={i} aria-hidden="true" className={`inline-flex items-center justify-center font-display font-bold ${box}`}>
+          {ch}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+/** A page's title block: optional eyebrow, title, description and actions, consistent across screens. */
+export function PageHeader({
+  eyebrow,
+  title,
+  description,
+  actions,
+  children,
+}: {
+  eyebrow?: ReactNode;
+  title: ReactNode;
+  description?: ReactNode;
+  actions?: ReactNode;
+  children?: ReactNode;
+}) {
+  return (
+    <header className="flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
+      <div className="min-w-0 flex-1">
+        {eyebrow && <div className="mb-2 text-xs font-semibold tracking-wider text-violet uppercase">{eyebrow}</div>}
+        <h1 className="text-3xl font-bold tracking-tight md:text-[2.15rem]">{title}</h1>
+        {description && <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-smoke">{description}</p>}
+        {children}
+      </div>
+      {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
+    </header>
+  );
+}
+
+/** An honest placeholder for something that is designed but not built. Never shows invented data. */
+export function NotBuiltYet({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <section className="rounded-2xl border border-dashed border-[#cfc7b8] bg-white/70 p-6">
+      <p className="inline-flex items-center gap-2 rounded-md bg-sand px-2 py-0.5 text-[11px] font-semibold tracking-wide text-smoke uppercase">
+        Planned · not built yet
+      </p>
+      <h2 className="mt-3 text-lg font-bold">{title}</h2>
+      <div className="mt-2 text-sm leading-relaxed text-smoke">{children}</div>
+    </section>
+  );
+}
+
 export function ClassMissing({ code, message }: { code: string; message?: string }) {
   return (
     <Panel mood="sad">
-      <p className="mt-4 text-lg font-extrabold">{message ?? `There is no class with the code ${code}`}</p>
+      <p className="mt-4 text-lg font-bold">{message ?? `There is no class with the code ${code}`}</p>
       {!message && (
         <p className="mt-1 max-w-md text-sm text-smoke">
           Check the code with your professor. Class codes have six letters and numbers, like K7Q2PX.

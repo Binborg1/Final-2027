@@ -6,7 +6,7 @@ import { useState, type ReactNode } from "react";
 import { Button, ButtonLink } from "@/components/Button";
 import { TutorPanel } from "@/components/mascot/TutorPanel";
 import { SourceBanner } from "@/components/SourceBanner";
-import { LearningVisualization } from "@/components/visualizations/LearningVisualization";
+import { ActivityStage } from "@/components/activity/ActivityStage";
 import { evaluateAnswer } from "@/lib/engine/evaluate";
 import { useSpeech } from "@/lib/speech/useSpeech";
 import { recordConceptResult, useProgress } from "@/lib/storage";
@@ -33,6 +33,8 @@ type Props = {
   backHref?: string;
   /** Who reviewed the lessons, for the class banner. */
   reviewedBy?: string;
+  /** For a curriculum lesson: the official outcome it is aligned to. */
+  outcome?: { code: string; statement: string } | null;
   /** The "ask Funza" box writes new text live; off where students must see only reviewed material. */
   allowAsk?: boolean;
 };
@@ -50,7 +52,7 @@ const cardSwap = {
  * The tutor mascot narrates each step and reacts to the answers. A concept
  * with a visualization also gets a demo the tutor runs and asks about.
  */
-export function LessonView({ course, topic, source, backHref = `/courses/${course.id}`, reviewedBy, allowAsk = true }: Props) {
+export function LessonView({ course, topic, source, backHref = `/courses/${course.id}`, reviewedBy, outcome = null, allowAsk = true }: Props) {
   const progress = useProgress();
   const [queue, setQueue] = useState<Concept[]>(topic.concepts);
   const [index, setIndex] = useState(0);
@@ -187,7 +189,7 @@ export function LessonView({ course, topic, source, backHref = `/courses/${cours
           />
         </div>
         <div className="mt-4">
-          <SourceBanner source={source} by={reviewedBy} />
+          <SourceBanner source={source} by={reviewedBy} outcome={outcome} />
         </div>
 
         <AnimatePresence mode="wait" initial={false}>
@@ -231,7 +233,7 @@ export function LessonView({ course, topic, source, backHref = `/courses/${cours
 
       <aside className="space-y-4 lg:col-start-2 lg:row-start-2">
         <section className="rounded-3xl border border-line bg-white p-5 shadow-card">
-          <h2 className="text-sm font-extrabold">In this topic</h2>
+          <h2 className="text-sm font-bold">In this topic</h2>
           <ol className="mt-3 space-y-2.5 text-sm">
             {topic.concepts.map((c) => {
               const current = concept?.id === c.id;
@@ -248,7 +250,7 @@ export function LessonView({ course, topic, source, backHref = `/courses/${cours
           </ol>
         </section>
         <section className="rounded-3xl border border-sky bg-sky/50 p-5">
-          <h2 className="text-sm font-extrabold text-sky-dark">About this topic</h2>
+          <h2 className="text-sm font-bold text-sky-dark">About this topic</h2>
           <p className="mt-2 text-sm leading-6 text-charcoal">{topic.whyItMatters}</p>
         </section>
       </aside>
@@ -296,15 +298,15 @@ function ConceptCard({
       : question.sampleAnswer;
 
   return (
-    <article className="mt-6 rounded-3xl border border-line bg-linear-to-b from-white to-[#fffaf2] p-6 shadow-card md:p-8">
-      <span className="inline-flex rounded-full bg-lavender px-3 py-1 text-xs font-extrabold text-lavender-dark">
+    <article className="mt-6 rounded-3xl border border-line bg-linear-to-b from-white to-[#f7f9fc] p-6 shadow-card md:p-8">
+      <span className="inline-flex rounded-full bg-lavender px-3 py-1 text-xs font-bold text-lavender-dark">
         {topic.title}
       </span>
-      <h1 className="mt-3 text-3xl font-extrabold tracking-tight">{concept.title}</h1>
+      <h1 className="mt-3 text-3xl font-bold tracking-tight">{concept.title}</h1>
       <p className="mt-3 text-base leading-7 text-charcoal/85">{concept.explanation}</p>
       {concept.visualization ? (
         <div className="mt-5">
-          <LearningVisualization player={player} />
+          <ActivityStage player={player} />
         </div>
       ) : (
         concept.illustration && (
@@ -316,11 +318,11 @@ function ConceptCard({
 
       <section className="mt-8 border-t border-line pt-6">
         <div className="flex items-start gap-3">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-linear-to-b from-[#ff8c62] to-[#f06f45] text-sm font-extrabold text-white shadow-button">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-linear-to-b from-[#6a4ff0] to-[#5b3fd9] text-sm font-bold text-white shadow-button">
             ?
           </span>
           <div className="min-w-0 flex-1">
-            <h2 className="text-lg font-extrabold">Apply it</h2>
+            <h2 className="text-lg font-bold">Apply it</h2>
             <p className="mt-1 text-sm leading-6 text-charcoal/85">{concept.question.prompt}</p>
 
             {concept.question.kind === "mcq" ? (
@@ -421,9 +423,9 @@ type SummaryProps = {
 
 function Summary({ backHref, showProgressLink, topic, statusOf, missed, completed, onPractiseMissed }: SummaryProps) {
   return (
-    <article className="mt-6 rounded-3xl border border-line bg-linear-to-b from-white to-[#fffaf2] p-6 shadow-card md:p-8">
+    <article className="mt-6 rounded-3xl border border-line bg-linear-to-b from-white to-[#f7f9fc] p-6 shadow-card md:p-8">
       <div className="text-center">
-        <h1 className="text-3xl font-extrabold tracking-tight">Topic complete</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Topic complete</h1>
         <p className="mx-auto mt-2 max-w-md text-charcoal/85">
           You showed understanding of {completed} of {topic.concepts.length} concepts
           {missed.length > 0 ? `; ${missed.length} marked for more practice.` : "."}
@@ -472,8 +474,8 @@ function FeedbackBox({
     reveal: { box: "border-peach bg-peach/60", title: "text-peach-dark" },
   }[tone];
   return (
-    <div className={`rounded-2xl border px-4 py-3.5 text-sm leading-6 text-charcoal shadow-[0_1px_2px_rgba(90,60,30,0.05)] ${styles.box}`}>
-      <p className={`font-extrabold ${styles.title}`}>{title}</p>
+    <div className={`rounded-2xl border px-4 py-3.5 text-sm leading-6 text-charcoal shadow-[0_1px_2px_rgba(20,30,60,0.06)] ${styles.box}`}>
+      <p className={`font-bold ${styles.title}`}>{title}</p>
       <div className="mt-1">{children}</div>
     </div>
   );
@@ -484,7 +486,7 @@ function StatusDot({ status, current }: { status?: ConceptStatus; current: boole
     return (
       <span
         aria-label="Completed"
-        className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint-dark text-[11px] font-extrabold text-white"
+        className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint-dark text-[11px] font-bold text-white"
       >
         &#10003;
       </span>
@@ -494,7 +496,7 @@ function StatusDot({ status, current }: { status?: ConceptStatus; current: boole
     return (
       <span
         aria-label="Needs practice"
-        className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-peach text-[11px] font-extrabold text-peach-dark"
+        className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-peach text-[11px] font-bold text-peach-dark"
       >
         !
       </span>
@@ -510,10 +512,10 @@ function StatusDot({ status, current }: { status?: ConceptStatus; current: boole
 
 function StatusLabel({ status }: { status?: ConceptStatus }) {
   if (status === "completed") {
-    return <span className="rounded-full bg-mint px-2.5 py-0.5 text-xs font-extrabold text-mint-dark">Completed</span>;
+    return <span className="rounded-full bg-mint px-2.5 py-0.5 text-xs font-bold text-mint-dark">Completed</span>;
   }
   if (status === "needs-practice") {
-    return <span className="rounded-full bg-peach px-2.5 py-0.5 text-xs font-extrabold text-peach-dark">Needs practice</span>;
+    return <span className="rounded-full bg-peach px-2.5 py-0.5 text-xs font-bold text-peach-dark">Needs practice</span>;
   }
   return <span className="rounded-full bg-sand px-2.5 py-0.5 text-xs font-bold text-smoke">Not started</span>;
 }

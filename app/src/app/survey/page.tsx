@@ -56,7 +56,7 @@ export default function SurveyPage() {
     return (
       <div className="mx-auto max-w-lg py-10 text-center">
         <BrainMascot mood="celebrating" size={112} animate />
-        <h1 className="mt-4 text-3xl font-extrabold tracking-tight">Thank you!</h1>
+        <h1 className="mt-4 text-3xl font-bold tracking-tight">Thank you!</h1>
         <p className="mt-2 text-charcoal/85">
           Your answers are in{status.participant ? ` as participant ${status.participant}` : ""}. Please let the observer know you are done.
         </p>
@@ -72,7 +72,7 @@ export default function SurveyPage() {
       <header className="flex items-center gap-4">
         <BrainMascot mood="happy" size={72} animate />
         <div>
-          <h1 className="text-2xl font-extrabold tracking-tight">Funza usability questionnaire</h1>
+          <h1 className="text-2xl font-bold tracking-tight">Funza usability questionnaire</h1>
           <p className="mt-1 text-sm text-smoke">About 8 minutes. Anonymous, used only by our team (Aubin and Chop, ENSE 400). We are testing the app, not you.</p>
         </div>
       </header>
@@ -84,7 +84,7 @@ export default function SurveyPage() {
 
       {SURVEY.map((section) => (
         <section key={section.id} className="mt-8 rounded-3xl border border-line bg-white p-5 shadow-card">
-          <h2 className="text-lg font-extrabold">{section.title}</h2>
+          <h2 className="text-lg font-bold">{section.title}</h2>
           {section.intro && <p className="mt-1 text-sm text-smoke">{section.intro}</p>}
           <div className="mt-4 space-y-5">
             {section.items.map((item) => (
@@ -149,7 +149,7 @@ function Item({ item, value, onChange, other, onOther }: { item: SurveyItem; val
                     role="radio"
                     aria-checked={on}
                     onClick={() => onChange(num)}
-                    className={`h-11 flex-1 rounded-full border text-sm font-extrabold transition-colors focus-visible:ring-4 focus-visible:ring-coral/30 focus-visible:outline-none ${
+                    className={`h-11 flex-1 rounded-full border text-sm font-bold transition-colors focus-visible:ring-4 focus-visible:ring-coral/30 focus-visible:outline-none ${
                       on ? "border-coral bg-coral text-white shadow-button" : "border-line bg-white text-charcoal hover:bg-sand"
                     }`}
                   >
@@ -186,7 +186,7 @@ function Item({ item, value, onChange, other, onOther }: { item: SurveyItem; val
                     on ? "border-coral bg-peach/60" : "border-line bg-white hover:bg-sand"
                   }`}
                 >
-                  <span aria-hidden="true" className={`flex h-5 w-5 shrink-0 items-center justify-center border-2 text-[11px] font-extrabold ${item.multi ? "rounded-md" : "rounded-full"} ${on ? "border-coral bg-coral text-white" : "border-line bg-white"}`}>
+                  <span aria-hidden="true" className={`flex h-5 w-5 shrink-0 items-center justify-center border-2 text-[11px] font-bold ${item.multi ? "rounded-md" : "rounded-full"} ${on ? "border-coral bg-coral text-white" : "border-line bg-white"}`}>
                     {on ? "✓" : ""}
                   </span>
                   {option}
@@ -219,7 +219,7 @@ function Item({ item, value, onChange, other, onOther }: { item: SurveyItem; val
                       onChange(next);
                     }}
                     aria-label={`Rank for: ${option}`}
-                    className={`w-16 rounded-xl border px-2 py-1.5 text-sm font-extrabold outline-none focus:border-coral focus:ring-4 focus:ring-coral/20 ${current && duplicates.has(current) ? "border-coral bg-peach/60" : "border-line bg-white"}`}
+                    className={`w-16 rounded-xl border px-2 py-1.5 text-sm font-bold outline-none focus:border-coral focus:ring-4 focus:ring-coral/20 ${current && duplicates.has(current) ? "border-coral bg-peach/60" : "border-line bg-white"}`}
                   >
                     <option value="">–</option>
                     {item.options.map((_, n) => (

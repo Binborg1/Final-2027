@@ -1,51 +1,69 @@
 @import "tailwindcss";
 
+/*
+ * Funza's design system: a calm, premium teaching studio. A midnight navy
+ * sidebar frames a warm off-white workspace; violet marks primary actions,
+ * teal is a restrained accent for verified and successful states. Elevation
+ * is soft and quiet. The semantic token names (coral = primary, mint =
+ * success, sky = info, peach = caution, lavender = violet tint) are kept so
+ * every screen picks the palette up from one place.
+ */
+
 @theme {
-  /* Palette */
-  --color-cream: #fff9f0;
-  --color-sand: #fff3e3;
-  --color-coral: #ff8055;
-  --color-coral-dark: #ea6a3f;
-  --color-charcoal: #252525;
-  --color-smoke: #6b645c;
-  --color-line: #eee3d4;
-  --color-mint: #d9f3e5;
-  --color-mint-dark: #1f8a5b;
-  --color-sky: #dbecfb;
-  --color-sky-dark: #2f6fb5;
-  --color-peach: #ffe3d3;
-  --color-peach-dark: #cf5a2e;
-  --color-lavender: #e9e2fb;
-  --color-lavender-dark: #6f52bf;
+  /* Frame */
+  --color-navy-950: #0b1124;
+  --color-navy-900: #111936;
+  --color-navy-800: #1a2449;
+  --color-navy-700: #26325e;
+  --color-navy-300: #a9b3d3;
+
+  /* Accents */
+  --color-violet: #5b3fd9;
+  --color-violet-strong: #4a2fc2;
+  --color-teal: #0f9488;
+  --color-teal-strong: #0f766e;
+
+  /* Semantic palette */
+  --color-cream: #f7f5f0; /* the workspace */
+  --color-sand: #efebe3; /* neutral tile */
+  --color-coral: #5b3fd9; /* primary */
+  --color-coral-dark: #b42318; /* errors and destructive text */
+  --color-charcoal: #1a1f36;
+  --color-smoke: #5b6077;
+  --color-line: #e4dfd5;
+  --color-mint: #dcf3ee;
+  --color-mint-dark: #0f766e;
+  --color-sky: #e3ecfb;
+  --color-sky-dark: #2850a8;
+  --color-peach: #fdf0d5;
+  --color-peach-dark: #8a5300;
+  --color-lavender: #ece8fd;
+  --color-lavender-dark: #4a2fc2;
   --color-blush: #ffb3b3;
 
   /* Chart marks: status good / warning, single-series accent (validated on white) */
-  --color-chart-good: #1f8a5b;
-  --color-chart-warning: #c2410c;
-  --color-chart-accent: #ea6a3f;
+  --color-chart-good: #0f766e;
+  --color-chart-warning: #b45309;
+  --color-chart-accent: #5b3fd9;
 
-  /* Depth */
-  --shadow-soft: 0 10px 30px -14px rgba(90, 60, 30, 0.25), 0 1px 2px rgba(90, 60, 30, 0.05);
-  --shadow-lift: 0 18px 40px -18px rgba(90, 60, 30, 0.3), 0 2px 4px rgba(90, 60, 30, 0.05);
-  --shadow-coral: 0 8px 20px -8px rgba(255, 128, 85, 0.65);
+  --radius-3xl: 1.25rem;
 
-  /* Layered depth: a hard 3px edge gives thickness; contact, mid and ambient shadows give lift */
-  --shadow-card:
-    inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 3px 0 0 #e8dac5, 0 1px 2px rgba(80, 50, 20, 0.05),
-    0 10px 24px -10px rgba(80, 50, 20, 0.2), 0 26px 44px -22px rgba(80, 50, 20, 0.22);
-  --shadow-card-hover:
-    inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 5px 0 0 #e8dac5, 0 2px 4px rgba(80, 50, 20, 0.06),
-    0 18px 36px -14px rgba(80, 50, 20, 0.26), 0 40px 64px -28px rgba(80, 50, 20, 0.3);
-  --shadow-button:
-    inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 3px 0 0 #d4512a, 0 8px 18px -8px rgba(234, 106, 63, 0.55);
-  --shadow-button-hover:
-    inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 4px 0 0 #d4512a, 0 14px 26px -10px rgba(234, 106, 63, 0.6);
-  --shadow-button-pressed:
-    inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 0 0 #d4512a, 0 4px 10px -6px rgba(234, 106, 63, 0.5);
-  --shadow-secondary: inset 0 1px 0 #fff, 0 3px 0 0 #e8dac5, 0 8px 18px -10px rgba(80, 50, 20, 0.18);
-  --shadow-secondary-pressed: inset 0 1px 0 #fff, 0 1px 0 0 #e8dac5, 0 3px 8px -6px rgba(80, 50, 20, 0.15);
-  --shadow-track: inset 0 2px 3px rgba(80, 50, 20, 0.12);
-  --shadow-edge: 0 2px 0 0 rgba(60, 40, 20, 0.1);
+  /* Wide enough for the lesson builder's three panels beside the sidebar */
+  --breakpoint-wide: 85rem;
+
+  /* Soft elevation */
+  --shadow-soft: 0 8px 24px -12px rgba(17, 24, 52, 0.18);
+  --shadow-lift: 0 16px 36px -16px rgba(17, 24, 52, 0.22);
+  --shadow-coral: 0 8px 20px -8px rgba(91, 63, 217, 0.5);
+  --shadow-card: 0 1px 2px rgba(17, 24, 52, 0.04), 0 6px 18px -8px rgba(17, 24, 52, 0.1);
+  --shadow-card-hover: 0 2px 4px rgba(17, 24, 52, 0.05), 0 14px 30px -12px rgba(17, 24, 52, 0.16);
+  --shadow-button: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 1px 2px rgba(45, 25, 120, 0.25), 0 6px 14px -6px rgba(91, 63, 217, 0.55);
+  --shadow-button-hover: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 2px 4px rgba(45, 25, 120, 0.25), 0 10px 22px -8px rgba(91, 63, 217, 0.6);
+  --shadow-button-pressed: inset 0 1px 2px rgba(0, 0, 0, 0.18), 0 1px 1px rgba(45, 25, 120, 0.25);
+  --shadow-secondary: 0 1px 2px rgba(17, 24, 52, 0.06);
+  --shadow-secondary-pressed: inset 0 1px 2px rgba(17, 24, 52, 0.1);
+  --shadow-track: inset 0 1px 2px rgba(17, 24, 52, 0.08);
+  --shadow-edge: 0 1px 2px rgba(17, 24, 52, 0.08);
 
   /* Motion */
   --animate-fade-up: fade-up 0.35s ease-out both;
@@ -84,13 +102,43 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: var(--color-cream);
+  background-color: var(--color-cream);
+  background-image: radial-gradient(1100px 520px at 100% -8%, rgba(91, 63, 217, 0.07), transparent 62%);
+  background-repeat: no-repeat;
   color: var(--color-charcoal);
   font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.012em;
+}
+
+@layer components {
+  /* The page column; pages that need room (the lesson builder) mark themselves `page-wide`. */
+  .app-container {
+    max-width: 72rem;
+  }
+  .app-container:has(.page-wide) {
+    max-width: 98rem;
+  }
+}
+
+@media print {
+  aside[data-app-sidebar],
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
