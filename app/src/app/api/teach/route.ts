@@ -1,152 +1,86 @@
 import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
+import { parseJsonObject, SchemaError } from "@/lib/ai/json";
+import { itemPrompt, resourcePrompt, type PromptOutcome } from "@/lib/ai/resource-prompts";
 import { AiError, aiConfig, complete } from "@/lib/ai/server";
-import { curriculumPrompt, draftPrompt, evaluatePrompt, lessonPrompt, planPrompt, questionPrompt } from "@/lib/ai/teach-prompts";
-import {
-  parseJsonObject,
-  SchemaError,
-  validateCurriculumBlocks,
-  validateDraft,
-  validateEvaluation,
-  validateLesson,
-  validatePlan,
-  validateQuestion,
-} from "@/lib/ai/teach-schema";
-import { allowedIndicatorIds, usableOutcome } from "@/lib/curriculum/catalog";
-import { BLOCK_KINDS, type BlockKind } from "@/lib/curriculum/lesson";
-import { validateQuestion as validateAiQuestion } from "@/lib/ai/teach-schema";
+import { findOutcome, outcomeProblems } from "@/lib/curriculum/catalog";
+import { validateItemReply, validateResourceReply } from "@/lib/resources/ai-reply";
+import { isQuestionKind, QTYPE_ORDER } from "@/lib/resources/kinds";
+import { isObject, sanitizeBrief, str } from "@/lib/resources/sanitize";
+import type { Difficulty, QType } from "@/lib/resources/types";
 
 export const runtime = "nodejs";
 
 /**
- * The adaptive teaching endpoint. Four tasks, each one model call returning
- * validated JSON. Course text and student answers are used for the request
- * and not logged.
+ * Drafting for the teacher workspace. Every request names catalog outcomes; the
+ * server re-reads them, checks their wording against its fingerprint, and sends
+ * the model only those ids and their verbatim statements. Replies are validated
+ * before they leave the server. Material text is used for the request only.
  */
-
-const LIMITS = { outline: 16000, source: 8000, answer: 3000, prompts: 10 } as const;
-
-type Body = Record<string, unknown>;
-
-const text = (v: unknown, max: number, fallback = "") => (typeof v === "string" ? v.slice(0, max) : fallback);
-const conceptOf = (v: unknown) => {
-  const c = v && typeof v === "object" ? (v as Record<string, unknown>) : {};
-  return { title: text(c.title, 120, "Concept"), objective: text(c.objective, 300) || undefined };
-};
 
 const sha256 = (s: string) => createHash("sha256").update(s, "utf8").digest("hex");
 
+/** Tells the browser whether an AI provider is configured, without revealing the key. */
+export async function GET() {
+  const cfg = aiConfig();
+  return NextResponse.json(cfg ? { configured: true, provider: cfg.provider, model: cfg.model } : { configured: false });
+}
+
+function outcomesFor(ids: string[]): { ok: true; outcomes: PromptOutcome[] } | { ok: false; message: string } {
+  if (ids.length === 0) return { ok: false, message: "Choose at least one curriculum outcome." };
+  const outcomes: PromptOutcome[] = [];
+  for (const id of ids) {
+    const found = findOutcome(id);
+    if (!found) return { ok: false, message: `"${id.slice(0, 40)}" is not in Funza's curriculum catalog.` };
+    const problems = outcomeProblems(found, sha256);
+    if (problems.length > 0) return { ok: false, message: problems[0] };
+    outcomes.push({ id, code: found.outcome.code, statement: found.outcome.statement, course: found.course.name, unit: found.unit.name });
+  }
+  return { ok: true, outcomes };
+}
+
+const bad = (message: string, reason = "bad-request") => NextResponse.json({ ok: false, reason, message }, { status: 400 });
+
 export async function POST(request: Request) {
-  let body: Body;
+  let body: unknown;
   try {
-    body = (await request.json()) as Body;
+    body = await request.json();
   } catch {
-    return NextResponse.json({ ok: false, reason: "bad-request", message: "Invalid JSON." }, { status: 400 });
+    return bad("Invalid JSON.");
   }
-  const task = body.task;
-  const courseName = text(body.courseName, 80, "this course");
+  if (!isObject(body)) return bad("Invalid request.");
+  const brief = sanitizeBrief(body.brief);
+  if (!brief) return bad("The brief is missing or malformed.");
+  const checked = outcomesFor(brief.outcomeIds);
+  if (!checked.ok) return bad(checked.message, "invalid-outcome");
 
-  // Curriculum tasks: the outcome must be in the verified catalog, with its wording intact, before anything else.
-  let outcome: Extract<ReturnType<typeof usableOutcome>, { ok: true }>["found"] | null = null;
-  if (task === "curriculum-lesson" || task === "curriculum-block") {
-    const usable = usableOutcome(body.outcomeId, sha256);
-    if (!usable.ok) return NextResponse.json({ ok: false, reason: "invalid-outcome", message: usable.reason }, { status: 400 });
-    outcome = usable.found;
-  }
-
-  if (!aiConfig()) {
-    return NextResponse.json({ ok: false, reason: "not-configured", message: "No AI provider is configured on the server." });
-  }
+  const cfg = aiConfig();
+  if (!cfg) return NextResponse.json({ ok: false, reason: "not-configured", message: "No AI provider is configured on this Funza server." });
 
   try {
-    switch (task) {
-      case "curriculum-lesson":
-      case "curriculum-block": {
-        if (!outcome) return bad("Missing outcome.");
-        const kinds: BlockKind[] =
-          task === "curriculum-lesson" ? [...BLOCK_KINDS] : BLOCK_KINDS.filter((k) => k === body.kind);
-        if (kinds.length === 0) return bad("Unknown block kind.");
-        const o = outcome.outcome;
-        const { system, user } = curriculumPrompt(
-          { id: o.id, code: o.code, statement: o.statement, course: outcome.course.name, unit: outcome.unit.name },
-          kinds,
-        );
-        const raw = await complete({ system, user, maxTokens: task === "curriculum-lesson" ? 7000 : 2500 });
-        const blocks = validateCurriculumBlocks(parseJsonObject(raw), {
-          allowedOutcomeIds: [o.id],
-          allowedIndicatorIds: [...allowedIndicatorIds(o)],
-          kinds,
-          ids: task === "curriculum-block" && typeof body.blockId === "string" ? [body.blockId.slice(0, 40)] : undefined,
-        });
-        return NextResponse.json({ ok: true, data: blocks });
-      }
-      case "plan": {
-        const outline = text(body.outline, LIMITS.outline);
-        const sectionCount = Number.isInteger(body.sectionCount) ? (body.sectionCount as number) : 0;
-        if (!outline || sectionCount <= 0) return bad("Missing document outline.");
-        const { system, user } = planPrompt(courseName, text(body.fileName, 120, "document"), outline);
-        const raw = await complete({ system, user, maxTokens: 4000 });
-        return NextResponse.json({ ok: true, data: validatePlan(parseJsonObject(raw), sectionCount) });
-      }
-      case "lesson": {
-        const source = text(body.source, LIMITS.source);
-        if (!source) return bad("Missing source excerpts.");
-        const { system, user } = lessonPrompt(courseName, conceptOf(body.concept), source);
-        const raw = await complete({ system, user, maxTokens: 4000 });
-        return NextResponse.json({ ok: true, data: validateLesson(parseJsonObject(raw)) });
-      }
-      case "draft": {
-        const source = text(body.source, LIMITS.source);
-        if (!source) return bad("Missing source excerpts.");
-        const { system, user } = draftPrompt(courseName, conceptOf(body.concept), source);
-        const raw = await complete({ system, user, maxTokens: 3000 });
-        return NextResponse.json({ ok: true, data: validateDraft(parseJsonObject(raw)) });
-      }
-      case "evaluate": {
-        const answer = text(body.answer, LIMITS.answer).trim();
-        const explanation = text(body.explanation, 4000);
-        if (!answer || !explanation) return bad("Missing answer or explanation.");
-        const question = validateAiQuestion(body.question);
-        const attempt = Number.isInteger(body.attempt) && (body.attempt as number) > 0 ? (body.attempt as number) : 1;
-        const { system, user } = evaluatePrompt({
-          courseName,
-          concept: conceptOf(body.concept),
-          explanation,
-          question,
-          answer,
-          attempt,
-          source: text(body.source, LIMITS.source),
-        });
-        const raw = await complete({ system, user, maxTokens: 2500 });
-        return NextResponse.json({ ok: true, data: validateEvaluation(parseJsonObject(raw)) });
-      }
-      case "question": {
-        const explanation = text(body.explanation, 4000);
-        if (!explanation) return bad("Missing explanation.");
-        const previousPrompts = Array.isArray(body.previousPrompts)
-          ? body.previousPrompts.filter((p): p is string => typeof p === "string").slice(0, LIMITS.prompts).map((p) => p.slice(0, 600))
-          : [];
-        const { system, user } = questionPrompt({
-          courseName,
-          concept: conceptOf(body.concept),
-          explanation,
-          previousPrompts,
-          source: text(body.source, LIMITS.source),
-        });
-        const raw = await complete({ system, user, maxTokens: 1500 });
-        return NextResponse.json({ ok: true, data: validateQuestion(parseJsonObject(raw)) });
-      }
-      default:
-        return bad("Unknown task.");
+    if (body.task === "resource-draft") {
+      if (brief.kind === "visualization") return bad("Interactive graphs are built by Funza, not drafted by AI.");
+      const { system, user } = resourcePrompt(brief, checked.outcomes);
+      const raw = await complete({ system, user, maxTokens: isQuestionKind(brief.kind) ? 9000 : 7000 });
+      const draft = validateResourceReply(brief, parseJsonObject(raw));
+      return NextResponse.json({ ok: true, data: { ...draft, provider: cfg.provider } });
     }
+    if (body.task === "resource-item") {
+      const type = QTYPE_ORDER.find((t) => t === body.type) as QType | undefined;
+      const outcomeId = typeof body.outcomeId === "string" && brief.outcomeIds.includes(body.outcomeId) ? body.outcomeId : brief.outcomeIds[0];
+      if (!type) return bad("Unknown question type.");
+      const marks = typeof body.marks === "number" && body.marks >= 1 && body.marks <= 50 ? Math.round(body.marks) : 1;
+      const difficulty = (["foundational", "grade", "extending"] as const).find((d) => d === body.difficulty) ?? ("grade" as Difficulty);
+      const avoid = (Array.isArray(body.avoid) ? body.avoid : []).map((a) => str(a, 300)).filter(Boolean).slice(0, 40);
+      const { system, user } = itemPrompt(brief, checked.outcomes, { type, marks, difficulty, outcomeId }, str(body.guidance, 300), avoid);
+      const raw = await complete({ system, user, maxTokens: 2500 });
+      return NextResponse.json({ ok: true, data: { item: validateItemReply(brief, parseJsonObject(raw), type, marks), provider: cfg.provider } });
+    }
+    return bad("Unknown task.");
   } catch (error) {
     if (error instanceof AiError) return NextResponse.json({ ok: false, reason: error.code, message: error.message });
-    if (error instanceof SchemaError) return NextResponse.json({ ok: false, reason: "invalid-response", message: `The model's reply could not be used: ${error.message}` });
+    if (error instanceof SchemaError) return NextResponse.json({ ok: false, reason: "invalid-response", message: error.message });
     console.error("Teach request failed:", error instanceof Error ? error.message : "unknown error");
     return NextResponse.json({ ok: false, reason: "provider", message: "The AI request failed." });
   }
-}
-
-function bad(message: string) {
-  return NextResponse.json({ ok: false, reason: "bad-request", message }, { status: 400 });
 }

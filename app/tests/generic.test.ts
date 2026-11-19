@@ -1,20 +1,15 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { validateLesson } from "@/lib/ai/teach-schema";
-import { sampleTopics } from "@/lib/lessons/demo-subjects";
-import { sampleCourses } from "@/lib/lessons/sample";
+import { motionGraph } from "@/lib/resources/graph";
 import { LIMITS } from "@/lib/visualizations/generic/common";
 import { markerAt } from "@/lib/visualizations/generic/functionGraph";
 import { shapesAt } from "@/lib/visualizations/generic/geometryScene";
 import { quantityValues } from "@/lib/visualizations/generic/quantityModel";
 import { packetSteps } from "@/lib/visualizations/packetTransmission";
 import { pcmSteps } from "@/lib/visualizations/pcmSampling";
-import { initialPlayer, playerStatus, reducePlayer, type PlayerContext, type PlayerState } from "@/lib/visualizations/player";
 import { layerSteps } from "@/lib/visualizations/protocolLayers";
 import { checkVisualization, definitionOf, describeVisualizationsForPrompt, validateVisualization } from "@/lib/visualizations/registry";
-import { tutorStateOf } from "@/lib/visualizations/tutorState";
-import { VISUALIZATION_TYPES, type FunctionGraphParams, type GeometrySceneParams, type QuantityModelParams, type VisualizationConfig } from "@/lib/visualizations/types";
-import type { Player } from "@/lib/visualizations/usePlayer";
+import { VISUALIZATION_TYPES, type FunctionGraphParams, type GeometrySceneParams, type QuantityModelParams } from "@/lib/visualizations/types";
 
 /* ---------- a small graph config used throughout ---------- */
 
@@ -86,9 +81,7 @@ test("malformed configs are refused, with a reason, and the lesson falls back", 
   assert.equal(reason({ type: "hologram", params: {} }), 'unsupported type "hologram"');
   assert.equal(reason("function-graph"), "not an object");
 
-  const lesson = validateLesson({ explanation: "x", question: { type: "short", prompt: "q", answerSketch: "a" }, visualization: { type: "function-graph", params: { curves: [{ expression: "x +" }] } } });
-  assert.equal(lesson.visualization, null, "a bad request does not break the lesson");
-  assert.equal(lesson.explanation, "x");
+  assert.equal(validateVisualization({ type: "function-graph", params: { curves: [{ expression: "x +" }] } }), null, "a bad config becomes no visualization, never an error");
 });
 
 test("limits are enforced: parameters, stages and options are capped, stray checkpoints are dropped", () => {
@@ -153,125 +146,27 @@ test("geometry transforms resolve from parameters and stages", () => {
   assert.equal(after[1].visible, false);
 });
 
-/* ---------- cross-subject examples: the tutor can select, explain, pause, evaluate and continue ---------- */
+/* ---------- the workspace's distance-time graph ---------- */
 
-const expectedTypes: Record<string, string[]> = {
-  "sample-computer-networks": ["packet-transmission", "packet-transmission", "protocol-layers", "pcm-sampling", "pcm-sampling"],
-  "sample-mathematics": ["function-graph", "geometry-scene"],
-  "sample-physics": ["quantity-model", "function-graph"],
-  "sample-computer-science": ["quantity-model"],
-  "sample-biology": ["node-diagram", "process-sequence"],
-};
-
-function visualizedConcepts(courseId: string) {
-  return sampleTopics(courseId).flatMap((t) => t.concepts.filter((c) => c.visualization).map((c) => ({ topic: t.id, concept: c.id, config: c.visualization! })));
-}
-
-/** Plays a demo the way the tutor does: play until the prediction, answer, continue to the end. */
-function runThrough(config: VisualizationConfig) {
-  const def = definitionOf(config.type);
-  const steps = def.steps(config.params);
-  const checkpoints = def.checkpoints(config.params);
-  const ctx: PlayerContext = { stepCount: steps.length, checkpoints };
-  let s: PlayerState = reducePlayer(initialPlayer, { type: "play" }, ctx);
-  let ticks = 0;
-  while (playerStatus(s, ctx) === "showing" && ticks++ < 100) s = reducePlayer(s, { type: "tick" }, ctx);
-  assert.equal(playerStatus(s, ctx), "checkpoint", "the demo stops at the prediction");
-  const hidden = steps[checkpoints[0].beforeStep].caption;
-  assert.equal(s.step, checkpoints[0].beforeStep - 1, "the hidden step is not shown yet");
-  assert.notEqual(steps[s.step].caption, hidden);
-  s = reducePlayer(s, { type: "answer", option: checkpoints[0].correctId }, ctx);
-  assert.equal(playerStatus(s, ctx), "answered");
-  s = reducePlayer(s, { type: "play" }, ctx);
-  assert.equal(steps[s.step].caption, hidden, "Continue reveals the hidden step");
-  while (playerStatus(s, ctx) === "showing" && ticks++ < 200) s = reducePlayer(s, { type: "tick" }, ctx);
-  assert.equal(playerStatus(s, ctx), "done");
-  return { steps, checkpoints };
-}
-
-test("every sample course has lessons, and each subject uses the expected visualization types", () => {
-  assert.equal(sampleCourses.length, 5);
-  for (const course of sampleCourses) {
-    const found = visualizedConcepts(course.id);
-    assert.deepEqual(found.map((f) => f.config.type), expectedTypes[course.id], course.name);
-    assert.ok(sampleTopics(course.id).every((t) => t.concepts.length >= 1 && t.concepts.every((c) => c.hints.length >= 1)), `${course.name}: every concept has a question and hints`);
-  }
-});
-
-test("each cross-subject demo survives the AI reply path unchanged and can be taught end to end", () => {
-  for (const course of sampleCourses) {
-    for (const { topic, concept, config } of visualizedConcepts(course.id)) {
-      const label = `${course.id}/${topic}/${concept}`;
-      // The same data as an AI reply: through JSON and the lesson validator.
-      const lesson = validateLesson({ explanation: "e", question: { type: "short", prompt: "q", answerSketch: "a" }, visualization: JSON.parse(JSON.stringify(config)) });
-      assert.deepEqual(lesson.visualization, config, `${label}: validation is stable`);
-      const { steps, checkpoints } = runThrough(config);
-      assert.ok(steps.length >= 3 && steps.length <= LIMITS.stages, `${label}: ${steps.length} steps`);
-      assert.equal(checkpoints.length, 1, `${label}: one prediction`);
-      for (const s of steps) assert.ok(!/\{[^}]*\}/.test(s.caption), `${label}: every template resolved in "${s.caption}"`);
-      for (const c of checkpoints) assert.ok(![c.prompt, ...c.options.map((o) => o.text), c.whenRight, c.whenWrong].some((t) => /\{[^}]*\}/.test(t)), `${label}: prediction templates resolved`);
-      const { title, summary } = definitionOf(config.type).describe(config.params);
-      assert.ok(title && summary, `${label}: the tutor has an introduction`);
-    }
-  }
+test("the distance-time graph built for teachers validates and steps through every object", () => {
+  const config = motionGraph({ objects: [{ label: "Rider A", speed: 6 }, { label: "Rider B", speed: 4 }], duration: 10 });
+  assert.ok(config, "two riders make a valid graph");
+  assert.equal(config!.type, "function-graph");
+  const def = definitionOf(config!.type);
+  const steps = def.steps(config!.params);
+  assert.equal(steps.length, 3, "one step per rider, then the comparison");
+  assert.match(steps[0].caption, /6 m\/s/);
+  assert.match(steps[0].caption, /60 m/);
+  for (const st of steps) assert.ok(!/\{[^}]*\}/.test(st.caption), `every template resolved in "${st.caption}"`);
+  assert.deepEqual(validateVisualization(JSON.parse(JSON.stringify(config))), config, "validation is stable");
+  assert.equal(motionGraph({ objects: [{ label: "", speed: 3 }], duration: 10 }), null, "an unnamed rider is refused");
+  assert.equal(motionGraph({ objects: [{ label: "A", speed: 0 }], duration: 10 }), null, "a speed of zero is refused");
 });
 
 test("the prompt catalogue covers every type and explains the shared fields once", () => {
   const text = describeVisualizationsForPrompt();
   for (const type of VISUALIZATION_TYPES) assert.ok(text.includes(`"${type}"`), type);
   assert.ok(text.includes('"checkpoints"') && text.includes('"stages"') && text.includes("formula"));
-});
-
-/* ---------- narration stays in step with the demo ---------- */
-
-function fakePlayer(config: VisualizationConfig, step: number, gate: number | null = null, chosen: string | null = null): Player {
-  const definition = definitionOf(config.type);
-  const steps = definition.steps(config.params);
-  const checkpoints = definition.checkpoints(config.params);
-  const checkpoint = gate !== null ? checkpoints[gate] : null;
-  const noop = () => {};
-  return {
-    type: config.type,
-    definition,
-    params: config.params,
-    steps,
-    checkpoints,
-    state: { step, playing: false, gate, answers: chosen ? { [gate!]: chosen } : {}, started: true },
-    status: gate !== null ? (chosen ? "answered" : "checkpoint") : step >= steps.length - 1 ? "done" : "showing",
-    current: steps[step],
-    checkpoint,
-    checkpointIndex: gate,
-    chosen,
-    answerRight: checkpoint && chosen ? chosen === checkpoint.correctId : null,
-    play: noop,
-    pause: noop,
-    reset: noop,
-    forward: noop,
-    answer: noop,
-    setParam: noop,
-    driver: { start: noop, resume: noop, pause: noop, reset: noop },
-  };
-}
-
-test("what the mascot says is exactly what the demo shows", () => {
-  for (const course of sampleCourses) {
-    for (const { config } of visualizedConcepts(course.id)) {
-      const def = definitionOf(config.type);
-      const steps = def.steps(config.params);
-      steps.forEach((s, i) => {
-        const viz = tutorStateOf(fakePlayer(config, i))!;
-        assert.equal(viz.caption, s.caption);
-        assert.equal(viz.lastCaption, steps[steps.length - 1].caption);
-        assert.equal(viz.title, def.describe(config.params).title);
-      });
-      const cp = def.checkpoints(config.params)[0];
-      const asked = tutorStateOf(fakePlayer(config, cp.beforeStep - 1, 0))!;
-      assert.equal(asked.status, "checkpoint");
-      assert.equal(asked.checkpoint?.prompt, cp.prompt);
-      const right = tutorStateOf(fakePlayer(config, cp.beforeStep - 1, 0, cp.correctId))!;
-      assert.equal(right.answerRight, true);
-    }
-  }
 });
 
 /* ---------- regression: the networking demonstrations are unchanged ---------- */
