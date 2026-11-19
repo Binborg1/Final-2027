@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { findOutcome } from "@/lib/curriculum/catalog";
-import { ALL_OUTCOMES } from "@/lib/curriculum/sources";
+import { useCourseIndex } from "@/lib/curriculum/client";
+import { knownOutcomes } from "@/lib/curriculum/sources";
 import { useLms } from "@/lib/lms/useLms";
 import { KINDS, kindInfo } from "@/lib/resources/kinds";
 import { formatWhen, startBrief, useWorkspace } from "@/lib/resources/store";
@@ -12,7 +13,7 @@ import type { ResourceKind } from "@/lib/resources/types";
 import { ArrowRight, CompassIcon, ExternalIcon, LibraryIcon, PlugIcon, UploadIcon } from "./icons";
 import { Codes, DocThumb, KindIcon, Menu, MenuItem, Orbit, ResourceState, summarize } from "./parts";
 import { Loading, TopBar } from "./shell";
-import { Card, cx, Eyebrow, LinkButton, Pill, VerificationBadge } from "./ui";
+import { Card, cx, Eyebrow, LinkButton, markOf, Pill, VerificationBadge } from "./ui";
 
 const QUICK: { kind: ResourceKind; label: string; sub: string }[] = [
   { kind: "notes", label: "Notes", sub: "Teaching notes" },
@@ -26,7 +27,8 @@ export function HomeScreen() {
   const ws = useWorkspace();
   const router = useRouter();
   const lms = useLms();
-  const [outcome, setOutcome] = useState("sk-sci10-fm2");
+  const index = useCourseIndex();
+  const [picked, setOutcome] = useState<string | null>(null);
   if (!ws.hydrated) return <Loading />;
 
   const drafts = ws.resources.filter((r) => ws.drafts[r.id]?.status === "draft");
@@ -34,6 +36,9 @@ export function HomeScreen() {
   const current = byRecent.find((r) => ws.drafts[r.id]?.status === "draft");
   const waiting = drafts.filter((r) => r.id !== current?.id);
   const recentOutcomes = [...new Set(byRecent.flatMap((r) => r.outcomeIds))].slice(0, 3);
+  const outcome = picked ?? ws.brief.outcomeIds[0] ?? recentOutcomes[0] ?? "sk-sci10-fm2";
+  // The outcome being used, those used recently, then the rest this browser knows (hand-copied first).
+  const choices = [...new Set([outcome, ...recentOutcomes, ...knownOutcomes().map((f) => f.outcome.id)])].map((id) => findOutcome(id)).filter((f) => f !== null).slice(0, 14);
   const create = (kind: ResourceKind) => {
     startBrief(kind, [outcome]);
     router.push("/create");
@@ -73,9 +78,9 @@ export function HomeScreen() {
                     onChange={(e) => (e.target.value === "__browse" ? router.push("/curriculum") : setOutcome(e.target.value))}
                     className="h-8 max-w-full rounded-(--r-sm) border border-(--teal-200) bg-(--teal-50) px-2 text-[13px] font-semibold text-(--teal-900) outline-none focus:border-(--teal-700)"
                   >
-                    {ALL_OUTCOMES.map((o) => (
+                    {choices.map(({ outcome: o, course }) => (
                       <option key={o.id} value={o.id}>
-                        Science 10 · {o.code}
+                        {course.name} · {o.code}
                       </option>
                     ))}
                     <option value="__browse">Browse the curriculum…</option>
@@ -280,7 +285,7 @@ export function HomeScreen() {
                         <span className="text-[13.5px] font-bold">{o.code}</span>
                         <p className="mt-1 line-clamp-2 text-[12.5px] text-(--ink-2)">{o.statement}</p>
                         <div className="mt-2 flex items-center justify-between gap-2">
-                          <VerificationBadge mark="source-checked" compact />
+                          <VerificationBadge mark={markOf(o.status)} compact />
                           <button
                             type="button"
                             onClick={() => {
@@ -324,7 +329,9 @@ export function HomeScreen() {
                 What Funza covers today
               </h2>
               <p className="mt-1.5 text-[12.5px] leading-relaxed text-(--ink-2)">
-                4 outcomes from Science 10 · Force and Motion, quoted from curriculum.gov.sk.ca. Other courses are listed but not yet in Funza&apos;s catalog.
+                {index.status === "ready"
+                  ? `${index.courses.filter((c) => c.outcomes > 0).length} Saskatchewan Grade 10–12 courses, ${index.courses.reduce((n, c) => n + c.outcomes, 0).toLocaleString("en-CA")} outcomes and ${index.courses.reduce((n, c) => n + c.indicators, 0).toLocaleString("en-CA")} indicators, copied word for word from curriculum.gov.sk.ca on ${index.importedOn}. Copied automatically: no person has checked them yet, and each one says so.`
+                  : "Saskatchewan Grade 10–12 courses, copied word for word from curriculum.gov.sk.ca."}
               </p>
               <a href="https://curriculum.gov.sk.ca/" target="_blank" rel="noreferrer" className="mt-2 inline-flex items-center gap-1 text-[12.5px] font-semibold text-(--teal-700) hover:underline">
                 curriculum.gov.sk.ca <ExternalIcon className="h-3.5 w-3.5" />

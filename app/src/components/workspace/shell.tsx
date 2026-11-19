@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { FunzaLogo } from "@/components/FunzaLogo";
-import { ALL_OUTCOMES } from "@/lib/curriculum/sources";
+import { knownOutcomes } from "@/lib/curriculum/sources";
 import { useLms } from "@/lib/lms/useLms";
 import { KINDS } from "@/lib/resources/kinds";
 import { dismissToast, loadWorkspace, startBrief, useWorkspace } from "@/lib/resources/store";
@@ -258,11 +258,11 @@ type Cmd = { id: string; group: string; label: string; hint?: string; icon: Reac
 
 function CommandPalette({ open, onClose }: { open: boolean; onClose: () => void }) {
   const router = useRouter();
-  const { resources } = useWorkspace();
+  const { resources, catalogVersion } = useWorkspace();
   const [q, setQ] = useState("");
   const [active, setActive] = useState(0);
 
-  const cmds: Cmd[] = useMemo(() => {
+  const base: Cmd[] = useMemo(() => {
     const create: Cmd[] = KINDS.map((k) => ({
       id: `create-${k.kind}`,
       group: "Create",
@@ -279,9 +279,15 @@ function CommandPalette({ open, onClose }: { open: boolean; onClose: () => void 
       { id: "go-integrations", group: "Go to", label: "Integrations", icon: <PlugIcon />, run: () => router.push("/integrations") },
     ];
     const res: Cmd[] = resources.map((r) => ({ id: `r-${r.id}`, group: "Resources", label: r.title, icon: <KindIcon kind={r.kind} size="sm" />, run: () => router.push(`/resources/${r.id}`) }));
-    const outs: Cmd[] = ALL_OUTCOMES.map((o) => ({ id: `o-${o.id}`, group: "Outcomes", label: `${o.code} · ${o.statement}`, icon: <CompassIcon />, run: () => router.push(`/curriculum?o=${o.id}`) }));
-    return [...res, ...create, ...nav, ...outs];
+    return [...res, ...create, ...nav];
   }, [resources, router]);
+  // Outcomes this browser has loaded (the list grows as courses load); the Curriculum screen searches all of them.
+  const outs: Cmd[] = useMemo(
+    () => knownOutcomes().map(({ outcome: o, course }) => ({ id: `o-${o.id}`, group: "Outcomes", label: `${o.code} · ${o.statement} · ${course.name}`, icon: <CompassIcon />, run: () => router.push(`/curriculum?o=${o.id}`) })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- knownOutcomes() changes with catalogVersion
+    [router, catalogVersion],
+  );
+  const cmds = [...base, ...outs];
 
   const terms = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const results = terms.length === 0 ? cmds.filter((c) => c.group !== "Outcomes").slice(0, 12) : cmds.filter((c) => terms.every((t) => `${c.label} ${c.group}`.toLowerCase().includes(t))).slice(0, 14);

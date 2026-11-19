@@ -123,8 +123,25 @@ export function CheckBadge({ state, count }: { state: CheckState; count?: number
 }
 
 /** Curriculum verification, shown the same way on every screen. */
-export type CurriculumMark = "verified" | "source-checked" | "staged" | "missing";
+export type CurriculumMark = "verified" | "source-checked" | "cross-checked" | "imported" | "staged" | "missing";
+/** The badge for a catalog status ("unverified" entries are never shown to teachers). */
+export const markOf = (status: string): CurriculumMark =>
+  status === "verified" ? "verified" : status === "source-checked" ? "source-checked" : status === "cross-checked" ? "cross-checked" : status === "imported" ? "imported" : "staged";
 export function VerificationBadge({ mark, compact = false }: { mark: CurriculumMark; compact?: boolean }) {
+  if (mark === "cross-checked")
+    return (
+      <Pill tone="none" className="border border-(--teal-200)">
+        <ShieldHalfIcon className="h-3.5 w-3.5 text-(--teal-700)" />
+        {compact ? "Imported · matches CSV" : "Imported · matches the Ministry CSV"}
+      </Pill>
+    );
+  if (mark === "imported")
+    return (
+      <Pill tone="none" className="border border-dashed border-(--line-strong)">
+        <ShieldHalfIcon className="h-3.5 w-3.5" />
+        {compact ? "Imported" : "Imported · no second source"}
+      </Pill>
+    );
   if (mark === "verified")
     return (
       <Pill tone="teal" className="ring-1 ring-(--teal-200) ring-inset">
@@ -178,7 +195,7 @@ export function OfficialWording({ code, statement, small = false }: { code?: str
   return (
     <figure className="m-0">
       <figcaption className="mb-1.5 text-[10.5px] font-semibold tracking-[0.08em] text-(--muted) uppercase">{code ? `${code} · official wording` : "Official wording"}</figcaption>
-      <blockquote className={cx("fz-official m-0", small && "text-[13.5px]")}>“{statement}”</blockquote>
+      <blockquote className={cx("fz-official m-0 whitespace-pre-line", small && "text-[13.5px]")}>“{statement}”</blockquote>
     </figure>
   );
 }

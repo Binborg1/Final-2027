@@ -1,8 +1,9 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { findOutcome, outcomeProblems } from "@/lib/curriculum/catalog";
-import { codeOf } from "@/lib/curriculum/sources";
+import { catalogVersion, findOutcome, outcomeProblems, subscribeCatalog } from "@/lib/curriculum/catalog";
+import { ensureOutcomes, loadCurriculumCache } from "@/lib/curriculum/client";
+import { codeOf, placeOf } from "@/lib/curriculum/sources";
 import { bankItem, blankDraft, blankItem, fromBank, newId } from "@/lib/resources/assemble";
 import { BANK } from "@/lib/resources/bank";
 import { blueprintOf } from "@/lib/resources/blueprint";
@@ -37,6 +38,8 @@ export type WorkspaceState = {
   selection: string[];
   toasts: Toast[];
   ai: AiInfo;
+  /** Changes when imported curriculum courses are loaded, so screens showing outcome codes re-render. */
+  catalogVersion: number;
 };
 
 const IDLE: GenerationState = { state: "idle", stage: 0, stages: [], error: null, resourceId: null, startedAt: 0 };
@@ -52,6 +55,7 @@ const INITIAL: WorkspaceState = {
   selection: [],
   toasts: [],
   ai: { known: false, configured: false, provider: null },
+  catalogVersion: 0,
 };
 
 let state: WorkspaceState = INITIAL;
@@ -120,10 +124,13 @@ let loaded = false;
 export function loadWorkspace() {
   if (loaded) return;
   loaded = true;
-  set((s) => ({ ...s, ...readStored(), hydrated: true }));
+  loadCurriculumCache();
+  subscribeCatalog(() => set((s) => ({ ...s, catalogVersion: catalogVersion() })));
+  set((s) => ({ ...s, ...readStored(), hydrated: true, catalogVersion: catalogVersion() }));
   window.addEventListener("storage", (e) => {
     if (e.key === STORAGE_KEY) set((s) => ({ ...s, ...readStored() }));
   });
+  void ensureOutcomes([...state.brief.outcomeIds, ...state.resources.flatMap((r) => r.outcomeIds)]);
   fetch("/api/teach", { cache: "no-store" })
     .then((r) => (r.ok ? (r.json() as Promise<{ configured: boolean; provider?: string }>) : { configured: false }))
     .catch(() => ({ configured: false, provider: undefined }))
@@ -229,7 +236,7 @@ function stagesFor(b: Brief): GenStage[] {
 function createResource(b: Brief, draft: Draft): string {
   const now = new Date().toISOString();
   const id = draft.resourceId;
-  const resource: Resource = { id, kind: b.kind, title: b.title, courseName: "Science 10", unitName: "Force and Motion in Our World", outcomeIds: b.outcomeIds, createdAt: now, updatedAt: now, deliveries: [], brief: { ...b, material: b.material ? { ...b.material, text: "" } : null } };
+  const resource: Resource = { id, kind: b.kind, title: b.title, ...placeOf(b.outcomeIds), outcomeIds: b.outcomeIds, createdAt: now, updatedAt: now, deliveries: [], brief: { ...b, material: b.material ? { ...b.material, text: "" } : null } };
   set((s) => ({ ...s, resources: [resource, ...s.resources], drafts: { ...s.drafts, [id]: { ...draft, title: b.title } } }), true);
   return id;
 }

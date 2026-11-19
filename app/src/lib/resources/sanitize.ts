@@ -1,4 +1,4 @@
-import { findOutcome } from "@/lib/curriculum/catalog";
+import { OUTCOME_ID } from "@/lib/curriculum/catalog";
 import { defaultBrief, KINDS, NOTES_STYLES, QTYPE_ORDER } from "@/lib/resources/kinds";
 import type { Brief, Calc, Delivery, Difficulty, Draft, Item, MotionSetup, Origin, QType, Resource, ResourceKind, Section, SectionKind, Verb } from "@/lib/resources/types";
 import { compileExpr, isIdentifier } from "@/lib/visualizations/expr";
@@ -26,9 +26,13 @@ const ORIGINS: readonly Origin[] = ["ai", "bank", "teacher"];
 const KIND_IDS = KINDS.map((k) => k.kind) as readonly ResourceKind[];
 const SECTION_KINDS: readonly SectionKind[] = ["questions", "text", "activity"];
 
-/** Only catalog outcome ids, and only those allowed, survive. */
+/**
+ * Only well-formed outcome ids, and only those allowed, survive. Whether an id is in the
+ * catalog is checked where it is used (the browser may not have loaded its course yet;
+ * the server re-checks every id against its own copy before drafting).
+ */
 export function outcomeList(v: unknown, allowed?: ReadonlySet<string>): string[] {
-  const list = (Array.isArray(v) ? v : []).filter((x): x is string => typeof x === "string" && !!findOutcome(x));
+  const list = (Array.isArray(v) ? v : []).filter((x): x is string => typeof x === "string" && OUTCOME_ID.test(x));
   return [...new Set(list)].filter((x) => !allowed || allowed.has(x)).slice(0, 6);
 }
 
@@ -207,8 +211,8 @@ export function sanitizeResource(raw: unknown): Resource | null {
     id: rid,
     kind: brief.kind,
     title: str(raw.title, 160) || brief.title,
-    courseName: str(raw.courseName, 80) || "Science 10",
-    unitName: str(raw.unitName, 120) || "Force and Motion in Our World",
+    courseName: str(raw.courseName, 120) || "Science 10",
+    unitName: str(raw.unitName, 160) || "Force and Motion in Our World",
     outcomeIds: outcomeList(raw.outcomeIds),
     createdAt: str(raw.createdAt, 40),
     updatedAt: str(raw.updatedAt, 40),

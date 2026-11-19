@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { test } from "node:test";
 import { CATALOG, findOutcome, outcomeLimitations, outcomeProblems, usableOutcome, type Jurisdiction } from "@/lib/curriculum/catalog";
-import { COURSES, STAGED_INDICATORS } from "@/lib/curriculum/sources";
+
 
 const sha256 = (s: string) => createHash("sha256").update(s, "utf8").digest("hex");
 const FM2 = "sk-sci10-fm2";
@@ -14,10 +14,10 @@ test("every catalog outcome is sound: official source, retrieval date, and wordi
   for (const j of CATALOG) for (const c of j.courses) for (const u of c.units) for (const o of u.outcomes) {
     assert.deepEqual(outcomeProblems({ jurisdiction: j, course: c, unit: u, outcome: o }, sha256), [], o.code);
   }
-  const fm2 = findOutcome(FM2)!;
+  const fm2 = findOutcome(FM2, CATALOG)!;
   assert.equal(fm2.outcome.code, "SCI10-FM2");
   assert.equal(fm2.outcome.statement, "Investigate and represent the motion of objects that travel at a constant speed in a straight line.");
-  assert.equal(fm2.outcome.indicators.length, 0, "no indicator may be listed until it is verified");
+  assert.equal(fm2.outcome.indicators.length, 0, "the hand-copied entry lists no indicators of its own");
   assert.equal(fm2.outcome.indicatorsStatus, "pending");
   assert.ok(outcomeLimitations(fm2).some((l) => /indicators/i.test(l)), "the pending indicators are disclosed");
 });
@@ -56,9 +56,8 @@ test("missing or unverified sources make an outcome unusable", () => {
   }
 });
 
-test("staged indicators and the course list stay outside the verified catalog", () => {
-  assert.equal(findOutcome(FM2)!.outcome.indicators.length, 0, "staged indicators never enter the catalog");
-  assert.ok(STAGED_INDICATORS[FM2].items.some((i) => i.text === null), "uncaptured wording is shown as missing, not filled in");
-  assert.equal(COURSES.filter((c) => c.catalogId).length, 1, "only Science 10 has catalog content");
-  for (const c of COURSES) assert.equal(c.grade, c.level === 10 ? 10 : c.level === 20 ? 11 : 12, c.name);
+test("the hand-copied catalog stays small and separate from imports", () => {
+  assert.equal(findOutcome(FM2, CATALOG)!.outcome.indicators.length, 0, "imported indicators never change the hand-copied entry itself");
+  assert.equal(CATALOG.flatMap((j) => j.courses).length, 1, "only Science 10 is copied by hand");
+  assert.equal(CATALOG[0].courses[0].curriculumId, 63, "it names its curriculum.gov.sk.ca id so the import can replace it");
 });

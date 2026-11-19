@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { ActivityStage } from "@/components/activity/ActivityStage";
 import { findOutcome as outcomeById } from "@/lib/curriculum/catalog";
-import { ALL_OUTCOMES, codeOf } from "@/lib/curriculum/sources";
+import { codeOf, knownOutcomes } from "@/lib/curriculum/sources";
 import { PRESETS } from "@/lib/resources/blueprint";
 import { motionGraph } from "@/lib/resources/graph";
 import { isQuestionKind, KINDS, QTYPE_LABEL, QTYPE_ORDER } from "@/lib/resources/kinds";
@@ -422,7 +422,7 @@ function DocHeader({ d, id, locked }: { d: Draft; id: string; locked: boolean })
       )}
       {d.kind === "lesson-plan" && d.targetMinutes !== null && (
         <p className="mt-3 text-[13px] text-(--muted)">
-          {d.targetMinutes}-minute lesson · Science 10 · plan for the teacher, not for students
+          {d.targetMinutes}-minute lesson · {d.courseName || "Lesson"} · plan for the teacher, not for students
         </p>
       )}
     </header>
@@ -1542,7 +1542,7 @@ function ApproveDialog({ open, onClose, d, rows, kindLabel, onApprove, onJump }:
             {d.title} · {kindLabel}
           </dd>
           <dt className="text-(--muted)">Outcomes</dt>
-          <dd>{d.outcomeIds.map(codeOf).join(", ")} (statement only; indicators pending)</dd>
+          <dd>{d.outcomeIds.map((id) => { const o = outcomeById(id)?.outcome; return o ? `${o.code} (${o.indicatorsStatus === "pending" ? "statement only; indicators pending" : o.indicatorsStatus === "imported" ? "indicators imported, not checked by a person" : "indicators verified"})` : id; }).join(", ")}</dd>
           {items.length > 0 && (
             <>
               <dt className="text-(--muted)">Questions</dt>
@@ -1588,7 +1588,7 @@ function OutcomesDialog({ open, onClose, id, d }: { open: boolean; onClose: () =
       <fieldset>
         <legend className="sr-only">Outcomes</legend>
         <ul className="space-y-2">
-          {ALL_OUTCOMES.map((o) => (
+          {[...new Set([...d.outcomeIds, ...knownOutcomes().filter((f) => d.outcomeIds.some((id) => outcomeById(id)?.course.id === f.course.id)).map((f) => f.outcome.id)])].map((id) => outcomeById(id)?.outcome).filter((o) => !!o).map((o) => (
             <li key={o.id}>
               <label className="flex cursor-pointer items-start gap-3 rounded-(--r-md) border border-(--line) p-3 hover:border-(--line-strong)">
                 <input

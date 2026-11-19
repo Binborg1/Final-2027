@@ -8,7 +8,7 @@ import type { Brief, Difficulty, QType } from "@/lib/resources/types";
  * Teacher material is passed as untrusted reference text.
  */
 
-export type PromptOutcome = { id: string; code: string; statement: string; course: string; unit: string };
+export type PromptOutcome = { id: string; code: string; statement: string; course: string; unit: string; indicators?: { label: string; text: string }[] };
 
 const SYSTEM = `You write classroom resources for Saskatchewan Grade 10 to 12 teachers. A teacher reviews everything you write before students see it.
 Rules:
@@ -30,7 +30,14 @@ const ITEM_SHAPES = `Item shapes (every item also has "type", "prompt", "difficu
 "solution" explains the answer for the teacher's key.`;
 
 function outcomeBlock(outcomes: PromptOutcome[]) {
-  return outcomes.map((o) => `- id "${o.id}" · ${o.code} (${o.course}, ${o.unit}): "${o.statement}"`).join("\n");
+  return outcomes
+    .map((o) => {
+      const head = `- id "${o.id}" · ${o.code} (${o.course}, ${o.unit}): "${o.statement}"`;
+      const ind = (o.indicators ?? []).slice(0, 30);
+      // Indicators guide what to cover; they are context, not ids the reply may cite.
+      return ind.length > 0 ? `${head}\n  Official indicators (what students show; context only, do not cite them as ids):\n${ind.map((i) => `  (${i.label}) ${i.text}`).join("\n")}` : head;
+    })
+    .join("\n");
 }
 
 function extras(b: Brief) {

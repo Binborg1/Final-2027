@@ -1,3 +1,4 @@
+import { findOutcome } from "@/lib/curriculum/catalog";
 import { codeOf } from "@/lib/curriculum/sources";
 import type { Brief, QType, ResourceKind, Verb } from "@/lib/resources/types";
 
@@ -79,8 +80,19 @@ const TOPIC: Record<string, string> = {
   "sk-sci10-fm4": "Force and motion",
 };
 
+/** A topic for the title: Funza's short names for FM1 to FM4, else the unit (several outcomes) or the code. */
 export function suggestedTitle(kind: ResourceKind, outcomeIds: string[]) {
-  const topic = outcomeIds.length > 1 ? "Force and Motion" : (TOPIC[outcomeIds[0]] ?? codeOf(outcomeIds[0] ?? "") ?? "Untitled");
+  const found = outcomeIds.map((id) => findOutcome(id));
+  const units = new Set(found.map((f) => f?.unit.id));
+  const unitName = found[0]?.unit.name;
+  const topic =
+    outcomeIds.length > 1
+      ? units.size === 1 && unitName && unitName !== "Outcomes"
+        ? unitName === "Force and Motion in Our World"
+          ? "Force and Motion"
+          : unitName
+        : (found[0]?.course.name ?? "Several outcomes")
+      : (TOPIC[outcomeIds[0]] ?? codeOf(outcomeIds[0] ?? ""));
   return `${topic || "Untitled"} · ${TITLE[kind]}`;
 }
 

@@ -1,3 +1,4 @@
+import { placeOf } from "@/lib/curriculum/sources";
 import { ADAPTATIONS, BANK, LESSON_PLAN, NOTES } from "@/lib/resources/bank";
 import { FM2, scaleMinutes } from "@/lib/resources/blueprint";
 import { isQuestionKind, QTYPE_LABEL, QTYPE_ORDER } from "@/lib/resources/kinds";
@@ -99,7 +100,7 @@ export function draftShell(b: Brief, resourceId: string, sections: Section[], dr
     resourceId,
     kind: b.kind,
     title: b.title,
-    courseName: "Science 10",
+    courseName: placeOf(b.outcomeIds).courseName,
     outcomeIds: b.outcomeIds,
     sections,
     targetMinutes: b.kind === "lesson-plan" ? b.planMinutes : null,

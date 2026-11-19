@@ -1,4 +1,5 @@
-import { findOutcome, outcomeProblems } from "@/lib/curriculum/catalog";
+import { findOutcome, isAutomatic, outcomeProblems } from "@/lib/curriculum/catalog";
+import { gradeOfLevel } from "@/lib/curriculum/imported";
 import { codeOf } from "@/lib/curriculum/sources";
 import { motionGraph } from "@/lib/resources/graph";
 import { isQuestionKind, OUTCOME_VERBS } from "@/lib/resources/kinds";
@@ -111,8 +112,7 @@ export function computeChecks(d: Draft): CheckRow[] {
   if (stray.length > 0) {
     rows.push({ id: "outcome-allow", group: "structure", state: "failed", label: "Cites an outcome this resource does not use", detail: `${stray.length} part(s) cite outcomes that were not chosen for this resource.` });
   } else if (d.outcomeIds.length > 0) {
-    rows.push({ id: "outcome-allow", group: "structure", state: "passed", label: "Outcomes come from Funza's catalog", detail: `Every part cites only ${d.outcomeIds.map(codeOf).join(", ")}, supplied from the catalog. Nothing else can be cited.` });
-  }
+    rows.push({ id: "outcome-allow", group: "structure", state: "passed", label: "Outcomes come from Funza's catalog", detail: `Every part cites only ${d.outcomeIds.map(codeOf).join(", ")}, supplied from the catalog. Nothing else can be cited.` });  }
   d.outcomeIds.forEach((id) => {
     const found = findOutcome(id);
     const problems = found ? outcomeProblems(found) : ["It is not in the catalog."];
@@ -282,10 +282,23 @@ export function computeChecks(d: Draft): CheckRow[] {
     const it = items.find((i) => i.id === r.id);
     rows.push({ id: `changed-${r.id}`, group: "review", state: "stale", label: `${it ? q(it) : `“${d.sections.find((s) => s.id === r.id)?.title}”`} changed after you reviewed it`, detail: "Its checks ran again. Review it once more.", targetId: r.id });
   });
-  if (!d.globals.readingLevel) rows.push({ id: "g-reading", group: "review", state: "needs-you", label: "Reading level suits Grade 10", detail: "Funza does not grade reading level. Confirm it for your students." });
-  const pending = d.outcomeIds.filter((id) => findOutcome(id)?.outcome.indicatorsStatus === "pending");
-  if (pending.length > 0 && !d.globals.indicatorsPending)
-    rows.push({ id: "g-indicators", group: "review", state: "needs-you", label: "Indicators are not verified yet", detail: `For ${pending.map(codeOf).join(", ")}, alignment is to the outcome statement only. Confirm you accept that.` });
+  const found = d.outcomeIds.map((id) => findOutcome(id)).filter((f) => f !== null);
+  const grades = [...new Set(found.map((f) => gradeOfLevel(f.outcome.level ?? (f.course.levels?.length === 1 ? f.course.levels[0] : null)) ?? (f.course.origin === "hand" ? f.course.grade : null)))];
+  const gradeText = grades.length === 1 && grades[0] ? `Grade ${grades[0]}` : "your grade";
+  if (!d.globals.readingLevel) rows.push({ id: "g-reading", group: "review", state: "needs-you", label: `Reading level suits ${gradeText}`, detail: "Funza does not grade reading level. Confirm it for your students." });
+  // One confirmation covers what no person has checked in the curriculum text (the global keeps its original name).
+  const automatic = found.filter((f) => isAutomatic(f.outcome) || f.outcome.indicatorsStatus === "imported").map((f) => f.outcome.code);
+  const pending = found.filter((f) => f.outcome.indicatorsStatus === "pending").map((f) => f.outcome.code);
+  if (automatic.length > 0 && !d.globals.indicatorsPending)
+    rows.push({
+      id: "g-indicators",
+      group: "review",
+      state: "needs-you",
+      label: "Curriculum text was copied automatically",
+      detail: `No person has compared ${automatic.join(", ")} with the official page yet${pending.length > 0 ? `, and ${pending.join(", ")} has no indicators in Funza, so alignment there is to the statement only` : ""}. Open the outcome's official page from Curriculum and confirm the wording.`,
+    });
+  else if (pending.length > 0 && !d.globals.indicatorsPending)
+    rows.push({ id: "g-indicators", group: "review", state: "needs-you", label: "Indicators are not in Funza yet", detail: `For ${pending.join(", ")}, alignment is to the outcome statement only. Confirm you accept that.` });
   return rows;
 }
 

@@ -1,4 +1,4 @@
-import { codeOf } from "@/lib/curriculum/sources";
+import { codeOf, placeOf } from "@/lib/curriculum/sources";
 import { BANK, LESSON_PLAN, NOTES } from "@/lib/resources/bank";
 import { isQuestionKind, kindInfo, MINUTES_PER, NOTES_STYLES, QTYPE_LABEL, QTYPE_ORDER } from "@/lib/resources/kinds";
 import type { Brief, ResourceKind } from "@/lib/resources/types";
@@ -54,6 +54,7 @@ const DEFAULT_PHASES = ["Hook", "Investigate", "Represent", "Explain", "Check"];
 export function blueprintOf(b: Brief): Blueprint {
   const codes = b.outcomeIds.map(codeOf);
   const codeText = codes.length === 0 ? "no outcome yet" : codes.join(" and ");
+  const courseText = placeOf(b.outcomeIds).courseName || "your course";
   const info = kindInfo(b.kind);
   const includes: string[] = [];
   const warnings: string[] = [];
@@ -77,7 +78,7 @@ export function blueprintOf(b: Brief): Blueprint {
     if (est > b.duration) warnings.push(`About ${est} minutes of work for a ${b.duration}-minute sitting. Consider fewer questions.`);
     if (questions === 0) warnings.push("Add at least one question.");
     return {
-      sentence: `A ${b.duration}-minute ${info.label.toLowerCase()} for Science 10 on ${codeText}: ${questions} questions, ${marks} marks.`,
+      sentence: `A ${b.duration}-minute ${info.label.toLowerCase()} for ${courseText} on ${codeText}: ${questions} questions, ${marks} marks.`,
       parts: QTYPE_ORDER.flatMap((t) => rows.filter((r) => r.type === t)).map((r, i) => ({
         title: `Part ${String.fromCharCode(65 + i)} · ${QTYPE_LABEL[r.type]}`,
         detail: `${r.count} × ${r.marks} mark${r.marks === 1 ? "" : "s"}`,
@@ -98,7 +99,7 @@ export function blueprintOf(b: Brief): Blueprint {
     if (b.adaptations) includes.push("Adaptations for different learners");
     includes.push("Materials and safety notes", "For you only: lesson plans are never posted to students");
     return {
-      sentence: `A ${b.planMinutes}-minute lesson plan for Science 10 on ${codeText}.`,
+      sentence: `A ${b.planMinutes}-minute lesson plan for ${courseText} on ${codeText}.`,
       parts: phases.map((p, i) => ({ title: p.title, detail: `${scaled[i]} min`, marks: null })),
       questions: 0,
       marks: 0,
@@ -132,7 +133,7 @@ export function blueprintOf(b: Brief): Blueprint {
   if (b.kind === "presentation") {
     if (b.speakerNotes) includes.push("Speaker notes on every slide");
     return {
-      sentence: `A ${b.slides}-slide presentation outline for Science 10 on ${codeText}.`,
+      sentence: `A ${b.slides}-slide presentation outline for ${courseText} on ${codeText}.`,
       parts: [{ title: "Slides", detail: `${b.slides} slides`, marks: null }, ...sections],
       questions: 0,
       marks: 0,
@@ -146,7 +147,7 @@ export function blueprintOf(b: Brief): Blueprint {
   if (b.includeGraph && b.outcomeIds.includes(FM2)) includes.push("An interactive distance–time graph (shown in Funza)");
   if (b.checkQuestions) includes.push("Check-your-understanding questions with answers");
   return {
-    sentence: `${style.label} for Science 10 on ${codeText}.`,
+    sentence: `${style.label} for ${courseText} on ${codeText}.`,
     parts: sections,
     questions: b.checkQuestions ? b.outcomeIds.length : 0,
     marks: 0,

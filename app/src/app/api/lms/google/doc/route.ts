@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
   const html = studentHtml({
     kind: kind.kind,
     title,
-    courseName: str(body.courseName, 80) || "Science 10",
+    courseName: str(body.courseName, 120) || "Science 10",
     outcomeCodes: (Array.isArray(body.outcomeCodes) ? body.outcomeCodes : []).map((c) => str(c, 20)).filter(Boolean).slice(0, 6),
     duration: typeof body.duration === "number" ? Math.round(body.duration) : null,
     school: str(body.school, 120),

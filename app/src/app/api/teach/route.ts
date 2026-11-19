@@ -4,6 +4,7 @@ import { parseJsonObject, SchemaError } from "@/lib/ai/json";
 import { itemPrompt, resourcePrompt, type PromptOutcome } from "@/lib/ai/resource-prompts";
 import { AiError, aiConfig, complete } from "@/lib/ai/server";
 import { findOutcome, outcomeProblems } from "@/lib/curriculum/catalog";
+import { loadDataset } from "@/lib/curriculum/dataset";
 import { validateItemReply, validateResourceReply } from "@/lib/resources/ai-reply";
 import { isQuestionKind, QTYPE_ORDER } from "@/lib/resources/kinds";
 import { isObject, sanitizeBrief, str } from "@/lib/resources/sanitize";
@@ -28,13 +29,15 @@ export async function GET() {
 
 function outcomesFor(ids: string[]): { ok: true; outcomes: PromptOutcome[] } | { ok: false; message: string } {
   if (ids.length === 0) return { ok: false, message: "Choose at least one curriculum outcome." };
+  loadDataset();
   const outcomes: PromptOutcome[] = [];
   for (const id of ids) {
     const found = findOutcome(id);
     if (!found) return { ok: false, message: `"${id.slice(0, 40)}" is not in Funza's curriculum catalog.` };
     const problems = outcomeProblems(found, sha256);
     if (problems.length > 0) return { ok: false, message: problems[0] };
-    outcomes.push({ id, code: found.outcome.code, statement: found.outcome.statement, course: found.course.name, unit: found.unit.name });
+    const { outcome } = found;
+    outcomes.push({ id, code: outcome.code, statement: outcome.statement, course: found.course.name, unit: found.unit.name, indicators: outcome.indicators.map((i) => ({ label: i.label, text: i.text })) });
   }
   return { ok: true, outcomes };
 }

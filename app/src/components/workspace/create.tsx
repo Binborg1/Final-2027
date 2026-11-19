@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { ActivityStage } from "@/components/activity/ActivityStage";
 import { findOutcome } from "@/lib/curriculum/catalog";
-import { ALL_OUTCOMES, codeOf } from "@/lib/curriculum/sources";
+import { codeOf, knownOutcomes, outcomesInSameCourses, placeOf } from "@/lib/curriculum/sources";
 import { extractPdf } from "@/lib/pdf/extract";
 import { bankGaps, blueprintOf, PRESETS } from "@/lib/resources/blueprint";
 import { motionGraph } from "@/lib/resources/graph";
@@ -55,6 +55,19 @@ export function CreateScreen() {
       {ws.generation.state === "idle" ? <BriefView fromFile={params.get("from") === "file"} /> : <GenerationView />}
     </>
   );
+}
+
+/** What the draft can rely on, from the chosen outcomes' statuses. */
+function curriculumNote(ids: string[]) {
+  const found = ids.map((id) => findOutcome(id)).filter((f) => f !== null);
+  const withIndicators = found.filter((f) => f.outcome.indicators.length > 0).length;
+  const automatic = found.some((f) => f.outcome.status === "cross-checked" || f.outcome.status === "imported" || f.outcome.indicatorsStatus === "imported");
+  const parts: string[] = [];
+  if (withIndicators === found.length && found.length > 0) parts.push("The draft is guided by each outcome's official indicators.");
+  else if (withIndicators > 0) parts.push("The draft is guided by the official indicators where Funza has them; elsewhere it aligns to the statement only.");
+  else parts.push("Funza has no indicators for these outcomes, so the draft aligns to the outcome statements only.");
+  if (automatic) parts.push("The curriculum text was copied automatically from curriculum.gov.sk.ca and no person has checked it yet; you confirm it in review.");
+  return parts.join(" ");
 }
 
 function BriefView({ fromFile }: { fromFile: boolean }) {
@@ -130,7 +143,7 @@ function BriefView({ fromFile }: { fromFile: boolean }) {
               >
                 {(close) => (
                   <>
-                    {ALL_OUTCOMES.filter((o) => !b.outcomeIds.includes(o.id)).map((o) => (
+                    {(b.outcomeIds.length > 0 ? outcomesInSameCourses(b.outcomeIds) : knownOutcomes()).slice(0, 40).map(({ outcome: o }) => (
                       <MenuItem
                         key={o.id}
                         onSelect={() => {
@@ -161,16 +174,18 @@ function BriefView({ fromFile }: { fromFile: boolean }) {
             ) : (
               <ul className="mt-3 space-y-2">
                 {b.outcomeIds.map((id) => {
-                  const o = findOutcome(id)?.outcome;
+                  const f = findOutcome(id);
+                  const o = f?.outcome;
                   return (
-                    <li key={id} className="fz-official text-[13.5px]">
-                      <span className="font-semibold">{o?.code}</span> “{o?.statement}”
+                    <li key={id} className="fz-official text-[13.5px] whitespace-pre-line">
+                      <span className="font-semibold">{o?.code ?? id}</span> {o ? `“${o.statement}”` : "Loading…"}
+                      {f && <span className="mt-0.5 block text-[12px] text-(--muted) not-italic">{f.course.name} · {f.unit.name}</span>}
                     </li>
                   );
                 })}
               </ul>
             )}
-            <p className="mt-3 text-[12.5px] text-(--muted)">Indicators for these outcomes are not verified yet, so the draft aligns to the outcome statements only.</p>
+            <p className="mt-3 text-[12.5px] text-(--muted)">{curriculumNote(b.outcomeIds)}</p>
           </Step>
 
           <Step n={3} title="Details" done>
@@ -794,7 +809,7 @@ function GenerationView() {
 
       <section aria-label="Draft preview" className="min-w-0">
         <div className="fz-paper mx-auto max-w-[680px] px-8 py-9 md:px-12">
-          <p className="text-[12px] font-semibold tracking-wide text-(--muted) uppercase">Science 10 · {b.outcomeIds.map(codeOf).join(", ")}</p>
+          <p className="text-[12px] font-semibold tracking-wide text-(--muted) uppercase">{placeOf(b.outcomeIds).courseName} · {b.outcomeIds.map(codeOf).join(", ")}</p>
           <h2 className="mt-1 text-[22px] font-bold">{b.title}</h2>
           {isQuestionKind(b.kind) && (
             <p className="mt-1 text-[13px] text-(--muted)">
