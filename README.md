@@ -1,63 +1,44 @@
 # ENSE 400 Capstone — Final-2027
 
-Course documents for the ENSE 400/477 capstone with Dr. Tim Maciag, University of Regina.
+Course documents and code for the ENSE 400/477 capstone with Dr. Tim Maciag, University of Regina.
 
 **Team:** Aubin Chriss Izere (200490675) · Chop Kur (200497265)
 
-## Project direction
+## The product: Funza Teacher Studio
 
-**AI Learning Environment** — a study workspace that works from the course files already
-on the student's device. Open a PDF, select a page or passage, ask by text or voice, and
-get an explanation that carries the page reference it came from. The same passage then
-generates flashcards and quizzes, and review is scheduled against exam dates. Desktop
-first (Electron + React), iPad later. Original files stay on the device; only the selected
-passage is sent to an AI model.
+Funza is a teaching tool for Saskatchewan Grade 10–12 teachers. It has two modes:
 
-**AI approach:** passage analysis, flashcards and quizzes run on free cloud AI models
-(for example the Gemini API free tier, Groq and OpenRouter's free models). For
-explanations, the student picks a model from a list sorted from least to most expensive.
-The free model is the default; paid models are unlocked by a Pro subscription that covers
-their cost. The project is self-funded.
+- **Live.** The teacher uploads notes or picks a chapter, Funza suggests questions, and the teacher picks how many and sets a timer. Students scan a QR code, enter their name and student number, and answer on their phones. When time is up, Funza marks the answers, the teacher reveals them to the class, and the results show which questions most students missed.
+- **Prepare.** The teacher builds courses whose chapters come from the Saskatchewan curriculum, then makes notes, slides, quizzes, tests and exams with Funza (from a saved exam template, a past exam, or plain-language instructions). Everything is reviewed and approved by the teacher before students get it through a course QR code or link, Google Classroom, or print.
 
-Selected from three ideas pitched on 15 September 2026 (see `docs/03_pitch/`). The two
-alternatives were **uofrEats**, a campus food ordering and pickup platform, and
-**AI-Assisted Drones** for crop scouting and fire detection. The AI Learning Environment was
-chosen because it is backed by a real student interview, it needs no hardware or outside
-partners, and both team members have the problem themselves. The full reasoning is in the
-Business Case.
+Funza drafts; the teacher approves. Students never make an account.
 
-## Pivot (October 2026)
+**Where the code is today.** The app in [`app/`](app/) covers the Prepare path for one teacher in one browser: pick curriculum outcomes, describe the resource, let Funza draft it, review and approve it, then post it to Google Classroom or print it. Live mode, teacher accounts, courses, templates and student pages are planned in [`docs/07_teacher_studio/`](docs/07_teacher_studio/).
 
-On 19 October 2026 the team proposed widening the product from a student PDF study tool to
-**Folio**, a desktop app that works like VS Code with Claude Code built in, but for people
-who do not code, with **Funza** (the prototype's name, look and brain mascot) as the assistant
-inside it. Open a folder; read PDFs and get explanations that cite the page; press one
-button for flashcards, a quiz, a summary or a document; create notes, drawings and
-interactive pages; and let Funza read the folder and make things in it, with a permission
-card before every change. A Student or Everyday mode sets Funza's buttons. Every Fall
-requirement and the schedule stay the same. The change request is pending Dr. Maciag's
-approval.
+## How the project got here
 
-- [Product Requirements Document](docs/06-pivot/01.%20Product%20Requirements%20Document.md) — users, screens, requirements, AI architecture, plugins
-- [Development Phases and Plan](docs/06-pivot/02.%20Development%20Phases%20and%20Plan.md) — architecture, phases, week-by-week plan, testing, budget, risks, and the change request (Appendix A)
+| When | What |
+|---|---|
+| Sept 2026 | The **AI Learning Environment**, a study tool for students, was chosen from three pitches (the others were uofrEats and AI-Assisted Drones). See `docs/03_pitch/` and the Business Case. |
+| Oct 2026 | A student tutor prototype named Funza was tested at the usability bazaar on 20 October (`docs/06_usability_bazaar/`). A proposal to widen it into Folio, a desktop workspace for non-technical users, was not pursued. |
+| Nov 2026 | The product moved to teachers: the teacher workspace in `app/`, then the Teacher Studio plan (19 November) in `docs/07_teacher_studio/`. |
 
 ## What's where
 
 Naming: everything under `docs/` is lowercase `snake_case`. Files are `NN_name.ext`, numbered in order within their folder; a deliverable kept in two formats (for example .pptx and .pdf) shares one number. Folders are `NN_name` in course order.
 
-| Folder | Contents |
+| Path | Contents |
 |---|---|
 | `docs/00_lectures/` | Design Workshop 1 to 3 slides from Dr. Maciag |
-| `docs/01_workshop_1/` | Workshop 1 deliverables — Project Ideation, Competitor Analysis |
-| `docs/02_workshop_2/` | Workshop 2 deliverables — User Analysis, Business Model Analysis |
+| `docs/01_workshop_1/` | Workshop 1 deliverables: Project Ideation, Competitor Analysis |
+| `docs/02_workshop_2/` | Workshop 2 deliverables: User Analysis, Business Model Analysis |
 | `docs/03_pitch/` | Three-project pitch deck (15 Sept 2026) and final pitch deck for Cultivator HQ (13 Oct 2026), each as .pptx and .pdf |
 | `docs/04_workshop_3/` | Workshop 3 planning documents, user story map and Gantt chart |
 | `docs/05_vlog_1/` | Vlog 1 script, shot list and requirement coverage |
-| `docs/06_usability_bazaar/` | Usability bazaar (20 Oct 2026): low-fidelity wireframes (five screens, printable), facilitator plan with task cards and observation sheet, and the participant questionnaire (SUS, design directions, open questions), each as source plus a print-ready PDF. `04_wireframes_figma/` holds the same five screens as desktop-sized SVGs (generated by the script beside them) for the Figma file, https://www.figma.com/design/2EKJLy3nigXgurkl4vLqE2. `05_questionnaire_qr.png` and the printable sign open the phone version of the questionnaire at https://funza-lemon.vercel.app/survey. The high-fidelity prototype is the app in `app/`, deployed at https://funza-lemon.vercel.app |
-| `docs/06-pivot/` | Pivot proposal (October 2026): Product Requirements Document and Development Phases and Plan |
-| `docs/07-workshop-4/` | Folio usability questionnaire (printable PDF with a QR code to the Figma prototype), the Google Form script that collects and scores answers online, and the PDF's build source |
-| `docs/07_system_architecture/` | System architecture of Funza as built (17 Nov 2026), as Markdown with Mermaid diagrams and a print-ready PDF: context, containers, components, data model, API, key flows, AI layer, security, requirement traceability, design decisions and the Winter 2027 target |
-| `docs/09_teacher_workspace_design/` | Design of the teacher workspace for Saskatchewan Grade 10–12 teachers (18 Nov 2026): product experience and design decisions, information architecture, design system, specifications and wireframes for the five core screens, interaction flows, curriculum verification and alignment, publishing to the LMS, and the implementation plan with what Stage B built. `09_mockups/` holds 18 screens captured from the Stage A prototype. The app in `app/` now implements the design as a teachers-only workspace (see `app/README.md`) |
+| `docs/06_usability_bazaar/` | Usability bazaar (20 Oct 2026): low-fidelity wireframes, facilitator plan and participant questionnaire, each as source plus a print-ready PDF; `04_wireframes_figma/` holds the same screens as SVGs for the Figma file, https://www.figma.com/design/2EKJLy3nigXgurkl4vLqE2 |
+| `docs/07_teacher_studio/` | Teacher Studio plan (19 Nov 2026): user flows for Live and Prepare, exam templates, use cases, and what to keep, combine, remove and build in the current app. As a web page (`01_user_flows_and_features.html`), a PDF, and the diagrams as PNG and SVG in `diagrams/` |
+| `app/` | The Funza app (Next.js, TypeScript, Tailwind). See [app/README.md](app/README.md) to run it |
+| `vlog1.mp4` | Vlog 1 video (submitted on UR Courses) |
 
 ### Workshop 3 documents
 
@@ -76,19 +57,11 @@ Naming: everything under `docs/` is lowercase `snake_case`. Files are `NN_name.e
 | 11 | [User Story Map](docs/04_workshop_3/11_user_story_map.md) | Student journey with Release 1 (Fall) and Release 2 (Winter) stories |
 | 12 | [Gantt Chart](docs/04_workshop_3/12_gantt_chart.png) | Visual schedule built from document 07 |
 
-## Who owns what
+The Workshop 3 documents were written for the student study tool. Their feature split and story map will be redone for the Teacher Studio.
 
-Project management is shared and the work is split by feature.
+## Project management
 
-- **Aubin:** course folders, PDF reader, AI layer and server proxy, page-anchored
-  explanations, model picker; in Winter, voice input, text recognition and the iPad version.
-- **Chop:** local storage, flashcards and quizzes; in Winter, accounts, the Pro
-  subscription and payments, usage limits and spaced review.
-
-Each work package is a GitHub issue (#1 to #18), labelled by type and by who is accountable,
-and grouped into two milestones: **ENSE 400 - Fall 2026** (due 1 December 2026) and
-**ENSE 477 - Winter 2027** (due 9 April 2027, tentative). Progress is tracked on the
-[Kanban board](https://github.com/users/Binborg1/projects/1) (Backlog, Doing, Review, Done).
+Project management is shared. Each work package is a GitHub issue (#1 to #18), labelled by type and by who is accountable, and grouped into two milestones: **ENSE 400 - Fall 2026** (due 1 December 2026) and **ENSE 477 - Winter 2027** (due 9 April 2027, tentative). Progress is tracked on the [Kanban board](https://github.com/users/Binborg1/projects/1) (Backlog, Doing, Review, Done).
 
 ## Design process status
 
@@ -96,54 +69,35 @@ Workshop 1 set out a nine-step research design process:
 
 | # | Step | Status |
 |---|---|---|
-| 1 | Project name | Done (working name) |
-| 2 | Key users | Done |
-| 3 | Key user problems / needs | Done |
-| 4 | Solutions and features | Done |
-| 5 | Requirements | Done — `05_project_requirements.pdf` |
+| 1 | Project name | Done (Funza) |
+| 2 | Key users | Done for students; redo for teachers |
+| 3 | Key user problems / needs | Done for students; redo for teachers |
+| 4 | Solutions and features | Teacher Studio plan in `docs/07_teacher_studio/` |
+| 5 | Requirements | `05_project_requirements.pdf` (student tool) |
 | 6 | Unique value proposition | In the pitch deck, not yet in a table |
 | 7 | Competitive strategy | Done |
-| 8 | Business goals and KPIs | Done — goals, SMART objectives and KPIs in `02_project_charter.pdf` |
+| 8 | Business goals and KPIs | Done: goals, SMART objectives and KPIs in `02_project_charter.pdf` |
 | 9 | User and business pain points | Not started |
 
 ## Research evidence
 
 Primary-research interviews completed so far:
 
-- **Linda**, student — the AI Learning Environment problem statement comes from this
-  interview.
-- **Manmeet**, manager at Da India Curry House Xpress — supports the uofrEats idea, which
-  was not selected.
+- **Linda**, student: the AI Learning Environment problem statement came from this interview.
+- **Manmeet**, manager at Da India Curry House Xpress: supports the uofrEats idea, which was not selected.
 
-Everything else in the deliverable tables (the graduate and design-partner user types,
-demographics, habits, and all three business models) is reasoned extension rather than
-validated research, and still needs to be tested with real students.
+No teachers have been interviewed yet. Interviews with Grade 10–12 teachers are the next research step for the Teacher Studio.
 
 ## Vlogs
 
-| # | Due | Link |
+| # | Due | Status |
 |---|---|---|
-| 1 | 13 Oct 2026, 11:30 am | _YouTube link to be added after upload_ · [script and shot list](docs/05_vlog_1/01_vlog_1_script.md) |
-| 2 | 1 Dec 2026 | — |
+| 1 | 13 Oct 2026 | Submitted on UR Courses · [script and shot list](docs/05_vlog_1/01_vlog_1_script.md) |
+| 2 | 1 Dec 2026 | Not started |
 
 ## Upcoming
 
 | Date | What |
 |---|---|
-| 13 Oct 2026 | Final pitch at Cultivator HQ (5 min) and Vlog 1 (due 11:30 am) |
-| 20 Oct 2026 | Low- and high-fidelity prototypes and usability questionnaire ready; usability session |
-| 27 Oct 2026 | Usability analysis, redesign and architecture; development and scrums start |
 | 24 Nov 2026 | Bazaar day work-in-progress demo |
 | 1 Dec 2026 | Release 1 complete; Vlog 2 |
-
-## Outstanding
-
-1. Interview three to five more students and replace the assumed table rows with findings.
-2. Complete step 9 of the design process and put the UVP (step 6) in a table.
-3. Test the free cloud models for explanation quality, speed and rate limits — the main
-   technical unknown.
-4. Workshop 4: low- and high-fidelity prototypes and the usability questionnaire.
-
-## Application
-
-The first prototype, **Funza**, lives in [`app/`](app/): a Next.js + TypeScript + Tailwind app that teaches one concept at a time from built-in TCP/IP demo lessons, with hints and retries instead of answers. See [app/README.md](app/README.md) to run it.

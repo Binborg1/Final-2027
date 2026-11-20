@@ -4,7 +4,7 @@ A teaching workspace for **Saskatchewan Grade 10–12 teachers**. A teacher pick
 
 **Funza creates. Teachers approve. Existing school platforms deliver.**
 
-The design is in `docs/09_teacher_workspace_design/`.
+The plan for the next version, the Funza Teacher Studio (live sessions and courses), is in `docs/07_teacher_studio/`.
 
 ## Run it
 
@@ -25,7 +25,6 @@ Copy `.env.example` to `.env.local` (or set the variables in Vercel).
 |---|---|---|
 | One AI provider (`GROQ_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY`, `ANTHROPIC_API_KEY`, or `FUNZA_AI_PROVIDER` + `FUNZA_AI_API_KEY`) | AI drafting of whole resources and single questions | Teachers start from Funza's question bank (Science 10, SCI10-FM2 and FM3) or write from the blueprint |
 | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `FUNZA_SESSION_SECRET` | Publishing to Google Classroom | The Publish screen says Classroom is not set up; printing still works |
-| `BLOB_READ_WRITE_TOKEN`, `SURVEY_ADMIN_KEY` | The usability questionnaire at `/survey` | The survey asks participants to use paper |
 
 Google Classroom setup (once per Funza deployment):
 
@@ -74,7 +73,7 @@ No person has checked the imported text, so the review checklist asks the teache
 
 | Path | Purpose |
 |---|---|
-| `src/app/` | Routes: `/`, `/curriculum`, `/create`, `/library`, `/resources/[id]`, `/resources/[id]/deliver`, `/integrations`, `/survey`; API: `/api/teach`, `/api/curriculum/*`, `/api/lms/google/*`, `/api/survey` |
+| `src/app/` | Routes: `/`, `/curriculum`, `/create`, `/library`, `/resources/[id]`, `/resources/[id]/deliver`, `/integrations`; API: `/api/teach`, `/api/curriculum/*`, `/api/lms/google/*` |
 | `src/components/workspace/` | The screens and the design-system components (`ui.tsx`, `icons.tsx`, `shell.tsx`) |
 | `src/lib/resources/` | Resource model, blueprint, starter question bank, checks, validation of untrusted input, the client store, the student-copy renderer |
 | `src/lib/curriculum/` | The catalog and its checks (`catalog.ts`), the imported dataset on the server (`dataset.ts`) and in the browser (`client.ts`) |
@@ -83,7 +82,7 @@ No person has checked the imported text, so the review checklist asks the teache
 | `src/lib/lms/` | Google OAuth session, Classroom and Drive calls, browser client |
 | `src/lib/ai/server.ts` | One `complete()` over Anthropic, Groq, OpenRouter and Gemini; keys stay on the server |
 | `src/lib/visualizations/`, `src/components/visualizations/` | The interactive graph used in notes and the interactive-graph resource |
-| `tests/` | Catalog, curriculum dataset and importer, resources, LMS, visualization and survey tests |
+| `tests/` | Catalog, curriculum dataset and importer, resources, LMS, and visualization tests |
 
 ## Not built yet
 

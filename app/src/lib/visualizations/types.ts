@@ -6,10 +6,10 @@
  * by name and pass structured parameters; nothing it sends is ever executed as
  * code. A concept with no fitting type is taught with an ordinary explanation.
  *
- * Two families share one interface:
- * - generic building blocks (graphs, diagrams, sequences, quantities, geometry)
- *   whose content (stages, captions, predictions) comes from the lesson or the AI;
- * - specialized demonstrations (the networking ones) whose content is computed.
+ * Every type is a generic building block (graph, diagram, sequence, quantity,
+ * geometry) whose content (stages, captions, predictions) comes from the
+ * resource or the AI. The "specialized" family, for demonstrations whose content
+ * is computed by code, has no members now.
  */
 import type { Numberish } from "./expr";
 
@@ -19,9 +19,6 @@ export const VISUALIZATION_TYPES = [
   "process-sequence",
   "quantity-model",
   "geometry-scene",
-  "packet-transmission",
-  "pcm-sampling",
-  "protocol-layers",
 ] as const;
 export type VisualizationType = (typeof VISUALIZATION_TYPES)[number];
 
@@ -115,37 +112,12 @@ export type GeometrySceneParams = GenericBase<GeoStage> & {
   shapes: GeoShape[];
 };
 
-/* ---------- specialized types ---------- */
-
-export type PacketTransmissionParams = {
-  /** How many packets the message is split into. */
-  packets: number;
-  /** 1-based number of a packet dropped in transit, or null for a clean delivery. */
-  lostPacket: number | null;
-};
-
-export type PcmSamplingParams = {
-  /** Frequency of the analog wave, in hertz, shown over a one-second window. */
-  signalHz: number;
-  /** Samples per second. */
-  sampleRate: number;
-  /** Bits per sample; 2^bits quantization levels. */
-  bits: number;
-};
-
-export type ProtocolLayersParams = {
-  model: "tcp-ip" | "osi";
-};
-
 export type VisualizationParams = {
   "function-graph": FunctionGraphParams;
   "node-diagram": NodeDiagramParams;
   "process-sequence": ProcessSequenceParams;
   "quantity-model": QuantityModelParams;
   "geometry-scene": GeometrySceneParams;
-  "packet-transmission": PacketTransmissionParams;
-  "pcm-sampling": PcmSamplingParams;
-  "protocol-layers": ProtocolLayersParams;
 };
 
 /** A validated request: which visualization, with which parameters. */

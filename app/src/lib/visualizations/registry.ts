@@ -1,21 +1,16 @@
 import { ExprError } from "./expr";
-import { SHARED_SCHEMA_DOC } from "./generic/common";
 import { functionGraph } from "./generic/functionGraph";
 import { geometryScene } from "./generic/geometryScene";
 import { nodeDiagram } from "./generic/nodeDiagram";
 import { processSequence } from "./generic/processSequence";
 import { quantityModel } from "./generic/quantityModel";
-import { packetTransmission } from "./packetTransmission";
-import { pcmSampling } from "./pcmSampling";
-import { protocolLayers } from "./protocolLayers";
 import { VISUALIZATION_TYPES, VisualizationSchemaError, type VisualizationConfig, type VisualizationDefinition, type VisualizationParams, type VisualizationType } from "./types";
 
 /**
- * Every visualization Funza can show, by name. Five are generic building blocks
- * whose content comes from the lesson or the AI; three are specialized
- * networking demonstrations whose content is computed. Adding one means a
+ * Every visualization Funza can show, by name: five generic building blocks
+ * whose content comes from the resource or the AI. Adding one means a
  * definition here and a scene in `src/components/visualizations/scenes/`;
- * the tutor, the AI prompts and the validation below pick it up from this map.
+ * the validation below picks it up from this map.
  */
 export const registry: { [K in VisualizationType]: VisualizationDefinition<VisualizationParams[K]> } = {
   "function-graph": functionGraph,
@@ -23,9 +18,6 @@ export const registry: { [K in VisualizationType]: VisualizationDefinition<Visua
   "process-sequence": processSequence,
   "quantity-model": quantityModel,
   "geometry-scene": geometryScene,
-  "packet-transmission": packetTransmission,
-  "pcm-sampling": pcmSampling,
-  "protocol-layers": protocolLayers,
 };
 
 export function isVisualizationType(value: unknown): value is VisualizationType {
@@ -65,11 +57,3 @@ export function checkVisualization(raw: unknown): { ok: true; config: Visualizat
   }
 }
 
-/** The catalogue in words, for the AI lesson prompt. */
-export function describeVisualizationsForPrompt(): string {
-  const lines = VISUALIZATION_TYPES.map((type) => {
-    const def = definitionOf(type);
-    return `- "${type}": use for ${def.useWhen}. Params: ${def.schemaDoc}`;
-  });
-  return `${SHARED_SCHEMA_DOC}\nTypes (the generic ones take the shared fields plus their own; the networking ones take only their params):\n${lines.join("\n")}`;
-}

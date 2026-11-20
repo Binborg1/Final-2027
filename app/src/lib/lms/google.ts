@@ -3,7 +3,7 @@ import type { GoogleConfig, GoogleTokens } from "@/lib/lms/session";
 
 /**
  * Google Classroom and Drive over plain fetch, following the REST references
- * read on 18 Nov 2026 (docs/09_teacher_workspace_design/07_lms_publishing_ux.md).
+ * read on 18 Nov 2026.
  * Funza never asks for rosters, submissions or grades.
  */
 
