@@ -1,7 +1,4 @@
-# ---------------------------------------------------------------
-# AI agent instructions and tool settings: kept on our machines,
-# never pushed. These patterns match at any depth (also in app/).
-# ---------------------------------------------------------------
+
 AGENTS.md
 CLAUDE.md
 CLAUDE.local.md
