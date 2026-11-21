@@ -4,7 +4,8 @@
  * whose content is frozen; delivery always uses the approved snapshot.
  */
 
-export type ResourceKind = "notes" | "quiz" | "test" | "exam" | "lesson-plan" | "worksheet" | "homework" | "presentation" | "visualization";
+/** The materials Teacher Studio makes. "presentation" is shown to teachers as slides. */
+export type ResourceKind = "notes" | "quiz" | "test" | "exam" | "presentation";
 
 export type NotesStyle = "comprehensive" | "summary" | "worked" | "simplified" | "revision";
 
@@ -48,9 +49,7 @@ export type Item = {
 /** A question as stored in the starter bank, before the blueprint sets its marks. */
 export type BankItem = Omit<Item, "marks" | "rubric" | "origin" | "reviewedFp"> & { rubricLines: string[] };
 
-export type MotionSetup = { objects: { label: string; speed: number }[]; duration: number };
-
-export type SectionKind = "questions" | "text" | "activity";
+export type SectionKind = "questions" | "text";
 
 export type Section = {
   id: string;
@@ -59,8 +58,6 @@ export type Section = {
   /** Instructions above the questions, or the text of a text section. */
   body: string;
   items: Item[];
-  minutes: number | null;
-  motion: MotionSetup | null;
   /** A calculation stated in the text (a worked example) that Funza can recompute. */
   claim: (Calc & { stated: string }) | null;
   outcomeIds: string[];
@@ -88,9 +85,6 @@ export type Brief = {
   notesStyle: NotesStyle;
   keyTerms: boolean;
   checkQuestions: boolean;
-  includeGraph: boolean;
-  planMinutes: number;
-  adaptations: boolean;
   slides: number;
   speakerNotes: boolean;
   /** The teacher's own file: only its name and extracted text are kept. */
@@ -132,8 +126,6 @@ export type Draft = {
   courseName: string;
   outcomeIds: string[];
   sections: Section[];
-  /** For lesson plans: the class length the phases must add up to. */
-  targetMinutes: number | null;
   /** Minutes allowed, printed in the header of assessments. */
   duration: number | null;
   draftedBy: Origin;

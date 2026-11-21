@@ -21,10 +21,10 @@ export const runtime = "nodejs";
 
 const sha256 = (s: string) => createHash("sha256").update(s, "utf8").digest("hex");
 
-/** Tells the browser whether an AI provider is configured, without revealing the key. */
+/** Tells the browser whether an AI provider is configured, without revealing the key or the model. */
 export async function GET() {
   const cfg = aiConfig();
-  return NextResponse.json(cfg ? { configured: true, provider: cfg.provider, model: cfg.model } : { configured: false });
+  return NextResponse.json(cfg ? { configured: true, provider: cfg.provider } : { configured: false });
 }
 
 function outcomesFor(ids: string[]): { ok: true; outcomes: PromptOutcome[] } | { ok: false; message: string } {
@@ -62,7 +62,6 @@ export async function POST(request: Request) {
 
   try {
     if (body.task === "resource-draft") {
-      if (brief.kind === "visualization") return bad("Interactive graphs are built by Funza, not drafted by AI.");
       const { system, user } = resourcePrompt(brief, checked.outcomes);
       const raw = await complete({ system, user, maxTokens: isQuestionKind(brief.kind) ? 9000 : 7000 });
       const draft = validateResourceReply(brief, parseJsonObject(raw));

@@ -16,7 +16,7 @@ Funza Teacher Studio is a web app for **Saskatchewan Grade 10–12 teachers**. T
 ## Where things stand (21 November 2026)
 
 - **Planned and specified:** the [user flows and features](docs/03_design/01_user_flows_and_features/) (19 November) and the [requirements and architecture](docs/03_design/02_requirements_and_architecture/requirements_and_architecture.md) (21 November). The product definition was locked on 21 November.
-- **Built so far:** the app in [`app/`](app/) covers the Prepare path for one teacher in one browser: pick curriculum outcomes, describe the resource, let Funza draft it, review and approve it, then post it to Google Classroom or print it.
+- **Built so far:** the logic in [`app/`](app/) from the earlier teacher workspace: AI drafting with checked replies, the Saskatchewan curriculum, review and approval checks, the student copy, and Google Classroom publishing. Its screens were removed on 21 November because Teacher Studio gets a new design; their ideas are in [concepts from the earlier app](docs/04_development/04_concepts_from_the_earlier_app.md).
 - **Next:** teacher accounts and courses on Supabase, then Live mode, for Release 1 on 1 December. The order is in the [development steps](docs/04_development/01_development_steps.md).
 - **Documents:** the [document tracker](docs/document_tracker.md) lists every document the project needs and how far along each one is.
 
@@ -27,7 +27,6 @@ Final-2027/
 ├── README.md                                   This page: product, status, structure, how to run
 ├── app/                                        The Funza web app (Next.js, TypeScript, Tailwind)
 │   ├── src/app/                                Pages, and the API routes that are the backend
-│   ├── src/components/                         Screens and shared interface parts
 │   ├── src/lib/                                App logic: AI, curriculum, resources, Classroom
 │   ├── src/data/curriculum/                    Saskatchewan Grade 10–12 curricula as JSON
 │   ├── scripts/curriculum/                     Imports the curricula from the Ministry's website
@@ -41,7 +40,7 @@ Final-2027/
     ├── 03_design/                              What the app does and how it is built
     │   ├── 01_user_flows_and_features/         Live and Prepare flows, use cases, diagrams
     │   └── 02_requirements_and_architecture/   Requirements, system, data model, privacy
-    ├── 04_development/                         Build plan and weekly status reports
+    ├── 04_development/                         Build plan, status reports, ideas from the earlier app
     ├── 05_testing/                             Code and usability test plans and results
     ├── 06_presentations/                       Demo day, vlogs, poster, videos, final presentation
     ├── 07_user_guide/                          Help for teachers and students

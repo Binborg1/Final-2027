@@ -1,6 +1,6 @@
 # Funza development steps
 
-**Funza Teacher Studio · v0.1 · 21 November 2026**
+**Funza Teacher Studio · v0.2 · 21 November 2026**
 
 This is the order in which Funza gets built, from creating accounts to the final release. Each step lists what to do and how to know it's done. The *why* behind each choice is in [requirements and architecture](../03_design/02_requirements_and_architecture/requirements_and_architecture.md); the product is summarized in the [repo README](../../README.md).
 
@@ -24,6 +24,7 @@ AWS is not used (decided 21 November 2026, Q11).
 | Dates | Step | Release |
 |---|---|---|
 | 21 Nov | 0. Accounts and keys | R1 |
+| 21 Nov | Cleanup and first security fixes ✅ | R1 |
 | 21–22 Nov | 1. Foundation: schema, database clients, CI | R1 |
 | 21–23 Nov | 2. UI design (alongside step 1) | R1 |
 | 23 Nov | 3. Teacher sign-in | R1 |
@@ -46,7 +47,7 @@ Done in browsers by a team member; nothing here is code.
    - Aubin and Chop share the Funza account's login, kept in a shared password manager with two-step verification on.
    - Use this project for development and the R1 demo. Create a separate production project before the first real class.
    - The connector `funza-supabase` (in `.mcp.json`) gives agents read and write access to this project only.
-2. **Vercel.** In the Pro team "Aubino Chris' projects", import `Binborg1/Final-2027`, set the root directory to `app`, and keep the Next.js preset. In the project settings, set the function region to **Montréal (yul1)**. Add environment variables: the production Supabase keys for *Production*, and the dev keys for *Preview* and *Development*.
+2. **Vercel.** In the Pro team "Aubino Chris' projects", import `Binborg1/Final-2027`, set the root directory to `app`, and keep the Next.js preset. In the project settings, set the function region to **Montréal (yul1)**. Add environment variables: the production Supabase keys for *Production*, and the dev keys for *Preview* and *Development*. **Don't add a Gemini key to any Vercel environment until step 3 is merged:** until then `/api/teach` answers anyone who finds the URL.
 3. **Google Cloud.**
    - In the existing OAuth client (the one Classroom uses), add the Supabase callback URL for each project: `https://<project-ref>.supabase.co/auth/v1/callback`.
    - In each Supabase project, under Auth → Providers → Google, enter that client ID and secret.
@@ -55,9 +56,27 @@ Done in browsers by a team member; nothing here is code.
 
 **Done when:** a Vercel preview builds the current app, and both Supabase projects exist in Canada.
 
+## Cleanup and first security fixes (21 Nov) ✅
+
+The earlier teacher workspace's screens are gone, because Teacher Studio gets a new design (step 2). Its logic stays in `app/src/lib/`, and the ideas from the removed screens are written up in [concepts from the earlier app](04_concepts_from_the_earlier_app.md). The curriculum data was left as it is (see step 4).
+
+- **Removed:** every old page and component, the visualization engine (except the expression engine, now `lib/math/expr.ts`), the lesson plan, worksheet, homework and interactive-graph kinds, the Anthropic provider and image input, `framer-motion` and `@anthropic-ai/sdk`.
+- **Tooling:** Tailwind now runs through the standard PostCSS plugin; `pdfjs-dist` is pinned to the version of its worker in `public/`; tests can load `lib/ai/server.ts`.
+- **Security fixed:**
+  - The Gemini key goes in a request header, not the URL.
+  - What a provider says in an error stays in the server log; the teacher sees a plain message.
+  - AI calls time out after 2 minutes, and blocked or cut-off Gemini replies are named.
+  - An uploaded file can no longer close the `<material>` wrapper that marks it as data.
+  - The AI status check no longer reveals the model.
+  - Cross-site POSTs to the Classroom routes are refused, including those with a missing or malformed `Origin`.
+  - Server-only modules (AI, Classroom session, curriculum file) fail the build if a browser page imports them.
+  - Classroom publishing moved out of the old screen into `lib/lms/publish.ts`, with tests.
+
+Still open, and scheduled below: sign-in on `/api/teach` and the Classroom routes (step 3), the Classroom cookie tied to a teacher (step 3), the daily AI allowance (step 4), approval enforced on the server (step 4), and the Classroom Doc built from a saved version (step 4).
+
 ## Step 1. Foundation (21–22 Nov)
 
-1. Install the Supabase CLI, run `supabase init` in `app/`, and write the first migration. It holds the 15 tables and 3 join tables from Diagram 4, with row-level security on each. Apply it to `funza-dev`.
+1. Install the Supabase CLI, run `supabase init` in `app/`, and write the first migration. It holds the 15 tables and 3 join tables from Diagram 4, with row-level security on each. Apply it to the development project, **Funza** (`oitifuxpuxsbzubokukn`).
 2. Add `src/lib/db/` with three Supabase clients:
    - **Browser:** uses the public key.
    - **Server:** reads the teacher's session from cookies.
@@ -85,28 +104,38 @@ Done in browsers by a team member; nothing here is code.
 1. Build the sign-in page (Google, or an email link) and the callback route.
 2. Protect teacher pages so they need a session. Student pages stay public.
 3. On first sign-in, create the `teachers` row and show first-time setup: grades, subjects and courses.
+4. `/api/teach` and every `/api/lms/google/*` route answer 401 without a signed-in teacher.
+5. Tie the Classroom cookie to the teacher: seal the teacher's id into it, refuse it for anyone else, and delete it on sign-out. Today the next person on a shared school computer inherits the connection.
+6. Only after this step is merged, add the Gemini development key to Vercel's *Preview* environment.
 
-**Done when:** you can sign in on the Vercel preview and land on an empty Home.
+**Done when:** you can sign in on the Vercel preview and land on an empty Home, and a signed-out request to `/api/teach` gets 401.
 
 **Bazaar (24 Nov):** show the plan documents, plus sign-in and Make working on the deployed app.
 
 ## Step 4. Courses, Make and the bank in the database (24–25 Nov)
 
 1. Courses and chapters: create, rename, reorder and delete. New chapters start from the curriculum units.
+   - **Curriculum data, left alone on 21 November, is decided here.** Only 58 of the 134 courses in `sk.json` have units (none of the 9 math courses do), so choose the chapter rule for the rest (suggested: one chapter per outcome, which the teacher can rename or merge). Then remove the Science 10 hand-copied entry and its `lessonTemplate` rule from `catalog.ts`, the unused lesson-plan content in `bank.ts`, and `scripts/curriculum/schema.sql` and `export-sql.mjs`, which contradict "the curriculum stays JSON".
 2. Sources: upload to Storage, extract the text once, and attach the source to its chapter.
 3. Move `lib/resources/store.ts` from local storage to Supabase: drafts, versions, and approve, which locks a version.
 4. AI:
-   - Gemini becomes the default, with the current Flash model.
+   - Gemini is already first (21 November); move it to the current Flash model.
    - Every call goes through the daily allowance (`FUNZA_AI_DAILY_LIMIT`, default 40) and is logged in `ai_usage`.
    - Long drafts stream to the screen.
-5. Approving saves the questions to the chapter's bank.
+5. Approving saves the questions to the chapter's bank. **Approval is enforced on the server:** it recomputes the checks and refuses to approve while anything has failed or waits on the teacher. Today only the browser checks.
 6. On first sign-in, offer to import drafts saved in that browser.
+7. Publishing to Classroom builds the Google Doc on the server from a saved approved version, found by its id, instead of from sections the browser sends (`api/lms/google/doc/route.ts`, which also still defaults the course name to "Science 10").
+8. Gemini replies use a JSON response schema, `complete()` returns token counts for `ai_usage`, and `/api/teach` sets a `maxDuration` for long drafts.
 
 **Done when:** a teacher makes and approves a quiz on one computer and finds it on another.
 
 ## Step 5. Live mode (26–28 Nov)
 
-1. Build `lib/live`: session states, 6-character codes, the server clock, and exact marking. Start the exact marking from the checker in git (`c611d8f^`).
+1. Build `lib/live`: session states, 6-character codes, the server clock, and exact marking.
+   - Restore the join-code generator and its test from git (`c611d8f^`, `lib/classes/model.ts`): its alphabet leaves out 0, O, 1 and I.
+   - Write the answer checker fresh. The old one in `c611d8f^` marked short answers by keywords and had no true/false or number type.
+   - Mark number answers with a strict number parser and a tolerance. Don't use `lib/math/expr.ts` for student input: it accepts `sqrt(50)` and has no tolerance.
+   - Store each phone's token as a hash and compare it in constant time (the `keyMatches` pattern in `c611d8f^`, `lib/classes/server.ts`).
 2. API routes: `/api/live/start`, `join`, `state`, `answer`, `close`, `reveal`, `end`.
 3. Realtime pings on one channel per session. If the WebSocket can't connect, phones ask for the state every 2 seconds.
 4. Teacher screens:
@@ -117,7 +146,7 @@ Done in browsers by a team member; nothing here is code.
    - Results with the most-missed questions, and a CSV export.
 5. Student screens: `/join` (code, name, student number) and `/play/[session]` (answer, wait, see my result).
 6. Short-answer marking: one Gemini call per question, with no names. The teacher can flip any mark.
-7. Rate limits on join, answer and state.
+7. Rate limits on join, answer and state. State-changing routes refuse cross-site requests with `lib/origin.ts`.
 
 **Done when:** 5 real phones and 35 simulated ones finish a session with no lost answers. Every phone shows the question within 1 second of the click.
 

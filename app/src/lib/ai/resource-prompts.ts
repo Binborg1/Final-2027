@@ -40,10 +40,21 @@ function outcomeBlock(outcomes: PromptOutcome[]) {
     .join("\n");
 }
 
+/**
+ * Uploaded text goes inside <material> and is treated as data. Any tag that
+ * could close or reopen the wrapper is defused, so a file can't step outside it.
+ */
+export function asData(text: string) {
+  return text.replace(/<(?=\s*\/?\s*material)/gi, "‹");
+}
+
+/** A file name is shown in quotes on one line; it must not break out of them. */
+const fileName = (name: string) => name.replace(/[\r\n"<>]/g, " ").slice(0, 120);
+
 function extras(b: Brief) {
   const lines: string[] = [];
   if (b.instructions) lines.push(`Teacher's note: ${b.instructions}`);
-  if (b.material?.text) lines.push(`The teacher supplied a file, "${b.material.name}". ${b.material.use === "source" ? "Base the content on it; anything not in it must be marked as general knowledge in the solution." : "Use it for ideas only."}\n<material>\n${b.material.text.slice(0, 8000)}\n</material>`);
+  if (b.material?.text) lines.push(`The teacher supplied a file, "${fileName(b.material.name)}". ${b.material.use === "source" ? "Base the content on it; anything not in it must be marked as general knowledge in the solution." : "Use it for ideas only."}\n<material>\n${asData(b.material.text.slice(0, 8000))}\n</material>`);
   return lines.join("\n\n");
 }
 
@@ -52,23 +63,16 @@ export function resourcePrompt(b: Brief, outcomes: PromptOutcome[]): { system: s
   if (isQuestionKind(b.kind)) {
     const split = PRESETS[b.difficulty].split;
     const rows = b.mix.filter((r) => r.count > 0).map((r) => `- ${r.type} (${QTYPE_LABEL[r.type]}): exactly ${r.count}, each worth ${r.marks} mark${r.marks === 1 ? "" : "s"}`);
-    const example = b.kind === "worksheet" ? `\nAlso include "example": {"title":"Worked example","body":"a fully worked example","outcomeIds":[...],"claim":{"expr":...,"vars":...,"unit":...,"show":...,"stated":"the result exactly as written in body"}}.` : "";
     return {
       system: SYSTEM,
-      user: `${head}\n\nQuestions:\n${rows.join("\n")}\nSpread them across the outcomes. Aim for about ${split[0]}% foundational, ${split[1]}% grade-level and ${split[2]}% extending, by marks.${b.workedSolutions ? " Give worked solutions for calculations." : ""}${b.rubric ? " Give a marking rubric for written answers whose marks add up to the question's marks." : ""}\n\n${ITEM_SHAPES}${example}\n\nReply shape: {"items":[...]${b.kind === "worksheet" ? ',"example":{...}' : ""}}\n\n${extras(b)}`.trim(),
-    };
-  }
-  if (b.kind === "lesson-plan") {
-    return {
-      system: SYSTEM,
-      user: `${head}\n\nA ${b.planMinutes}-minute lesson in 4 to 6 timed phases whose "minutes" add up to exactly ${b.planMinutes}. Include materials and any safety notes in the phase text.${b.adaptations ? ' End with a section titled "Adaptations" (minutes 0) with supports and extensions.' : ""}\n\nReply shape: {"sections":[{"title":"...","minutes":10,"body":"...","outcomeIds":[...],"verbs":[...]}]}\n\n${extras(b)}`.trim(),
+      user: `${head}\n\nQuestions:\n${rows.join("\n")}\nSpread them across the outcomes. Aim for about ${split[0]}% foundational, ${split[1]}% grade-level and ${split[2]}% extending, by marks.${b.workedSolutions ? " Give worked solutions for calculations." : ""}${b.rubric ? " Give a marking rubric for written answers whose marks add up to the question's marks." : ""}\n\n${ITEM_SHAPES}\n\nReply shape: {"items":[...]}\n\n${extras(b)}`.trim(),
     };
   }
   const style = NOTES_STYLES.find((s) => s.id === b.notesStyle)!;
   const slides = b.kind === "presentation";
   return {
     system: SYSTEM,
-    user: `${head}\n\n${slides ? `A presentation outline of exactly ${b.slides} slides: one section per slide, its body as "- " bullet lines (at most 6)${b.speakerNotes ? ', then a line starting "Speaker notes:"' : ""}.` : `${style.label}: ${style.blurb.toLowerCase()}. Body text uses short paragraphs and "- " bullet lines.${b.keyTerms ? ' End with a section titled "Key terms".' : ""}`} When a section states a calculated result, add "claim" with "stated" set to the result exactly as written in the body.${!slides && b.checkQuestions ? ` Also add "items": one multiple-choice check question per outcome.\n\n${ITEM_SHAPES}` : ""}\n\nReply shape: {"sections":[{"title":"...","body":"...","outcomeIds":[...],"verbs":[...],"claim":null}]${!slides && b.checkQuestions ? ',"items":[...]' : ""}}\n\n${extras(b)}`.trim(),
+    user: `${head}\n\n${slides ? `A slide outline of exactly ${b.slides} slides: one section per slide, its body as "- " bullet lines (at most 6)${b.speakerNotes ? ', then a line starting "Speaker notes:"' : ""}.` : `${style.label}: ${style.blurb.toLowerCase()}. Body text uses short paragraphs and "- " bullet lines.${b.keyTerms ? ' End with a section titled "Key terms".' : ""}`} When a section states a calculated result, add "claim" with "stated" set to the result exactly as written in the body.${!slides && b.checkQuestions ? ` Also add "items": one multiple-choice check question per outcome.\n\n${ITEM_SHAPES}` : ""}\n\nReply shape: {"sections":[{"title":"...","body":"...","outcomeIds":[...],"verbs":[...],"claim":null}]${!slides && b.checkQuestions ? ',"items":[...]' : ""}}\n\n${extras(b)}`.trim(),
   };
 }
 

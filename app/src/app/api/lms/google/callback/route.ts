@@ -14,7 +14,7 @@ function back(request: NextRequest, path: string, result: string) {
 /** Google redirects here after consent. Errors become a plain result on the page the teacher came from. */
 export async function GET(request: NextRequest) {
   const cfg = googleConfig();
-  if (!cfg) return NextResponse.redirect(back(request, "/integrations", "not-configured"));
+  if (!cfg) return NextResponse.redirect(back(request, "/", "not-configured"));
   const params = request.nextUrl.searchParams;
   const state = unseal<{ n: string; r: string; t: number }>(request.cookies.get(STATE_COOKIE)?.value, cfg.secret);
   const returnTo = safeReturn(state?.r);

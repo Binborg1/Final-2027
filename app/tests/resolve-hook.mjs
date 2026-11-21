@@ -5,6 +5,8 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const src = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../src");
+// Next resolves "server-only" to an empty module on the server; tests run as the server too.
+const serverOnly = pathToFileURL(path.resolve(src, "../node_modules/server-only/empty.js")).href;
 const extensions = [".ts", ".tsx", ".mts", ".js", ".mjs"];
 
 function locate(filePath) {
@@ -18,6 +20,7 @@ function locate(filePath) {
 }
 
 export async function resolve(specifier, context, nextResolve) {
+  if (specifier === "server-only") return { url: serverOnly, shortCircuit: true };
   let filePath = null;
   if (specifier.startsWith("@/")) {
     filePath = path.join(src, specifier.slice(2));

@@ -1,6 +1,5 @@
 import { SchemaError } from "@/lib/ai/json";
-import { emptySection, graphSection, INSTRUCTIONS, questionSections, rubricFor } from "@/lib/resources/assemble";
-import { FM2 } from "@/lib/resources/blueprint";
+import { emptySection, INSTRUCTIONS, questionSections, rubricFor } from "@/lib/resources/assemble";
 import { isQuestionKind, QTYPE_LABEL } from "@/lib/resources/kinds";
 import { isObject, sanitizeItem, sanitizeSection } from "@/lib/resources/sanitize";
 import type { Brief, Item, Section } from "@/lib/resources/types";
@@ -68,10 +67,6 @@ export function validateResourceReply(b: Brief, reply: Record<string, unknown>):
     }
     if (items.length === 0) throw new SchemaError("The reply had no usable questions.");
     const sections: Section[] = questionSections(b, items).map((s) => ({ ...s, origin: "ai" }));
-    if (b.kind === "worksheet" && isObject(reply.example)) {
-      const ex = sanitizeSection({ ...reply.example, kind: "text", id: "s-example" }, { allowedOutcomes: allowed, fallbackId: "s-example", origin: "ai" });
-      if (ex && ex.body) sections.unshift({ ...ex, title: ex.title || "Worked example", outcomeIds: ex.outcomeIds.length ? ex.outcomeIds : (defaultOutcome ?? []) });
-    }
     return { sections, notices };
   }
 
@@ -79,15 +74,11 @@ export function validateResourceReply(b: Brief, reply: Record<string, unknown>):
   const sections: Section[] = [];
   rawSections.slice(0, 30).forEach((s, i) => {
     if (!isObject(s)) return;
-    const sec = sanitizeSection({ ...s, kind: "text", id: `s-ai-${i + 1}`, minutes: b.kind === "lesson-plan" ? s.minutes : null }, { allowedOutcomes: allowed, fallbackId: `s-ai-${i + 1}`, origin: "ai" });
+    const sec = sanitizeSection({ ...s, kind: "text", id: `s-ai-${i + 1}` }, { allowedOutcomes: allowed, fallbackId: `s-ai-${i + 1}`, origin: "ai" });
     if (!sec || !sec.title || !sec.body) return;
-    sections.push({ ...sec, outcomeIds: sec.outcomeIds.length ? sec.outcomeIds : (defaultOutcome ?? []), minutes: b.kind === "lesson-plan" ? (sec.minutes ?? 0) : null });
+    sections.push({ ...sec, outcomeIds: sec.outcomeIds.length ? sec.outcomeIds : (defaultOutcome ?? []) });
   });
   if (sections.length === 0) throw new SchemaError("The reply had no usable sections.");
-  if (b.kind === "notes" && b.includeGraph && b.outcomeIds.includes(FM2)) {
-    const at = Math.min(sections.length, 3);
-    sections.splice(at, 0, { ...graphSection("ai"), id: "s-notes-graph", title: "Interactive: two riders" });
-  }
   if (b.kind === "notes" && b.checkQuestions && Array.isArray(reply.items)) {
     const items = reply.items
       .map((x, n) => sanitizeItem(x, { allowedOutcomes: allowed, fallbackId: `ai-check-${n + 1}`, origin: "ai" }))

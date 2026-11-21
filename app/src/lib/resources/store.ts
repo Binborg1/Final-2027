@@ -253,11 +253,6 @@ export function createWithoutAi(mode: "bank" | "blank"): string {
 export async function startGeneration() {
   controller?.abort();
   const b = state.brief;
-  if (b.kind === "visualization") {
-    const id = createWithoutAi("bank");
-    set((s) => ({ ...s, generation: { ...IDLE, state: "done", resourceId: id, stages: stagesFor(b).slice(0, 2), stage: 2 } }));
-    return;
-  }
   const stages = stagesFor(b);
   set((s) => ({ ...s, generation: { state: "running", stage: 0, stages, error: null, resourceId: null, startedAt: Date.now() } }));
   const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));

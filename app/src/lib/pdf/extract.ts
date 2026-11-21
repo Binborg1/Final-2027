@@ -1,7 +1,7 @@
 /**
  * Reads the text of a PDF in the browser with pdf.js.
- * Output keeps one entry per visual line with its font size, which the lesson
- * generator uses to tell headings from body text.
+ * Output keeps one entry per visual line with its font size, so headings can be
+ * told apart from body text.
  */
 export type ExtractedLine = { text: string; size: number };
 export type ExtractedPage = { page: number; lines: ExtractedLine[] };

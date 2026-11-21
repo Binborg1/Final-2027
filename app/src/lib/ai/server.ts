@@ -1,48 +1,51 @@
-import Anthropic from "@anthropic-ai/sdk";
-import { supportsVision, type ImageInput } from "./vision";
+import "server-only";
 
 /**
- * Server-side AI access. Keys live only in environment variables on the
- * server, never in the browser, matching the project's "server proxy holds the
- * keys" design. One provider is active at a time:
- *   FUNZA_AI_PROVIDER = anthropic | groq | openrouter | gemini
- *   FUNZA_AI_API_KEY  = the key (or the provider's own variable, see below)
+ * Server-side AI access. Keys live only in environment variables on the server
+ * and never reach the browser. Gemini is Funza's provider; an OpenAI-compatible
+ * endpoint (Groq, OpenRouter, or a test double through FUNZA_AI_BASE_URL) can
+ * stand in during development. One provider is active at a time:
+ *   FUNZA_AI_PROVIDER = gemini | groq | openrouter
+ *   FUNZA_AI_API_KEY  = the key (or the provider's own variable, see providerKeys)
  *   FUNZA_AI_MODEL    = optional model override
  */
-export type Provider = "anthropic" | "groq" | "openrouter" | "gemini";
+export type Provider = "gemini" | "groq" | "openrouter";
 
 const DEFAULT_MODELS: Record<Provider, string> = {
-  anthropic: "claude-opus-5-5",
+  gemini: "gemini-2.5-flash",
   groq: "llama-3.3-70b-versatile",
   openrouter: "meta-llama/llama-3.3-70b-instruct:free",
-  gemini: "gemini-2.5-flash",
 };
 
-const PROVIDER_KEYS: Record<Provider, string | undefined> = {
-  anthropic: process.env.ANTHROPIC_API_KEY,
-  groq: process.env.GROQ_API_KEY,
-  openrouter: process.env.OPENROUTER_API_KEY,
-  gemini: process.env.GEMINI_API_KEY,
-};
+/** Gemini first, so it wins when several keys are set. Read on each call. */
+function providerKeys(): Record<Provider, string | undefined> {
+  return { gemini: process.env.GEMINI_API_KEY, groq: process.env.GROQ_API_KEY, openrouter: process.env.OPENROUTER_API_KEY };
+}
+
+/** Long drafts can take a while; anything slower than this is treated as a failure. */
+const TIMEOUT_MS = 120_000;
 
 export type AiConfig = { provider: Provider; key: string; model: string };
 
 export function aiConfig(): AiConfig | null {
+  const keys = providerKeys();
   const explicit = process.env.FUNZA_AI_PROVIDER as Provider | undefined;
-  const detected = (Object.keys(PROVIDER_KEYS) as Provider[]).find((p) => PROVIDER_KEYS[p]);
+  const detected = (Object.keys(keys) as Provider[]).find((p) => keys[p]);
   const provider = explicit && explicit in DEFAULT_MODELS ? explicit : detected;
   if (!provider) return null;
-  const key = process.env.FUNZA_AI_API_KEY || PROVIDER_KEYS[provider];
+  const key = process.env.FUNZA_AI_API_KEY || keys[provider];
   if (!key) return null;
   return { provider, key, model: process.env.FUNZA_AI_MODEL || DEFAULT_MODELS[provider] };
 }
 
+export type AiErrorCode = "not-configured" | "auth" | "rate-limit" | "refused" | "provider" | "empty" | "truncated" | "timeout";
+
+/** Messages are safe to show a teacher: they never contain provider replies or keys. */
 export class AiError extends Error {
-  constructor(
-    public code: "not-configured" | "auth" | "rate-limit" | "refused" | "provider" | "empty" | "no-vision",
-    message: string,
-  ) {
+  code: AiErrorCode;
+  constructor(code: AiErrorCode, message: string) {
     super(message);
+    this.code = code;
   }
 }
 
@@ -52,8 +55,6 @@ export async function complete(input: Completion): Promise<string> {
   const cfg = aiConfig();
   if (!cfg) throw new AiError("not-configured", "No AI provider is configured on the server.");
   switch (cfg.provider) {
-    case "anthropic":
-      return anthropicComplete(cfg, input);
     case "gemini":
       return geminiComplete(cfg, input);
     case "groq":
@@ -63,144 +64,30 @@ export async function complete(input: Completion): Promise<string> {
   }
 }
 
-/**
- * The same completion with one image attached (a screenshot the student chose
- * to send). Refused up front when the configured model cannot read images, so
- * the caller can say so instead of pretending. The image is forwarded for
- * this one request and never written anywhere.
- */
-export async function completeWithImage(input: Completion & { image: ImageInput }): Promise<string> {
-  const cfg = aiConfig();
-  if (!cfg) throw new AiError("not-configured", "No AI provider is configured on the server.");
-  if (!supportsVision(cfg.provider, cfg.model, process.env.FUNZA_AI_VISION)) {
-    throw new AiError("no-vision", `The configured AI model (${cfg.model}) cannot read images.`);
-  }
-  const { system, user, maxTokens, image } = input;
-  const dataUrl = `data:${image.mediaType};base64,${image.data}`;
-  switch (cfg.provider) {
-    case "anthropic": {
-      const client = new Anthropic({ apiKey: cfg.key });
-      try {
-        const response = await client.messages.create({
-          model: cfg.model,
-          max_tokens: maxTokens,
-          system,
-          messages: [
-            {
-              role: "user",
-              content: [
-                { type: "image", source: { type: "base64", media_type: image.mediaType, data: image.data } },
-                { type: "text", text: user },
-              ],
-            },
-          ],
-        });
-        if (response.stop_reason === "refusal") throw new AiError("refused", "The model declined to answer this question.");
-        const text = response.content
-          .filter((block): block is Anthropic.TextBlock => block.type === "text")
-          .map((block) => block.text)
-          .join("\n")
-          .trim();
-        if (!text) throw new AiError("empty", "The model returned no text.");
-        return text;
-      } catch (error) {
-        if (error instanceof AiError) throw error;
-        if (error instanceof Anthropic.AuthenticationError) throw new AiError("auth", "The Anthropic API key was rejected.");
-        if (error instanceof Anthropic.RateLimitError) throw new AiError("rate-limit", "Rate limited by Anthropic; try again in a moment.");
-        if (error instanceof Anthropic.APIError) throw new AiError("provider", `Anthropic error ${error.status}: ${error.message}`);
-        throw error;
-      }
-    }
-    case "gemini": {
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(cfg.model)}:generateContent?key=${encodeURIComponent(cfg.key)}`;
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: system }] },
-          contents: [{ role: "user", parts: [{ inlineData: { mimeType: image.mediaType, data: image.data } }, { text: user }] }],
-          generationConfig: { maxOutputTokens: maxTokens },
-        }),
-      });
-      await throwForStatus(res, cfg.provider);
-      const data = (await res.json()) as { candidates?: { content?: { parts?: { text?: string }[] } }[] };
-      const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? "").join("").trim();
-      if (!text) throw new AiError("empty", "The model returned no text.");
-      return text;
-    }
-    case "groq":
-    case "openrouter": {
-      const base = (process.env.FUNZA_AI_BASE_URL || (cfg.provider === "groq" ? "https://api.groq.com/openai/v1" : "https://openrouter.ai/api/v1")).replace(/\/+$/, "");
-      const res = await fetch(`${base}/chat/completions`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${cfg.key}` },
-        body: JSON.stringify({
-          model: cfg.model,
-          max_tokens: maxTokens,
-          messages: [
-            { role: "system", content: system },
-            {
-              role: "user",
-              content: [
-                { type: "text", text: user },
-                { type: "image_url", image_url: { url: dataUrl } },
-              ],
-            },
-          ],
-        }),
-      });
-      await throwForStatus(res, cfg.provider);
-      const data = (await res.json()) as { choices?: { message?: { content?: string } }[] };
-      const text = data.choices?.[0]?.message?.content?.trim();
-      if (!text) throw new AiError("empty", "The model returned no text.");
-      return text;
-    }
-  }
-}
-
-async function anthropicComplete(cfg: AiConfig, { system, user, maxTokens }: Completion): Promise<string> {
-  const client = new Anthropic({ apiKey: cfg.key });
-  // Server-side refusal fallback routes a declined request to a sibling model inside the same call.
-  const supportsFallback = /^claude-(opus-5-5|opus-5|sonnet-5-5|fable-5-1)$/.test(cfg.model);
+async function send(provider: Provider, url: string, init: RequestInit): Promise<Response> {
+  let res: Response;
   try {
-    const response = supportsFallback
-      ? await client.beta.messages.create({
-          model: cfg.model,
-          max_tokens: maxTokens,
-          system,
-          messages: [{ role: "user", content: user }],
-          betas: ["server-side-fallback-2026-07-01"],
-          fallbacks: "default",
-        })
-      : await client.messages.create({
-          model: cfg.model,
-          max_tokens: maxTokens,
-          system,
-          messages: [{ role: "user", content: user }],
-        });
-    if (response.stop_reason === "refusal") {
-      throw new AiError("refused", "The model declined to answer this question.");
-    }
-    const text = response.content
-      .filter((block): block is Anthropic.TextBlock => block.type === "text")
-      .map((block) => block.text)
-      .join("\n")
-      .trim();
-    if (!text) throw new AiError("empty", "The model returned no text.");
-    return text;
+    res = await fetch(url, { ...init, signal: AbortSignal.timeout(TIMEOUT_MS) });
   } catch (error) {
-    if (error instanceof AiError) throw error;
-    if (error instanceof Anthropic.AuthenticationError) throw new AiError("auth", "The Anthropic API key was rejected.");
-    if (error instanceof Anthropic.RateLimitError) throw new AiError("rate-limit", "Rate limited by Anthropic; try again in a moment.");
-    if (error instanceof Anthropic.APIError) throw new AiError("provider", `Anthropic error ${error.status}: ${error.message}`);
-    throw error;
+    if (error instanceof DOMException && (error.name === "TimeoutError" || error.name === "AbortError")) {
+      throw new AiError("timeout", "The AI provider took too long to answer. Try again in a moment.");
+    }
+    console.error(`${provider} request failed:`, error instanceof Error ? error.message : "unknown error");
+    throw new AiError("provider", "The AI provider could not be reached.");
   }
+  if (res.ok) return res;
+  // The provider's reply is logged on the server only; the teacher gets a plain message.
+  const body = await res.text().catch(() => "");
+  console.error(`${provider} returned ${res.status}:`, body.slice(0, 500));
+  if (res.status === 401 || res.status === 403) throw new AiError("auth", `The ${provider} API key was rejected.`);
+  if (res.status === 429) throw new AiError("rate-limit", `Rate limited by ${provider}; try again in a moment.`);
+  throw new AiError("provider", `The AI provider returned an error (${res.status}).`);
 }
 
 async function openAiCompatible(cfg: AiConfig, defaultBase: string, { system, user, maxTokens }: Completion): Promise<string> {
   // FUNZA_AI_BASE_URL points an OpenAI-compatible provider at another endpoint (a self-hosted model, or a test double).
   const base = (process.env.FUNZA_AI_BASE_URL || defaultBase).replace(/\/+$/, "");
-  const res = await fetch(`${base}/chat/completions`, {
+  const res = await send(cfg.provider, `${base}/chat/completions`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${cfg.key}` },
     body: JSON.stringify({
@@ -212,35 +99,40 @@ async function openAiCompatible(cfg: AiConfig, defaultBase: string, { system, us
       ],
     }),
   });
-  await throwForStatus(res, cfg.provider);
-  const data = (await res.json()) as { choices?: { message?: { content?: string } }[] };
-  const text = data.choices?.[0]?.message?.content?.trim();
+  const data = (await res.json()) as { choices?: { message?: { content?: string }; finish_reason?: string }[] };
+  const choice = data.choices?.[0];
+  if (choice?.finish_reason === "length") throw new AiError("truncated", "The AI reply was cut off before it finished. Ask for fewer questions and try again.");
+  const text = choice?.message?.content?.trim();
   if (!text) throw new AiError("empty", "The model returned no text.");
   return text;
 }
 
+type GeminiReply = {
+  candidates?: { content?: { parts?: { text?: string }[] }; finishReason?: string }[];
+  promptFeedback?: { blockReason?: string };
+};
+
 async function geminiComplete(cfg: AiConfig, { system, user, maxTokens }: Completion): Promise<string> {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(cfg.model)}:generateContent?key=${encodeURIComponent(cfg.key)}`;
-  const res = await fetch(url, {
+  // The key goes in a header, never in the URL, so it can't end up in request logs.
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(cfg.model)}:generateContent`;
+  const res = await send(cfg.provider, url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", "x-goog-api-key": cfg.key },
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: system }] },
       contents: [{ role: "user", parts: [{ text: user }] }],
       generationConfig: { maxOutputTokens: maxTokens },
     }),
   });
-  await throwForStatus(res, cfg.provider);
-  const data = (await res.json()) as { candidates?: { content?: { parts?: { text?: string }[] } }[] };
-  const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? "").join("").trim();
+  const data = (await res.json()) as GeminiReply;
+  if (data.promptFeedback?.blockReason) throw new AiError("refused", "Gemini declined this request. Try different wording, or start from the question bank.");
+  const candidate = data.candidates?.[0];
+  const finish = candidate?.finishReason;
+  if (finish === "SAFETY" || finish === "PROHIBITED_CONTENT" || finish === "BLOCKLIST" || finish === "SPII") {
+    throw new AiError("refused", "Gemini declined this request. Try different wording, or start from the question bank.");
+  }
+  if (finish === "MAX_TOKENS") throw new AiError("truncated", "The AI reply was cut off before it finished. Ask for fewer questions and try again.");
+  const text = candidate?.content?.parts?.map((p) => p.text ?? "").join("").trim();
   if (!text) throw new AiError("empty", "The model returned no text.");
   return text;
-}
-
-async function throwForStatus(res: Response, provider: Provider) {
-  if (res.ok) return;
-  const body = await res.text().catch(() => "");
-  if (res.status === 401 || res.status === 403) throw new AiError("auth", `The ${provider} API key was rejected.`);
-  if (res.status === 429) throw new AiError("rate-limit", `Rate limited by ${provider}; try again in a moment.`);
-  throw new AiError("provider", `${provider} error ${res.status}: ${body.slice(0, 200)}`);
 }

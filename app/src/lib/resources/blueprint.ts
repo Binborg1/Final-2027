@@ -1,5 +1,5 @@
 import { codeOf, placeOf } from "@/lib/curriculum/sources";
-import { BANK, LESSON_PLAN, NOTES } from "@/lib/resources/bank";
+import { BANK, NOTES } from "@/lib/resources/bank";
 import { isQuestionKind, kindInfo, MINUTES_PER, NOTES_STYLES, QTYPE_LABEL, QTYPE_ORDER } from "@/lib/resources/kinds";
 import type { Brief, ResourceKind } from "@/lib/resources/types";
 
@@ -15,8 +15,6 @@ export const PRESETS = {
   challenge: { label: "Challenge", split: [20, 45, 35] },
 } as const;
 
-export const FM2 = "sk-sci10-fm2";
-
 export type Blueprint = {
   sentence: string;
   parts: { title: string; detail: string; marks: number | null }[];
@@ -31,25 +29,9 @@ export type Blueprint = {
 /** Outcomes the starter bank has no content for, for this kind of resource. */
 export function bankGaps(outcomeIds: string[], kind: ResourceKind): string[] {
   const covered = (id: string) =>
-    kind === "notes" || kind === "presentation"
-      ? !!NOTES[id]
-      : kind === "lesson-plan"
-        ? !!LESSON_PLAN[id]
-        : kind === "visualization"
-          ? id === FM2
-          : BANK.some((p) => p.outcomeIds.includes(id));
+    kind === "notes" || kind === "presentation" ? !!NOTES[id] : BANK.some((p) => p.outcomeIds.includes(id));
   return outcomeIds.filter((id) => !covered(id));
 }
-
-export function scaleMinutes(mins: number[], target: number) {
-  const total = mins.reduce((a, b) => a + b, 0) || 1;
-  const scaled = mins.map((m) => Math.max(5, Math.round((m * target) / total / 5) * 5));
-  const diff = target - scaled.reduce((a, b) => a + b, 0);
-  if (scaled.length > 0) scaled[scaled.indexOf(Math.max(...scaled))] += diff;
-  return scaled;
-}
-
-const DEFAULT_PHASES = ["Hook", "Investigate", "Represent", "Explain", "Check"];
 
 export function blueprintOf(b: Brief): Blueprint {
   const codes = b.outcomeIds.map(codeOf);
@@ -93,47 +75,12 @@ export function blueprintOf(b: Brief): Blueprint {
     };
   }
 
-  if (b.kind === "lesson-plan") {
-    const phases = LESSON_PLAN[b.outcomeIds.find((id) => LESSON_PLAN[id]) ?? ""]?.map((p) => ({ title: p.title, minutes: p.minutes })) ?? DEFAULT_PHASES.map((title) => ({ title, minutes: 12 }));
-    const scaled = scaleMinutes(phases.map((p) => p.minutes), b.planMinutes);
-    if (b.adaptations) includes.push("Adaptations for different learners");
-    includes.push("Materials and safety notes", "For you only: lesson plans are never posted to students");
-    return {
-      sentence: `A ${b.planMinutes}-minute lesson plan for ${courseText} on ${codeText}.`,
-      parts: phases.map((p, i) => ({ title: p.title, detail: `${scaled[i]} min`, marks: null })),
-      questions: 0,
-      marks: 0,
-      estMinutes: b.planMinutes,
-      spec: [],
-      includes,
-      warnings,
-    };
-  }
-
-  if (b.kind === "visualization") {
-    if (b.outcomeIds.length > 0 && !b.outcomeIds.includes(FM2)) warnings.push("Interactive distance–time graphs are available for SCI10-FM2 only.");
-    includes.push("Questions to ask while the class explores", "A text description of every step, for screen readers");
-    return {
-      sentence: `An interactive distance–time graph for ${codeText}, to explore with the class.`,
-      parts: [
-        { title: "Interactive graph", detail: "Two riders at different constant speeds", marks: null },
-        { title: "Questions for the class", detail: "2 questions", marks: null },
-      ],
-      questions: 2,
-      marks: 0,
-      estMinutes: null,
-      spec: [],
-      includes,
-      warnings,
-    };
-  }
-
   const style = NOTES_STYLES.find((s) => s.id === b.notesStyle)!;
   const sections = b.outcomeIds.map((id) => ({ title: codeOf(id), detail: NOTES[id] ? NOTES[id].map((n) => n.title).join(" · ") : "Sections written for this outcome", marks: null }));
   if (b.kind === "presentation") {
     if (b.speakerNotes) includes.push("Speaker notes on every slide");
     return {
-      sentence: `A ${b.slides}-slide presentation outline for ${courseText} on ${codeText}.`,
+      sentence: `A ${b.slides}-slide outline for ${courseText} on ${codeText}.`,
       parts: [{ title: "Slides", detail: `${b.slides} slides`, marks: null }, ...sections],
       questions: 0,
       marks: 0,
@@ -144,7 +91,6 @@ export function blueprintOf(b: Brief): Blueprint {
     };
   }
   if (b.keyTerms) includes.push("Key terms");
-  if (b.includeGraph && b.outcomeIds.includes(FM2)) includes.push("An interactive distance–time graph (shown in Funza)");
   if (b.checkQuestions) includes.push("Check-your-understanding questions with answers");
   return {
     sentence: `${style.label} for ${courseText} on ${codeText}.`,

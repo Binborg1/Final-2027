@@ -9,16 +9,12 @@ export const KINDS: KindInfo[] = [
   { kind: "quiz", label: "Quiz", group: "assessment", blurb: "A short check, 10 to 25 marks", forStudents: true },
   { kind: "test", label: "Unit test", group: "assessment", blurb: "Mixed formats, about one class period", forStudents: true },
   { kind: "exam", label: "Exam", group: "assessment", blurb: "Several parts with a marking guide", forStudents: true },
-  { kind: "lesson-plan", label: "Lesson plan", group: "classroom", blurb: "Timed phases, materials and adaptations", forStudents: false },
-  { kind: "worksheet", label: "Worksheet", group: "classroom", blurb: "A worked example, then practice", forStudents: true },
-  { kind: "homework", label: "Homework", group: "classroom", blurb: "Short practice to finish at home", forStudents: true },
-  { kind: "presentation", label: "Presentation", group: "classroom", blurb: "Slide-by-slide outline with speaker notes", forStudents: true },
-  { kind: "visualization", label: "Interactive graph", group: "classroom", blurb: "A distance–time graph to explore in class", forStudents: true },
+  { kind: "presentation", label: "Slides", group: "classroom", blurb: "Slide-by-slide outline with speaker notes", forStudents: true },
 ];
 
 export const kindInfo = (k: ResourceKind) => KINDS.find((x) => x.kind === k)!;
 
-export const QUESTION_KINDS: ResourceKind[] = ["quiz", "test", "exam", "worksheet", "homework"];
+export const QUESTION_KINDS: ResourceKind[] = ["quiz", "test", "exam"];
 export const isQuestionKind = (k: ResourceKind) => QUESTION_KINDS.includes(k);
 
 export const QTYPE_LABEL: Record<QType, string> = {
@@ -51,26 +47,20 @@ export const OUTCOME_VERBS: Record<string, Verb[]> = {
   "sk-sci10-fm4": ["explore"],
 };
 
-const MIX: Record<"quiz" | "test" | "exam" | "worksheet" | "homework", [QType, number, number][]> = {
+const MIX: Record<"quiz" | "test" | "exam", [QType, number, number][]> = {
   quiz: [["mcq", 4, 1], ["tf", 2, 1], ["fill", 1, 1], ["match", 1, 3], ["calc", 3, 2], ["short", 1, 4], ["long", 0, 6]],
   test: [["mcq", 6, 1], ["tf", 4, 1], ["fill", 2, 1], ["match", 1, 3], ["calc", 4, 2], ["short", 2, 3], ["long", 0, 6]],
   exam: [["mcq", 6, 1], ["tf", 4, 1], ["fill", 2, 1], ["match", 1, 3], ["calc", 4, 3], ["short", 2, 4], ["long", 1, 6]],
-  worksheet: [["mcq", 0, 1], ["tf", 0, 1], ["fill", 2, 1], ["match", 0, 3], ["calc", 4, 2], ["short", 1, 3], ["long", 0, 6]],
-  homework: [["mcq", 3, 1], ["tf", 2, 1], ["fill", 0, 1], ["match", 0, 3], ["calc", 3, 2], ["short", 0, 3], ["long", 0, 6]],
 };
 
-const DURATION: Partial<Record<ResourceKind, number>> = { quiz: 30, test: 60, exam: 90, worksheet: 40, homework: 25 };
+const DURATION: Partial<Record<ResourceKind, number>> = { quiz: 30, test: 60, exam: 90 };
 
 const TITLE: Record<ResourceKind, string> = {
   notes: "Teaching notes",
   quiz: "Quiz",
   test: "Unit test",
   exam: "Exam",
-  "lesson-plan": "Lesson plan",
-  worksheet: "Worksheet",
-  homework: "Homework",
-  presentation: "Presentation",
-  visualization: "Interactive graph",
+  presentation: "Slides",
 };
 
 const TOPIC: Record<string, string> = {
@@ -112,9 +102,6 @@ export function defaultBrief(kind: ResourceKind = "quiz", outcomeIds: string[] =
     notesStyle: "comprehensive",
     keyTerms: true,
     checkQuestions: true,
-    includeGraph: true,
-    planMinutes: 60,
-    adaptations: true,
     slides: 6,
     speakerNotes: true,
     material: null,
