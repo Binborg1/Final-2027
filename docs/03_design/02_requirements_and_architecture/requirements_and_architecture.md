@@ -1,6 +1,6 @@
 # Teacher Studio: requirements and architecture
 
-**Funza Teacher Studio · v0.1 · 21 November 2026**
+**Funza Teacher Studio · v0.2 · 21 November 2026**
 
 This document covers what the Teacher Studio must do, how well it must do it, and the system that does it. The system is one Next.js app on Vercel, with Supabase in Canada for sign-in, data, files and live updates, and Gemini for the AI. It builds on the agreed [user flows and features plan](../01_user_flows_and_features/), with its questions Q1–Q10 at their defaults. The product is summarized in the [repo README](../../../README.md).
 
@@ -365,11 +365,12 @@ Most of today's app stays. The biggest change is moving storage from the browser
 | Today | Change | Release |
 |---|---|---|
 | `lib/resources/store.ts` saves to one browser's local storage | Saves to Supabase tables, with a one-time import of local drafts on first sign-in. | R1 |
-| `lib/ai/server.ts` supports four providers | Stays. Gemini becomes the default with a current Flash model, and every call gets the daily allowance and usage logging. | R1 |
+| `lib/ai/server.ts` supported four providers | Gemini first, with Groq and OpenRouter kept as development stand-ins; the Anthropic provider was removed on 21 November. Still to do: a current Flash model, the daily allowance and usage logging. | R1 |
 | `/api/teach` | Add the sign-in check, the allowance, streaming, and saving a version to the database. | R1 |
 | `lib/lms` keeps Google tokens in a sealed cookie | No change in R1. In R2 the token moves to `google_connections`, encrypted. | R2 |
 | Curriculum JSON and `/api/curriculum` | No change. | – |
 | The exact-answer checker and join form deleted on 18 November | Restore them from git (`c611d8f^`) as starting points for `lib/live` and `/join`. | R1 |
+| The earlier teacher workspace's screens, the visualization engine, and the lesson plan, worksheet, homework and interactive-graph kinds | Removed on 21 November, because Teacher Studio gets a new design. The ideas are kept in `docs/04_development/04_concepts_from_the_earlier_app.md`. | R1 |
 | Nothing yet | New: `lib/db`, `lib/live`, `/api/live/*`, the student pages, the live console and projector view, `supabase/migrations`, and a CI workflow. | R1 |
 
 ```

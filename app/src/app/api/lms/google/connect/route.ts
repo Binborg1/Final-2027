@@ -8,7 +8,7 @@ export const runtime = "nodejs";
 export async function GET(request: NextRequest) {
   const returnTo = safeReturn(request.nextUrl.searchParams.get("returnTo"));
   const cfg = googleConfig();
-  if (!cfg) return NextResponse.redirect(new URL("/integrations?lms=not-configured", request.url));
+  if (!cfg) return NextResponse.redirect(new URL("/?lms=not-configured", request.url));
   const nonce = newNonce();
   const redirectUri = new URL("/api/lms/google/callback", request.url).toString();
   const res = NextResponse.redirect(authUrl(cfg, redirectUri, nonce));

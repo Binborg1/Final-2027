@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { compileExpr, evalExpr, ExprError, exprVariables, fillTemplate, isIdentifier, parseExpr, resolveNumber } from "@/lib/visualizations/expr";
+import { compileExpr, evalExpr, ExprError, exprVariables, fillTemplate, isIdentifier, parseExpr, resolveNumber } from "@/lib/math/expr";
 
 const calc = (src: string, vars: Record<string, number> = {}) => evalExpr(parseExpr(src), vars);
 

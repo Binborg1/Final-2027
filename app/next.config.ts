@@ -7,14 +7,6 @@ const nextConfig: NextConfig = {
     "/api/curriculum/**": ["./src/data/curriculum/sk.json"],
     "/api/teach": ["./src/data/curriculum/sk.json"],
   },
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
 };
 
 export default nextConfig;

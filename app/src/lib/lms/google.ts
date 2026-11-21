@@ -1,10 +1,13 @@
+import "server-only";
 import { randomBytes } from "node:crypto";
 import type { GoogleConfig, GoogleTokens } from "@/lib/lms/session";
 
 /**
  * Google Classroom and Drive over plain fetch, following the REST references
  * read on 18 Nov 2026.
- * Funza never asks for rosters, submissions or grades.
+ * Funza never reads rosters, submissions or grades. Posting assignments needs
+ * classroom.coursework.students, which Google's consent screen also describes as
+ * access to grades; Funza only creates coursework with it.
  */
 
 export const SCOPES = [

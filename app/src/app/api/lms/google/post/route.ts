@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createPost } from "@/lib/lms/google";
-import { sameOrigin, withGoogle } from "@/lib/lms/route";
+import { withGoogle } from "@/lib/lms/route";
+import { sameOrigin } from "@/lib/origin";
 import { isObject, str } from "@/lib/resources/sanitize";
 
 export const runtime = "nodejs";

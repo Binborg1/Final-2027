@@ -1,14 +1,9 @@
+import "server-only";
 import { NextResponse, type NextRequest } from "next/server";
 import { GoogleError, refreshTokens } from "@/lib/lms/google";
 import { cookieOptions, googleConfig, seal, TOKEN_COOKIE, unseal, type GoogleTokens } from "@/lib/lms/session";
 
 export const TOKEN_MAX_AGE = 60 * 60 * 24 * 180;
-
-/** Cookie-authenticated POSTs must come from this site. */
-export function sameOrigin(request: NextRequest) {
-  const origin = request.headers.get("origin");
-  return !origin || new URL(origin).host === new URL(request.url).host;
-}
 
 /**
  * Runs a Classroom call with the teacher's token: refreshes it when it is about

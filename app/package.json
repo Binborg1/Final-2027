@@ -10,15 +10,14 @@
     "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --import ./tests/register.mjs --test \"tests/**/*.test.ts\""
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.133.0",
-    "framer-motion": "^14.2.0",
     "next": "16.4.6",
-    "pdfjs-dist": "^6.4.299",
+    "pdfjs-dist": "6.4.299",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
-    "@tailwindcss/turbopack": "^4",
+    "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

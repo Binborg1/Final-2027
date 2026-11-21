@@ -1,10 +1,11 @@
+import "server-only";
 import { createCipheriv, createDecipheriv, createHash, randomBytes } from "node:crypto";
 
 /**
  * The Google Classroom connection without accounts: OAuth tokens live in an
  * encrypted, httpOnly cookie scoped to /api/lms/google. The browser can neither
  * read nor change them; only this server, holding FUNZA_SESSION_SECRET, can.
- * When teacher accounts arrive (C03), the tokens move to the database.
+ * Release 2 moves the tokens to the encrypted google_connections table.
  */
 
 export const TOKEN_COOKIE = "funza_gc";
@@ -51,7 +52,7 @@ export function cookieOptions(requestUrl: string, maxAge: number) {
 
 /** Only same-site paths are allowed as a place to return to after Google. */
 export function safeReturn(path: unknown): string {
-  return typeof path === "string" && path.startsWith("/") && !path.startsWith("//") && !path.includes("\\") ? path.slice(0, 300) : "/integrations";
+  return typeof path === "string" && path.startsWith("/") && !path.startsWith("//") && !path.includes("\\") ? path.slice(0, 300) : "/";
 }
 
 export const newNonce = () => randomBytes(18).toString("base64url");

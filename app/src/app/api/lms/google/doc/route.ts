@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { uploadDoc } from "@/lib/lms/google";
-import { sameOrigin, withGoogle } from "@/lib/lms/route";
+import { withGoogle } from "@/lib/lms/route";
+import { sameOrigin } from "@/lib/origin";
 import { KINDS } from "@/lib/resources/kinds";
 import { studentHtml } from "@/lib/resources/render";
 import { isObject, sanitizeSections, str } from "@/lib/resources/sanitize";
@@ -20,7 +21,7 @@ export async function POST(request: NextRequest) {
   if (!isObject(body)) return refuse("Invalid request.");
   const kind = KINDS.find((k) => k.kind === body.kind);
   if (!kind) return refuse("Unknown resource type.");
-  if (!kind.forStudents) return refuse("Lesson plans are for teachers and are not posted to students.");
+  if (!kind.forStudents) return refuse("This material is for teachers only and is not posted to students.");
   const sections = sanitizeSections(body.sections);
   const title = str(body.title, 160);
   if (!title || sections.length === 0) return refuse("Nothing to post.");

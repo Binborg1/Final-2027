@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { revokeToken } from "@/lib/lms/google";
-import { sameOrigin } from "@/lib/lms/route";
+import { sameOrigin } from "@/lib/origin";
 import { cookieOptions, googleConfig, TOKEN_COOKIE, unseal, type GoogleTokens } from "@/lib/lms/session";
 
 export const runtime = "nodejs";

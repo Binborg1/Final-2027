@@ -1,5 +1,5 @@
 /**
- * The curriculum catalog: official outcomes Funza may align lessons to.
+ * The curriculum catalog: official outcomes Funza may align materials to.
  *
  * Everything here was copied from the official source named on the course and
  * must never be written by an AI or edited from memory. An outcome enters the
@@ -13,8 +13,6 @@
  *   registers all of them (src/lib/curriculum/dataset.ts); the browser registers the
  *   courses it opens (src/lib/curriculum/client.ts). Where both exist, the hand-copied
  *   entry keeps its id and status and gains the imported indicators.
- *
- * See docs/architecture-evolution/03_curriculum_verification.md.
  */
 
 export type VerificationStatus =

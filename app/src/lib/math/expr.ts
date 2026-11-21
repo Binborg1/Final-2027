@@ -1,10 +1,15 @@
 /**
- * A tiny, safe calculator language for visualization configs.
+ * A tiny, safe calculator language.
  *
- * Lets a lesson (or the AI) write numbers as formulas over named parameters,
- * such as "a*x^2 + b*x + c" or "-b/(2*a)", without ever executing code: the
+ * Funza uses it to recompute answer keys and worked examples the AI writes as
+ * formulas over named values, such as "d / t" or "-b/(2*a)", without ever
+ * executing code (see lib/resources/checks.ts and sanitize.ts): the
  * text is parsed into a small tree and evaluated by hand. Only arithmetic,
  * a fixed list of functions and the variables the caller allows are accepted.
+ *
+ * Don't use it to mark a student's typed number in Live: it accepts expressions
+ * such as "sqrt(50)" or "2^10" and has no tolerance. Live needs a strict number
+ * parser for student input; this engine computes the key.
  */
 export class ExprError extends Error {}
 

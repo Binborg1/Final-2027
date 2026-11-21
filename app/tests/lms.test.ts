@@ -18,10 +18,10 @@ test("the token cookie is encrypted and authenticated", () => {
 
 test("only same-site paths are allowed after sign-in", () => {
   assert.equal(safeReturn("/resources/r-1/deliver"), "/resources/r-1/deliver");
-  assert.equal(safeReturn("//evil.example/x"), "/integrations");
-  assert.equal(safeReturn("https://evil.example"), "/integrations");
-  assert.equal(safeReturn("/\\evil"), "/integrations");
-  assert.equal(safeReturn(undefined), "/integrations");
+  assert.equal(safeReturn("//evil.example/x"), "/");
+  assert.equal(safeReturn("https://evil.example"), "/");
+  assert.equal(safeReturn("/\\evil"), "/");
+  assert.equal(safeReturn(undefined), "/");
 });
 
 test("the consent request asks for offline access and only the scopes Funza needs", () => {

@@ -1,10 +1,9 @@
 import { findOutcome, isAutomatic, outcomeProblems } from "@/lib/curriculum/catalog";
 import { gradeOfLevel } from "@/lib/curriculum/imported";
 import { codeOf } from "@/lib/curriculum/sources";
-import { motionGraph } from "@/lib/resources/graph";
 import { isQuestionKind, OUTCOME_VERBS } from "@/lib/resources/kinds";
 import type { Calc, CheckRow, Difficulty, Draft, Item, Section, Verb } from "@/lib/resources/types";
-import { compileExpr, formatNumber } from "@/lib/visualizations/expr";
+import { compileExpr, formatNumber } from "@/lib/math/expr";
 
 /**
  * The checks behind review and approval. Every result is computed from the
@@ -31,12 +30,12 @@ export function itemFp(i: Item) {
   return hash(JSON.stringify({ type, prompt, options, correctId, tf, answer, pairs, calc, solution, rubric, outcomeIds }));
 }
 export function sectionFp(s: Section) {
-  const { kind, title, body, claim, motion, outcomeIds } = s;
-  return hash(JSON.stringify({ kind, title, body, claim, motion, outcomeIds }));
+  const { kind, title, body, claim, outcomeIds } = s;
+  return hash(JSON.stringify({ kind, title, body, claim, outcomeIds }));
 }
 export type ReviewState = "unreviewed" | "reviewed" | "changed";
 export const itemReview = (i: Item): ReviewState => (i.reviewedFp === null ? "unreviewed" : i.reviewedFp === itemFp(i) ? "reviewed" : "changed");
-/** Question sections are reviewed through their questions; text and activity sections are reviewed whole. */
+/** Question sections are reviewed through their questions; text sections are reviewed whole. */
 export const sectionReview = (s: Section): ReviewState => (s.reviewedFp === null ? "unreviewed" : s.reviewedFp === sectionFp(s) ? "reviewed" : "changed");
 
 /* ---------- numbering and totals ---------- */
@@ -139,14 +138,6 @@ export function computeChecks(d: Draft): CheckRow[] {
   });
   if (rubricItems.length > 0 && badRubric.length === 0) rows.push({ id: "rubric", group: "structure", state: "passed", label: "Rubrics match their marks", detail: `${rubricItems.length} written question(s) checked.` });
 
-  if (d.targetMinutes !== null) {
-    const sum = d.sections.reduce((n, s) => n + (s.minutes ?? 0), 0);
-    rows.push(
-      sum === d.targetMinutes
-        ? { id: "minutes", group: "structure", state: "passed", label: "Phase times fit the class", detail: `The phases add up to ${sum} minutes.` }
-        : { id: "minutes", group: "structure", state: "failed", label: "Phase times do not fit the class", detail: `The phases add up to ${sum} minutes; the class is ${d.targetMinutes}.` },
-    );
-  }
   d.sections
     .filter((s) => s.kind !== "questions" && !s.body.trim())
     .forEach((s) => rows.push({ id: `empty-${s.id}`, group: "structure", state: "failed", label: `“${s.title || "Untitled section"}” is empty`, detail: "Add text or remove the section.", targetId: s.id }));
@@ -219,15 +210,6 @@ export function computeChecks(d: Draft): CheckRow[] {
               },
       );
     });
-  d.sections
-    .filter((s) => s.kind === "activity")
-    .forEach((s) =>
-      rows.push(
-        motionGraph(s.motion)
-          ? { id: `graph-${s.id}`, group: "answers", state: "passed", label: "Graph rebuilt from its speeds", detail: "Built with the registered function-graph type: each line is straight and rises at its stated speed.", targetId: s.id }
-          : { id: `graph-${s.id}`, group: "answers", state: "failed", label: "The graph cannot be built", detail: "Every rider needs a name and a speed above zero.", targetId: s.id },
-      ),
-    );
   const unchecked = items.filter((i) => !i.calc);
   if (unchecked.length > 0)
     rows.push({

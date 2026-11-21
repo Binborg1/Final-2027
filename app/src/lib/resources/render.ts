@@ -33,8 +33,7 @@ export function studentHtml(d: StudentDoc): string {
   }
   for (const s of d.sections) {
     if (s.kind !== "questions") {
-      body.push(`<h2>${esc(s.title)}${s.minutes ? ` (${s.minutes} min)` : ""}</h2>`);
-      if (s.kind === "activity") body.push(`<p><i>Interactive graph: your teacher shows this one in class.</i></p>`);
+      body.push(`<h2>${esc(s.title)}</h2>`);
       body.push(lines(s.body));
       continue;
     }

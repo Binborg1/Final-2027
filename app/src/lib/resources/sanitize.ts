@@ -1,7 +1,7 @@
 import { OUTCOME_ID } from "@/lib/curriculum/catalog";
 import { defaultBrief, KINDS, NOTES_STYLES, QTYPE_ORDER } from "@/lib/resources/kinds";
-import type { Brief, Calc, Delivery, Difficulty, Draft, Item, MotionSetup, Origin, QType, Resource, ResourceKind, Section, SectionKind, Verb } from "@/lib/resources/types";
-import { compileExpr, isIdentifier } from "@/lib/visualizations/expr";
+import type { Brief, Calc, Delivery, Difficulty, Draft, Item, Origin, QType, Resource, ResourceKind, Section, SectionKind, Verb } from "@/lib/resources/types";
+import { compileExpr, isIdentifier } from "@/lib/math/expr";
 
 /**
  * Rebuilds resources field by field from untrusted JSON: AI replies, browser
@@ -24,7 +24,7 @@ const DIFFICULTIES: readonly Difficulty[] = ["foundational", "grade", "extending
 const VERBS: readonly Verb[] = ["investigate", "represent", "explore"];
 const ORIGINS: readonly Origin[] = ["ai", "bank", "teacher"];
 const KIND_IDS = KINDS.map((k) => k.kind) as readonly ResourceKind[];
-const SECTION_KINDS: readonly SectionKind[] = ["questions", "text", "activity"];
+const SECTION_KINDS: readonly SectionKind[] = ["questions", "text"];
 
 /**
  * Only well-formed outcome ids, and only those allowed, survive. Whether an id is in the
@@ -53,15 +53,6 @@ export function sanitizeCalc(raw: unknown): Calc | null {
     return null;
   }
   return { expr, vars, unit: str(raw.unit, 16), show: str(raw.show, 120) || expr };
-}
-
-function sanitizeMotion(raw: unknown): MotionSetup | null {
-  if (!isObject(raw)) return null;
-  const objects = (Array.isArray(raw.objects) ? raw.objects : [])
-    .filter(isObject)
-    .map((o) => ({ label: str(o.label, 30).replace(/[{}]/g, ""), speed: num(o.speed, 0, 100, 0) }))
-    .slice(0, 3);
-  return { objects, duration: int(raw.duration, 2, 120, 10) };
 }
 
 export type ItemContext = { allowedOutcomes?: ReadonlySet<string>; fallbackId: string; origin?: Origin };
@@ -126,8 +117,6 @@ export function sanitizeSection(raw: unknown, ctx: { allowedOutcomes?: ReadonlyS
     title: str(raw.title, 160),
     body: str(raw.body, 6000),
     items,
-    minutes: raw.minutes === null || raw.minutes === undefined ? null : int(raw.minutes, 0, 240, 0),
-    motion: kind === "activity" ? sanitizeMotion(raw.motion) : null,
     claim: claim && stated ? { ...claim, stated } : null,
     outcomeIds: outcomeList(raw.outcomeIds, ctx.allowedOutcomes),
     verbs: (Array.isArray(raw.verbs) ? raw.verbs : []).filter((v): v is Verb => VERBS.includes(v as Verb)).slice(0, 3),
@@ -177,9 +166,6 @@ export function sanitizeBrief(raw: unknown): Brief | null {
     notesStyle: oneOf(raw.notesStyle, NOTES_STYLES.map((s) => s.id), base.notesStyle),
     keyTerms: bool(raw.keyTerms, true),
     checkQuestions: bool(raw.checkQuestions, true),
-    includeGraph: bool(raw.includeGraph, true),
-    planMinutes: int(raw.planMinutes, 20, 180, 60),
-    adaptations: bool(raw.adaptations, true),
     slides: int(raw.slides, 2, 30, 6),
     speakerNotes: bool(raw.speakerNotes, true),
     material: material && material.name ? material : null,
@@ -234,7 +220,6 @@ export function sanitizeDraft(raw: unknown, resource: Resource): Draft | null {
     courseName: resource.courseName,
     outcomeIds: outcomeList(raw.outcomeIds),
     sections: sanitizeSections(raw.sections),
-    targetMinutes: raw.targetMinutes === null || raw.targetMinutes === undefined ? null : int(raw.targetMinutes, 0, 240, 60),
     duration: raw.duration === null || raw.duration === undefined ? null : int(raw.duration, 1, 240, 30),
     draftedBy: oneOf(raw.draftedBy, ORIGINS, "teacher"),
     provider: str(raw.provider, 40) || null,
