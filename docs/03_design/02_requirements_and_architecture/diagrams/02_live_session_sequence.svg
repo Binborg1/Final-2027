@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="1054" class="dia" viewBox="0 0 1160 1054" role="img" aria-label="Live session sequence between teacher console, student phones, the Realtime channel, the Funza API, Postgres and Gemini, in five phases: lobby, question, marking, reveal and results. Realtime only carries pings; phones and the console then ask the API for the current state, so answer keys and names never travel over Realtime."><style>svg{
+  --bg: #f3f5f2;
+  --card: #ffffff;
+  --ink: #17212b;
+  --muted: #586470;
+  --line: #ced6d1;
+  --live: #c9431d;
+  --prep: #0b7469;
+  --ai: #6a4bd6;
+  --live-t: #fbebe5;
+  --prep-t: #e2f1ee;
+  --ai-t: #efebfc;
+  --lane: #e9edea;
+  --ok: #2c7a3a;   --ok-t: #e3f2e5;
+  --warn: #9a6100; --warn-t: #fbf0dc;
+  --none: #6b7580; --none-t: #eceff1;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;} svg{background:var(--card);} 
+
+.dia text { font-family: var(--body); }
+.bx rect { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+.bx.live rect { stroke: var(--live); }
+.bx.prep rect { stroke: var(--prep); }
+.bx.home rect { stroke: var(--ink); stroke-width: 1.6; }
+.bx.ai rect { fill: var(--ai-t); stroke: var(--ai); stroke-dasharray: 5 3; }
+.bx.stu rect { stroke: var(--ink); stroke-width: 1; }
+.bx.ext rect { fill: var(--lane); stroke: var(--muted); stroke-dasharray: 3 3; }
+.t { font-size: 12.5px; font-weight: 700; fill: var(--ink); }
+.s { font-size: 11px; fill: var(--muted); }
+.ar { fill: none; stroke: var(--muted); stroke-width: 1.4; }
+.ar.dash { stroke-dasharray: 6 4; }
+.ar.assoc { stroke: var(--ink); stroke-width: 1.1; }
+.ahp { fill: var(--muted); }
+.lb { fill: var(--card); stroke: var(--line); }
+.lt { font-size: 10.5px; fill: var(--muted); }
+.panel.live { fill: var(--live-t); }
+.panel.prep { fill: var(--prep-t); }
+.panel.stu { fill: none; stroke: var(--line); stroke-dasharray: 4 4; }
+.plab { font-family: var(--display); font-size: 13px; font-weight: 800; letter-spacing: .08em; }
+.plab.live { fill: var(--live); } .plab.prep { fill: var(--prep); } .plab.stu { fill: var(--ink); }
+.pnote { font-size: 11.5px; fill: var(--muted); }
+.lane { fill: none; }
+.lane.l1 { fill: var(--lane); }
+.lanel { font-family: var(--display); font-size: 14px; font-weight: 700; fill: var(--ink); }
+.lanes { font-size: 10.5px; fill: var(--muted); }
+.ph { font-size: 12px; font-weight: 700; fill: var(--ink); }
+.st rect { fill: var(--bg); stroke: var(--line); }
+.stt { font-size: 10.5px; fill: var(--muted); }
+.sys { fill: none; stroke: var(--ink); stroke-width: 1.4; }
+.systitle { font-family: var(--display); font-size: 15px; font-weight: 800; fill: var(--ink); }
+.grp { fill: none; stroke: var(--line); stroke-dasharray: 4 4; }
+.gname { font-size: 12px; font-weight: 700; fill: var(--muted); letter-spacing: .04em; }
+.uc ellipse { fill: var(--card); stroke: var(--ink); stroke-width: 1.1; }
+.uc.ai ellipse { fill: var(--ai-t); stroke: var(--ai); }
+.uct { font-size: 12px; fill: var(--ink); }
+.ucn { font-size: 10.5px; fill: var(--muted); font-weight: 700; }
+.aim { fill: var(--ai); }
+.actor { fill: none; stroke: var(--ink); stroke-width: 1.6; }
+.aname { font-size: 13px; font-weight: 700; fill: var(--ink); }
+.zone { fill: var(--bg); stroke: var(--line); }
+.plab.ink { fill: var(--ink); }
+.ll { stroke: var(--line); stroke-width: 1.2; stroke-dasharray: 4 4; }
+.ml { font-size: 11px; fill: var(--ink); paint-order: stroke; stroke: var(--card); stroke-width: 4px; stroke-linejoin: round; }
+.sep { stroke: var(--line); stroke-width: 1; }
+.sepl { font-family: var(--display); font-size: 12px; font-weight: 800; letter-spacing: .06em; fill: var(--live); }
+.nt rect { fill: var(--lane); stroke: var(--line); }
+.ntt { font-size: 10.5px; fill: var(--ink); }
+.et .body { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+.et.live .body { stroke: var(--live); } .et.prep .body { stroke: var(--prep); } .et.ai .body { stroke: var(--ai); }
+.et.home .body { stroke: var(--ink); stroke-width: 1.7; }
+.et .hd { fill: var(--lane); }
+.et.live .hd { fill: var(--live-t); } .et.prep .hd { fill: var(--prep-t); } .et.ai .hd { fill: var(--ai-t); }
+.etn { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 12.5px; font-weight: 700; fill: var(--ink); }
+.etf { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 11px; fill: var(--muted); }
+.lgd { font-size: 11px; fill: var(--muted); }
+</style><rect x="0" y="0" width="1160" height="1054" fill="var(--card)"/><defs><marker id="ah-a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahp" d="M0,0 L10,5 L0,10 z"/></marker></defs><g class="bx home"><rect x="20.0" y="14.0" width="160.0" height="50.0" rx="9"/><text class="t" x="100.0" y="36.0" text-anchor="middle">Teacher console</text><text class="s" x="100.0" y="51.5" text-anchor="middle">laptop + projector</text></g><line class="ll" x1="100" y1="64" x2="100" y2="1044"/><g class="bx stu"><rect x="210.0" y="14.0" width="160.0" height="50.0" rx="9"/><text class="t" x="290.0" y="36.0" text-anchor="middle">Student phones</text><text class="s" x="290.0" y="51.5" text-anchor="middle">browser, no account</text></g><line class="ll" x1="290" y1="64" x2="290" y2="1044"/><g class="bx live"><rect x="400.0" y="14.0" width="160.0" height="50.0" rx="9"/><text class="t" x="480.0" y="36.0" text-anchor="middle">Realtime channel</text><text class="s" x="480.0" y="51.5" text-anchor="middle">Supabase, pings only</text></g><line class="ll" x1="480" y1="64" x2="480" y2="1044"/><g class="bx "><rect x="590.0" y="14.0" width="160.0" height="50.0" rx="9"/><text class="t" x="670.0" y="36.0" text-anchor="middle">Funza API</text><text class="s" x="670.0" y="51.5" text-anchor="middle">Next.js on Vercel</text></g><line class="ll" x1="670" y1="64" x2="670" y2="1044"/><g class="bx "><rect x="780.0" y="14.0" width="160.0" height="50.0" rx="9"/><text class="t" x="860.0" y="36.0" text-anchor="middle">Postgres</text><text class="s" x="860.0" y="51.5" text-anchor="middle">Supabase, Canada</text></g><line class="ll" x1="860" y1="64" x2="860" y2="1044"/><g class="bx ai"><rect x="970.0" y="14.0" width="160.0" height="50.0" rx="9"/><text class="t" x="1050.0" y="36.0" text-anchor="middle">Gemini</text><text class="s" x="1050.0" y="51.5" text-anchor="middle">marks short answers</text></g><line class="ll" x1="1050" y1="64" x2="1050" y2="1044"/><line class="sep" x1="10" y1="92" x2="1150" y2="92"/><text class="sepl" x="1150.0" y="107.0" text-anchor="end">1 · LOBBY</text><path class="ar " d="M103.0,139.0 L667.0,139.0" marker-end="url(#ah-a2)"/><text class="ml" x="385.0" y="134.0" text-anchor="middle">start session: 8 questions, 5 min</text><path class="ar " d="M673.0,164.0 L857.0,164.0" marker-end="url(#ah-a2)"/><text class="ml" x="765.0" y="159.0" text-anchor="middle">create session + code K7Q2MX</text><path class="ar dash" d="M667.0,189.0 L103.0,189.0" marker-end="url(#ah-a2)"/><text class="ml" x="385.0" y="184.0" text-anchor="middle">code + QR for the projector</text><path class="ar " d="M293.0,214.0 L667.0,214.0" marker-end="url(#ah-a2)"/><text class="ml" x="480.0" y="209.0" text-anchor="middle">join: code, name, student no.</text><path class="ar " d="M673.0,239.0 L857.0,239.0" marker-end="url(#ah-a2)"/><text class="ml" x="765.0" y="234.0" text-anchor="middle">add participant</text><path class="ar dash" d="M667.0,264.0 L293.0,264.0" marker-end="url(#ah-a2)"/><text class="ml" x="480.0" y="259.0" text-anchor="middle">private token + session id</text><path class="ar " d="M293.0,289.0 L477.0,289.0" marker-end="url(#ah-a2)"/><text class="ml" x="385.0" y="284.0" text-anchor="middle">listen on the session channel</text><path class="ar " d="M667.0,314.0 L483.0,314.0" marker-end="url(#ah-a2)"/><text class="ml" x="575.0" y="309.0" text-anchor="middle">ping: someone joined</text><path class="ar " d="M477.0,339.0 L103.0,339.0" marker-end="url(#ah-a2)"/><text class="ml" x="290.0" y="334.0" text-anchor="middle">ping, console reloads the names</text><line class="sep" x1="10" y1="347" x2="1150" y2="347"/><text class="sepl" x="1150.0" y="362.0" text-anchor="end">2 · QUESTION</text><path class="ar " d="M103.0,394.0 L667.0,394.0" marker-end="url(#ah-a2)"/><text class="ml" x="385.0" y="389.0" text-anchor="middle">start question 1</text><path class="ar " d="M673.0,419.0 L857.0,419.0" marker-end="url(#ah-a2)"/><text class="ml" x="765.0" y="414.0" text-anchor="middle">save start and end time</text><path class="ar " d="M667.0,444.0 L483.0,444.0" marker-end="url(#ah-a2)"/><text class="ml" x="575.0" y="439.0" text-anchor="middle">ping: question open</text><path class="ar " d="M477.0,469.0 L293.0,469.0" marker-end="url(#ah-a2)"/><text class="ml" x="385.0" y="464.0" text-anchor="middle">ping</text><path class="ar " d="M293.0,494.0 L667.0,494.0" marker-end="url(#ah-a2)"/><text class="ml" x="480.0" y="489.0" text-anchor="middle">get state (token)</text><path class="ar dash" d="M667.0,519.0 L293.0,519.0" marker-end="url(#ah-a2)"/><text class="ml" x="480.0" y="514.0" text-anchor="middle">question without answer key; ends 10:42:05</text><path class="ar " d="M293.0,544.0 L667.0,544.0" marker-end="url(#ah-a2)"/><text class="ml" x="480.0" y="539.0" text-anchor="middle">save answer (token)</text><path class="ar " d="M673.0,569.0 L857.0,569.0" marker-end="url(#ah-a2)"/><text class="ml" x="765.0" y="564.0" text-anchor="middle">one answer each, before the end time</text><path class="ar " d="M667.0,594.0 L483.0,594.0" marker-end="url(#ah-a2)"/><text class="ml" x="575.0" y="589.0" text-anchor="middle">ping: answer count</text><path class="ar " d="M477.0,619.0 L103.0,619.0" marker-end="url(#ah-a2)"/><text class="ml" x="290.0" y="614.0" text-anchor="middle">console shows 21 of 28 answered</text><line class="sep" x1="10" y1="627" x2="1150" y2="627"/><text class="sepl" x="1150.0" y="642.0" text-anchor="end">3 · MARKING</text><path class="ar " d="M103.0,674.0 L667.0,674.0" marker-end="url(#ah-a2)"/><text class="ml" x="385.0" y="669.0" text-anchor="middle">time’s up (or End early)</text><g class="nt"><rect x="533.1" y="684.0" width="273.7" height="20" rx="5"/></g><text class="ntt" x="670.0" y="697.5" text-anchor="middle">marks multiple choice, T/F, numbers in code</text><path class="ar " d="M673.0,724.0 L1047.0,724.0" marker-end="url(#ah-a2)"/><text class="ml" x="860.0" y="719.0" text-anchor="middle">short answers only, no names</text><path class="ar dash" d="M1047.0,749.0 L673.0,749.0" marker-end="url(#ah-a2)"/><text class="ml" x="860.0" y="744.0" text-anchor="middle">marks + one class explanation</text><path class="ar " d="M673.0,774.0 L857.0,774.0" marker-end="url(#ah-a2)"/><text class="ml" x="765.0" y="769.0" text-anchor="middle">save marks</text><line class="sep" x1="10" y1="782" x2="1150" y2="782"/><text class="sepl" x="1150.0" y="797.0" text-anchor="end">4 · REVEAL</text><path class="ar " d="M103.0,829.0 L667.0,829.0" marker-end="url(#ah-a2)"/><text class="ml" x="385.0" y="824.0" text-anchor="middle">Reveal</text><path class="ar " d="M667.0,854.0 L483.0,854.0" marker-end="url(#ah-a2)"/><text class="ml" x="575.0" y="849.0" text-anchor="middle">ping: revealed</text><path class="ar " d="M477.0,879.0 L293.0,879.0" marker-end="url(#ah-a2)"/><text class="ml" x="385.0" y="874.0" text-anchor="middle">ping</text><path class="ar " d="M293.0,904.0 L667.0,904.0" marker-end="url(#ah-a2)"/><text class="ml" x="480.0" y="899.0" text-anchor="middle">get state (token)</text><path class="ar dash" d="M667.0,929.0 L293.0,929.0" marker-end="url(#ah-a2)"/><text class="ml" x="480.0" y="924.0" text-anchor="middle">correct answer, class %, my mark</text><line class="sep" x1="10" y1="937" x2="1150" y2="937"/><text class="sepl" x="1150.0" y="952.0" text-anchor="end">5 · RESULTS</text><path class="ar " d="M103.0,984.0 L667.0,984.0" marker-end="url(#ah-a2)"/><text class="ml" x="385.0" y="979.0" text-anchor="middle">end session</text><path class="ar " d="M673.0,1009.0 L857.0,1009.0" marker-end="url(#ah-a2)"/><text class="ml" x="765.0" y="1004.0" text-anchor="middle">update question difficulty in the bank</text><path class="ar dash" d="M667.0,1034.0 L103.0,1034.0" marker-end="url(#ah-a2)"/><text class="ml" x="385.0" y="1029.0" text-anchor="middle">most-missed questions, CSV</text></svg>

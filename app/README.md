@@ -4,7 +4,7 @@ A teaching workspace for **Saskatchewan Grade 10–12 teachers**. A teacher pick
 
 **Funza creates. Teachers approve. Existing school platforms deliver.**
 
-The plan for the next version, the Funza Teacher Studio (live sessions and courses), is in `docs/07_teacher_studio/`.
+The plan for the next version, the Funza Teacher Studio (live sessions and courses), is in [`docs/03_design/01_user_flows_and_features/`](../docs/03_design/01_user_flows_and_features/), and the requirements and architecture are in [`docs/03_design/02_requirements_and_architecture/`](../docs/03_design/02_requirements_and_architecture/).
 
 ## Run it
 

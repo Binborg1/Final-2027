@@ -1,103 +1,83 @@
-# ENSE 400 Capstone — Final-2027
+# Funza Teacher Studio
 
-Course documents and code for the ENSE 400/477 capstone with Dr. Tim Maciag, University of Regina.
+ENSE 400/477 software systems engineering capstone, University of Regina, with Dr. Tim Maciag (Fall 2026 to Winter 2027).
 
 **Team:** Aubin Chriss Izere (200490675) · Chop Kur (200497265)
 
-## The product: Funza Teacher Studio
+## What it is
 
-Funza is a teaching tool for Saskatchewan Grade 10–12 teachers. It has two modes:
+Funza Teacher Studio is a web app for **Saskatchewan Grade 10–12 teachers**. Teachers use it to prepare course materials with AI help and to run live quizzes in class. Students answer on their phones without making an account.
 
-- **Live.** The teacher uploads notes or picks a chapter, Funza suggests questions, and the teacher picks how many and sets a timer. Students scan a QR code, enter their name and student number, and answer on their phones. When time is up, Funza marks the answers, the teacher reveals them to the class, and the results show which questions most students missed.
-- **Prepare.** The teacher builds courses whose chapters come from the Saskatchewan curriculum, then makes notes, slides, quizzes, tests and exams with Funza (from a saved exam template, a past exam, or plain-language instructions). Everything is reviewed and approved by the teacher before students get it through a course QR code or link, Google Classroom, or print.
+- **Live (in class).** The teacher picks a chapter, an uploaded PDF or a saved quiz. Funza suggests questions, and the teacher keeps the ones they want and sets a timer. Students scan a QR code, enter their name and answer on their phones. Funza marks the answers, the teacher reveals them to the class, and the results show which questions most students missed.
+- **Prepare (before and after class).** The teacher builds courses whose chapters start from the Saskatchewan curriculum, then makes notes, slides, quizzes, tests and exams with Funza, from built-in or their own exam templates and a question bank that grows with every approved question. Nothing reaches students until the teacher approves it. Materials are published to a course page (link or QR code), Google Classroom, or print.
 
-Funza drafts; the teacher approves. Students never make an account.
+**Funza drafts; the teacher approves.** Only teachers have accounts. Student data is kept to a minimum, stored in Canada, and deleted 30 days after a session.
 
-**Where the code is today.** The app in [`app/`](app/) covers the Prepare path for one teacher in one browser: pick curriculum outcomes, describe the resource, let Funza draft it, review and approve it, then post it to Google Classroom or print it. Live mode, teacher accounts, courses, templates and student pages are planned in [`docs/07_teacher_studio/`](docs/07_teacher_studio/).
+## Where things stand (21 November 2026)
 
-## How the project got here
-
-| When | What |
-|---|---|
-| Sept 2026 | The **AI Learning Environment**, a study tool for students, was chosen from three pitches (the others were uofrEats and AI-Assisted Drones). See `docs/03_pitch/` and the Business Case. |
-| Oct 2026 | A student tutor prototype named Funza was tested at the usability bazaar on 20 October (`docs/06_usability_bazaar/`). A proposal to widen it into Folio, a desktop workspace for non-technical users, was not pursued. |
-| Nov 2026 | The product moved to teachers: the teacher workspace in `app/`, then the Teacher Studio plan (19 November) in `docs/07_teacher_studio/`. |
+- **Planned and specified:** the [user flows and features](docs/03_design/01_user_flows_and_features/) (19 November) and the [requirements and architecture](docs/03_design/02_requirements_and_architecture/requirements_and_architecture.md) (21 November). The product definition was locked on 21 November.
+- **Built so far:** the app in [`app/`](app/) covers the Prepare path for one teacher in one browser: pick curriculum outcomes, describe the resource, let Funza draft it, review and approve it, then post it to Google Classroom or print it.
+- **Next:** teacher accounts and courses on Supabase, then Live mode, for Release 1 on 1 December. The order is in the [development steps](docs/04_development/01_development_steps.md).
+- **Documents:** the [document tracker](docs/document_tracker.md) lists every document the project needs and how far along each one is.
 
 ## What's where
 
-Naming: everything under `docs/` is lowercase `snake_case`. Files are `NN_name.ext`, numbered in order within their folder; a deliverable kept in two formats (for example .pptx and .pdf) shares one number. Folders are `NN_name` in course order.
-
 | Path | Contents |
 |---|---|
-| `docs/00_lectures/` | Design Workshop 1 to 3 slides from Dr. Maciag |
-| `docs/01_workshop_1/` | Workshop 1 deliverables: Project Ideation, Competitor Analysis |
-| `docs/02_workshop_2/` | Workshop 2 deliverables: User Analysis, Business Model Analysis |
-| `docs/03_pitch/` | Three-project pitch deck (15 Sept 2026) and final pitch deck for Cultivator HQ (13 Oct 2026), each as .pptx and .pdf |
-| `docs/04_workshop_3/` | Workshop 3 planning documents, user story map and Gantt chart |
-| `docs/05_vlog_1/` | Vlog 1 script, shot list and requirement coverage |
-| `docs/06_usability_bazaar/` | Usability bazaar (20 Oct 2026): low-fidelity wireframes, facilitator plan and participant questionnaire, each as source plus a print-ready PDF; `04_wireframes_figma/` holds the same screens as SVGs for the Figma file, https://www.figma.com/design/2EKJLy3nigXgurkl4vLqE2 |
-| `docs/07_teacher_studio/` | Teacher Studio plan (19 Nov 2026): user flows for Live and Prepare, exam templates, use cases, and what to keep, combine, remove and build in the current app. As a web page (`01_user_flows_and_features.html`), a PDF, and the diagrams as PNG and SVG in `diagrams/` |
-| `app/` | The Funza app (Next.js, TypeScript, Tailwind). See [app/README.md](app/README.md) to run it |
-| `vlog1.mp4` | Vlog 1 video (submitted on UR Courses) |
+| [`app/`](app/) | The Funza app (Next.js, TypeScript, Tailwind). [app/README.md](app/README.md) explains how to run it |
+| [`docs/`](docs/) | All project documents, in course order. [docs/README.md](docs/README.md) explains the layout and naming |
+| [`docs/document_tracker.md`](docs/document_tracker.md) | Every document needed for ENSE 400 and ENSE 477, with its status |
+| [`docs/01_research/`](docs/01_research/) | Users, competitors, business model, teacher interviews |
+| [`docs/02_project_plan/`](docs/02_project_plan/) | Business case, charter, stakeholders, scope, schedules, roles, roadmaps |
+| [`docs/03_design/`](docs/03_design/) | User flows and features, requirements and architecture, UI design |
+| [`docs/04_development/`](docs/04_development/) | Build plan, weekly status reports |
+| [`docs/05_testing/`](docs/05_testing/) | Code and usability testing |
+| [`docs/06_presentations/`](docs/06_presentations/) | Work-in-progress demo, vlogs, poster, videos, final presentation |
+| [`docs/07_user_guide/`](docs/07_user_guide/) | Help for teachers and students |
+| [`docs/08_closing/`](docs/08_closing/) | Retrospectives and the project experience report |
+| [`docs/archive/`](docs/archive/) | Documents from the products we worked on before Teacher Studio, kept as submitted |
 
-### Workshop 3 documents
+## Technology
 
-| # | Document | What it covers |
-|---|---|---|
-| 01 | Business Case | Background, need, four options with cost-benefit, recommendation |
-| 02 | Project Charter | Goals, SMART objectives with KPIs, budget, sponsors, milestones, risks |
-| 03 | Stakeholder Analysis | Ten stakeholders rated on power, interest and support |
-| 04 | Stakeholder Management Plan | How each stakeholder is managed |
-| 05 | Project Requirements | 19 functional, 9 technical and 8 performance requirements |
-| 06 | Project Scope Statement | Work breakdown: 6 deliverables, 18 work packages, exclusions |
-| 07 | Activity-Based Schedule | Every activity with duration and dates, Sept 2026 to April 2027 |
-| 08 | Milestone-Based Schedule | 13 milestones |
-| 09 | Project Roles and Responsibilities | Feature ownership and shared work |
-| 10 | RACI Chart | 18 activities across the team and stakeholders |
-| 11 | [User Story Map](docs/04_workshop_3/11_user_story_map.md) | Student journey with Release 1 (Fall) and Release 2 (Winter) stories |
-| 12 | [Gantt Chart](docs/04_workshop_3/12_gantt_chart.png) | Visual schedule built from document 07 |
+| Layer | Choice |
+|---|---|
+| App, frontend and backend | Next.js (React, TypeScript, Tailwind). The backend is the app's own API routes on Node.js |
+| Hosting | Vercel, with functions in Montréal |
+| Sign-in, database, files, live updates | Supabase (Auth, Postgres with row-level security, Storage, Realtime) in Canada (Central) |
+| AI | Gemini API, called only from the server |
+| Curriculum | Saskatchewan Grade 10–12 curricula, stored as JSON in the repo |
+| Publishing | Google Classroom API, a course page, print or PDF |
 
-The Workshop 3 documents were written for the student study tool. Their feature split and story map will be redone for the Teacher Studio.
+## How the project got here
+
+| When | What happened |
+|---|---|
+| Sept 2026 | The **AI Learning Environment**, a study app for university students, was chosen from three pitches (the others were uofrEats and AI-assisted drones). |
+| Oct 2026 | A **Funza student tutor** prototype, which taught from uploaded lecture PDFs, was tested at the usability evaluation on 20 October. A proposal to widen it into Folio, a desktop workspace for non-technical users, was not pursued. |
+| Nov 2026 | **We moved from students to teachers.** Both student products depended on students uploading their lecture notes and slides to an AI. Many courses, including ours, treat that as an academic integrity and copyright breach, so the products would have put their own users at risk. A teacher tool avoids the problem: teachers work from their own material and the official curriculum, and they decide what reaches students. |
+| 19 Nov 2026 | The Teacher Studio plan: flows and features for Live and Prepare. |
+| 21 Nov 2026 | Requirements and architecture (Vercel, Supabase, Gemini). The product is locked. |
+
+The earlier documents are in [`docs/archive/`](docs/archive/), with what each product was and why it was dropped.
 
 ## Project management
 
-Project management is shared. Each work package is a GitHub issue (#1 to #18), labelled by type and by who is accountable, and grouped into two milestones: **ENSE 400 - Fall 2026** (due 1 December 2026) and **ENSE 477 - Winter 2027** (due 9 April 2027, tentative). Progress is tracked on the [Kanban board](https://github.com/users/Binborg1/projects/1) (Backlog, Doing, Review, Done).
+Work is tracked on the team's [Kanban board](https://github.com/users/Binborg1/projects/1) (Backlog, Doing, Review, Done) with two milestones: **ENSE 400 - Fall 2026** (due 1 December 2026) and **ENSE 477 - Winter 2027** (due 9 April 2027, tentative). The team meets weekly to review the board, schedule and risks, and the other member reviews every pull request before it is merged. The board's issues are being rebuilt from the Teacher Studio work breakdown.
 
-## Design process status
-
-Workshop 1 set out a nine-step research design process:
-
-| # | Step | Status |
-|---|---|---|
-| 1 | Project name | Done (Funza) |
-| 2 | Key users | Done for students; redo for teachers |
-| 3 | Key user problems / needs | Done for students; redo for teachers |
-| 4 | Solutions and features | Teacher Studio plan in `docs/07_teacher_studio/` |
-| 5 | Requirements | `05_project_requirements.pdf` (student tool) |
-| 6 | Unique value proposition | In the pitch deck, not yet in a table |
-| 7 | Competitive strategy | Done |
-| 8 | Business goals and KPIs | Done: goals, SMART objectives and KPIs in `02_project_charter.pdf` |
-| 9 | User and business pain points | Not started |
-
-## Research evidence
-
-Primary-research interviews completed so far:
-
-- **Linda**, student: the AI Learning Environment problem statement came from this interview.
-- **Manmeet**, manager at Da India Curry House Xpress: supports the uofrEats idea, which was not selected.
-
-No teachers have been interviewed yet. Interviews with Grade 10–12 teachers are the next research step for the Teacher Studio.
-
-## Vlogs
-
-| # | Due | Status |
-|---|---|---|
-| 1 | 13 Oct 2026 | Submitted on UR Courses · [script and shot list](docs/05_vlog_1/01_vlog_1_script.md) |
-| 2 | 1 Dec 2026 | Not started |
-
-## Upcoming
+## Coming up
 
 | Date | What |
 |---|---|
-| 24 Nov 2026 | Bazaar day work-in-progress demo |
-| 1 Dec 2026 | Release 1 complete; Vlog 2 |
+| 24 Nov 2026 | Work-in-progress demo (bazaar day) |
+| 1 Dec 2026 | Release 1 complete; vlog 2 and the fall retrospective |
+| Winter 2027 | ENSE 477: Release 2, testing with teachers, final presentation |
+
+## Run the app
+
+```bash
+cd app
+npm install
+npm run dev
+```
+
+Then open http://localhost:3000. Configuration and the full guide are in [app/README.md](app/README.md).
