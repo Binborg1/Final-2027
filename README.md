@@ -20,22 +20,38 @@ Funza Teacher Studio is a web app for **Saskatchewan Grade 10–12 teachers**. T
 - **Next:** teacher accounts and courses on Supabase, then Live mode, for Release 1 on 1 December. The order is in the [development steps](docs/04_development/01_development_steps.md).
 - **Documents:** the [document tracker](docs/document_tracker.md) lists every document the project needs and how far along each one is.
 
-## What's where
+## Folder structure
 
-| Path | Contents |
-|---|---|
-| [`app/`](app/) | The Funza app (Next.js, TypeScript, Tailwind). [app/README.md](app/README.md) explains how to run it |
-| [`docs/`](docs/) | All project documents, in course order. [docs/README.md](docs/README.md) explains the layout and naming |
-| [`docs/document_tracker.md`](docs/document_tracker.md) | Every document needed for ENSE 400 and ENSE 477, with its status |
-| [`docs/01_research/`](docs/01_research/) | Users, competitors, business model, teacher interviews |
-| [`docs/02_project_plan/`](docs/02_project_plan/) | Business case, charter, stakeholders, scope, schedules, roles, roadmaps |
-| [`docs/03_design/`](docs/03_design/) | User flows and features, requirements and architecture, UI design |
-| [`docs/04_development/`](docs/04_development/) | Build plan, weekly status reports |
-| [`docs/05_testing/`](docs/05_testing/) | Code and usability testing |
-| [`docs/06_presentations/`](docs/06_presentations/) | Work-in-progress demo, vlogs, poster, videos, final presentation |
-| [`docs/07_user_guide/`](docs/07_user_guide/) | Help for teachers and students |
-| [`docs/08_closing/`](docs/08_closing/) | Retrospectives and the project experience report |
-| [`docs/archive/`](docs/archive/) | Documents from the products we worked on before Teacher Studio, kept as submitted |
+```text
+Final-2027/
+├── README.md                                   This page: product, status, structure, how to run
+├── app/                                        The Funza web app (Next.js, TypeScript, Tailwind)
+│   ├── src/app/                                Pages, and the API routes that are the backend
+│   ├── src/components/                         Screens and shared interface parts
+│   ├── src/lib/                                App logic: AI, curriculum, resources, Classroom
+│   ├── src/data/curriculum/                    Saskatchewan Grade 10–12 curricula as JSON
+│   ├── scripts/curriculum/                     Imports the curricula from the Ministry's website
+│   ├── tests/                                  Automated tests
+│   └── public/                                 Logos and images
+└── docs/                                       All project documents, in course order
+    ├── README.md                               How the documents are organized and named
+    ├── document_tracker.md                     Every document the project needs, and its status
+    ├── 01_research/                            Users, competitors, business model, interviews
+    ├── 02_project_plan/                        Business case, charter, scope, schedules, roles
+    ├── 03_design/                              What the app does and how it is built
+    │   ├── 01_user_flows_and_features/         Live and Prepare flows, use cases, diagrams
+    │   └── 02_requirements_and_architecture/   Requirements, system, data model, privacy
+    ├── 04_development/                         Build plan and weekly status reports
+    ├── 05_testing/                             Code and usability test plans and results
+    ├── 06_presentations/                       Demo day, vlogs, poster, videos, final presentation
+    ├── 07_user_guide/                          Help for teachers and students
+    ├── 08_closing/                             Retrospectives and the project experience report
+    └── archive/                                Earlier products' documents, kept as submitted
+        ├── 01_ai_learning_environment/         University study app (Sept–Oct 2026)
+        └── 02_funza_student_tutor/             Student tutor prototype (Oct 2026)
+```
+
+To run the app, see [app/README.md](app/README.md). For the documents, start at [docs/README.md](docs/README.md) and the [document tracker](docs/document_tracker.md).
 
 ## Technology
 
