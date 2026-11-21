@@ -52,7 +52,7 @@ Course stage: Design Workshop 3 (project management documents, templates 01–20
 | 2.9 | Roles and responsibilities | `02_project_plan/09_roles_and_responsibilities.md` | Each person: name, role, responsibilities | To do | |
 | 2.10 | RACI chart | `02_project_plan/10_raci_chart.md` | Work packages against people, each cell R, A, C or I (Responsible, Accountable, Consulted, Informed) | To do | |
 | 2.11 ★ | User story map | `02_project_plan/11_user_story_map.md` | Activities, then steps, then details, for the teacher (Live and Prepare) and the student, split into Release 1 and Release 2 lanes | To do | |
-| 2.12 ★ | Kanban board | [GitHub Project](https://github.com/users/Binborg1/projects/1) | Backlog, Doing, Review, Done; one issue per work package from 2.6. Issues #1–#18 describe the old study app and need replacing | Update | |
+| 2.12 ★ | Kanban board | A new GitHub Project | Backlog, Doing, Review, Done; one issue per work package from 2.6, labelled by type and by who is accountable, in the ENSE 400 or ENSE 477 milestone. The old board's issues (#1–#18, the earlier product) were deleted on 21 Nov | To do | |
 | 2.13 ★ | Gantt chart | `02_project_plan/13_gantt_chart.md` | The schedule from 2.7 drawn as a chart | To do | |
 | 2.14 | Risk register | `02_project_plan/14_risk_register.md` | Risk list (probability × impact = score) and response plan (accept, mitigate, avoid or transfer; contingency and trigger). Start from 3.2, section 16 | Optional | |
 | 2.15 | Communication plan | `02_project_plan/15_communication_plan.md` | Each communication: purpose and medium, audience, timing (weekly meeting, scrums, PR reviews, instructor updates) | Optional | |

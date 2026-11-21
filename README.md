@@ -62,7 +62,7 @@ The earlier documents are in [`docs/archive/`](docs/archive/), with what each pr
 
 ## Project management
 
-Work is tracked on the team's [Kanban board](https://github.com/users/Binborg1/projects/1) (Backlog, Doing, Review, Done) with two milestones: **ENSE 400 - Fall 2026** (due 1 December 2026) and **ENSE 477 - Winter 2027** (due 9 April 2027, tentative). The team meets weekly to review the board, schedule and risks, and the other member reviews every pull request before it is merged. The board's issues are being rebuilt from the Teacher Studio work breakdown.
+Work is tracked on a GitHub Kanban board (Backlog, Doing, Review, Done) with two milestones: **ENSE 400 - Fall 2026** (due 1 December 2026) and **ENSE 477 - Winter 2027** (due 9 April 2027, tentative). The team meets weekly to review the board, schedule and risks, and the other member reviews every pull request before it is merged. The old board and its issues belonged to the earlier product and were removed on 21 November 2026; a new board is being set up from the Teacher Studio work breakdown.
 
 ## Coming up
 
