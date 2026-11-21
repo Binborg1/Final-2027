@@ -15,7 +15,7 @@ How the project is run: why it is worth doing, its goals, who is involved, what 
 | 09 | `09_roles_and_responsibilities.md` | Planned |
 | 10 | `10_raci_chart.md` | Planned |
 | 11 | `11_user_story_map.md` | Planned |
-| 12 | Kanban board: the team's [GitHub Project](https://github.com/users/Binborg1/projects/1) | Needs updating |
+| 12 | Kanban board: a GitHub Project, one issue per work package | Planned |
 | 13 | `13_gantt_chart.md` | Planned |
 | 14 | `14_risk_register.md` | Optional |
 | 15 | `15_communication_plan.md` | Optional |
