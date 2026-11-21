@@ -5,11 +5,8 @@ import { LIMITS } from "@/lib/visualizations/generic/common";
 import { markerAt } from "@/lib/visualizations/generic/functionGraph";
 import { shapesAt } from "@/lib/visualizations/generic/geometryScene";
 import { quantityValues } from "@/lib/visualizations/generic/quantityModel";
-import { packetSteps } from "@/lib/visualizations/packetTransmission";
-import { pcmSteps } from "@/lib/visualizations/pcmSampling";
-import { layerSteps } from "@/lib/visualizations/protocolLayers";
-import { checkVisualization, definitionOf, describeVisualizationsForPrompt, validateVisualization } from "@/lib/visualizations/registry";
-import { VISUALIZATION_TYPES, type FunctionGraphParams, type GeometrySceneParams, type QuantityModelParams } from "@/lib/visualizations/types";
+import { checkVisualization, definitionOf, validateVisualization } from "@/lib/visualizations/registry";
+import type { FunctionGraphParams, GeometrySceneParams, QuantityModelParams } from "@/lib/visualizations/types";
 
 /* ---------- a small graph config used throughout ---------- */
 
@@ -161,25 +158,4 @@ test("the distance-time graph built for teachers validates and steps through eve
   assert.deepEqual(validateVisualization(JSON.parse(JSON.stringify(config))), config, "validation is stable");
   assert.equal(motionGraph({ objects: [{ label: "", speed: 3 }], duration: 10 }), null, "an unnamed rider is refused");
   assert.equal(motionGraph({ objects: [{ label: "A", speed: 0 }], duration: 10 }), null, "a speed of zero is refused");
-});
-
-test("the prompt catalogue covers every type and explains the shared fields once", () => {
-  const text = describeVisualizationsForPrompt();
-  for (const type of VISUALIZATION_TYPES) assert.ok(text.includes(`"${type}"`), type);
-  assert.ok(text.includes('"checkpoints"') && text.includes('"stages"') && text.includes("formula"));
-});
-
-/* ---------- regression: the networking demonstrations are unchanged ---------- */
-
-test("the specialized networking visualizations keep their steps and predictions", () => {
-  assert.deepEqual(packetSteps({ packets: 4, lostPacket: 3 }).map((s) => s.id), ["message", "split", "travel", "loss", "arrive", "resend", "rebuild"]);
-  assert.deepEqual(packetSteps({ packets: 3, lostPacket: null }).map((s) => s.id), ["message", "split", "travel", "arrive", "rebuild"]);
-  assert.deepEqual(pcmSteps({ signalHz: 2, sampleRate: 12, bits: 3 }).map((s) => s.id), ["analog", "sample", "quantize", "encode", "rebuild"]);
-  assert.equal(layerSteps({ model: "tcp-ip" }).length, 9);
-  assert.equal(layerSteps({ model: "osi" }).length, 15);
-  assert.deepEqual(validateVisualization({ type: "packet-transmission", params: { packets: 99 } }), { type: "packet-transmission", params: { packets: 8, lostPacket: null } }, "specialized params still clamp");
-  for (const type of ["packet-transmission", "pcm-sampling", "protocol-layers"] as const) {
-    assert.equal(definitionOf(type).family, "specialized");
-    assert.ok(definitionOf(type).controls(definitionOf(type).defaults).length >= 1);
-  }
 });

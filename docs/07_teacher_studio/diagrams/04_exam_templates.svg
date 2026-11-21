@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="336" class="dia" viewBox="0 0 1160 336" role="img" aria-label="Exam templates. Three ways in: describe the format in words, upload a past exam, or set the controls. Funza reads words and files into a format; controls are already one. The saved template plus chosen chapters lets Funza write a new exam, which goes to review. Review changes can be saved back to the template."><style>svg{
+  --bg: #f3f5f2;
+  --card: #ffffff;
+  --ink: #17212b;
+  --muted: #586470;
+  --line: #ced6d1;
+  --live: #c9431d;
+  --prep: #0b7469;
+  --ai: #6a4bd6;
+  --live-t: #fbebe5;
+  --prep-t: #e2f1ee;
+  --ai-t: #efebfc;
+  --lane: #e9edea;
+  --ok: #2c7a3a;   --ok-t: #e3f2e5;
+  --warn: #9a6100; --warn-t: #fbf0dc;
+  --none: #6b7580; --none-t: #eceff1;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;} svg{background:var(--card);} 
+
+.dia text { font-family: var(--body); }
+.bx rect { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+.bx.live rect { stroke: var(--live); }
+.bx.prep rect { stroke: var(--prep); }
+.bx.home rect { stroke: var(--ink); stroke-width: 1.6; }
+.bx.ai rect { fill: var(--ai-t); stroke: var(--ai); stroke-dasharray: 5 3; }
+.bx.stu rect { stroke: var(--ink); stroke-width: 1; }
+.bx.ext rect { fill: var(--lane); stroke: var(--muted); stroke-dasharray: 3 3; }
+.t { font-size: 12.5px; font-weight: 700; fill: var(--ink); }
+.s { font-size: 11px; fill: var(--muted); }
+.ar { fill: none; stroke: var(--muted); stroke-width: 1.4; }
+.ar.dash { stroke-dasharray: 6 4; }
+.ar.assoc { stroke: var(--ink); stroke-width: 1.1; }
+.ahp { fill: var(--muted); }
+.lb { fill: var(--card); stroke: var(--line); }
+.lt { font-size: 10.5px; fill: var(--muted); }
+.panel.live { fill: var(--live-t); }
+.panel.prep { fill: var(--prep-t); }
+.panel.stu { fill: none; stroke: var(--line); stroke-dasharray: 4 4; }
+.plab { font-family: var(--display); font-size: 13px; font-weight: 800; letter-spacing: .08em; }
+.plab.live { fill: var(--live); } .plab.prep { fill: var(--prep); } .plab.stu { fill: var(--ink); }
+.pnote { font-size: 11.5px; fill: var(--muted); }
+.lane { fill: none; }
+.lane.l1 { fill: var(--lane); }
+.lanel { font-family: var(--display); font-size: 14px; font-weight: 700; fill: var(--ink); }
+.lanes { font-size: 10.5px; fill: var(--muted); }
+.ph { font-size: 12px; font-weight: 700; fill: var(--ink); }
+.st rect { fill: var(--bg); stroke: var(--line); }
+.stt { font-size: 10.5px; fill: var(--muted); }
+.sys { fill: none; stroke: var(--ink); stroke-width: 1.4; }
+.systitle { font-family: var(--display); font-size: 15px; font-weight: 800; fill: var(--ink); }
+.grp { fill: none; stroke: var(--line); stroke-dasharray: 4 4; }
+.gname { font-size: 12px; font-weight: 700; fill: var(--muted); letter-spacing: .04em; }
+.uc ellipse { fill: var(--card); stroke: var(--ink); stroke-width: 1.1; }
+.uc.ai ellipse { fill: var(--ai-t); stroke: var(--ai); }
+.uct { font-size: 12px; fill: var(--ink); }
+.ucn { font-size: 10.5px; fill: var(--muted); font-weight: 700; }
+.aim { fill: var(--ai); }
+.actor { fill: none; stroke: var(--ink); stroke-width: 1.6; }
+.aname { font-size: 13px; font-weight: 700; fill: var(--ink); }
+</style><rect x="0" y="0" width="1160" height="336" fill="var(--card)"/><defs><marker id="ah-d5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahp" d="M0,0 L10,5 L0,10 z"/></marker></defs><text class="ph" x="16.0" y="24.0" text-anchor="start">1  Three ways in</text><text class="ph" x="450.0" y="24.0" text-anchor="start">2  One saved format</text><text class="ph" x="690.0" y="24.0" text-anchor="start">3  Every exam after</text><g class="bx prep"><rect x="16.0" y="44.0" width="184.0" height="70.0" rx="9"/><text class="t" x="108.0" y="69.2" text-anchor="middle">Describe it</text><text class="s" x="108.0" y="84.8" text-anchor="middle">“Section A: 20 multiple</text><text class="s" x="108.0" y="98.2" text-anchor="middle">choice, 1 mark each…”</text></g><g class="bx prep"><rect x="16.0" y="139.0" width="184.0" height="70.0" rx="9"/><text class="t" x="108.0" y="164.2" text-anchor="middle">Upload a past exam</text><text class="s" x="108.0" y="179.8" text-anchor="middle">PDF or Word,</text><text class="s" x="108.0" y="193.2" text-anchor="middle">scanned pages too</text></g><g class="bx prep"><rect x="16.0" y="234.0" width="184.0" height="70.0" rx="9"/><text class="t" x="108.0" y="259.2" text-anchor="middle">Set the controls</text><text class="s" x="108.0" y="274.8" text-anchor="middle">four collapsed rows,</text><text class="s" x="108.0" y="288.2" text-anchor="middle">then Save as template</text></g><g class="bx ai"><rect x="246.0" y="64.0" width="150.0" height="125.0" rx="9"/><text class="t" x="321.0" y="103.2" text-anchor="middle">Reads the format</text><text class="s" x="321.0" y="118.8" text-anchor="middle">sections, types,</text><text class="s" x="321.0" y="132.2" text-anchor="middle">counts, marks, time,</text><text class="s" x="321.0" y="145.8" text-anchor="middle">instructions,</text><text class="s" x="321.0" y="159.2" text-anchor="middle">wording style</text></g><g class="bx home"><rect x="446.0" y="54.0" width="196.0" height="240.0" rx="9"/><text class="t" x="544.0" y="123.8" text-anchor="middle">Template</text><text class="s" x="544.0" y="139.2" text-anchor="middle">“Chem 30 unit test”</text><text class="s" x="544.0" y="152.8" text-anchor="middle"></text><text class="s" x="544.0" y="166.2" text-anchor="middle">sections + question types</text><text class="s" x="544.0" y="179.8" text-anchor="middle">counts and marks</text><text class="s" x="544.0" y="193.2" text-anchor="middle">time, difficulty mix</text><text class="s" x="544.0" y="206.8" text-anchor="middle">instructions, cover page</text><text class="s" x="544.0" y="220.2" text-anchor="middle">wording style</text><text class="s" x="544.0" y="233.8" text-anchor="middle">pinned questions</text></g><g class="bx prep"><rect x="690.0" y="134.0" width="140.0" height="80.0" rx="9"/><text class="t" x="760.0" y="164.2" text-anchor="middle">Pick chapters</text><text class="s" x="760.0" y="179.8" text-anchor="middle">Chemical Equilibria</text><text class="s" x="760.0" y="193.2" text-anchor="middle">Electrochemistry</text></g><g class="bx ai"><rect x="862.0" y="134.0" width="132.0" height="80.0" rx="9"/><text class="t" x="928.0" y="164.2" text-anchor="middle">Fills the format</text><text class="s" x="928.0" y="179.8" text-anchor="middle">bank first, then</text><text class="s" x="928.0" y="193.2" text-anchor="middle">new questions</text></g><g class="bx prep"><rect x="1024.0" y="134.0" width="122.0" height="80.0" rx="9"/><text class="t" x="1085.0" y="164.2" text-anchor="middle">Review</text><text class="s" x="1085.0" y="179.8" text-anchor="middle">then approve</text><text class="s" x="1085.0" y="193.2" text-anchor="middle">and publish</text></g><path class="ar " d="M200.0,79.0 L246.0,79.0" marker-end="url(#ah-d5)"/><path class="ar " d="M200.0,174.0 L246.0,174.0" marker-end="url(#ah-d5)"/><path class="ar " d="M396.0,126.0 L446.0,126.0" marker-end="url(#ah-d5)"/><path class="ar " d="M200.0,269.0 L446.0,269.0" marker-end="url(#ah-d5)"/><rect class="lb" x="271.4" y="260.0" width="103.2" height="18" rx="9"/><text class="lt" x="323.0" y="272.8" text-anchor="middle">already a format</text><path class="ar " d="M642.0,174.0 L690.0,174.0" marker-end="url(#ah-d5)"/><path class="ar " d="M830.0,174.0 L862.0,174.0" marker-end="url(#ah-d5)"/><path class="ar " d="M994.0,174.0 L1024.0,174.0" marker-end="url(#ah-d5)"/><path class="ar dash" d="M1085.0,214.0 L1085.0,318.0 L544.0,318.0 L544.0,294.0" marker-end="url(#ah-d5)"/><rect class="lb" x="686.0" y="309.0" width="257.1" height="18" rx="9"/><text class="lt" x="814.5" y="321.8" text-anchor="middle">save structure changes back to the template</text></svg>

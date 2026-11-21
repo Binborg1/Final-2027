@@ -7,11 +7,8 @@ import type {
   FunctionGraphParams,
   GeometrySceneParams,
   NodeDiagramParams,
-  PacketTransmissionParams,
   ParamControl,
-  PcmSamplingParams,
   ProcessSequenceParams,
-  ProtocolLayersParams,
   QuantityModelParams,
   VisualizationConfig,
 } from "@/lib/visualizations/types";
@@ -19,10 +16,7 @@ import { usePlayer, type Player } from "@/lib/visualizations/usePlayer";
 import { FunctionGraphScene } from "./scenes/FunctionGraphScene";
 import { GeometryScene } from "./scenes/GeometryScene";
 import { NodeDiagramScene } from "./scenes/NodeDiagramScene";
-import { PacketTransmissionScene } from "./scenes/PacketTransmissionScene";
-import { PcmSamplingScene } from "./scenes/PcmSamplingScene";
 import { ProcessSequenceScene } from "./scenes/ProcessSequenceScene";
-import { ProtocolLayersScene } from "./scenes/ProtocolLayersScene";
 import { QuantityModelScene } from "./scenes/QuantityModelScene";
 
 type Props = {
@@ -206,18 +200,12 @@ function Scene({ player, reduce }: { player: Player; reduce: boolean }) {
       return <QuantityModelScene params={player.params as QuantityModelParams} step={step} reduce={reduce} />;
     case "geometry-scene":
       return <GeometryScene params={player.params as GeometrySceneParams} step={step} reduce={reduce} />;
-    case "packet-transmission":
-      return <PacketTransmissionScene params={player.params as PacketTransmissionParams} step={step} reduce={reduce} />;
-    case "pcm-sampling":
-      return <PcmSamplingScene params={player.params as PcmSamplingParams} step={step} reduce={reduce} />;
-    case "protocol-layers":
-      return <ProtocolLayersScene params={player.params as ProtocolLayersParams} step={step} reduce={reduce} />;
     default:
       return null;
   }
 }
 
-/** The current value of a control: a top-level param (networking types) or an entry in `parameters` (generic types). */
+/** The current value of a control: a top-level param or an entry in `parameters`. */
 function controlValue(player: Player, key: string): unknown {
   if (key in player.params) return player.params[key];
   const parameters = player.params.parameters;

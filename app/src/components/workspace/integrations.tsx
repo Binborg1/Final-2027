@@ -87,7 +87,7 @@ export function IntegrationsScreen() {
             {lms && !lms.configured && (
               <div className="mt-4">
                 <Notice tone="none" title="For whoever runs this Funza server">
-                  Create an OAuth client (type “Web application”) in a Google Cloud project with the Classroom and Drive APIs enabled, add <code>{"<this site>/api/lms/google/callback"}</code> as an authorized redirect URI, then set <code>GOOGLE_CLIENT_ID</code>, <code>GOOGLE_CLIENT_SECRET</code> and a random <code>FUNZA_SESSION_SECRET</code> of at least 32 characters. Full steps: docs/09_teacher_workspace_design/07_lms_publishing_ux.md.
+                  Create an OAuth client (type “Web application”) in a Google Cloud project with the Classroom and Drive APIs enabled, add <code>{"<this site>/api/lms/google/callback"}</code> as an authorized redirect URI, then set <code>GOOGLE_CLIENT_ID</code>, <code>GOOGLE_CLIENT_SECRET</code> and a random <code>FUNZA_SESSION_SECRET</code> of at least 32 characters. Full steps: the app’s README, under “Google Classroom setup”.
                 </Notice>
               </div>
             )}

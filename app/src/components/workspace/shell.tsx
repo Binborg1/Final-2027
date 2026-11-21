@@ -27,14 +27,12 @@ export function Shell({ children }: { children: ReactNode }) {
   const [palette, setPalette] = useState(false);
   const [shortcuts, setShortcuts] = useState(false);
   const [menu, setMenu] = useState(false);
-  const standalone = pathname.startsWith("/survey");
 
   useEffect(() => {
-    if (!standalone) loadWorkspace();
-  }, [standalone]);
+    loadWorkspace();
+  }, []);
 
   useEffect(() => {
-    if (standalone) return;
     const onKey = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
@@ -55,9 +53,8 @@ export function Shell({ children }: { children: ReactNode }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [router, pathname, standalone]);
+  }, [router, pathname]);
 
-  if (standalone) return <>{children}</>;
 
   return (
     <div className="flex min-h-screen flex-col md:flex-row">

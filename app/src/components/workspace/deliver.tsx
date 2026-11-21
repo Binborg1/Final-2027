@@ -385,7 +385,7 @@ function ClassroomCard({ d, r, sections, title, version }: { d: Draft; r: Resour
             <Skeleton className="h-16 w-full" />
           ) : !lms.configured ? (
             <Notice tone="none" title="Google Classroom is not set up on this Funza server">
-              Whoever runs this Funza server adds a Google Cloud OAuth client (GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET) and a session secret (FUNZA_SESSION_SECRET). The steps are in docs/09_teacher_workspace_design/07_lms_publishing_ux.md. Until then you can print copies below.
+              Whoever runs this Funza server adds a Google Cloud OAuth client (GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET) and a session secret (FUNZA_SESSION_SECRET). The steps are in the app’s README, under “Google Classroom setup”. Until then you can print copies below.
             </Notice>
           ) : !lms.connected ? (
             <NotConnected returnTo={`/resources/${r.id}/deliver`} />

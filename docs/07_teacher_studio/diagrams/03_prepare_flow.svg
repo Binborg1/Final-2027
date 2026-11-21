@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="482" class="dia" viewBox="0 0 1160 482" role="img" aria-label="Prepare swimlane with lanes for teacher, Funza and students across seven phases: (Funza turns a past exam into a template) course, sources, make, draft, review, approve, publish. Material state moves draft, in review, approved, published."><style>svg{
+  --bg: #f3f5f2;
+  --card: #ffffff;
+  --ink: #17212b;
+  --muted: #586470;
+  --line: #ced6d1;
+  --live: #c9431d;
+  --prep: #0b7469;
+  --ai: #6a4bd6;
+  --live-t: #fbebe5;
+  --prep-t: #e2f1ee;
+  --ai-t: #efebfc;
+  --lane: #e9edea;
+  --ok: #2c7a3a;   --ok-t: #e3f2e5;
+  --warn: #9a6100; --warn-t: #fbf0dc;
+  --none: #6b7580; --none-t: #eceff1;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;} svg{background:var(--card);} 
+
+.dia text { font-family: var(--body); }
+.bx rect { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+.bx.live rect { stroke: var(--live); }
+.bx.prep rect { stroke: var(--prep); }
+.bx.home rect { stroke: var(--ink); stroke-width: 1.6; }
+.bx.ai rect { fill: var(--ai-t); stroke: var(--ai); stroke-dasharray: 5 3; }
+.bx.stu rect { stroke: var(--ink); stroke-width: 1; }
+.bx.ext rect { fill: var(--lane); stroke: var(--muted); stroke-dasharray: 3 3; }
+.t { font-size: 12.5px; font-weight: 700; fill: var(--ink); }
+.s { font-size: 11px; fill: var(--muted); }
+.ar { fill: none; stroke: var(--muted); stroke-width: 1.4; }
+.ar.dash { stroke-dasharray: 6 4; }
+.ar.assoc { stroke: var(--ink); stroke-width: 1.1; }
+.ahp { fill: var(--muted); }
+.lb { fill: var(--card); stroke: var(--line); }
+.lt { font-size: 10.5px; fill: var(--muted); }
+.panel.live { fill: var(--live-t); }
+.panel.prep { fill: var(--prep-t); }
+.panel.stu { fill: none; stroke: var(--line); stroke-dasharray: 4 4; }
+.plab { font-family: var(--display); font-size: 13px; font-weight: 800; letter-spacing: .08em; }
+.plab.live { fill: var(--live); } .plab.prep { fill: var(--prep); } .plab.stu { fill: var(--ink); }
+.pnote { font-size: 11.5px; fill: var(--muted); }
+.lane { fill: none; }
+.lane.l1 { fill: var(--lane); }
+.lanel { font-family: var(--display); font-size: 14px; font-weight: 700; fill: var(--ink); }
+.lanes { font-size: 10.5px; fill: var(--muted); }
+.ph { font-size: 12px; font-weight: 700; fill: var(--ink); }
+.st rect { fill: var(--bg); stroke: var(--line); }
+.stt { font-size: 10.5px; fill: var(--muted); }
+.sys { fill: none; stroke: var(--ink); stroke-width: 1.4; }
+.systitle { font-family: var(--display); font-size: 15px; font-weight: 800; fill: var(--ink); }
+.grp { fill: none; stroke: var(--line); stroke-dasharray: 4 4; }
+.gname { font-size: 12px; font-weight: 700; fill: var(--muted); letter-spacing: .04em; }
+.uc ellipse { fill: var(--card); stroke: var(--ink); stroke-width: 1.1; }
+.uc.ai ellipse { fill: var(--ai-t); stroke: var(--ai); }
+.uct { font-size: 12px; fill: var(--ink); }
+.ucn { font-size: 10.5px; fill: var(--muted); font-weight: 700; }
+.aim { fill: var(--ai); }
+.actor { fill: none; stroke: var(--ink); stroke-width: 1.6; }
+.aname { font-size: 13px; font-weight: 700; fill: var(--ink); }
+</style><rect x="0" y="0" width="1160" height="482" fill="var(--card)"/><defs><marker id="ah-d3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahp" d="M0,0 L10,5 L0,10 z"/></marker></defs><rect class="lane l0" x="0" y="60" width="1160" height="150"/><text class="lanel" x="12.0" y="86.0" text-anchor="start">Teacher</text><text class="lanes" x="12.0" y="102.0" text-anchor="start">laptop</text><rect class="lane l1" x="0" y="210" width="1160" height="110"/><text class="lanel" x="12.0" y="236.0" text-anchor="start">Funza</text><text class="lanes" x="12.0" y="252.0" text-anchor="start">AI assistant</text><rect class="lane l2" x="0" y="320" width="1160" height="156"/><text class="lanel" x="12.0" y="346.0" text-anchor="start">Students</text><text class="lanes" x="12.0" y="362.0" text-anchor="start">phone or Classroom</text><text class="ph" x="186.0" y="22.0" text-anchor="middle">1  Course</text><text class="ph" x="334.0" y="22.0" text-anchor="middle">2  Sources</text><text class="ph" x="482.0" y="22.0" text-anchor="middle">3  Make</text><text class="ph" x="630.0" y="22.0" text-anchor="middle">4  Draft</text><text class="ph" x="778.0" y="22.0" text-anchor="middle">5  Review</text><text class="ph" x="926.0" y="22.0" text-anchor="middle">6  Approve</text><text class="ph" x="1074.0" y="22.0" text-anchor="middle">7  Publish</text><g class="st"><rect x="604.0" y="31" width="52.0" height="19" rx="9.5"/><text class="stt" x="630.0" y="44.5" text-anchor="middle">draft</text></g><g class="st"><rect x="740.0" y="31" width="76.0" height="19" rx="9.5"/><text class="stt" x="778.0" y="44.5" text-anchor="middle">in review</text></g><g class="st"><rect x="891.0" y="31" width="70.0" height="19" rx="9.5"/><text class="stt" x="926.0" y="44.5" text-anchor="middle">approved</text></g><g class="st"><rect x="1036.0" y="31" width="76.0" height="19" rx="9.5"/><text class="stt" x="1074.0" y="44.5" text-anchor="middle">published</text></g><g class="bx prep"><rect x="118.0" y="76.0" width="136.0" height="118.0" rx="9"/><text class="t" x="186.0" y="111.8" text-anchor="middle">Add a course</text><text class="s" x="186.0" y="127.2" text-anchor="middle">pick grade + subject</text><text class="s" x="186.0" y="140.8" text-anchor="middle">chapters come from</text><text class="s" x="186.0" y="154.2" text-anchor="middle">the curriculum</text><text class="s" x="186.0" y="167.8" text-anchor="middle">rename, reorder, add</text></g><g class="bx prep"><rect x="266.0" y="76.0" width="136.0" height="118.0" rx="9"/><text class="t" x="334.0" y="118.5" text-anchor="middle">Add sources</text><text class="s" x="334.0" y="134.0" text-anchor="middle">your notes and PDFs</text><text class="s" x="334.0" y="147.5" text-anchor="middle">past exams</text><text class="s" x="334.0" y="161.0" text-anchor="middle">kept in the chapter</text></g><g class="bx prep"><rect x="414.0" y="76.0" width="136.0" height="118.0" rx="9"/><text class="t" x="482.0" y="111.8" text-anchor="middle">Make</text><text class="s" x="482.0" y="127.2" text-anchor="middle">Notes · Quiz · Exam</text><text class="s" x="482.0" y="140.8" text-anchor="middle">pick a template</text><text class="s" x="482.0" y="154.2" text-anchor="middle">pick chapters</text><text class="s" x="482.0" y="167.8" text-anchor="middle">+ quick prompts</text></g><g class="bx prep"><rect x="710.0" y="76.0" width="136.0" height="118.0" rx="9"/><text class="t" x="778.0" y="111.8" text-anchor="middle">Review</text><text class="s" x="778.0" y="127.2" text-anchor="middle">check every part</text><text class="s" x="778.0" y="140.8" text-anchor="middle">fix what checks flag</text><text class="s" x="778.0" y="154.2" text-anchor="middle">redo one question</text><text class="s" x="778.0" y="167.8" text-anchor="middle">chat for bigger edits</text></g><g class="bx prep"><rect x="858.0" y="76.0" width="136.0" height="118.0" rx="9"/><text class="t" x="926.0" y="118.5" text-anchor="middle">Approve</text><text class="s" x="926.0" y="134.0" text-anchor="middle">locks version 1</text><text class="s" x="926.0" y="147.5" text-anchor="middle">questions join the</text><text class="s" x="926.0" y="161.0" text-anchor="middle">chapter’s bank</text></g><g class="bx prep"><rect x="1006.0" y="76.0" width="136.0" height="118.0" rx="9"/><text class="t" x="1074.0" y="111.8" text-anchor="middle">Publish</text><text class="s" x="1074.0" y="127.2" text-anchor="middle">student page (QR)</text><text class="s" x="1074.0" y="140.8" text-anchor="middle">Google Classroom</text><text class="s" x="1074.0" y="154.2" text-anchor="middle">print or PDF</text><text class="s" x="1074.0" y="167.8" text-anchor="middle">key stays with you</text></g><g class="bx ai"><rect x="266.0" y="228.0" width="136.0" height="76.0" rx="9"/><text class="t" x="334.0" y="256.2" text-anchor="middle">Makes a template</text><text class="s" x="334.0" y="271.8" text-anchor="middle">from a past exam</text><text class="s" x="334.0" y="285.2" text-anchor="middle">or your description</text></g><g class="bx ai"><rect x="562.0" y="228.0" width="136.0" height="76.0" rx="9"/><text class="t" x="630.0" y="256.2" text-anchor="middle">Writes the draft</text><text class="s" x="630.0" y="271.8" text-anchor="middle">bank first, then new</text><text class="s" x="630.0" y="285.2" text-anchor="middle">template + your notes</text></g><g class="bx ai"><rect x="710.0" y="228.0" width="136.0" height="76.0" rx="9"/><text class="t" x="778.0" y="256.2" text-anchor="middle">Edits on request</text><text class="s" x="778.0" y="271.8" text-anchor="middle">“add a real-life</text><text class="s" x="778.0" y="285.2" text-anchor="middle">example to part 2”</text></g><g class="bx stu"><rect x="1006.0" y="338.0" width="136.0" height="120.0" rx="9"/><text class="t" x="1074.0" y="374.8" text-anchor="middle">Students get it</text><text class="s" x="1074.0" y="390.2" text-anchor="middle">scan the course QR</text><text class="s" x="1074.0" y="403.8" text-anchor="middle">or open the link</text><text class="s" x="1074.0" y="417.2" text-anchor="middle">or the Classroom post</text><text class="s" x="1074.0" y="430.8" text-anchor="middle">then view or download</text></g><path class="ar " d="M254.0,135.0 L266.0,135.0" marker-end="url(#ah-d3)"/><path class="ar " d="M402.0,135.0 L414.0,135.0" marker-end="url(#ah-d3)"/><path class="ar " d="M846.0,135.0 L858.0,135.0" marker-end="url(#ah-d3)"/><path class="ar " d="M994.0,135.0 L1006.0,135.0" marker-end="url(#ah-d3)"/><path class="ar " d="M334.0,194.0 L334.0,228.0" marker-end="url(#ah-d3)"/><rect class="lb" x="302.4" y="202.0" width="63.3" height="18" rx="9"/><text class="lt" x="334.0" y="214.8" text-anchor="middle">past exam</text><path class="ar " d="M402.0,266.0 L562.0,266.0" marker-end="url(#ah-d3)"/><rect class="lb" x="453.2" y="257.0" width="57.6" height="18" rx="9"/><text class="lt" x="482.0" y="269.8" text-anchor="middle">template</text><path class="ar " d="M550.0,119.7 L610.0,119.7 L610.0,228.0" marker-end="url(#ah-d3)"/><rect class="lb" x="589.8" y="141.0" width="40.5" height="18" rx="9"/><text class="lt" x="610.0" y="153.8" text-anchor="middle">brief</text><path class="ar " d="M650.0,228.0 L650.0,149.2 L710.0,149.2" marker-end="url(#ah-d3)"/><rect class="lb" x="629.8" y="181.0" width="40.5" height="18" rx="9"/><text class="lt" x="650.0" y="193.8" text-anchor="middle">draft</text><path class="ar " d="M758.0,194.0 L758.0,228.0" marker-end="url(#ah-d3)"/><path class="ar " d="M798.0,228.0 L798.0,194.0" marker-end="url(#ah-d3)"/><path class="ar " d="M1074.0,194.0 L1074.0,338.0" marker-end="url(#ah-d3)"/><rect class="lb" x="1008.1" y="257.0" width="131.7" height="18" rx="9"/><text class="lt" x="1074.0" y="269.8" text-anchor="middle">QR · link · Classroom</text></svg>

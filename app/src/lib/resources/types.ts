@@ -2,7 +2,6 @@
  * The teacher workspace's resource model. A resource is a document made of
  * sections; question sections hold items. A draft becomes an approved version
  * whose content is frozen; delivery always uses the approved snapshot.
- * Design: docs/09_teacher_workspace_design/08_implementation_plan.md, section 4.
  */
 
 export type ResourceKind = "notes" | "quiz" | "test" | "exam" | "lesson-plan" | "worksheet" | "homework" | "presentation" | "visualization";
