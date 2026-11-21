@@ -1,0 +1,11 @@
+# Development
+
+How Funza is built, and how the work is going week by week. The code is in [`app/`](../../app/).
+
+| # | Document | Status |
+|---|---|---|
+| 01 | [Development steps](01_development_steps.md): build order from accounts to Release 1 | v0.1, 21 Nov 2026 |
+| 02 | `02_status_reports/`: one file per week, `YYYY-MM-DD.md` | Planned |
+| 03 | `03_code_quality_review.md` | ENSE 477 |
+
+What each must contain, and its status, is in the [document tracker](../document_tracker.md#4-development-04_development).

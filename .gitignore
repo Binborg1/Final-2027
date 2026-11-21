@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------
+# AI agent instructions and tool settings: kept on our machines,
+# never pushed. These patterns match at any depth (also in app/).
+# ---------------------------------------------------------------
+AGENTS.md
+CLAUDE.md
+CLAUDE.local.md
+GEMINI.md
+PRODUCT.md
+.claude/
+.mcp.json
+.cursor/
+.cursorrules
+.windsurfrules
+.codex/
+.gemini/
+.aider*
+
+# ---------------------------------------------------------------
+# Secrets. Only the sample env file is shared.
+# ---------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---------------------------------------------------------------
+# Local-only files: raw video, original zips, scratch work.
+# GitHub rejects files over 100 MB, so big originals live here.
+# ---------------------------------------------------------------
+local/
+
+# ---------------------------------------------------------------
+# Build output and dependencies (app/.gitignore covers the app too)
+# ---------------------------------------------------------------
+node_modules/
+.next/
+out/
+.vercel/
+coverage/
+*.tsbuildinfo
+
+# ---------------------------------------------------------------
+# Operating system and editor files
+# ---------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+.vscode/
+.idea/
+*.log

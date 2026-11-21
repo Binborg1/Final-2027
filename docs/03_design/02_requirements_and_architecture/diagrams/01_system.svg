@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="580" class="dia" viewBox="0 0 1160 580" role="img" aria-label="System architecture. Teachers and students use browsers. One Next.js app on Vercel serves teacher pages, student pages and API routes running on Node.js. The API reads and writes Supabase Postgres and Storage in Canada, sends pings on a Supabase Realtime channel that phones and the teacher console listen to, asks Supabase Auth to sign teachers in with Google, calls the Gemini API for drafts and marking, and posts to Google Classroom."><style>svg{
+  --bg: #f3f5f2;
+  --card: #ffffff;
+  --ink: #17212b;
+  --muted: #586470;
+  --line: #ced6d1;
+  --live: #c9431d;
+  --prep: #0b7469;
+  --ai: #6a4bd6;
+  --live-t: #fbebe5;
+  --prep-t: #e2f1ee;
+  --ai-t: #efebfc;
+  --lane: #e9edea;
+  --ok: #2c7a3a;   --ok-t: #e3f2e5;
+  --warn: #9a6100; --warn-t: #fbf0dc;
+  --none: #6b7580; --none-t: #eceff1;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;} svg{background:var(--card);} 
+
+.dia text { font-family: var(--body); }
+.bx rect { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+.bx.live rect { stroke: var(--live); }
+.bx.prep rect { stroke: var(--prep); }
+.bx.home rect { stroke: var(--ink); stroke-width: 1.6; }
+.bx.ai rect { fill: var(--ai-t); stroke: var(--ai); stroke-dasharray: 5 3; }
+.bx.stu rect { stroke: var(--ink); stroke-width: 1; }
+.bx.ext rect { fill: var(--lane); stroke: var(--muted); stroke-dasharray: 3 3; }
+.t { font-size: 12.5px; font-weight: 700; fill: var(--ink); }
+.s { font-size: 11px; fill: var(--muted); }
+.ar { fill: none; stroke: var(--muted); stroke-width: 1.4; }
+.ar.dash { stroke-dasharray: 6 4; }
+.ar.assoc { stroke: var(--ink); stroke-width: 1.1; }
+.ahp { fill: var(--muted); }
+.lb { fill: var(--card); stroke: var(--line); }
+.lt { font-size: 10.5px; fill: var(--muted); }
+.panel.live { fill: var(--live-t); }
+.panel.prep { fill: var(--prep-t); }
+.panel.stu { fill: none; stroke: var(--line); stroke-dasharray: 4 4; }
+.plab { font-family: var(--display); font-size: 13px; font-weight: 800; letter-spacing: .08em; }
+.plab.live { fill: var(--live); } .plab.prep { fill: var(--prep); } .plab.stu { fill: var(--ink); }
+.pnote { font-size: 11.5px; fill: var(--muted); }
+.lane { fill: none; }
+.lane.l1 { fill: var(--lane); }
+.lanel { font-family: var(--display); font-size: 14px; font-weight: 700; fill: var(--ink); }
+.lanes { font-size: 10.5px; fill: var(--muted); }
+.ph { font-size: 12px; font-weight: 700; fill: var(--ink); }
+.st rect { fill: var(--bg); stroke: var(--line); }
+.stt { font-size: 10.5px; fill: var(--muted); }
+.sys { fill: none; stroke: var(--ink); stroke-width: 1.4; }
+.systitle { font-family: var(--display); font-size: 15px; font-weight: 800; fill: var(--ink); }
+.grp { fill: none; stroke: var(--line); stroke-dasharray: 4 4; }
+.gname { font-size: 12px; font-weight: 700; fill: var(--muted); letter-spacing: .04em; }
+.uc ellipse { fill: var(--card); stroke: var(--ink); stroke-width: 1.1; }
+.uc.ai ellipse { fill: var(--ai-t); stroke: var(--ai); }
+.uct { font-size: 12px; fill: var(--ink); }
+.ucn { font-size: 10.5px; fill: var(--muted); font-weight: 700; }
+.aim { fill: var(--ai); }
+.actor { fill: none; stroke: var(--ink); stroke-width: 1.6; }
+.aname { font-size: 13px; font-weight: 700; fill: var(--ink); }
+.zone { fill: var(--bg); stroke: var(--line); }
+.plab.ink { fill: var(--ink); }
+.ll { stroke: var(--line); stroke-width: 1.2; stroke-dasharray: 4 4; }
+.ml { font-size: 11px; fill: var(--ink); paint-order: stroke; stroke: var(--card); stroke-width: 4px; stroke-linejoin: round; }
+.sep { stroke: var(--line); stroke-width: 1; }
+.sepl { font-family: var(--display); font-size: 12px; font-weight: 800; letter-spacing: .06em; fill: var(--live); }
+.nt rect { fill: var(--lane); stroke: var(--line); }
+.ntt { font-size: 10.5px; fill: var(--ink); }
+.et .body { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+.et.live .body { stroke: var(--live); } .et.prep .body { stroke: var(--prep); } .et.ai .body { stroke: var(--ai); }
+.et.home .body { stroke: var(--ink); stroke-width: 1.7; }
+.et .hd { fill: var(--lane); }
+.et.live .hd { fill: var(--live-t); } .et.prep .hd { fill: var(--prep-t); } .et.ai .hd { fill: var(--ai-t); }
+.etn { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 12.5px; font-weight: 700; fill: var(--ink); }
+.etf { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 11px; fill: var(--muted); }
+.lgd { font-size: 11px; fill: var(--muted); }
+</style><rect x="0" y="0" width="1160" height="580" fill="var(--card)"/><defs><marker id="ah-a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahp" d="M0,0 L10,5 L0,10 z"/></marker></defs><g class="bx home"><rect x="32.0" y="40.0" width="300.0" height="96.0" rx="9"/><text class="t" x="182.0" y="78.2" text-anchor="middle">Teacher</text><text class="s" x="182.0" y="93.8" text-anchor="middle">laptop or Chromebook + projector</text><text class="s" x="182.0" y="107.2" text-anchor="middle">builds, reviews, runs live sessions</text></g><g class="bx stu"><rect x="384.0" y="40.0" width="300.0" height="96.0" rx="9"/><text class="t" x="534.0" y="78.2" text-anchor="middle">Students</text><text class="s" x="534.0" y="93.8" text-anchor="middle">phone browser, no app, no account</text><text class="s" x="534.0" y="107.2" text-anchor="middle">join live · open the course page</text></g><rect class="zone" x="16" y="160" width="684" height="280" rx="14"/><text class="plab ink" x="32.0" y="184.0" text-anchor="start">VERCEL</text><text class="pnote" x="100.8" y="184.0" text-anchor="start">Next.js · Node.js</text><g class="bx prep"><rect x="32.0" y="198.0" width="300.0" height="80.0" rx="9"/><text class="t" x="182.0" y="228.2" text-anchor="middle">Teacher pages</text><text class="s" x="182.0" y="243.8" text-anchor="middle">Home, courses, Make, review</text><text class="s" x="182.0" y="257.2" text-anchor="middle">live console + projector view</text></g><g class="bx stu"><rect x="384.0" y="198.0" width="300.0" height="80.0" rx="9"/><text class="t" x="534.0" y="228.2" text-anchor="middle">Student pages</text><text class="s" x="534.0" y="243.8" text-anchor="middle">/join · /play · /c/course-link</text><text class="s" x="534.0" y="257.2" text-anchor="middle">phone-first, no sign-in</text></g><g class="bx "><rect x="32.0" y="300.0" width="652.0" height="106.0" rx="9"/><text class="t" x="358.0" y="336.5" text-anchor="middle">API routes and shared server code</text><text class="s" x="358.0" y="352.0" text-anchor="middle">/api/teach  drafts and edits   ·   /api/live  join, answer, start, reveal, state</text><text class="s" x="358.0" y="365.5" text-anchor="middle">/api/lms  Google Classroom   ·   /api/curriculum  outcomes</text><text class="s" x="358.0" y="379.0" text-anchor="middle">AI layer with a daily allowance  ·  live-session rules and marking  ·  curriculum JSON</text></g><rect class="zone" x="16" y="458" width="684" height="108" rx="14"/><text class="plab ink" x="32.0" y="482.0" text-anchor="start">GOOGLE</text><g class="bx ext"><rect x="32.0" y="494.0" width="200.0" height="60.0" rx="9"/><text class="t" x="132.0" y="521.0" text-anchor="middle">Google Classroom</text><text class="s" x="132.0" y="536.5" text-anchor="middle">posts and Docs, optional</text></g><g class="bx ai"><rect x="252.0" y="494.0" width="212.0" height="60.0" rx="9"/><text class="t" x="358.0" y="521.0" text-anchor="middle">Gemini API</text><text class="s" x="358.0" y="536.5" text-anchor="middle">paid tier: drafts, marking, PDFs</text></g><g class="bx ext"><rect x="484.0" y="494.0" width="200.0" height="60.0" rx="9"/><text class="t" x="584.0" y="521.0" text-anchor="middle">Google sign-in</text><text class="s" x="584.0" y="536.5" text-anchor="middle">teacher accounts (OAuth)</text></g><rect class="zone" x="740" y="40" width="404" height="526" rx="14"/><text class="plab ink" x="756.0" y="64.0" text-anchor="start">SUPABASE</text><text class="pnote" x="844.4" y="64.0" text-anchor="start">Canada · ca-central-1</text><g class="bx live"><rect x="760.0" y="80.0" width="364.0" height="72.0" rx="9"/><text class="t" x="942.0" y="106.2" text-anchor="middle">Realtime</text><text class="s" x="942.0" y="121.8" text-anchor="middle">one channel per live session</text><text class="s" x="942.0" y="135.2" text-anchor="middle">pings only; phones and console listen</text></g><g class="bx "><rect x="760.0" y="170.0" width="364.0" height="56.0" rx="9"/><text class="t" x="942.0" y="195.0" text-anchor="middle">Scheduled jobs (pg_cron)</text><text class="s" x="942.0" y="210.5" text-anchor="middle">nightly: delete student names after 30 days</text></g><g class="bx home"><rect x="760.0" y="244.0" width="364.0" height="106.0" rx="9"/><text class="t" x="942.0" y="273.8" text-anchor="middle">Postgres + row-level security</text><text class="s" x="942.0" y="289.2" text-anchor="middle">courses, chapters, sources, templates</text><text class="s" x="942.0" y="302.8" text-anchor="middle">materials and versions, question bank</text><text class="s" x="942.0" y="316.2" text-anchor="middle">live sessions, participants, answers</text><text class="s" x="942.0" y="329.8" text-anchor="middle">AI usage per teacher</text></g><g class="bx "><rect x="760.0" y="368.0" width="364.0" height="60.0" rx="9"/><text class="t" x="942.0" y="395.0" text-anchor="middle">Storage</text><text class="s" x="942.0" y="410.5" text-anchor="middle">PDFs, past exams, images (private)</text></g><g class="bx "><rect x="760.0" y="474.0" width="364.0" height="72.0" rx="9"/><text class="t" x="942.0" y="500.2" text-anchor="middle">Auth</text><text class="s" x="942.0" y="515.8" text-anchor="middle">teachers: Google or an email link</text><text class="s" x="942.0" y="529.2" text-anchor="middle">students never sign in</text></g><path class="ar " d="M282.0,136.0 L282.0,198.0" marker-end="url(#ah-a1)"/><path class="ar " d="M634.0,136.0 L634.0,198.0" marker-end="url(#ah-a1)"/><path class="ar " d="M182.0,278.0 L182.0,300.0" marker-end="url(#ah-a1)"/><path class="ar " d="M534.0,278.0 L534.0,300.0" marker-end="url(#ah-a1)"/><path class="ar " d="M132.0,406.0 L132.0,494.0" marker-end="url(#ah-a1)"/><rect class="lb" x="111.8" y="415.0" width="40.5" height="18" rx="9"/><text class="lt" x="132.0" y="427.8" text-anchor="middle">posts</text><path class="ar " d="M358.0,406.0 L358.0,494.0" marker-end="url(#ah-a1)"/><rect class="lb" x="314.9" y="415.0" width="86.1" height="18" rx="9"/><text class="lt" x="358.0" y="427.8" text-anchor="middle">prompts, PDFs</text><path class="ar " d="M684.0,320.0 L760.0,320.0" marker-end="url(#ah-a1)"/><rect class="lb" x="707.5" y="311.0" width="29.1" height="18" rx="9"/><text class="lt" x="722.0" y="323.8" text-anchor="middle">SQL</text><path class="ar " d="M684.0,390.0 L760.0,390.0" marker-end="url(#ah-a1)"/><rect class="lb" x="701.8" y="381.0" width="40.5" height="18" rx="9"/><text class="lt" x="722.0" y="393.8" text-anchor="middle">files</text><path class="ar " d="M670.0,300.0 L670.0,290.0 L716.0,290.0 L716.0,136.0 L760.0,136.0" marker-end="url(#ah-a1)"/><rect class="lb" x="698.6" y="205.0" width="34.8" height="18" rx="9"/><text class="lt" x="716.0" y="217.8" text-anchor="middle">ping</text><path class="ar " d="M670.0,406.0 L670.0,449.0 L860.0,449.0 L860.0,474.0" marker-end="url(#ah-a1)"/><rect class="lb" x="764.0" y="440.0" width="51.9" height="18" rx="9"/><text class="lt" x="790.0" y="452.8" text-anchor="middle">sign in</text><path class="ar " d="M942.0,226.0 L942.0,244.0" marker-end="url(#ah-a1)"/><path class="ar " d="M760.0,510.0 L684.0,510.0" marker-end="url(#ah-a1)"/><rect class="lb" x="701.8" y="501.0" width="40.5" height="18" rx="9"/><text class="lt" x="722.0" y="513.8" text-anchor="middle">OAuth</text><path class="ar " d="M760.0,104.0 L684.0,104.0" marker-end="url(#ah-a1)"/><rect class="lb" x="701.8" y="95.0" width="40.5" height="18" rx="9"/><text class="lt" x="722.0" y="107.8" text-anchor="middle">pings</text><path class="ar " d="M760.0,90.0 L726.0,90.0 L726.0,22.0 L182.0,22.0 L182.0,40.0" marker-end="url(#ah-a1)"/><rect class="lb" x="369.1" y="13.0" width="165.9" height="18" rx="9"/><text class="lt" x="452.0" y="25.8" text-anchor="middle">pings: names, answer counts</text></svg>
