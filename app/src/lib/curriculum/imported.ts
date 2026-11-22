@@ -24,9 +24,67 @@ export type DatasetOutcome = {
   indicators: { label: string; text: string }[];
   guidance: string[];
   notes: string[];
+  /** Every level the source assigns this outcome to (a module may sit in several course configurations); empty when it assigns none. */
+  levels?: number[];
+  /** Where `level`/`levels` come from when not from the code, unit or course name. */
+  levelSource?: "course configurations";
+  /** A Practical and Applied Arts style module: `code` is its module code and `printedWith` starts with its name. */
+  module?: boolean;
+  /** The short official title printed before " – " (Physical Education). */
+  title?: string;
+  /** The K-12 mathematics goals printed above the outcome in the curriculum document. */
+  goals?: string[];
+  goalsSource?: { url: string; page: number; printedCode?: string };
 };
 
-export type DatasetUnit = { id: string; ocId: number; name: string; level: number | null; url: string };
+/** "outcomes": a unit with outcomes. "themes": ELA's suggested thematic units (see the course's themes). "empty": a heading with nothing under it. */
+export type UnitKind = "outcomes" | "themes" | "empty";
+
+export type DatasetUnit = { id: string; ocId: number; name: string; level: number | null; url: string; kind?: UnitKind; outcomeIds?: string[] };
+
+/** Quoted evidence, or an observation of the page structure where the source prints no sentence about it. */
+export type Evidence = { url: string; quote?: string; observation?: string; page?: number | null };
+
+export type ConfigurationModule = {
+  /** As printed on the configuration page. */
+  code: string;
+  name: string;
+  ocId: number | null;
+  curriculumId: number | null;
+  designation?: string;
+  outcomeId?: string;
+  /** The module belongs to another curriculum. */
+  borrowedFrom?: number;
+  /** The dataset code this entry resolves to when it is printed differently, and why. */
+  datasetCode?: string;
+  correction?: string;
+  matchedBy?: string;
+  inDataset: boolean;
+  note?: string;
+};
+
+export type CourseConfiguration = { occ: number; name: string; level: number | null; url: string; note?: string; sections: { name: string | null; moduleCodes: string[]; modules: ConfigurationModule[] }[] };
+
+export type DocumentItem = { code: string | null; type: string; text: string; page?: number; [key: string]: unknown };
+
+/** A verbatim extraction of the official curriculum document (src/data/curriculum/documents/). */
+export type CourseDocument = {
+  status: "document-extracted" | "document-ocr-unverified";
+  textSource: "text-layer" | "ocr";
+  url: string;
+  filename: string | null;
+  sha256: string;
+  retrievedOn: string;
+  pages: number[] | number | null;
+  kind: string | null;
+  partial?: boolean;
+  partialReason?: string;
+  file: string;
+  check: string;
+  units: { name: string | null; items: DocumentItem[]; [key: string]: unknown }[];
+  flags: { unit: number; item: number; code: string | null; flags: string[] }[];
+  notes: string[];
+};
 
 export type DatasetCourse = {
   id: string;
@@ -45,16 +103,35 @@ export type DatasetCourse = {
   units: DatasetUnit[];
   outcomes: DatasetOutcome[];
   problem: string | null;
+  /** The site's Browse by Subject or Browse by Grade menus link to the course. */
+  listedInMenu?: boolean;
+  /** The heading the course sits under in the Browse by Subject menu. */
+  menuSubject?: string | null;
+  legacy?: boolean;
+  legacyEvidence?: { reason: string; replacedBy?: number[]; evidence: string[] };
+  notACurriculum?: boolean;
+  notACurriculumEvidence?: { reason: string; evidence: string[] };
+  /** Taught within other subjects (Treaty Education). */
+  crossCurricular?: boolean;
+  availability?: { outcomesPage: string; document?: string; curriculumFile?: string };
+  grouping?: { kind: "unit" | "module" | "none"; evidence: Evidence; allEvidence?: Evidence[] } | null;
+  /** ELA's suggested thematic units: tied to a course part by the curriculum document, never to outcomes. */
+  themes?: { ocId: number | null; name: string; groupOcId: number | null; url: string | null; coursePart: string | null; documentName?: string; citation?: { url: string; where: string } }[];
+  suggestedUnits?: { heading: string; names: string[]; url: string; page: number; evidence: Evidence };
+  configurations?: CourseConfiguration[];
+  document?: CourseDocument;
 };
 
 export type Dataset = {
   jurisdiction: "SK";
+  language?: "en" | "fr";
   name: string;
   importedOn: string;
   importer: string;
-  sources: { site: string; csv: string };
+  sources: { site: string; csv: string; documents?: string; evidence?: string };
   statusMeaning: Record<string, string>;
   csvMeaning: Record<CsvCheck, string>;
+  flagsMeaning?: Record<string, string>;
   excluded: { curriculumId: number; name: string }[];
   courses: DatasetCourse[];
 };

@@ -1,0 +1,82 @@
+{
+  "meaning": "Evidence for the importer's legacy and notACurriculum flags. Quotes and observations come from the research notes of 2026-11-21.",
+  "legacy": {
+    "67": {
+      "reason": "1992 guide; not in the site's menus; its 30-level part is replaced by the renewed Biology 30 (id 68)",
+      "replacedBy": [
+        68
+      ],
+      "evidence": [
+        "Status on the site (2026-11-21): the course page has no notice that the guide is superseded; it offers only the PDF (its 'Outcomes & Indicators' page is empty). The course is reachable only through the site's search list: the 'Browse by Subject' → Sciences menu lists Science 10, Computer Science 20/30, Environmental Science 20, Health Science 20, Physical Science 20, Biology 30, Chemistry 30, Physics 30 and Earth Science 30, and not the 1992 'Biology/Chemistry/Physics 20, 30' entries.",
+        "The renewed Health Science 20 curriculum (CurriculumFile?id=74, Health_Science_20_2020.pdf, p. 3) says: 'Saskatchewan has developed science courses at Grade 11 that provide students with opportunities to learn core biology, chemistry and physics disciplinary ideas within interdisciplinary contexts.' and 'The current credit requirements for graduation from Grade 12 are one 10-level credit and one 20-level credit in science.' Neither document names Biology 20, Chemistry 20 or Physics 20 or says they were withdrawn; the authoritative list of courses in effect is the Registrar's Handbook for School Administrators (not checked).",
+        "The 30-level parts of this guide are superseded on the site by the renewed Biology 30 / Chemistry 30 / Physics 30 (ids 68, 69, 72), which have outcomes in sk.json."
+      ]
+    },
+    "70": {
+      "reason": "1992 guide; not in the site's menus; its 30-level part is replaced by the renewed Chemistry 30 (id 69)",
+      "replacedBy": [
+        69
+      ],
+      "evidence": [
+        "Status on the site (2026-11-21): the course page has no notice that the guide is superseded; it offers only the PDF (its 'Outcomes & Indicators' page is empty). The course is reachable only through the site's search list: the 'Browse by Subject' → Sciences menu lists Science 10, Computer Science 20/30, Environmental Science 20, Health Science 20, Physical Science 20, Biology 30, Chemistry 30, Physics 30 and Earth Science 30, and not the 1992 'Biology/Chemistry/Physics 20, 30' entries.",
+        "The renewed Health Science 20 curriculum (CurriculumFile?id=74, Health_Science_20_2020.pdf, p. 3) says: 'Saskatchewan has developed science courses at Grade 11 that provide students with opportunities to learn core biology, chemistry and physics disciplinary ideas within interdisciplinary contexts.' and 'The current credit requirements for graduation from Grade 12 are one 10-level credit and one 20-level credit in science.' Neither document names Biology 20, Chemistry 20 or Physics 20 or says they were withdrawn; the authoritative list of courses in effect is the Registrar's Handbook for School Administrators (not checked).",
+        "The 30-level parts of this guide are superseded on the site by the renewed Biology 30 / Chemistry 30 / Physics 30 (ids 68, 69, 72), which have outcomes in sk.json."
+      ]
+    },
+    "71": {
+      "reason": "1992 guide; not in the site's menus; its 30-level part is replaced by the renewed Physics 30 (id 72)",
+      "replacedBy": [
+        72
+      ],
+      "evidence": [
+        "Status on the site (2026-11-21): the course page has no notice that the guide is superseded; it offers only the PDF (its 'Outcomes & Indicators' page is empty). The course is reachable only through the site's search list: the 'Browse by Subject' → Sciences menu lists Science 10, Computer Science 20/30, Environmental Science 20, Health Science 20, Physical Science 20, Biology 30, Chemistry 30, Physics 30 and Earth Science 30, and not the 1992 'Biology/Chemistry/Physics 20, 30' entries.",
+        "The renewed Health Science 20 curriculum (CurriculumFile?id=74, Health_Science_20_2020.pdf, p. 3) says: 'Saskatchewan has developed science courses at Grade 11 that provide students with opportunities to learn core biology, chemistry and physics disciplinary ideas within interdisciplinary contexts.' and 'The current credit requirements for graduation from Grade 12 are one 10-level credit and one 20-level credit in science.' Neither document names Biology 20, Chemistry 20 or Physics 20 or says they were withdrawn; the authoritative list of courses in effect is the Registrar's Handbook for School Administrators (not checked).",
+        "The 30-level parts of this guide are superseded on the site by the renewed Biology 30 / Chemistry 30 / Physics 30 (ids 68, 69, 72), which have outcomes in sk.json."
+      ]
+    },
+    "202": {
+      "reason": "1994 guide; not in the site's menus, its document link answers HTTP 404, and the menus' physical education entries are Wellness 10, Physical Education 20 and 30",
+      "replacedBy": [
+        201,
+        453,
+        454
+      ],
+      "evidence": [
+        "The course page (CurriculumHome?id=202) offers 'PDF — The full Instructional Physical Education 20/30 (1994) curriculum', but https://curriculum.gov.sk.ca/CurriculumFile?id=202 answered HTTP 404 on 2 attempt(s) (2026-11-21T22:58:56.438Z, 2026-11-21T23:01:17.397Z).",
+        "Its 'Outcomes & Indicators' page (CurriculumOutcomeContent?id=202) has an empty content area: no units or outcomes.",
+        "The course appears only in the site's search list, not in the 'Browse by Subject' menu, whose physical education entries are Wellness 10, Physical Education 20 and Physical Education 30 (ids 201, 453, 454; all have outcomes in sk.json).",
+        "Nothing was extracted. Do not offer this course to teachers unless the document is found elsewhere (e.g. publications.saskatchewan.ca) and checked."
+      ]
+    }
+  },
+  "notACurriculum": {
+    "478": {
+      "reason": "an orphan site entry: its document and outcomes pages answer the site's “Page Not Found” page, and Practical and Applied Arts has no single 10/20/30 curriculum",
+      "evidence": [
+        "CurriculumHome?id=478 renders a normal course page titled 'Practical & Applied Arts 10' with a PDF link and an 'Outcomes & Indicators' link, and it is in the site's search list (not in the 'Browse by Subject' menus).",
+        "Both CurriculumFile?id=478 and CurriculumOutcomeContent?id=478 answer HTTP 200 with the site's error page: 'Page Not Found — The page you are looking for does not exist. If you are trying to access a curriculum, it might have been renewed. Please use the menu above to search for the updated version.'",
+        "Practical and Applied Arts (PAA) is a family of separate module-based curricula (Accounting, Information Processing, Welding, … — 35 of them are already in sk.json with their modules). The site's only general PAA page (PaaOverview) is 'Practical and Applied Arts 7-9: Guidelines for Middle Level Survey Courses', which refers to a 'Practical and Applied Arts Handbook'. There is no single 'Practical & Applied Arts 10/20/30' curriculum.",
+        "Recommendation: drop these three entries from the course list (or mark them 'no curriculum'); the importer currently reports them as 'No outcomes are published', which hides the fact that the site returned an error page."
+      ]
+    },
+    "479": {
+      "reason": "an orphan site entry: its document and outcomes pages answer the site's “Page Not Found” page, and Practical and Applied Arts has no single 10/20/30 curriculum",
+      "evidence": [
+        "CurriculumHome?id=479 renders a normal course page titled 'Practical & Applied Arts 20' with a PDF link and an 'Outcomes & Indicators' link, and it is in the site's search list (not in the 'Browse by Subject' menus).",
+        "CurriculumOutcomeContent?id=479 answers HTTP 200 with the same 'Page Not Found' page as id 478 (its PDF link was not requested, to stay within the request budget; it is very likely the same).",
+        "Practical and Applied Arts (PAA) is a family of separate module-based curricula (Accounting, Information Processing, Welding, … — 35 of them are already in sk.json with their modules). The site's only general PAA page (PaaOverview) is 'Practical and Applied Arts 7-9: Guidelines for Middle Level Survey Courses', which refers to a 'Practical and Applied Arts Handbook'. There is no single 'Practical & Applied Arts 10/20/30' curriculum.",
+        "Recommendation: drop these three entries from the course list (or mark them 'no curriculum'); the importer currently reports them as 'No outcomes are published', which hides the fact that the site returned an error page."
+      ]
+    },
+    "480": {
+      "reason": "an orphan site entry: its document and outcomes pages answer the site's “Page Not Found” page, and Practical and Applied Arts has no single 10/20/30 curriculum",
+      "evidence": [
+        "CurriculumHome?id=480 renders a normal course page titled 'Practical & Applied Arts 30' with a PDF link and an 'Outcomes & Indicators' link, and it is in the site's search list (not in the 'Browse by Subject' menus).",
+        "CurriculumOutcomeContent?id=480 answers HTTP 200 with the same 'Page Not Found' page as id 478 (its PDF link was not requested, to stay within the request budget; it is very likely the same).",
+        "Practical and Applied Arts (PAA) is a family of separate module-based curricula (Accounting, Information Processing, Welding, … — 35 of them are already in sk.json with their modules). The site's only general PAA page (PaaOverview) is 'Practical and Applied Arts 7-9: Guidelines for Middle Level Survey Courses', which refers to a 'Practical and Applied Arts Handbook'. There is no single 'Practical & Applied Arts 10/20/30' curriculum.",
+        "Recommendation: drop these three entries from the course list (or mark them 'no curriculum'); the importer currently reports them as 'No outcomes are published', which hides the fact that the site returned an error page."
+      ]
+    }
+  },
+  "discrepancies": []
+}

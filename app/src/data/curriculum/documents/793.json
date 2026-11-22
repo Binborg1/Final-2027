@@ -1,0 +1,1458 @@
+{
+  "curriculumId": 793,
+  "name": "English Language Arts 30 (2026 PRELIMINARY)",
+  "levels": [
+    30
+  ],
+  "kind": "outcomes",
+  "textSource": "text-layer",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=793",
+    "filename": "English_language_Arts_30__260828_PRELIMINARY.pdf",
+    "sha256": "00fa3d856cec7bbda387030854210b8b66dc30bd93eb7e31ee1d23e3d35c339b",
+    "retrievedOn": "2026-11-21",
+    "pages": 84,
+    "pageNumbering": "`page` is the 1-based PDF page; `printedPage` is the number in the footer 'English Language Arts 30 | n' (PDF page = printed page + 4).",
+    "documentTitle": "English Language Arts 30 — 2026 Saskatchewan Curriculum (PRELIMINARY, August 2026)",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=793"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the legacy-and-drafts research on 2026-11-21)",
+  "hyphenDecisions": [
+    "ELA30.3: kept hyphen before capital in \"cultural generalizations.\"",
+    "ELA30.8: kept hyphen in \"meaning-making\" (hyphenated form printed 2× on one line)",
+    "ELA30.9: kept hyphen in \"word-level\" (hyphenated form printed 1× on one line)"
+  ],
+  "units": [
+    {
+      "name": "Outcomes and Indicators",
+      "items": [
+        {
+          "code": "ELA30.1",
+          "type": "outcome",
+          "text": "Construct meaning from a variety of grade appropriate contemporary and classical texts, including:\n• fiction and non-fiction (including a novel and another full-length text*);\n• written, oral, visual and multimodal;\n• descriptive, narrative, poetic, expository and persuasive;\n• texts from diverse and historically underrepresented voices, reflecting a range of geographical locations, cultures, worldviews and lived experiences; and,\n• texts that address identity, social responsibility and social agency (action).",
+          "page": 19,
+          "printedPage": "15",
+          "footnotes": [
+            "*Full-length texts include novels, plays and longer non-fiction works (e.g., memoir, autobiography)."
+          ]
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.1",
+          "text": "Evaluate how authors/creators construct character, conflict (e.g., character vs. self, character vs. character, character vs. society, character vs. nature), setting and point of view in fiction and non-fiction texts to reveal, reflect, or critique worldviews and specific cultural, historical or ideological contexts.",
+          "page": 19,
+          "printedPage": "15"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.1",
+          "text": "Interpret fiction and non-fiction texts by inferring multiple plausible, nuanced meanings that are informed by authorial perspective and cultural and social context using specific and varied evidence while considering alternative interpretations.",
+          "page": 19,
+          "printedPage": "15"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.1",
+          "text": "Evaluate how fiction and non-fiction texts use structure, evidence, tone and rhetorical devices (e.g., appeals, repetition, direct address) to inform, provoke thought, persuade or position audiences toward specific interpretations, beliefs or actions.",
+          "page": 19,
+          "printedPage": "15"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.1",
+          "text": "Analyze how an author’s/creator’s stance, bias, context and assumptions influence interpretation and privilege particular viewpoints.",
+          "page": 19,
+          "printedPage": "15"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.1",
+          "text": "Synthesize connections among ideas, observations, opinions, themes and emotions across a variety of texts from diverse voices.",
+          "page": 19,
+          "printedPage": "15"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.1",
+          "text": "Evaluate how different text forms (e.g., poem, article, documentary) explore similar social issues or themes, analyzing how conventions and constraints of each form impact audience interpretation and emotional resonance.",
+          "page": 19,
+          "printedPage": "15"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.1",
+          "text": "Evaluate how the mode of communication influences the message and impacts the audience’s understanding, perception, emotional response and engagement (see Appendix A). Explain how texts raise questions or offer insights about identity, social responsibility, or social agency (action).",
+          "page": 19,
+          "printedPage": "15"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.1",
+          "text": "Apply comprehension and metacognitive strategies (e.g., previewing, questioning, visualizing) to support the construction of meaning across modalities and text types (see Appendix B and Appendix C).",
+          "page": 19,
+          "printedPage": "15"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.1",
+          "text": "Reflect on how texts raise questions or offer insights about identity, social responsibility or social agency (action).",
+          "page": 19,
+          "printedPage": "15"
+        },
+        {
+          "code": "ELA30.2",
+          "type": "outcome",
+          "text": "Develop a variety of original compositions, including:\n• fiction and non-fiction;\n• written, oral, visual and multimodal;\n• descriptive, narrative, expository, poetic and persuasive; and,\n• compositions that address identity, social responsibility and social agency (action).",
+          "page": 20,
+          "printedPage": "16"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.2",
+          "text": "Develop original descriptive, narrative, poetic, expository and persuasive compositions that demonstrate understanding of genre-specific purposes, structures and language features (see Appendices D-H).",
+          "page": 20,
+          "printedPage": "16"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.2",
+          "text": "Experiment with various modalities (e.g., written, oral, visual, multimodal) to determine which one(s) best supports the purpose, audience and message of the composition.",
+          "page": 20,
+          "printedPage": "16"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.2",
+          "text": "Compose both fiction and non-fiction texts, thoughtfully considering the elements of each form, such as fact-based development in non-fiction and imaginative techniques in fiction.",
+          "page": 20,
+          "printedPage": "16"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.2",
+          "text": "Integrate multimodal elements (e.g., sound, image, movement, visual design) thoughtfully when composing in hybrid formats to enhance the delivery of the intended message.",
+          "page": 20,
+          "printedPage": "16"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.2",
+          "text": "Develop compositions that explore personal and collective identities, promote social responsibility and inspire social agency (action).",
+          "page": 20,
+          "printedPage": "16"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.2",
+          "text": "Revise compositions for clarity, coherence and impact, considering how effectively genre and form are aligned to audience and purpose.",
+          "page": 20,
+          "printedPage": "16"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.2",
+          "text": "Develop composition stamina by creating a longer-form text that sustains ideas, organization, purpose and audience engagement across the whole composition.",
+          "page": 20,
+          "printedPage": "16"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.2",
+          "text": "Integrate genre-specific strategies (e.g., juxtaposing poetic imagery with expository explanation, combining persuasive appeals with narrative pacing) to shape the composition’s tone, structure and impact (see Appendices D-H).",
+          "page": 20,
+          "printedPage": "16"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.2",
+          "text": "Evaluate how form, genre, audience and purpose shape the creative choices made throughout the composition process.",
+          "page": 20,
+          "printedPage": "16"
+        },
+        {
+          "code": "ELA30.3",
+          "type": "outcome",
+          "text": "Reflect on how stories, narratives and oral traditions can challenge assumptions, including pan-Indigenous and pan-cultural generalizations.",
+          "page": 21,
+          "printedPage": "17"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.3",
+          "text": "Explain how stories, narratives and oral traditions convey knowledge, values, and teachings within specific cultures or communities.",
+          "page": 21,
+          "printedPage": "17"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.3",
+          "text": "Analyze how the structure (e.g., cyclical, linear) and delivery (e.g., relational/ community/ cultural context) of stories, narratives and oral traditions are connected to the worldview they express.",
+          "page": 21,
+          "printedPage": "17"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.3",
+          "text": "Analyze how specific cultural stories, narratives and oral traditions (e.g., creation stories, family histories, land-based teachings) can resist stereotyping, cultural erasure or generalized representations.",
+          "page": 21,
+          "printedPage": "17"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.3",
+          "text": "Examine the impact of pan-Indigenous and pan-cultural generalizations in literature, media and education.",
+          "page": 21,
+          "printedPage": "17"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.3",
+          "text": "Explore how stories, narratives and oral traditions with specific and local contexts can preserve cultural knowledge, strengthen identity and sustain relationships to land, language, community or place.",
+          "page": 21,
+          "printedPage": "17"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.3",
+          "text": "Reflect on the significance of understanding cultural context before interpreting, sharing or representing a story, narrative or oral tradition (e.g., protocols, accountability).",
+          "page": 21,
+          "printedPage": "17"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.3",
+          "text": "Analyze how engaging with specific stories, narratives and oral traditions can challenge assumptions and deepen understanding of perspectives, experiences and ways of knowing.",
+          "page": 21,
+          "printedPage": "17"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.3",
+          "text": "Analyze how specific stories, narratives and oral traditions from diverse cultures can challenge broad assumptions about cultural groups by revealing distinct worldviews, values, teachings, histories or social contexts.",
+          "page": 21,
+          "printedPage": "17"
+        },
+        {
+          "code": "ELA30.4",
+          "type": "outcome",
+          "text": "Reflect on how personal experiences, social contexts and cultural backgrounds influence both the interpretation of texts and creation of compositions.",
+          "page": 22,
+          "printedPage": "18"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.4",
+          "text": "Reflect on how one’s lived experiences, values or worldview influence decisions about form, tone, genre and audience in original compositions.",
+          "page": 22,
+          "printedPage": "18"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.4",
+          "text": "Explore how cultural background or social context can influence an author’s/creator’s choices in themes, perspectives or representations within texts.",
+          "page": 22,
+          "printedPage": "18"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.4",
+          "text": "Examine how texts by authors/creators with diverse backgrounds or lived experiences can expand or shift personal or collective viewpoints on social issues, cultural practices or historical events.",
+          "page": 22,
+          "printedPage": "18"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.4",
+          "text": "Reflect on the responsibility authors/creators hold when representing identities, cultures and experiences that differ from their own.",
+          "page": 22,
+          "printedPage": "18"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.4",
+          "text": "Analyze how interpretations of a text are shaped, challenged or reconsidered across cultural, social, political or historical contexts.",
+          "page": 22,
+          "printedPage": "18"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.4",
+          "text": "Explain how understanding an author’s/creator’s personal, social, or cultural context can inform, complicate or challenge interpretation of a text.",
+          "page": 22,
+          "printedPage": "18"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.4",
+          "text": "Integrate personal, cultural, or social context with control and purpose to strengthen insight, voice, or meaningful engagement with the audience when developing original compositions.",
+          "page": 22,
+          "printedPage": "18"
+        },
+        {
+          "code": "ELA30.5",
+          "type": "outcome",
+          "text": "Evaluate how authors/creators strategically integrate elements in multimodal texts to communicate ideas and engage the audience.",
+          "page": 23,
+          "printedPage": "19"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.5",
+          "text": "Analyze how audience interpretation of multimodal compositions may shift based on individual experiences, context (e.g., platform, cultural moment, target audience) or familiarity with various modes.",
+          "page": 23,
+          "printedPage": "19"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.5",
+          "text": "Analyze how multimodal elements foreground, intensify or complicate perspectives, biases or calls to action (see Appendix K).",
+          "page": 23,
+          "printedPage": "19"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.5",
+          "text": "Evaluate how multimodal compositions use symbolism, irony, satire or juxtaposition across modes to convey complex or contradictory meanings.",
+          "page": 23,
+          "printedPage": "19"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.5",
+          "text": "Evaluate whether creators have demonstrated ethical responsibility (e.g., crediting authors/creators, respectful representations, considering privacy and consent) in the creation of multimodal compositions (e.g., propaganda, social media posts, AI-generated elements), including how images, sound or movement may influence emotional response, perception of truth or public understanding.",
+          "page": 23,
+          "printedPage": "19"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.5",
+          "text": "Evaluate how the interaction between elements (e.g., how audio complements visuals, how text layout affects pacing) creates cohesion, tension or complexity in the overall message (see Appendix K).",
+          "page": 23,
+          "printedPage": "19"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.5",
+          "text": "Analyze how genre conventions are reinforced (e.g., documentary voiceover, rhythmic spoken word) or subverted (e.g., experimental silence, monotone delivery) through multimodal elements.",
+          "page": 23,
+          "printedPage": "19"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.5",
+          "text": "Evaluate how multimodal creators use, adapt, or disrupt design choices (e.g., withholding information, shifting point of view, disrupting expected sequencing, using silence) to shape the audience’s role, interpretation or response.",
+          "page": 23,
+          "printedPage": "19"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.5",
+          "text": "Synthesize insights from multiple multimodal compositions to construct a critical stance on how form influences audience understanding, accessibility, interpretation and response.",
+          "page": 23,
+          "printedPage": "19"
+        },
+        {
+          "code": "ELA30.6",
+          "type": "outcome",
+          "text": "Combine multimodal elements strategically to convey messages with clarity, emotion and intention.",
+          "page": 24,
+          "printedPage": "20"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.6",
+          "text": "Plan multimodal compositions by selecting and intentionally combining elements (e.g., text, visuals, sound, movement) in ways that support purpose, audience, message and tone across modes (see Appendix K).",
+          "page": 24,
+          "printedPage": "20"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.6",
+          "text": "Combine or intentionally disrupt design expectations (e.g., withholding information, disrupting expected sequencing, contrasting sound with image, using silence, changing pace abruptly) to influence audience understanding and create a purposeful emotional effect (see Appendix K).",
+          "page": 24,
+          "printedPage": "20"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.6",
+          "text": "Combine design features (e.g., colour palettes, font size and style, white space, transitions, image placement) to create emphasis, rhythm or emotion (see Appendix K).",
+          "page": 24,
+          "printedPage": "20"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.6",
+          "text": "Reflect on how changes in one element (e.g., altering tone of voice, background visuals) influence the interpretation of other elements and the overall cohesion of the composition.",
+          "page": 24,
+          "printedPage": "20"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.6",
+          "text": "Revise compositions to improve the relationship between elements, ensuring that each serves a clear purpose within the whole.",
+          "page": 24,
+          "printedPage": "20"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.6",
+          "text": "Apply accessibility strategies when combining modes (e.g., using captions with video, high contrast visuals with clear text, alt-text for images) to ensure clarity, usability and inclusion for all audiences (see Appendix K).",
+          "page": 24,
+          "printedPage": "20"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.6",
+          "text": "Consider cultural diversity, emotional safety and audience perspectives when making design choices, reflecting on how language, imagery and form may include, exclude or impact audiences.",
+          "page": 24,
+          "printedPage": "20"
+        },
+        {
+          "code": "ELA30.7",
+          "type": "outcome",
+          "text": "Analyze how form, style, tone, structure, purpose and language features of different genres can shape meaning and enhance audience impact.",
+          "page": 25,
+          "printedPage": "21"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.7",
+          "text": "Analyze the purpose and functions of descriptive, narrative, expository, poetic and persuasive genres (see Appendices D-H).",
+          "page": 25,
+          "printedPage": "21"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.7",
+          "text": "Evaluate how structural choices (e.g., spatial order in descriptive, cause-effect in expository) shape the clarity and emotional impact of each genre in relation to purpose and audience (see Appendices D-H).",
+          "page": 25,
+          "printedPage": "21"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.7",
+          "text": "Examine how language features such as imagery, rhetorical appeals, figurative language, sentence variety and diction serve different purposes within and across genres.",
+          "page": 25,
+          "printedPage": "21"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.7",
+          "text": "Examine how perceived neutrality in genres, such as expository or informational writing, may still reflect an author’s/creator’s bias, framing choices or selective evidence that influence audience interpretation.",
+          "page": 25,
+          "printedPage": "21"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.7",
+          "text": "Explain genre-specific strategies in mentor texts and how they connect to the message, theme or argument.",
+          "page": 25,
+          "printedPage": "21"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.7",
+          "text": "Evaluate how genres engage audiences differently through mood, tone, voice and stylistic conventions (see Appendices D-H).",
+          "page": 25,
+          "printedPage": "21"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.7",
+          "text": "Analyze how genre language features adapt to different formats (e.g., oral retellings, multimodal representations, digital compositions) while maintaining core genre characteristics.",
+          "page": 25,
+          "printedPage": "21"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.7",
+          "text": "Synthesize how similar thematic topics (e.g., Canadian identity, diversity) are explored through different genres and how genre-specific choices affect audience interpretation and impact.",
+          "page": 25,
+          "printedPage": "21"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.7",
+          "text": "Analyze how genre expectations can be deliberately followed, blended or subverted to enhance impact, convey complex meaning or challenge audience expectations.",
+          "page": 25,
+          "printedPage": "21"
+        },
+        {
+          "code": "ELA30.8",
+          "type": "outcome",
+          "text": "Experiment with form, style, tone, structure and language features in original descriptive, narrative, expository, poetic and persuasive compositions to suit different purposes and audiences.",
+          "page": 26,
+          "printedPage": "22"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.8",
+          "text": "Experiment with different perspectives (e.g., shifting between first-person, second-person, or third-person point of view; retelling an event from another character’s perspective; using limited, omniscient or unreliable narration) to explore how voice shapes audience engagement and interpretation.",
+          "page": 26,
+          "printedPage": "22"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.8",
+          "text": "Disrupt conventional structures (e.g., using nonlinear timelines, in medias res openings, cliffhangers, fragmented or reverse order) to test how sequencing affects tension, pacing and clarity.",
+          "page": 26,
+          "printedPage": "22"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.8",
+          "text": "Transform an existing text or idea into a new form (e.g., found poem from a news article; personal story retold in dramatic monologue; visual collage from an essay) to explore meaning-making across genre and modes.",
+          "page": 26,
+          "printedPage": "22"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.8",
+          "text": "Experiment with multimodal or non-verbal storytelling techniques to express ideas when language is limited, absent or intentionally minimized.",
+          "page": 26,
+          "printedPage": "22"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.8",
+          "text": "Transform language creatively (e.g., vernacular, repetition, dialect, sensory imagery, unexpected word pairings) to evoke tone, mood, or emotion appropriate to genre and audience.",
+          "page": 26,
+          "printedPage": "22"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.8",
+          "text": "Incorporate elements like dialogue, inner monologue, or contrasting character voices to build tension, reveal motivation or develop complex conflict.",
+          "page": 26,
+          "printedPage": "22"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.8",
+          "text": "Explore form and style with low-stakes composition tasks (e.g., timed creative writes, collaborative genre mashups, character improvisations) without the pressure of perfection.",
+          "page": 26,
+          "printedPage": "22"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.8",
+          "text": "Reflect on how experimentation helped clarify intention, shift audience impact or open new possibilities for voice and genre.",
+          "page": 26,
+          "printedPage": "22"
+        },
+        {
+          "code": "ELA30.9",
+          "type": "outcome",
+          "text": "Analyze how authors/creators intentionally use or subvert craft techniques to enhance meaning and impact.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Analyze how authors/creators conform to or subvert (e.g., use an unreliable narrator in memoir; create a nonlinear structure in persuasive essay) genre expectations to shape interpretation and impact.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Analyze how authors/creators intentionally manipulate craft elements (e.g., fragmented syntax, disrupted chronology) to evoke tension, ambiguity or surprise.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Examine how the subversion of familiar craft techniques (e.g., reversing a traditional character arc, omitting a climax, using atypical tone shifts) challenges audience expectations or invites new ways of understanding characters, themes or issues.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Evaluate the strategic use of silence, omission or ambiguity (e.g., unresolved endings, minimalism, ellipses) as intentional choices that shape emotional tone, audience response or thematic emphasis.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Interpret how authors/creators manipulate multimodal elements (e.g., disruptive white space, shifting font, abrupt cuts in film, jarring sound transitions) to reinforce, complicate or clarify meaning.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Assess how cultural, historical or political context can influence an author’s/creator’s decision to either uphold or resist dominant literary conventions or genre norms.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Analyze how understanding author/creator intent (e.g., social critique, satire, parody, reclamation) shapes the reader’s interpretation and emotional response.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Analyze how authors/creators use, withhold, or disrupt oral and non-verbal craft techniques (e.g., silence, pacing, stillness, eye contact, shifts in volume) to shape tone, tension, meaning or audience response.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Critique how creators’ design choices (e.g., sequencing, layout, white space, sound, visual composition) enhance or detract from clarity, atmosphere or argument strength.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "j",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Analyze how authors/creators intentionally use, manipulate, or subvert sentence- and word-level craft techniques (e.g., parallelism, grammatical disruption, strategic simplicity or density, syntactic repetition) to reinforce, complicate, or challenge meaning and audience interpretation.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "k",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Critique texts in which authors/creators approach similar themes or ideas but make contrasting stylistic and structural decisions (e.g., poetic repetition versus stark simplicity), evaluating the effect of those decisions on audience engagement and message clarity.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "l",
+          "type": "indicator",
+          "outcome": "ELA30.9",
+          "text": "Analyze how authors/creators intentionally use alternative and assistive communication systems (e.g., sign language, captions, visual supports, audio description) to shape meaning, emotion, accessibility and audience engagement in compositions.",
+          "page": 27,
+          "printedPage": "23"
+        },
+        {
+          "code": "ELA30.10",
+          "type": "outcome",
+          "text": "Use craft techniques to enhance the quality, style and impact of original compositions.",
+          "page": 28,
+          "printedPage": "24"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.10",
+          "text": "Apply or intentionally subvert specific craft techniques from mentor texts to suit audience, genre and purpose (see Appendices D-H).",
+          "page": 28,
+          "printedPage": "24"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.10",
+          "text": "Apply descriptive techniques (e.g., sensory detail, figurative language, spatial or chronological structure, selective focus) to evoke emotion, create atmosphere or highlight significance (see Appendix D).",
+          "page": 28,
+          "printedPage": "24"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.10",
+          "text": "Apply narrative techniques (e.g., character and plot development, point of view, dialogue, flashbacks, setting, pacing) to immerse the audience and build narrative tension (see Appendix E).",
+          "page": 28,
+          "printedPage": "24"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.10",
+          "text": "Apply poetic techniques (e.g., line breaks, stanza structure, repetition, rhythm, figurative language, imagery, sound devices) to create tone, emotion and emphasis (see Appendix F).",
+          "page": 28,
+          "printedPage": "24"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.10",
+          "text": "Apply expository techniques (e.g., organizational structure, text features, rhetorical questions, anecdotal examples, tone) to clarify complex ideas and guide reader understanding (see Appendix G).",
+          "page": 28,
+          "printedPage": "24"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.10",
+          "text": "Apply persuasive techniques (e.g., rhetorical appeals, direct address, repetition, tone, purposeful sentence structure) to influence thinking and action (see Appendix H).",
+          "page": 28,
+          "printedPage": "24"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.10",
+          "text": "Apply oral delivery strategies (e.g., inflection, pacing, volume, pausing, emphasis) to enhance clarity, rhythm and emotional impact in original compositions.",
+          "page": 28,
+          "printedPage": "24"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.10",
+          "text": "Apply non-verbal strategies (e.g., facial expressions, gestures, posture, eye contact) to reinforce tone, clarify meaning and strengthen audience engagement in original compositions.",
+          "page": 28,
+          "printedPage": "24"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.10",
+          "text": "Justify which craft techniques were most effective in achieving the intended impact of original compositions.",
+          "page": 28,
+          "printedPage": "24"
+        },
+        {
+          "code": "j",
+          "type": "indicator",
+          "outcome": "ELA30.10",
+          "text": "Apply sentence- and word-level craft techniques (e.g., parallelism, rule of three, sentence length and variety, repetition, strategic word choice, syntactic variation) to strengthen emphasis, rhythm, clarity, tone and meaning in original compositions.",
+          "page": 28,
+          "printedPage": "24"
+        },
+        {
+          "code": "ELA30.11",
+          "type": "outcome",
+          "text": "Apply comprehension and metacognitive strategies that deepen understanding and analysis when reading, listening and viewing.",
+          "page": 29,
+          "printedPage": "25"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.11",
+          "text": "Apply global, problem-solving and support strategies to monitor learning and deepen comprehension when reading, listening and viewing (see Appendix B and Appendix C).",
+          "page": 29,
+          "printedPage": "25"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.11",
+          "text": "Make and refine predictions before and during reading, listening, or viewing by drawing on titles, genre features, prior knowledge and contextual clues.",
+          "page": 29,
+          "printedPage": "25"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.11",
+          "text": "Establish a specific purpose before reading, listening, and viewing (e.g., understanding argument, identifying genre features, evaluating author's stance) and adjust strategies (e.g., shifting from skimming to close reading when a key argument or tone shift appears) as new information is encountered.",
+          "page": 29,
+          "printedPage": "25"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.11",
+          "text": "Identify when understanding breaks down and use strategies (e.g., re-reading, summarizing, slowing down pace, asking questions for clarification) to improve comprehension.",
+          "page": 29,
+          "printedPage": "25"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.11",
+          "text": "Apply morphology strategies by analyzing word parts (i.e., roots, prefixes, suffixes) to decode unfamiliar vocabulary and enhance comprehension.",
+          "page": 29,
+          "printedPage": "25"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.11",
+          "text": "Engage with texts multiple times for distinct purposes (e.g., first encounter for basic comprehension, second for analyzing structure or language features, third for interpreting author’s/creator’s craft, tone or deeper meanings).",
+          "page": 29,
+          "printedPage": "25"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.11",
+          "text": "Analyze how recognizing genre-specific craft techniques during reading, listening or viewing (e.g., narrative suspense, persuasive appeals, poetic repetition) supports more precise interpretation of purpose, audience, impact and meaning across complex texts.",
+          "page": 29,
+          "printedPage": "25"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.11",
+          "text": "Use support strategies during and after reading, listening or viewing (e.g., annotating texts, posing questions, taking structured notes, using graphic organizers) to map key ideas and analyze texts.",
+          "page": 29,
+          "printedPage": "25"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.11",
+          "text": "Visualize complex descriptions or abstract ideas that enhance understanding of challenging sections.",
+          "page": 29,
+          "printedPage": "25"
+        },
+        {
+          "code": "j",
+          "type": "indicator",
+          "outcome": "ELA30.11",
+          "text": "Reflect on the effectiveness of personal comprehension strategies post-task by identifying what worked, what was challenging and setting specific future goals.",
+          "page": 29,
+          "printedPage": "25"
+        },
+        {
+          "code": "ELA30.12",
+          "type": "outcome",
+          "text": "Use a variety of writing and design processes to thoughtfully plan, develop, revise and refine original compositions.",
+          "page": 30,
+          "printedPage": "26"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.12",
+          "text": "Explore multiple ideas, forms and craft techniques through a variety of low-stakes composition processes (e.g., quick writes, spoken brainstorms, imitation writing).",
+          "page": 30,
+          "printedPage": "26"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.12",
+          "text": "Plan original written, oral, visual and multimodal compositions using strategies (e.g., brainstorming, mind-mapping, sketching, discussion or inquiry questions) to generate ideas, clarify purpose and consider audience.",
+          "page": 30,
+          "printedPage": "26"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.12",
+          "text": "Organize ideas intentionally during planning by selecting appropriate structures, modalities, and design elements suited to the intended genre (e.g., sensory details, narrative pacing, logical organization, figurative language), purpose (e.g., to entertain, to persuade) and audience.",
+          "page": 30,
+          "printedPage": "26"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.12",
+          "text": "Experiment with early drafts by using a variety of design processes (e.g., storyboard, speech annotations, Venn diagram) to test ideas, structures and genre techniques.",
+          "page": 30,
+          "printedPage": "26"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.12",
+          "text": "Revise original compositions meaningfully by reworking content, structure, form, style or mode based on self-assessment, peer feedback and evolving clarity of purpose.",
+          "page": 30,
+          "printedPage": "26"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.12",
+          "text": "Refine original compositions by polishing language, improving coherence, fine-tuning transitions, clarifying key ideas, and aligning form and tone precisely to purpose and audience.",
+          "page": 30,
+          "printedPage": "26"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.12",
+          "text": "Revise titles in original compositions to align with purpose and genre and enhance the audience's engagement or interpretation.",
+          "page": 30,
+          "printedPage": "26"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.12",
+          "text": "Finalize original compositions for the intended audience, considering how final design, medium, and presentation choices impact meaning, accessibility and emotional resonance.",
+          "page": 30,
+          "printedPage": "26"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.12",
+          "text": "Reflect on feedback and creative intentions to determine which suggestions enhance clarity, strengthen purpose, or improve audience impact, and make intentional decisions about what to revise, retain, or reject based on creative vision.",
+          "page": 30,
+          "printedPage": "26"
+        },
+        {
+          "code": "j",
+          "type": "indicator",
+          "outcome": "ELA30.12",
+          "text": "Revise recursively by revisiting ideas, structure and techniques at multiple stages to refine meaning and expression over time.",
+          "page": 30,
+          "printedPage": "26"
+        },
+        {
+          "code": "ELA30.13",
+          "type": "outcome",
+          "text": "Apply appropriate spelling, grammar, punctuation and language conventions according to genre, purpose and audience.",
+          "page": 31,
+          "printedPage": "27"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.13",
+          "text": "Apply grammar, syntax, punctuation and spelling conventions to enhance clarity and coherence in original compositions.",
+          "page": 31,
+          "printedPage": "27"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.13",
+          "text": "Adjust use of language conventions based on purpose, audience and genre (e.g., formal conventions for academic essays; strategic flexibility for creative, spoken word, or informal compositions).",
+          "page": 31,
+          "printedPage": "27"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.13",
+          "text": "Use morphological strategies (i.e., analyzing roots, prefixes and suffixes) to spell complex words accurately and to expand academic vocabulary.",
+          "page": 31,
+          "printedPage": "27"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.13",
+          "text": "Edit drafts purposefully to correct errors in spelling, punctuation and grammar, focusing on patterns of strength and recurring areas for improvement.",
+          "page": 31,
+          "printedPage": "27"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.13",
+          "text": "Utilize punctuation and syntax intentionally to control pacing, emphasis and tone in compositions (e.g., varied sentence lengths, line breaks, strategic use of commas, dashes, pauses).",
+          "page": 31,
+          "printedPage": "27"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.13",
+          "text": "Organize ideas into cohesive sections (e.g., paragraphs, scenes, stanzas, frames, slides) that reflect purposeful shifts in focus, topic, speaker, time, or tone to support clarity, coherence and audience understanding in original compositions.",
+          "page": 31,
+          "printedPage": "27"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.13",
+          "text": "Reflect on how choices in tone, formality and language precision affect audience perception and comprehension.",
+          "page": 31,
+          "printedPage": "27"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.13",
+          "text": "Recognize and discuss the evolving nature of language conventions across different cultural, social and digital contexts (e.g., how African American Vernacular English has grammatical rules distinct from Standard American English; how professional vs. peer dialogue changes in tone, formality and structure; how emojis, hashtags, or acronyms can shift meaning and tone).",
+          "page": 31,
+          "printedPage": "27"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.13",
+          "text": "Use appropriate citation styles in formal writing (e.g., MLA for literary and artistic analysis; APA for research, informational, or social science-related texts), selecting format based on context, discipline and audience.",
+          "page": 31,
+          "printedPage": "27"
+        },
+        {
+          "code": "ELA30.14",
+          "type": "outcome",
+          "text": "Evaluate the reliability, credibility and effectiveness of information presented in a range of texts, including media and digital texts.",
+          "page": 32,
+          "printedPage": "28"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.14",
+          "text": "Evaluate factors that contribute to credibility (e.g., author expertise, institutional affiliation, purpose, transparency of sourcing) and reliability (e.g., accuracy of information, use of evidence, consistency across sources).",
+          "page": 32,
+          "printedPage": "28"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.14",
+          "text": "Evaluate factors that contribute to a lack of credibility (e.g., unclear authorship, lack of expertise, missing source information, obvious bias, lack of transparency, misleading intent) and reliability (e.g., inaccurate information, unsupported claims, limited evidence, outdated information, inconsistency across sources).",
+          "page": 32,
+          "printedPage": "28"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.14",
+          "text": "Analyze how medium, modality, platform and publication context (e.g., independent journalism vs. sponsored content, news article vs. influencer post, date of publication) influence the credibility, reliability and perceived objectivity of a text.",
+          "page": 32,
+          "printedPage": "28"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.14",
+          "text": "Analyze how persuasive techniques (e.g., loaded or emotional language, selective use of statistics, repetition, jargon, propaganda, oversimplification) can distort facts, influence perception or compromise the objectivity of information.",
+          "page": 32,
+          "printedPage": "28"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.14",
+          "text": "Analyze how visual or multimodal elements (e.g., image selection, layout, sound design, captioning) shape the perceived trustworthiness and tone of a source.",
+          "page": 32,
+          "printedPage": "28"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.14",
+          "text": "Evaluate conflicting or ambiguous sources by assessing the strength of evidence, source transparency and logical reasoning used to support claims.",
+          "page": 32,
+          "printedPage": "28"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.14",
+          "text": "Analyze how personal interest, prior knowledge, bias or media habits may influence one’s evaluation of a source and take action to approach information more critically.",
+          "page": 32,
+          "printedPage": "28"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.14",
+          "text": "Synthesize insights across multiple perspectives to draw conclusions about a topic, considering the credibility and context of each source.",
+          "page": 32,
+          "printedPage": "28"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.14",
+          "text": "Analyze how power and social context influences production, dissemination and reception of information (e.g., media ownership, algorithmic influence, censorship).",
+          "page": 32,
+          "printedPage": "28"
+        },
+        {
+          "code": "ELA30.15",
+          "type": "outcome",
+          "text": "Synthesize diverse, credible and reliable evidence with precision to support complex arguments and positions.",
+          "page": 33,
+          "printedPage": "29"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.15",
+          "text": "Synthesize insights from diverse, credible and reliable sources to develop complex arguments that show connected reasoning, recognize nuance or address contradictions across perspectives.",
+          "page": 33,
+          "printedPage": "29"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.15",
+          "text": "Introduce evidence with framing language that clarifies its relevance:\n• “According to…”\n• “As shared in the interview with…”\n• “The author suggests...”\n• “The situation shows...”\n• “The actions of the character demonstrate...”.",
+          "page": 33,
+          "printedPage": "29"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.15",
+          "text": "Evaluate the function and impact of selected evidence by explaining how it strengthens reasoning, addresses complexity or contradiction, and enhances the precision or persuasiveness of the central message, theme or argument.",
+          "page": 33,
+          "printedPage": "29"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.15",
+          "text": "Integrate the most relevant and impactful evidence from a range of credible sources (e.g., scholarly articles, interviews, media, statistics, expert commentary, novels, poems) to preserve originality and avoid over-reliance on source material.",
+          "page": 33,
+          "printedPage": "29"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.15",
+          "text": "Apply different strategies for tracking and attributing sources (e.g., primary, secondary, print, scholarly, AI) depending on context:\n• In academic or research-based compositions, use appropriate citation styles (e.g., MLA for literary analysis, APA for informational texts).\n• In informal, creative, or oral compositions, attribute ideas through oral acknowledgments, captions, credits, or notes in accompanying materials.",
+          "page": 33,
+          "printedPage": "29"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.15",
+          "text": "Revise compositions to strengthen evidence integration, clarity and reasoning through precise word choice, purposeful language and thoughtful explanation of evidence.",
+          "page": 33,
+          "printedPage": "29"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.15",
+          "text": "Embed counter-evidence or alternative viewpoints into the composition and respond with thoughtful rebuttal, concession or contextualization.",
+          "page": 33,
+          "printedPage": "29"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.15",
+          "text": "Synthesize multiple pieces of evidence addressing the same topic or claim to identify patterns, contradictions or gaps in reasoning.",
+          "page": 33,
+          "printedPage": "29"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.15",
+          "text": "Explain the significance, credibility and reliability of each source and its unique contribution to the overall argument or position.",
+          "page": 33,
+          "printedPage": "29"
+        },
+        {
+          "code": "ELA30.16",
+          "type": "outcome",
+          "text": "Inquire into a topic by developing essential questions and narrowing the scope to create a central message, argument or theme.",
+          "page": 34,
+          "printedPage": "30"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.16",
+          "text": "Formulate essential questions that connect personal inquiry to larger cultural, historical, or philosophical issues.",
+          "page": 34,
+          "printedPage": "30"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.16",
+          "text": "Refine inquiry by identifying emerging patterns, tensions, gaps, contradictions or perspectives across contexts (e.g., literature, current events, sources, lived experiences)",
+          "page": 34,
+          "printedPage": "30"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.16",
+          "text": "Analyze underlying complexities, contradictions, or evolving insights across multiple sources, texts, or compositions that can inform a complex central message, theme or argument that considers multiple perspectives or tensions.",
+          "page": 34,
+          "printedPage": "30"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.16",
+          "text": "Select a genre and form that best align with a narrowed focus, considering how structure, modality and voice can amplify the intended impact (e.g., argument in editorial form, theme in short story, message in visual collage).",
+          "page": 34,
+          "printedPage": "30"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.16",
+          "text": "Integrate evidence, symbols or aesthetic devices with intentionality, using them not only to support meaning but also to provoke thought or reinterpretation (e.g., using shifts in tone or point of view to unsettle audience expectations).",
+          "page": 34,
+          "printedPage": "30"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.16",
+          "text": "Evaluate how sections, paragraphs or design elements work together to sustain coherence, manage complexity and strengthen the central message, theme or argument.",
+          "page": 34,
+          "printedPage": "30"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.16",
+          "text": "Explain how the central message has evolved through the process and how aesthetic or craft techniques challenge assumptions, expand audience interpretation or clarify meaning.",
+          "page": 34,
+          "printedPage": "30"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.16",
+          "text": "Reflect on how cultural, social, historical and personal lenses can shape how audiences interpret the central message, theme or argument and revise to strengthen clarity, relevance, or resonance across diverse contexts.",
+          "page": 34,
+          "printedPage": "30"
+        },
+        {
+          "code": "ELA30.17",
+          "type": "outcome",
+          "text": "Facilitate in-depth, collaborative discussions that promote critical engagement and deepen comprehension of texts.",
+          "page": 35,
+          "printedPage": "31"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.17",
+          "text": "Lead or co-facilitate discussions using a clear purpose, guiding questions and strategies to deepen collective understanding of complex texts or issues (See Appendix I).",
+          "page": 35,
+          "printedPage": "31"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.17",
+          "text": "Foster critical dialogue by encouraging multiple interpretations and drawing connections to broader social, historical or cultural contexts.",
+          "page": 35,
+          "printedPage": "31"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.17",
+          "text": "Model discussion norms (e.g., encouraging evidence-based contributions, acknowledging contradictions, inviting participants to respond, prompting reflection) in collaborative discussions formats (e.g., Socratic seminar, fishbowls, collaborative inquiry).",
+          "page": 35,
+          "printedPage": "31"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.17",
+          "text": "Model respectful disagreement by balancing critique with empathy and maintaining an atmosphere of inclusive language and intellectual curiosity.",
+          "page": 35,
+          "printedPage": "31"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.17",
+          "text": "Contribute to and guide collaborative discussions by synthesizing others’ contributions, asking clarifying questions and connecting multiple perspectives.",
+          "page": 35,
+          "printedPage": "31"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.17",
+          "text": "Demonstrate respect for diverse perspectives by validating differing opinions and lived experiences, using inclusive language and maintaining a constructive tone during disagreement.",
+          "page": 35,
+          "printedPage": "31"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.17",
+          "text": "Demonstrate awareness of group dynamics by encouraging contributions, mediating tensions and adapting communication to support productive, inclusive and critical dialogue.",
+          "page": 35,
+          "printedPage": "31"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.17",
+          "text": "Facilitate dialogue that helps participants examine feedback, disagreement or new insights to deepen interpretations of complex texts or issues.",
+          "page": 35,
+          "printedPage": "31"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.17",
+          "text": "Reflect on how facilitating collaborative dialogue shapes, expands or challenges personal thinking or comprehension.",
+          "page": 35,
+          "printedPage": "31"
+        },
+        {
+          "code": "ELA30.18",
+          "type": "outcome",
+          "text": "Collaborate with others to generate ideas, organize and revise original compositions, contributing feedback and experimenting to improve clarity, effectiveness and impact.",
+          "page": 36,
+          "printedPage": "32"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ELA30.18",
+          "text": "Generate and build ideas with various brainstorming strategies (e.g., mentor-text inspired exercises, low-stakes compositions tasks, sketching) identifying possibilities for genre, voice, or structure.",
+          "page": 36,
+          "printedPage": "32"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ELA30.18",
+          "text": "Provide thoughtful, question-driven feedback that highlights strengths, identifies gaps and invites deeper thinking about clarity, nuance or artistic intention.",
+          "page": 36,
+          "printedPage": "32"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ELA30.18",
+          "text": "Engage in conferences to discuss creative choices, offering specific suggestions about structure, language, tone, multimodal integration or genre alignment to strengthen the logical flow and impact of original compositions.",
+          "page": 36,
+          "printedPage": "32"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ELA30.18",
+          "text": "Experiment with peer-suggested feedback (e.g., altering genre, reworking perspective, shifting modality), documenting changes and analyzing how revisions improve meaning and overall effectiveness of compositions.",
+          "page": 36,
+          "printedPage": "32"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ELA30.18",
+          "text": "Experiment with new techniques or structures suggested through dialogue (e.g., trying a different opening move, adjusting pacing, reordering sections) to strengthen personal compositions.",
+          "page": 36,
+          "printedPage": "32"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ELA30.18",
+          "text": "Reflect on how giving and receiving feedback shapes understanding and informs decisions or goals for future compositions.",
+          "page": 36,
+          "printedPage": "32"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ELA30.18",
+          "text": "Collaborate with others to generate and refine ideas for individual compositions (written, oral, visual, multimodal), evaluating how audience, genre and purpose influence form, style, and stance (See Appendix J).",
+          "page": 36,
+          "printedPage": "32"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ELA30.18",
+          "text": "Refine compositions by intentionally following or subverting craft techniques drawn from mentor texts to shape meaning, disrupt conventions, or deepen audience interpretation.",
+          "page": 36,
+          "printedPage": "32"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ELA30.18",
+          "text": "Provide insightful, inquiry-driven feedback (e.g., noting confusions, emotions and curiosities) to others on ways to enhance clarity, effectiveness, emotional resonance, or coherence in their original compositions (see Appendix J).",
+          "page": 36,
+          "printedPage": "32"
+        },
+        {
+          "code": "j",
+          "type": "indicator",
+          "outcome": "ELA30.18",
+          "text": "Evaluate how compositional risks can enhance sophistication, originality or audience engagement.",
+          "page": 36,
+          "printedPage": "32"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "The document has no units or strands: 'Outcomes and Indicators' (PDF pp. 19–36) lists ELA30.1–ELA30.18, one per page, each followed by 'Indicators:' a., b., c. … The single unit here is that section heading, not an invented grouping.",
+    "Outcome statements that end 'including:' keep their bullet list in `text`, one bullet per line ('• ...'). Footnotes printed under an outcome (e.g. '*Full-length texts include …') are kept in `footnotes`, not in the statement.",
+    "The document states (p. 12 printed) that all outcomes are required and that teachers may develop additional indicators that keep the intent of the outcome.",
+    "PRELIMINARY: page 2 says 'August 2026 – Due to the nature of curriculum development, this document is regularly under revision.' Re-check the PDF hash before relying on this copy.",
+    "The site's 'Outcomes & Indicators' page for this curriculum lists no outcomes (that is why sk.json has none); the PDF is the only source.",
+    "ELA30.11: the outcome page and 'Outcomes at a Glance' (p. 13 printed) word this statement differently. Outcome page (kept): \"Apply comprehension and metacognitive strategies that deepen understanding and analysis when reading, listening and viewing.\". Glance page reads from: \"Apply comprehension and metacognitive strategies that deepen understanding and analysis when reading, viewing and listening. Evaluate th…\"",
+    "ELA30.13: the outcome page and 'Outcomes at a Glance' (p. 13 printed) word this statement differently. Outcome page (kept): \"Apply appropriate spelling, grammar, punctuation and language conventions according to genre, purpose and audience.\". Glance page reads from: \"Apply appropriate spelling, grammar, punctuation, and language conventions according to the genre, purpose and audience. Synthe…\""
+  ]
+}

@@ -1,0 +1,487 @@
+{
+  "curriculumId": 481,
+  "name": "Treaty Education",
+  "levels": [
+    10,
+    20,
+    30
+  ],
+  "grades": [
+    10,
+    11,
+    12
+  ],
+  "kind": "outcomes",
+  "textSource": "text-layer",
+  "crossCurricular": true,
+  "source": {
+    "url": "https://www.edonline.sk.ca/bbcswebdav/xid-8784654_1",
+    "filename": "Treaty Education Outcomes-Grades 10-12.pdf",
+    "sha256": "dbe6b05ffb83b6c3177db7c8216cc05a91ff1461ab60c360ff9cd7334c1bba6c",
+    "retrievedOn": "2026-11-21",
+    "bytes": 141510,
+    "pages": [
+      7,
+      8,
+      9
+    ],
+    "pageNumbering": "`page` is the 1-based PDF page.",
+    "documentTitle": "Treaty Education Outcomes and Indicators (Saskatchewan Ministry of Education, 2013), Grades 10–12",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=481",
+    "linkedFrom": "curriculum.gov.sk.ca, Browse by Grade → Levels 10, 20, 30: “Treaty Education Outcomes & Indicators”"
+  },
+  "extractedBy": "scripts/curriculum/documents/parse-treaty.mjs",
+  "structure": "One unit per grade (the page heading). Each outcome is followed by its indicators, which the document prints as bullets (no letters).",
+  "goals": [
+    {
+      "code": "TR",
+      "name": "Treaty Relationships",
+      "page": 6,
+      "text": "Goal: By the end of Grade 12, students will understand that Treaty relationships are based on a deep understanding of peoples’ identity which encompasses: languages, ceremonies, worldviews, and relationship to place and the land."
+    },
+    {
+      "code": "SI",
+      "name": "Spirit and Intent of Treaties",
+      "page": 6,
+      "text": "Goal: By the end of Grade 12, students will recognize that there is interconnectedness between thoughts and actions which is based on the implied and explicit intention of those actions. The spirit and intent of Treaties serve as guiding principles for all that we do, say, think, and feel."
+    },
+    {
+      "code": "HC",
+      "name": "Historical Context",
+      "page": 6,
+      "text": "Goal: By the end of Grade 12, students will acknowledge that the social, cultural, economic, and political conditions of the past played and continue to play a significant role in both the Treaty reality of the present and the reality they have yet to shape."
+    },
+    {
+      "code": "TPP",
+      "name": "Treaty Promises and Provisions",
+      "page": 6,
+      "text": "Goal: By the end of Grade 12, students will appreciate that Treaties are sacred covenants between sovereign nations and are the foundational basis for meaningful relationships that perpetually foster the well-being of all people."
+    }
+  ],
+  "hyphenDecisions": [
+    "TR11 indicator: UNSURE: kept hyphen at line break in \"self-determination\" (neither form printed elsewhere)",
+    "HC11 indicator: UNSURE: kept hyphen at line break in \"self-determination\" (neither form printed elsewhere)"
+  ],
+  "units": [
+    {
+      "name": "Grade Ten: Examining the Canadian context for Treaties",
+      "grade": 10,
+      "level": 10,
+      "page": 7,
+      "items": [
+        {
+          "code": "TR10",
+          "type": "outcome",
+          "superscript": "1",
+          "text": "Examine contemporary economic implications of Treaties for all the people of Saskatchewan and other Canadian jurisdictions.",
+          "page": 7
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TR10",
+          "bullet": true,
+          "text": "Investigate the economic impact that First Nations have on the provincial and territorial economies and the resulting benefits for all people (e.g. natural resources; hunting, fishing and gathering; tourism; hospitality; gaming).",
+          "page": 7
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TR10",
+          "bullet": true,
+          "text": "Evaluate the impact that First Nations have on local economies.",
+          "page": 7
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TR10",
+          "bullet": true,
+          "text": "Investigate the cost of fulfilling treaties within Saskatchewan and other Canadian jurisdictions.",
+          "page": 7
+        },
+        {
+          "code": "SI10",
+          "type": "outcome",
+          "superscript": "2",
+          "text": "Analyze the spirit and intent of Treaties and investigate the extent to which they have been fulfilled.",
+          "page": 7
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "SI10",
+          "bullet": true,
+          "text": "Identify spirit and intent of the terms of treaty.",
+          "page": 7
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "SI10",
+          "bullet": true,
+          "text": "Imagine and describe what our society would look like today if all treaty obligations had been completely fulfilled and what it could look like into the future (e.g., Maori influence on New Zealand institutions).",
+          "page": 7
+        },
+        {
+          "code": "HC10",
+          "type": "outcome",
+          "superscript": "3",
+          "text": "Investigate opportunities and challenges faced by First Nations and the Government of Canada in relation to governance issues.",
+          "page": 7
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "HC10",
+          "bullet": true,
+          "text": "Examine the impact of federal, provincial, and municipal government policies on the fulfillment of Treaties.",
+          "page": 7
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "HC10",
+          "bullet": true,
+          "text": "Research public policy as it relates to self-government.",
+          "page": 7
+        },
+        {
+          "code": "TPP10",
+          "type": "outcome",
+          "superscript": "4",
+          "text": "Investigate issues related to resource development and Treaties.",
+          "page": 7
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TPP10",
+          "bullet": true,
+          "text": "Research crown and private corporations that are involved in resource development to investigate the relationship they have with First Nations.",
+          "page": 7
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TPP10",
+          "bullet": true,
+          "text": "Investigate court rulings that have set the stage for resource development in Saskatchewan.",
+          "page": 7
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TPP10",
+          "bullet": true,
+          "text": "Examine the positions of First Nations and Government agencies responsible for the stewardship and management of resources (e.g., duty to consult process).",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "name": "Grade Eleven: Assessing Treaty Making from a Global Perspective",
+      "grade": 11,
+      "level": 20,
+      "page": 8,
+      "items": [
+        {
+          "code": "TR11",
+          "type": "outcome",
+          "superscript": "1",
+          "text": "Examine how Canada’s process of treaty making could be applied to situations in other parts of the world where Indigenous people have struggled to have rights recognized.",
+          "page": 8
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TR11",
+          "bullet": true,
+          "text": "Apply the principles of Canadian treaty making as a means for resolving conflict and represent it (e.g. dramatization, visual, dance, oral representation, multi media presentation).",
+          "page": 8
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TR11",
+          "bullet": true,
+          "text": "Investigate how the United Nations addresses issues regarding the self-determination of Indigenous peoples.",
+          "page": 8
+        },
+        {
+          "code": "SI11",
+          "type": "outcome",
+          "superscript": "2",
+          "text": "Analyze how the unfulfilled aspects of treaties, with international indigenous people, have resulted in inequities.",
+          "page": 8
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "SI11",
+          "bullet": true,
+          "text": "Analyze international examples of treaties involving indigenous peoples that have resulted in inequities.",
+          "page": 8
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "SI11",
+          "bullet": true,
+          "text": "Research how the Indian Act and its implementation differ in practice from First Nation governance structures.",
+          "page": 8
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "SI11",
+          "bullet": true,
+          "text": "Explore legal, political, ethical, and social impacts within Canada where Treaties do not exist.",
+          "page": 8
+        },
+        {
+          "code": "HC11",
+          "type": "outcome",
+          "superscript": "3",
+          "text": "Evaluate specific treaties that have been, or currently are, in place globally to determine their effectiveness.",
+          "page": 8
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "HC11",
+          "bullet": true,
+          "text": "Conduct an inventory of the various treaties that currently exist.",
+          "page": 8
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "HC11",
+          "bullet": true,
+          "text": "Assess the various motives for entering into treaty.",
+          "page": 8
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "HC11",
+          "bullet": true,
+          "text": "Construct a recommendation as to the effectiveness of treaty as a means for addressing conflict (e.g., a motion, passing of a law).",
+          "page": 8
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "HC11",
+          "bullet": true,
+          "text": "Research UN resolutions and initiatives in relation to self-determination of indigenous peoples.",
+          "page": 8
+        },
+        {
+          "code": "TPP11",
+          "type": "outcome",
+          "superscript": "4",
+          "text": "Analyze the impact Canadian treaties could have on resolving global conflict.",
+          "page": 8
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TPP11",
+          "bullet": true,
+          "text": "Assess Canadian treaty making processes and compare to treaty processes from around the world.",
+          "page": 8
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TPP11",
+          "bullet": true,
+          "text": "Assess the leadership role Canada plays internationally in treaty making.",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "name": "Grade Twelve: Applying Treaty Understandings to One’s Life",
+      "grade": 12,
+      "level": 30,
+      "page": 9,
+      "items": [
+        {
+          "code": "TR12",
+          "type": "outcome",
+          "superscript": "1",
+          "text": "Examine one’s position regarding the importance of the treaty relationship for the social, cultural and economic prosperity of all Saskatchewan and Canadian people.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TR12",
+          "bullet": true,
+          "text": "Analyze data from multiple sources (e.g., oral tradition, National Council on Welfare, Assembly of First Nations, Statistics Canada, Indian and Northern Affairs Canada) to inform personal beliefs regarding the effectiveness of treaties in addressing social, cultural and economic inequities.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TR12",
+          "bullet": true,
+          "text": "Analyze how the media currently depicts the treaty relationship and determine the effects this has on public perception.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TR12",
+          "bullet": true,
+          "text": "Analyze what you believe about treaty relationships, why you believe it, and how you came to believe it.",
+          "page": 9
+        },
+        {
+          "code": "SI12",
+          "type": "outcome",
+          "superscript": "2",
+          "text": "Investigate the values and beliefs of self, family, community, and society in relation to the importance of honouring the Spirit and Intent of treaties.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "SI12",
+          "bullet": true,
+          "text": "Interview family, friends and community members to determine values and beliefs in relation to treaties.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "SI12",
+          "bullet": true,
+          "text": "Describe ways people could demonstrate the spirit and intent of treaties and treaty principles (e.g., honour, respect, honesty, fairness, ethical space).",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "SI12",
+          "bullet": true,
+          "text": "Reflect on and discuss personal experiences in honouring treaty principles.",
+          "page": 9
+        },
+        {
+          "code": "HC12",
+          "type": "outcome",
+          "superscript": "3",
+          "text": "Examine how treaties within contemporary society impact on individual’s lives.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "HC12",
+          "bullet": true,
+          "text": "Describe the principles of treaty and understand the importance those principles play.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "HC12",
+          "bullet": true,
+          "text": "Evaluate one’s actions according to personal beliefs nurtured through their understanding of treaty making.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "HC12",
+          "bullet": true,
+          "text": "Analyze responses to treaties in current federal and provincial government policies.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "HC12",
+          "bullet": true,
+          "text": "Synthesize knowledge and appreciation of treaties.",
+          "page": 9
+        },
+        {
+          "code": "TPP12",
+          "type": "outcome",
+          "superscript": "4",
+          "text": "Represent personal understanding of the concept, We Are All Treaty People.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TPP12",
+          "bullet": true,
+          "text": "Examine the benefits of treaties as a way of defining and honouring relationships between nations.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TPP12",
+          "bullet": true,
+          "text": "Describe various worldviews represented by the signing of treaty.",
+          "page": 9
+        },
+        {
+          "code": null,
+          "label": null,
+          "type": "indicator",
+          "outcome": "TPP12",
+          "bullet": true,
+          "text": "Examine the importance of decolonization as a process that supports the understanding that We Are All Treaty People.",
+          "page": 9
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Treaty Education is organised by grade (10, 11, 12), not by course level, and is meant to be taught within other subjects. `level` gives the matching course level (Grade 10 = 10-level, 11 = 20-level, 12 = 30-level) only so the course can sit beside the others.",
+    "Outcome codes are printed with a superscript goal number (TR¹, SI², HC³, TPP⁴, per the page's KEY); the superscript is kept in `superscript`, and `code` is the code as the Ministry CSV lists it.",
+    "The site's outcomes page for Treaty Education (https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=481) and its curriculum document link (https://curriculum.gov.sk.ca/CurriculumFile?id=481) both answer the site's “Page Not Found” page (checked 2026-11-21).",
+    "Every Grade 10–12 code matches the Ministry CSV (https://www.edonline.sk.ca/bbcswebdav/library/outcomes/csvFiles/481_Treaty_Education_.csv), which lists the codes with empty statements."
+  ]
+}

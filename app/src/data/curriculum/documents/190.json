@@ -1,0 +1,251 @@
+{
+  "curriculumId": 190,
+  "name": "Geography 30",
+  "levels": [
+    30
+  ],
+  "kind": "objectives",
+  "textSource": "ocr",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=190",
+    "filename": "Geography_30_1969.pdf",
+    "sha256": "dbc8b1c9e691ea07fb46cec3a3874987077d6aa8fef381ce87c5dd40d188b4ef",
+    "retrievedOn": "2026-11-21",
+    "bytes": 406098,
+    "pages": [
+      4,
+      5,
+      6
+    ],
+    "pageNumbering": "page = 1-based PDF page",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=190"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the social-studies research on 2026-11-21)",
+  "text": "OCR (RapidOCR PP-OCRv6, 200 dpi) of a scanned image-only PDF; see notes",
+  "counts": {
+    "units": 6,
+    "foundational": 19,
+    "learning": 0
+  },
+  "units": [
+    {
+      "name": null,
+      "scope": "course",
+      "note": "Course-level objectives printed under \"OBJECTIVES OF GEOGRAPHICAL STUDIES\".",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "label": null,
+          "text": "The intent of this course in geography is to.acquaint and explain to the student the basic distributions of physical and cultural phenomena over the earth's surface. Through analysis of these distributions, and some of the societal processes, an understanding of the environment, society and economy of the different regions of the world should be achieved. Further, the study of geography should lead to an appreciation of the fact that the world is one, that no region exists in isolation, that, today, all parts of the world are interdependent. To ensure the attainment of the above, the geography program should foster in the students the development of the following understandings, skills and attitudes:",
+          "page": 4,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "a",
+          "text": "There is no split between \"physical geography\" and \"regional geography\". Geography is a chorologicai science (i.e. deals with distribution) which needs and uses the facts of many sciences to arrive at an understanding of differences between regions.",
+          "page": 5,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "b",
+          "text": "Geography is unified by its method and viewpoint and not by its subject matter. Much of its subject matter may be contained in other disciplines -- in history, in physics, in geology, in economics, etc. -- but its viewpoint is distinctive; it is the regional viewpoint.",
+          "page": 5,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "c",
+          "text": "The regional viewpoint infers the recognition of differences and of similarities between areas across the earth's surface. Regions are distinguished on the basis of definite criteria, both physical and cultural.",
+          "page": 5,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "d",
+          "text": "Classification of phenomena (physical or cultural) into categories of greater or lesser degree of generalization should lead to the understanding of real variation in their occurrence and hence to an appreciation of regional distribution.",
+          "page": 5,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "e",
+          "text": "In recognizing relationships occurring between different classes of phenomena, e.g. areas of dense population coinciding with great natural resources, one must be careful to differentiate between cause and effect relationships and those relationships which are accidental.",
+          "page": 5,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "f",
+          "text": "The major device for demonstrating regional differences and distributions is the map. In addition the geographer uses a variety of descriptive devices including statistical diagrams of many kinds.",
+          "page": 5,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "a",
+          "text": "To read with comprehension in the field of geography.",
+          "page": 5,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "2. Skills"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "b",
+          "text": "To analyze, interpret and evaluate data provided in many forms (statistical, map, or other).",
+          "page": 5,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "2. Skills"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "c",
+          "text": "To discover geographical relationships and to recognize regional differences.",
+          "page": 5,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "2. Skills"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "d",
+          "text": "To present, orally and in writing, in organized fashion, the results of geographical research.",
+          "page": 5,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "2. Skills"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "e",
+          "text": "To use, and construct where possible, the various tools of geography including globes, maps, charts, and graphs.",
+          "page": 5,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "2. Skills"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "f",
+          "text": "To make case studies, 1ocal or other, and thus develop understanding of relationships between environment and human activities.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "2. Skills"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "g",
+          "text": "To undertake geographical studies, including elementary field work, of the local area to achieve first-hand understanding of the fundamental approach of the geographer.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "2. Skills"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "a",
+          "text": "Recognition that the.state of knowledge is not finite, that new methods of research and new concepts are continually evolving, that understanding of the world in which we live is very incomplete.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "3. Attitudes"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "b",
+          "text": "Willingness to undertake research with an open mind and to arrive at generalizations based on unbiased appraisal.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "3. Attitudes"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "c",
+          "text": "Willingness to recognize that cultural differences across the world are the result of geographical, historical and societal factors rather than a result of \"racia1\" dissimilarities.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "3. Attitudes"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "d",
+          "text": "A willingness to recognize that regions of similar physical environment may be occupied by very dissimilar economics and societies and that these dissimilarities are a result of numerous factors including stage of cultural and technical development, together with differences in the objectives of the peoples concerned.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "3. Attitudes"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "e",
+          "text": "A willingness to understand that no region exists in isolation, that all parts of the world are inter-related and interdependent.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES OF GEOGRAPHICAL STUDIES",
+          "group": "3. Attitudes"
+        }
+      ]
+    },
+    {
+      "name": "Unit 1: The Geography of Population",
+      "nameSource": "page 10",
+      "items": [],
+      "siteUnitName": "The Geography of Population"
+    },
+    {
+      "name": "Unit II: The Western Industrialized World: Its Origins and Characteristics",
+      "nameSource": "page 12",
+      "items": [],
+      "siteUnitName": "The Western Industrialized World: Its Origins and Characteristics"
+    },
+    {
+      "name": "Unit III: Tropical Settlements and Their Characteristics",
+      "nameSource": "page 14",
+      "items": [],
+      "siteUnitName": "Tropical Settlements and Their Characteristics"
+    },
+    {
+      "name": "Unit IV: The Pioneer Fringe",
+      "nameSource": "page 16",
+      "items": [],
+      "siteUnitName": "The Pioneer Fringe"
+    },
+    {
+      "name": "Unit V: Northern Settlement",
+      "nameSource": "page 17",
+      "items": [],
+      "siteUnitName": "Northern Settlement"
+    },
+    {
+      "name": "Unit VI: Political Geography",
+      "nameSource": "page 18",
+      "items": [],
+      "siteUnitName": "Political Geography"
+    }
+  ],
+  "notes": [
+    "This guide predates foundational/learning objectives. Course-level objectives are given type \"foundational\" and the unit \"Understandings\"/\"Objectives\" type \"learning\"; printedHeading keeps the heading as printed. \"Content\", \"Suggested organization of content\", \"Suggested activities\", references and resources are not extracted.",
+    "Numbered or lettered entries are separate items (\"label\" keeps the number or letter); unnumbered text is one item per paragraph.",
+    "The six units of this 1969 tentative course outline print only a numbered topic outline (topics and sub-topics, with teacher and student references); there are no \"Understandings to be developed\" or unit objectives, so the units have no items. The outline is on PDF pages 10-18.",
+    "The course objectives repeat, nearly word for word, those of Geography 10 (1964) and Geography 20 (1966)."
+  ]
+}

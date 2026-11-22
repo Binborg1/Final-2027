@@ -1,0 +1,52 @@
+{
+  "37": {
+    "name": "English Language Arts 10",
+    "byCoursePart": {
+      "A10": [
+        "The Challenges of Life",
+        "The Mysteries of Life"
+      ],
+      "B10": [
+        "Equity and Ethics",
+        "The World Around and Within Us"
+      ]
+    },
+    "citation": {
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=37",
+      "where": "K-12 Aim and Goals (p. 4); Suggested Course Units/Modules (p. 10); Suggested Units and Questions for Deeper Understanding (pp. 14-15)"
+    },
+    "note": "The document names the themes for each course part; it assigns no outcome to a theme."
+  },
+  "38": {
+    "name": "English Language Arts 20",
+    "byCoursePart": {
+      "20": [
+        "Starting Out - Beginning and Becoming",
+        "Moving Forward - Establishing and Realizing"
+      ]
+    },
+    "citation": {
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=38",
+      "where": "Suggested Course Units/Modules for ELA 20 (p. 10)"
+    },
+    "note": "The document names the themes for each course part; it assigns no outcome to a theme."
+  },
+  "39": {
+    "name": "English Language Arts 30",
+    "byCoursePart": {
+      "A30": [
+        "Canadian Perspectives: Distinct and Rich",
+        "Canadian Landscapes: Diverse and Dynamic"
+      ],
+      "B30": [
+        "The Search for Self",
+        "The Social Experience"
+      ]
+    },
+    "citation": {
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=39",
+      "where": "Suggested Course Units/Modules (p. 10)"
+    },
+    "note": "The document names the themes for each course part; it assigns no outcome to a theme."
+  }
+}

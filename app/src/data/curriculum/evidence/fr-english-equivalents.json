@@ -1,0 +1,588 @@
+{
+  "meaning": "The English curriculum each French (immersion or Fransaskois) curriculum corresponds to, from the coverage research of 2026-11-21 (matched by course, levels and CSV file). null: no English equivalent.",
+  "equivalents": {
+    "80": null,
+    "85": null,
+    "87": null,
+    "95": null,
+    "100": null,
+    "102": null,
+    "265": {
+      "curriculumId": 201,
+      "name": "Wellness 10"
+    },
+    "266": {
+      "curriculumId": 201,
+      "name": "Wellness 10"
+    },
+    "293": {
+      "curriculumId": 157,
+      "name": "Foundations of Mathematics 30"
+    },
+    "294": {
+      "curriculumId": 159,
+      "name": "Pre-Calculus 30"
+    },
+    "304": {
+      "curriculumId": 155,
+      "name": "Foundations of Mathematics and Pre-calculus 10"
+    },
+    "305": {
+      "curriculumId": 160,
+      "name": "Workplace and Apprenticeship Mathematics 10"
+    },
+    "306": {
+      "curriculumId": 156,
+      "name": "Foundations of Mathematics 20"
+    },
+    "307": {
+      "curriculumId": 161,
+      "name": "Workplace and Apprenticeship Mathematics 20"
+    },
+    "308": {
+      "curriculumId": 157,
+      "name": "Foundations of Mathematics 30"
+    },
+    "309": {
+      "curriculumId": 162,
+      "name": "Workplace and Apprenticeship Mathematics 30"
+    },
+    "310": {
+      "curriculumId": 158,
+      "name": "Pre-Calculus 20"
+    },
+    "311": {
+      "curriculumId": 159,
+      "name": "Pre-Calculus 30"
+    },
+    "312": {
+      "curriculumId": 163,
+      "name": "Calculus 30"
+    },
+    "320": {
+      "curriculumId": 155,
+      "name": "Foundations of Mathematics and Pre-calculus 10"
+    },
+    "321": {
+      "curriculumId": 160,
+      "name": "Workplace and Apprenticeship Mathematics 10"
+    },
+    "322": {
+      "curriculumId": 156,
+      "name": "Foundations of Mathematics 20"
+    },
+    "323": {
+      "curriculumId": 161,
+      "name": "Workplace and Apprenticeship Mathematics 20"
+    },
+    "324": {
+      "curriculumId": 157,
+      "name": "Foundations of Mathematics 30"
+    },
+    "325": {
+      "curriculumId": 162,
+      "name": "Workplace and Apprenticeship Mathematics 30"
+    },
+    "326": {
+      "curriculumId": 158,
+      "name": "Pre-Calculus 20"
+    },
+    "327": {
+      "curriculumId": 159,
+      "name": "Pre-Calculus 30"
+    },
+    "328": {
+      "curriculumId": 163,
+      "name": "Calculus 30"
+    },
+    "338": {
+      "curriculumId": 63,
+      "name": "Science 10"
+    },
+    "339": {
+      "curriculumId": 73,
+      "name": "Environmental Science 20"
+    },
+    "340": {
+      "curriculumId": 74,
+      "name": "Health Science 20"
+    },
+    "341": {
+      "curriculumId": 75,
+      "name": "Physical Science 20"
+    },
+    "342": {
+      "curriculumId": 68,
+      "name": "Biology 30"
+    },
+    "343": {
+      "curriculumId": 69,
+      "name": "Chemistry 30"
+    },
+    "344": {
+      "curriculumId": 72,
+      "name": "Physics 30"
+    },
+    "345": {
+      "curriculumId": 76,
+      "name": "Earth Science 30"
+    },
+    "353": {
+      "curriculumId": 63,
+      "name": "Science 10"
+    },
+    "354": {
+      "curriculumId": 73,
+      "name": "Environmental Science 20"
+    },
+    "355": {
+      "curriculumId": 74,
+      "name": "Health Science 20"
+    },
+    "356": {
+      "curriculumId": 75,
+      "name": "Physical Science 20"
+    },
+    "357": {
+      "curriculumId": 68,
+      "name": "Biology 30"
+    },
+    "358": {
+      "curriculumId": 69,
+      "name": "Chemistry 30"
+    },
+    "359": {
+      "curriculumId": 72,
+      "name": "Physics 30"
+    },
+    "360": {
+      "curriculumId": 76,
+      "name": "Earth Science 30"
+    },
+    "370": {
+      "curriculumId": 173,
+      "name": "Social Studies 10"
+    },
+    "371": {
+      "curriculumId": 174,
+      "name": "Social Studies 20"
+    },
+    "372": {
+      "curriculumId": 175,
+      "name": "Social Studies 30: Canadian Studies"
+    },
+    "382": {
+      "curriculumId": 186,
+      "name": "History 10"
+    },
+    "383": {
+      "curriculumId": 185,
+      "name": "History 20"
+    },
+    "386": {
+      "curriculumId": 175,
+      "name": "Social Studies 30: Canadian Studies"
+    },
+    "411": null,
+    "447": {
+      "curriculumId": 446,
+      "name": "Computer Science 20"
+    },
+    "448": {
+      "curriculumId": 444,
+      "name": "Computer Science 30"
+    },
+    "455": {
+      "curriculumId": 453,
+      "name": "Physical Education 20"
+    },
+    "456": {
+      "curriculumId": 454,
+      "name": "Physical Education 30"
+    },
+    "462": null,
+    "463": null,
+    "464": null,
+    "465": null,
+    "466": null,
+    "467": null,
+    "469": {
+      "curriculumId": 413,
+      "name": "Catholic Studies 10"
+    },
+    "470": {
+      "curriculumId": 414,
+      "name": "Catholic Studies 20"
+    },
+    "471": {
+      "curriculumId": 415,
+      "name": "Catholic Studies 30"
+    },
+    "473": {
+      "curriculumId": 413,
+      "name": "Catholic Studies 10"
+    },
+    "474": {
+      "curriculumId": 414,
+      "name": "Catholic Studies 20"
+    },
+    "475": {
+      "curriculumId": 415,
+      "name": "Catholic Studies 30"
+    },
+    "476": {
+      "curriculumId": 481,
+      "name": "Treaty Education"
+    },
+    "492": {
+      "curriculumId": 488,
+      "name": "Financial Literacy 20, 30"
+    },
+    "493": {
+      "curriculumId": 488,
+      "name": "Financial Literacy 20, 30"
+    },
+    "503": {
+      "curriculumId": 461,
+      "name": "Robotics and Automation 10, 20, 30"
+    },
+    "504": {
+      "curriculumId": 461,
+      "name": "Robotics and Automation 10, 20, 30"
+    },
+    "505": {
+      "curriculumId": 485,
+      "name": "Drama 10, 20, 30"
+    },
+    "506": {
+      "curriculumId": 484,
+      "name": "Dance 10, 20, 30"
+    },
+    "507": {
+      "curriculumId": 487,
+      "name": "Music 10, 20, 30"
+    },
+    "508": {
+      "curriculumId": 486,
+      "name": "Visual Art 10, 20, 30"
+    },
+    "509": null,
+    "510": null,
+    "515": {
+      "curriculumId": 514,
+      "name": "Law 30"
+    },
+    "519": {
+      "curriculumId": 517,
+      "name": "Psychology 20"
+    },
+    "520": {
+      "curriculumId": 517,
+      "name": "Psychology 20"
+    },
+    "521": {
+      "curriculumId": 518,
+      "name": "Psychology 30"
+    },
+    "522": {
+      "curriculumId": 518,
+      "name": "Psychology 30"
+    },
+    "523": {
+      "curriculumId": 514,
+      "name": "Law 30"
+    },
+    "529": {
+      "curriculumId": 525,
+      "name": "Career and Work Exploration 10, 20, A30, B30"
+    },
+    "530": {
+      "curriculumId": 525,
+      "name": "Career and Work Exploration 10, 20, A30, B30"
+    },
+    "531": {
+      "curriculumId": 526,
+      "name": "Accounting 10, 20, 30"
+    },
+    "532": {
+      "curriculumId": 526,
+      "name": "Accounting 10, 20, 30"
+    },
+    "533": {
+      "curriculumId": 137,
+      "name": "Photography 10, 20, 30"
+    },
+    "534": {
+      "curriculumId": 137,
+      "name": "Photography 10, 20, 30"
+    },
+    "536": {
+      "curriculumId": 113,
+      "name": "Communication Media 10, 20, 30"
+    },
+    "537": {
+      "curriculumId": 113,
+      "name": "Communication Media 10, 20, 30"
+    },
+    "539": {
+      "curriculumId": 524,
+      "name": "Commercial Cooking 10, 20, 30"
+    },
+    "540": {
+      "curriculumId": 524,
+      "name": "Commercial Cooking 10, 20, 30"
+    },
+    "541": {
+      "curriculumId": 114,
+      "name": "Construction and Carpentry 10, 20, 30; Construction 20, 30; Carpentry 20, 30"
+    },
+    "542": {
+      "curriculumId": 114,
+      "name": "Construction and Carpentry 10, 20, 30; Construction 20, 30; Carpentry 20, 30"
+    },
+    "544": {
+      "curriculumId": 485,
+      "name": "Drama 10, 20, 30"
+    },
+    "545": {
+      "curriculumId": 486,
+      "name": "Visual Art 10, 20, 30"
+    },
+    "546": {
+      "curriculumId": 484,
+      "name": "Dance 10, 20, 30"
+    },
+    "547": {
+      "curriculumId": 453,
+      "name": "Physical Education 20"
+    },
+    "548": {
+      "curriculumId": 454,
+      "name": "Physical Education 30"
+    },
+    "549": {
+      "curriculumId": 446,
+      "name": "Computer Science 20"
+    },
+    "550": {
+      "curriculumId": 444,
+      "name": "Computer Science 30"
+    },
+    "551": {
+      "curriculumId": 487,
+      "name": "Music 10, 20, 30"
+    },
+    "564": null,
+    "574": {
+      "curriculumId": 569,
+      "name": "Life Transitions 20, 30"
+    },
+    "575": {
+      "curriculumId": 569,
+      "name": "Life Transitions 20, 30"
+    },
+    "576": {
+      "curriculumId": 571,
+      "name": "Clothing, Textiles and Fashion 10, 20, 30"
+    },
+    "577": {
+      "curriculumId": 571,
+      "name": "Clothing, Textiles and Fashion 10, 20, 30"
+    },
+    "601": {
+      "curriculumId": 535,
+      "name": "Information Processing 10, 20, 30"
+    },
+    "602": {
+      "curriculumId": 535,
+      "name": "Information Processing 10, 20, 30"
+    },
+    "644": {
+      "curriculumId": 610,
+      "name": "Band 10, 20, 30"
+    },
+    "645": {
+      "curriculumId": 610,
+      "name": "Band 10, 20, 30"
+    },
+    "646": {
+      "curriculumId": 609,
+      "name": "Arts Education 10, 20, 30"
+    },
+    "647": {
+      "curriculumId": 609,
+      "name": "Arts Education 10, 20, 30"
+    },
+    "663": null,
+    "696": {
+      "curriculumId": 668,
+      "name": "Food Studies 10, 20, 30"
+    },
+    "697": {
+      "curriculumId": 668,
+      "name": "Food Studies 10, 20, 30"
+    },
+    "698": {
+      "curriculumId": 543,
+      "name": "Mechanical and Automotive 10, A20, B20, A30, B30"
+    },
+    "699": {
+      "curriculumId": 543,
+      "name": "Mechanical and Automotive 10, A20, B20, A30, B30"
+    },
+    "700": {
+      "curriculumId": 659,
+      "name": "Entrepreneurship 20, 30"
+    },
+    "701": {
+      "curriculumId": 659,
+      "name": "Entrepreneurship 20, 30"
+    },
+    "715": {
+      "curriculumId": 565,
+      "name": "Tourism 10, 20, 30"
+    },
+    "716": {
+      "curriculumId": 565,
+      "name": "Tourism 10, 20, 30"
+    },
+    "724": {
+      "curriculumId": 581,
+      "name": "Hairstyling & Esthetics 10, 20, 30; Hairstyling 20, 30; Esthetics 20, 30"
+    },
+    "725": {
+      "curriculumId": 581,
+      "name": "Hairstyling & Esthetics 10, 20, 30; Hairstyling 20, 30; Esthetics 20, 30"
+    },
+    "731": null,
+    "733": {
+      "curriculumId": 607,
+      "name": "Choral 10, 20, 30"
+    },
+    "736": {
+      "curriculumId": 556,
+      "name": "Studio Art 20, 30"
+    },
+    "737": {
+      "curriculumId": 555,
+      "name": "Guitar 10, 20, 30"
+    },
+    "739": {
+      "curriculumId": 552,
+      "name": "Electrical and Electronics 10, Electrical 20, 30, Electronics 20, A30, B30"
+    },
+    "740": {
+      "curriculumId": 552,
+      "name": "Electrical and Electronics 10, Electrical 20, 30, Electronics 20, A30, B30"
+    },
+    "746": {
+      "curriculumId": 580,
+      "name": "Theatre Arts 20, 30"
+    },
+    "747": {
+      "curriculumId": 580,
+      "name": "Theatre Arts 20, 30"
+    },
+    "757": {
+      "curriculumId": 607,
+      "name": "Choral 10, 20, 30"
+    },
+    "758": {
+      "curriculumId": 555,
+      "name": "Guitar 10, 20, 30"
+    },
+    "759": {
+      "curriculumId": 556,
+      "name": "Studio Art 20, 30"
+    },
+    "772": {
+      "curriculumId": 732,
+      "name": "Early Learning, Supportive Care 20, 30"
+    },
+    "774": {
+      "curriculumId": 732,
+      "name": "Early Learning, Supportive Care 20, 30"
+    },
+    "777": {
+      "curriculumId": 723,
+      "name": "Wildlife and Habitat Studies 10, 20, 30"
+    },
+    "778": {
+      "curriculumId": 723,
+      "name": "Wildlife and Habitat Studies 10, 20, 30"
+    },
+    "779": {
+      "curriculumId": 143,
+      "name": "Welding 10, 20, A30, B30"
+    },
+    "780": {
+      "curriculumId": 143,
+      "name": "Welding 10, 20, A30, B30"
+    },
+    "781": null,
+    "785": {
+      "curriculumId": 687,
+      "name": "Spanish 10, 20, 30"
+    },
+    "787": {
+      "curriculumId": 687,
+      "name": "Spanish 10, 20, 30"
+    },
+    "789": {
+      "curriculumId": 653,
+      "name": "Agriculture and Sustainable Food Systems 20, 30"
+    },
+    "790": {
+      "curriculumId": 653,
+      "name": "Agriculture and Sustainable Food Systems 20, 30"
+    },
+    "794": {
+      "curriculumId": 560,
+      "name": "Marketing 20"
+    },
+    "795": {
+      "curriculumId": 560,
+      "name": "Marketing 20"
+    },
+    "796": {
+      "curriculumId": 721,
+      "name": "Forestry Studies 20, 30"
+    },
+    "797": {
+      "curriculumId": 721,
+      "name": "Forestry Studies 20, 30"
+    },
+    "798": {
+      "curriculumId": 691,
+      "name": "Agriculture Production A10, B10, A20, B20, A30, B30"
+    },
+    "799": {
+      "curriculumId": 691,
+      "name": "Agriculture Production A10, B10, A20, B20, A30, B30"
+    },
+    "804": {
+      "curriculumId": 803,
+      "name": "Financial Literacy 10"
+    },
+    "805": {
+      "curriculumId": 803,
+      "name": "Financial Literacy 10"
+    },
+    "807": {
+      "curriculumId": 806,
+      "name": "Michif French 10, 20, 30 (2026 PRELIMINARY)"
+    },
+    "808": {
+      "curriculumId": 806,
+      "name": "Michif French 10, 20, 30 (2026 PRELIMINARY)"
+    },
+    "810": {
+      "curriculumId": 809,
+      "name": "Social Studies 10 (2026 PRELIMINARY)"
+    },
+    "811": {
+      "curriculumId": 809,
+      "name": "Social Studies 10 (2026 PRELIMINARY)"
+    }
+  }
+}

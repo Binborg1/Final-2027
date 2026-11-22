@@ -1,0 +1,206 @@
+{
+ "173": {
+  "name": "Social Studies 10",
+  "levels": [
+   10
+  ],
+  "siteUnits": [
+   "Political Decision Making",
+   "Economic Decision Making",
+   "Ideology and the Decision Making Process",
+   "International Economic Organizations",
+   "International Political Organizations"
+  ]
+ },
+ "174": {
+  "name": "Social Studies 20",
+  "levels": [
+   20
+  ],
+  "siteUnits": [
+   "Human Rights",
+   "Population",
+   "Environment",
+   "Wealth and Poverty",
+   "World Governance"
+  ]
+ },
+ "175": {
+  "name": "Social Studies 30: Canadian Studies",
+  "levels": [
+   30
+  ],
+  "siteUnits": [
+   "Change",
+   "Economic Development",
+   "Culture",
+   "Governance",
+   "Globalization"
+  ]
+ },
+ "179": {
+  "name": "Native Studies 10",
+  "levels": [
+   10
+  ],
+  "siteUnits": [
+   "Identity and Worldviews",
+   "Community and Kinship",
+   "Governance",
+   "Economies"
+  ]
+ },
+ "180": {
+  "name": "Native Studies 20",
+  "levels": [
+   20
+  ],
+  "siteUnits": [
+   "Self-Determination and Self-Government",
+   "Development",
+   "Social Justice"
+  ]
+ },
+ "181": {
+  "name": "Native Studies 30: Canadian Studies",
+  "levels": [
+   30
+  ],
+  "siteUnits": [
+   "Aboriginal and Treaty Rights",
+   "Governance",
+   "Land Claims and Treaty Land Entitlements",
+   "Economic Development",
+   "Social Development"
+  ]
+ },
+ "182": {
+  "name": "History 30: Canadian Studies",
+  "levels": [
+   30
+  ],
+  "siteUnits": [
+   "Relationships: Peoples and Paradigms",
+   "The Nineteenth Century: The Road to Democracy",
+   "External Forces and Domestic Realities",
+   "The Forces of Nationalism",
+   "Challenges and Opportunities"
+  ]
+ },
+ "183": {
+  "name": "Economics 20",
+  "levels": [
+   20
+  ],
+  "siteUnits": [
+   "The Economic Setting",
+   "Production, Specialization and Exchange",
+   "Business Organization",
+   "Labour Organization",
+   "The Role of the Market",
+   "Money and Banking",
+   "Personal Finance",
+   "International Trade",
+   "The Role of Government in the Canadian Economy",
+   "Comparative Economic Systems"
+  ]
+ },
+ "184": {
+  "name": "Economics 30",
+  "levels": [
+   30
+  ],
+  "siteUnits": [
+   "The Economic Setting",
+   "The Economy of Saskatchewan",
+   "The Economy of Canada",
+   "The International Economy and Canada"
+  ]
+ },
+ "185": {
+  "name": "History 20",
+  "levels": [
+   20
+  ],
+  "siteUnits": [
+   "Death of the Old Order",
+   "The Totalitarian State",
+   "National Sovereignty and Collective Security",
+   "Self-Determination and the Superpowers",
+   "Global Issues"
+  ]
+ },
+ "186": {
+  "name": "History 10",
+  "levels": [
+   10
+  ],
+  "siteUnits": [
+   "Political Decision Making",
+   "Economic Decision Making",
+   "The Development of Nation Series",
+   "Imperialism",
+   "International Relations"
+  ]
+ },
+ "188": {
+  "name": "Geography 10",
+  "levels": [
+   10
+  ],
+  "siteUnits": [
+   "The Planet Earth: Its Character and Portrayal",
+   "The Form of the Earth",
+   "Climate",
+   "Climatic Regions and Their Effects Upon Man",
+   "Economic Geography",
+   "Population"
+  ]
+ },
+ "189": {
+  "name": "Geography 20",
+  "levels": [
+   20
+  ],
+  "siteUnits": [
+   "Discovery and Exploration",
+   "Cultural Patterns and Economic Geography",
+   "Appalachian Canada and Northeastern United States",
+   "The Great Lakes and St. Lawrence Heartlands",
+   "The Prairies and Great Plains of Canada and the United States",
+   "The Western Cordillera",
+   "Middle America",
+   "The Canadian Shield and Northland",
+   "The South",
+   "The Place of North America in the World"
+  ]
+ },
+ "190": {
+  "name": "Geography 30",
+  "levels": [
+   30
+  ],
+  "siteUnits": [
+   "The Geography of Population",
+   "The Western Industrialized World: Its Origins and Characteristics",
+   "Tropical Settlements and Their Characteristics",
+   "The Pioneer Fringe",
+   "Northern Settlement",
+   "Political Geography"
+  ]
+ },
+ "809": {
+  "name": "Social Studies 10 (2026 PRELIMINARY)",
+  "levels": [
+   10
+  ],
+  "siteUnits": []
+ },
+ "812": {
+  "name": "Indigenous Studies 10 (2026 PRELIMINARY)",
+  "levels": [
+   10
+  ],
+  "siteUnits": []
+ }
+}

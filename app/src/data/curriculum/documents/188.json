@@ -1,0 +1,583 @@
+{
+  "curriculumId": 188,
+  "name": "Geography 10",
+  "levels": [
+    10
+  ],
+  "kind": "objectives",
+  "textSource": "ocr",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=188",
+    "filename": "Geography_10_1964.pdf",
+    "sha256": "ec0d88942ed1968040d9076dd67a05f9acb94a9d26b3b67487c8b30d6a40ca8e",
+    "retrievedOn": "2026-11-21",
+    "bytes": 659845,
+    "pages": [
+      10,
+      11,
+      12,
+      18,
+      20,
+      21,
+      22,
+      23,
+      25,
+      26,
+      27
+    ],
+    "pageNumbering": "page = 1-based PDF page",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=188"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the social-studies research on 2026-11-21)",
+  "text": "OCR (RapidOCR PP-OCRv6, 200 dpi) of a scanned image-only PDF; see notes",
+  "counts": {
+    "units": 6,
+    "foundational": 19,
+    "learning": 40
+  },
+  "units": [
+    {
+      "name": null,
+      "scope": "course",
+      "note": "Course-level objectives printed under \"OBJECTIV ES\".",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "label": null,
+          "text": "The intent of this course in geography is to acquaint and explain to the student the basic distributions of physical and cultural phenomena over the earth's surface. Through analysis of these distributions, and some of the societal processes, an understanding of the environment, society and economy of the different regions of the world should be achieved. Further, the study of geography should lead to an appreciation of the fact that the world is one, that no region exists in isolation, that, today, all parts of the world are interdependent. To ensure the attainment of the above, the geography program should foster in the student the development of the following understandings, skills, and attitudes:",
+          "page": 10,
+          "printedHeading": "OBJECTIV ES"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "1",
+          "text": "There is no split between \"physical geography\" and \"regional geography\". Geography is a chorological science (i.e., deals with distribution) which needs and uses the facts of many sciences to arrive at an understanding of differences between regions.",
+          "page": 11,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(a) Understandings:"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "2",
+          "text": "Geography is unified by its method and viewpoint and not by its subject matter. Much of its subject matter may be contained in other disciplines -- in history, in physics, in geology, in economics, etc. -- but its viewpoint is distinctive; it is the regional viewpoint.",
+          "page": 11,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(a) Understandings:"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "3",
+          "text": "The regional viewpoint infers the recognition of differences and of similarities between areas across the earth's surface. Regions are distinguished on the basis of definite criteria, both physical and cultural.",
+          "page": 11,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(a) Understandings:"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "4",
+          "text": "Classification of phenomena (physical or cultural) into categories of greater or lesser degree of generalization should lead to the understanding of areal variation in their occurrence and hence to an appreciation of regional distribution.",
+          "page": 11,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(a) Understandings:"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "5",
+          "text": "In recognizing relationships occurring between different classes of phenomena, e.g., areas of dense population coinciding with great natural resources, one must be careful to differentiate between cause and effect relationships and those relationships which are accidental.",
+          "page": 11,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(a) Understandings:"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "6",
+          "text": "The major device for demonstrating regional differences and distributions is the map. In addition the geographer uses a variety of descriptive devices including statistical diagrams of many kinds.",
+          "page": 11,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(a) Understandings:"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "1",
+          "text": "To read with comprehension in the field of geography.",
+          "page": 11,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(b) S k i 1 1 s :"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "2",
+          "text": "To analyze, interpret and evaluate data provided in many forms (statistical, map, or other).",
+          "page": 11,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(b) S k i 1 1 s :"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "3",
+          "text": "To discover geographical relationships and to recognize regional differences.",
+          "page": 11,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(b) S k i 1 1 s :"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "4",
+          "text": "To present, orally and in writing, in organized fashion, the results of geographical research.",
+          "page": 11,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(b) S k i 1 1 s :"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "5",
+          "text": "To use, and constuct where possible, the various tools of geography including globes, maps, charts, and graphs.",
+          "page": 12,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(b) S k i 1 1 s :"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "6",
+          "text": "To make case studies, local or other, and thus develop understanding of relationships between environment and human activities.",
+          "page": 12,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(b) S k i 1 1 s :"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "7",
+          "text": "To undertake geographical studies, including elementary field work, of the local area to achieve first hand under-standing of the fundamental approach of the geographer.",
+          "page": 12,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(b) S k i 1 1 s :"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "1",
+          "text": "Recognition that the state of knowledge is not finite, that new methods of research and new concepts are continually enolving, that understanding of the world in which we live is very incomplete.",
+          "page": 12,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(c) Att itud es :"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "2",
+          "text": "Willingness to undertake research with an open mind and to arrive at generalizations based on unbiased appraisal.",
+          "page": 12,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(c) Att itud es :"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "3",
+          "text": "Willingness to recognize that cultural differences across the world are the result of geographical, historical and societal factors rather than a result of \"racial\" dissimilarities.",
+          "page": 12,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(c) Att itud es :"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "4",
+          "text": "A willingness to recognize that regions of similar physical environment may be occupied by very dissimilar economies and societies and that these dissimilarities are a result of numerous factors including stage of cultural and technical development, together with differences in the objectives of the peoples concerned.",
+          "page": 12,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(c) Att itud es :"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "5",
+          "text": "A willingness to understand that no region exists in isolation that al1 parts of the world are inter-related and interdependent.",
+          "page": 12,
+          "printedHeading": "OBJECTIV ES",
+          "group": "(c) Att itud es :"
+        }
+      ]
+    },
+    {
+      "name": "Unit I: THE PLANET EARTH: ITS CHARACTER AND PORTRAYAL",
+      "nameSource": "page 18",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "The earth is one of nine planets which revolve around the sun, a relatively small star, and thus forms part of the solar system.",
+          "page": 18,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "The positions of the moon relative to the earth and sun account for visible variations in its illumination.",
+          "page": 18,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "The relationships between sun and earth lead to: timing of 24-hour day;the contrasts between day and night; the period of the year; the differences in the amount of solar energy received latitudinally; the seasons; weather and climatic differences; differences in vegetation and soils and thus to differences in agricultural potential and in habitability from region to region.",
+          "page": 18,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "The spherical shape of the earth necessitates the use of a special system of angular measurements whereby specific locations may be identified.",
+          "page": 18,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "A system of standard time zones and an International Date Line are necessary in order to avoid confusion in communications.",
+          "page": 18,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "Different types of map projections are designed to provide accuracy in shape or area, or to provide for a special use (e.g. the Mercator).",
+          "page": 18,
+          "printedHeading": "(a) Understandings to be developed:"
+        }
+      ],
+      "siteUnitName": "The Planet Earth: Its Character and Portrayal"
+    },
+    {
+      "name": "Unit II: THE FORM OF THE EARTH.",
+      "nameSource": "page 20",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "There is a pattern to the earth's structure.",
+          "page": 20,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "Rocks are classified according to mode of origin and various properties.",
+          "page": 20,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "The parts of the earth are in a state of balance. When this balance is disturbed, readjustment, the result of internal movements, takes place.",
+          "page": 20,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "External processes assist in the sculpturing of the earth's surface.",
+          "page": 20,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "The hydrological cycle refers to the intimate relationships which exist between atmospheric, surface, and sub-surface waters.",
+          "page": 20,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "Typical landscapes can be associated with specific agents of gradation, and often with typical climates.",
+          "page": 20,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "Regional landscapes have developed over great periods of time and should be considered in terms of geological time periods.",
+          "page": 20,
+          "printedHeading": "(a) Understandings to be developed:"
+        }
+      ],
+      "siteUnitName": "The Form of the Earth"
+    },
+    {
+      "name": "Unit III: CLIMATE",
+      "nameSource": "page 21",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "Variations in weather are the result of frequent changes in the physical characteristics of the atmosphere.",
+          "page": 21,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "Climate is a generalization of long-term weather conditions.",
+          "page": 21,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "The elements of climate include temperature, pressure and winds, and precipitation.",
+          "page": 22,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "Climatic regions of the world are classified according to temperature and precipitation differences.",
+          "page": 22,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "Regional patterns of natural vegetation are determined largely by regional patterns of climate.",
+          "page": 22,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "Climate and natural vegetation determine the distribution of the major soil groups",
+          "page": 22,
+          "printedHeading": "(a) Understandings to be developed:"
+        }
+      ],
+      "siteUnitName": "Climate"
+    },
+    {
+      "name": "Unit IV: CLIMATIC REGIONS AND THEIR EFFECTS UPON MAN.",
+      "nameSource": "page 23",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "Man's activities are closely related to climatic conditions.",
+          "page": 23,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "The division of the world into climatic regions is based essentially on temperature conditions, with each region subdivided on the basis of rainfal1.",
+          "page": 23,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "The type of climate in warm temperate lands is determined by the great seasonal shifts of winds and pressure systems that reflect earth-sun relationships.",
+          "page": 23,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "The westerly winds and the middle-latitude cyclonic disturbances influence the climate of the cool temperate lands. The interiors of these lands are strongly affected by continental air masses.",
+          "page": 23,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "Polar and arid lands are sparsely populated because of unfavourable climatic conditions.",
+          "page": 23,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "Climatic \"zones\" change with altitude as well as with latitude.",
+          "page": 23,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "Man has utilized each of the climatic regions in particular ways.",
+          "page": 23,
+          "printedHeading": "(a) Understandings to be developed:"
+        }
+      ],
+      "siteUnitName": "Climatic Regions and Their Effects Upon Man"
+    },
+    {
+      "name": "Unit V: ECONOMIC GEOGRAPHY.",
+      "nameSource": "page 25",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "Types of farming and agricultural practices are determined by the natural environment, the culture, technology and the objectives of the people.",
+          "page": 25,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "The demand for and utilization of minerals are determined by the stage of technological development.",
+          "page": 25,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "The production of hydro-electric power is limited by the factors of water supply, suitable dam sites, and proximity to potential markets.",
+          "page": 25,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "Transportation facilities are basic to economic progress.",
+          "page": 25,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "Industrial development is determined by combinations of environmental factors.",
+          "page": 25,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "Individuals and governments must assume responsibility for the wise use and skillful management of naturalresources.",
+          "page": 25,
+          "printedHeading": "(a) Understandings to be developed:"
+        }
+      ],
+      "siteUnitName": "Economic Geography"
+    },
+    {
+      "name": "Unit VI: P O P UL ATI ON.",
+      "nameSource": "page 26",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "Man has been classified into races-according to physical traits which can be inherited only. NOTE: Emphasize that race is a purely biological term and has no cultural, religious, or linguistic connotations. Further, there is no \"pure race\".",
+          "page": 26,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "People of different skin colour and of different cultures often belong to the same race.",
+          "page": 26,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "There are several theories to account for the distribution of people over the world.",
+          "page": 27,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "There is an extreme unevenness of distribution of the world population.",
+          "page": 27,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "World population is increasing rapidly and the problem of supplying the needs of life is becoming more pressing.",
+          "page": 27,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "Geographical factors tend to control the presence or absence of people in all parts of the world.",
+          "page": 27,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "Problems of supplying the needs of life arising from overpopulation can be alleviated.",
+          "page": 27,
+          "printedHeading": "(a) Understandings to be developed:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "8",
+          "text": "Cities may be classified according to origin, function, and in other ways.",
+          "page": 27,
+          "printedHeading": "(a) Understandings to be developed:"
+        }
+      ],
+      "siteUnitName": "Population"
+    }
+  ],
+  "notes": [
+    "This guide predates foundational/learning objectives. Course-level objectives are given type \"foundational\" and the unit \"Understandings\"/\"Objectives\" type \"learning\"; printedHeading keeps the heading as printed. \"Content\", \"Suggested organization of content\", \"Suggested activities\", references and resources are not extracted.",
+    "Numbered or lettered entries are separate items (\"label\" keeps the number or letter); unnumbered text is one item per paragraph."
+  ]
+}

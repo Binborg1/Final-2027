@@ -1,0 +1,299 @@
+{
+  "curriculumId": 184,
+  "name": "Economics 30",
+  "levels": [
+    30
+  ],
+  "kind": "objectives",
+  "textSource": "ocr",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=184",
+    "filename": "Economics_30_1978.pdf",
+    "sha256": "3395b3890bf7b5c9545ded1f56132dee7af9d7b1d792b0ac20534cc9d0329c5c",
+    "retrievedOn": "2026-11-21",
+    "bytes": 3076817,
+    "pages": [
+      12,
+      32,
+      33,
+      34,
+      35
+    ],
+    "pageNumbering": "page = 1-based PDF page",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=184"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the social-studies research on 2026-11-21)",
+  "text": "OCR (RapidOCR PP-OCRv6, 200 dpi) of a scanned image-only PDF; see notes",
+  "counts": {
+    "units": 4,
+    "foundational": 7,
+    "learning": 19
+  },
+  "units": [
+    {
+      "name": null,
+      "scope": "course",
+      "note": "Course-level objectives printed under \"General Objectives of Economics 30\".",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "label": null,
+          "text": "By studying Economics 30, the student should develop:",
+          "page": 12,
+          "printedHeading": "General Objectives of Economics 30"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "1",
+          "text": "an understanding of the nature of Economics.",
+          "page": 12,
+          "printedHeading": "General Objectives of Economics 30"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "2",
+          "text": "some ability to use certain Economics process skills.",
+          "page": 12,
+          "printedHeading": "General Objectives of Economics 30"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "3",
+          "text": "an understanding and appreciation of the nature of the Canadian economy.",
+          "page": 12,
+          "printedHeading": "General Objectives of Economics 30"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "4",
+          "text": "an understanding and appreciation of the nature of the Saskatchewan economy and its interrelationship with the Canadian economy.",
+          "page": 12,
+          "printedHeading": "General Objectives of Economics 30"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "5",
+          "text": "an understanding and appreciation of the nature of the inter-national economy and its interrelationship with the Saskatchewan and Canadian economies.",
+          "page": 12,
+          "printedHeading": "General Objectives of Economics 30"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "6",
+          "text": "an understanding of the role of the individual as a participant in the Saskatchewan, Canadian and international economies.",
+          "page": 12,
+          "printedHeading": "General Objectives of Economics 30"
+        }
+      ]
+    },
+    {
+      "name": "Unit ONE: THE ECONOMIC SETTING",
+      "nameSource": "page 32",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "To give students an overview of the basic economic concepts of scarcity, choice and the marketplace.",
+          "page": 32,
+          "printedHeading": "Objectives",
+          "section": "A. The Economic Setting *(Unit One)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "Scarcity; wants; choice; capital goods, consumer goods; market; Gross National Product; producers; consumers; free goods; economic goods; utility and opportunity cost.",
+          "page": 32,
+          "printedHeading": "Understandings",
+          "section": "A. The Economic Setting *(Unit One)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "To gain an understanding of production, the reasons for specialization in our economy, and the interdependence of people, institutions and regions.",
+          "page": 32,
+          "printedHeading": "Objectives",
+          "section": "B. Production, Specialization and Exchange (Unit Two)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "Specialization; interdependence; exchange; factors of production (1and, labor, capital, entrepreneurship); payment for factors (rent, interest, wages, profit); surplus, staple (primary products); barter; private property; and public property.",
+          "page": 32,
+          "printedHeading": "Understandings",
+          "section": "B. Production, Specialization and Exchange (Unit Two)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "To assist students to gain an understanding of the organization, the operation and the problems of business institutions. *Units identified in parentheses refer to those in Economics 20.",
+          "page": 32,
+          "printedHeading": "Objectives",
+          "section": "C. Business Organization (Unit Three--optional)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "Types of business organization (sole proprietorship, partnership, co-operative, corporation).",
+          "page": 33,
+          "printedHeading": "Understandings",
+          "section": "C. Business Organization (Unit Three--optional)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "To give the student an understanding of the process of collective bargaining and the role unions play in the economy.",
+          "page": 33,
+          "printedHeading": "Objectives",
+          "section": "D. Labor Organization (Unit Four--optional)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "To provide the student with an understanding of the role of the market in the determination of prices and quantities.",
+          "page": 33,
+          "printedHeading": "Objectives",
+          "section": "E. The Role of the Market (Unit Five)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "Market; price; supply; demand; consumer price index; and profit.",
+          "page": 33,
+          "printedHeading": "Understandings",
+          "section": "E. The Role of the Market (Unit Five)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "To provide students with an understanding and appreciation of the role of money and financial institutions in the Canadian economy.",
+          "page": 33,
+          "printedHeading": "Objectives",
+          "section": "F. Money and Banking (Unit Six)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "Banks; inflation and deflation; credit; currency; financial institutions; money; money supply; capital; cash flow; cash reserve; deposits; and savings.",
+          "page": 34,
+          "printedHeading": "Understandings",
+          "section": "F. Money and Banking (Unit Six)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "To give students an understanding of the nature of a well-thoughtout savings and investment plan.",
+          "page": 34,
+          "printedHeading": "Objectives",
+          "section": "G. Personal Finance (Unit Seven--optional)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "Risk; short-term investments; long-term investments; stock exchange; liquidity and capital gain.",
+          "page": 34,
+          "printedHeading": "Understandings",
+          "section": "G. Personal Finance (Unit Seven--optional)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "To assist students in acquiring an appreciation of the role and importance of international trade in the Canadian economy. To provide an understanding of the nature of barriers to trade.",
+          "page": 34,
+          "printedHeading": "Objectives",
+          "section": "H. International Trade (Unit Eight)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "Foreign trade; comparative advantage; natural advantage; absolute advantage; balance of payments; protectionism; foreign investment; imports and exports--visible and invisible; tarrifs; and foreign exchange.",
+          "page": 34,
+          "printedHeading": "Understandings",
+          "section": "H. International Trade (Unit Eight)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "To give students an understanding of the role of government in the economy.",
+          "page": 34,
+          "printedHeading": "Objectives",
+          "section": "I. Role of Government in the Canadian Economy (Unit Nine)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "Government revenue; government expenditures; taxation; income redistribution; government regulation; business cycle; monetary policy; and fiscal policy.",
+          "page": 35,
+          "printedHeading": "Understandings",
+          "section": "I. Role of Government in the Canadian Economy (Unit Nine)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "To give students an understanding and appreciation of our own and alternative economic systems.",
+          "page": 35,
+          "printedHeading": "Objectives",
+          "section": "J. Comparative Economic Systems (optional)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "Capitalism; communism; private (or free) enterprise; socialism; and mixed economy (or mixed enterprise).",
+          "page": 35,
+          "printedHeading": "Understandings",
+          "section": "J. Comparative Economic Systems (optional)"
+        }
+      ],
+      "siteUnitName": "The Economic Setting"
+    },
+    {
+      "name": "Unit TWO: THE ECONOMY OF SASKATCHEWAN",
+      "nameSource": "page 36",
+      "items": [],
+      "siteUnitName": "The Economy of Saskatchewan"
+    },
+    {
+      "name": "Unit THREE: THE ECONOMY OF CANADA",
+      "nameSource": "page 43",
+      "items": [],
+      "siteUnitName": "The Economy of Canada"
+    },
+    {
+      "name": "Unit FOUR: THE INTERNATIONAL ECONOMY AND CANADA",
+      "nameSource": "page 51",
+      "items": [],
+      "siteUnitName": "The International Economy and Canada"
+    }
+  ],
+  "notes": [
+    "This guide predates foundational/learning objectives. Course-level objectives are given type \"foundational\" and the unit \"Understandings\"/\"Objectives\" type \"learning\"; printedHeading keeps the heading as printed. \"Content\", \"Suggested organization of content\", \"Suggested activities\", references and resources are not extracted.",
+    "Numbered or lettered entries are separate items (\"label\" keeps the number or letter); unnumbered text is one item per paragraph.",
+    "Unit One is a review of Economics 20 and is printed as sections A-J, each with \"Objectives\", \"Content\" and \"Understandings\"; \"section\" gives the section heading as printed, including its Economics 20 unit reference.",
+    "Units Two, Three and Four print only a numbered topic outline (topics, sub-topics, issues and resources) with no objectives or understandings, so they have no items here. The outline is on PDF pages 36-54 if it is wanted later."
+  ]
+}

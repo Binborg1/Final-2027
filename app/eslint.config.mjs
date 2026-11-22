@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Vendored pdf.js worker, copied from node_modules.
     "public/**",
+    // The curriculum importer's raw-page cache and research scratch (git-ignored).
+    ".cache/**",
   ]),
 ]);
 

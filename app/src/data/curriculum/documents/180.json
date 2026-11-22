@@ -1,0 +1,821 @@
+{
+  "curriculumId": 180,
+  "name": "Native Studies 20",
+  "levels": [
+    20
+  ],
+  "kind": "objectives",
+  "textSource": "ocr",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=180",
+    "filename": "Native_Studies_20_1992.pdf",
+    "sha256": "3a70628f9deb1d1f2aebd9e98d050e62dae5526b964417293573d3f1d520d4d0",
+    "retrievedOn": "2026-11-21",
+    "bytes": 12033614,
+    "pages": [
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      146,
+      147,
+      148,
+      152,
+      154,
+      163,
+      164,
+      166,
+      167,
+      175,
+      176,
+      177,
+      178
+    ],
+    "pageNumbering": "page = 1-based PDF page; printedPage = the number printed on the page",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=180"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the social-studies research on 2026-11-21)",
+  "counts": {
+    "units": 4,
+    "foundational": 51,
+    "learning": 42
+  },
+  "units": [
+    {
+      "name": "Introduction Unit",
+      "nameSource": "page 136",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 136,
+          "printedPage": 128,
+          "text": "Students will be made aware of the 12 Principles Common to First Nations Philosophies and related resources. Students will be provided with the opportunity to relate Indigenous philosophy with their own and other philosophies and codes of ethics or behaviour."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 136,
+          "printedPage": 128,
+          "text": "Students will develop an understanding of the role that a people's philosophy has in shaping their lives and relationships."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 136,
+          "printedPage": 128,
+          "text": "Students will develop an appreciation for an Indigenous worldview and identify it as practised by Indigenous peoples."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 136,
+          "printedPage": 128,
+          "text": "Students will develop their comprehension, interpretation and creative thinking skills in representing an Indigenous worldview using a variety of media."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 137,
+          "printedPage": 129,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To support students in coming to a better understanding of the personal, moral, social, and cultural aspects of Native Studies. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 137,
+          "printedPage": 129,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To promote both intuitive imaginative thought and the ability to evaluate ideas, processes, and experiences in a meaningful way. (CCT)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 137,
+          "printedPage": 129,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To promote an understanding of discrimination, bias, racism, sexism and all forms of inequality, and a desire to contribute to their elimination. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 137,
+          "printedPage": 129,
+          "lesson": "Lesson One",
+          "text": "Students will discuss or write about their perspectives regarding key aspects of philosophy and worldview using their own language. (C)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 137,
+          "printedPage": 129,
+          "lesson": "Lesson One",
+          "text": "Students will explore how cultural heritage shapes understanding, and how moral principles influence behaviour. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 138,
+          "printedPage": 130,
+          "lesson": "Lesson Two",
+          "text": "Students will make connections to prior learning through a previewing exercise. (C)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 138,
+          "printedPage": 130,
+          "lesson": "Lesson Two",
+          "text": "Students will work cooperatively and contribute positively in group learning activities. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 138,
+          "printedPage": 130,
+          "lesson": "Lesson Two",
+          "text": "Students will summarize important understandings from the videotape in a variety of ways. (C, CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 138,
+          "printedPage": 130,
+          "lesson": "Lesson Two",
+          "text": "Students will identify, discuss, and represent philosophical concepts in a variety of ways. (C, CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 139,
+          "printedPage": 131,
+          "lesson": "Lesson Three",
+          "text": "Students will discuss factors that put the natural environment at risk. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 139,
+          "printedPage": 131,
+          "lesson": "Lesson Three",
+          "text": "Students will refine their understanding of prejudice, discrimination and racism. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 140,
+          "printedPage": 132,
+          "lesson": "Lesson Five",
+          "text": "Students will use a variety of sources to cover the breadth and depth of a topic. (C)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 140,
+          "printedPage": 132,
+          "lesson": "Lesson Five",
+          "text": "Students will understand human rights and their relationship to human needs. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 140,
+          "printedPage": 132,
+          "lesson": "Lesson Five",
+          "text": "Students will explore how cultural heritage shapes understanding and how moral values influence behaviours. (PSVS) Have students read the Ethics Common to First Nations. Where else have the students heard or seen these maxims stated or applied? Relate the Ethics to your school's code of behaviour or that stated in the Education Act under the sections detailing the responsibilities of principals, teachers, and students. Have students relate the 12 Principles Common to First Nations Philosophies to the Ethics common to First Nations which are the subsequent behaviours and attitudes. Relate the Ethics to the 10 Commandments of the Hebrews in the Bible's Old Testament, the Codification of Roman Laws by Julius Caesar, the Canada Act and Charter of Rights and Freedoms, 1982. Relate the Ethics Common to First Nations to the Saskatchewan Human Rights Code, or the United Nations Declaration of Human Rights, 1976. Have students determine the human needs that give rise to legislated human rights and First Nations' ethics. Most of these documents appear in the Social Justice Unit of the Student Resource Guide and are suitable subjects for further investigation and discussion, as they define what is acceptable behaviour before the Creator, and in society. It is appropriate to utilize materials from the Social Justice Unit, or any other unit if they are relevant to the issue or concept being discussed. A holistic perspective is necessary to fully understand and appreciate the implications of facts and concepts arising from the case studies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 141,
+          "printedPage": 133,
+          "lesson": "Lesson Six",
+          "text": "Students will explore how moral principles and cultural philosophy influence peoples' behaviours and practises. (PSVS) Invite an Elder or Aboriginal spiritual teacher into the classroom to speak about aspects of Indian philosophy and spirituality. Refer to the Inviting Elders to the School."
+        }
+      ]
+    },
+    {
+      "name": "Unit One: Self-Determination and Self-Government",
+      "nameSource": "page 145",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Indigenous peoples' political rights are based upon the traditional exercise of such rights;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Political rights of Indigenous peoples have historically been repressed by mainstream societies;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "stem": "Students will understand and appreciate that:",
+          "text": "The repression of Indigenous peoples' political rights has caused social turmoil and conflict and resulted in the n~ar extinction and subjugation of many Indigenous cultures and societies;",
+          "ocrSuspect": true
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Indigenous peoples continue to struggle for empowerm~nt through the recognition of their unique political rights;",
+          "ocrSuspect": true
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Political concerns involve control over internal affairs and relationships with mainstream societies;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Political concerns vary among Indigenous peoples;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Varied methods and strategies exist and must evolve to resolve political issues;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "stem": "Students will understand and appreciate that:",
+          "text": "The pursuit of self-determination and self-government by Indigenous peoples is a global phenomenon;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Individual and organized effort is necessary to protect the rights of Indigenous peoples and assist them in realizing self-government;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Commonalities exist among Indigenous peoples and their struggles for political, social, economic, spiritual and cultural survival and development."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To support students in coming to a better understanding of their personal, moral, social and cultural aspects. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To promote both intuitive imaginative thought, and the ability to represent key understandings visually. (CCT)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To use a wide range of language and visual experiences for developing students' knowledge of Indigenous peoples. (C)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To enable students to understand and use the vocabulary, structures and forms of expression used in Native Studies. (C)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 146,
+          "printedPage": 138,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To support students in treating themselves and others with respect. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 147,
+          "printedPage": 139,
+          "lesson": "Lesson One",
+          "text": "Students will summarize, categorize and represent visually, diverse components and aspects of human identity. (CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 147,
+          "printedPage": 139,
+          "lesson": "Lesson One",
+          "text": "Students will define \"identity\" and increase their awareness of how \"identity\" can be determined and shaped. (C, CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 148,
+          "printedPage": 140,
+          "lesson": "Lesson Two",
+          "text": "Students will develop an awareness and appreciation of the diversity of Indian, Metis and Inuit peoples in Saskatchewan and Canada. (C)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 148,
+          "printedPage": 140,
+          "lesson": "Lesson Two",
+          "text": "Students will develop an awareness and appreciation of the diversity of Indigenous peoples worldwide. (C)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 148,
+          "printedPage": 140,
+          "lesson": "Lesson Three",
+          "text": "Students will develop an awareness that the Indian, Metis and Inuit peoples of Saskatchewan and Canada are members of the global Indigenous community. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 148,
+          "printedPage": 140,
+          "lesson": "Lesson Three",
+          "text": "Students will become increasingly familiar with the vocabulary, and forms of expression specific to Native Studies. (C)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 152,
+          "printedPage": 144,
+          "lesson": "Lesson Six",
+          "text": "Students will be introduced to the concept that Canadian Aboriginal peoples and international Indigenous peoples face and deal with similar problems and issues. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 152,
+          "printedPage": 144,
+          "lesson": "Lesson Six",
+          "text": "Students will expand their awareness of the number and diversity of declarations, acts and codes dealing with rights and freedoms. (C)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 152,
+          "printedPage": 144,
+          "lesson": "Lesson Six",
+          "text": "Students will appreciate the reasons for the proliferation of these declarations, acts and codes. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 152,
+          "printedPage": 144,
+          "lesson": "Lesson Six",
+          "text": "Students will investigate the commonalities among selected declarations, acts and codes. (CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 152,
+          "printedPage": 144,
+          "lesson": "Lesson Six",
+          "text": "Students will summarize data in a variety of ways and relate this data to social regulatory structures and regulations. (C, CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 154,
+          "printedPage": 146,
+          "lesson": "Lesson Seven",
+          "text": "Students will summarize data in a variety of ways and develop their understanding of ethnocentrism, prejudice, discrimination and racism. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 154,
+          "printedPage": 146,
+          "lesson": "Lesson Seven",
+          "text": "Students will relate these concepts to the historical Euro-Canadian treatment of Aboriginal peoples. (CCT) Have students, in small groups, read and discuss the following Proclamation of 1992 which is based upon many of the attitudes and historical situations created and developed by traders, settlers, and governments (Canada) in their attempts to colonize the \"New World\". ."
+        }
+      ]
+    },
+    {
+      "name": "Unit Two: Developm.ent Unit",
+      "nameSource": "page 159",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Indigenous peoples' concept of development is defined by their common respect for the land. That concept is both individual and communal;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Indigenous peoples' concept of development reflects the principles of wholeness and change. Indigenous peoples view their society and the world holistically;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "stem": "Students will understand and appreciate that:",
+          "text": "The right to self-determination and self-government is essential to Indigenous peoples' concepts of personal and communal development. Dependence upon others decreases self-determination and domination by others leads to social injustice;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Development, that has been forced upon Indigenous peoples, denies their human and Aboriginal rights;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Indigenous peoples and their traditional territories are threatened by the effects of foreign concepts of development which are insensitive to Indigenous beliefs and practices;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Development projects designed, funded and supported by non-Indigenous corporations, agencies and banks have created widespread situations of poverty, debt, urbanization, ethnocide and genocide;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Indigenous peoples and social scientists, globally, are demanding more culturally-sensitive programs for personal, social and economic development;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "stem": "Students will understand and appreciate that:",
+          "text": "Indigenous principles of development, conservation and change are increasingly relevant to non-Indigenous science and technology, and schemes for sustainable development, pollution control and waste management."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To use a variety of language experiences for developing student's knowledge of development issues. (C)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To support students in coming to a better understanding of the personal, moral, social, and cultural aspects of development issues and projects. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To develop an understanding that technology both shapes and is shaped by society. (TL)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To develop student's abilities to meet their own knowledge needs and access information. (lL)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 163,
+          "printedPage": 155,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To allow students to use language for differing audiences and purposes which are relevant development issues and Native Studies. (C)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 164,
+          "printedPage": 156,
+          "lesson": "Lesson One",
+          "text": "Students will identify, categorize, record, discuss, and summarize data from a variety of sources. (CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 164,
+          "printedPage": 156,
+          "lesson": "Lesson One",
+          "text": "Students will explore the positive and negative effects of development projects, and make some value judgements based upon these observations. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 164,
+          "printedPage": 156,
+          "lesson": "Lesson One",
+          "text": "Students will increase their understanding of the threat to the survival of Indigenous peoples and their cultures from development projects forced upon them. (PSVS, CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 164,
+          "printedPage": 156,
+          "lesson": "Lesson One",
+          "text": "Students will consider alternative and co-operative strategies for economic development, strategies sensitive to cultural beliefs and practices. (TL, PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 164,
+          "printedPage": 156,
+          "lesson": "Lesson One",
+          "text": "Students will develop an action plan for social change. (PSVS, CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 166,
+          "printedPage": 158,
+          "lesson": "Lesson Two",
+          "text": "Students will increase their understanding and appreciation of diverse cultural-based perspectives regarding development issues and projects. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 166,
+          "printedPage": 158,
+          "lesson": "Lesson Two",
+          "text": "Students will engage in a simulation of a hydro-electric dam project and become aware of the possible consequences of such a project upon the environment and the Indigenous peoples. (C, PSVS, TL)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 167,
+          "printedPage": 159,
+          "lesson": "Lesson Five",
+          "text": "Students will acquire information at one level and apply knowledge at another level to create their own Environmental Impact Assessment (EIA) strategies and procedures. (CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 167,
+          "printedPage": 159,
+          "lesson": "Lesson Five",
+          "text": "Students will understand that knowledge alone cannot produce wisdom and that wisdom depends upon the interplay of knowledge, experience, compassion and reflection. (CCT, PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 167,
+          "printedPage": 159,
+          "lesson": "Lesson Five",
+          "text": "Students will write and dramatize a scenario which represents an EIA and courtroom challenge. This will allow students to demonstrate their understanding of and sensitivity to Indigenous peoples and perspectives. (C, PSVS)"
+        }
+      ]
+    },
+    {
+      "name": "Unit Three: Social Justice",
+      "nameSource": "page 170",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 175,
+          "printedPage": 167,
+          "stem": "Students will:",
+          "text": "Increase their understanding of the history, nature and effects of prejudice, discrimination, racism, ethnocide and genocide;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 175,
+          "printedPage": 167,
+          "stem": "Students will:",
+          "text": "Develop an understanding and increased awareness of the social justice issues and realities of Indigenous peoples in Canada and internationally;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 175,
+          "printedPage": 167,
+          "stem": "Students will:",
+          "text": "Increase their understanding of Indigenous philosophy and how it relates and is applied to issues of social justice;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 175,
+          "printedPage": 167,
+          "stem": "Students will:",
+          "text": "Become familiar with human rights legislation and declarations made by diverse groups struggling for social justice and human dignity;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 175,
+          "printedPage": 167,
+          "stem": "Students will:",
+          "text": "Become aware of their fundamental human rights and freedoms as stated and protected by national and international legislation. recognize rights and freedoms not yet stated and protected by national and international legislation;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 175,
+          "printedPage": 167,
+          "stem": "Students will:",
+          "text": "Become aware of specific situations of social injustice, historical and current;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 175,
+          "printedPage": 167,
+          "stem": "Students will:",
+          "text": "Be able to identify the common bases for injustice among diverse Indigenous peoples. recognize the commonality of human rights abuses among diverse Indigenous peoples;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 175,
+          "printedPage": 167,
+          "stem": "Students will:",
+          "text": "Increase their understanding of and appreciation for the role and necessity of social protest;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 175,
+          "printedPage": 167,
+          "stem": "Students will:",
+          "text": "Increase their awareness of organizations, inquiries, and task forces which strive to identify injustice, and strategies which seek to promote, implement or enforce social justice;"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 175,
+          "printedPage": 167,
+          "stem": "Students will:",
+          "text": "Develop a personal action plan for social change and be seen to have taken action on an issue of personal concern."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 176,
+          "printedPage": 168,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To promote intuitive, imaginative thought and the ability to evaluate ideas, processes and experiences in meaningful contexts. (CCT)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 176,
+          "printedPage": 168,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To enable students to think for themselves, to recognize the limits of individual reflection and the need to contribute to and build upon mutual understandings. (CCT)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 176,
+          "printedPage": 168,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To promote understandings of discrimination, bias, racism, sexism and all forms of inequality, and a desire to contribute to their elimination. (PSVS)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 176,
+          "printedPage": 168,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To develop students' abilities to access knowledge. (IL)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 176,
+          "printedPage": 168,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To enable students to understand and use the vocabulary, structures and forms of expression which characterize Aboriginal social justice issues. (C)"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "page": 176,
+          "printedPage": 168,
+          "group": "C.E.L. emphasis is placed upon the following foundational objectives:",
+          "text": "To contribute to the development of strong sense critical thinkers. (CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 177,
+          "printedPage": 169,
+          "lesson": "Lesson One",
+          "text": "Students will appreciate the difference between \"equality\" and \"equity/equal benefit\", and strategies to achieve the latter. (C, PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 177,
+          "printedPage": 169,
+          "lesson": "Lesson One",
+          "text": "Students will create working definition of social justice. (C, CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 177,
+          "printedPage": 169,
+          "lesson": "Lesson One",
+          "text": "Students will examine knowledge in terms of its relationship to other knowledge and to their experiences and understandings. (CCT)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 177,
+          "printedPage": 169,
+          "lesson": "Lesson One",
+          "text": "Students will define social justice terms and apply them to existing legislation and personal values. (C, PSVS)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 178,
+          "printedPage": 170,
+          "lesson": "Lesson Two",
+          "text": "Students will investigate case studies and other materials which illustrate strategies for achieving social justice. (C, IL)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 178,
+          "printedPage": 170,
+          "lesson": "Lesson Two",
+          "text": "Students will discuss the effectiveness of diverse strategies used by Indigenous peoples to achieve social justice. (CCT, C)"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "page": 178,
+          "printedPage": 170,
+          "lesson": "Lesson Two",
+          "text": "Students will realize the need for social justice through investigation of resources. (PSVS)"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Text is the PDF's own OCR text layer (Adobe Acrobat 9 Paper Capture, 2010) of a scanned 1992 guide; it was not re-OCRed or corrected. Spot checks read cleanly, but OCR errors are possible.",
+    "Foundational objectives come from two lists per unit: \"Foundational Objectives\" and \"C.E.L. emphasis is placed upon the following foundational objectives:\" (items from the second list carry \"group\"). Learning objectives are the \"Learning Objectives:\" bullets of each lesson (\"lesson\" gives the lesson heading).",
+    "A list is taken to end at the first line back at the left margin that is not a bullet.",
+    "The guide marks C.E.L.s in brackets after objectives, e.g. \"(PSVS)\", \"(CCT)\", \"(C)\"; these are kept as printed.",
+    "2 items contain characters typical of OCR misreads in the text layer (e.g. \"~\" for \"e\") and are marked ocrSuspect; their text is left exactly as the text layer has it.",
+    "Unit names are as printed in the text layer, including its misreads (e.g. \"Developm.ent\")."
+  ]
+}

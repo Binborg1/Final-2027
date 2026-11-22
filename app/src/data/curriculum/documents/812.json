@@ -1,0 +1,1177 @@
+{
+  "curriculumId": 812,
+  "name": "Indigenous Studies 10 (2026 PRELIMINARY)",
+  "levels": [
+    10
+  ],
+  "kind": "outcomes",
+  "textSource": "text-layer",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=812",
+    "filename": "Indigenous_Studies_10__260917_PRELIMINARY.pdf",
+    "sha256": "5ad214809d1bbfeca28b99322c2e26eee1d544d5e79c49fc5161860eec0eff0e",
+    "retrievedOn": "2026-11-21",
+    "bytes": 814040,
+    "pages": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "pageNumbering": "page = 1-based PDF page; printedPage = the number printed in the page footer",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=812"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the social-studies research on 2026-11-21)",
+  "structure": "Outcomes (code + statement) each with lettered indicators; an indicator's bulleted sub-list is kept as lines starting \"- \".",
+  "counts": {
+    "units": 0,
+    "outcomes": 11,
+    "indicators": 117
+  },
+  "units": [
+    {
+      "name": null,
+      "nameSource": "The document has no units or outcome sections: every outcome is in one list.",
+      "items": [
+        {
+          "code": "IS10.1",
+          "type": "outcome",
+          "page": 16,
+          "printedPage": 12,
+          "text": "Examine colonial practices that have affected Indigenous peoples."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 16,
+          "printedPage": 12,
+          "text": "Investigate the connection between the Doctrine of Discovery and colonization."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 16,
+          "printedPage": 12,
+          "text": "Explain how the precedent created by the Royal Proclamation of 1763 affected Crown-Indigenous treaty relations."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 16,
+          "printedPage": 12,
+          "text": "Review the shift of power in the fur trade as a result of the change from nation-to-nation transactions to the development of fur trading posts in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 16,
+          "printedPage": 12,
+          "text": "Assess the impact of colonial economic and agricultural policies on Indigenous peoples in Saskatchewan (e.g., restrictions on farming equipment and grain sales, permit systems, exclusion from economic participation and the decimation of the buffalo/bison)."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Assess the impact of colonial land policies and displacement practices on Indigenous peoples in Saskatchewan (e.g., the reserve system, pass system, Métis scrip, Dominion Land Survey, land transfers and forced relocation)."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Examine how status and connection to local community were affected by the enfranchisement of some First Nations peoples."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Examine how the Cypress Hills Massacre resulted in the creation of the RCMP."
+        },
+        {
+          "code": null,
+          "label": "h",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Explore examples of enforced attendance by Indian agents at local residential schools."
+        },
+        {
+          "code": null,
+          "label": "i",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Examine the impact of the legacy of residential and day schools on one of the following; connection to land, cultures, languages, family values, or rights."
+        },
+        {
+          "code": null,
+          "label": "j",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Assess the purpose, methodology and impact of the File Hills Colony experiment."
+        },
+        {
+          "code": null,
+          "label": "k",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Analyze the use and impact of Indian hospitals in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "l",
+          "parent": "IS10.1",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Examine historical accounts, investigations and research relating to Starlight Tours and analyze factors identified as contributing to these events."
+        },
+        {
+          "code": "IS10.2",
+          "type": "outcome",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Identify examples of Indigenous resilience in response to colonization."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Examine how Indigenous nations are reclaiming their own forms of governance (e.g., Band custom, Indian Act, First Nations Election Act and the Métis Government Recognition and Self-Government Agreement) through traditional laws and practices."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Investigate the reasons for the Indian control of Indian education (ICIE) movement and its success in achieving band control of on-reserve schooling."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Explore the establishment of the first Indigenous led child welfare system in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Describe the central role of Indigenous women in sustaining culture, spirituality, governance and community cohesion."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Investigate examples of historical Indigenous resistance (e.g., The North-west Resistance, formation of the Federation of Sovereign Indians, Saskatchewan Indian Women’s Association and resistance to Treaty 6)."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Research an example (e.g., powwows, language reclamation and reclaiming traditional names) of an Indigenous community or individuals resisting attempts of assimilation."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Assess the impact of contemporary Indigenous community resistance (e.g., Idle No More, Federation of Sovereign Indigenous Nations and Muscowequan Indian Residential School National Historic Site) on cultural revitalization, land protection, and Indigenous resurgence."
+        },
+        {
+          "code": null,
+          "label": "h",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Explore examples of the repatriation of Indigenous cultural artifacts to Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "i",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Explore stories of residential school resistance."
+        },
+        {
+          "code": null,
+          "label": "j",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Examine land stewardship initiatives (e.g. SAGE project, Meadow Lake Tribal Council Conservation and Indigenous Guardians Program)."
+        },
+        {
+          "code": null,
+          "label": "k",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Investigate contemporary methods of food sovereignty (e.g., bison reintroduction programs, Flying Dust Market Garden and food forests)."
+        },
+        {
+          "code": null,
+          "label": "l",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 13,
+          "text": "Describe the ways ceremonies were changed to avoid the enforcement of ceremonial bans under the Indian Act."
+        },
+        {
+          "code": null,
+          "label": "m",
+          "parent": "IS10.2",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Provide examples of Indigenous youth activism (e.g., youth councils and Ribbon Skirt Day)."
+        },
+        {
+          "code": "IS10.3",
+          "type": "outcome",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Explore characteristics of Indigenous sovereignty."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.3",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Research traditional laws and governance practices prior to colonization."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.3",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Investigate pre-contact alliances (e.g., Oceti Šakowin and Iron Alliance), treaty, trade and commerce between First Nations."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.3",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Explore alliances between First Nations and Métis communities."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.3",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Investigate the importance of spirituality and protocol in the First Nations approach to treaty relationships."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.3",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Explore traditional territories of Saskatchewan First Nations prior to contact."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "IS10.3",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Recognize how language groups, hunting routes and regional species (e.g., buffalo, moose, caribou and fish) influenced traditional territories."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "IS10.3",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Research the development and operation of organizations that connect Indigenous leadership with industry to promote natural resource ownership and management."
+        },
+        {
+          "code": null,
+          "label": "h",
+          "parent": "IS10.3",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Explain how the First Nation and Métis Consultation Policy Framework impacts Indigenous communities."
+        },
+        {
+          "code": null,
+          "label": "i",
+          "parent": "IS10.3",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Examine how cultural and spiritual identity are included in current Indigenous organizations and business practices."
+        },
+        {
+          "code": null,
+          "label": "j",
+          "parent": "IS10.3",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Discuss the purpose, use, and interpretation of land acknowledgements in contemporary society."
+        },
+        {
+          "code": null,
+          "label": "k",
+          "parent": "IS10.3",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Explain how Indigenous rights recognized and affirmed in Section 35 of the Canadian Constitution relate to the sovereignty of Indigenous nations."
+        },
+        {
+          "code": "IS10.4",
+          "type": "outcome",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Identify Indigenous contributions to Saskatchewan society."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Explore historical Indigenous innovations (e.g., snowshoes, Red River cart, traditional medicines and birch bark canoes) which have benefited Saskatchewan society."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Inquire how Indigenous knowledges (e.g., prescribed burns using Indigenous teachings, hide preparation and sustainable land management) contribute to society."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Discuss the influence of Indigenous trade routes and cart trails on modern day roadways and tourism."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Examine the contributions of Indigenous people within the military."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Explore the growth in Indigenous entrepreneurship in science, technology, and medicine."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "IS10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Discuss the importance of current Indigenous economic development organizations (e.g., Indigenous Investment Finance Corporation, Saskatchewan Indigenous Enterprise Foundation and Sask Métis Economic Development Corporation)."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "IS10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Explore the development of local Indigenous businesses."
+        },
+        {
+          "code": null,
+          "label": "h",
+          "parent": "IS10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 14,
+          "text": "Investigate the benefits of Indigenous land-based tourism."
+        },
+        {
+          "code": null,
+          "label": "i",
+          "parent": "IS10.4",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Research Indigenous leaders and role models who have had an impact on Saskatchewan society."
+        },
+        {
+          "code": null,
+          "label": "j",
+          "parent": "IS10.4",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Describe the role of the Cree Code Talkers of Canada in World War II."
+        },
+        {
+          "code": "IS10.5",
+          "type": "outcome",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Investigate characteristics of First Nations and Métis identities."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Explore various local Indigenous ceremonies and celebrations including their associated protocols."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Investigate Indigenous language groups present in Saskatchewan, including language families, dialects and variations."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Identify the traditional names of the Indigenous nations in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Explain the historical development of the names used for Indigenous nations that have been applied by external groups."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Characterize the impacts of false claims of Indigeneity and cultural appropriation on Indigenous communities."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Describe the term pan-indigeneity and how it can shape perceptions of Indigenous identity."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Explain the impact of false Indigenous identity claims on Indigenous people and communities."
+        },
+        {
+          "code": null,
+          "label": "h",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Describe how the interconnectedness of community members and family influence identity and belonging."
+        },
+        {
+          "code": null,
+          "label": "i",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Explore how kinship and belonging is determined within local Indigenous communities."
+        },
+        {
+          "code": null,
+          "label": "j",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Compare and contrast traditional and contemporary roles and responsibilities of various members within a community such as Elders, Knowledge Keepers, matriarchs and children."
+        },
+        {
+          "code": null,
+          "label": "k",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Investigate how Indigenous communities affirm and include individuals of diverse identities and abilities."
+        },
+        {
+          "code": null,
+          "label": "l",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Analyze how Indigenous teachings (e.g., Grandfather, tipi and drum) inform values within local communities."
+        },
+        {
+          "code": null,
+          "label": "m",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Describe the influence of local Natural Law in Indigenous cultures."
+        },
+        {
+          "code": null,
+          "label": "n",
+          "parent": "IS10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Explain the local spiritual significance of numbers (e.g., four: directions, seasons and dimensions of self; six: seasons and directions)."
+        },
+        {
+          "code": "IS10.6",
+          "type": "outcome",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Explore the ethnogenesis and historical development of the Métis People."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Investigate the origin of the Métis Nation at Red River."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Assess the influence of Métis leaders in the development of the Métis nation (e.g., Cuthbert Grant, Louis Riel and Gabriel Dumont)."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Locate Métis communities within Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 15,
+          "text": "Describe how traditional Métis governance provided structure for communities (e.g., Laws of the Hunt and Laws of St. Laurent)"
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Explain reasons for the Métis attempts to defend their homelands against westward expansion (e.g., Red River Resistance and North-west Resistance)."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Describe how the dispersal of the Métis population after the 1885 Resistance resulted in their survival as the Road Allowance People."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Discuss the influence of the Catholic and Anglican churches on the Métis people, culture and lifestyle."
+        },
+        {
+          "code": null,
+          "label": "h",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Examine the role of Métis symbols (e.g., Métis Flag, Red River cart, buffalo and sash) and culture (e.g., flower beadwork, jigging and fiddle music) in maintaining historical and contemporary community cohesiveness."
+        },
+        {
+          "code": null,
+          "label": "i",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Explore the historical development of the Métis Nation of Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "j",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Examine the role of past and current Métis organizations in the advocacy for constitutional recognition and the negotiation of self-government agreements."
+        },
+        {
+          "code": null,
+          "label": "k",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Summarize the debate about what constitutes Métis identity."
+        },
+        {
+          "code": null,
+          "label": "l",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Explore the historical and contemporary process of applying for Métis citizenship in Saskatchewan including choosing between status or Métis citizenship."
+        },
+        {
+          "code": null,
+          "label": "m",
+          "parent": "IS10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Trace the historical development of Métis languages."
+        },
+        {
+          "code": "IS10.7",
+          "type": "outcome",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Analyze the interconnected relationship between language and culture."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.7",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Describe the significance of language as a foundation of culture, identity and spirit."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.7",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Examine the connection between spirit and language in Indigenous worldviews."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.7",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Analyze the relationship between Indigenous languages and kinship systems, including how language reflects and reinforces family roles, responsibilities, and community connections."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.7",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Examine the impact of the residential school system on the use of Indigenous languages."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.7",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Describe the cultural effects of the loss of Indigenous languages."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "IS10.7",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Investigate Indigenous language revitalization initiatives within your region (e.g., street names, immersion programs, Indigenous language courses and translation apps)."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "IS10.7",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Examine communication protocols (e.g., listening to Elders without interrupting) observed by Indigenous peoples in your region."
+        },
+        {
+          "code": null,
+          "label": "h",
+          "parent": "IS10.7",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Examine why some words and concepts in Indigenous languages do not translate directly to other languages."
+        },
+        {
+          "code": null,
+          "label": "i",
+          "parent": "IS10.7",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Identify how language barriers impacted treaty making."
+        },
+        {
+          "code": null,
+          "label": "j",
+          "parent": "IS10.7",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Explore the development of Indigenous sign languages."
+        },
+        {
+          "code": null,
+          "label": "k",
+          "parent": "IS10.7",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 16,
+          "text": "Compare Indigenous sign languages with American Sign Language."
+        },
+        {
+          "code": "IS10.8",
+          "type": "outcome",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Explain the importance of oral histories, storytelling, visual depictions and ancient writing systems to Indigenous cultures and ways of knowing."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Discuss the role of oral tradition in preserving identity, knowledge, history and culture across generations."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Examine community and seasonal protocols for storytelling."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Compare how stories (e.g., creation, values, historical and contemporary) are used."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Explore examples of oral and written history and stories of local geographic features, cultures, events and people."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Explore teachings about ceremonial and commonly used local medicines."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Identify songs (e.g., honor, victory, round dance and mourning) used for different purposes."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Discuss the purpose of ceremonial objects (e.g., drums, rattles and tobacco)."
+        },
+        {
+          "code": null,
+          "label": "h",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Develop an oral story based on personal lived experience."
+        },
+        {
+          "code": null,
+          "label": "i",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Differentiate between oral histories and oral stories."
+        },
+        {
+          "code": null,
+          "label": "j",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Compare a traditional story from your local community with a similar example from another community or nation."
+        },
+        {
+          "code": null,
+          "label": "k",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Examine the use of visual representations (e.g., petroglyphs, winter count, Sitting Bull robe and Chief Pasqua parchment)."
+        },
+        {
+          "code": null,
+          "label": "l",
+          "parent": "IS10.8",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Research the use of ancient writing systems (e.g., Cree syllabics) in Saskatchewan."
+        },
+        {
+          "code": "IS10.9",
+          "type": "outcome",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Explore Indigenous peoples’ relationship to Mother Earth, water and sky."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.9",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Explore traditional relationships to the land including stewardship and the concept of reciprocity."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.9",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Compare and contrast the different properties of eco-zones (e.g., land formations, animals and plants) that influence the cultures of Indigenous communities (e.g., food, clothing, shelter, stories and places of spiritual significance)."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.9",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Explore the influence of land on traditional place names and language (e.g., Wascana, Saskatchewan and Goose Moon)."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.9",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Investigate how Indigenous worldviews of nature involve spirituality through written and oral history, including songs and storytelling."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.9",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Recognize how changes to land (e.g., changing landscapes and land ownership) and change of season have affected ways of life (e.g., ceremonies, hunting patterns and plant harvesting)."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "IS10.9",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Describe specific examples of how Indigenous peoples and communities are restoring and strengthening their relationships to Mother Earth, water and sky."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "IS10.9",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 17,
+          "text": "Identify land-based inherent and treaty rights."
+        },
+        {
+          "code": "IS10.10",
+          "type": "outcome",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Analyze how land in Saskatchewan has been defined, used and contested over time."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.10",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Explain how geographic features shape territorial lands."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.10",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Describe the trade routes and artifacts that tell the history of the seasonal movement patterns of Indigenous people."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.10",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Examine how the transfer of Rupert’s Land and westward expansion changed territorial lines and seasonal movement patterns (e.g., settlements, treaty territories, Métis communities and river lots)."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.10",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Explain the difference between traditional territories and the Saskatchewan provincial border."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.10",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Summarize the process of surveying parcels of land to create rural homesteads and RM borders."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "IS10.10",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Explore reclamation of original territories (e.g., Treaty Land Entitlements, Treaty Land Sharing Network and specific settlements)."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "IS10.10",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Describe how recognition of sacred land has affected economic land development."
+        },
+        {
+          "code": "IS10.11",
+          "type": "outcome",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Analyze the development, meaning and ongoing significance of treaties in Saskatchewan.",
+          "glanceText": "Analyze the development, meaning, and ongoing significance of treaties in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.11",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Investigate the importance of spirituality and protocol in the First Nations approach to treaty making."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.11",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Explain how the precedent created by the Royal Proclamation of 1763 affected Crown-Indigenous treaty relations."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.11",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Identify how language barriers impacted treaty making."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.11",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Use historical and contemporary evidence to examine the spirit and intent of treaty promises."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.11",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Identify the impact of treaty rights on contemporary society."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "IS10.11",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Describe how everyone benefits from Saskatchewan’s numbered treaties."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "IS10.11",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 18,
+          "text": "Propose informed, actionable individual and collective ways to honour treaties."
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "IS10.11: Outcomes at a Glance (page 16) prints 'Analyze the development, meaning, and ongoing significance of treaties in Saskatchewan.'; the outcome page 22 prints 'Analyze the development, meaning and ongoing significance of treaties in Saskatchewan.'.",
+    "Heading printed on page 16: 'Outcomes and Indicators'."
+  ]
+}

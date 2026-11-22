@@ -1,0 +1,130 @@
+{
+ "173": {
+  "file": "pdf/173_Social_Studies_Education_10_1992.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=173",
+  "sha256": "1d4da09eb732665f1db1f71aee0b5fae31752c9152be34889773886515e69304",
+  "retrievedOn": "2026-11-21",
+  "bytes": 5437295,
+  "filename": "Social_Studies_Education_10_1992.pdf"
+ },
+ "174": {
+  "file": "pdf/174_Social_Studies_Education_20_1994.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=174",
+  "sha256": "3db4c335f9900376add22f9214d59d0ea3b9ad7f4afbd0b5f9cb75b6db6afbb3",
+  "retrievedOn": "2026-11-21",
+  "bytes": 8265744,
+  "filename": "Social_Studies_Education_20_1994.pdf"
+ },
+ "175": {
+  "file": "pdf/175_Social_Studies_30_1997.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=175",
+  "sha256": "7162189f2e28c9f378e6d9580550c2516ed2c66fdb974d2987cd794b367b26fd",
+  "retrievedOn": "2026-11-21",
+  "bytes": 11233319,
+  "filename": "Social_Studies_30_1997.pdf"
+ },
+ "179": {
+  "file": "pdf/179_Native_Studies_10_2002.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=179",
+  "sha256": "a120977eafab4dc30817be8de963e9f4e87d1aa9dd52ee385d2b5b2e601547d9",
+  "retrievedOn": "2026-11-21",
+  "bytes": 10328594,
+  "filename": "Native_Studies_10_2002.pdf"
+ },
+ "180": {
+  "file": "pdf/180_Native_Studies_20_1992.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=180",
+  "sha256": "3a70628f9deb1d1f2aebd9e98d050e62dae5526b964417293573d3f1d520d4d0",
+  "retrievedOn": "2026-11-21",
+  "bytes": 12033614,
+  "filename": "Native_Studies_20_1992.pdf"
+ },
+ "181": {
+  "file": "pdf/181_Native_Studies_30_1997.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=181",
+  "sha256": "706ac97f61ec8485820af4106b7d567cb34fbdc8c6fede2a4957da06a87066b1",
+  "retrievedOn": "2026-11-21",
+  "bytes": 6714982,
+  "filename": "Native_Studies_30_1997.pdf"
+ },
+ "182": {
+  "file": "pdf/182_History_30_1997.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=182",
+  "sha256": "30f26b8709c0c707d203a69127bcecaf7452069469646882393cd642031d3ab7",
+  "retrievedOn": "2026-11-21",
+  "bytes": 13765354,
+  "filename": "History_30_1997.pdf"
+ },
+ "183": {
+  "file": "pdf/183_Economics_20_1975.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=183",
+  "sha256": "e517c9f8bdf7377cf7565c3a1d39df4f3f9dc8098622fb5e6aaa664c8d7f194c",
+  "retrievedOn": "2026-11-21",
+  "bytes": 3729307,
+  "filename": "Economics_20_1975.pdf"
+ },
+ "184": {
+  "file": "pdf/184_Economics_30_1978.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=184",
+  "sha256": "3395b3890bf7b5c9545ded1f56132dee7af9d7b1d792b0ac20534cc9d0329c5c",
+  "retrievedOn": "2026-11-21",
+  "bytes": 3076817,
+  "filename": "Economics_30_1978.pdf"
+ },
+ "185": {
+  "file": "pdf/185_History_20_1994.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=185",
+  "sha256": "6f7df60c14ea9e94efe095440b9998d7d48cc0c4d66fdc9da9fe2ba39397e533",
+  "retrievedOn": "2026-11-21",
+  "bytes": 11032134,
+  "filename": "History_20_1994.pdf"
+ },
+ "186": {
+  "file": "pdf/186_History_10_1992.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=186",
+  "sha256": "1c44e84ecfc875e47e18a64657f609a436880ad75220ce4d8562507dacc904bd",
+  "retrievedOn": "2026-11-21",
+  "bytes": 7062535,
+  "filename": "History_10_1992.pdf"
+ },
+ "188": {
+  "file": "pdf/188_Geography_10_1964.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=188",
+  "sha256": "ec0d88942ed1968040d9076dd67a05f9acb94a9d26b3b67487c8b30d6a40ca8e",
+  "retrievedOn": "2026-11-21",
+  "bytes": 659845,
+  "filename": "Geography_10_1964.pdf"
+ },
+ "189": {
+  "file": "pdf/189_Geography_20_1966.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=189",
+  "sha256": "4ea9659cca10cd500604cd3a5a15ed32db283401d65eb6df25b1d1d49b7ba2cb",
+  "retrievedOn": "2026-11-21",
+  "bytes": 668214,
+  "filename": "Geography_20_1966.pdf"
+ },
+ "190": {
+  "file": "pdf/190_Geography_30_1969.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=190",
+  "sha256": "dbc8b1c9e691ea07fb46cec3a3874987077d6aa8fef381ce87c5dd40d188b4ef",
+  "retrievedOn": "2026-11-21",
+  "bytes": 406098,
+  "filename": "Geography_30_1969.pdf"
+ },
+ "809": {
+  "file": "pdf/809_Social_Studies_10__260917_PRELIMINARY.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=809",
+  "sha256": "0827a9ff383de9108ab7cfaf3ad27ca4c2845e6f2066d588ee9d3ec69f21a64c",
+  "retrievedOn": "2026-11-21",
+  "bytes": 935767,
+  "filename": "Social_Studies_10__260917_PRELIMINARY.pdf"
+ },
+ "812": {
+  "file": "pdf/812_Indigenous_Studies_10__260917_PRELIMINARY.pdf",
+  "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=812",
+  "sha256": "5ad214809d1bbfeca28b99322c2e26eee1d544d5e79c49fc5161860eec0eff0e",
+  "retrievedOn": "2026-11-21",
+  "bytes": 814040,
+  "filename": "Indigenous_Studies_10__260917_PRELIMINARY.pdf"
+ }
+}

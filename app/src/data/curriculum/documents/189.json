@@ -1,0 +1,608 @@
+{
+  "curriculumId": 189,
+  "name": "Geography 20",
+  "levels": [
+    20
+  ],
+  "kind": "objectives",
+  "textSource": "ocr",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=189",
+    "filename": "Geography_20_1966.pdf",
+    "sha256": "4ea9659cca10cd500604cd3a5a15ed32db283401d65eb6df25b1d1d49b7ba2cb",
+    "retrievedOn": "2026-11-21",
+    "bytes": 668214,
+    "pages": [
+      5,
+      6,
+      7,
+      13,
+      15,
+      16,
+      18,
+      20,
+      21,
+      24,
+      26,
+      28,
+      31
+    ],
+    "pageNumbering": "page = 1-based PDF page",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=189"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the social-studies research on 2026-11-21)",
+  "text": "OCR (RapidOCR PP-OCRv6, 200 dpi) of a scanned image-only PDF; see notes",
+  "counts": {
+    "units": 9,
+    "foundational": 23,
+    "learning": 35
+  },
+  "units": [
+    {
+      "name": null,
+      "scope": "course",
+      "note": "Course-level objectives printed under \"OBJECTIVES\".",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "label": null,
+          "text": "The intent of this course in geography is to acquaint and explain to the student the basic distributions of physical and cultural phenomena over the earth's surface. Through analysis of these distributions, and some of the societal processes, an understanding of the environment, society and economy of the different regions of the world should be achieved. Further, the study of geography should lead to an appreciation of the fact that the world is one, that no region exists in isolation, that, today, all parts of the world are interdependent. To ensure the attainment of the above, the geography program should foster in the student the development of the following understandings, skills, and attitudes:",
+          "page": 5,
+          "printedHeading": "OBJECTIVES"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "a",
+          "text": "There is no split between \"physical geography\" and 'regional geography\". Geography is a chorological science (i.e., deals with distribution) which needs and uses the facts of many sciences to arrive at an understanding of differences betweeu regions.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "b",
+          "text": "Geography is unified by its method and viewpoint and not by its subject matter. Much of its subject matter may be contained in other disciplines -- in history, in physics, in geology, in economics, etc. -- but its viewpoint is distinctive; it is the regional viewpoint.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "c",
+          "text": "The regional viewpoint infers the recognition of differences and of similarities between areas across the earth's surface. Regions are distinguished on the basis of definite criteria, both physical and cultural.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "d",
+          "text": "Classification of phenomena (physical or cultural) into categories of greater or lesser degree of generalization should lead to the understanding of areal variation in their occurrence and hence to an appreciation of regional distribution.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "e",
+          "text": "In recognizing relationships occurring between different classes of phenomena, e.g., areas of dense population coinciding with great natural resources, one must be careful to differentiate between cause and effect re-lationships and those relationships which are accidental.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "f",
+          "text": "The major device for demonstrating regional differences and distributions is the map. In addition the geographer uses a variety of descriptive devices including statistical diagrams of many kinds.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES",
+          "group": "1. Understandings"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "a",
+          "text": "To read with comprehension in the field of geography.",
+          "page": 6,
+          "printedHeading": "OBJECTIVES",
+          "group": "2. Ski1ls"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "b",
+          "text": "To analyze, interpret and cvaluate data provided in many forms (statistical, map, or other).",
+          "page": 6,
+          "printedHeading": "OBJECTIVES",
+          "group": "2. Ski1ls"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "c",
+          "text": "To discover geographical relationships and to recognize regional differences.",
+          "page": 7,
+          "printedHeading": "OBJECTIVES",
+          "group": "2. Ski1ls"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "d",
+          "text": "To present, orally and in writing, in organized fashion, the results of geographical research.",
+          "page": 7,
+          "printedHeading": "OBJECTIVES",
+          "group": "2. Ski1ls"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "e",
+          "text": "To use, and construct where possible, the various tools of geography including globes, maps, charts, and graphs.",
+          "page": 7,
+          "printedHeading": "OBJECTIVES",
+          "group": "2. Ski1ls"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "f",
+          "text": "To make casc studies, local or other, and thus develop understanding of relationships between environment and human activities.",
+          "page": 7,
+          "printedHeading": "OBJECTIVES",
+          "group": "2. Ski1ls"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "g",
+          "text": "To undertake geographical studies, including elementary field work, of the local area to achieve first hand understanding of the fundamental approach of the geographer.",
+          "page": 7,
+          "printedHeading": "OBJECTIVES",
+          "group": "2. Ski1ls"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "a",
+          "text": "Recognition that the state of knowledge is not finite, that new methods of research and new concepts are continually evolving, that understanding of the world in which we live is very incomplete.",
+          "page": 7,
+          "printedHeading": "OBJECTIVES",
+          "group": "3. Attitudes"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "b",
+          "text": "Willingness to undertake research with an open mind and to arrive at generalizations based on unbiased appraisal.",
+          "page": 7,
+          "printedHeading": "OBJECTIVES",
+          "group": "3. Attitudes"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "c",
+          "text": "Willingness to recognize that cultural differences across the world are the result of geographical, historical and societal factors rather than a result of \"racial\" dissimilarities.",
+          "page": 7,
+          "printedHeading": "OBJECTIVES",
+          "group": "3. Attitudes"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "d",
+          "text": "A willingness to recognize that regions of similar physical environment may be occupied by very dissimilar economics and societies and that these dissimilarities are a result of numerous factors including stage of cultural and technical development, together with differences in the objectives of the peoples concerned.",
+          "page": 7,
+          "printedHeading": "OBJECTIVES",
+          "group": "3. Attitudes"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": "e",
+          "text": "A willingness to understand that no region exists in isolation, that all parts of the world are inter-related and interdependent.",
+          "page": 7,
+          "printedHeading": "OBJECTIVES",
+          "group": "3. Attitudes"
+        }
+      ]
+    },
+    {
+      "name": null,
+      "scope": "course",
+      "note": "Course-level objectives printed under \"SPECIFIC OBJECTIVES OF\".",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "label": null,
+          "text": "THE GRADE XI GEOGRAPHY COURSE",
+          "page": 13,
+          "printedHeading": "SPECIFIC OBJECTIVES OF"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": null,
+          "text": "The intention of this course is to provide an under-standing of the geography of North America. The overall approach should attempt to provide understanding of the broad regional differences, physical and cultural, which occur within the continental area. Recognizing that political boundaries sometimes interfere with the full appreciation of geographic relationships the course has been designed to provide a framework of units, some of which may have international distribution while others may occur within a single nation. Nonetheless, it would be wrong to assume that major political boundaries, i.e., the international boundaries, are not geographic boundaries of considerable consequence: they interfere with free movement of men, materials, and even, sometimes, ideas -- and they were so created.",
+          "page": 13,
+          "printedHeading": "SPECIFIC OBJECTIVES OF"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": null,
+          "text": "North America has been divided into a number of regions (units) which are not necessarily coterminous with the chapter headings of the text. These regions are broadly based, as far as possible, on groups of common characteristics. Obviously no line separates them but, rather, between them are broad zones of transition. Yet these regions do have validity and are useful as a toolin the analysis of all features which relate to the physical and cultural background of North America.",
+          "page": 13,
+          "printedHeading": "SPECIFIC OBJECTIVES OF"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "label": null,
+          "text": "Basic to description, analysis, and synthesis in terms of the regional separates (units) is the use of maps pertinent to the separation and understanding of the regions.",
+          "page": 13,
+          "printedHeading": "SPECIFIC OBJECTIVES OF"
+        }
+      ]
+    },
+    {
+      "name": "Unit I & II",
+      "nameSource": "page 15",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "Notth America is typified by north-south trending relief elements while the major political boundary, i.e., between Canada and U.S.A., trends east-west, thereby separating physically similar areas.",
+          "page": 15,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "As a general characterization, North America can be separated into three main divisions: a northerly area too cold for agriculture; a western area generally too mountainous or/and too dry for agriculture, and an eastern humid area generally suited to agriculture.",
+          "page": 15,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "These same divisions are applicable to North America as the home of the aboriginal population (map page 9) - the north representing the caribou, and other hunting areas; the western cordilleran area exhibiting specialized economics, not all based on agriculture; the eastern area showing adaptations to hunting in the drier interior and maize growing in the more humid sections.",
+          "page": 15,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "These broad separates indicated here tend also to provide a gross picture of the distribution of population in North America, recognizing that some coastal and irrigated areas in the far west have developed large nodes of population.",
+          "page": 15,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "But certain areas have been highly significant. The east, the area of initial settlement, faced Europe, receiving immigrants from the latter and developing trade with it. lajor routeways especially the Hudson-Mohawk, the St. Lawrence-Great Lakes, and the lississippi, provided ingress to the continental interior and funnelled the products of the latter eastward. Early industrial development occurred in the east and with the use of coal from the Appalachians and iron ores of the northeast and Lake Superior regions, the industrial supremacy of this area was ensured. Today the \"heart\" of North America includes much of the-north-eastern.and-mid-western United States together with the adjacent Great Lakes - St. Lawrence Lowland area of Canada. City development has been great and, today, many of these cities have grown to incorporate or make contact with satellites or other cities: indeed along the east coast from southern New England to Baltimore there is almost continuous urban development, making this the outstanding conurbation in the world -- a megalopolis.",
+          "page": 15,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "The United States has demonstrated man's abilities to develop continental resources and has achieved the highest standards of living in the world. Canada, with lesser population and with its rather narrow zone of high potential for development, shows many parallels in growth. But in Central America, for many reasons, development has been slower. Both Canada and Central America show considerable emphasis on the export of raw materials and dependence on.foreign, especially American, development capital.",
+          "page": 16,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        }
+      ],
+      "siteUnitName": "Discovery and Exploration + Cultural Patterns and Economic Geography"
+    },
+    {
+      "name": "Unit III: Eastern North America : Appalachian Canada: Northwestern United States.",
+      "nameSource": "page 18",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "This is a region of hill lands extending from laritimes into the U.S.A. Here the Atlantic Ocean constituted an important focus, and settlement was early。 But major differences in economic development between the American and the Canadian sections have become increasingly apparent. While there are physical differences between the liaritimes and the North-East United States, differences in economic development cannot be directly attributed to these. Therefore, explanation of economic differences between these two areas must have basis in other factors.",
+          "page": 18,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "NOTE: Underlined sections in the above represent the major",
+          "page": 18,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        }
+      ],
+      "siteUnitName": "Appalachian Canada and Northeastern United States"
+    },
+    {
+      "name": "Unit IV: The Great Lakes and St. Lawrence Industrial Heartland",
+      "nameSource": "page 20",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "The development of the lowlands was stimulated by their accessibility to the peoples and markets of Western Europe.",
+          "page": 20,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "The region possessed a climate which proved fairly well suited to intensive agricultural development within the lowlands.",
+          "page": 20,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "Huch of the early industrial capacity was a direct outcome of the agricultural production of the region.",
+          "page": 20,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "The natural waterways in this region have provided a major impetus to the development of this, the industrial heart of North America.",
+          "page": 20,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "Heavy concentration of population has transformed many features of the landscape.",
+          "page": 20,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        }
+      ],
+      "siteUnitName": "The Great Lakes and St. Lawrence Heartlands"
+    },
+    {
+      "name": "Unit V: Region: The Prairies and the Great Plains Region of Canada and the United States.",
+      "nameSource": "page 21",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "Variation in climate and topography related closely to differences in farming and rancing activities, some areas specializing, as for example, in Spring wheat. 2。1 Dry climate has necessitated the development of special farming techniques and seed varities. Large farming units and principles of \"Big Business\" are characteristic of most forms of land-use.",
+          "page": 21,
+          "printedHeading": "MAJOR UNDERSTANDINGS TO BE DEVELOPED",
+          "ocrLowConfidence": 0.76
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "Economic stability has been promoted through crop diversification, irrigation, improved methods of cultivation, government aid, etc.; development of mineral resources (coal, petroleum, natural gas, potash, etc.) and the introduction of industry have also assisted in providing greater economic diversity.",
+          "page": 21,
+          "printedHeading": "MAJOR UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "The Plains are sparsely settled. Changes in the economy and in transportation and other facilities have led to rural depopulation and to urbanization. Hajor cities, e.g., Edmonton, Calgary, Winnipeg, Kansas City, Denver, etc., tend to lie on the margins.",
+          "page": 21,
+          "printedHeading": "MAJOR UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "The 49th parallel separates politically but does not create essential differences in land-use.",
+          "page": 21,
+          "printedHeading": "MAJOR UNDERSTANDINGS TO BE DEVELOPED"
+        }
+      ],
+      "siteUnitName": "The Prairies and Great Plains of Canada and the United States"
+    },
+    {
+      "name": "Unit VI: The Western Cordillera",
+      "nameSource": "page 24",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "The Western Cordillera is a good example of \"Unity in diversity\". The variety of landforms, climate and human response gives the whole region a distinctive geographic personality.",
+          "page": 24,
+          "printedHeading": "HAJOR UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "The Western Cordillera exhibits the greatest contrasts in human and economic geography found in any part of the North American continent; these contrasts are apparent in agriculture, fisheries, forest industries, minerals, power, and industry.",
+          "page": 24,
+          "printedHeading": "HAJOR UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "There is a close relationship between the irrigated lands of the cordilleran region and the distribution of agriculture and population.",
+          "page": 24,
+          "printedHeading": "HAJOR UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "The Western Cordillera is an area potentially rich in resources but man has had to overcome natural handicaps in their development.",
+          "page": 24,
+          "printedHeading": "HAJOR UNDERSTANDINGS TO BE DEVELOPED"
+        }
+      ],
+      "siteUnitName": "The Western Cordillera"
+    },
+    {
+      "name": "Unit VII: Middle America",
+      "nameSource": "page 26",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "Tropical climate and its effects on vegetation and land-use.",
+          "page": 26,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "Geographical location and land forms and their influence on agriculture and settlement.",
+          "page": 26,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "History of settlement and population characteristics.",
+          "page": 26,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "Poverty of the masses, riches of the few.",
+          "page": 26,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "Developpent of resources.",
+          "page": 26,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "Contrasts between Liddle America and the United States and Canada in products, exports and economic development.",
+          "page": 26,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "Economic interdependence with northern neighbors.",
+          "page": 26,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        }
+      ],
+      "siteUnitName": "Middle America"
+    },
+    {
+      "name": "Unit VIII: The Canadian Shield and the Northland",
+      "nameSource": "page 28",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "There is a close relationship between peneplenation, uplift, stream rejuvenation, glaciation and permafrost, on the one hand, and the problems of land and water transportation and communication, poor drainage, the scarcity of arable soil, hydro-electric power potential and the accessibility of mineral deposits, on the other.",
+          "page": 28,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "The physical characteristics - terrain, permafrost, climate of the Canadian Shield and Northland create major obstacles to transportation and communication. These in turn retard the utilization of resources and the extension of settlement.",
+          "page": 28,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "The nature of rock structure and the effects of glaciation are related to the comparative surface accessibility of mineral deposits.",
+          "page": 28,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "The Canadian North possesses great potential wealth in furs, forest products, minerals, hydro-electric power, and even agricultural lands (Clay belt). Present and future development of these resources is contingent on over-coming the handicaps of a short growing season, permafrost, muskeg, great distances, difficult climate, difficulties of road and railway construction, the expense of air transport and isolated settlement patterns.",
+          "page": 28,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "The Eskimo has survived in the northern desert (tundra) by developing skills that enable him to exploit the meagre offerings of his environment, particularly those of the sea。",
+          "page": 28,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "The location and vast extent of the Northland has given the region a new significance strategically.",
+          "page": 28,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        }
+      ],
+      "siteUnitName": "The Canadian Shield and Northland"
+    },
+    {
+      "name": "Unit IX: The South",
+      "nameSource": "page 31",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "label": null,
+          "text": "This is an area characterized by recent massive economic and political changes.The original pattern·of English settlement, based on the plantation, led to the importation of slave labor and its social consequences. The breakdown of plantation agriculture led to new patterns of land-use and the relocation of some older activities, e.g., cotton to drier areas. This has been a difficult area marked by cleavage in economic and cultural opportunity. Industrial activity is increasing, e.g., Gulf Coast, T.V.A., (as example of change); and forms and types of agriculture are undergoing rapid transformation. The South is no longer the \"cotton belt\" or the \"deep south\" but a competitive region within the American complex.",
+          "page": 31,
+          "printedHeading": "UNDERSTANDINGS TO BE DEVELOPED"
+        }
+      ],
+      "siteUnitName": "The South"
+    },
+    {
+      "name": "Unit X: The Place of North America in the World",
+      "nameSource": "page 32",
+      "items": [],
+      "siteUnitName": "The Place of North America in the World"
+    }
+  ],
+  "notes": [
+    "This guide predates foundational/learning objectives. Course-level objectives are given type \"foundational\" and the unit \"Understandings\"/\"Objectives\" type \"learning\"; printedHeading keeps the heading as printed. \"Content\", \"Suggested organization of content\", \"Suggested activities\", references and resources are not extracted.",
+    "Numbered or lettered entries are separate items (\"label\" keeps the number or letter); unnumbered text is one item per paragraph.",
+    "The guide treats Units I and II together (\"UNIT I & II\", one list of understandings); the site lists them as two units. Unit names after the colon are the region titles as printed, which differ in wording from the site names (siteUnitName).",
+    "Unit III prints its understandings as a paragraph rather than a numbered list; Unit X has only a \"Suggested organization of course content\" outline, so it has no items.",
+    "The PDF’s own Acrobat OCR text layer is poor (e.g. \"Notth\", \"~lestern\"); the page images were OCRed again. Remaining misreads include \"1\" for \"l\" (e.g. \"Ski1ls\")."
+  ]
+}

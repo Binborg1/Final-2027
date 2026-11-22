@@ -1,0 +1,6559 @@
+{
+  "113": {
+    "kind": "module",
+    "name": "Communication Media 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=113",
+        "page": 7,
+        "quote": "Each module contains a single learning outcome with a number of indicators showing the depth and breadth of the student learning required in each module."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=113",
+        "page": 7,
+        "quote": "The Communication Media curriculum is designed with modules to complete three 100 hour pure courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=113",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Communication Media 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=113",
+        "page": 18,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "CMED01",
+              "CMED02A",
+              "CMED03",
+              "CMED04",
+              "CMED05",
+              "CMED06A",
+              "CMED07A",
+              "CMED08A",
+              "CMED09A",
+              "CMED12",
+              "CMED13",
+              "CMED99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Communication Media 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=113",
+        "page": 19,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "CMED02B",
+              "CMED06B",
+              "CMED07B",
+              "CMED08B",
+              "CMED09B",
+              "CMED10",
+              "CMED11",
+              "CMED14",
+              "CMED16A",
+              "CMED17A",
+              "CMED18A",
+              "CMED99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Communication Media 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=113",
+        "page": 19,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "CMED02C",
+              "CMED09C",
+              "CMED15",
+              "CMED16B",
+              "CMED17B",
+              "CMED18B",
+              "CMED99C"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "114": {
+    "kind": "module",
+    "name": "Construction and Carpentry 10, 20, 30; Construction 20, 30; Carpentry 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=114",
+        "page": 5,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=114",
+        "page": 7,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=114",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Construction and Carpentry 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=114",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COCA1A",
+              "COCA2",
+              "COCA3",
+              "COCA4A",
+              "COCA5A",
+              "COCA6A",
+              "COCA7A",
+              "COCA8A",
+              "COCA9A",
+              "COCA10",
+              "COCA11A",
+              "COCA12A",
+              "COCA13A",
+              "COCA26",
+              "COCA99A"
+            ]
+          },
+          {
+            "name": "Optional Modules from the Drafting Curriculum",
+            "moduleCodes": [
+              "DRAF2",
+              "DRAF3",
+              "DRAF8"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Construction and Carpentry 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=114",
+        "page": 28,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COCA1B",
+              "COCA4D",
+              "COCA6D",
+              "COCA7B",
+              "COCA8D",
+              "COCA9C",
+              "COCA11B",
+              "COCA12D",
+              "COCA14A",
+              "COCA15A",
+              "COCA16A",
+              "COCA17A",
+              "COCA18A",
+              "COCA19A",
+              "COCA20A",
+              "COCA21A",
+              "COCA22A",
+              "COCA23A",
+              "COCA25A",
+              "COCA80A",
+              "COCA81A",
+              "COCA82A",
+              "COCA88",
+              "COCA99B"
+            ]
+          },
+          {
+            "name": "Optional Modules from the Drafting Curriculum",
+            "moduleCodes": [
+              "DRAF9",
+              "DRAF21",
+              "DRAF24"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Construction and Carpentry 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=114",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COCA1C",
+              "COCA4E",
+              "COCA5D",
+              "COCA6E",
+              "COCA8E",
+              "COCA9D",
+              "COCA12E",
+              "COCA14B",
+              "COCA16B",
+              "COCA17B",
+              "COCA18B",
+              "COCA19B",
+              "COCA20B",
+              "COCA21B",
+              "COCA22B",
+              "COCA23B",
+              "COCA24A",
+              "COCA25B",
+              "COCA80B",
+              "COCA81B",
+              "COCA82B",
+              "COCA88",
+              "COCA99C"
+            ]
+          },
+          {
+            "name": "Optional Modules from the Drafting Curriculum",
+            "moduleCodes": [
+              "DRAF22",
+              "DRAF23",
+              "DRAF32"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Carpentry 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=114",
+        "page": 32,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COCA1B",
+              "COCA4B",
+              "COCA5B",
+              "COCA6B",
+              "COCA7B",
+              "COCA8B",
+              "COCA9B",
+              "COCA11B",
+              "COCA12B",
+              "COCA13B",
+              "COCA80A",
+              "COCA81A",
+              "COCA82A",
+              "COCA88",
+              "COCA99B"
+            ],
+            "printedAs": {
+              "COCA81A": "COCA 81A",
+              "COCA82A": "COCA 82A",
+              "COCA99B": "COCA 99B"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Carpentry 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=114",
+        "page": 33,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COCA1C",
+              "COCA4C",
+              "COCA5C",
+              "COCA6C",
+              "COCA8C",
+              "COCA11C",
+              "COCA12C",
+              "COCA13C",
+              "COCA80B",
+              "COCA81B",
+              "COCA82B",
+              "COCA88",
+              "COCA99C"
+            ],
+            "printedAs": {
+              "COCA81B": "COCA 81B",
+              "COCA82B": "COCA 82B",
+              "COCA99C": "COCA 99C"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Construction 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=114",
+        "page": 34,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COCA1D",
+              "COCA4D",
+              "COCA5D",
+              "COCA6D",
+              "COCA8D",
+              "COCA9C",
+              "COCA11B",
+              "COCA12D",
+              "COCA14B",
+              "COCA15B",
+              "COCA16B",
+              "COCA17B",
+              "COCA18B",
+              "COCA19B",
+              "COCA20B",
+              "COCA21B",
+              "COCA22B",
+              "COCA23B",
+              "COCA24A",
+              "COCA80C",
+              "COCA81C",
+              "COCA82C",
+              "COCA88",
+              "COCA99D"
+            ],
+            "printedAs": {
+              "COCA99D": "COCA 99D"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Construction 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=114",
+        "page": 36,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COCA1E",
+              "COCA5E",
+              "COCA6E",
+              "COCA8E",
+              "COCA9D",
+              "COCA12E",
+              "COCA14C",
+              "COCA15C",
+              "COCA16C",
+              "COCA17C",
+              "COCA18C",
+              "COCA19C",
+              "COCA20C",
+              "COCA21C",
+              "COCA22C",
+              "COCA23C",
+              "COCA24B",
+              "COCA80D",
+              "COCA81D",
+              "COCA82D",
+              "COCA88",
+              "COCA99E"
+            ],
+            "printedAs": {
+              "COCA99E": "COCA 99E"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=114",
+        "page": 38,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COCA1",
+              "COCA2",
+              "COCA3",
+              "COCA4A",
+              "COCA6A",
+              "COCA7A",
+              "COCA11A",
+              "COCA12A",
+              "COCA13A"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "129": {
+    "kind": "module",
+    "name": "Graphic Arts 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=129",
+        "page": 7,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=129",
+        "page": 7,
+        "quote": "The Graphic Arts curriculum is designed with modules to complete two100 hour courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=129",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Graphic Arts 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=129",
+        "page": 19,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "GART1",
+              "GART2A",
+              "GART3A",
+              "GART4A",
+              "GART5A",
+              "GART6",
+              "GART7",
+              "GART9A",
+              "GART10A",
+              "GART11A",
+              "GART12A",
+              "GART13",
+              "GART14",
+              "GART16A",
+              "GART18",
+              "GART19A",
+              "GART20",
+              "GART99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Graphic Arts 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=129",
+        "page": 19,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "GART1",
+              "GART2B",
+              "GART3B",
+              "GART4B",
+              "GART5B",
+              "GART8",
+              "GART9B",
+              "GART10B",
+              "GART11B",
+              "GART12B",
+              "GART15",
+              "GART16B",
+              "GART17",
+              "GART19B",
+              "GART21",
+              "GART22",
+              "GART23",
+              "GART99B"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "137": {
+    "kind": "module",
+    "name": "Photography 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=137",
+        "page": 7,
+        "quote": "All PAA curricula are designed using modules with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=137",
+        "page": 7,
+        "quote": "The Photography curriculum is designed with modules to complete three 100-hour courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=137",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Photography 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=137",
+        "page": 18,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "PHGY01",
+              "PHGY02A",
+              "PHGY03A",
+              "PHGY04",
+              "PHGY05",
+              "PHGY06A",
+              "PHGY07",
+              "PHGY08",
+              "PHGY09",
+              "PHGY10",
+              "PHGY11A",
+              "PHGY12A",
+              "PHGY13A",
+              "PHGY20",
+              "PHGY99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Photography 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=137",
+        "page": 19,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "PHGY02B",
+              "PHGY03B",
+              "PHGY06B",
+              "PHGY11B",
+              "PHGY12B",
+              "PHGY13B",
+              "PHGY14",
+              "PHGY15A",
+              "PHGY16",
+              "PHGY17",
+              "PHGY21A",
+              "PHGY22A",
+              "PHGY23A",
+              "PHGY99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Photography 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=137",
+        "page": 19,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "PHGY03C",
+              "PHGY11C",
+              "PHGY12C",
+              "PHGY13C",
+              "PHGY15B",
+              "PHGY18",
+              "PHGY19",
+              "PHGY21B",
+              "PHGY22B",
+              "PHGY23B",
+              "PHGY99C"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "143": {
+    "kind": "module",
+    "name": "Welding 10, 20, A30, B30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=143",
+        "page": 7,
+        "quote": "Each module contains a single learning outcome with a number of indicators showing the depth and breadth of the learning required in each module."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=143",
+        "page": 7,
+        "quote": "The Welding curriculum is designed with modules to complete four 100 hour pure courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=143",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Welding 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=143",
+        "page": 20,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "WLDG01",
+              "WLDG03",
+              "WLDG05",
+              "WLDG06",
+              "WLDG09",
+              "WLDG11A",
+              "WLDG14",
+              "WLDG15",
+              "WLDG16",
+              "WLDG17",
+              "WLDG18",
+              "WLDG19",
+              "WLDG25A",
+              "WLDG27A",
+              "WLDG34",
+              "WLDG99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Welding 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=143",
+        "page": 20,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "WLDG02",
+              "WLDG04",
+              "WLDG07A",
+              "WLDG10",
+              "WLDG11B",
+              "WLDG13",
+              "WLDG20A",
+              "WLDG21A",
+              "WLDG25B",
+              "WLDG27B",
+              "WLDG26",
+              "WLDG31A",
+              "WLDG32A",
+              "WLDG33A",
+              "WLDG99B"
+            ],
+            "printedAs": {
+              "WLDG26": "WLDG 26"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Welding A30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=143",
+        "page": 21,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "WLDG07B",
+              "WLDG12A",
+              "WLDG20B",
+              "WLDG21B",
+              "WLDG22",
+              "WLDG25C",
+              "WLDG27C",
+              "WLDG28A",
+              "WLDG29",
+              "WLDG30",
+              "WLDG31B",
+              "WLDG32B",
+              "WLDG33B",
+              "WLDG88",
+              "WLDG99C"
+            ],
+            "printedAs": {
+              "WLDG07B": "WLDG7B"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Welding B30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=143",
+        "page": 21,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "WLDG08",
+              "WLDG12B",
+              "WLDG20C",
+              "WLDG21C",
+              "WLDG23",
+              "WLDG24",
+              "WLDG25D",
+              "WLDG27D",
+              "WLDG28B",
+              "WLDG31C",
+              "WLDG32C",
+              "WLDG33C",
+              "WLDG99D"
+            ],
+            "printedAs": {
+              "WLDG99D": "WLDG 99D"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "155": {
+    "kind": "none",
+    "name": "Foundations of Mathematics and Pre-calculus 10",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=155",
+        "page": 19,
+        "quote": "In the grades 10-12 curricula, the outcomes are not grouped according to strands (as in the elementary mathematics curricula) or by topic (as in past curricula)."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=155",
+        "page": 19,
+        "quote": "The ordering and grouping of the outcomes in Foundations of Mathematics and Pre-calculus 10 is at the discretion of the teacher."
+      }
+    ],
+    "goals": {
+      "meaning": "The K-12 mathematics goals printed above each outcome's table (“Goals: …”). They overlap (every outcome lists several), so they cannot be used as chapters.",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=155",
+      "byOutcome": {
+        "FP10.1": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "FP10.2": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "FP10.3": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 34
+        },
+        "FP10.4": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "FP10.5": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "FP10.6": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 37
+        },
+        "FP10.7": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "FP10.8": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "FP10.9": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 40
+        },
+        "FP10.10": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 40
+        }
+      },
+      "missing": []
+    }
+  },
+  "156": {
+    "kind": "none",
+    "name": "Foundations of Mathematics 20",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=156",
+        "page": 20,
+        "quote": "In the grades 10-12 curricula, the outcomes are not grouped according to strands (as in the elementary mathematics curricula) or by topic (as in past curricula)."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=156",
+        "page": 20,
+        "quote": "The ordering and grouping of the outcomes in Foundations of Mathematics 20 is at the discretion of the teacher."
+      }
+    ],
+    "goals": {
+      "meaning": "The K-12 mathematics goals printed above each outcome's table (“Goals: …”). They overlap (every outcome lists several), so they cannot be used as chapters.",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=156",
+      "byOutcome": {
+        "FM20.1": {
+          "goals": [
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "FM20.2": {
+          "goals": [
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "FM20.3": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 34
+        },
+        "FM20.4": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "FM20.5": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "FM20.6": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 37
+        },
+        "FM20.7": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "FM20.8": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "FM20.9": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 39
+        }
+      },
+      "missing": []
+    }
+  },
+  "157": {
+    "kind": "none",
+    "name": "Foundations of Mathematics 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=157",
+        "page": 19,
+        "quote": "In the grades 10-12 curricula, the outcomes are not grouped according to strands (as in the elementary mathematics curricula) or by topic (as in past curricula)."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=157",
+        "page": 20,
+        "quote": "The ordering and grouping of the outcomes in Foundations of Mathematics 30 are at the discretion of the teacher."
+      }
+    ],
+    "goals": {
+      "meaning": "The K-12 mathematics goals printed above each outcome's table (“Goals: …”). They overlap (every outcome lists several), so they cannot be used as chapters.",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=157",
+      "byOutcome": {
+        "FM30.1": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 34
+        },
+        "FM30.2": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 35
+        },
+        "FM30.3": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "FM30.4": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "FM30.5": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 37
+        },
+        "FM30.6": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "FM30.7": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 39
+        },
+        "FM30.8": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 40
+        }
+      },
+      "missing": []
+    }
+  },
+  "158": {
+    "kind": "none",
+    "name": "Pre-Calculus 20",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=158",
+        "page": 20,
+        "quote": "In the grades 10-12 curricula, the outcomes are not grouped according to strands (as in the elementary mathematics curricula) or by topic (as in past curricula)."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=158",
+        "page": 20,
+        "quote": "The ordering and grouping of the outcomes in Pre-calculus 20 is at the discretion of the teacher."
+      }
+    ],
+    "goals": {
+      "meaning": "The K-12 mathematics goals printed above each outcome's table (“Goals: …”). They overlap (every outcome lists several), so they cannot be used as chapters.",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=158",
+      "byOutcome": {
+        "P20.1": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "P20.2": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 34
+        },
+        "P20.3": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 35
+        },
+        "P20.4": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "P20.5": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 37
+        },
+        "P20.6": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "P20.7": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "P20.8": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 39
+        },
+        "P20.9": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 40
+        },
+        "P20.10": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 41
+        },
+        "P20.11": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 42
+        }
+      },
+      "missing": []
+    }
+  },
+  "159": {
+    "kind": "none",
+    "name": "Pre-Calculus 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=159",
+        "page": 19,
+        "quote": "In the grades 10-12 curricula, the outcomes are not grouped according to strands (as in the elementary mathematics curricula) or by topic (as in past curricula)."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=159",
+        "page": 19,
+        "quote": "The ordering and grouping of the outcomes in Pre-calculus 30 are at the discretion of the teacher."
+      }
+    ],
+    "goals": {
+      "meaning": "The K-12 mathematics goals printed above each outcome's table (“Goals: …”). They overlap (every outcome lists several), so they cannot be used as chapters.",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=159",
+      "byOutcome": {
+        "P30.1": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33,
+          "printedCode": "PC30.1"
+        },
+        "P30.2": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33,
+          "printedCode": "PC30.2"
+        },
+        "P30.3": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 34,
+          "printedCode": "PC30.3"
+        },
+        "P30.4": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 35,
+          "printedCode": "PC30.4"
+        },
+        "P30.5": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 35,
+          "printedCode": "PC30.5"
+        },
+        "P30.6": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36,
+          "printedCode": "PC30.6"
+        },
+        "P30.7": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 37,
+          "printedCode": "PC30.7"
+        },
+        "P30.8": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 37,
+          "printedCode": "PC30.8"
+        },
+        "P30.9": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38,
+          "printedCode": "PC30.9"
+        },
+        "P30.10": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 39,
+          "printedCode": "PC30.10"
+        },
+        "P30.11": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 40,
+          "printedCode": "PC30.11"
+        },
+        "P30.12": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 41,
+          "printedCode": "PC30.12"
+        },
+        "P30.13": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 42,
+          "printedCode": "PC30.13"
+        }
+      },
+      "missing": []
+    }
+  },
+  "160": {
+    "kind": "none",
+    "name": "Workplace and Apprenticeship Mathematics 10",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=160",
+        "page": 19,
+        "quote": "In the grades 10-12 curricula, the outcomes are not grouped according to strands (as in the elementary mathematics curricula) or by topic (as in past curricula)."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=160",
+        "page": 19,
+        "quote": "The ordering and grouping of the outcomes in Workplace and Apprenticeship Mathematics 10 is at the discretion of the teacher."
+      }
+    ],
+    "goals": {
+      "meaning": "The K-12 mathematics goals printed above each outcome's table (“Goals: …”). They overlap (every outcome lists several), so they cannot be used as chapters.",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=160",
+      "byOutcome": {
+        "WA10.1": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "WA10.2": {
+          "goals": [
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "WA10.3": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 34
+        },
+        "WA10.4": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 35
+        },
+        "WA10.5": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 37
+        },
+        "WA10.6": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "WA10.7": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "WA10.8": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 39
+        },
+        "WA10.9": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 40
+        },
+        "WA10.10": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 41
+        },
+        "WA10.11": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 42
+        }
+      },
+      "missing": []
+    }
+  },
+  "161": {
+    "kind": "none",
+    "name": "Workplace and Apprenticeship Mathematics 20",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=161",
+        "page": 19,
+        "quote": "In the grades 10-12 curricula, the outcomes are not grouped according to strands (as in the elementary mathematics curricula) or by topic (as in past curricula)."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=161",
+        "page": 20,
+        "quote": "The ordering and grouping of the outcomes in Workplace and Apprenticeship Mathematics 20 is at the discretion of the teacher."
+      }
+    ],
+    "goals": {
+      "meaning": "The K-12 mathematics goals printed above each outcome's table (“Goals: …”). They overlap (every outcome lists several), so they cannot be used as chapters.",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=161",
+      "byOutcome": {
+        "WA20.1": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "WA20.2": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "WA20.3": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 34
+        },
+        "WA20.4": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "WA20.5": {
+          "goals": [
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "WA20.6": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 37
+        },
+        "WA20.7": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 37
+        },
+        "WA20.8": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "WA20.9": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 39
+        },
+        "WA20.10": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 39
+        },
+        "WA20.11": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 40
+        }
+      },
+      "missing": []
+    }
+  },
+  "162": {
+    "kind": "none",
+    "name": "Workplace and Apprenticeship Mathematics 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=162",
+        "page": 19,
+        "quote": "In the grades 10-12 curricula, the outcomes are not grouped according to strands (as in the elementary mathematics curricula) or by topic (as in past curricula)."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=162",
+        "page": 19,
+        "quote": "The ordering and grouping of the outcomes in Workplace and Apprenticeship Mathematics 30 are at the discretion of the teacher."
+      }
+    ],
+    "goals": {
+      "meaning": "The K-12 mathematics goals printed above each outcome's table (“Goals: …”). They overlap (every outcome lists several), so they cannot be used as chapters.",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=162",
+      "byOutcome": {
+        "WA30.1": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "WA30.2": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "WA30.3": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 34
+        },
+        "WA30.4": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 34
+        },
+        "WA30.5": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 35
+        },
+        "WA30.6": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "WA30.7": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "WA30.8": {
+          "goals": [
+            "Number Sense",
+            "Spatial Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 37
+        },
+        "WA30.9": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "WA30.10": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 38
+        },
+        "WA30.11": {
+          "goals": [
+            "Number Sense",
+            "Logical Thinking",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 39
+        }
+      },
+      "missing": []
+    }
+  },
+  "163": {
+    "kind": "none",
+    "name": "Calculus 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=163",
+        "page": 19,
+        "quote": "In the grades 10-12 curricula, the outcomes are not grouped according to strands (as in the elementary mathematics curricula) or by topic (as in past curricula)."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=163",
+        "page": 19,
+        "quote": "The ordering and grouping of the outcomes in Calculus 30 is at the discretion of the teacher."
+      }
+    ],
+    "goals": {
+      "meaning": "The K-12 mathematics goals printed above each outcome's table (“Goals: …”). They overlap (every outcome lists several), so they cannot be used as chapters.",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=163",
+      "byOutcome": {
+        "C30.1": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 32
+        },
+        "C30.2": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 32
+        },
+        "C30.3": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 33
+        },
+        "C30.4": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 34
+        },
+        "C30.5": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 35
+        },
+        "C30.6": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "C30.7": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 36
+        },
+        "C30.8": {
+          "goals": [
+            "Logical Thinking",
+            "Number Sense",
+            "Spatial Sense",
+            "Mathematics as a Human Endeavour"
+          ],
+          "page": 37
+        }
+      },
+      "missing": []
+    }
+  },
+  "413": {
+    "kind": "none",
+    "name": "Catholic Studies 10",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=413",
+        "page": 19,
+        "observation": "The “Outcomes and Indicators” table lists the Catholic Studies 10 outcomes as one numbered sequence under a single heading, with no unit, strand, theme or module headings."
+      }
+    ],
+    "courseTitle": {
+      "text": "Understanding the Call to Evangelize",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=413",
+      "page": 19,
+      "meaning": "A single heading over the whole outcomes table, not a grouping."
+    },
+    "learningContexts": {
+      "meaning": "Five required learning contexts; each outcome lists the ones that best support it (already in sk.json as printedWith, e.g. “[SH, KG]”). They overlap and are suggestions, so they are not a partition of the outcomes.",
+      "evidence": {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=413",
+        "page": 11,
+        "quote": "Contexts serve as higher-level conceptual organizers for inquiry. There are five required contexts that are the same for all grades. Each learning context is identified using a two or three letter code. These codes are listed under each outcome as a suggestion regarding which learning context or contexts most strongly support the intent of the outcome. Following are the grades 9-12 contexts and codes: 1. Salvation History [SH] 2. Knowing God [KG] 3. Dignity of the Human Person [DHP] 4. Church [CH] 5. Seeking Spiritual Meaning [SSM]."
+      }
+    }
+  },
+  "414": {
+    "kind": "none",
+    "name": "Catholic Studies 20",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=414",
+        "page": 20,
+        "observation": "The “Outcomes and Indicators” table lists the Catholic Studies 20 outcomes as one numbered sequence under a single heading, with no unit, strand, theme or module headings."
+      }
+    ],
+    "courseTitle": {
+      "text": "Exploring the Joy of a Catholic Identity",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=414",
+      "page": 20,
+      "meaning": "A single heading over the whole outcomes table, not a grouping."
+    },
+    "learningContexts": {
+      "meaning": "Five required learning contexts; each outcome lists the ones that best support it (already in sk.json as printedWith, e.g. “[SH, KG]”). They overlap and are suggestions, so they are not a partition of the outcomes.",
+      "evidence": {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=414",
+        "page": 11,
+        "quote": "Contexts serve as higher-level conceptual organizers for inquiry. There are five required contexts that are the same for all grades. Each learning context is identified using a two or three letter code. These codes are listed under each outcome as a suggestion regarding which learning context or contexts most strongly support the intent of the outcome. Following are the grades 9-12 contexts and codes: 1. Salvation History [SH] 2. Knowing God [KG] 3. Dignity of the Human Person [DHP] 4. Church [CH] 5. Seeking Spiritual Meaning [SSM]."
+      }
+    }
+  },
+  "415": {
+    "kind": "none",
+    "name": "Catholic Studies 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=415",
+        "page": 19,
+        "observation": "The “Outcomes and Indicators” table lists the Catholic Studies 30 outcomes as one numbered sequence under a single heading, with no unit, strand, theme or module headings."
+      }
+    ],
+    "courseTitle": {
+      "text": "Embracing Spiritual and Religious Life",
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=415",
+      "page": 19,
+      "meaning": "A single heading over the whole outcomes table, not a grouping."
+    },
+    "learningContexts": {
+      "meaning": "Five required learning contexts; each outcome lists the ones that best support it (already in sk.json as printedWith, e.g. “[SH, KG]”). They overlap and are suggestions, so they are not a partition of the outcomes.",
+      "evidence": {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=415",
+        "page": 11,
+        "quote": "Contexts serve as higher-level conceptual organizers for inquiry. There are five required contexts that are the same for all grades. Each learning context is identified using a two or three letter code. These codes are listed under each outcome as a suggestion regarding which learning context or contexts most strongly support the intent of the outcome. An essential question that arises from imaginative engagement is an important way to bring teacher, student and subject matter together in ways that enrich all three. (Clifford & Friesen, 2007) “Learning is contextual. We do not learn isolated facts and theories in some abstract ethereal land of the mind separate from the rest of our lives: we learn in relationship to what else we know, what we believe, our prejudices and our fears”. (J. McTighe) Catholic Studies 30 8 Following are the grades 9-12 contexts and codes: 1. Salvation History [SH] 2. Knowing God [KG] 3. Dignity of the Human Person [DHP] 4. Church [CH] 5. Seeking Spiritual Meaning [SSM]."
+      }
+    }
+  },
+  "453": {
+    "kind": "none",
+    "name": "Physical Education 20",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=453",
+        "page": 25,
+        "observation": "“Outcomes at a Glance” lists the Physical Education 20 outcomes as one numbered list, with no unit, strand, theme or module headings."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=453",
+        "page": 25,
+        "quote": "The outcomes in this curriculum contribute to the development of the K-12 physical education goals."
+      }
+    ],
+    "outcomeTitles": {
+      "meaning": "Each outcome opens with a short official title (printed before “–” on the website and in “Outcomes at a Glance”). Verbatim and teacher-friendly: the natural chapter title if one chapter per outcome is chosen.",
+      "byOutcome": {
+        "PE20.1": "Service Learning",
+        "PE20.2": "Health- and Skill-Related Fitness",
+        "PE20.3": "Body Management",
+        "PE20.4": "Complex Skills",
+        "PE20.5": "Physical Activity within Multiple Environments",
+        "PE20.6": "Games, Tactics and Strategies",
+        "PE20.7": "First Nations and Métis",
+        "PE20.8": "Nutrition",
+        "PE20.9": "Skeletal and Muscular Systems",
+        "PE20.10": "Personal Mental Health",
+        "PE20.11": "Student-Directed Study"
+      }
+    }
+  },
+  "454": {
+    "kind": "none",
+    "name": "Physical Education 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=454",
+        "page": 25,
+        "observation": "“Outcomes at a Glance” lists the Physical Education 30 outcomes as one numbered list, with no unit, strand, theme or module headings."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=454",
+        "page": 25,
+        "quote": "The outcomes in this curriculum contribute to the development of the K-12 physical education goals."
+      }
+    ],
+    "outcomeTitles": {
+      "meaning": "Each outcome opens with a short official title (printed before “–” on the website and in “Outcomes at a Glance”). Verbatim and teacher-friendly: the natural chapter title if one chapter per outcome is chosen.",
+      "byOutcome": {
+        "PE30.1": "Leadership through Service Learning",
+        "PE30.2": "Lifelong Fitness",
+        "PE30.3": "Body Management",
+        "PE30.4": "Movement in Multiple Environments",
+        "PE30.5": "Complex Skills, Tactics and Strategies",
+        "PE30.6": "First Nations and Métis",
+        "PE30.7": "Nutrition",
+        "PE30.8": "Physiology and Biomechanics",
+        "PE30.9": "Exercise Psychology",
+        "PE30.10": "Student-Directed Study"
+      }
+    }
+  },
+  "488": {
+    "kind": "module",
+    "name": "Financial Literacy 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=488",
+        "page": 6,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=488",
+        "page": 9,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=488",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Financial Literacy 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=488",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "FINL1",
+              "FINL2",
+              "FINL3",
+              "FINL4",
+              "FINL5",
+              "FINL6A",
+              "FINL6B",
+              "FINL7A",
+              "FINL8",
+              "FINL9",
+              "FINL10",
+              "FINL11",
+              "FINL14A",
+              "FINL15A",
+              "FINL15B",
+              "FINL15C",
+              "FINL16",
+              "FINL17A",
+              "FINL20",
+              "FINL22A",
+              "FINL22B",
+              "FINL22D",
+              "FINL22E",
+              "FINL23",
+              "FINL24",
+              "FINL26A",
+              "FINL27",
+              "FINL28A",
+              "FINL29A",
+              "FINL29B",
+              "FINL29C",
+              "FINL29D",
+              "FINL30A",
+              "FINL31A",
+              "FINL31B",
+              "FINL34",
+              "FINL36",
+              "FINL80A",
+              "FINL81A",
+              "FINL82A",
+              "FINL99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Financial Literacy 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=488",
+        "page": 33,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "FINL6C",
+              "FINL7B",
+              "FINL12",
+              "FINL13",
+              "FINL14B",
+              "FINL14C",
+              "FINL17B",
+              "FINL18",
+              "FINL19",
+              "FINL21",
+              "FINL22C",
+              "FINL25",
+              "FINL26B",
+              "FINL28B",
+              "FINL28C",
+              "FINL28D",
+              "FINL29E",
+              "FINL29F",
+              "FINL29G",
+              "FINL30B",
+              "FINL31C",
+              "FINL32",
+              "FINL33",
+              "FINL35",
+              "FINL80B",
+              "FINL81B",
+              "FINL82B",
+              "FINL99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level PAA Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=488",
+        "page": 36,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "FINL1",
+              "FINL2",
+              "FINL3",
+              "FINL4",
+              "FINL6A",
+              "FINL7A",
+              "FINL8",
+              "FINL15A",
+              "FINL17A",
+              "FINL23",
+              "FINL27",
+              "FINL29A",
+              "FINL34"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "517": {
+    "kind": "none",
+    "name": "Psychology 20",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=517",
+        "page": 20,
+        "observation": "“Outcomes at a Glance” lists the Psychology 20 outcomes as one numbered list, with no unit, strand, theme or module headings."
+      }
+    ]
+  },
+  "518": {
+    "kind": "none",
+    "name": "Psychology 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=518",
+        "page": 20,
+        "observation": "“Outcomes at a Glance” lists the Psychology 30 outcomes as one numbered list, with no unit, strand, theme or module headings."
+      }
+    ]
+  },
+  "524": {
+    "kind": "module",
+    "name": "Commercial Cooking 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=524",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=524",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=524",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Commercial Cooking 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=524",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COOK1",
+              "COOK2",
+              "COOK3A",
+              "COOK4A",
+              "COOK5A",
+              "COOK5B",
+              "COOK5C",
+              "COOK6A",
+              "COOK7A",
+              "COOK8A",
+              "COOK10A",
+              "COOK11",
+              "COOK12",
+              "COOK14",
+              "COOK15A",
+              "COOK17",
+              "COOK20A",
+              "COOK23A",
+              "COOK28",
+              "COOK29",
+              "COOK30A",
+              "COOK31A",
+              "COOK32A",
+              "COOK33A",
+              "COOK41",
+              "COOK99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Commercial Cooking 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=524",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COOK3B",
+              "COOK4B",
+              "COOK6B",
+              "COOK7B",
+              "COOK8B",
+              "COOK9A",
+              "COOK10B",
+              "COOK13",
+              "COOK15B",
+              "COOK16A",
+              "COOK19A",
+              "COOK20B",
+              "COOK23B",
+              "COOK24",
+              "COOK26A",
+              "COOK27",
+              "COOK30B",
+              "COOK31B",
+              "COOK32B",
+              "COOK33B",
+              "COOK34",
+              "COOK35A",
+              "COOK38",
+              "COOK80A",
+              "COOK81A",
+              "COOK82A",
+              "COOK88",
+              "COOK99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Commercial Cooking 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=524",
+        "page": 31,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COOK3C",
+              "COOK4C",
+              "COOK6C",
+              "COOK9B",
+              "COOK15C",
+              "COOK16B",
+              "COOK18",
+              "COOK19B",
+              "COOK20C",
+              "COOK21",
+              "COOK22",
+              "COOK25",
+              "COOK26B",
+              "COOK30C",
+              "COOK31C",
+              "COOK32C",
+              "COOK33C",
+              "COOK35B",
+              "COOK36",
+              "COOK37",
+              "COOK39",
+              "COOK40",
+              "COOK80B",
+              "COOK81B",
+              "COOK82B",
+              "COOK85",
+              "COOK99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=524",
+        "page": 33,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "COOK2",
+              "COOK3A",
+              "COOK5A",
+              "COOK5B",
+              "COOK5C",
+              "COOK6A",
+              "COOK28"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "525": {
+    "kind": "module",
+    "name": "Career and Work Exploration 10, 20, A30, B30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=525",
+        "page": 6,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=525",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=525",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Career and Work Exploration 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=525",
+        "page": 25,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "CWEX1",
+              "CWEX2",
+              "CWEX3",
+              "CWEX4",
+              "CWEX5",
+              "CWEX6",
+              "CWEX7",
+              "CWEX9",
+              "CWEX14A",
+              "CWEX15A",
+              "CWEX16A",
+              "CWEX17A",
+              "CWEX21",
+              "CWEX80A",
+              "CWEX81A",
+              "CWEX82A",
+              "CWEX83A",
+              "CWEX99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Career and Work Exploration 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=525",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "CWEX8",
+              "CWEX10",
+              "CWEX11",
+              "CWEX12",
+              "CWEX13",
+              "CWEX14B",
+              "CWEX15B",
+              "CWEX16B",
+              "CWEX17B",
+              "CWEX18A",
+              "CWEX80B",
+              "CWEX81B",
+              "CWEX82B",
+              "CWEX83B",
+              "CWEX99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Career and Work Exploration A30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=525",
+        "page": 28,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "CWEX14C",
+              "CWEX15C",
+              "CWEX16C",
+              "CWEX17C",
+              "CWEX18B",
+              "CWEX19",
+              "CWEX80C",
+              "CWEX81C",
+              "CWEX82C",
+              "CWEX83C",
+              "CWEX99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Career and Work Exploration B30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=525",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "CWEX15D",
+              "CWEX16D",
+              "CWEX17D",
+              "CWEX18C",
+              "CWEX20",
+              "CWEX80D",
+              "CWEX81D",
+              "CWEX82D",
+              "CWEX83D",
+              "CWEX99D"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "526": {
+    "kind": "module",
+    "name": "Accounting 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=526",
+        "page": 6,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=526",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=526",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Accounting 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=526",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ACCT1",
+              "ACCT2",
+              "ACCT3",
+              "ACCT4",
+              "ACCT5",
+              "ACCT6",
+              "ACCT7",
+              "ACCT8",
+              "ACCT9",
+              "ACCT10",
+              "ACCT11",
+              "ACCT12",
+              "ACCT13A",
+              "ACCT25A",
+              "ACCT29A",
+              "ACCT30",
+              "ACCT99A"
+            ]
+          },
+          {
+            "name": "Optional Modules from the Financial Literacy Curriculum",
+            "moduleCodes": [
+              "FINL29B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Accounting 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=526",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ACCT14",
+              "ACCT15",
+              "ACCT16",
+              "ACCT17",
+              "ACCT18",
+              "ACCT19",
+              "ACCT25B",
+              "ACCT26",
+              "ACCT27A",
+              "ACCT27B",
+              "ACCT28",
+              "ACCT29B",
+              "ACCT31A",
+              "ACCT31B",
+              "ACCT31C",
+              "ACCT37",
+              "ACCT80A",
+              "ACCT81A",
+              "ACCT82A",
+              "ACCT99B"
+            ]
+          },
+          {
+            "name": "Optional Modules from the Financial Literacy Curriculum",
+            "moduleCodes": [
+              "FINL29C",
+              "FINL29D"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Accounting 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=526",
+        "page": 31,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ACCT20",
+              "ACCT21",
+              "ACCT22",
+              "ACCT23",
+              "ACCT24",
+              "ACCT13B",
+              "ACCT29C",
+              "ACCT31D",
+              "ACCT32",
+              "ACCT33",
+              "ACCT34A",
+              "ACCT34B",
+              "ACCT34C",
+              "ACCT35",
+              "ACCT36",
+              "ACCT38",
+              "ACCT80B",
+              "ACCT81B",
+              "ACCT82B",
+              "ACCT99C"
+            ]
+          },
+          {
+            "name": "Optional Modules from the Financial Literacy Curriculum",
+            "moduleCodes": [
+              "FINL26G"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level PAA Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=526",
+        "page": 33,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ACCT1",
+              "ACCT2",
+              "ACCT3",
+              "ACCT12",
+              "ACCT25A",
+              "ACCT30"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "527": {
+    "kind": "module",
+    "name": "Drafting and Computer-Aided Design 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=527",
+        "page": 6,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=527",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=527",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Drafting and Computer-Aided Design 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=527",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "DRAF1",
+              "DRAF2",
+              "DRAF3",
+              "DRAF4",
+              "DRAF5",
+              "DRAF8",
+              "DRAF9",
+              "DRAF11",
+              "DRAF12",
+              "DRAF17",
+              "DRAF28",
+              "DRAF31",
+              "DRAF34",
+              "DRAF37",
+              "DRAF41"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Drafting and Computer-Aided Design 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=527",
+        "page": 28,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "DRAF6",
+              "DRAF19",
+              "DRAF20",
+              "DRAF21",
+              "DRAF22",
+              "DRAF23",
+              "DRAF24",
+              "DRAF25",
+              "DRAF26",
+              "DRAF32",
+              "DRAF33",
+              "DRAF35",
+              "DRAF36",
+              "DRAF38",
+              "DRAF39",
+              "DRAF42",
+              "DRAF80A",
+              "DRAF81A",
+              "DRAF82A",
+              "DRAF99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Drafting and Computer-Aided Design 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=527",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "DRAF7",
+              "DRAF10",
+              "DRAF13",
+              "DRAF14",
+              "DRAF15",
+              "DRAF16",
+              "DRAF18",
+              "DRAF27",
+              "DRAF29",
+              "DRAF30",
+              "DRAF40",
+              "DRAF43",
+              "DRAF80B",
+              "DRAF81B",
+              "DRAF82B",
+              "DRAF99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level PAA Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=527",
+        "page": 32,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "DRAF1",
+              "DRAF2",
+              "DRAF3",
+              "DRAF4",
+              "DRAF5",
+              "DRAF6",
+              "DRAF8",
+              "DRAF11",
+              "DRAF17",
+              "DRAF28",
+              "DRAF31",
+              "DRAF33",
+              "DRAF34"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "535": {
+    "kind": "module",
+    "name": "Information Processing 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=535",
+        "page": 6,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=535",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=535",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Information Processing 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=535",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "INFO1",
+              "INFO3",
+              "INFO4A",
+              "INFO4B",
+              "INFO5A",
+              "INFO6A",
+              "INFO7A",
+              "INFO8A",
+              "INFO9A",
+              "INFO9B",
+              "INFO10",
+              "INFO15A",
+              "INFO15B",
+              "INFO15C",
+              "INFO16A",
+              "INFO17A",
+              "INFO17B",
+              "INFO17C",
+              "INFO18A",
+              "INFO18B",
+              "INFO19",
+              "INFO20",
+              "INFO21A",
+              "INFO22A",
+              "INFO99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Information Processing 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=535",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "INFO2",
+              "INFO5B",
+              "INFO6B",
+              "INFO7B",
+              "INFO8B",
+              "INFO9C",
+              "INFO11",
+              "INFO12",
+              "INFO13A",
+              "INFO13B",
+              "INFO15D",
+              "INFO16B",
+              "INFO16C",
+              "INFO17D",
+              "INFO18C",
+              "INFO21B",
+              "INFO22B",
+              "INFO80A",
+              "INFO81A",
+              "INFO82A",
+              "INFO99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Information Processing 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=535",
+        "page": 31,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "INFO14",
+              "INFO15E",
+              "INFO16D",
+              "INFO21C",
+              "INFO22C",
+              "INFO22D",
+              "INFO23",
+              "INFO24",
+              "INFO25",
+              "INFO80B",
+              "INFO81B",
+              "INFO82B",
+              "INFO99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level PAA Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=535",
+        "page": 33,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "INFO1",
+              "INFO2",
+              "INFO3",
+              "INFO4A",
+              "INFO4B",
+              "INFO5A",
+              "INFO6A",
+              "INFO7A",
+              "INFO8A",
+              "INFO9A",
+              "INFO9B",
+              "INFO15A",
+              "INFO15B",
+              "INFO15C",
+              "INFO16A",
+              "INFO17A",
+              "INFO17B",
+              "INFO17C",
+              "INFO18A",
+              "INFO18B",
+              "INFO19",
+              "INFO20",
+              "INFO21A",
+              "INFO22A"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "538": {
+    "kind": "module",
+    "name": "Autobody 10, A20, B20, A30, B30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=538",
+        "page": 6,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=538",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=538",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Autobody 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=538",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AUTO1A",
+              "AUTO2",
+              "AUTO3",
+              "AUTO4",
+              "AUTO5A",
+              "AUTO6",
+              "AUTO7",
+              "AUTO8",
+              "AUTO9",
+              "AUTO31",
+              "AUTO32",
+              "AUTO70",
+              "AUTO99A"
+            ],
+            "printedAs": {
+              "AUTO5A": "AUTO5"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Autobody A20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=538",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AUTO1B",
+              "AUTO5B",
+              "AUTO12",
+              "AUTO13",
+              "AUTO16",
+              "AUTO20",
+              "AUTO29",
+              "AUTO33A",
+              "AUTO80A",
+              "AUTO81A",
+              "AUTO82A",
+              "AUTO99B"
+            ],
+            "printedAs": {
+              "AUTO5B": "AUTO5"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Autobody B20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=538",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AUTO1C",
+              "AUTO5C",
+              "AUTO17",
+              "AUTO18",
+              "AUTO19",
+              "AUTO21",
+              "AUTO30",
+              "AUTO33B",
+              "AUTO80B",
+              "AUTO81B",
+              "AUTO82B",
+              "AUTO99C"
+            ],
+            "printedAs": {
+              "AUTO5C": "AUTO5",
+              "AUTO81B": "ATUO81B"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Autobody A30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=538",
+        "page": 31,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AUTO1D",
+              "AUTO5D",
+              "AUTO10",
+              "AUTO14",
+              "AUTO22",
+              "AUTO25",
+              "AUTO26",
+              "AUTO28",
+              "AUTO34A",
+              "AUTO80C",
+              "AUTO81C",
+              "AUTO82C",
+              "AUTO85",
+              "AUTO88",
+              "ATUO99D"
+            ],
+            "printedAs": {
+              "AUTO5D": "AUTO5",
+              "AUTO80C": "ATUO80C"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Autobody B30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=538",
+        "page": 33,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AUTO1E",
+              "AUTO5E",
+              "AUTO11",
+              "AUTO15",
+              "AUTO23",
+              "AUTO24",
+              "AUTO27",
+              "AUTO34B",
+              "AUTO80D",
+              "AUTO81D",
+              "AUTO82D",
+              "AUTO99E"
+            ],
+            "printedAs": {
+              "AUTO5E": "AUTO5"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level PAA Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=538",
+        "page": 34,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AUTO1",
+              "AUTO2",
+              "AUTO3",
+              "AUTO6",
+              "AUTO31"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "543": {
+    "kind": "module",
+    "name": "Mechanical and Automotive 10, A20, B20, A30, B30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=543",
+        "page": 6,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=543",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=543",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Mechanical and Automotive 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=543",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MECH1",
+              "MECH3A",
+              "MECH5",
+              "MECH7",
+              "MECH8",
+              "MECH9A",
+              "MECH9B",
+              "MECH9C",
+              "MECH10",
+              "MECH18",
+              "MECH37",
+              "MECH99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mechanical and Automotive A20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=543",
+        "page": 28,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MECH2",
+              "MECH3B",
+              "MECH4",
+              "MECH6",
+              "MECH9D",
+              "MECH11",
+              "MECH12",
+              "MECH13A",
+              "MECH13B",
+              "MECH14A",
+              "MECH14B",
+              "MECH14C",
+              "MECH32",
+              "MECH36A",
+              "MECH80A",
+              "MECH81A",
+              "MECH82A",
+              "MECH99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mechanical and Automotive B20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=543",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MECH3C",
+              "MECH4",
+              "MECH15",
+              "MECH17",
+              "MECH19A",
+              "MECH19B",
+              "MECH22",
+              "MECH23",
+              "MECH36B",
+              "MECH80B",
+              "MECH81B",
+              "MECH82B",
+              "MECH99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mechanical and Automotive A30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=543",
+        "page": 32,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MECH3D",
+              "MECH4",
+              "MECH16A",
+              "MECH16B",
+              "MECH26",
+              "MECH27A",
+              "MECH27B",
+              "MECH28",
+              "MECH29",
+              "MECH30",
+              "MECH31",
+              "MECH33",
+              "MECH34",
+              "MECH35",
+              "MECH36C",
+              "MECH80C",
+              "MECH81C",
+              "MECH82C",
+              "MECH85",
+              "MECH88",
+              "MECH99D"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mechanical and Automotive B30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=543",
+        "page": 34,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MECH3E",
+              "MECH4",
+              "MECH19C",
+              "MECH20",
+              "MECH21",
+              "MECH24",
+              "MECH25",
+              "MECH36D",
+              "MECH80D",
+              "MECH81D",
+              "MECH82D",
+              "MECH99E"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level PAA Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=543",
+        "page": 36,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MECH1",
+              "MECH2",
+              "MECH3A",
+              "MECH9B",
+              "MECH9C"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "552": {
+    "kind": "module",
+    "name": "Electrical and Electronics 10, Electrical 20, 30, Electronics 20, A30, B30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=552",
+        "page": 6,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=552",
+        "page": 7,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=552",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Electrical and Electronics 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=552",
+        "page": 31,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELEC1A",
+              "ELEC2A",
+              "ELEC3A",
+              "ELEC5A",
+              "ELEC5B",
+              "ELEC5C",
+              "ELEC6A",
+              "ELEC7A",
+              "ELEC7B",
+              "ELEC8",
+              "ELEC10",
+              "ELEC11A",
+              "ELEC17A",
+              "ELEC21A",
+              "ELEC22A",
+              "ELEC23A",
+              "ELEC24A",
+              "ELEC25A",
+              "ELEC37",
+              "ELEC99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Electrical 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=552",
+        "page": 33,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELEC1B",
+              "ELEC2B",
+              "ELEC3B",
+              "ELEC4",
+              "ELEC5D",
+              "ELEC5E",
+              "ELEC6B",
+              "ELEC9A",
+              "ELEC11B",
+              "ELEC12A",
+              "ELEC12D",
+              "ELEC13A",
+              "ELEC14A",
+              "ELEC15A",
+              "ELEC16A",
+              "ELEC16B",
+              "ELEC21B",
+              "ELEC38A",
+              "ELEC40A",
+              "ELEC80A",
+              "ELEC81A",
+              "ELEC82A",
+              "ELEC99B"
+            ],
+            "printedAs": {
+              "ELEC15A": "ELEC 15A"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Electrical 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=552",
+        "page": 35,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELEC1D",
+              "ELEC2C",
+              "ELEC3C",
+              "ELEC5F",
+              "ELEC6C",
+              "ELEC9B",
+              "ELEC11C",
+              "ELEC12B",
+              "ELEC12C",
+              "ELEC13B",
+              "ELEC14B",
+              "ELEC15B",
+              "ELEC16C",
+              "ELEC17B",
+              "ELEC18A",
+              "ELEC18B",
+              "ELEC19A",
+              "ELEC19B",
+              "ELEC20A",
+              "ELEC20B",
+              "ELEC20C",
+              "ELEC20D",
+              "ELEC20E",
+              "ELEC39A",
+              "ELEC80C",
+              "ELEC81C",
+              "ELEC82C",
+              "ELEC85A",
+              "ELEC88A",
+              "ELEC99D"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Electronics 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=552",
+        "page": 38,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELEC1C",
+              "ELEC3C",
+              "ELEC14C",
+              "ELEC17C",
+              "ELEC22B",
+              "ELEC23B",
+              "ELEC24B",
+              "ELEC25B",
+              "ELEC26A",
+              "ELEC27A",
+              "ELEC28A",
+              "ELEC30A",
+              "ELEC30B",
+              "ELEC31A",
+              "ELEC34",
+              "ELEC36",
+              "ELEC38B",
+              "ELEC40B",
+              "ELEC80B",
+              "ELEC81B",
+              "ELEC82B",
+              "ELEC99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Electronics A30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=552",
+        "page": 40,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELEC1E",
+              "ELEC24C",
+              "ELEC26B",
+              "ELEC27B",
+              "ELEC28B",
+              "ELEC29",
+              "ELEC31B",
+              "ELEC35A",
+              "ELEC35B",
+              "ELEC35C",
+              "ELEC39B",
+              "ELEC80D",
+              "ELEC81D",
+              "ELEC82D",
+              "ELEC85B",
+              "ELEC88B",
+              "ELEC99E"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Electronics B30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=552",
+        "page": 42,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELEC1F",
+              "ELEC26C",
+              "ELEC31C",
+              "ELEC32A",
+              "ELEC32B",
+              "ELEC33A",
+              "ELEC33B",
+              "ELEC33C",
+              "ELEC39C",
+              "ELEC80E",
+              "ELEC81E",
+              "ELEC82E",
+              "ELEC99F"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level PAA Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=552",
+        "page": 44,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELEC1A",
+              "ELEC2A",
+              "ELEC5A",
+              "ELEC6A",
+              "ELEC30A",
+              "ELEC30B",
+              "ELEC36"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "560": {
+    "kind": "module",
+    "name": "Marketing 20",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=560",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=560",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=560",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Marketing 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=560",
+        "page": 23,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MARE1",
+              "MARE2",
+              "MARE3",
+              "MARE4",
+              "MARE5",
+              "MARE6A",
+              "MARE6B",
+              "MARE7",
+              "MARE8",
+              "MARE9",
+              "MARE10",
+              "MARE11",
+              "MARE12",
+              "MARE13",
+              "MARE14A",
+              "MARE14B",
+              "MARE80",
+              "MARE81",
+              "MARE82",
+              "MARE99"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=560",
+        "page": 25,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MARE1",
+              "MARE2",
+              "MARE3",
+              "MARE4",
+              "MARE5"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "565": {
+    "kind": "module",
+    "name": "Tourism 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=565",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=565",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=565",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Tourism 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=565",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "TOUE1",
+              "TOUE2",
+              "TOUE3",
+              "TOUE4",
+              "TOUE5",
+              "TOUE8A",
+              "TOUE9A",
+              "TOUE10A",
+              "TOUE11A",
+              "TOUE12A",
+              "TOUE13",
+              "TOUE14A",
+              "TOUE15A",
+              "TOUE16",
+              "TOUE18A",
+              "TOUE18D",
+              "TOUE22A",
+              "TOUE99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Tourism 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=565",
+        "page": 28,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "TOUE6",
+              "TOUE8B",
+              "TOUE9B",
+              "TOUE10B",
+              "TOUE11B",
+              "TOUE12B",
+              "TOUE14B",
+              "TOUE15B",
+              "TOUE15C",
+              "TOUE18B",
+              "TOUE18E",
+              "TOUE22B",
+              "TOUE80A",
+              "TOUE81A",
+              "TOUE82A",
+              "TOUE88",
+              "TOUE99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Tourism 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=565",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "TOUE7",
+              "TOUE8C",
+              "TOUE14C",
+              "TOUE15D",
+              "TOUE15E",
+              "TOUE17",
+              "TOUE18C",
+              "TOUE18F",
+              "TOUE19",
+              "TOUE20",
+              "TOUE21",
+              "TOUE22C",
+              "TOUE80B",
+              "TOUE81B",
+              "TOUE82B",
+              "TOUE99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=565",
+        "page": 32,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "TOUE1",
+              "TOUE2",
+              "TOUE4",
+              "TOUE8A",
+              "TOUE9A",
+              "TOUE10A",
+              "TOUE11A",
+              "TOUE12A",
+              "TOUE13",
+              "TOUE14A",
+              "TOUE15A",
+              "TOUE16",
+              "TOUE18A",
+              "TOUE18D"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "568": {
+    "kind": "module",
+    "name": "Interior Design and Decorating 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=568",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=568",
+        "page": 7,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=568",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Interior Design and Decorating 30",
+        "subtitle": "Combined Design and Decorating Focus",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=568",
+        "page": 24,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "INDD1",
+              "INDD2",
+              "INDD3",
+              "INDD4",
+              "INDD5",
+              "INDD6",
+              "INDD7",
+              "INDD8",
+              "INDD9",
+              "INDD10",
+              "INDD11",
+              "INDD12",
+              "INDD16",
+              "INDD17",
+              "INDD18",
+              "INDD19",
+              "INDD21",
+              "INDD22",
+              "INDD23",
+              "INDD24",
+              "INDD25",
+              "INDD26",
+              "INDD80",
+              "INDD81",
+              "INDD82",
+              "INDD85",
+              "INDD99"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Interior Design and Decorating 30",
+        "subtitle": "Design Focus",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=568",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "INDD1",
+              "INDD2",
+              "INDD3",
+              "INDD4",
+              "INDD5",
+              "INDD6",
+              "INDD7",
+              "INDD8",
+              "INDD9",
+              "INDD10",
+              "INDD11",
+              "INDD12",
+              "INDD13",
+              "INDD14",
+              "INDD15",
+              "INDD16",
+              "INDD17",
+              "INDD18",
+              "INDD19",
+              "INDD24",
+              "INDD26",
+              "INDD80",
+              "INDD81",
+              "INDD82",
+              "INDD85",
+              "INDD99"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Interior Design and Decorating 30",
+        "subtitle": "Decorating Focus",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=568",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "INDD1",
+              "INDD2",
+              "INDD3",
+              "INDD4",
+              "INDD5",
+              "INDD6",
+              "INDD7",
+              "INDD8",
+              "INDD10",
+              "INDD11",
+              "INDD12",
+              "INDD17",
+              "INDD18",
+              "INDD20",
+              "INDD21",
+              "INDD22",
+              "INDD23",
+              "INDD25",
+              "INDD26",
+              "INDD80",
+              "INDD81",
+              "INDD82",
+              "INDD85",
+              "INDD99"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Interior Design and Decorating 30 in Middle Level PAA Survey Courses",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=568",
+        "page": 31,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "INDD1",
+              "INDD2",
+              "INDD3",
+              "INDD9",
+              "INDD11",
+              "INDD17",
+              "INDD18",
+              "INDD23"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "569": {
+    "kind": "module",
+    "name": "Life Transitions 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=569",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=569",
+        "page": 7,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=569",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Life Transitions 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=569",
+        "page": 25,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "LIFE01",
+              "LIFE02",
+              "LIFE03",
+              "LIFE04",
+              "LIFE05",
+              "LIFE06",
+              "LIFE07",
+              "LIFE10",
+              "LIFE12",
+              "LIFE13",
+              "LIFE16",
+              "LIFE18",
+              "LIFE23",
+              "LIFE25",
+              "LIFE27",
+              "LIFE29",
+              "LIFE99A"
+            ]
+          },
+          {
+            "name": "Optional Modules from the Financial Literacy Curriculum",
+            "moduleCodes": [
+              "FINL6A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Life Transitions 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=569",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "LIFE08",
+              "LIFE09",
+              "LIFE11",
+              "LIFE14",
+              "LIFE15",
+              "LIFE17",
+              "LIFE19",
+              "LIFE20",
+              "LIFE21",
+              "LIFE22",
+              "LIFE24",
+              "LIFE26",
+              "LIFE28",
+              "LIFE30",
+              "LIFE31",
+              "LIFE99B"
+            ]
+          },
+          {
+            "name": "Optional Modules from the Financial Literacy Curriculum",
+            "moduleCodes": [
+              "FINL6B"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "571": {
+    "kind": "module",
+    "name": "Clothing, Textiles and Fashion 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=571",
+        "page": 6,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=571",
+        "page": 9,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=571",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Clothing, Textiles and Fashion 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=571",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "CTFA01",
+              "CTFA02",
+              "CTFA03",
+              "CTFA04",
+              "CTFA05",
+              "CTFA07",
+              "CTFA08",
+              "CTFA11",
+              "CTFA13",
+              "CTFA14",
+              "CTFA16",
+              "CTFA17",
+              "CTFA18",
+              "CTFA19",
+              "CTFA20",
+              "CTFA28",
+              "CTFA29",
+              "CTFA99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Clothing, Textiles and Fashion 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=571",
+        "page": 28,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "CTFA06",
+              "CTFA09",
+              "CTFA10",
+              "CTFA12",
+              "CTFA15",
+              "CTFA21",
+              "CTFA23",
+              "CTFA25",
+              "CTFA27",
+              "CTFA30",
+              "CTFA31",
+              "CTFA32",
+              "CTFA34",
+              "CTFA36",
+              "CTFA80A",
+              "CTFA81A",
+              "CTFA82A",
+              "CTFA99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Clothing, Textiles and Fashion 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=571",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "CTFA22",
+              "CTFA24",
+              "CTFA26",
+              "CTFA32",
+              "CTFA33",
+              "CTFA35",
+              "CTFA37",
+              "CTFA80B",
+              "CTFA81B",
+              "CTFA82B",
+              "CTFA99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level PAA Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=571",
+        "page": 31,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "CTFA01",
+              "CTFA02",
+              "CTFA03",
+              "CTFA04",
+              "CTFA05",
+              "CTFA08",
+              "CTFA13",
+              "CTFA15",
+              "CTFA16",
+              "CTFA17",
+              "CTFA18",
+              "CTFA19",
+              "CTFA28",
+              "CTFA29"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "580": {
+    "kind": "module",
+    "name": "Theatre Arts 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=580",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=580",
+        "page": 9,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=580",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Theatre Arts 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=580",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "THEA1A",
+              "THEA1B",
+              "THEA2",
+              "THEA3",
+              "THEA4A",
+              "THEA5A",
+              "THEA6A",
+              "THEA7A",
+              "THEA8A",
+              "THEA9A",
+              "THEA10A",
+              "THEA11A",
+              "THEA12A",
+              "THEA13",
+              "THEA15A",
+              "THEA18A",
+              "THEA20",
+              "THEA21A",
+              "THEA22A",
+              "THEA23A",
+              "THEA24A",
+              "THEA80A",
+              "THEA81A",
+              "THEA82A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Theatre Arts 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=580",
+        "page": 32,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "THEA4B",
+              "THEA4C",
+              "THEA5B",
+              "THEA5C",
+              "THEA6B",
+              "THEA6C",
+              "THEA7B",
+              "THEA7C",
+              "THEA8B",
+              "THEA8C",
+              "THEA9B",
+              "THEA9C",
+              "THEA10B",
+              "THEA10C",
+              "THEA11B",
+              "THEA11C",
+              "THEA12B",
+              "THEA12C",
+              "THEA13",
+              "THEA14",
+              "THEA15B",
+              "THEA15C",
+              "THEA16",
+              "THEA17",
+              "THEA18B",
+              "THEA19",
+              "THEA21B",
+              "THEA22B",
+              "THEA23B",
+              "THEA24B",
+              "THEA80B",
+              "THEA81B",
+              "THEA82B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=580",
+        "page": 36,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "THEA1A",
+              "THEA4A",
+              "THEA6A",
+              "THEA8A",
+              "THEA9A",
+              "THEA10A",
+              "THEA18A",
+              "THEA20"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "581": {
+    "kind": "module",
+    "name": "Hairstyling & Esthetics 10, 20, 30; Hairstyling 20, 30; Esthetics 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=581",
+        "page": 7,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=581",
+        "page": 9,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=581",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Hairstyling and Esthetics 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=581",
+        "page": 31,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "HAES1",
+              "HAES2A",
+              "HAES3A",
+              "HAES4",
+              "HAES5",
+              "HAES6",
+              "HAES7A",
+              "HAES8A",
+              "HAES9A",
+              "HAES10",
+              "HAES11A",
+              "HAES12",
+              "HAES13",
+              "HAES14A",
+              "HAES14B",
+              "HAES14C",
+              "HAES14D",
+              "HAES15A",
+              "HAES16A",
+              "HAES17A",
+              "HAES18",
+              "HAES19A",
+              "HAES20A",
+              "HAES21",
+              "HAES22",
+              "HAES23A",
+              "HAES24",
+              "HAES25",
+              "HAES26A",
+              "HAES26B",
+              "HAES27",
+              "HAES28A",
+              "HAES88",
+              "HAES99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Hairstyling 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=581",
+        "page": 34,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "HAES2B",
+              "HAES3B",
+              "HAES7B",
+              "HAES8B",
+              "HAES9B",
+              "HAES11B",
+              "HAES16B",
+              "HAES17B",
+              "HAES19B",
+              "HAES29",
+              "HAES30A",
+              "HAES31A",
+              "HAES31B",
+              "HAES32A",
+              "HAES33A",
+              "HAES34",
+              "HAES36A",
+              "HAES80A",
+              "HAES81A",
+              "HAES82A",
+              "HAES99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Hairstyling 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=581",
+        "page": 36,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "HAES2C",
+              "HAES3C",
+              "HAES7D",
+              "HAES8D",
+              "HAES9C",
+              "HAES16C",
+              "HAES19C",
+              "HAES30B",
+              "HAES31C",
+              "HAES31D",
+              "HAES32B",
+              "HAES33B",
+              "HAES35",
+              "HAES36B",
+              "HAES43",
+              "HAES80B",
+              "HAES81B",
+              "HAES82B",
+              "HAES85",
+              "HAES99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Esthetics 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=581",
+        "page": 38,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "HAES2D",
+              "HAES3D",
+              "HAES7C",
+              "HAES8C",
+              "HAES9D",
+              "HAES15B",
+              "HAES15C",
+              "HAES20B",
+              "HAES23B",
+              "HAES37",
+              "HAES38",
+              "HAES39",
+              "HAES40A",
+              "HAES40B",
+              "HAES41A",
+              "HAES42",
+              "HAES43",
+              "HAES44A",
+              "HAES47",
+              "HAES48A",
+              "HAES49",
+              "HAES50",
+              "HAES51A",
+              "HAES51B",
+              "HAES52",
+              "HAES53A",
+              "HAES54",
+              "HAES55A",
+              "HAES55B",
+              "HAES56",
+              "HAES57",
+              "HAES59",
+              "HAES80C",
+              "HAES81C",
+              "HAES82C",
+              "HAES99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Esthetics 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=581",
+        "page": 41,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "HAES2E",
+              "HAES3E",
+              "HAES7E",
+              "HAES8E",
+              "HAES9E",
+              "HAES20C",
+              "HAES23C",
+              "HAES28B",
+              "HAES41B",
+              "HAES44B",
+              "HAES45",
+              "HAES46",
+              "HAES48B",
+              "HAES53B",
+              "HAES53C",
+              "HAES53D",
+              "HAES58",
+              "HAES80D",
+              "HAES81D",
+              "HAES82D",
+              "HAES85",
+              "HAES99A"
+            ],
+            "printedAs": {
+              "HAES85": "HAES85 Small Business (Optional)"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level PAA Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=581",
+        "page": 43,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "HAES1",
+              "HAES2A",
+              "HAES3A",
+              "HAES7A",
+              "HAES8A",
+              "HAES9A",
+              "HAES14A",
+              "HAES19A",
+              "HAES20A",
+              "HAES23A",
+              "HAES42"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "653": {
+    "kind": "module",
+    "name": "Agriculture and Sustainable Food Systems 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=653",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=653",
+        "page": 7,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=653",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Agriculture and Sustainable Food Systems 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=653",
+        "page": 23,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ASFS1",
+              "ASFS2",
+              "ASFS3",
+              "ASFS4",
+              "ASFS6",
+              "ASFS7",
+              "ASFS10",
+              "ASFS13",
+              "ASFS14",
+              "ASFS16",
+              "ASFS17",
+              "ASFS19",
+              "ASFS20",
+              "ASFS80A",
+              "ASFS81A",
+              "ASFS82A",
+              "ASFS99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Agriculture and Sustainable Food Systems 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=653",
+        "page": 24,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ASFS5",
+              "ASFS8",
+              "ASFS9",
+              "ASFS11",
+              "ASFS12",
+              "ASFS15",
+              "ASFS18A",
+              "ASFS18B",
+              "ASFS21",
+              "ASFS80B",
+              "ASFS81B",
+              "ASFS82B",
+              "ASFS99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=653",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ASFS1",
+              "ASFS2",
+              "ASFS4",
+              "ASFS6",
+              "ASFS7"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "658": {
+    "kind": "module",
+    "name": "Agribusiness 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=658",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=658",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=658",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Agribusiness 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=658",
+        "page": 24,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGBU1A",
+              "AGBU1B",
+              "AGBU2",
+              "AGBU3",
+              "AGBU4",
+              "AGBU5",
+              "AGBU6",
+              "AGBU7",
+              "AGBU8",
+              "AGBU9",
+              "AGBU10",
+              "AGBU11",
+              "AGBU12",
+              "AGBU13",
+              "AGBU80",
+              "AGBU81",
+              "AGBU82",
+              "AGBU99"
+            ]
+          },
+          {
+            "name": "Optional Modules from the Entrepreneurship Curriculum",
+            "moduleCodes": [
+              "ENTR13A",
+              "ENTR15",
+              "ENTR16A",
+              "ENTR16B",
+              "ENTR18",
+              "ENTR19B",
+              "ENTR20A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=658",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGBU1A",
+              "AGBU1B",
+              "AGBU2",
+              "AGBU3",
+              "AGBU4"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "659": {
+    "kind": "module",
+    "name": "Entrepreneurship 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=659",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=659",
+        "page": 9,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=659",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Entrepreneurship 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=659",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENTR1",
+              "ENTR2",
+              "ENTR3",
+              "ENTR4",
+              "ENTR5",
+              "ENTR7",
+              "ENTR8",
+              "ENTR9",
+              "ENTR11",
+              "ENTR13A",
+              "ENTR13B",
+              "ENTR14",
+              "ENTR16A",
+              "ENTR17A",
+              "ENTR17B",
+              "ENTR19A",
+              "ENTR20A",
+              "ENTR80A",
+              "ENTR81A",
+              "ENTR82A",
+              "ENTR99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Entrepreneurship 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=659",
+        "page": 28,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENTR6",
+              "ENTR10",
+              "ENTR12",
+              "ENTR15",
+              "ENTR16B",
+              "ENTR17A",
+              "ENTR17B",
+              "ENTR18",
+              "ENTR19B",
+              "ENTR20B",
+              "ENTR80B",
+              "ENTR81B",
+              "ENTR82B",
+              "ENTR99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=659",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENTR1",
+              "ENTR2",
+              "ENTR3",
+              "ENTR4",
+              "ENTR5"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "660": {
+    "kind": "module",
+    "name": "Agricultural Equipment Technician 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=660",
+        "page": 6,
+        "quote": "All PAA curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=660",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=660",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Agricultural Equipment Technician 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=660",
+        "page": 25,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGET1",
+              "AGET2A",
+              "AGET2C",
+              "AGET2E",
+              "AGET3A",
+              "AGET3B",
+              "AGET4",
+              "AGET5",
+              "AGET6",
+              "AGET7A",
+              "AGET8",
+              "AGET9A",
+              "AGET9B",
+              "AGET10",
+              "AGET11",
+              "AGET14A",
+              "AGET16",
+              "AGET17",
+              "AGET18",
+              "AGET19",
+              "AGET22",
+              "AGET23",
+              "AGET25",
+              "AGET26",
+              "AGET30",
+              "AGET80A",
+              "AGET81A",
+              "AGET82A",
+              "AGET85A",
+              "AGET88",
+              "AGET99A"
+            ]
+          },
+          {
+            "name": "Optional Modules from the Welding Curriculum",
+            "moduleCodes": [
+              "WLDG05",
+              "WLDG06"
+            ],
+            "printedAs": {
+              "WLDG05": "WLDG5",
+              "WLDG06": "WLDG6"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Agricultural Equipment Technician 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=660",
+        "page": 28,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGET2B",
+              "AGET2D",
+              "AGET2F",
+              "AGET7B",
+              "AGET12",
+              "AGET13",
+              "AGET14B",
+              "AGET15",
+              "AGET20",
+              "AGET21",
+              "AGET24",
+              "AGET27",
+              "AGET28",
+              "AGET29",
+              "AGET80B",
+              "AGET81B",
+              "AGET82B",
+              "AGET85B",
+              "AGET99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Agricultural Equipment Technician (WP) 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=660",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGET1",
+              "AGET2A",
+              "AGET2C",
+              "AGET2E",
+              "AGET3A",
+              "AGET4",
+              "AGET5",
+              "AGET6",
+              "AGET7A",
+              "AGET8",
+              "AGET9A",
+              "AGET9B",
+              "AGET30",
+              "AGET80A",
+              "AGET81A",
+              "AGET82A",
+              "AGET88"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Agricultural Equipment Technician (WP) 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=660",
+        "page": 32,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGET2B",
+              "AGET2D",
+              "AGET2F",
+              "AGET12",
+              "AGET13",
+              "AGET14A",
+              "AGET24",
+              "AGET29",
+              "AGET80B",
+              "AGET81B",
+              "AGET82B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Agricultural Equipment Technician in Middle Level PAA Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=660",
+        "page": 33,
+        "sections": []
+      }
+    ]
+  },
+  "668": {
+    "kind": "module",
+    "name": "Food Studies 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=668",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=668",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=668",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Food Studies 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=668",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "FOOD1",
+              "FOOD2A",
+              "FOOD4",
+              "FOOD5",
+              "FOOD6",
+              "FOOD8",
+              "FOOD10",
+              "FOOD11",
+              "FOOD12",
+              "FOOD13",
+              "FOOD14",
+              "FOOD15",
+              "FOOD17",
+              "FOOD19",
+              "FOOD20",
+              "FOOD21",
+              "FOOD53",
+              "FOOD99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Food Studies 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=668",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "FOOD2B",
+              "FOOD7",
+              "FOOD9",
+              "FOOD16",
+              "FOOD18",
+              "FOOD22",
+              "FOOD23",
+              "FOOD24",
+              "FOOD25",
+              "FOOD26",
+              "FOOD28",
+              "FOOD29",
+              "FOOD30",
+              "FOOD31",
+              "FOOD32",
+              "FOOD33",
+              "FOOD45",
+              "FOOD46",
+              "FOOD80A",
+              "FOOD81A",
+              "FOOD82A",
+              "FOOD99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Food Studies 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=668",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "FOOD2C",
+              "FOOD3",
+              "FOOD27",
+              "FOOD34",
+              "FOOD35",
+              "FOOD36",
+              "FOOD37",
+              "FOOD38",
+              "FOOD39",
+              "FOOD40",
+              "FOOD41",
+              "FOOD42",
+              "FOOD43",
+              "FOOD44",
+              "FOOD47",
+              "FOOD48",
+              "FOOD49",
+              "FOOD50",
+              "FOOD51",
+              "FOOD52",
+              "FOOD80B",
+              "FOOD81B",
+              "FOOD82B",
+              "FOOD99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=668",
+        "page": 31,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "FOOD1",
+              "FOOD2",
+              "FOOD4",
+              "FOOD5",
+              "FOOD6",
+              "FOOD8",
+              "FOOD17",
+              "FOOD19",
+              "FOOD20",
+              "FOOD21"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "672": {
+    "kind": "none",
+    "name": "Journalism Studies 20",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=672",
+        "page": 26,
+        "observation": "“Outcomes at a Glance” lists the Journalism Studies 20 outcomes as one numbered list, with no unit, strand, theme or module headings."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=672",
+        "page": 26,
+        "quote": "The outcomes in this curriculum contribute to the development of the Kindergarten to Grade 12 English language arts goals."
+      }
+    ]
+  },
+  "673": {
+    "kind": "none",
+    "name": "Creative Writing 20",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=673",
+        "page": 27,
+        "observation": "“Outcomes at a Glance” lists the Creative Writing 20 outcomes as one numbered list, with no unit, strand, theme or module headings."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=673",
+        "page": 27,
+        "quote": "The outcomes in this curriculum contribute to the development of the Kindergarten to Grade 12 English language arts goals."
+      }
+    ]
+  },
+  "686": {
+    "kind": "module",
+    "name": "Design Studies 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=686",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=686",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=686",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Design Studies 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=686",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "DEST1",
+              "DEST2",
+              "DEST3",
+              "DEST4",
+              "DEST5",
+              "DEST7",
+              "DEST8",
+              "DEST9",
+              "DEST11",
+              "DEST12",
+              "DEST14",
+              "DEST16",
+              "DEST18",
+              "DEST37",
+              "DEST99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Design Studies 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=686",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "DEST6",
+              "DEST10",
+              "DEST13",
+              "DEST15",
+              "DEST17",
+              "DEST19",
+              "DEST21",
+              "DEST22",
+              "DEST31",
+              "DEST33",
+              "DEST34",
+              "DEST35",
+              "DEST38",
+              "DEST80A",
+              "DEST81A",
+              "DEST82A",
+              "DEST99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Design Studies 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=686",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "DEST20",
+              "DEST23",
+              "DEST24",
+              "DEST25",
+              "DEST26",
+              "DEST27",
+              "DEST28",
+              "DEST29",
+              "DEST30",
+              "DEST32",
+              "DEST36",
+              "DEST39",
+              "DEST80B",
+              "DEST81B",
+              "DEST82B",
+              "DEST99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level PAA Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=686",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "DEST1",
+              "DEST2",
+              "DEST3",
+              "DEST4",
+              "DEST5",
+              "DEST7",
+              "DEST8",
+              "DEST11",
+              "DEST12",
+              "DEST14",
+              "DEST17",
+              "DEST18",
+              "DEST31"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "691": {
+    "kind": "module",
+    "name": "Agriculture Production A10, B10, A20, B20, A30, B30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=691",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=691",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=691",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Agriculture Production A10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=691",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGPR2A",
+              "AGPR3A",
+              "AGPR4A",
+              "AGPR7A",
+              "AGPR11",
+              "AGPR12A",
+              "AGPR12B",
+              "AGPR15",
+              "AGPR21A",
+              "AGPR21B",
+              "AGPR22A",
+              "AGPR23A",
+              "AGPR24A",
+              "AGPR25A",
+              "AGPR26A",
+              "AGPR27A",
+              "AGPR28A",
+              "AGPR32A",
+              "AGPR39A",
+              "AGPR40A",
+              "AGPR42A",
+              "AGPR99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Agriculture Production B10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=691",
+        "page": 32,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGPR1",
+              "AGPR2B",
+              "AGPR3B",
+              "AGPR4B",
+              "AGPR8",
+              "AGPR9",
+              "AGPR10A",
+              "AGPR13A",
+              "AGPR13B",
+              "AGPR29A",
+              "AGPR33A",
+              "AGPR34",
+              "AGPR35",
+              "AGPR36A",
+              "AGPR38",
+              "AGPR39B",
+              "AGPR41A",
+              "AGPR42B",
+              "AGPR99B"
+            ]
+          },
+          {
+            "name": "Optional Modules from the Agricultural Equipment Technician Curriculum",
+            "moduleCodes": [
+              "AGET2C",
+              "AGET4A",
+              "AGET5",
+              "AGET6",
+              "AGET9A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Agriculture Production A20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=691",
+        "page": 34,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGPR2C",
+              "AGPR3C",
+              "AGPR5A",
+              "AGPR7B",
+              "AGPR12C",
+              "AGPR17A",
+              "AGPR22B",
+              "AGPR22C",
+              "AGPR23B",
+              "AGPR24B",
+              "AGPR25B",
+              "AGPR27B",
+              "AGPR28B",
+              "AGPR30A",
+              "AGPR31",
+              "AGPR32B",
+              "AGPR40B",
+              "AGPR80A",
+              "AGPR81A",
+              "AGPR82A",
+              "AGPR99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Agriculture Production B20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=691",
+        "page": 36,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGPR2D",
+              "AGPR3D",
+              "AGPR5B",
+              "AGPR10B",
+              "AGPR13C",
+              "AGPR14",
+              "AGPR16",
+              "AGPR18A",
+              "AGPR29B",
+              "AGPR33B",
+              "AGPR37A",
+              "AGPR41B",
+              "AGPR80B",
+              "AGPR81B",
+              "AGPR82B",
+              "AGPR99D"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Agriculture Production A30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=691",
+        "page": 37,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGPR2E",
+              "AGPR3E",
+              "AGPR6A",
+              "AGPR7C",
+              "AGPR12C",
+              "AGPR17B",
+              "AGPR22D",
+              "AGPR23C",
+              "AGPR24C",
+              "AGPR25C",
+              "AGPR26B",
+              "AGPR27C",
+              "AGPR28C",
+              "AGPR30B",
+              "AGPR32C",
+              "AGPR40C",
+              "AGPR80C",
+              "AGPR81C",
+              "AGPR82C",
+              "AGPR99E"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Agriculture Production B30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=691",
+        "page": 39,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGPR2F",
+              "AGPR3F",
+              "AGPR6B",
+              "AGPR10C",
+              "AGPR18B",
+              "AGPR19",
+              "AGPR20",
+              "AGPR29C",
+              "AGPR33C",
+              "AGPR36B",
+              "AGPR37B",
+              "AGPR41C",
+              "AGPR80D",
+              "AGPR81D",
+              "AGPR82D",
+              "AGPR99F"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested A30 or B30 Mixed Configuration",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=691",
+        "page": 41,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGPR2E",
+              "AGPR3E",
+              "AGPR7C",
+              "AGPR10C",
+              "AGPR19",
+              "AGPR20",
+              "AGPR22D",
+              "AGPR23C",
+              "AGPR25C",
+              "AGPR27C",
+              "AGPR28C",
+              "AGPR29C",
+              "AGPR30B",
+              "AGPR36B",
+              "AGPR37B",
+              "AGPR40C",
+              "AGPR41C",
+              "AGPR80C",
+              "AGPR81C",
+              "AGPR82C",
+              "AGPR99E"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=691",
+        "page": 43,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "AGPR1",
+              "AGPR2A",
+              "AGPR3A",
+              "AGPR7A",
+              "AGPR9",
+              "AGPR10A",
+              "AGPR12A",
+              "AGPR13A",
+              "AGPR21A",
+              "AGPR21B",
+              "AGPR23A",
+              "AGPR24A",
+              "AGPR31",
+              "AGPR34",
+              "AGPR38",
+              "AGPR39A",
+              "AGPR39B",
+              "AGPR40A",
+              "AGPR41A"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "693": {
+    "kind": "none",
+    "name": "Media Studies 20",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=693",
+        "page": 26,
+        "observation": "“Outcomes at a Glance” lists the Media Studies 20 outcomes as one numbered list, with no unit, strand, theme or module headings."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=693",
+        "page": 26,
+        "quote": "The outcomes in this curriculum contribute to the development of the Kindergarten to Grade 12 English language arts goals."
+      }
+    ]
+  },
+  "717": {
+    "kind": "module",
+    "name": "Energy and Mines 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=717",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=717",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=717",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Energy and Mines 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=717",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENMI1",
+              "ENMI2A",
+              "ENMI3",
+              "ENMI4",
+              "ENMI5A",
+              "ENMI6",
+              "ENMI8",
+              "ENMI10A",
+              "ENMI10B",
+              "ENMI12",
+              "ENMI14",
+              "ENMI15",
+              "ENMI21",
+              "ENMI26",
+              "ENMI27",
+              "ENMI34",
+              "ENMI35",
+              "ENMI42",
+              "ENMI47",
+              "ENMI99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Energy and Mines 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=717",
+        "page": 28,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENMI2B",
+              "ENMI5B",
+              "ENMI7",
+              "ENMI9",
+              "ENMI11",
+              "ENMI16",
+              "ENMI17",
+              "ENMI18",
+              "ENMI22",
+              "ENMI23",
+              "ENMI28A",
+              "ENMI28B",
+              "ENMI29",
+              "ENMI30",
+              "ENMI31",
+              "ENMI43",
+              "ENMI44",
+              "ENMI45",
+              "ENMI46",
+              "ENMI49",
+              "ENMI80A",
+              "ENMI81A",
+              "ENMI82A",
+              "ENMI99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Energy and Mines 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=717",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENMI2C",
+              "ENMI13",
+              "ENMI19",
+              "ENMI20",
+              "ENMI24",
+              "ENMI25",
+              "ENMI32",
+              "ENMI33",
+              "ENMI36",
+              "ENMI37",
+              "ENMI38",
+              "ENMI39",
+              "ENMI40",
+              "ENMI41",
+              "ENMI48",
+              "ENMI50",
+              "ENMI80B",
+              "ENMI81B",
+              "ENMI82B",
+              "ENMI99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Petroleum Industry Focus",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=717",
+        "page": 32,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENMI11",
+              "ENMI12",
+              "ENMI14",
+              "ENMI15",
+              "ENMI16",
+              "ENMI17",
+              "ENMI18",
+              "ENMI19",
+              "ENMI20",
+              "ENMI42",
+              "ENMI48"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Uranium Industry Focus",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=717",
+        "page": 33,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENMI11",
+              "ENMI12",
+              "ENMI34",
+              "ENMI35",
+              "ENMI36",
+              "ENMI37",
+              "ENMI38",
+              "ENMI39",
+              "ENMI40",
+              "ENMI41"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Southern Mining Industry Focus",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=717",
+        "page": 34,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENMI11",
+              "ENMI12",
+              "ENMI19",
+              "ENMI20",
+              "ENMI21",
+              "ENMI22",
+              "ENMI23",
+              "ENMI24",
+              "ENMI25",
+              "ENMI26",
+              "ENMI27",
+              "ENMI28A",
+              "ENMI28B",
+              "ENMI29",
+              "ENMI30",
+              "ENMI31",
+              "ENMI32",
+              "ENMI33",
+              "ENMI41"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Electrical Industry Focus",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=717",
+        "page": 35,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENMI24",
+              "ENMI25",
+              "ENMI39",
+              "ENMI40",
+              "ENMI43",
+              "ENMI44",
+              "ENMI45",
+              "ENMI46",
+              "ENMI47",
+              "ENMI49"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Alternative Energy Industry Focus",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=717",
+        "page": 36,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENMI11",
+              "ENMI12",
+              "ENMI42",
+              "ENMI47",
+              "ENMI48",
+              "ENMI49"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=717",
+        "page": 38,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ENMI1",
+              "ENMI3",
+              "ENMI4",
+              "ENMI5A",
+              "ENMI5B",
+              "ENMI6",
+              "ENMI7",
+              "ENMI8"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "721": {
+    "kind": "module",
+    "name": "Forestry Studies 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=721",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=721",
+        "page": 7,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=721",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Forestry Studies 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=721",
+        "page": 25,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "FRST1",
+              "FRST2A",
+              "FRST3A",
+              "FRST4",
+              "FRST5",
+              "FRST6",
+              "FRST7",
+              "FRST8",
+              "FRST9",
+              "FRST10",
+              "FRST11",
+              "FRST12",
+              "FRST13",
+              "FRST14A",
+              "FRST15",
+              "FRST24",
+              "FRST80A",
+              "FRST81A",
+              "FRST82A",
+              "FRST99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Forestry Studies 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=721",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "FRST2B",
+              "FRST3B",
+              "FRST14B",
+              "FRST16",
+              "FRST17",
+              "FRST18",
+              "FRST19",
+              "FRST20",
+              "FRST21",
+              "FRST22",
+              "FRST23",
+              "FRST25",
+              "FRST80B",
+              "FRST81B",
+              "FRST82B",
+              "FRST99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=721",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "FRST1",
+              "FRST5",
+              "FRST6",
+              "FRST7",
+              "FRST8",
+              "FRST9",
+              "FRST12",
+              "FRST13"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "723": {
+    "kind": "module",
+    "name": "Wildlife and Habitat Studies 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=723",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=723",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=723",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Wildlife and Habitat Studies 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=723",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "WILD1",
+              "WILD2A",
+              "WILD3A",
+              "WILD5A",
+              "WILD6A",
+              "WILD7A",
+              "WILD11",
+              "WILD12A",
+              "WILD13A",
+              "WILD14",
+              "WILD16",
+              "WILD20",
+              "WILD21A",
+              "WILD22A",
+              "WILD23A",
+              "WILD99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Wildlife and Habitat Studies 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=723",
+        "page": 28,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "WILD2B",
+              "WILD3B",
+              "WILD4",
+              "WILD5B",
+              "WILD6B",
+              "WILD7B",
+              "WILD8A",
+              "WILD9A",
+              "WILD10A",
+              "WILD12B",
+              "WILD13B",
+              "WILD13C",
+              "WILD13D",
+              "WILD15",
+              "WILD19",
+              "WILD21B",
+              "WILD22B",
+              "WILD23B",
+              "WILD80A",
+              "WILD81A",
+              "WILD82A",
+              "WILD99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Wildlife and Habitat Studies 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=723",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "WILD8B",
+              "WILD9B",
+              "WILD10B",
+              "WILD12C",
+              "WILD17",
+              "WILD18",
+              "WILD21C",
+              "WILD22C",
+              "WILD80B",
+              "WILD81B",
+              "WILD82B",
+              "WILD85",
+              "WILD99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=723",
+        "page": 31,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "WILD1",
+              "WILD2A",
+              "WILD2B",
+              "WILD3A",
+              "WILD3B",
+              "WILD4",
+              "WILD5A",
+              "WILD6A",
+              "WILD7A",
+              "WILD8A",
+              "WILD9A",
+              "WILD10A",
+              "WILD11",
+              "WILD12A",
+              "WILD13A",
+              "WILD13B",
+              "WILD13C",
+              "WILD13D",
+              "WILD20",
+              "WILD21A",
+              "WILD21B"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "732": {
+    "kind": "module",
+    "name": "Early Learning, Supportive Care 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=732",
+        "page": 8,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=732",
+        "page": 10,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=732",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Early Learning 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=732",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELSC1",
+              "ELSC2",
+              "ELSC5",
+              "ELSC8",
+              "ELSC9",
+              "ELSC11",
+              "ELSC12",
+              "ELSC13",
+              "ELSC14",
+              "ELSC16",
+              "ELSC18",
+              "ELSC19",
+              "ELSC20",
+              "ELSC21",
+              "ELSC22",
+              "ELSC23",
+              "ELSC24",
+              "ELSC25",
+              "ELSC30",
+              "ELSC67",
+              "ELSC80A",
+              "ELSC81A",
+              "ELSC82A",
+              "ELSC99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Early Learning 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=732",
+        "page": 32,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELSC3",
+              "ELSC4",
+              "ELSC6",
+              "ELSC7",
+              "ELSC10",
+              "ELSC15",
+              "ELSC17",
+              "ELSC26",
+              "ELSC27",
+              "ELSC28",
+              "ELSC29",
+              "ELSC30",
+              "ELSC31",
+              "ELSC32",
+              "ELSC33",
+              "ELSC34",
+              "ELSC35",
+              "ELSC37",
+              "ELSC38",
+              "ELSC80B",
+              "ELSC81B",
+              "ELSC82B",
+              "ELSC85",
+              "ELSC99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Supportive Care 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=732",
+        "page": 34,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELSC1",
+              "ELSC2",
+              "ELSC4",
+              "ELSC5",
+              "ELSC8",
+              "ELSC9",
+              "ELSC11",
+              "ELSC39",
+              "ELSC40",
+              "ELSC42",
+              "ELSC44",
+              "ELSC46",
+              "ELSC47",
+              "ELSC50",
+              "ELSC51",
+              "ELSC52",
+              "ELSC56",
+              "ELSC57",
+              "ELSC59",
+              "ELSC60",
+              "ELSC80C",
+              "ELSC81C",
+              "ELSC82C",
+              "ELSC99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Supportive Care 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=732",
+        "page": 36,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELSC3",
+              "ELSC6",
+              "ELSC7",
+              "ELSC10",
+              "ELSC41",
+              "ELSC43",
+              "ELSC45",
+              "ELSC48",
+              "ELSC49",
+              "ELSC53",
+              "ELSC54",
+              "ELSC55",
+              "ELSC58",
+              "ELSC61",
+              "ELSC62",
+              "ELSC63",
+              "ELSC64A",
+              "ELSC64B",
+              "ELSC65",
+              "ELSC66",
+              "ELSC80D",
+              "ELSC81D",
+              "ELSC82D",
+              "ELSC85",
+              "ELSC99D"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Early Learning and Supportive Care 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=732",
+        "page": 38,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELSC1",
+              "ELSC2",
+              "ELSC4",
+              "ELSC8",
+              "ELSC9",
+              "ELSC13",
+              "ELSC14",
+              "ELSC16",
+              "ELSC17",
+              "ELSC21",
+              "ELSC30",
+              "ELSC39",
+              "ELSC40",
+              "ELSC42",
+              "ELSC47",
+              "ELSC52",
+              "ELSC57",
+              "ELSC59",
+              "ELSC80E",
+              "ELSC81E",
+              "ELSC82E",
+              "ELSC99E"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Early Learning and Supportive Care 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=732",
+        "page": 40,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELSC3",
+              "ELSC5",
+              "ELSC6",
+              "ELSC7",
+              "ELSC10",
+              "ELSC15",
+              "ELSC27",
+              "ELSC28",
+              "ELSC29",
+              "ELSC41",
+              "ELSC43",
+              "ELSC48",
+              "ELSC49",
+              "ELSC50",
+              "ELSC53",
+              "ELSC58",
+              "ELSC59",
+              "ELSC61",
+              "ELSC63",
+              "ELSC69",
+              "ELSC80F",
+              "ELSC81F",
+              "ELSC82F",
+              "ELSC85",
+              "ELSC99F"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=732",
+        "page": 42,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "ELSC8",
+              "ELSC11",
+              "ELSC12",
+              "ELSC16",
+              "ELSC18",
+              "ELSC21",
+              "ELSC51",
+              "ELSC52",
+              "ELSC60"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "741": {
+    "kind": "module",
+    "name": "Machining 10, 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=741",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=741",
+        "page": 7,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=741",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Machining 10",
+        "level": 10,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=741",
+        "page": 25,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MACH1A",
+              "MACH2A",
+              "MACH3",
+              "MACH4A",
+              "MACH4B",
+              "MACH5",
+              "MACH6",
+              "MACH7",
+              "MACH8",
+              "MACH9",
+              "MACH10",
+              "MACH11",
+              "MACH12",
+              "MACH13",
+              "MACH14",
+              "MACH15",
+              "MACH16",
+              "MACH33",
+              "MACH44",
+              "MACH99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Machining 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=741",
+        "page": 26,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MACH1B",
+              "MACH2B",
+              "MACH17",
+              "MACH18",
+              "MACH19",
+              "MACH20",
+              "MACH22",
+              "MACH24",
+              "MACH25",
+              "MACH26",
+              "MACH27",
+              "MACH28",
+              "MACH34",
+              "MACH35",
+              "MACH36",
+              "MACH37",
+              "MACH41",
+              "MACH42",
+              "MACH43",
+              "MACH80A",
+              "MACH81A",
+              "MACH82A",
+              "MACH99B"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Machining 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=741",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MACH1C",
+              "MACH2C",
+              "MACH21",
+              "MACH23",
+              "MACH29",
+              "MACH30",
+              "MACH31",
+              "MACH32",
+              "MACH38",
+              "MACH39",
+              "MACH40",
+              "MACH80B",
+              "MACH81B",
+              "MACH82B",
+              "MACH88",
+              "MACH99C"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Modules for Middle Level Practical and Applied Arts Survey Courses",
+        "level": null,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=741",
+        "page": 29,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "MACH1A",
+              "MACH2A",
+              "MACH3",
+              "MACH4A",
+              "MACH7",
+              "MACH8",
+              "MACH9",
+              "MACH44"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "744": {
+    "kind": "module",
+    "name": "Emergency Services 20, 30",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=744",
+        "page": 6,
+        "quote": "All Practical and Applied Arts curricula are designed using modules, each with a single outcome for students to achieve."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=744",
+        "page": 8,
+        "quote": "Each Practical and Applied Arts curriculum is composed of modules configured into courses, along with suggestions for modules that are suitable for middle or secondary level survey courses."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=744",
+        "observation": "Each entry on the course's outcomes page is one module: the entry is titled with the module name and shows a “Module Code” (the outcome code in sk.json); the module's own page prints one “Outcome” with its indicators. The site lists the course levels under “Course Configurations”."
+      }
+    ],
+    "pdfConfigurations": [
+      {
+        "name": "Emergency Services 20",
+        "level": 20,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=744",
+        "page": 27,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "EMSE1",
+              "EMSE2",
+              "EMSE3",
+              "EMSE4A",
+              "EMSE5A",
+              "EMSE6",
+              "EMSE7",
+              "EMSE8",
+              "EMSE9",
+              "EMSE10",
+              "EMSE11",
+              "EMSE12",
+              "EMSE13",
+              "EMSE14",
+              "EMSE15",
+              "EMSE24",
+              "EMSE32",
+              "EMSE41",
+              "EMSE42",
+              "EMSE43",
+              "EMSE44",
+              "EMSE80A",
+              "EMSE81A",
+              "EMSE82A",
+              "EMSE99A"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Emergency Services 30",
+        "level": 30,
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=744",
+        "page": 30,
+        "sections": [
+          {
+            "name": null,
+            "moduleCodes": [
+              "EMSE4B",
+              "EMSE5B",
+              "EMSE16",
+              "EMSE17",
+              "EMSE18",
+              "EMSE19",
+              "EMSE20",
+              "EMSE21",
+              "EMSE22",
+              "EMSE23",
+              "EMSE25",
+              "EMSE26",
+              "EMSE27",
+              "EMSE28",
+              "EMSE29",
+              "EMSE30",
+              "EMSE31",
+              "EMSE33",
+              "EMSE34",
+              "EMSE35",
+              "EMSE36",
+              "EMSE37",
+              "EMSE38",
+              "EMSE39",
+              "EMSE40",
+              "EMSE80B",
+              "EMSE81B",
+              "EMSE82B",
+              "EMSE99B"
+            ],
+            "printedAs": {
+              "EMSE26": "EMSE 26"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "791": {
+    "kind": "none",
+    "name": "English Language Arts 10 (2026)",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=791",
+        "page": 15,
+        "quote": "Rather than organizing outcomes linearly or assigning them to one goal exclusively, this curriculum reflects the interconnected and recursive nature of these goals in practice."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=791",
+        "page": 16,
+        "quote": "Rather than prescribing a fixed sequence, this curriculum supports local professional judgment in determining which outcomes to cluster, how to differentiate for student needs and how to build units or inquiries that reflect the course thematic topics and inquiry questions."
+      }
+    ],
+    "suggestedUnits": {
+      "meaning": "Official suggested thematic contexts (units) for the course. The document assigns no outcomes to them: all outcomes are developed across the course. Usable as chapter titles only if the product lets every chapter draw on all outcomes.",
+      "heading": "Suggested Thematic Contexts for ELA 10",
+      "names": [
+        "The Challenges of Life",
+        "The Mysteries of Life"
+      ],
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=791",
+      "page": 11,
+      "evidence": {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=791",
+        "page": 6,
+        "quote": "The suggested units and inquiry questions on page 7 offer students meaningful and authentic contexts for learning."
+      },
+      "linkedOutcomes": "none: the document assigns no outcomes to these units"
+    }
+  },
+  "792": {
+    "kind": "none",
+    "name": "English Language Arts 20 (2026)",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=792",
+        "page": 15,
+        "quote": "Rather than organizing outcomes linearly or assigning them to one goal exclusively, this curriculum reflects the interconnected and recursive nature of these goals in practice."
+      },
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=792",
+        "page": 16,
+        "quote": "Rather than prescribing a fixed sequence, this curriculum supports local professional judgment in determining which outcomes to cluster, how to differentiate for student needs and how to build units or inquiries that reflect the course thematic topics and inquiry questions."
+      }
+    ],
+    "suggestedUnits": {
+      "meaning": "Official suggested thematic contexts (units) for the course. The document assigns no outcomes to them: all outcomes are developed across the course. Usable as chapter titles only if the product lets every chapter draw on all outcomes.",
+      "heading": "Suggested Thematic Contexts for ELA 20",
+      "names": [
+        "Unit 1 – The Search for Self",
+        "Unit 2 – Equity and Ethics"
+      ],
+      "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=792",
+      "page": 11,
+      "evidence": {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=792",
+        "page": 6,
+        "quote": "The suggested units and inquiry questions on page 7 offer students meaningful and authentic contexts for learning."
+      },
+      "linkedOutcomes": "none: the document assigns no outcomes to these units"
+    }
+  },
+  "803": {
+    "kind": "none",
+    "name": "Financial Literacy 10",
+    "evidence": [
+      {
+        "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=803",
+        "page": 12,
+        "observation": "“Outcomes at a Glance” lists the Financial Literacy 10 outcomes as one numbered list, with no unit, strand, theme or module headings."
+      }
+    ]
+  }
+}
