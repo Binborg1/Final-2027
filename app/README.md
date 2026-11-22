@@ -19,6 +19,7 @@ Copy `.env.example` to `.env.local` (or set the variables in Vercel).
 
 | Variables | What they turn on | Without them |
 |---|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SECRET_KEY` (required) | Teacher sign-in and the database. Use the `sb_publishable_…` and `sb_secret_…` keys, not the legacy anon and service_role keys | The server refuses to start and lists what is missing |
 | `GEMINI_API_KEY` (Groq or OpenRouter can stand in during development) | AI drafting of whole materials and single questions | Drafts start from Funza's starter question bank (Science 10, SCI10-FM2 and FM3) or from empty parts |
 | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `FUNZA_SESSION_SECRET` | Publishing to Google Classroom | Classroom reports that it is not set up; printing still works |
 
@@ -38,8 +39,12 @@ Google Classroom setup (once per deployment):
 | `src/app/page.tsx`, `layout.tsx`, `globals.css` | A placeholder page and a bare layout (Tailwind 4 through PostCSS), until the new screens |
 | `src/app/api/teach/` | AI drafting: checks each outcome against the curriculum, sends the model only those outcomes, and validates the reply before it leaves the server |
 | `src/app/api/curriculum/` | The curriculum: course list, one course, search, outcomes |
+| `src/app/api/health/` | Says whether the deployment reaches its database (`reachable` or `unreachable`, nothing more) |
 | `src/app/api/lms/google/` | Google Classroom: connect, callback, status, classes, topics, create the student copy as a Google Doc, post, disconnect |
 | `src/lib/ai/` | `server.ts`: the only code that calls the AI (Gemini first, key in a header, time limit, safe error messages). `resource-prompts.ts`: prompts, with uploaded text wrapped and defused as data. `json.ts`: reply parsing |
+| `src/lib/db/` | The three Supabase clients: `browser.ts` (publishable key, the teacher's session), `server.ts` (the teacher's session from the request cookies), `admin.ts` (secret key, server only, for student writes and scheduled jobs), and `types.ts`, generated from the schema |
+| `src/lib/env.ts`, `src/lib/env-server.ts`, `src/instrumentation.ts` | The environment variables, checked with Zod when the server starts |
+| `db/` | The database: `schema.sql` (the current schema, generated), `supabase/migrations/` (one file per change, each named by its applied version), `supabase/tests/` (pgTAP tests of row-level security and the schema's rules) and a log of what was applied where. See [`db/README.md`](db/README.md) |
 | `src/lib/resources/` | The material model (notes, slides, quiz, test, exam), the blueprint computed before any AI call, the starter bank, draft assembly, the review checks, validation of untrusted input, the student-copy renderer, and the browser store (`store.ts`, local storage until development step 4) |
 | `src/lib/curriculum/` | The catalog and its checks (`catalog.ts`), the imported dataset on the server (`dataset.ts`) and in the browser (`client.ts`) |
 | `src/data/curriculum/` | The imported curriculum (`sk.json`) and the import report (`sk-report.md`) |
@@ -48,7 +53,21 @@ Google Classroom setup (once per deployment):
 | `src/lib/math/expr.ts` | A safe calculator language that recomputes answer keys. Not for marking students' typed answers |
 | `src/lib/pdf/extract.ts` | Reads a PDF's text in the browser with pdf.js (the worker in `public/` must match the pinned `pdfjs-dist` version) |
 | `src/lib/origin.ts` | Refuses cross-site POSTs to cookie-protected routes |
-| `tests/` | Curriculum, resources, Classroom, expression engine, and security tests |
+| `tests/` | Curriculum, resources, Classroom, expression engine, environment, database-client and security tests |
+
+## Database
+
+The schema, the migrations, their tests and the log of what was applied where are in [`db/`](db/README.md). With Docker running and the Supabase CLI installed:
+
+```bash
+npm run db:start     # local Postgres with every migration applied
+npm run db:test      # pgTAP tests of row-level security and the schema's rules
+npm run db:types     # regenerate src/lib/db/types.ts after a schema change
+npm run db:schema    # regenerate db/schema.sql
+npm run db:stop
+```
+
+CI runs the same tests on every pull request and fails if `src/lib/db/types.ts` doesn't match the migrations.
 
 ## How drafting and review work
 

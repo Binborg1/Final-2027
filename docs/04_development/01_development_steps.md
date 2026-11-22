@@ -78,9 +78,9 @@ Still open, and scheduled below: sign-in on `/api/teach` and the Classroom route
 
 1. Install the Supabase CLI, run `supabase init` in `app/`, and write the first migration. It holds the 15 tables and 3 join tables from Diagram 4, with row-level security on each. Apply it to the development project, **Funza** (`oitifuxpuxsbzubokukn`).
 2. Add `src/lib/db/` with three Supabase clients:
-   - **Browser:** uses the public key.
+   - **Browser:** uses the publishable key (`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`).
    - **Server:** reads the teacher's session from cookies.
-   - **Admin:** uses the service role key, server only, for student writes and scheduled jobs.
+   - **Admin:** uses the secret key (`SUPABASE_SECRET_KEY`), server only, for student writes and scheduled jobs.
 3. Generate TypeScript types from the schema.
 4. Add Zod, and check the environment variables when the app starts.
 5. Add `.github/workflows/ci.yml` to run lint, type checks and `npm test` on every pull request.
