@@ -1,0 +1,4981 @@
+{
+  "curriculumId": 70,
+  "name": "Chemistry 20, 30",
+  "levels": [
+    20,
+    30
+  ],
+  "kind": "objectives",
+  "textSource": "text-layer",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=70",
+    "filename": "Chemistry_20_30_1992.pdf",
+    "sha256": "f442e86bc4b55b4e54ac41c8c8419a0f3e2f8ee6b8f9bf69db4b2e1ad2cdc95d",
+    "retrievedOn": "2026-11-21",
+    "pages": 173,
+    "pageNumbering": "`page` is the 1-based PDF page; `printedPage` is the number printed on that page.",
+    "documentTitle": "Science: A Curriculum Guide for the Secondary Level — Chemistry 20/30 (Saskatchewan Education, 1992)",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=70"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the legacy-and-drafts research on 2026-11-21)",
+  "hyphenDecisions": [
+    "Laboratory Activities: UNSURE: kept hyphen at line break in \"fair-minded\" (neither form printed elsewhere)",
+    "Independent Research: rejoined \"acti-|vities\" as \"activities\" (joined form printed 112× elsewhere)",
+    "Independent Research: UNSURE: kept hyphen at line break in \"fair-minded\" (neither form printed elsewhere)",
+    "Molecules and Compounds: UNSURE: kept hyphen at line break in \"octane-octanol\" (neither form printed elsewhere)",
+    "Laboratory Activities: UNSURE: kept hyphen at line break in \"fair-minded\" (neither form printed elsewhere)",
+    "Independent Research: rejoined \"acti-|vities\" as \"activities\" (joined form printed 112× elsewhere)",
+    "Independent Research: UNSURE: kept hyphen at line break in \"fair-minded\" (neither form printed elsewhere)",
+    "Oxidation and Reduction: UNSURE: kept hyphen at line break in \"half-reactions\" (neither form printed elsewhere)",
+    "Oxidation and Reduction: rejoined \"elec-|trochemical\" as \"electrochemical\" (joined form printed 11× elsewhere)"
+  ],
+  "units": [
+    {
+      "name": "Introduction to Chemistry",
+      "level": 20,
+      "optional": false,
+      "pages": [
+        82,
+        86
+      ],
+      "factorsEmphasized": [
+        "A2 historic",
+        "A3 holistic",
+        "A7 unique",
+        "A9 human/culture related",
+        "B1 change",
+        "B2 interaction",
+        "B10 cause-effect",
+        "C3 observing and describing",
+        "C6 questioning",
+        "D2 scientists and technologists are human",
+        "D4 science, technology, and the environment",
+        "D5 public understanding gap",
+        "D6 resources for science and technology",
+        "D7 variable positions",
+        "D8 limitations of science and technology",
+        "D9 social influence of science and technology",
+        "D11 science, technology, and other realms",
+        "E3 using equipment safely",
+        "E7 manipulative ability",
+        "F1 longing to know and understand",
+        "F2 questioning",
+        "G1 interest",
+        "G5 avocation",
+        "G7 vocation"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Recognize safe practices and explain the reason for each practice.",
+          "page": 83,
+          "printedPage": "78",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Report to the teacher if contact lenses are worn.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Report any allergies to the teacher.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify the location of the fire blanket, fire extinguishers, eye wash station, and any other safety equipment.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Know how to use the safety equipment in the laboratory.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Restrain any loose clothing, jewellery, or hair.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Wear eye protection whenever it is prudent or required.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Maintain a clean, uncluttered work area.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Gather and promptly dispose of any broken glass.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Comply with fire drill regulations.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Check procedures before carrying them out.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Follow accepted principles for dispensing, handling, and disposing of chemicals.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize and minimize the hazards of toxic and corrosive chemicals.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Treat all chemicals as if they were hazardous.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Refrain from pipetting by mouth.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use care when operating a burner.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Neither bring food into the laboratory, nor consume food while in the room.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Wash hands after chemicals have been handled.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Identify and explain how chemistry affects us.",
+          "page": 83,
+          "printedPage": "78",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss how advances in chemistry have led to the development of new products.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 18
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Outline the societal impact of new chemical products.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 18
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that advances in chemistry are often driven by societal needs.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 18
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the relationship between science and technology.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 18
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify some issues or problems for which a knowledge of chemistry is important in identifying causes and solutions.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 18
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that some problems can not be solved by science.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 18
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Use a wide range of language experiences for developing knowledge of the importance of chemistry. (COM)",
+          "page": 83,
+          "printedPage": "78",
+          "cel": "COM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Show understanding by providing an alternative rephrasing, drawing a diagram or making a model.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 25
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Synthesize ideas gleaned from a variety of sources and media.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 25
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify critical issues in factual and editorial argumentative messages from both print and non-print media.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 25
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Create questions as tools to further understanding of concepts.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 25
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop an understanding of how knowledge is obtained, evaluated, refined and changed within chemistry. (CCT)",
+          "page": 83,
+          "printedPage": "78",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Focus attention on personal knowledge, and gaps in that knowledge.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Reflect upon how knowledge is created, refined and applied in chemistry.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Come to a better understanding of the personal, moral, social, and cultural aspects of chemistry. (PSVS)",
+          "page": 83,
+          "printedPage": "78",
+          "cel": "PSVS"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand how application of chemical principles through technology influences the natural environment.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 33
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Establish arguments based on human rights, human needs or the needs of the environment with respect to the use of knowledge about chemical principles.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 33
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore how moral principles influence judgements about the application of chemical principles.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 33
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop a positive disposition to life-long learning. (IL)",
+          "page": 83,
+          "printedPage": "78",
+          "cel": "IL"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Cooperate with each other in order to enhance understanding through shared information.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 37
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Move from choosing among teacher-directed activities toward creating self-directed activities pertinent to chemistry.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 37
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Develop a willingness to take risks as independent learners.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 37
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the inevitability of profound change due to technological innovations and changes in society's values and norms.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 37
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Be willing to try to influence change by continuing to learn and apply what is learned.",
+          "page": 83,
+          "printedPage": "78",
+          "parent": 37
+        }
+      ]
+    },
+    {
+      "name": "Laboratory Activities",
+      "level": 20,
+      "optional": false,
+      "pages": [
+        87,
+        88
+      ],
+      "factorsEmphasized": [
+        "A1 public/private",
+        "A3 holistic",
+        "A4 replicable",
+        "A8 tentative",
+        "A9 human/culture related",
+        "B1 change",
+        "B2 interaction",
+        "B9 reproducibility of results",
+        "B10 cause-effect",
+        "B13 energy-matter",
+        "C2 communicating",
+        "C3 observing and describing",
+        "C4 working cooperatively",
+        "C5 measuring",
+        "C6 questioning",
+        "C7 using numbers",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C11 controlling variables",
+        "C12 interpreting data",
+        "C15 analyzing",
+        "C16 designing experiments",
+        "C19 consensus making",
+        "C20 defining operationally",
+        "D2 scientists and technologists are human",
+        "D3 impact of science and technology",
+        "D6 resources for science and technology",
+        "D7 variable positions",
+        "D8 limitations of science and technology",
+        "E1 using magnifying instruments",
+        "E3 using equipment safely",
+        "E7 manipulative ability",
+        "E11 measuring mass",
+        "E12 using electronic instruments",
+        "F2 questioning",
+        "F3 search for data and their meaning",
+        "F5 respect for logic",
+        "F7 demand for verification",
+        "G1 interest",
+        "G3 continuous learner"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Acquire concrete experiences of chemical events which form the basis for abstract understandings.",
+          "page": 88,
+          "printedPage": "83",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Gain proficiency in manipulating laboratory equipment.",
+          "page": 88,
+          "printedPage": "83",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Strengthen understanding within chemistry through applying knowledge of numbers and their interrelationships. (NUM)",
+          "page": 88,
+          "printedPage": "83",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop a contemporary view of technology. (TL)",
+          "page": 88,
+          "printedPage": "83",
+          "cel": "TL"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop compassionate, empathetic and fair-minded students who can make positive contributions to society as individuals and as members of groups. (PSVS)",
+          "page": 88,
+          "printedPage": "83",
+          "cel": "PSVS"
+        }
+      ]
+    },
+    {
+      "name": "Independent Research",
+      "level": 20,
+      "optional": false,
+      "pages": [
+        89,
+        93
+      ],
+      "factorsEmphasized": [
+        "A1 public/private",
+        "A3 holistic",
+        "A7 unique",
+        "B8 quantification",
+        "B15 model",
+        "C2 communicating",
+        "C4 working cooperatively",
+        "C15 analyzing",
+        "C21 synthesizing",
+        "D1 science and technology",
+        "D3 impact of science and technology",
+        "D7 variable positions",
+        "D9 social influence of science and technology",
+        "E3 using equipment safely",
+        "F1 longing to know and understand",
+        "F5 respect for logic",
+        "F7 demand for verification",
+        "G1 interest",
+        "G2 confidence",
+        "G3 continuous learner",
+        "G4 media preference",
+        "G5 avocation",
+        "G6 response preference",
+        "G8 explanation preference"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Investigate problems in chemistry and in the application of chemistry.",
+          "page": 90,
+          "printedPage": "85",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop abilities to meet own learning needs. (IL)",
+          "page": 90,
+          "printedPage": "85",
+          "cel": "IL"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write proposals for individual or group projects, including such things as: a completion date, criteria for assessment, resources to be accessed, preferred method of presentation, suggested audiences for presentation, and meeting dates for review and collaboration.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 1
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Take responsibility for their own learning by setting goals, designing plans, developing proposals, suggesting baseline performance levels, organizing allotted time, managing activities, evaluating success, and reviewing the entire process.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 1
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Demonstrate an ability to access information from a variety of resources.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 1
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Follow guidelines for completing a specific learning task.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 1
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore issues or topics which address their interests and concerns.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 1
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop an understanding of how knowledge is created, evaluated, refined and changed within chemistry. (CCT)",
+          "page": 90,
+          "printedPage": "85",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Participate in scientific inquiry.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 7
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Focus attention on knowledge and gaps in personal knowledge related to a specific topic.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 7
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop compassionate, empathetic and fair-minded students who can make positive contributions to society as individuals and as members of groups. (PSVS)",
+          "page": 90,
+          "printedPage": "85",
+          "cel": "PSVS"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Learn in a climate that is sensitive, flexible and responsive.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 10
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Collaborate with teachers and others to determine and monitor their own learning processes.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 10
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Work cooperatively with others.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 10
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Accept and respond to constructive criticism responsibly.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 10
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Share the results of their research project with other students, teachers, parents, or members of the community.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 10
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Share the results of their research by developing displays, exhibits, performances, presentations, demonstrations, lectures, or other appropriate methods.",
+          "page": 90,
+          "printedPage": "85",
+          "parent": 10
+        }
+      ]
+    },
+    {
+      "name": "Atoms and Elements",
+      "level": 20,
+      "optional": false,
+      "pages": [
+        94,
+        101
+      ],
+      "factorsEmphasized": [
+        "A2 historic",
+        "A6 probabilistic",
+        "A7 unique",
+        "A8 tentative",
+        "A9 human/culture related",
+        "B3 orderliness",
+        "B6 symmetry",
+        "B9 reproducibility of results",
+        "B11 predictability",
+        "B13 energy-matter",
+        "B15 model",
+        "B20 theory",
+        "B22 fundamental entities",
+        "C1 classifying",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C13 formulating models",
+        "C15 analyzing",
+        "C20 defining operationally",
+        "D1 science and technology",
+        "D5 public understanding gap",
+        "D7 variable positions",
+        "E3 using equipment safely",
+        "E4 using audio visual aids",
+        "E5 computer interaction",
+        "E11 measuring mass",
+        "F2 questioning",
+        "F3 search for data and their meaning",
+        "F5 respect for logic",
+        "F7 demand for verification",
+        "G3 continuous learner",
+        "G5 avocation",
+        "G6 response preference",
+        "G8 explanation preference",
+        "G9 valuing contributors"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Discuss the development of ideas about the structure of matter.",
+          "page": 95,
+          "printedPage": "90",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Outline Aristotle's ideas on the nature of matter.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the contributions of the early alchemists.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Summarize the contributions made by Dalton, Lavoisier, Berzelius, Thomson, Rutherford, Milliken, Planck, Bohr, de Broglie, Schrödinger or Heisenberg in developing a model of the structure of the atom.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand how theory is used to explain observations.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Identify the relationships among the components of the atom.",
+          "page": 95,
+          "printedPage": "90",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify protons, neutrons, and electrons as constituents of atoms.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Consider the forces which hold the atom together.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Draw Lewis diagrams to indicate the valence electron structure of atoms.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the terminology used to describe atoms and their isotopes: atomic number; nucleon (mass) number; atomic mass; atomic mass unit: average atomic mass.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the concept of the mole.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Distinguish between isotopes of an element.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that there is a difference between mass and weight.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Calculate atomic mass (atomic weight) values when given the percentage of each isotope of an element.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Examine how elements are described and classified.",
+          "page": 95,
+          "printedPage": "90",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that elements have characteristic properties.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 14
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Classify elements according to their properties.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 14
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify some elements by their properties.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 14
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the development of the periodic table by Mendeleev.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 14
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the basic principles of organization of the periodic table.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 14
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify trends and patterns within the periodic table.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 14
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the history of the use of symbols for the elements.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 14
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use symbols for the elements correctly.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 14
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use the periodic table to determine the valences of elements.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 14
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare several forms of the periodic table and recognize that each has its advantages.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 14
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand and use the vocabulary, structures and forms of expression which characterize chemistry. (COM)",
+          "page": 95,
+          "printedPage": "90",
+          "cel": "COM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Incorporate the vocabulary of chemistry into writing and talk about chemistry.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 25
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the periodic table as a source of information.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 25
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Apply knowledge of numbers and their interrelationships. (NUM)",
+          "page": 95,
+          "printedPage": "90",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Read and interpret information about elements from charts and tables.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 28
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use numerical data to compare and describe elements.",
+          "page": 95,
+          "printedPage": "90",
+          "parent": 28
+        }
+      ]
+    },
+    {
+      "name": "Molecules and Compounds",
+      "level": 20,
+      "optional": false,
+      "pages": [
+        102,
+        106
+      ],
+      "factorsEmphasized": [
+        "A2 historic",
+        "A4 replicable",
+        "A5 empirical",
+        "A8 tentative",
+        "B1 change",
+        "B2 interaction",
+        "B3 orderliness",
+        "B8 quantification",
+        "B9 reproducibility of results",
+        "B10 cause-effect",
+        "B13 energy-matter",
+        "B15 model",
+        "B16 system",
+        "B20 theory",
+        "B21 accuracy",
+        "B22 fundamental entities",
+        "B23 invariance",
+        "B29 gradient",
+        "C1 classifying",
+        "C6 questioning",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C11 controlling variables",
+        "C12 interpreting data",
+        "C13 formulating models",
+        "C14 problem solving",
+        "C15 analyzing",
+        "C16 designing experiments",
+        "C17 using mathematics",
+        "C20 defining operationally",
+        "D1 science and technology",
+        "D4 science, technology, and the environment",
+        "D10 technology controlled by society",
+        "E1 using magnifying instruments",
+        "E3 using equipment safely",
+        "E5 computer interaction",
+        "E7 manipulative ability",
+        "E12 using electronic instruments",
+        "E13 using quantitative relationships",
+        "F2 questioning",
+        "F5 respect for logic",
+        "G2 confidence",
+        "G3 continuous learner",
+        "G5 avocation",
+        "G6 response preference",
+        "G7 vocation",
+        "G8 explanation preference",
+        "G9 valuing contributors"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Use the formulas and names of compounds fluently.",
+          "page": 103,
+          "printedPage": "98",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the component atoms, simple ions, or polyatomic ions in a molecule.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use both the periodic table and a table of common ions to aid in determining the formulas of binary and other simple compounds.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use a table of common ions in determining the formulas of compounds containing one or more polyatomic ions.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write the formula of an inorganic compound, given its name.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use the oxidation state notation to describe the valence of polyvalent elements, e.g. Fe(III).",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write the name of an inorganic compound, given the formula.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the pattern in the names of the alkane and alkene series.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Apply the general formula CnH2n+2 for alkanes and CnH2n for alkenes to write formulas for members of those series.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 0,
+          "flags": [
+            "sub/superscript flattened inline in \"and CnH2n for alkenes to write formulas for\" (PDF p103)"
+          ]
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Discuss the mechanics of bonding between atoms in a molecule.",
+          "page": 103,
+          "printedPage": "98",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recall the structure of the atom.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the importance of the interaction of electrons when two atoms or ions approach each other.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Contrast the bonding produced by shared pairs of valence electrons and by transfer of electrons to form ions.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Apply the octet rule to determine the number of covalent bonds which form or the charge of the ion which forms.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Draw Lewis structures for molecules.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use VSEPR theory to predict shapes of simple molecules.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Examine the bonding between molecules or atoms in solid and liquid phases.",
+          "page": 103,
+          "printedPage": "98",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the physical properties of ionic, metallic, covalent (molecular), covalent (network), and van der Waals solids.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Relate the properties of compounds to the uses which those compounds have.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare the properties of some alkanes to the properties of their derivative alcohols, e.g. methane-methanol, propane-propanol, octane-octanol.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore the relationship between the strength of the forces holding solids and liquids together and the magnitude of the melting and boiling points of those substances.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Investigate the factors which influence solubility.",
+          "page": 103,
+          "printedPage": "98",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the importance of water as a solvent.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 21
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use the terminology related to solubility.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 21
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare the solubilities of several solute/solvent combinations.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 21
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize how the addition of a solute changes the properties of a solvent.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 21
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Use language (listening, speaking, reading, writing) for different audiences and purposes. (COM)",
+          "page": 103,
+          "printedPage": "98",
+          "cel": "COM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Share in own words ideas which are heard, read, viewed or discussed.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 26
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Outline information for reporting, discussing or sharing.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 26
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Clarify, refine, restate, adapt, change, give examples, make analogies, summarize a message when another does not understand.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 26
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Promote both intuitive, imaginative thought and the ability to evaluate ideas, processes, experiences and objects in meaningful contexts. (CCT)",
+          "page": 103,
+          "printedPage": "98",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare similarities and differences in the properties and behaviours of compounds.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discover relationships and patterns.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Apply conclusions and generalizations to new situations.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare and evaluate what is being read, heard and viewed.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use the vocabulary of critical thinking, e.g. necessary condition, conclusion, evidence, argument.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Make positive contributions to society as individuals and as members of groups. (PSVS)",
+          "page": 103,
+          "printedPage": "98",
+          "cel": "PSVS"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that the behaviour of an individual can affect the quality of an experience for others.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 36
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate the importance of respecting evidence, truth and the views of others when engaging in rational discussions.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 36
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the value of school rules and norms which support the consistent and respectful treatment of all.",
+          "page": 103,
+          "printedPage": "98",
+          "parent": 36
+        }
+      ]
+    },
+    {
+      "name": "Chemical Reactions",
+      "level": 20,
+      "optional": false,
+      "pages": [
+        107,
+        112
+      ],
+      "factorsEmphasized": [
+        "A1 public/private",
+        "A4 replicable",
+        "A5 empirical",
+        "A7 unique",
+        "B1 change",
+        "B2 interaction",
+        "B3 orderliness",
+        "B8 quantification",
+        "B10 cause-effect",
+        "B11 predictability",
+        "B13 energy-matter",
+        "B20 theory",
+        "B21 accuracy",
+        "B23 invariance",
+        "C1 classifying",
+        "C2 communicating",
+        "C3 observing and describing",
+        "C5 measuring",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C11 controlling variables",
+        "C12 interpreting data",
+        "C14 problem solving",
+        "C15 analyzing",
+        "C16 designing experiments",
+        "C20 defining operationally",
+        "C21 synthesizing",
+        "D3 impact of science and technology",
+        "D4 science, technology, and the environment",
+        "D8 limitations of science and technology",
+        "D10 technology controlled by society",
+        "E1 using magnifying instruments",
+        "E3 using equipment safely",
+        "E7 manipulative ability",
+        "E9 measuring volume",
+        "E10 measuring temperature",
+        "E11 measuring mass",
+        "E12 using electronic instruments",
+        "F1 longing to know and understand",
+        "F3 search for data and their meaning",
+        "F4 respect for natural environments",
+        "F7 demand for verification",
+        "F8 consideration of premise",
+        "G1 interest",
+        "G2 confidence",
+        "G5 avocation",
+        "G7 vocation",
+        "G9 valuing contributors"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Appreciate the importance of chemical reactions.",
+          "page": 108,
+          "printedPage": "103",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify changes which indicate that a chemical reaction has taken place.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify chemical reactions that help maintain living organisms.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify chemical reactions that harm living organisms.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify chemical reactions that affect the environment.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize how chemistry has been involved in product and process development in the last thirty years.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Acquire ability to communicate chemical information through equations for reactions.",
+          "page": 108,
+          "printedPage": "103",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write an equation representing a chemical reaction using chemical formulas for the species involved.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that chemical equations need to be balanced for number of atoms and for charge.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Balance chemical equations for number of atoms and for charge.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Apply the Law of Conservation of Mass to writing balanced chemical equations.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Develop net ionic equations.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that an energy term is often shown in a chemical equation.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Place the energy term on the correct side of an equation, depending on whether a reaction is exothermic or endothermic.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Develop a balanced chemical equation from a word equation, experimental evidence, or a description of a chemical reaction taking place.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Use a wide range of language experiences to develop understanding about molecules and their reactions. (COM)",
+          "page": 108,
+          "printedPage": "103",
+          "cel": "COM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Record, discuss and compare their observations of reactions with others.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Present findings about reactions by using diagrams, models, analogies or other devices.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Evaluate readings and videos about reactions in the context of concrete experience with reactions.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop an understanding of how knowledge is created, evaluated, refined and changed within chemistry. (CCT)",
+          "page": 108,
+          "printedPage": "103",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Strengthen perceptual abilities through concrete experiences with chemical reactions.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Reflect upon how the technology available to measure reactions influences the concept of how a reaction occurs.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize how basic concepts of chemistry change with changing perspective and new information.",
+          "page": 108,
+          "printedPage": "103",
+          "parent": 19
+        }
+      ]
+    },
+    {
+      "name": "Mole Concept and Stoichiometry",
+      "level": 20,
+      "optional": false,
+      "pages": [
+        113,
+        116
+      ],
+      "factorsEmphasized": [
+        "A1 public/private",
+        "A3 holistic",
+        "A5 empirical",
+        "A6 probabilistic",
+        "A8 tentative",
+        "B1 change",
+        "B3 orderliness",
+        "B8 quantification",
+        "B9 reproducibility of results",
+        "B10 cause-effect",
+        "B11 predictability",
+        "B13 energy-matter",
+        "B15 model",
+        "B20 theory",
+        "B21 accuracy",
+        "B22 fundamental entities",
+        "B23 invariance",
+        "C2 communicating",
+        "C4 working cooperatively",
+        "C5 measuring",
+        "C6 questioning",
+        "C7 using numbers",
+        "D3 impact of science and technology",
+        "D4 science, technology, and the environment",
+        "D7 variable positions",
+        "E1 using magnifying instruments",
+        "E3 using equipment safely",
+        "E4 using audio visual aids",
+        "E5 computer interaction",
+        "E9 measuring volume",
+        "E10 measuring temperature",
+        "E11 measuring mass",
+        "E12 using electronic instruments",
+        "E13 using quantitative relationships",
+        "F1 longing to know and understand",
+        "F3 search for data and their meaning",
+        "F5 respect for logic",
+        "F7 demand for verification",
+        "G1 interest",
+        "G3 continuous learner",
+        "G6 response preference",
+        "G9 valuing contributors"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Explore the concepts which relate to Avogadro's number.",
+          "page": 114,
+          "printedPage": "109",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use an atomic mass (atomic weight) table to compare the relative masses of atoms.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Realize that the absolute mass of an atom is very small.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how Avogadro's number is obtained.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the concept of a mole.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Calculate the number of moles in a given mass of atoms or molecules.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Calculate the masses of various numbers of moles of atoms and molecules",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Apply knowledge about atomic mass to calculations dealing with molecules.",
+          "page": 114,
+          "printedPage": "109",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Calculate the percentage composition of elements, by mass, in inorganic and organic molecules from molecular formulas and from mass measurements.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 7
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Calculate the empirical formulas for molecules from data on percentage composition and from mass measurements.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 7
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Calculate the concentrations of solutions in mols·L-1.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 7,
+          "flags": [
+            "sub/superscript flattened inline in \"mols·L-1.\" (PDF p114)"
+          ]
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Perform stoichiometric calculations.",
+          "page": 114,
+          "printedPage": "109",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Extract qualitative and quantitative information from balanced chemical equations.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use balanced chemical equations to determine the relative number of moles of reactants and products.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Manipulate the relationship among molar mass, number of moles and mass of chemicals to solve stoichiometric problems.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Manipulate the relationship among concentration, number of moles and volume of solution to solve stoichiometric problems.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify limiting reagents in chemical reactions involving non-stoichiometric masses of reactants.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Strengthen understanding within chemistry through applying knowledge of numbers and their interrelationships. (NUM)",
+          "page": 114,
+          "printedPage": "109",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Read and interpret charts and tables.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 17
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Collect, organize and analyze quantitative information from activities.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 17
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate value of being able to calculate required masses of reactants or anticipated quantities of products.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 17
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop an understanding of how knowledge is created, evaluated, refined and changed within chemistry. (CCT)",
+          "page": 114,
+          "printedPage": "109",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Make careful observations during active involvement in constructing knowledge.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 21
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss observations, hypotheses, predictions and generalizations with others.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 21
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize how mathematical skill and logical thinking ability are critical to constructing models of how chemical reactions work.",
+          "page": 114,
+          "printedPage": "109",
+          "parent": 21
+        }
+      ]
+    },
+    {
+      "name": "Optional: Behaviour of Gases",
+      "level": 20,
+      "optional": true,
+      "pages": [
+        117,
+        119
+      ],
+      "factorsEmphasized": [
+        "A2 historic",
+        "A4 replicable",
+        "A5 empirical",
+        "A6 probabilistic",
+        "A8 tentative",
+        "B1 change",
+        "B2 interaction",
+        "B7 force",
+        "B8 quantification",
+        "B9 reproducibility of results",
+        "B10 cause-effect",
+        "B15 model",
+        "B16 system",
+        "B21 accuracy",
+        "B33 entropy",
+        "C5 measuring",
+        "C7 using numbers",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C11 controlling variables",
+        "C12 interpreting data",
+        "C13 formulating models",
+        "C14 problem solving",
+        "C15 analyzing",
+        "C16 designing experiments",
+        "C17 using mathematics",
+        "D3 impact of science and technology",
+        "E1 using magnifying instruments",
+        "E3 using equipment safely",
+        "E5 computer interaction",
+        "E7 manipulative ability",
+        "E9 measuring volume",
+        "E10 measuring temperature",
+        "F2 questioning",
+        "F7 demand for verification",
+        "G2 confidence",
+        "G6 response preference",
+        "G8 explanation preference",
+        "G9 valuing contributors"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Apply kinetic molecular theory to understand the properties of gases.",
+          "page": 118,
+          "printedPage": "113",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare the behaviour of solids, liquids, and gases.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Investigate the behaviour of several gases while varying the temperature, pressure, volume or number of moles.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use the kinetic molecular theory to make sense of observations about the behaviour of matter.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Recognize how knowledge about gas behaviour is used in science and in technology.",
+          "page": 118,
+          "printedPage": "113",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Consider the importance of Avogadro's hypothesis.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 4
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify industrial use and application of gases and their behaviours.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 4
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize why particular conditions have been defined as standard temperature and pressure (SATP and STP).",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 4
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the concept of molar volumes of gases.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 4
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify the SI units used to measure temperature, pressure, and volume.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 4
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Describe gas behaviour with mathematical equations.",
+          "page": 118,
+          "printedPage": "113",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Sketch graphs which express the relationships among temperature, pressure, volume and number of moles of gas.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 10
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Examine the link between the graph and the equation for a relationship.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 10
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the concept of an ideal gas.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 10
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Solve problems relating to the gas laws.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 10
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Strengthen understanding of gas behaviour by using knowledge of numbers and their interrelationships. (NUM)",
+          "page": 118,
+          "printedPage": "113",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Read and interpret graphs to deduce the relationships between the variables.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Develop and use their understanding of quantitative information through graphical analysis.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the uncertainties inherent in measurement and in inductive logic.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand and use the vocabulary, structures and forms of expression which characterize chemistry (COM)",
+          "page": 118,
+          "printedPage": "113",
+          "cel": "COM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Incorporate the vocabulary of chemistry into talking and writing.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use graphs and equations to explain to others about gases and gas behaviour.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop an understanding of how knowledge is created, evaluated, refined and changed within chemistry. (CCT)",
+          "page": 118,
+          "printedPage": "113",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Control variables, record experimental data, and analyze those data for patterns and relationships.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 22
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the relationship between observations and measurements and their abstract expression as mathematical formulas.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 22
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the importance of mathematical expression to the ability to generalize and predict.",
+          "page": 118,
+          "printedPage": "113",
+          "parent": 22
+        }
+      ]
+    },
+    {
+      "name": "Optional: Consumer Chemistry",
+      "level": 20,
+      "optional": true,
+      "pages": [
+        120,
+        125
+      ],
+      "factorsEmphasized": [
+        "A1 public/private",
+        "A3 holistic",
+        "A7 unique",
+        "A9 human/culture related",
+        "B12 conservation",
+        "B16 system",
+        "C1 classifying",
+        "C2 communicating",
+        "C3 observing and describing",
+        "C6 questioning",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C12 interpreting data",
+        "C15 analyzing",
+        "C16 designing experiments",
+        "C19 consensus making",
+        "D1 science and technology",
+        "D2 scientists and technologists are human",
+        "D4 science, technology, and the environment",
+        "D6 resources for science and technology",
+        "D8 variable positions",
+        "D9 social influence on science and technology",
+        "D11 science, technology, and other realms",
+        "E2 using natural environments",
+        "E9 measuring volume",
+        "E11 measuring mass",
+        "E13 using quantitative relationships",
+        "F2 questioning",
+        "F3 search for data and their meaning",
+        "F4 valuing natural environments",
+        "F6 consideration of consequence",
+        "G1 interest",
+        "G3 continuous learner",
+        "G5 avocation"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Investigate the chemical principles involved in the composition, production or functioning of consumer products.",
+          "page": 121,
+          "printedPage": "116",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify chemicals in the components of consumer products.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Classify the components as either structural or functional.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss how the chemicals selected are suited for their function.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Suggest alternatives or substitutes for the chemical components in a product.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Describe and discuss the impact of the chemical industry on society.",
+          "page": 121,
+          "printedPage": "116",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the role of chemistry in the manufacture of consumer products.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Investigate how chemistry has led to advances or innovations in various consumer products.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Show how the application of chemistry in consumer products has led to changes in health and lifestyle.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Investigate the impact of chemicals from consumer products on the environment.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand how chemistry can be used to help make informed consumer decisions.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 5
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop a contemporary view of chemical technology and its influence on our lives. (TL)",
+          "page": 121,
+          "printedPage": "116",
+          "cel": "TL"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Examine experiences with and contact with chemical technology in the home and community.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the political, social and consumer demands which create and sustain technological developments.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand how technological developments can create and sustain consumer demand.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop a positive disposition to life-long learning. (IL)",
+          "page": 121,
+          "printedPage": "116",
+          "cel": "IL"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Cooperate with and help each other in order to enhance understanding through shared information.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Plan investigations into topics in chemistry.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Develop a willingness to take risks as independent learners.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the inevitability of profound change due to advancement in technology and changes in society's values and norms.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand how change can be influenced by those who keep themselves informed.",
+          "page": 121,
+          "printedPage": "116",
+          "parent": 15
+        }
+      ]
+    },
+    {
+      "name": "Optional: Organic Chemistry",
+      "level": 20,
+      "optional": true,
+      "pages": [
+        126,
+        127
+      ],
+      "factorsEmphasized": [
+        "A3 holistic",
+        "A4 replicable",
+        "A9 human/culture related",
+        "B4 organism",
+        "B16 system",
+        "C1 classifying",
+        "C4 working cooperatively",
+        "C6 questioning",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C12 interpreting data",
+        "C13 formulating models",
+        "C14 problem solving",
+        "C15 analyzing",
+        "C20 defining operationally",
+        "D1 science and technology",
+        "D4 science, technology, and the environment",
+        "D6 resources for science and technology",
+        "D8 variable positions",
+        "D9 social influence on science and technology",
+        "D10 technology controlled by society",
+        "E4 using audio visual aids",
+        "E5 computer interaction",
+        "F5 respect for logic",
+        "F6 consideration of consequence",
+        "G1 interest",
+        "G2 confidence",
+        "G3 continuous learner"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Consider the characteristics of organic substances.",
+          "page": 126,
+          "printedPage": "121",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the difference between organic and inorganic substances.",
+          "page": 126,
+          "printedPage": "121",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Name aliphatic or aromatic hydrocarbons using the IUPAC system.",
+          "page": 126,
+          "printedPage": "121",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Distinguish between saturated and unsaturated compounds.",
+          "page": 126,
+          "printedPage": "121",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare straight-chain, branched-chain, and cyclic organic molecules.",
+          "page": 126,
+          "printedPage": "121",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Draw structural formulas for hydrocarbons.",
+          "page": 126,
+          "printedPage": "121",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify important properties of different types of hydrocarbons. Here the concepts of functional groups, the importance of structure and the variety of organic compounds and reactions are stressed.",
+          "page": 126,
+          "printedPage": "121",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify some important uses of organic substances.",
+          "page": 126,
+          "printedPage": "121",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Classify organic compounds based on their functional groups.",
+          "page": 126,
+          "printedPage": "121",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop intuitive, imaginative thought and the ability to evaluate ideas and processes. (CCT)",
+          "page": 126,
+          "printedPage": "121",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore the rules which underlie the categories of organic compounds.",
+          "page": 126,
+          "printedPage": "121",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore relationships and patterns.",
+          "page": 126,
+          "printedPage": "121",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Design and construct models which illustrate principles and functions.",
+          "page": 126,
+          "printedPage": "121",
+          "parent": 9
+        }
+      ]
+    },
+    {
+      "name": "Optional: Teacher Developed Unit",
+      "level": 20,
+      "optional": true,
+      "pages": [
+        128,
+        128
+      ],
+      "factorsEmphasized": [],
+      "items": []
+    },
+    {
+      "name": "Review of Basic Principles",
+      "level": 30,
+      "optional": false,
+      "pages": [
+        132,
+        132
+      ],
+      "factorsEmphasized": [
+        "A1 public/private",
+        "A7 unique",
+        "A9 human/culture related",
+        "B10 cause-effect",
+        "B22 fundamental entities",
+        "C1 classifying",
+        "C2 communicating",
+        "C6 questioning",
+        "C20 defining operationally",
+        "D1 science and technology",
+        "D4 science, technology, and the environment",
+        "E3 using equipment safely",
+        "F1 longing to know and understand",
+        "F2 questioning",
+        "G2 confidence",
+        "G3 continuous learner",
+        "G5 avocation",
+        "G6 response preference",
+        "G8 explanation preference"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Exhibit an understanding of the language and organization of chemistry.",
+          "page": 132,
+          "printedPage": "127",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify protons, neutrons, and electrons as components of an atom.",
+          "page": 132,
+          "printedPage": "127",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Calculate atomic mass (atomic weight) values when given the percentage of each isotope of an element.",
+          "page": 132,
+          "printedPage": "127",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use the periodic table.",
+          "page": 132,
+          "printedPage": "127",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write the formula of a compound, given its name.",
+          "page": 132,
+          "printedPage": "127",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write the name of a compound, given the formula.",
+          "page": 132,
+          "printedPage": "127",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use a table of atomic mass units (atomic weights) to determine the formula weight (molecular weight, molecular mass, molar mass) of chemical compounds.",
+          "page": 132,
+          "printedPage": "127",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Balance chemical equations for mass and for charge.",
+          "page": 132,
+          "printedPage": "127",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the physical properties of ionic, metallic, covalent (molecular), and van der Waal's solids. Students may come from a variety of backgrounds and have been away from the study of Chemistry for a long or a short period of time. Giving students a chance to familiarize themselves with the resources, the facilities, and the demands of Chemistry 30 will help to reacquaint them with chemistry.",
+          "page": 132,
+          "printedPage": "127",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop their abilities to meet their own learning needs. (IL)",
+          "page": 132,
+          "printedPage": "127",
+          "cel": "IL"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Demonstrate an awareness of standard safety precautions that are used in the laboratory.",
+          "page": 132,
+          "printedPage": "127",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Analyze information from graphs and tables.",
+          "page": 132,
+          "printedPage": "127",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Collaborate with teachers and with others to determine and monitor learning progress and processess.",
+          "page": 132,
+          "printedPage": "127",
+          "parent": 9
+        }
+      ]
+    },
+    {
+      "name": "Laboratory Activities",
+      "level": 30,
+      "optional": false,
+      "pages": [
+        133,
+        134
+      ],
+      "factorsEmphasized": [
+        "A1 public/private",
+        "A3 holistic",
+        "A4 replicable",
+        "A8 tentative",
+        "A9 human/culture related",
+        "B1 change",
+        "B2 interaction",
+        "B9 reproducibility of results",
+        "B10 cause-effect",
+        "B13 energy-matter",
+        "C2 communicating",
+        "C3 observing and describing",
+        "C4 working cooperatively",
+        "C5 measuring",
+        "C6 questioning",
+        "C7 using numbers",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C11 controlling variables",
+        "C12 interpreting data",
+        "C15 analyzing",
+        "C16 designing experiments",
+        "C19 consensus making",
+        "C20 defining operationally",
+        "D2 scientists and technologists are human",
+        "D3 impact of science and technology",
+        "D6 resources for science and technology",
+        "D7 variable positions",
+        "D8 limitations of science and technology",
+        "E1 using magnifying instruments",
+        "E3 using equipment safely",
+        "E7 manipulative ability",
+        "E11 measuring mass",
+        "E12 using electronic instruments",
+        "F2 questioning",
+        "F3 search for data and their meaning",
+        "F5 respect for logic",
+        "F7 demand for verification",
+        "G1 interest",
+        "G3 continuous learner"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Acquire concrete experiences of chemical events which form the basis for abstract understandings.",
+          "page": 134,
+          "printedPage": "129",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Gain proficiency in manipulating laboratory equipment.",
+          "page": 134,
+          "printedPage": "129",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Strengthen understanding within chemistry through applying knowledge of numbers and their interrelationships. (NUM)",
+          "page": 134,
+          "printedPage": "129",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop a contemporary view of technology. (TL)",
+          "page": 134,
+          "printedPage": "129",
+          "cel": "TL"
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop compassionate, empathetic and fair-minded students who can make positive contributions to society as individuals and as members of groups. (PSVS)",
+          "page": 134,
+          "printedPage": "129",
+          "cel": "PSVS"
+        }
+      ]
+    },
+    {
+      "name": "Independent Research",
+      "level": 30,
+      "optional": false,
+      "pages": [
+        135,
+        137
+      ],
+      "factorsEmphasized": [
+        "A1 public/private",
+        "A3 holistic",
+        "A7 unique",
+        "B8 quantification",
+        "B15 model",
+        "C2 communicating",
+        "C4 working cooperatively",
+        "C15 analyzing",
+        "C21 synthesizing",
+        "D1 science and technology",
+        "D3 impact of science and technology",
+        "D7 variable positions",
+        "D9 social influence of science and technology",
+        "E3 using equipment safely",
+        "F1 longing to know and understand",
+        "F5 respect for logic",
+        "F7 demand for verification",
+        "G1 interest",
+        "G2 confidence",
+        "G3 continuous learner",
+        "G4 media preference",
+        "G5 avocation",
+        "G6 response preference",
+        "G8 explanation preference"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop abilities to meet own learning needs. (IL)",
+          "page": 136,
+          "printedPage": "131",
+          "cel": "IL"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write proposals for individual or group projects, including such things as: a completion date, criteria for assessment, resources to be accessed, preferred method of presentation, suggested audiences for presentation, and meeting dates for review and collaboration.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Take responsibility for their own learning by setting goals, designing plans, developing proposals, suggesting baseline performance levels, organizing allotted time, managing activities, evaluating success, and reviewing the entire process.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Demonstrate an ability to access information from a variety of resources.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Follow guidelines for completing a specific learning task.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore issues or topics which address their interests and concerns.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand the uses and abuses of mathematical concepts in everyday life. (NUM)",
+          "page": 136,
+          "printedPage": "131",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Read and interpret quantitative information from a variety of resources, and evaluate arguments based on such information.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Know when and how to make decisions based on visual observation and interpretation rather than on accurate measuring.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Develop an awareness of the reporting techniques used by special interest groups to increase the impact of data and influence the the uncritical reader, listener or viewer.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop an understanding of how knowledge is created, evaluated, refined and changed within chemistry. (CCT)",
+          "page": 136,
+          "printedPage": "131",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Participate in scientific inquiry.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 10
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Focus attention on knowledge and gaps in personal knowledge related to a specific topic.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 10
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop compassionate, empathetic and fair-minded students who can make positive contributions to society as individuals and as members of groups. (PSVS)",
+          "page": 136,
+          "printedPage": "131",
+          "cel": "PSVS"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Learn in a climate that is sensitive, flexible and responsive.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Collaborate with teachers and others to determine and monitor their own learning processes.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Work cooperatively with others.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Accept and respond to constructive criticism responsibly.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Share the results of their research project with other students, teachers, parents, or members of the community.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Share the results of their research by developing displays, exhibits, performances, presentations, demonstrations, lectures, or other appropriate methods.",
+          "page": 136,
+          "printedPage": "131",
+          "parent": 13
+        }
+      ]
+    },
+    {
+      "name": "Case Study",
+      "level": 30,
+      "optional": false,
+      "pages": [
+        138,
+        139
+      ],
+      "factorsEmphasized": [
+        "A1 public/private",
+        "A2 historic",
+        "A3 holistic",
+        "A5 empirical",
+        "A7 unique",
+        "A9 human/culture related",
+        "B10 cause-effect",
+        "B11 predictability",
+        "B16 system",
+        "C2 communicating",
+        "C4 working cooperatively",
+        "C6 questioning",
+        "C9 inferring",
+        "C12 interpreting data",
+        "C14 problem solving",
+        "C15 analyzing",
+        "C19 consensus making",
+        "C21 synthesizing",
+        "D2 scientists and technologists are human",
+        "D3 impact of science and technology",
+        "D4 science, technology, and the environment",
+        "D8 limitations of science and technology",
+        "D9 social influence on science and technology",
+        "D10 technology controlled by society",
+        "D11 science, technology, and other realms",
+        "F1 longing to know and understand",
+        "F2 questioning",
+        "F3 search for data and their meaning",
+        "F5 respect for logic",
+        "F6 consideration of consequence",
+        "F7 demand for verification",
+        "F8 consideration of premises",
+        "G1 interest",
+        "G2 confidence",
+        "G3 continuous learner",
+        "G4 media preference",
+        "G6 response preference",
+        "G7 vocation",
+        "G8 explanation preference",
+        "G9 valuing contributors"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Apply knowledge of chemistry to understanding how that chemistry is developed or used.",
+          "page": 139,
+          "printedPage": "134",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Determine the basic chemical principles which were under study or in use in the case.",
+          "page": 139,
+          "printedPage": "134",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Appreciate the work and lives of practicing scientists.",
+          "page": 139,
+          "printedPage": "134",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand how knowledge is created, evaluated, refined and changed within chemistry. (CCT)",
+          "page": 139,
+          "printedPage": "134",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Contribute to creating a climate that is sensitive, flexible and responsive.",
+          "page": 139,
+          "printedPage": "134",
+          "parent": 3
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Read and interpret quantitative information from a variety of resources.",
+          "page": 139,
+          "printedPage": "134",
+          "parent": 3
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Evaluate arguments based on quantitative information.",
+          "page": 139,
+          "printedPage": "134",
+          "parent": 3
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Share the results of research by developing displays, exhibits, performances, presentations, demonstrations, lectures, or other appropriate means.",
+          "page": 139,
+          "printedPage": "134",
+          "parent": 3
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand that knowledge alone can not produce wisdom, and that wisdom depends upon the interplay of knowledge, experience, and reflection.",
+          "page": 139,
+          "printedPage": "134",
+          "parent": 3
+        }
+      ]
+    },
+    {
+      "name": "Solubility and Solutions",
+      "level": 30,
+      "optional": false,
+      "pages": [
+        140,
+        143
+      ],
+      "factorsEmphasized": [
+        "A4 replicable",
+        "A5 empirical",
+        "B2 interaction",
+        "B3 orderliness",
+        "B8 quantification",
+        "B9 reproducibility of results",
+        "B11 predictability",
+        "B12 conservation",
+        "B13 energy-matter",
+        "B14 cycle",
+        "B16 system",
+        "B23 invariance",
+        "B28 equilibrium",
+        "B29 gradient",
+        "C1 classifying",
+        "C4 working cooperatively",
+        "C5 measuring",
+        "C6 questioning",
+        "C7 using numbers",
+        "C10 predicting",
+        "C11 controlling variables",
+        "C12 interpreting data",
+        "C13 formulating models",
+        "C14 problem solving",
+        "C15 analyzing",
+        "C16 designing experiments",
+        "C17 using mathematics",
+        "C20 defining operationally",
+        "D3 impact of science and technology",
+        "D4 science, technology, and the environment",
+        "D8 limitations of science and technology",
+        "E2 using natural environments",
+        "E3 using equipment safely",
+        "E4 using audio visual aids",
+        "E5 computer interaction",
+        "E7 manipulative ability",
+        "E9 measuring volume",
+        "E10 measuring temperature",
+        "E11 measuring mass",
+        "E13 using quantitative relationships",
+        "F3 search for data and their meaning",
+        "F5 respect for logic",
+        "F7 demand for verification",
+        "F8 consideration of premises",
+        "G1 interest",
+        "G2 confidence",
+        "G3 continuous learner",
+        "G5 avocation",
+        "G7 vocation",
+        "G8 explanation preference"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Calculate concentrations of, and prepare, solutions.",
+          "page": 141,
+          "printedPage": "136",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Express the concentration of a solution in moles of solute per litre of solution (M, moles·litre−1 or mols·L−1).",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 0,
+          "flags": [
+            "sub/superscript flattened inline in \"of solute per litre of solution (M, moles·litre−1 or\" (PDF p141)",
+            "sub/superscript flattened inline in \"mols·L−1).\" (PDF p141)"
+          ]
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Manipulate the relationship which links the mass of solute, volume of solution and concentration of solution so that given two, the other can be determined.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how to prepare standard solutions and serial dilutions in the laboratory.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Manipulate the relationship which links original concentration, volume of diluent and concentration of diluted solution so that given two, the other may de determined.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Relate concentrations expressed as ppm or ppb to those expressed as mols·L−1 or g·L−1.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 0,
+          "flags": [
+            "sub/superscript flattened inline in \"those expressed as mols·L−1 or g·L−1.\" (PDF p141)"
+          ]
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand the principles of qualitative analysis of solutions.",
+          "page": 141,
+          "printedPage": "136",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use solubility charts to determine the solubility of various substances.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how to perform tests on solutions to determine which ions or ion groups are present.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how to separate ions in solution by selective precipitation.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how the common ion effect influences the solubility of a solute in a solution.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Investigate the application of the principles of solubility.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Use numbers and numerical data to strengthen understanding of the concept of solubility. (NUM)",
+          "page": 141,
+          "printedPage": "136",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Read and interpret solubility charts and tables.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 12
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss with others the process of estimation.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 12
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use the concepts of probability and logic to understand how qualitative analysis is done.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 12
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Promote both intuitive, imaginative thought and the ability to evaluate ideas, processes, and experiences in meaningful contexts. (CCT)",
+          "page": 141,
+          "printedPage": "136",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use metaphoric and analogic thinking to build understanding and create insights.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Generate and evaluate alternative solutions to problems.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Analyze data to create hypotheses, predictions and estimates.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Generate and explore rules underlying categories.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Propose generalizations which explain relationships.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore the concepts of probability and risk as it applies to levels of pollutants.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Consider all evidence before drawing conclusions and developing generalizations.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Withhold judgement when the evidence and reasons are insufficient.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 16
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Appreciate the value and limitations of technology within society. (TL)",
+          "page": 141,
+          "printedPage": "136",
+          "cel": "TL"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the impact of molecular species detection technology on our knowledge of what pollutants are in our environment.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 25
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use probabilistic reasoning in relation to the analysis of risk related to molecular species detection.",
+          "page": 141,
+          "printedPage": "136",
+          "parent": 25
+        }
+      ]
+    },
+    {
+      "name": "Energy Changes in Chemical Reactions",
+      "level": 30,
+      "optional": false,
+      "pages": [
+        144,
+        147
+      ],
+      "factorsEmphasized": [
+        "A3 holistic",
+        "A4 replicable",
+        "A5 empirical",
+        "A7 unique",
+        "B1 change",
+        "B2 interaction",
+        "B5 perception",
+        "B8 quantification",
+        "B9 reproducibility of results",
+        "B13 energy-matter",
+        "B33 entropy",
+        "C3 observing and describing",
+        "C5 measuring",
+        "C6 questioning",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C11 controlling variables",
+        "C12 interpreting data",
+        "C15 analyzing",
+        "C17 using mathematics",
+        "D1 science and technology",
+        "D4 science, technology, and the environment",
+        "D8 limitations of science and technology",
+        "E3 using equipment safely",
+        "E5 computer interaction",
+        "E7 manipulative ability",
+        "E8 measuring time",
+        "E9 measuring volume",
+        "E10 measuring temperature",
+        "E11 measuring mass",
+        "E12 using electronic instruments",
+        "E13 using quantitative relationships",
+        "F3 search for data and their meaning",
+        "F5 respect for logic",
+        "F7 demand for verification",
+        "G3 continuous learner",
+        "G6 response preference"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Examine the relationships between heat energy and reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that energy changes are associated with chemical reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Relate enthalpy change in a reaction to bond energy and stability.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Differentiate between endothermic and exothermic reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare the energy changes in phases changes and chemical reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the difference between heat and temperature.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify reactions which are used to produce useful heat.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Consider the environmental and social effects of the use of heat energy by our society.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand the quantitative description of enthalpy change.",
+          "page": 145,
+          "printedPage": "140",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Measure some energy changes in chemical reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 8
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Investigate how tables of standard heats (enthalpies) of formation are created and used.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 8
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Express the enthalpy change of a chemical reactions as a term in the equation for the reaction, or as a heat of reaction ()H).",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 8
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use tables, graphs, or diagrams and an application of Hess's Law to infer enthalpy changes in reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 8
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Optional: Understand the reasons why entropy and enthalpy effects are important.",
+          "page": 145,
+          "printedPage": "140",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify how entropy effects influence chemical reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Consider the interaction between enthalpy and entropy in determining whether a reaction is spontaneous.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use the concept of free energy to express the quantitative relationship between entropy and enthalpy.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Predict spontaneity of reactions using )G\" = )H\" - T)S\"",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 13,
+          "flags": [
+            "symbol-font glyph(s) \"\\\"\", \"\\\"\", \"\\\"\" in \")G\" = )H\" - T)S\"\" (PDF p145): probably a mis-mapped math/arrow symbol; check the printed page",
+            "sub/superscript flattened inline in \")G\" = )H\" - T)S\"\" (PDF p145)"
+          ]
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand and use the vocabulary, structures and forms of expression which characterize chemistry. (COM)",
+          "page": 145,
+          "printedPage": "140",
+          "cel": "COM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Incorporate vocabulary such as bond energy, enthalpy, endothermic and standard heat of formation into their speaking and writing about energies of reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 18
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use tables and graphs in interpreting, estimating and explaining the energy effects of chemical reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 18
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Relate the theoretical aspects of the study of energies of reactions to daily, practical experiences with energy produced by and consumed by reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 18
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Strengthen understanding of chemistry through applying knowledge of numbers and their interrelationships. (NUM)",
+          "page": 145,
+          "printedPage": "140",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Read, and interpret meaning from, graphs, charts and tables.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 22
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Collect, organize and analyze quantitative information.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 22
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use graphs, charts and tables to help explain concepts and ideas about energy changes.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 22
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand and explain to others (orally or in writing) how temperature change measurements can be used to infer the extent and type of bond rearrangements during a reaction.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 22
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop an understanding of how knowledge is created, evaluated, refined and changed within chemistry. (CCT)",
+          "page": 145,
+          "printedPage": "140",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Make careful observations of energy effects in reactions, and explain how those effects can be used to make inferences about the atomic and molecular rearrangements.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 27
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Reflect on the importance of theory in creating a framework by which reactions are viewed, and the place of theory with respect to the observations.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 27
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Appreciate the value and limitations of technology within society. (TL)",
+          "page": 145,
+          "printedPage": "140",
+          "cel": "TL"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore the distribution and uses in home, school and community of technologies making use of the exothermic or endothermic nature of chemical reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Assess the benefits and risks accruing from technologies which exploit the exothermic or endothermic nature of chemical reactions.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use technological devices to help measure heats of reaction.",
+          "page": 145,
+          "printedPage": "140",
+          "parent": 30
+        }
+      ]
+    },
+    {
+      "name": "Reaction Kinetics",
+      "level": 30,
+      "optional": false,
+      "pages": [
+        148,
+        153
+      ],
+      "factorsEmphasized": [
+        "A4 replicable",
+        "A6 probabilistic",
+        "A8 tentative",
+        "B10 cause-effect",
+        "B11 predictability",
+        "B13 energy-matter",
+        "B15 model",
+        "B20 theory",
+        "C3 observing and describing",
+        "C5 measuring",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C12 interpreting data",
+        "C13 formulating models",
+        "C16 designing experiments",
+        "D3 impact of science and technology",
+        "D4 science, technology, and the environment",
+        "D7 variable positions",
+        "E3 using equipment safely",
+        "E4 using audio visual aids",
+        "E5 computer interaction",
+        "E8 measuring time",
+        "E9 measuring volume",
+        "E10 measuring temperature",
+        "E12 using electronic instruments",
+        "F1 longing to know and understand",
+        "F2 questioning",
+        "F7 demand for verification",
+        "F8 consideration of premises",
+        "G1 interest",
+        "G2 confidence",
+        "G5 avocation",
+        "G7 vocation"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Examine the factors which influence reaction rates in the context of the collision theory.",
+          "page": 149,
+          "printedPage": "144",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Suggest some ways in which the rate of a chemical reaction could be measured.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify some factors which affect the rate of chemical reactions.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Apply collision theory to account for the factors which affect the rates of chemical reactions.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that chemical reactions may occur in successive elementary steps.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand how a series of simple reactions can constitute a reaction mechanism for a complex reaction.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Consider molecular level events in a chemical reaction.",
+          "page": 149,
+          "printedPage": "144",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the concept of threshold energy.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Interpret energy versus reaction pathway diagrams.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Consider the existence of transition states in which activated complexes exist.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the role of catalysts in chemical reactions.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Interpret energy versus reaction pathway diagrams for catalyzed and uncatalyzed reactions.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the use of catalysts in a variety of applications.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 6
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Strengthen knowledge and understanding of how to compute, measure, estimate and interpret quantitative data, when to apply these skills and techniques, and why these processses are important in studying chemical energetics. (NUM)",
+          "page": 149,
+          "printedPage": "144",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize whether computed answers are sensible.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the principles and difficulties of measuring rates of chemical reactions, and inventing suitable procedures for measurement.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand that divergent thinking and reasoning often precede convergent thinking and solutions to problems.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Distinguish between situations where quantitative precision is required and those where approximations are acceptable.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use quantitative problem solving tools such as tables of conversion or equivalence.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 13
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Promote both intuitive, imaginative thought and the ability to evaluate ideas, processes, and experiences in meaningful contexts. (CCT)",
+          "page": 149,
+          "printedPage": "144",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Seek alternate ways of responding to activities, projects or assignments.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Summarize information in a variety of ways.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand that real life problems often have more than one solution.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discover relationships and patterns.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Generate, classify and explore reasons or rules underlying categories.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Propose generalizations which explain relationships.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Treat themselves and others with respect. (PSVS)",
+          "page": 149,
+          "printedPage": "144",
+          "cel": "PSVS"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Work toward improving self-esteem in themselves and others.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 26
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Work cooperatively and contribute positively in group learning activities.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 26
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Demonstrate capacity and ability to act with respect, empathy, sympathy, fairness, loyalty, cooperation and patience for others.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 26
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop their abilities to meet their own learning needs. (IL)",
+          "page": 149,
+          "printedPage": "144",
+          "cel": "IL"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Connect what is already known with new experiences.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Focus on and complete learning tasks.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Look for associations among items of knowledge and extend identified relationships through additional inquiries.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Interpret and report results of learning experiences.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Plan, manage and evaluate own learning tasks.",
+          "page": 149,
+          "printedPage": "144",
+          "parent": 30
+        }
+      ]
+    },
+    {
+      "name": "Equilibrium",
+      "level": 30,
+      "optional": false,
+      "pages": [
+        154,
+        157
+      ],
+      "factorsEmphasized": [
+        "A2 historic",
+        "A5 empirical",
+        "A7 unique",
+        "B1 change",
+        "B3 orderliness",
+        "B5 perception",
+        "B8 quantification",
+        "B9 reproducibility of results",
+        "B11 predictability",
+        "B13 energy-matter",
+        "B14 cycle",
+        "B16 system",
+        "B23 invariance",
+        "B28 equilibrium",
+        "C1 classifying",
+        "C2 communicating",
+        "C3 observing and describing",
+        "C5 measuring",
+        "C6 questioning",
+        "C7 using numbers",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C11 controlling variables",
+        "C12 interpreting data",
+        "C13 formulating models",
+        "C14 problem solving",
+        "C15 analyzing",
+        "C16 designing experiments",
+        "C17 using mathematics",
+        "C20 defining operationally",
+        "D1 science and technology",
+        "D4 science, technology, and the environment",
+        "E3 using equipment safely",
+        "E4 using audiovisual aids",
+        "E5 computer interaction",
+        "E7 manipulative ability",
+        "E8 measuring time",
+        "E9 measuring volume",
+        "E10 measuring temperature",
+        "E13 using quantitative relationships",
+        "F2 questioning",
+        "F3 search for data and their meaning",
+        "F5 respect for logic",
+        "F7 demand for verification",
+        "F8 consideration of premises",
+        "G1 interest",
+        "G2 confidence",
+        "G3 continuous learner",
+        "G8 explanation preference"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Recognize the characteristics and dynamics of equilibrium reactions.",
+          "page": 155,
+          "printedPage": "150",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Observe and describe some reactions which are easily reversible and some which are not easily reversible.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Consider the implications for a system when the rates of the forward and the reverse reactions that define the system are equal.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss non-chemical analogies which illustrate or simulate equilibria.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Distinguish between dynamic equilibria and steady-state processes.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the influence of free energy on the spontaneity of reactions.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand why Le Chatelier's principle works.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use Le Chatelier's principle to predict how various equilibrium systems will shift in response to external stress.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss industrial applications of Le Chatelier's principle.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand some quantitative aspects of equilibrium systems.",
+          "page": 155,
+          "printedPage": "150",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write the equilibrium constant expression for a chemical reaction using the general equation: aA(aq) + bB(aq) X cC(g) + dD(aq)",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 9,
+          "flags": [
+            "symbol-font glyph(s) \"X\" in \"aA(aq) + bB(aq) X cC(g) + dD(aq)\" (PDF p155): probably a mis-mapped math/arrow symbol; check the printed page",
+            "sub/superscript flattened inline in \"aA(aq) + bB(aq) X cC(g) + dD(aq)\" (PDF p155)"
+          ]
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that Keq values are dependent upon temperature but are independent of concentration.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Analyze graphs of the concentrations of reactants and products with respect to time in a chemical reaction which is approaching equilibrium.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Interpret Keq values to determine whether products or reactants are favoured once equilibrium has been reached.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 9
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Solve problems involving the equilibrium constant expression for a chemical reaction, with concentrations expressed in mol@litre−1 and kPa.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 9,
+          "flags": [
+            "symbol-font glyph(s) \"@\" in \"concentrations expressed in mol@litre−1 and kPa.\" (PDF p155): probably a mis-mapped math/arrow symbol; check the printed page",
+            "sub/superscript flattened inline in \"concentrations expressed in mol@litre−1 and kPa.\" (PDF p155)"
+          ]
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Use a wide range of language experiences for developing knowledge of equilibrium systems. (COM)",
+          "page": 155,
+          "printedPage": "150",
+          "cel": "COM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Show understanding of equilibrium by rephrasing text or classroom definitions and explanations, creating models, drawing diagrams and concept maps.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the relationships between the activities and analogies used to illustrate equilibrium and the principles of equilibria.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Ask pertinent questions (prior questions, contextual questions, evaluative questions) and discuss multiple responses to those questions.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Strengthen knowledge and understanding of how to compute, measure, estimate and interpret mathematical data, when to apply these skills and techniques, and why these processes apply within chemistry. (NUM)",
+          "page": 155,
+          "printedPage": "150",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use the language of estimation.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the quantitative nature of equilibria.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand that divergent thinking and reasoning often precede convergent thinking and solutions to problems.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Verify answers by referring to problem parameters, checking the validity of each step of the method of solution, looking for errors in reasoning and in information and searching for alternative methods of solution.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use problem solving tools such as tables and calculators.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop a contemporary view of technology. (TL)",
+          "page": 155,
+          "printedPage": "150",
+          "cel": "TL"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the influence of the underlying values or assumptions of a society on the support of technological development.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 25
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand how scientific understanding can support technological developments.",
+          "page": 155,
+          "printedPage": "150",
+          "parent": 25
+        }
+      ]
+    },
+    {
+      "name": "Acid-Base Equilibria",
+      "level": 30,
+      "optional": false,
+      "pages": [
+        158,
+        162
+      ],
+      "factorsEmphasized": [
+        "A3 holistic",
+        "A5 empirical",
+        "A7 unique",
+        "B1 change",
+        "B2 interaction",
+        "B8 quantification",
+        "B10 cause-effect",
+        "B11 predictability",
+        "B12 conservation",
+        "B20 theory",
+        "B28 equilibrium",
+        "C1 classifying",
+        "C2 communicating",
+        "C3 observing and describing",
+        "C5 measuring",
+        "C7 using numbers",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C11 controlling variables",
+        "C12 interpreting data",
+        "C13 formulating models",
+        "C14 problem solving",
+        "C15 analyzing",
+        "C16 designing experiments",
+        "C17 using mathematics",
+        "C19 consensus making",
+        "C20 defining operationally",
+        "D1 science and technology",
+        "D3 impact of science and technology",
+        "D4 science, technology, and the environment",
+        "D5 public understanding gap",
+        "D8 limitations of science and technology",
+        "D9 social influence on science and technology",
+        "D10 technology controlled by society",
+        "D11 science, technology, and other realms",
+        "E3 using equipment safely",
+        "E4 using audio visual aids",
+        "E5 computer interaction",
+        "E7 manipulative ability",
+        "E9 measuring volume",
+        "E10 measuring temperature",
+        "E12 using electronic instruments",
+        "E13 using quantitative relationships",
+        "F1 longing to know and understand",
+        "F4 valuing natural environments",
+        "F5 respect for logic",
+        "F6 consideration of consequence",
+        "F7 demand for verification",
+        "G1 interest",
+        "G2 confidence",
+        "G3 continuous learner",
+        "G4 media preference",
+        "G5 avocation",
+        "G7 vocation",
+        "G8 explanation preference"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Investigate the nature of acids and bases.",
+          "page": 159,
+          "printedPage": "154",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify some acids and some bases which are used in common household products.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Observe some physical and chemical characteristics of acids and bases.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Construct an operational definition of an acid and a base, using the characteristic properties of those substances.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the BrNnsted-Lowry conceptual definition of acids and bases.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify the conjugate bases formed in acid dissociation.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Associate acid or base strength with magnitudes of Ka and Kb.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 0,
+          "flags": [
+            "sub/superscript flattened inline in \"Ka and Kb.\" (PDF p159)"
+          ]
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify the conjugate acid of any base.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize substances which are amphiprotic (amphoteric).",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare the strengths of the dissociations in the dissociation series for a polyprotic acid.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Investigate the nature of the production and use of acids and bases in our society.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Consider how the ionization of water interacts with acid and base dissociations.",
+          "page": 159,
+          "printedPage": "154",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write the equilibrium constant expression for the dissociation of water.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Show how the common ion effect influences the equilibrium of water's dissociation when H+ ions or OH− ions are added to water.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 11,
+          "flags": [
+            "sub/superscript flattened inline in \"equilibrium of water's dissociation when H+ ions or\" (PDF p159)",
+            "sub/superscript flattened inline in \"OH− ions are added to water.\" (PDF p159)"
+          ]
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the relationship between the [H+] and [OH−] in an aqueous system.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 11,
+          "flags": [
+            "sub/superscript flattened inline in \"[OH−] in an aqueous system.\" (PDF p159)"
+          ]
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Calculate the [H+] in a solution.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Express the [H+] as a pH value.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain how a logarithmic scale differs from an arithmetic scale.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Estimate the pH of solutions, using indicator solutions and indicator papers.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 11
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Explore the principles of neutralization.",
+          "page": 159,
+          "printedPage": "154",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "State the general neutralization equation: acid + base 6 salt + water",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 19,
+          "flags": [
+            "symbol-font glyph(s) \"6\" in \"acid + base 6 salt + water\" (PDF p159): probably a mis-mapped math/arrow symbol; check the printed page"
+          ]
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write equations for specific neutralization reactions, identifying the nature of each species.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Solve mathematical problems involving data from titrations.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Develop skill in doing titrations.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 19
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Strengthen understanding of equilibria through quantitative analysis of acid/base reactions. (NUM)",
+          "page": 159,
+          "printedPage": "154",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Collect and organize data in charts and graphs.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 24
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Interpret collected data.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 24
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Read and interpret the scales on buret tubes.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 24
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss with peers how estimates of values are made.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 24
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use information from Ka tables to calculate pH values in solutions and check results of calculations with indicators.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 24
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop an understanding of how knowledge is created, refined and changed within chemistry. (CCT)",
+          "page": 159,
+          "printedPage": "154",
+          "cel": "CCT"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Observe and record carefully during experimental or investigative procedures.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Develop and conduct investigations and research.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the meaning of theory in science.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare the nature of scientific knowledge with knowledge in other areas of study.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 30
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand that technology both shapes and is shaped by society. (TL)",
+          "page": 159,
+          "printedPage": "154",
+          "cel": "TL"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate how use of the principles of acid/base reactions has influenced our lives.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 35
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore how knowledge about acid/base reactions has both explained existing applications and suggested new applications .",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 35
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Value the role of technology in studying acid/base reactions.",
+          "page": 159,
+          "printedPage": "154",
+          "parent": 35
+        }
+      ]
+    },
+    {
+      "name": "Oxidation and Reduction",
+      "level": 30,
+      "optional": false,
+      "pages": [
+        163,
+        168
+      ],
+      "factorsEmphasized": [
+        "A3 holistic",
+        "A4 replicable",
+        "A5 empirical",
+        "A9 human/culture related",
+        "B1 change",
+        "B3 orderliness",
+        "B8 quantification",
+        "B9 reproducibility of results",
+        "B11 predictability",
+        "B12 conservation",
+        "B28 equilibrium",
+        "B33 entropy",
+        "C1 classifying",
+        "C3 observing and describing",
+        "C4 working cooperatively",
+        "C5 measuring",
+        "C6 questioning",
+        "C7 using numbers",
+        "C11 controlling variables",
+        "C14 problem solving",
+        "C16 designing experiments",
+        "C17 using mathematics",
+        "C19 consensus making",
+        "D1 science and technology",
+        "D4 science, technology, and the environment",
+        "D5 public understanding gap",
+        "D9 social influence on science and technology",
+        "D10 technology controlled by society",
+        "E3 using equipment safely",
+        "E4 using audiovisual aids",
+        "E5 computer interaction",
+        "E7 manipulative ability",
+        "E11 measuring mass",
+        "E12 using electronic instruments",
+        "F2 questioning",
+        "F4 valuing natural environments",
+        "F6 consideration of consequence",
+        "G5 avocation",
+        "G7 vocation"
+      ],
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Explore the tendency of elements to participate in electron transfer.",
+          "page": 164,
+          "printedPage": "159",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Define oxidation and reduction in terms of transfer of electrons.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Develop a reduction potential series based on experimental results.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write half reactions and net ionic equations involving oxidation-reduction processes.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use a table to compare reduction potentials of half-reactions.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the processes of corrosion and metallic deposition, using the terms oxidizing agent, reducing agent, oxidized species, and reduced species.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify and investigate means of protecting metals against corrosion.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the conditions under which automobiles corrode most quickly.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 0
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Observe, measure and consider the applications of electron transfer through external circuits.",
+          "page": 164,
+          "printedPage": "159",
+          "cel": null
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Determine the direction of electron flow in an electrochemical cell.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 8
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Measure the voltage in several electrochemical cells.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 8
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Calculate the potential difference in volts of electrochemical cells, using a standard reduction potential table.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 8
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the difference between a standard potential and an observed potential.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 8
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare electrochemical and electrolytic cells.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 8
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Examine applications of electrochemistry.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 8
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Strengthen students' knowledge and understanding of how to compute, measure, estimate and interpret mathematical data, when to apply these skills and techniques, and why these processses apply within redox chemistry. (NUM)",
+          "page": 164,
+          "printedPage": "159",
+          "cel": "NUM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize whether a computed answer is sensible.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Make appropriate use of calculators and computers.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Verify answers by referring to the problem requirements, by checking the validity of each step in the method of solution, by looking for errors in reasoning or information and wherever appropriate, using an alternative method of solution.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Distinguish btween quantitative situations where precision is required and those where approximations are acceptable.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the meaning of precision and determine the most appropriate degree of precision for a needed measurement.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 15
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand and use the vocabulary, structure and forms of expression which characterize the study of oxidation-reduction reactions. (COM)",
+          "page": 164,
+          "printedPage": "159",
+          "cel": "COM"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Incorporate the vocabulary of redox chemistry into the writing and talking they do about the topic.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 21
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use reduction potentials tables to predict spontaneity of reaction and potential difference of reaction.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 21
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the structure of a reduction potential table and its relationship to experimental eveidence.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 21
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize and correctly use symbols such as EE, molCL−1, v, M2+(aq).",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 21,
+          "flags": [
+            "symbol-font glyph(s) \"C\" in \"molCL−1, v, M2+(aq).\" (PDF p164): probably a mis-mapped math/arrow symbol; check the printed page",
+            "sub/superscript flattened inline in \"molCL−1, v, M2+(aq).\" (PDF p164)"
+          ]
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Read diagrams, tables and expository (information-giving) text to enhance understanding of redox chemistry, and explain that understanding both orally and in writing by using analogies, charts, diagrams and descriptive statements.",
+          "page": 164,
+          "printedPage": "159",
+          "parent": 21
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Structure as printed: each unit has one heading 'Foundational Objectives for Chemistry and the Common Essential Learnings'. Bold statements are foundational objectives; the Common Essential Learnings ones end with the CEL abbreviation in brackets, e.g. '(COM)' (also copied into `cel`). Bulleted statements under each are learning objectives (`parent` = index of their foundational objective in the unit's items). Nothing is numbered in the source, so `code` is null.",
+    "Units whose heading starts 'Optional:' are optional units as printed.",
+    "Text extracted with pdfjs-dist (legacy build) from a 1992 WordPerfect-generated PDF; two-column pages split at x=300. Bullet glyphs (WPTypographicSymbols '!') mapped to '•' (and stripped from the start of learning objectives); WPBoxDrawing ')' used as a dash mapped to '—' (in sub/superscripts, where it is a minus sign, to '−'). Subscripts/superscripts (e.g. chemical formulas) are flattened inline, so 'H2O' may appear where the print has H₂O.",
+    "Status on the site (2026-11-21): the course page has no notice that the guide is superseded; it offers only the PDF (its 'Outcomes & Indicators' page is empty). The course is reachable only through the site's search list: the 'Browse by Subject' → Sciences menu lists Science 10, Computer Science 20/30, Environmental Science 20, Health Science 20, Physical Science 20, Biology 30, Chemistry 30, Physics 30 and Earth Science 30, and not the 1992 'Biology/Chemistry/Physics 20, 30' entries.",
+    "The renewed Health Science 20 curriculum (CurriculumFile?id=74, Health_Science_20_2020.pdf, p. 3) says: 'Saskatchewan has developed science courses at Grade 11 that provide students with opportunities to learn core biology, chemistry and physics disciplinary ideas within interdisciplinary contexts.' and 'The current credit requirements for graduation from Grade 12 are one 10-level credit and one 20-level credit in science.' Neither document names Biology 20, Chemistry 20 or Physics 20 or says they were withdrawn; the authoritative list of courses in effect is the Registrar's Handbook for School Administrators (not checked).",
+    "The 30-level parts of this guide are superseded on the site by the renewed Biology 30 / Chemistry 30 / Physics 30 (ids 68, 69, 72), which have outcomes in sk.json.",
+    "p155: non-bold, non-bullet line in the objectives section kept as continuation of the previous item: \"aA(aq) + bB(aq) X cC(g) + dD(aq)\"",
+    "Chemistry 20 \"Optional: Teacher Developed Unit\": no foundational objectives section found.",
+    "Items with `flags`: 12. Each flag names a source line containing a symbol-font glyph or a flattened sub/superscript; check those against the printed page before use."
+  ]
+}

@@ -1,0 +1,2419 @@
+{
+  "curriculumId": 806,
+  "name": "Michif French 10, 20, 30 (2026 PRELIMINARY)",
+  "levels": [
+    10,
+    20,
+    30
+  ],
+  "kind": "outcomes",
+  "textSource": "text-layer",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=806",
+    "filename": "Michif_French_10_20_30__260408_PRELIMINARY.pdf",
+    "sha256": "6457765dca3b8e3170042626fb0a2b9273a74b301448d57445f6b17a7ca13653",
+    "retrievedOn": "2026-11-21",
+    "pages": 67,
+    "pageNumbering": "`page` is the 1-based PDF page; `printedPage` is the number printed at the foot of the page (PDF page = printed page + 5).",
+    "documentTitle": "Michif French 10, 20, 30 — 2026 Saskatchewan Curriculum (PRELIMINARY, April 2026)",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=806"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the legacy-and-drafts research on 2026-11-21)",
+  "hyphenDecisions": [
+    "LK10.2: kept hyphen in \"context-specific\" (hyphenated form printed 15× on one line)"
+  ],
+  "units": [
+    {
+      "name": "Culture (CU)",
+      "level": 10,
+      "goal": "CU",
+      "section": "Michif French 10 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "CU10.1",
+          "type": "outcome",
+          "text": "Explore historical and contemporary elements of the social environment and personal identity.",
+          "page": 23,
+          "printedPage": "18"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "CU10.1",
+          "text": "Explore using Michif French for following protocol when welcoming visitors and Elders/Lii pleu vyeu (e.g., welcoming into a space, offering a gift or tobacco, pulling out a chair, offering tea, serving of food).",
+          "page": 23,
+          "printedPage": "18"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "CU10.1",
+          "text": "Explore using Michif French while completing routine tasks of the home and classroom (e.g., washing dishes, tidying the house/class, laundry, wiping the table, help to prepare a meal, setting the table).",
+          "page": 23,
+          "printedPage": "18"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "CU10.1",
+          "text": "Explore how routine tasks in the home and classroom have changed over time.",
+          "page": 23,
+          "printedPage": "18"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "CU10.1",
+          "text": "Discuss a local traditional territory where Michif French was/is spoken, with guiding questions such as:\n• How did this community come to be?;\n• Who was originally there?;\n• Who were/are the settlers?;\n• Who shared the land?;\n• How were Michif/Métis people displaced (e.g., road allowance people, Scrip)?\n• What relationships were built amongst local First Nations?;\n• How were relationships/decisions formed? (e.g., kinship ties within Treaty territory); and,\n• How has it transformed over the years?",
+          "page": 23,
+          "printedPage": "18"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "CU10.1",
+          "text": "Investigate local historical and contemporary spaces, businesses or schools by reaching out to community members for information, stories, and support.",
+          "page": 23,
+          "printedPage": "18"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "CU10.1",
+          "text": "Discuss Métis core values and how they play a role in personal identity and interactions with others, such as:\n• iltay forr (strength);\n• bonn cheur or keur (kindness);\n• kooraazh (courage);\n• anndjurii (tolerance);\n• honnet (honesty);\n• rispay (respect);\n• l’aamoor (love);\n• patarzhii (sharing);\n• praanswaen (caring);\n• balaansii (balance);\n• pashiaans (patience);\n• eumeur (humour); and;\n• conexion avek la Mayr de Tayr (connection to Mother Earth).",
+          "page": 23,
+          "printedPage": "18"
+        },
+        {
+          "code": "CU10.2",
+          "type": "outcome",
+          "text": "Investigate opportunities in Saskatchewan to participate in Michif French culture with the guidance of a Language Carrier or Lii pleu vyeu.",
+          "page": 24,
+          "printedPage": "19"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "CU10.2",
+          "text": "Discuss how la manyair dis prominii can be a way of learning from one another by considering questions such as:\n• What protocols should be followed when hosting?;\n• How did community members visit in the past?;\n• How do community members visit currently?;\n• What do we do to prepare for visitors?;\n• How do we arrive as visitors?; and,\n• Why is it vital that we continue to learn from one another through visiting?",
+          "page": 24,
+          "printedPage": "19"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "CU10.2",
+          "text": "Begin to develop relationships by visiting with local community members, Language Carriers, Elders, collectives, clubs and local Métis organizations.",
+          "page": 24,
+          "printedPage": "19"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "CU10.2",
+          "text": "Explore traditional Michif/Métis ways of life such as:\n• harvesting medicines;\n• using natural medicines for holistic health;\n• gardening;\n• preserving foods;\n• cooking/baking;\n• storytelling;\n• connecting to the buffalo;\n• farming; and,\n• practising equine husbandry.",
+          "page": 24,
+          "printedPage": "19"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "CU10.2",
+          "text": "Participate in hosting local traditional and contemporary Michif/Métis gatherings such as:\n• cultural ceremonies;\n• school events;\n• community celebrations (e.g., weddings, anniversaries, wakes, funerals, holidays, kitchen parties, Back to Batoche festival); and,\n• visiting opportunities.",
+          "page": 24,
+          "printedPage": "19"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "CU10.2",
+          "text": "Explore opportunities to participate in the creation of traditional and contemporary Michif/Métis fashion and visual arts such as:\n• ribbon skirts, moccasins, Métis sash;\n• hide and leather clothing, Hudson Bay Company capoo, accessories;\n• fire bags, octopus bags;\n• beadwork, embroidery, sewing, quilting;\n• braided rugs, tufting;\n• birchbark art; and,\n• painting, photography.",
+          "page": 24,
+          "printedPage": "19"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "CU10.2",
+          "text": "Explore opportunities to participate in traditional and contemporary Michif/Métis music such as:\n• fiddle music;\n• jigging, square dancing;\n• Métis music; and,\n• songs (e.g., Pierre Falcon’s 1816 Battle of Seven Oaks Song/Chanson de la Grenouillère, community-built songs that reference the voyageurs, call-and-response songs, lullabies).",
+          "page": 25,
+          "printedPage": "20"
+        }
+      ]
+    },
+    {
+      "name": "Strategies (ST)",
+      "level": 10,
+      "goal": "ST",
+      "section": "Michif French 10 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "ST10.1",
+          "type": "outcome",
+          "text": "Apply, with support, a variety of before, during, and after comprehension strategies to construct meaning in Michif French written texts and oral communications, with the guidance of a Language Carrier or Lii pleu vyeu.",
+          "page": 26,
+          "printedPage": "21"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ST10.1",
+          "text": "Learn through la manyair dis promnii (e.g., with Lii pleu vyeu, Language Carriers, family, peers or learning circles) both inside and outside of the classroom.",
+          "page": 26,
+          "printedPage": "21"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ST10.1",
+          "text": "Prepare to interpret written texts and oral communications, before reading, listening and viewing, using strategies such as:\n• making predictions;\n• using prior knowledge;\n• using personal experience; and,\n• visual aids.",
+          "page": 26,
+          "printedPage": "21"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ST10.1",
+          "text": "Interpret written texts and oral communications, during reading and listening, using strategies such as:\n• identifying supplementary information to help construct meaning of written texts and oral communications (e.g., summary, illustrations, translations);\n• recognizing physical (e.g., gestures and facial expressions) and auditory (e.g., laughter, volume, tone) cues;\n• listing context clues and key words to make connections between new information, prior knowledge and personal experience;\n• identifying different spelling and pronunciation from another language (e.g., table - la table [French] - lii taab [Michif French]) to decipher words; and,\n• discussing strategies to help cope with information containing unknown elements (e.g., ask for clarification or repetition when needed, indicate lack of understanding).",
+          "page": 26,
+          "printedPage": "21"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ST10.1",
+          "text": "Review interpretation of written texts and oral communications, after reading and listening, using strategies such as:\n• discussing key words in oral and written texts;\n• making connections between new information, prior knowledge and personal experience; and,\n• reacting with emotion (e.g., empathy, surprise, appreciation or dislike).",
+          "page": 26,
+          "printedPage": "21"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ST10.1",
+          "text": "Begin to develop personal language learning tools (e.g., classroom/personal Michif French Dictionary, self-created pronunciation audio files) on topics such as home items, routines, hobbies and foods.",
+          "page": 26,
+          "printedPage": "21"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ST10.1",
+          "text": "Consult resources (e.g., Lii pleu vyeu, Language Carriers, peers, family, Michif French dictionaries and mobile apps, anchor charts, websites) and visual aids (e.g., pictures, graphs and drawings) to help construct meaning of written texts and oral communications.",
+          "page": 26,
+          "printedPage": "21"
+        },
+        {
+          "code": "ST10.2",
+          "type": "outcome",
+          "text": "Apply, with support, a variety of strategies to produce Michif French written texts and oral communications.",
+          "page": 27,
+          "printedPage": "22"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ST10.2",
+          "text": "Learn through la manyair dis promnii (e.g., with Lii pleu vyeu, Language Carriers, family, peers).",
+          "page": 27,
+          "printedPage": "22"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ST10.2",
+          "text": "Explore how interactions with the land contribute to authentic Michif French language acquisition.",
+          "page": 27,
+          "printedPage": "22"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ST10.2",
+          "text": "Explore the Michif French language for personal communication on topics, such as introductions, greetings, general interactions, phrases to participate in a discussion.",
+          "page": 27,
+          "printedPage": "22"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ST10.2",
+          "text": "Use tools such as graphic organizers and outlines to make a plan for speaking or writing.",
+          "page": 27,
+          "printedPage": "22"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ST10.2",
+          "text": "Consult resources (e.g., Lii pleu vyeu, Language Carriers, peers, family, Michif French dictionaries and mobile apps, anchor charts and websites) and visual aids (e.g., pictures, graphs and drawings) to support the production of oral and written texts.",
+          "page": 27,
+          "printedPage": "22"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ST10.2",
+          "text": "Discuss how to take risks, try unfamiliar approaches, and experiment with various forms of expression (e.g., reduce anxiety by using mental techniques, such as positive self-talk and humour, to instill confidence).",
+          "page": 27,
+          "printedPage": "22"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ST10.2",
+          "text": "Identify prior knowledge for personal expression in Michif French.",
+          "page": 27,
+          "printedPage": "22"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ST10.2",
+          "text": "Describe physical (e.g., gestures and facial expressions) and auditory (e.g., laughter, tone, volume) cues to convey meaning.",
+          "page": 27,
+          "printedPage": "22"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ST10.2",
+          "text": "Retell (in English) a Michif French oral communication with Lii pleu vyeu, Language Carriers, peers, or family members.",
+          "page": 27,
+          "printedPage": "22"
+        },
+        {
+          "code": "j",
+          "type": "indicator",
+          "outcome": "ST10.2",
+          "text": "Demonstrate a short dialogue (e.g., practise, rehearse, role-play) with classmates in Michif French.",
+          "page": 27,
+          "printedPage": "22"
+        },
+        {
+          "code": "ST10.3",
+          "type": "outcome",
+          "text": "Reflect on personal strengths and needs with respect to one’s Michif French language and culture learning journey.",
+          "page": 28,
+          "printedPage": "23"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ST10.3",
+          "text": "Determine personals strengths as a language learner.",
+          "page": 28,
+          "printedPage": "23"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ST10.3",
+          "text": "Identify personal needs related to speaking, listening, reading, and writing in Michif French.",
+          "page": 28,
+          "printedPage": "23"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ST10.3",
+          "text": "Recognize that risk-taking and a positive attitude are part of effective language learning.",
+          "page": 28,
+          "printedPage": "23"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ST10.3",
+          "text": "Identify how la manyair dis promnii helps to meet personal language learning needs.",
+          "page": 28,
+          "printedPage": "23"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ST10.3",
+          "text": "Celebrate personal Michif French language learning successes.",
+          "page": 28,
+          "printedPage": "23"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ST10.3",
+          "text": "Reflect on identity through the Michif/Métis worldview and language by considering questions such as:\n• How does la manyair dis promnii help to improve my understanding of the Michif French language and worldview?\n• How does my use of Michif French shape the way I understand my social environments?\n• How does my use of Michif French shape the way I understand my own identity?\n• How does my use of Michif French shape the way I understand the Michif culture and community?",
+          "page": 28,
+          "printedPage": "23"
+        }
+      ]
+    },
+    {
+      "name": "Language Knowledge (LK)",
+      "level": 10,
+      "goal": "LK",
+      "section": "Michif French 10 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "LK10.1",
+          "type": "outcome",
+          "text": "Identify, with support, when listening and reading, Michif French language concepts including basic context- specific vocabulary, word order and linguistic conventions.",
+          "page": 29,
+          "printedPage": "24"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "LK10.1",
+          "text": "Recognize context-specific and common vocabulary (e.g., lii zhours – days, lii mwaan – months, lii zoochii a likol – school supplies, paarchu dju korr – parts of the body, lii maanzhii - food, lii noombr - numbers).",
+          "page": 29,
+          "printedPage": "24"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "LK10.1",
+          "text": "Describe the use of present tense verbs and commands (lii moo dakchion), including:\n• asi tway (sit down);\n• lev tway (get up);\n• veray (turn);\n• soot (jump);\n• marsh (walk);\n• koor (run);\n• lii (read);\n• dimaandi (ask);\n• netwayii (clean);\n• laav (wash);\n• zhou (play);\n• jem (I like); and,\n• jem pa (I don’t like).",
+          "page": 29,
+          "printedPage": "24"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "LK10.1",
+          "text": "Discuss the use of singular personal pronouns (e.g., Ji, Ja, Je, Tchu, Ta, y, il, ell).",
+          "page": 29,
+          "printedPage": "24"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "LK10.1",
+          "text": "Identify appropriate prepositions in context (e.g., annaryayr - behind, annavaan – in front of, dissu – on top of, ennhou - above, akoootii – beside, didaan – inside).",
+          "page": 29,
+          "printedPage": "24"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "LK10.1",
+          "text": "Recognize directional terms in context (e.g., dret - right, goosh - left, nor – north, sud – south, ouest - west, lest – east).",
+          "page": 29,
+          "printedPage": "24"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "LK10.1",
+          "text": "Recognize definite (e.g., le la, lay, lii) and indefinite articles (e.g., aen, de, day, dii).",
+          "page": 29,
+          "printedPage": "24"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "LK10.1",
+          "text": "Explain simple sentences in context (e.g., Netway la taab - Clean the table, Monnom ay – My name is, Je rest a – I live in, Jem sa maanzhii – I like to eat).",
+          "page": 29,
+          "printedPage": "24"
+        },
+        {
+          "code": "LK10.2",
+          "type": "outcome",
+          "text": "Identify, when speaking and writing, Michif French language concepts including basic context-specific vocabulary, word order and linguistic conventions.",
+          "page": 30,
+          "printedPage": "25"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "LK10.2",
+          "text": "Distinguish oral and written phonemes in Michif French such as:\n• consonants (e.g., R sound; L sound; ZH sound [J or soft G]);\n• double vowels/consonants (e.g., oo, ii, aa, nn);\n• complex vowels (e.g., oi, aen, enn, ayr); and,\n• nasal vowels (e.g., oon, aen, in).",
+          "page": 30,
+          "printedPage": "25"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "LK10.2",
+          "text": "Recognize context-specific and common vocabulary (e.g., lii zhours – days, lii mwaan – months, lii zoochii a likol – school supplies, paarchu dju korr – parts of the body, lii maanzhii - food, lii noombr - numbers).",
+          "page": 30,
+          "printedPage": "25"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "LK10.2",
+          "text": "Experiment with the use of present tense verbs and commands (lii moo dakchion), including:\n• asi tway (sit down);\n• lev tway (stand up);\n• veray (turn);\n• soot (jump);\n• marsh (walk);\n• koor (run);\n• lii (read);\n• dimaandi (ask);\n• netwayii (clean);\n• laav (wash);\n• zhou (play);\n• jem (I like); and,\n• jem pa (I don’t like).",
+          "page": 30,
+          "printedPage": "25"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "LK10.2",
+          "text": "Recognize the use of singular personal pronouns (e.g., Ji, Ja, Je, Tchu, Ta, y, il, ell).",
+          "page": 30,
+          "printedPage": "25"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "LK10.2",
+          "text": "Utilize appropriate body language and tone when speaking.",
+          "page": 30,
+          "printedPage": "25"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "LK10.2",
+          "text": "Respond to prepositions in context (e.g., annaryayr - behind, annavaan – in front of, dissu – on top of, ennhou - above, akoootii – beside, didaan – inside).",
+          "page": 30,
+          "printedPage": "25"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "LK10.2",
+          "text": "Recognize directional terms in context (e.g., dret - right, goosh - left, nor – north, sud – south, ouest - west, lest – east).",
+          "page": 30,
+          "printedPage": "25"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "LK10.2",
+          "text": "Recognize definite (e.g., le la, lay, lii) and indefinite articles (e.g., aen, de, day, dii).",
+          "page": 30,
+          "printedPage": "25"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "LK10.2",
+          "text": "Repeat simple sentences in context (e.g., Netway la taab - Clean the table, Monnom ay – My name is, Je rest a – I live in, Jem sa maanzhii – I like to eat).",
+          "page": 30,
+          "printedPage": "25"
+        }
+      ]
+    },
+    {
+      "name": "Applications (AP)",
+      "level": 10,
+      "goal": "AP",
+      "section": "Michif French 10 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "AP10.1",
+          "type": "outcome",
+          "text": "Construct meaning, with support, of a variety of simple oral non-fiction and fiction Michif French communications on familiar topics.",
+          "page": 31,
+          "printedPage": "26"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP10.1",
+          "text": "Listen to or view a variety of simple oral Michif French communications (e.g., how to videos, storytelling videos, in-person visiting, songs) that address big ideas:\n• elements of social environment;\n• elements of personal identity; and,\n• elements of Michif French culture.",
+          "page": 31,
+          "printedPage": "26"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP10.1",
+          "text": "Interpret simple oral communications or conversations.",
+          "page": 31,
+          "printedPage": "26"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP10.1",
+          "text": "Respond appropriately in structured interactions with common, simple, short phrases.",
+          "page": 31,
+          "printedPage": "26"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP10.1",
+          "text": "Respond to simple questions regarding personal identity (e.g., name, hometown, family names, interests, and hobbies).",
+          "page": 31,
+          "printedPage": "26"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP10.1",
+          "text": "Compare information related to others’ personal identity (e.g., name, hometown, family names, interests, and hobbies).",
+          "page": 31,
+          "printedPage": "26"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP10.1",
+          "text": "Repeat simple instructions in familiar contexts through hands on experiences such as:\n• beading;\n• sewing;\n• dancing;\n• games;\n• baking/cooking; and,\n• visual arts.",
+          "page": 31,
+          "printedPage": "26"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP10.1",
+          "text": "Interpret simple conversations and respond appropriately to basic interactions, including:\n• greetings;\n• personal introductions;\n• classroom instructions;\n• requests for help;\n• offering directions within the school and community;\n• daily routines and activities; and,\n• through visiting.",
+          "page": 31,
+          "printedPage": "26"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "AP10.1",
+          "text": "Describe personal reactions to simple oral communications with emotion (e.g., empathy, surprise, appreciation or dislike).",
+          "page": 31,
+          "printedPage": "26"
+        },
+        {
+          "code": "AP10.2",
+          "type": "outcome",
+          "text": "Construct meaning, with support, of a variety of simple written non-fiction and fiction Michif French texts on familiar topics.",
+          "page": 32,
+          "printedPage": "27"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP10.2",
+          "text": "Read a variety of simple written Michif French texts (e.g., children’s books, recipes, dictionaries, conversational sentences) that address elements of:\n• the social environment;\n• personal identity; and,\n• Michif French culture.",
+          "page": 32,
+          "printedPage": "27"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP10.2",
+          "text": "Comprehend simple labels within the school in Michif French.",
+          "page": 32,
+          "printedPage": "27"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP10.2",
+          "text": "Identify key information in context, such as:\n• days of the week (e.g., laindjii - Monday, mardjii -Tuesday, mikradjii - Wednesday, zhudjii - Thursday, vandradjii - Friday, samdjii Saturday, djiimanch - Sunday);\n• past, present, future notions (e.g., eyayr - yesterday, au zhourdjwii - today, dimaen - tomorrow);\n• calendar (e.g., lii mwaan - months, lii zannii - years, lii zhour - days);\n• time - lii taan - time, lay sayzon - seasons, lii taan - weather; and,\n• fill -feelings.",
+          "page": 32,
+          "printedPage": "27"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP10.2",
+          "text": "Repeat the basic directions of written imperative texts.",
+          "page": 32,
+          "printedPage": "27"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP10.2",
+          "text": "Respond to a survey regarding personal identity (e.g., name, hometown, family names, Treaty area, hobbies, age, preferred foods).",
+          "page": 32,
+          "printedPage": "27"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP10.2",
+          "text": "Identify the vocabulary words in context in written texts on familiar topics.",
+          "page": 32,
+          "printedPage": "27"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP10.2",
+          "text": "Discuss the possible variations within the written orthography of Michif French based on regional variation or language carrier preference.",
+          "page": 32,
+          "printedPage": "27"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "AP10.2",
+          "text": "Describe personal reaction to written texts with emotion (e.g., empathy, surprise, appreciation or dislike).",
+          "page": 32,
+          "printedPage": "27"
+        },
+        {
+          "code": "AP10.3",
+          "type": "outcome",
+          "text": "Produce, with support, a variety of simple oral non-fiction and fiction Michif French communications on familiar topics.",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP10.3",
+          "text": "Produce simple oral Michif French communications related to elements of:\n• the social environment;\n• personal identity; and,\n• Michif French culture.",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP10.3",
+          "text": "Pose questions to generate conversations on familiar topics such as hobbies, family members and class schedules.",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP10.3",
+          "text": "Respond appropriately to other speakers during conversations or discussion.",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP10.3",
+          "text": "Express feelings and emotions using simple adjectives, facial expressions and body language.",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP10.3",
+          "text": "Convey opinions or personal perspectives on a given topic such as a fashion, music, or food.",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP10.3",
+          "text": "Provide basic step-by-step instructions in situations such as cooking and giving directions to a location.",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP10.3",
+          "text": "Communicate information about time.",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "AP10.3",
+          "text": "Produce personal greetings (e.g., on the phone, in video recordings, in person).",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "AP10.3",
+          "text": "Interact in Michif French while engaging in cultural activities such as:\n• cooking;\n• sewing;\n• cleaning;\n• beading;\n• playing sports; and,\n• dancing.",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "j",
+          "type": "indicator",
+          "outcome": "AP10.3",
+          "text": "Explain personal lived experiences or activities.",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "k",
+          "type": "indicator",
+          "outcome": "AP10.3",
+          "text": "Use Michif French language for entertainment and personal enjoyment (e.g., express humour, perform skits or songs and create stories).",
+          "page": 33,
+          "printedPage": "28"
+        },
+        {
+          "code": "AP10.4",
+          "type": "outcome",
+          "text": "Produce, with support, a variety of simple written non-fiction and fiction Michif French texts on familiar topics.",
+          "page": 34,
+          "printedPage": "29"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP10.4",
+          "text": "Produce simple written Michif French texts related to elements of:\n• the social environment;\n• personal identity; and,\n• Michif French culture.",
+          "page": 34,
+          "printedPage": "29"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP10.4",
+          "text": "Write about a variety of daily topics, such as personal details (e.g., name and age), dates (e.g., days of the week, months, seasons) and school/classroom items and routine.",
+          "page": 34,
+          "printedPage": "29"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP10.4",
+          "text": "Communicate simple written expressions (e.g., wii - yes, noo - no, sil voo play - please, maarsii –thank you, bonn mataen - good morning, boon apray mijii - good afternoon, Je regret - I’m sorry).",
+          "page": 34,
+          "printedPage": "29"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP10.4",
+          "text": "Compose a greeting card (e.g., Bonn Fayt- birthday, maarsii – thank you, Schwettchu vyen bayn - I hope you get well soon) using simple expressions.",
+          "page": 34,
+          "printedPage": "29"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP10.4",
+          "text": "Create simple social media posts using basic vocabulary (e.g., personal introduction, homeland).",
+          "page": 34,
+          "printedPage": "29"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP10.4",
+          "text": "Provide basic written directions to a place within the school or community using imperative sentences.",
+          "page": 34,
+          "printedPage": "29"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP10.4",
+          "text": "Experiment with communicating messages in a variety of written formats (e.g., notes, lists, paragraphs, graphs, emails, blogs and text messages).",
+          "page": 34,
+          "printedPage": "29"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "AP10.4",
+          "text": "Draft descriptions of personal lived experiences or activities related to the big ideas.",
+          "page": 34,
+          "printedPage": "29"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "AP10.4",
+          "text": "Explore the use of Michif French phonetic orthography based on regional variations or language carrier preference.",
+          "page": 34,
+          "printedPage": "29"
+        }
+      ]
+    },
+    {
+      "name": "Culture (CU)",
+      "level": 20,
+      "goal": "CU",
+      "section": "Michif French 20 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "CU20.1",
+          "type": "outcome",
+          "text": "Explore historical and contemporary elements of the natural environment and kinship.",
+          "page": 35,
+          "printedPage": "30"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "CU20.1",
+          "text": "Explore using Michif French while experiencing land-based activities such as:\n• fire making (e.g., with three types of fire: spiritual, cook, warmth);\n• story telling (e.g., seasonal, moral, kin, and historical);\n• camping, shelter building, hunting;\n• fishing, filleting, cooking the fish;\n• harvesting (e.g., berry, plant, medicines, and root picking);\n• gardening; and,\n• canoeing.",
+          "page": 35,
+          "printedPage": "30"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "CU20.1",
+          "text": "Engage in becoming a steward of the land in ways such as:\n• caring for waterways;\n• examining animals’ habitats and cycles;\n• following protocols, assuming responsibilities, and showing respect when using animals/plant life for sustenance; and,\n• hunting/trapping traditional ways, contemporary ways, rights, laws, and conservation.",
+          "page": 35,
+          "printedPage": "30"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "CU20.1",
+          "text": "Investigate Michif/Métis kinship systems of la paaraanti such as:\n• immediate family;\n• extended family;\n• adopted family – more formal and more based in history (e.g., Sixties Scoop);\n• chosen/found family – less formal and more based in revitalization (e.g., Why was this concept important and a very common informal practice in Michif/Métis communities? What is considered family by Michif/Métis communities? Why do we call some people “aunty” or ma taant even if they aren’t related by blood?); and,\n• genealogy/movement of personal families (e.g., consult Red River-based archives of the St. Boniface Historical Society).",
+          "page": 35,
+          "printedPage": "30"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "CU20.1",
+          "text": "Recognize personal roles and responsibilities in family and community according to the Michif/Métis core values).",
+          "page": 35,
+          "printedPage": "30"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "CU20.1",
+          "text": "Discuss the traditional and contemporary roles of women in maintaining kinship ties and caring for each other.",
+          "page": 35,
+          "printedPage": "30"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "CU20.1",
+          "text": "Discuss places in Canada where Michif French is and was historically spoken (e.g., St. Laurent, St. Eustache and Saint Ambroise in Manitoba, the St. Louis Batoche, St. Laurent, the Duck Lake region in Saskatchewan, and the Lac la Biche, St. Paul, St. Albert and Bonnyville areas in Alberta).",
+          "page": 35,
+          "printedPage": "30"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "CU20.1",
+          "text": "Explore the historical and contemporary significance of local areas around Saskatchewan such as:\n• Batoche [e.g., battle area, town site, river lots, the East village, Caron house, Duck Lake and Tourond’s Coulee (Fish Creek), Hivernant site (Petite ville)];\n• Back to Batoche celebration grounds;\n• South Branch House Trading Post; and,\n• St. Laurent ferry, Our Lady of Lourdes Shrine, and the buffalo pit.",
+          "page": 35,
+          "printedPage": "30"
+        },
+        {
+          "code": "CU20.2",
+          "type": "outcome",
+          "text": "Investigate opportunities in Saskatchewan to participate in Michif French language revitalization.",
+          "page": 37,
+          "printedPage": "32"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "CU20.2",
+          "text": "Discuss the transmission and endangerment of the Michif French language (e.g., Why was Michif French not always taught at home? Why were people reluctant to speak Michif French? Why and when did this stigma shift?).",
+          "page": 37,
+          "printedPage": "32"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "CU20.2",
+          "text": "Compare Michif languages (Northern, Heritage & Michif French) in terms of their origin, similarities, and differences.",
+          "page": 37,
+          "printedPage": "32"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "CU20.2",
+          "text": "Consider effective ways that local Indigenous language revitalization approaches have been implemented.",
+          "page": 37,
+          "printedPage": "32"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "CU20.2",
+          "text": "Discuss Indigenous language revitalization projects in other parts of the world and how successful strategies can be applied to Michif Language revitalization efforts in Saskatchewan.",
+          "page": 37,
+          "printedPage": "32"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "CU20.2",
+          "text": "Identify institutes and organizations that support efforts (e.g., resources, lesson plans, recordings) to revitalize Michif languages (e.g., Gabriel Dumont Institute, Louis Riel Institute, Métis Nation - Saskatchewan, Rupertsland Institute).",
+          "page": 37,
+          "printedPage": "32"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "CU20.2",
+          "text": "Discuss with representatives of Michif/Métis organizations about their efforts to revitalize Michif languages.",
+          "page": 37,
+          "printedPage": "32"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "CU20.2",
+          "text": "Explore Michif language programs that exist (e.g., Michif Kindergarten, online classes, in-person classes, language nests, post-secondary classes, community-led Michif classes).",
+          "page": 37,
+          "printedPage": "32"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "CU20.2",
+          "text": "Plan ways to contribute to Michif French language revitalization, such as:\n• sharing the language with other classes and the school community;\n• sharing the language with other schools and communities;\n• creating ways to increase visibility and accessibility of the language (e.g., labels, community signs, posters, social media); and,\n• assisting in creating resources for future generations.",
+          "page": 37,
+          "printedPage": "32"
+        }
+      ]
+    },
+    {
+      "name": "Strategies (ST)",
+      "level": 20,
+      "goal": "ST",
+      "section": "Michif French 20 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "ST20.1",
+          "type": "outcome",
+          "text": "Apply, with some support, a variety of before, during, and after comprehension strategies to construct meaning in Michif French written texts and oral communications.",
+          "page": 38,
+          "printedPage": "33"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ST20.1",
+          "text": "Learn through la manyair dis promnii (e.g. with Lii pleu vyeu, Language Carriers, family, peers) both inside and outside of the classroom.",
+          "page": 38,
+          "printedPage": "33"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ST20.1",
+          "text": "Prepare to interpret written texts and oral communications, before listening or viewing, using strategies such as:\n• making predictions;\n• using prior knowledge;\n• using personal experience; and,\n• visual aids.",
+          "page": 38,
+          "printedPage": "33"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ST20.1",
+          "text": "Interpret written texts and oral communications, during listening and reading, using strategies such as:\n• using supplementary information (e.g., summary, illustrations, translations);\n• recognizing physical (e.g., gestures and facial expressions) and auditory (e.g., laughter, volume and tone) cues;\n• examining context clues and key words to make connections between new information, prior knowledge and personal experience;\n• discussing different spelling and pronunciation from another language (e.g., lii frambwoiz [Michif French] – les framboises [French] – raspberries [English]; shiikawk [Michif French] –sikâk [Plains Cree] – skunk [English]) to decipher words; and,\n• applying strategies to help cope with information containing unknown elements (e.g., ask for clarification or repetition when needed, indicate lack of understanding).",
+          "page": 38,
+          "printedPage": "33"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ST20.1",
+          "text": "Explain interpretation of written texts and oral communications, after listening or reading, using strategies such as:\n• discussing key words in written texts and oral communications;\n• making connections between new information, prior knowledge and personal experience; and,\n• reacting with emotion (e.g., empathy, surprise, appreciation or dislike).",
+          "page": 38,
+          "printedPage": "33"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ST20.1",
+          "text": "Develop personal language learning tools (e.g., personal Michif French Dictionary, self-created pronunciation audio files) on topics such as: hunting, trapping, harvesting, kinship, Michif languages.",
+          "page": 38,
+          "printedPage": "33"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ST20.1",
+          "text": "Consult resources (e.g., Lii pleu vyeu, Language Carriers, peers, family, Michif French dictionaries and mobile apps, anchor charts and websites) and visual aids (e.g., pictures, graphs and drawings) to help construct meaning of written texts and oral communications.",
+          "page": 38,
+          "printedPage": "33"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ST20.1",
+          "text": "Use tools (e.g., charts, vocabulary lists, personal dictionaries, audio files) to help construct meaning of written texts and oral communications.",
+          "page": 38,
+          "printedPage": "33"
+        },
+        {
+          "code": "ST20.2",
+          "type": "outcome",
+          "text": "Apply, with some support, a variety of strategies to produce Michif French written texts and oral communications.",
+          "page": 39,
+          "printedPage": "34"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ST20.2",
+          "text": "Learn through la manyair dis promnii (e.g., with Lii pleu vyeu, Language Carriers, family, peers).",
+          "page": 39,
+          "printedPage": "34"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ST20.2",
+          "text": "Practise the Michif French language for communication on topics such as the natural environment, kinship and Michif languages.",
+          "page": 39,
+          "printedPage": "34"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ST20.2",
+          "text": "Use tools such as graphic organizers and outlines to make a plan for speaking or writing.",
+          "page": 39,
+          "printedPage": "34"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ST20.2",
+          "text": "Consult resources (e.g., Lii pleu vyeu, Language Carriers, peers, family, Michif French dictionaries and mobile apps, anchor charts and websites) and visual aids (e.g., pictures, graphs and drawings) to support the production of oral and written messages.",
+          "page": 39,
+          "printedPage": "34"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ST20.2",
+          "text": "Practise taking risks (e.g., trying unfamiliar approaches, experimenting with various forms of expression, utilize social-emotional learning techniques such as positive self-talk and humour to build confidence) to reduce linguistic insecurity.",
+          "page": 39,
+          "printedPage": "34"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ST20.2",
+          "text": "Use prior knowledge for personal expression in Michif French.",
+          "page": 39,
+          "printedPage": "34"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ST20.2",
+          "text": "Experiment with physical (e.g., gestures and facial expressions) and auditory (e.g., laughter, tone, volume) cues to convey meaning.",
+          "page": 39,
+          "printedPage": "34"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ST20.2",
+          "text": "Retell (in Michif French) a Michif French oral communication with Lii pleu vyeu, Language Carriers, peers, or family members.",
+          "page": 39,
+          "printedPage": "34"
+        },
+        {
+          "code": "ST20.3",
+          "type": "outcome",
+          "text": "Establish goals to further one’s learning journey of Michif French language and culture.",
+          "page": 40,
+          "printedPage": "35"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ST20.3",
+          "text": "Consider strengths and needs in the development of goals for improving personal Michif French language learning and use.",
+          "page": 40,
+          "printedPage": "35"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ST20.3",
+          "text": "Use a self-assessment tool created by self, peers and/or teacher, to target areas for improvement.",
+          "page": 40,
+          "printedPage": "35"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ST20.3",
+          "text": "Develop goals and plans for improving speaking, listening, reading and writing in Michif French.",
+          "page": 40,
+          "printedPage": "35"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ST20.3",
+          "text": "Explore Michif /Métis ways to cope with challenges (e.g., visiting, spirituality, meeting with Lii pleu vyeu).",
+          "page": 40,
+          "printedPage": "35"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ST20.3",
+          "text": "Seek opportunities to communicate in Michif French (e.g., at community events and celebrations).",
+          "page": 40,
+          "printedPage": "35"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ST20.3",
+          "text": "Reflect on identity through the Michif / Métis worldview and language by considering questions such as:\n• How does la manyair dis promnii help to improve my understanding of the Michif French language and worldview?\n• How does my use of Michif French shape the way I understand the natural environment?\n• How does my use of Michif French shape the way I understand kinship?\n• How does my use of Michif French shape the way I understand the revitalization of Michif French?",
+          "page": 40,
+          "printedPage": "35"
+        }
+      ]
+    },
+    {
+      "name": "Language Knowledge (LK)",
+      "level": 20,
+      "goal": "LK",
+      "section": "Michif French 20 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "LK20.1",
+          "type": "outcome",
+          "text": "Apply, with some support, when listening and reading, Michif French language concepts including context-specific vocabulary, sentence structure and linguistic conventions.",
+          "page": 41,
+          "printedPage": "36"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "LK20.1",
+          "text": "Employ context-specific and common vocabulary (e.g., lii zanimo - animals, lii plaant - plants, la faamii - family, Lii pleu vyeu (Elders), la laang - language) while recognizing the differences in pluralizations.",
+          "page": 41,
+          "printedPage": "36"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "LK20.1",
+          "text": "Recognize the use of present and past tense verbs, including;\n• bataazh (harvest);\n• shass (hunt);\n• pyayzh (trap);\n• batchiyiir (build);\n• fayr la paysh (fishing);\n• condjwiir (row);\n• promnii (visit);\n• maanzh (eat);\n• paarl (speak);\n• daans (dance);\n• shaant (sing);\n• zhoue (play);\n• protijay(protect);\n• kwiir (cook); and,\n• kood (sew).",
+          "page": 41,
+          "printedPage": "36"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "LK20.1",
+          "text": "Discuss the use of plural personal pronouns (e.g., nou, nouzootes, vou, vouzootes, onn, i).",
+          "page": 41,
+          "printedPage": "36"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "LK20.1",
+          "text": "Recall appropriate prepositions in context (e.g., annaryayr - behind, annavaan – in front of, dissu– on top of, ennhou - above, akoootii – beside, didaan – inside).",
+          "page": 41,
+          "printedPage": "36"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "LK20.1",
+          "text": "Apply basic knowledge of definite (e.g., le, la, laay, lii) and indefinite (e.g., aen, de, day, dii) articles.",
+          "page": 41,
+          "printedPage": "36"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "LK20.1",
+          "text": "Recognize context-specific adjectives (e.g., vyaand sesh - dry meat, bell rasaad – nice beads, groo pwashon - big fish, taant shawkii - angry aunty, laay zwayzoo shaantay – singing birds).",
+          "page": 41,
+          "printedPage": "36"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "LK20.1",
+          "text": "Paraphrase simple sentences in context (e.g., Je tapray shassii - I am hunting, Je ramaas lii grenn - I am picking berries, Je tapray promni sou ma faamii - I am visiting my family, Onnay contaan - We are happy, Onnay fyayr daytr Michif - We are proud to be Michif).",
+          "page": 41,
+          "printedPage": "36"
+        },
+        {
+          "code": "LK20.2",
+          "type": "outcome",
+          "text": "Apply, with some support, when speaking and writing, Michif French language concepts including context-specific vocabulary, sentence structure and linguistic conventions.",
+          "page": 42,
+          "printedPage": "37"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "LK20.2",
+          "text": "Apply oral and written phonemes in Michif French such as:\n• consonants (e.g., R sound; L sound; ZH sound [J or soft G]);\n• double vowels (e.g., oo, ii, aa);\n• complex vowels (e.g., oi, aen, enn); and,\n• nasal vowels (oon, aen, in).",
+          "page": 42,
+          "printedPage": "37"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "LK20.2",
+          "text": "Use context-specific and common vocabulary (e.g., lii zanimo - animals, lii plaant - plants, la faamii - family, Lii pleu vyeu - Elders, la laang - language) while recognizing the differences in pluralizations.",
+          "page": 42,
+          "printedPage": "37"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "LK20.2",
+          "text": "Interpret the use of present and past tense verbs, including:\n• bataazh (harvest);\n• shaas (hunt);\n• fayr la paysh (fishing);\n• batchiyiir (build?);\n• la paysh (trap);\n• condjwiir (row);\n• promnii (visit);\n• maanzh (eat);\n• paarl (speak);\n• daans (dance);\n• shaant (sing);\n• zhoue (play);\n• protijay (protect?);\n• kwiir (cook); and,\n• kood (sew).",
+          "page": 42,
+          "printedPage": "37"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "LK20.2",
+          "text": "Classify the use of plural personal pronouns (e.g., nou, vou, onn, i).",
+          "page": 42,
+          "printedPage": "37"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "LK20.2",
+          "text": "Practise appropriate prepositions in context (e.g., annaryayr - behind, annavaan – in front of, dissu – on top of, ennhou - above, akoootii – beside, didaan – inside).",
+          "page": 42,
+          "printedPage": "37"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "LK20.2",
+          "text": "Apply basic knowledge of definite (e.g., le, la, laay, lii) and indefinite articles (e.g., aen, de, day, dii).",
+          "page": 42,
+          "printedPage": "37"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "LK20.2",
+          "text": "Explore context-specific adjectives (e.g., vyaand sesh - dry meat, bonn rasaad - nice beads, groo pwashon - big fish, taant shawkay angry aunty , laay zwayzoo shaantay – singing birds).",
+          "page": 42,
+          "printedPage": "37"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "LK20.2",
+          "text": "Summarize simple sentences in context (e.g., Je tapray shassii I am hunting, Je ramaas lii grenn - I am picking berries, Je tapray aen promni sou ma faamii – I am visiting my family, On nay contaan – We are happy, On nay fyayr daytr Michif - We are proud to be Michif).",
+          "page": 42,
+          "printedPage": "37"
+        }
+      ]
+    },
+    {
+      "name": "Applications (AP)",
+      "level": 20,
+      "goal": "AP",
+      "section": "Michif French 20 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "AP20.1",
+          "type": "outcome",
+          "text": "Construct meaning, with some support, of a variety of short oral non-fiction and fiction Michif French communications on familiar topics.",
+          "page": 43,
+          "printedPage": "38"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP20.1",
+          "text": "Listen to or view a variety of short oral Michif French messages (e.g., how to videos, storytelling videos, in-person visiting, songs) that address elements of:\n• the natural environment;\n• kinship; and,\n• Michif language revitalization.",
+          "page": 43,
+          "printedPage": "38"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP20.1",
+          "text": "Demonstrate comprehension of oral messages in a variety of ways (e.g., informal conversation, class discussion, visual arts, graphs, and concept maps).",
+          "page": 43,
+          "printedPage": "38"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP20.1",
+          "text": "Identify the intended purpose and audience of oral communication.",
+          "page": 43,
+          "printedPage": "38"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP20.1",
+          "text": "Respond appropriately to simple questions during daily conversations regarding familiar topics (e.g., gathering and harvesting, kinship and community gatherings, food and drink) in two or three short phrases.",
+          "page": 43,
+          "printedPage": "38"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP20.1",
+          "text": "Follow basic imperative oral instructions through hands-on experiences such as:\n• fire making (e.g., with three types of fire: spiritual, cook, warmth);\n• story-telling (e.g., seasonal, moral, kin, and historical);\n• camping, shelter building, hunting;\n• fishing, filleting, cooking the fish;\n• harvesting (e.g., berry, plant, medicines, and root picking);\n• gardening;\n• canoeing;\n• visiting; and,\n• taking care of the young and the old.",
+          "page": 43,
+          "printedPage": "38"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP20.1",
+          "text": "Extract main points from short oral Michif French messages or interactions with visual aids (e.g., illustrations, diagrams and concrete examples).",
+          "page": 43,
+          "printedPage": "38"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP20.1",
+          "text": "Make connections between the message in oral communication and personal life experiences.",
+          "page": 43,
+          "printedPage": "38"
+        },
+        {
+          "code": "AP20.2",
+          "type": "outcome",
+          "text": "Construct meaning, with some support, of a variety of short written non-fiction and fiction Michif French texts on familiar topics.",
+          "page": 44,
+          "printedPage": "39"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP20.2",
+          "text": "Read a variety of short written Michif French texts (e.g., children’s books, recipes, dictionaries, conversational sentences, student created texts) that elements of:\n• the natural environment;\n• kinship; and,\n• Michif language revitalization.",
+          "page": 44,
+          "printedPage": "39"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP20.2",
+          "text": "Identify the intended purpose and audience of written texts.",
+          "page": 44,
+          "printedPage": "39"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP20.2",
+          "text": "Interpret directions on how to arrive at local historical spaces.",
+          "page": 44,
+          "printedPage": "39"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP20.2",
+          "text": "Describe the main character(s), conflict and theme in short stories and dramatic texts.",
+          "page": 44,
+          "printedPage": "39"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP20.2",
+          "text": "Follow basic imperative written instructions.",
+          "page": 44,
+          "printedPage": "39"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP20.2",
+          "text": "Pose questions for clarification within contexts such as:\n• fire making (e.g., with three types of fire: spiritual, cook, warmth);\n• story-telling (e.g., seasonal, moral, kin, and historical);\n• camping, shelter building, hunting;\n• fishing, filleting, cooking the fish;\n• harvesting (berry, plant, medicines, and root picking);\n• gardening;\n• canoeing;\n• visiting; and,\n• taking care of the young and the old.",
+          "page": 44,
+          "printedPage": "39"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP20.2",
+          "text": "Navigate Michif French language websites and mobile apps to construct meaning in Michif French texts.",
+          "page": 44,
+          "printedPage": "39"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "AP20.2",
+          "text": "Explain the vocabulary words in context in written texts on familiar topics.",
+          "page": 44,
+          "printedPage": "39"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "AP20.2",
+          "text": "Paraphrase the message presented in short written texts on familiar topics (e.g., kinship, harvesting medicines, trapping, fishing, animals).",
+          "page": 44,
+          "printedPage": "39"
+        },
+        {
+          "code": "j",
+          "type": "indicator",
+          "outcome": "AP20.2",
+          "text": "Make connections between the message in written texts and personal life experiences.",
+          "page": 44,
+          "printedPage": "39"
+        },
+        {
+          "code": "AP20.3",
+          "type": "outcome",
+          "text": "Produce, with some support, a variety of short oral non-fiction and fiction Michif French communications on familiar topics.",
+          "page": 45,
+          "printedPage": "40"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP20.3",
+          "text": "Produce a variety of short oral Michif French communications or messages related to elements of:\n• the natural environment;\n• kinship; and,\n• Michif language revitalization.",
+          "page": 45,
+          "printedPage": "40"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP20.3",
+          "text": "Respond appropriately to other speakers when participating in guided conversations.",
+          "page": 45,
+          "printedPage": "40"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP20.3",
+          "text": "Participate in conversations to share information on predictable and familiar topics such as the environment, family, celebrations and language.",
+          "page": 45,
+          "printedPage": "40"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP20.3",
+          "text": "Share opinions on familiar topics (e.g., stewardship, genealogy, language use) and invite others to share theirs.",
+          "page": 45,
+          "printedPage": "40"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP20.3",
+          "text": "Provide instructions for performing a task (e.g., fishing, fire making, harvesting plants, finding local historical spaces) and model the procedure.",
+          "page": 45,
+          "printedPage": "40"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP20.3",
+          "text": "Communicate time in the past, present and future (e.g., in the summer, last week, next month, at midnight).",
+          "page": 45,
+          "printedPage": "40"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP20.3",
+          "text": "Use common phrases during a phone call (e.g., to family and friends) such as:\n• Comma sa va? (How are you?);\n• Voustay? (Where are you?);\n• Keustchu fay? (What are you doing?);\n• Je awt twayr bayn vitt! (Look forward to seeing you soon!);\n• Oorevwar (Good-bye!); and,\n• Je tadoor/J’temm (I love you.)",
+          "page": 45,
+          "printedPage": "40"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "AP20.3",
+          "text": "Present oral productions (e.g., short autobiographies, how-to instructions related to big ideas, dialogues about language revitalization) using a variety of visuals (e.g., illustrations, videos, maps, pictures) to support expression.",
+          "page": 45,
+          "printedPage": "40"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "AP20.3",
+          "text": "Incorporate the following in oral productions:\n• evidence of planning (e.g., project strategy, and timelines);\n• clear purpose;\n• consideration of audience;\n• organization (e.g., opening sentence, order of ideas, and word order);\n• appropriate tone; and,\n• context-specific vocabulary.",
+          "page": 45,
+          "printedPage": "40"
+        },
+        {
+          "code": "AP20.4",
+          "type": "outcome",
+          "text": "Produce, with some support, a variety of short written non-fiction and fiction Michif French texts on familiar topics.",
+          "page": 46,
+          "printedPage": "41"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP20.4",
+          "text": "Produce a variety of short written Michif French texts related to elements of:\n• the natural environment;\n• kinship; and,\n• Michif language revitalization.",
+          "page": 46,
+          "printedPage": "41"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP20.4",
+          "text": "Convey personal information and emotions with simple sentences. (e.g., Onn nambraas not faamii toot no sœur ay no frer. - We embrace our family, all of our sisters and brothers; Own zhoue avec di loo - We play with water; La faamii paarl la laang aansaamb. - Family speaks the language together)",
+          "page": 46,
+          "printedPage": "41"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP20.4",
+          "text": "Express opinions and perspectives on various topics (e.g., land-based experiences, family, celebrations, language revitalization) in a simple personal letter.",
+          "page": 46,
+          "printedPage": "41"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP20.4",
+          "text": "Recount personal experiences (e.g., land-based experiences, family events, genealogy) using a variety of narrative text types (e.g., short stories, scrapbooks, skits, poetry).",
+          "page": 46,
+          "printedPage": "41"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP20.4",
+          "text": "Share factual information in a simple formal text (e.g., newspaper article, family history and first-person account).",
+          "page": 46,
+          "printedPage": "41"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP20.4",
+          "text": "Experiment with Michif French language and vocabulary through a variety of texts (e.g., poems, short stories, songs, skits and videos).",
+          "page": 46,
+          "printedPage": "41"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP20.4",
+          "text": "Apply appropriate language and vocabulary when producing texts (e.g., menus, surveys, posters, social media posts, news articles).",
+          "page": 46,
+          "printedPage": "41"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "AP20.4",
+          "text": "Incorporate the following in written productions:\n• evidence of planning (e.g., project strategy and timelines, editing drafts);\n• clear purpose;\n• consideration of audience;\n• organization (e.g., opening sentence, order of ideas and word order);\n• appropriate tone; and,\n• context-specific vocabulary.",
+          "page": 46,
+          "printedPage": "41"
+        }
+      ]
+    },
+    {
+      "name": "Culture (CU)",
+      "level": 30,
+      "goal": "CU",
+      "section": "Michif French 30 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "CU30.1",
+          "type": "outcome",
+          "text": "Explore historical and contemporary elements of the economic environment and personal growth.",
+          "page": 47,
+          "printedPage": "42"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "CU30.1",
+          "text": "Investigate historical and contemporary Michif/Métis involvement with economy, such as:\n• traditional ways of trade and current monetary trade;\n• dwellings;\n• businesses;\n• education;\n• local resources (e.g., land ownership, waterways, animals);\n• local infrastructure;\n• transportation; and,\n• availability of funding, support and resources for citizens of Métis Nation – Saskatchewan (e.g., post-secondary funding, small business grants).",
+          "page": 47,
+          "printedPage": "42"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "CU30.1",
+          "text": "Identify personal strengths as a learner of Michif French language and Michif/Métis culture (e.g., physically, emotionally, mentally, spiritually).",
+          "page": 47,
+          "printedPage": "42"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "CU30.1",
+          "text": "Determine areas of improvement as a learner of Michif French language and Michif/Métis culture, and set goals for growth (e.g., physically, emotionally, mentally, spiritually).",
+          "page": 47,
+          "printedPage": "42"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "CU30.1",
+          "text": "Explore Michif/Métis activities that bring joy and a feeling of purpose and accomplishment (e.g., sports, arts, clubs, music, land-based activities).",
+          "page": 47,
+          "printedPage": "42"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "CU30.1",
+          "text": "Engage in discovering personal hopes, dreams, passions and aspirations in relation to Michif/Métis language and culture, such as:\n• What future role can Michif French play in personal life?\n• What types of professions, organizations or institutions may help to continue personal growth as a Michif French speaker?\n• What are some wishes for future generations?",
+          "page": 47,
+          "printedPage": "42"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "CU30.1",
+          "text": "Examine current and potential future personal contributions to the Michif French community.",
+          "page": 47,
+          "printedPage": "42"
+        },
+        {
+          "code": "CU30.2",
+          "type": "outcome",
+          "text": "Investigate opportunities to participate in Michif/Métis governance at the local, regional, provincial and national levels.",
+          "page": 48,
+          "printedPage": "43"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "CU30.2",
+          "text": "Explore the historical and contemporary development (e.g., purpose, aims, goals and design) of Michif/Métis governance, such as:\n• Red River governance formation;\n• Batoche Resistance governance continuation;\n• Government of Canada’s response to Métis governance in these histories;\n• the Michif Matriarchs and their influence on governance;\n• Métis Locals;\n• Métis Nation – Saskatchewan.",
+          "page": 48,
+          "printedPage": "43"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "CU30.2",
+          "text": "Engage in conversation with representatives of the Métis Nation at the local, regional, provincial and national levels.",
+          "page": 48,
+          "printedPage": "43"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "CU30.2",
+          "text": "Discuss ways the Michif/Métis practise sovereignty (e.g., preserving identity, ways of knowing, being, learning, and leading).",
+          "page": 48,
+          "printedPage": "43"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "CU30.2",
+          "text": "Advocate for Michif/Métis languages, ways of knowing and rights.",
+          "page": 48,
+          "printedPage": "43"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "CU30.2",
+          "text": "Observe a Michif/Métis governance meeting or event at either the local, regional, provincial, or national level.",
+          "page": 48,
+          "printedPage": "43"
+        }
+      ]
+    },
+    {
+      "name": "Strategies (ST)",
+      "level": 30,
+      "goal": "ST",
+      "section": "Michif French 30 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "ST30.1",
+          "type": "outcome",
+          "text": "Apply, independently, a variety of before, during, and after comprehension strategies to construct meaning in Michif French written texts and oral communications.",
+          "page": 49,
+          "printedPage": "44"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ST30.1",
+          "text": "Learn through la manyair dis promnii (e.g., with Lii pleu vyeu, Language Carriers, family, peers) both inside and outside of the classroom.",
+          "page": 49,
+          "printedPage": "44"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ST30.1",
+          "text": "Prepare to interpret written texts and oral communications, before listening or viewing, using strategies such as:\n• making predictions;\n• using prior knowledge;\n• using personal experience; and,\n• visual aids.",
+          "page": 49,
+          "printedPage": "44"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ST30.1",
+          "text": "Interpret written texts and oral communications, during reading or listening, using strategies such as:\n• analyzing supplementary information (e.g., summary, illustrations, translations);\n• examining physical (e.g., gestures and facial expressions) and auditory (e.g., laughter, volume and tone) cues;\n• use context clues and key words to make connections between new information, prior knowledge and personal experiences;\n• applying different spelling and pronunciation from another language (e.g., house - maison [French]- mazoon [Michif French]) to decipher words; and,\n• integrating strategies to help cope with information containing unknown elements (e.g., ask for clarification or repetition when needed, indicate lack of understanding).",
+          "page": 49,
+          "printedPage": "44"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ST30.1",
+          "text": "Analyze written texts and oral communications, after listening or reading, using strategies, such as:\n• examining key words;\n• comparing connections between new information, prior knowledge and personal experience; and,\n• exploring personal emotions (e.g., empathy, surprise, appreciation or dislike).",
+          "page": 49,
+          "printedPage": "44"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ST30.1",
+          "text": "Organize personal language learning tools (e.g., personal Michif French Dictionary, self-created pronunciation audio files) on topics such as local natural resources, passions and aspirations, and Michif/Métis governance.",
+          "page": 49,
+          "printedPage": "44"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ST30.1",
+          "text": "Consult resources (e.g., Li pleu vyeu, Language Carriers, peers, family, Michif French dictionaries and mobile apps, anchor charts and websites) and visual aids (e.g., pictures, graphs, drawings) to help construct meaning of written texts and oral communications.",
+          "page": 49,
+          "printedPage": "44"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ST30.1",
+          "text": "Select tools (e.g., charts, phrasebooks and audio files) and resources (e.g., electronic applications, grammar reference books) to help construct meaning of written texts and oral communications.",
+          "page": 49,
+          "printedPage": "44"
+        },
+        {
+          "code": "ST30.2",
+          "type": "outcome",
+          "text": "Apply, independently, a variety of strategies to produce Michif French written texts and oral communications.",
+          "page": 50,
+          "printedPage": "45"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ST30.2",
+          "text": "Learn through la manyair dis promnii (e.g., with Lii pleu vyeu, Language Carriers, family, peers).",
+          "page": 50,
+          "printedPage": "45"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ST30.2",
+          "text": "Examine the Michif French language to increase vocabulary on topics such as economic environment, personal growth, Michif/Métis governance.",
+          "page": 50,
+          "printedPage": "45"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ST30.2",
+          "text": "Use tools such as graphic organizers and outlines to plan for speaking or writing.",
+          "page": 50,
+          "printedPage": "45"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ST30.2",
+          "text": "Consult resources (e.g., Lii pleu vyeu, Language Carriers, peers, family, Michif French dictionaries and mobile apps, anchor charts and websites) and visual aids (e.g., pictures, graphs and drawings) to support the production of oral and written texts.",
+          "page": 50,
+          "printedPage": "45"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ST30.2",
+          "text": "Demonstrate taking risks (e.g., trying unfamiliar approaches, and experimenting with various forms of expression, reduce anxiety by using mental techniques, such as positive self-talk and humour, to instill confidence) to reduce linguistic insecurity.",
+          "page": 50,
+          "printedPage": "45"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ST30.2",
+          "text": "Analyze prior knowledge for personal expression in Michif French.",
+          "page": 50,
+          "printedPage": "45"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ST30.2",
+          "text": "Implement physical (e.g., gestures and facial expressions) and auditory (e.g., laughter, tone and volume) cues to convey meaning.",
+          "page": 50,
+          "printedPage": "45"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "ST30.2",
+          "text": "Investigate preferred personal language learning strategies such as storytelling, visiting and flashcards.",
+          "page": 50,
+          "printedPage": "45"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "ST30.2",
+          "text": "Summarize (in Michif French) a Michif French oral communication with Lii pleu vyeu, Language Carriers, peers, or family members.",
+          "page": 50,
+          "printedPage": "45"
+        },
+        {
+          "code": "ST30.3",
+          "type": "outcome",
+          "text": "Reflect on personal growth, successes and next steps in one’s Michif French language and culture learning journey.",
+          "page": 51,
+          "printedPage": "46"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "ST30.3",
+          "text": "Evaluate personal growth and successes in Michif French (e.g., fluidity, vocabulary, reading and listening comprehension).",
+          "page": 51,
+          "printedPage": "46"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "ST30.3",
+          "text": "Explain how taking risks, visiting and having a positive attitude have led to success in the learning journey of Michif French.",
+          "page": 51,
+          "printedPage": "46"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "ST30.3",
+          "text": "Consider strategies that assisted in working through the challenges of learning to communicate in Michif French.",
+          "page": 51,
+          "printedPage": "46"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "ST30.3",
+          "text": "Determine next steps in personal Michif language learning journey.",
+          "page": 51,
+          "printedPage": "46"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "ST30.3",
+          "text": "Explore post-secondary opportunities to further personal Michif language learning (e.g., Saskatchewan Urban Native Teacher Education program [SUNTEP], Indigenous Teacher Education Program [ITEP], Gabriel Dumont Institute [GDI], First Nations University of Canada [FNUniv], Métis Nation – Saskatchewan [MN – S]).",
+          "page": 51,
+          "printedPage": "46"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "ST30.3",
+          "text": "Discuss personal dreams and aspirations for the Michif languages.",
+          "page": 51,
+          "printedPage": "46"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "ST30.3",
+          "text": "Reflect on identity through the Michif / Métis worldview and language by considering questions such as:\n• How does la manyair dis promnii help to improve my understanding of Michif French language and worldview?\n• How does my use of Michif French shape the way I understand the economic environment (e.g., historical and contemporary)?\n• How does my use of Michif French shape the way I understand my own personal growth?\n• How does my use of Michif French shape the way I understand Michif/Métis governance (e.g., historical and contemporary)?",
+          "page": 51,
+          "printedPage": "46"
+        }
+      ]
+    },
+    {
+      "name": "Language Knowledge (LK)",
+      "level": 30,
+      "goal": "LK",
+      "section": "Michif French 30 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "LK30.1",
+          "type": "outcome",
+          "text": "Apply, independently, when listening and reading, Michif French language concepts including word choice, complex sentence structure and linguistic conventions.",
+          "page": 52,
+          "printedPage": "47"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "LK30.1",
+          "text": "Apply context-specific and common vocabulary (e.g., la rivyayr - river, l’oovraazh – job, michii - trading, lii goovernamaan - government, laarzhan - money) with different pluralizations.",
+          "page": 52,
+          "printedPage": "47"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "LK30.1",
+          "text": "Interpret the use of present and past tense verbs including:\n• vullay (flying);\n• port (carry);\n• resti (stay);\n• vi (live);\n• apprand (learn);\n• travaii (work);\n• guard (protect);\n• priserv (preserve);\n• rizistii (resist);\n• aycrii (write);\n• aankoorajii (encourage);\n• dikoorajii (discourage);\n• bat (fight); and,\n• rawcounte (tell).",
+          "page": 52,
+          "printedPage": "47"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "LK30.1",
+          "text": "Explain the use of plural personal pronouns (e.g., nou, vou, onn, i).",
+          "page": 52,
+          "printedPage": "47"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "LK30.1",
+          "text": "Interpret appropriate prepositions in context (e.g., annaryayr - behind, annavaan – in front of, dissu – on top of, ennhou - above, akoootii – beside, didaan – inside).",
+          "page": 52,
+          "printedPage": "47"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "LK30.1",
+          "text": "Demonstrate knowledge of definite (e.g., le, la, laay, lii) and indefinite (e.g., aen, de, day, dii) articles.",
+          "page": 52,
+          "printedPage": "47"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "LK30.1",
+          "text": "Summarize sentences in context such as:\n• Daan lii taan cayoush, l'outonne itait aen sayson occupay pour lii Michif - Traditionally, fall was a busy season for the Métis.;\n• Li deu principal risistaans di Michif sontay en mil whit sann swassanti nauf pi mil whit sann kaatra vaen seank - The two main Métis resistances occurred in 1869-70 and 1885; and,\n• Dipi j'itais zhenn, jemay lii histouayrs di mon grand-pere/paypair - Since I was young, I enjoyed my grandfathers’ stories.",
+          "page": 52,
+          "printedPage": "47"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "LK30.1",
+          "text": "Discuss the effect of grammatical components to enhance communication, including:\n• rich word choice;\n• complex prepositions (e.g., avaan de - ahead of, avek de - along with, akous - because of); and,\n• complex conjunctions (e.g., apray konn maanzh - after we eat, kaan ill moiyl - when it rains).",
+          "page": 52,
+          "printedPage": "47"
+        },
+        {
+          "code": "LK30.2",
+          "type": "outcome",
+          "text": "Apply, independently, when speaking and writing, knowledge of Michif French language concepts including word choice, complex sentence structure and linguistic conventions.",
+          "page": 53,
+          "printedPage": "48"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "LK30.2",
+          "text": "Use oral and written phonemes in Michif French such as:\n• consonants (e.g., R sound; L sound; ZH sound [J or soft G]);\n• double vowels (e.g., oo, ii, aa);\n• complex vowels (e.g., oi, aen, enn); and,\n• nasal vowels (e.g., oon, aen, in).",
+          "page": 53,
+          "printedPage": "48"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "LK30.2",
+          "text": "Apply context-specific and common vocabulary (e.g., la rivyayr, l’oovraazh, michii, lii goovernamaan, laarzhan) with different pluralizations.",
+          "page": 53,
+          "printedPage": "48"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "LK30.2",
+          "text": "Interpret the use of present and past tense verbs, including;\n• vullay (flying);\n• port (carry);\n• resti (stay);\n• vi (live);\n• apprand (learn);\n• travaii (work);\n• guard (protect);\n• priserv (preserve);\n• risistii (resist);\n• aycrii (write);\n• aankoorajii (encourage);\n• dikoorajii (discourage);\n• bat (fight); and,\n• rawcounte (tell).",
+          "page": 53,
+          "printedPage": "48"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "LK30.2",
+          "text": "Demonstrate the use of plural personal pronouns (e.g., nou, vou, onn, i).",
+          "page": 53,
+          "printedPage": "48"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "LK30.2",
+          "text": "Apply appropriate prepositions in context (e.g., annaryayr - behind, annavaan – in front of, dissu– on top of, ennhou - above, akoootii – beside, didaan – inside).",
+          "page": 53,
+          "printedPage": "48"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "LK30.2",
+          "text": "Implement knowledge of definite (e.g., le, la, laay, lii) and indefinite (e.g., aen, de, day, dii) articles.",
+          "page": 53,
+          "printedPage": "48"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "LK30.2",
+          "text": "Summarize sentences in context such as:\n• Daan lii taan cayoush, l'outonne itait aen sayson occupay pour lii Michif - Traditionally, fall was a busy season for the Métis;\n• Li deu principal risistaans di Michif sontay en mil whit sann swassanti nauf pi mil whit sann kaatra vaen seank - The two main Métis Resistances occurred in 1869-70 and 1885; and,\n• Dipi j'itais zhenn, jemay lii histouayrs di may grand-pere/paypair - Since I was young, I enjoyed my grandfathers’ stories.",
+          "page": 53,
+          "printedPage": "48"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "LK30.2",
+          "text": "Discuss the effect of grammatical components to enhance communication, including:\n• rich word choice;\n• complex (e.g., avaan de – ahead of, avek de - along with, akous - because of ); and,\n• complex conjunctions (e.g., apray konn maanzh - after we eat, kaan ill moiyl - when it rains).",
+          "page": 53,
+          "printedPage": "48"
+        }
+      ]
+    },
+    {
+      "name": "Applications (AP)",
+      "level": 30,
+      "goal": "AP",
+      "section": "Michif French 30 Outcomes and Indicators",
+      "items": [
+        {
+          "code": "AP30.1",
+          "type": "outcome",
+          "text": "Construct meaning, independently, of a variety of oral non-fiction and fiction Michif French communications.",
+          "page": 55,
+          "printedPage": "50"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP30.1",
+          "text": "Listen to or view a personal selection of oral non-fiction and fiction Michif French communications (e.g., interviews, videos, podcasts, storytelling, in-person visiting, speeches) that address elements of:\n• the economic environment;\n• personal growth; and,\n• Michif/Métis governance.",
+          "page": 55,
+          "printedPage": "50"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP30.1",
+          "text": "Discuss information presented in oral communications in a variety of ways (e.g., informal conversation, class discussion, visual arts, graphs, concept maps).",
+          "page": 55,
+          "printedPage": "50"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP30.1",
+          "text": "Summarize viewpoints presented in oral communications (e.g., interviews, videos, podcasts, storytelling, in-person visiting, speeches).",
+          "page": 55,
+          "printedPage": "50"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP30.1",
+          "text": "Analyze the intended purpose and audience of oral communications.",
+          "page": 55,
+          "printedPage": "50"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP30.1",
+          "text": "Respond appropriately in spontaneous conversations on familiar themes and daily activities (e.g., traditional and contemporary economic changes, personal goals and aspirations, Métis/Michif governance).",
+          "page": 55,
+          "printedPage": "50"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP30.1",
+          "text": "Follow changes in subject during conversations on familiar topics.",
+          "page": 55,
+          "printedPage": "50"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP30.1",
+          "text": "Determine whether conversation participants agree or disagree on the topic of discussion (e.g., economic elements, personal growth goals, Métis/Michif governance).",
+          "page": 55,
+          "printedPage": "50"
+        },
+        {
+          "code": "AP30.2",
+          "type": "outcome",
+          "text": "Construct meaning, independently, of a variety of written non-fiction and fiction Michif French texts.",
+          "page": 56,
+          "printedPage": "51"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP30.2",
+          "text": "Read a personal selection of written Michif French texts (e.g., books, recipes, dictionaries, short autobiographies, speeches, historical texts, conversational guides, poetry, plays, student created texts) that address elements of:\n• the economic environment;\n• personal growth; and,\n• Michif/Métis governance.",
+          "page": 56,
+          "printedPage": "51"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP30.2",
+          "text": "Analyze the intended purpose and audience of written texts.",
+          "page": 56,
+          "printedPage": "51"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP30.2",
+          "text": "Follow directions in Michif French within historical sites and spaces (e.g., Batoche, Duck Lake, Fort Carlton, Tourond’s Coulee [Fish Creek], Pilgrimage to St. Laurent, SK.)",
+          "page": 56,
+          "printedPage": "51"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP30.2",
+          "text": "Recount stories, fiction and non-fiction written texts.",
+          "page": 56,
+          "printedPage": "51"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP30.2",
+          "text": "Discuss the theme, main ideas and supporting elements of written texts.",
+          "page": 56,
+          "printedPage": "51"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP30.2",
+          "text": "Summarize information related to details about travel and transportation (e.g., historical texts about modes of transportation).",
+          "page": 56,
+          "printedPage": "51"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP30.2",
+          "text": "Follow multi-step directions to complete a task (e.g., following a recipe, engaging with natural resources, following local protocols, caring for the young and the old).",
+          "page": 56,
+          "printedPage": "51"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "AP30.2",
+          "text": "Identify main ideas of persuasive print texts (e.g., speeches, historical newspaper articles, images) for bias.",
+          "page": 56,
+          "printedPage": "51"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "AP30.2",
+          "text": "React to written texts with questions of elaboration and alternate points of view.",
+          "page": 56,
+          "printedPage": "51"
+        },
+        {
+          "code": "j",
+          "type": "indicator",
+          "outcome": "AP30.2",
+          "text": "Express emotional and personal reactions (e.g., empathy, surprise, appreciation, deference or dislike) to a variety of print texts.",
+          "page": 56,
+          "printedPage": "51"
+        },
+        {
+          "code": "AP30.3",
+          "type": "outcome",
+          "text": "Produce, independently, a variety of oral non-fiction and fiction Michif French communications.",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Produce a variety of oral non-fiction and fiction Michif French communications related to elements of:\n• the economic environment;\n• personal growth; and,\n• Michif/Métis governance.",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Contribute to spontaneous conversations on familiar topics with multiple participants.",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Participate in conversations by posing and responding to questions on a variety of topics such as:\n• local infrastructure (stores, schools, amenities, past and present);\n• transportation (past and present);\n• personal strengthens and areas for growth with language learning;\n• personal future aspirations; and,\n• local, regional, provincial, and national levels of Métis/Michif governance.",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Communicate emotions, opinions and advice.",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Translate informal situations by relaying basic information from English to Michif French and vice versa.",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Provide directions within historical sites and spaces (e.g., Batoche, Duck Lake, Fort Carlton, Tourond’s Coulee [Fish Creek], Pilgrimage site in St. Laurent, SK).",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Conduct an interview by posing direct questions.",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Defend opinions with supporting arguments in a debate.",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "i",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Persuade audience of a perspective using convincing details and supporting arguments.",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "j",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Produce oral non-fiction presentations (e.g., short autobiographies, how-to instructions related to big ideas, dialogues about Métis/Michif governance) using a variety of visuals (e.g., illustrations, videos, maps and pictures) to support expression.",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "k",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Perform dramatic texts in Michif French (e.g., skits, excerpts of plays).",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "l",
+          "type": "indicator",
+          "outcome": "AP30.3",
+          "text": "Incorporate the following in oral productions:\n• evidence of planning (e.g., project strategy and timelines);\n• clear purpose;\n• consideration of audience;\n• organization (e.g., introduction, development of ideas, conclusion, flow of ideas);\n• appropriate tone; and,\n• rich context-specific vocabulary.",
+          "page": 57,
+          "printedPage": "52"
+        },
+        {
+          "code": "AP30.4",
+          "type": "outcome",
+          "text": "Produce, independently, a variety of written non-fiction and fiction Michif French texts.",
+          "page": 58,
+          "printedPage": "53"
+        },
+        {
+          "code": "a",
+          "type": "indicator",
+          "outcome": "AP30.4",
+          "text": "Produce a variety of written Michif French texts (e.g., letters of opinion, editorials, brochures, posters, social media posts, videos) related to elements of:\n• the economic environment;\n• personal growth; and,\n• Michif/Métis governance.",
+          "page": 58,
+          "printedPage": "53"
+        },
+        {
+          "code": "b",
+          "type": "indicator",
+          "outcome": "AP30.4",
+          "text": "Write simple messages to convey the details (e.g., time and location) of an event.",
+          "page": 58,
+          "printedPage": "53"
+        },
+        {
+          "code": "c",
+          "type": "indicator",
+          "outcome": "AP30.4",
+          "text": "Compose simple emails requesting information on topics related to future plans (e.g., involvement in Michif/Métis governance, post-secondary education and career opportunities).",
+          "page": 58,
+          "printedPage": "53"
+        },
+        {
+          "code": "d",
+          "type": "indicator",
+          "outcome": "AP30.4",
+          "text": "Create visual representations (e.g., comic strips, word art, graphic organizers) with Michif French dialogue.",
+          "page": 58,
+          "printedPage": "53"
+        },
+        {
+          "code": "e",
+          "type": "indicator",
+          "outcome": "AP30.4",
+          "text": "Express personal opinions in a persuasive text (e.g., letters of opinion, editorials, brochures, posters, social media posts, videos) on a variety of topics such as economics, personal growth goals and Michif/Métis governance.",
+          "page": 58,
+          "printedPage": "53"
+        },
+        {
+          "code": "f",
+          "type": "indicator",
+          "outcome": "AP30.4",
+          "text": "Experiment with a variety of text types (e.g., letters, poems, songs, schedules, lists, questionnaires, reports, social media posts).",
+          "page": 58,
+          "printedPage": "53"
+        },
+        {
+          "code": "g",
+          "type": "indicator",
+          "outcome": "AP30.4",
+          "text": "Compose an expository text (e.g., an explanation of how a Michif/Métis company works, a biography on a Michif French historical figure, past and present Michif/Métis politicians’ accomplishments).",
+          "page": 58,
+          "printedPage": "53"
+        },
+        {
+          "code": "h",
+          "type": "indicator",
+          "outcome": "AP30.4",
+          "text": "Incorporate the following in written productions:\n• evidence of planning (e.g., narrative writing organizers, bullet journals);\n• clear purpose;\n• consideration of audience;\n• organization (e.g., introduction, development of ideas, conclusion, flow of ideas);\n• appropriate tone;\n• rich context-specific vocabulary; and,\n• language suitable to text type.",
+          "page": 58,
+          "printedPage": "53"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Structure as printed: one section per level ('Michif French 10/20/30 Outcomes and Indicators'), each grouped under the four goal headings Culture (CU), Strategies (ST), Language Knowledge (LK) and Applications (AP). Units here are those goal headings within a level. Outcome codes: goal + course level + number (legend p. 17 printed). Indicators are lettered a., b., …; bullet sub-lists inside an indicator are kept on their own lines ('• …').",
+    "The text mixes English with Michif French words (e.g. 'Lii pleu vyeu', 'la manyair dis prominii'); they are copied as printed, including their spelling and diacritics.",
+    "PRELIMINARY: page 2 says 'April, 2026 – Due to the nature of curriculum development this document is regularly under revision.' The course page says: 'The Ministry of Education invites educators to provide feedback on the draft Michif French 10, 20, 30 (2026 PRELIMINARY) curriculum. All feedback must be received by June 1, 2027.'",
+    "LK10.1 is printed with a space after the hyphen ('basic context- specific vocabulary') on a single line; kept as printed (LK10.2 has 'context-specific').",
+    "Outcome codes were cross-checked against the 'Outcomes at a Glance' table (PDF pp. 21–22): every code there has an outcome page and vice versa. The statements were not compared word by word because the glance table is a three-column layout.",
+    "LK10.2: the PDF letters its indicators a, h, b, c, d, e, f, g, h (letter h used twice). Kept as printed, in printed order; treat the letters of this outcome as unreliable identifiers.",
+    "LK30.2: the PDF letters its indicators a, b, c, d, h, e, f, g (out of order). Kept as printed, in printed order; treat the letters of this outcome as unreliable identifiers."
+  ]
+}

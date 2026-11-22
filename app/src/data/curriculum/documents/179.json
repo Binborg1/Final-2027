@@ -1,0 +1,2233 @@
+{
+  "curriculumId": 179,
+  "name": "Native Studies 10",
+  "levels": [
+    10
+  ],
+  "kind": "objectives",
+  "textSource": "text-layer",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=179",
+    "filename": "Native_Studies_10_2002.pdf",
+    "sha256": "a120977eafab4dc30817be8de963e9f4e87d1aa9dd52ee385d2b5b2e601547d9",
+    "retrievedOn": "2026-11-21",
+    "bytes": 10328594,
+    "pages": [
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "pageNumbering": "page = 1-based PDF page (the PDF has no printed page numbers in this section)",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=179"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the social-studies research on 2026-11-21)",
+  "structure": "Units; each foundational objective is followed by the learning objectives printed beside it.",
+  "counts": {
+    "units": 4,
+    "foundational": 78,
+    "learning": 242
+  },
+  "units": [
+    {
+      "name": "Unit One - Identity and Worldviews: Aboriginal Perspectives",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Realize that learning is a life-long process.",
+          "page": 27
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Establish realistic, achievable goals.",
+          "page": 27,
+          "foundational": "Realize that learning is a life-long process."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that learning is a life-long process",
+          "page": 27,
+          "foundational": "Realize that learning is a life-long process."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Know that self-respect and respect for others is the foundation on which human relationships develop.",
+          "page": 27
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Gain self-awareness, self-respect and acknowledge the need for self-development.",
+          "page": 27,
+          "foundational": "Know that self-respect and respect for others is the foundation on which human relationships develop."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize that respect for self and others are important human values.",
+          "page": 27,
+          "foundational": "Know that self-respect and respect for others is the foundation on which human relationships develop."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List specific behaviours that illustrate respect for self and others.",
+          "page": 27,
+          "foundational": "Know that self-respect and respect for others is the foundation on which human relationships develop."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze the difference between equality and equity.",
+          "page": 27
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Make judgements regarding fairness, equality and equity.",
+          "page": 27,
+          "foundational": "Analyze the difference between equality and equity."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the difference between equality and equity.",
+          "page": 27,
+          "foundational": "Analyze the difference between equality and equity."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Develop and expand the concept of leadership to include subtler forms of leadership.",
+          "page": 28
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Develop the skills required to be an effective leader and group member.",
+          "page": 28,
+          "foundational": "Develop and expand the concept of leadership to include subtler forms of leadership."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "See the value of various approaches to leadership.",
+          "page": 28,
+          "foundational": "Develop and expand the concept of leadership to include subtler forms of leadership."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare and contrast leadership qualities.",
+          "page": 28,
+          "foundational": "Develop and expand the concept of leadership to include subtler forms of leadership."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Collect, classify, and present pertinent information.",
+          "page": 28,
+          "foundational": "Develop and expand the concept of leadership to include subtler forms of leadership."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Interpret and describe leadership qualities in self and others from print and electronic sources.",
+          "page": 28,
+          "foundational": "Develop and expand the concept of leadership to include subtler forms of leadership."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "State the difference between effective and ineffective leadership qualities.",
+          "page": 28,
+          "foundational": "Develop and expand the concept of leadership to include subtler forms of leadership."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Use effective decision-making techniques to solve a problem.",
+          "page": 28
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Practise decision making techniques individually and within a group.",
+          "page": 28,
+          "foundational": "Use effective decision-making techniques to solve a problem."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify appropriate decision making methods.",
+          "page": 28,
+          "foundational": "Use effective decision-making techniques to solve a problem."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Interpret the harm caused by ignorance-based thinking.",
+          "page": 28
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Define bias, stereotyping, discrimination, prejudice and racism.",
+          "page": 28,
+          "foundational": "Interpret the harm caused by ignorance-based thinking."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Analyze the subtler distinctions of ignorance-based thinking.",
+          "page": 28,
+          "foundational": "Interpret the harm caused by ignorance-based thinking."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore the possibility of becoming agents of change.",
+          "page": 28,
+          "foundational": "Interpret the harm caused by ignorance-based thinking."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand and describe the harmful effects of bias, stereotyping, discrimination, prejudice and racism.",
+          "page": 28,
+          "foundational": "Interpret the harm caused by ignorance-based thinking."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Apply critical thinking skills to a specific racist incident.",
+          "page": 28,
+          "foundational": "Interpret the harm caused by ignorance-based thinking."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Become increasingly independent thinkers and decision-makers.",
+          "page": 28,
+          "foundational": "Interpret the harm caused by ignorance-based thinking."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Replace negative stereotypes with accurate information.",
+          "page": 28,
+          "foundational": "Interpret the harm caused by ignorance-based thinking."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Empathize with people who are victimized by another’s lack of knowledge.",
+          "page": 28,
+          "foundational": "Interpret the harm caused by ignorance-based thinking."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze materials for bias and stereotypes and replace these with accurate information.",
+          "page": 29
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Sort through a variety of data for relevant information.",
+          "page": 29,
+          "foundational": "Analyze materials for bias and stereotypes and replace these with accurate information."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compile, organize and present data in a pie chart or graph form.",
+          "page": 29,
+          "foundational": "Analyze materials for bias and stereotypes and replace these with accurate information."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "State/explain how knowledge gained can improve the quality of life for self and others.",
+          "page": 29,
+          "foundational": "Analyze materials for bias and stereotypes and replace these with accurate information."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Detect bias and stereotypes in print and video.",
+          "page": 29,
+          "foundational": "Analyze materials for bias and stereotypes and replace these with accurate information."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Infer the complexity of identity for people in general, and for Aboriginal people in particular.",
+          "page": 29
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize factors that influence identity generally, and Aboriginal identity specifically.",
+          "page": 29,
+          "foundational": "Infer the complexity of identity for people in general, and for Aboriginal people in particular."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Expand knowledge of Aboriginal philosophy.",
+          "page": 29,
+          "foundational": "Infer the complexity of identity for people in general, and for Aboriginal people in particular."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Value Aboriginal worldviews as valid ways of thinking and knowing and understand that worldviews underlie self-concept.",
+          "page": 29
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize the concept of circularity as it applies to Aboriginal worldview.",
+          "page": 29,
+          "foundational": "Value Aboriginal worldviews as valid ways of thinking and knowing and understand that worldviews underlie self-concept."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Apply the Aboriginal concept of circularity to personal identity.",
+          "page": 29,
+          "foundational": "Value Aboriginal worldviews as valid ways of thinking and knowing and understand that worldviews underlie self-concept."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze the effects of external labels on Aboriginal peoples.",
+          "page": 29
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify ways that legal and political appellations affect identity.",
+          "page": 29,
+          "foundational": "Analyze the effects of external labels on Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize Aboriginal peoples’ right to self-define.",
+          "page": 29,
+          "foundational": "Analyze the effects of external labels on Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Respect the distinctions among and within Aboriginal groups: First Nations, Métis and Inuit.",
+          "page": 29
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use legal, political and preferred terms in their appropriate contexts.",
+          "page": 29,
+          "foundational": "Respect the distinctions among and within Aboriginal groups: First Nations, Métis and Inuit."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the relationship between culture and identity.",
+          "page": 29,
+          "foundational": "Respect the distinctions among and within Aboriginal groups: First Nations, Métis and Inuit."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Respect Aboriginal cultural traditions.",
+          "page": 29
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Research and demonstrate knowledge of the cultural traditions of Aboriginal peoples’ in Canada.",
+          "page": 29,
+          "foundational": "Respect Aboriginal cultural traditions."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Make connections between personal and Aboriginal cultural traditions.",
+          "page": 29,
+          "foundational": "Respect Aboriginal cultural traditions."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Learn and practise group skills: cooperate, participate, listen, respect and assume different roles.",
+          "page": 29,
+          "foundational": "Respect Aboriginal cultural traditions."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Recognize and avoid the use of stereotypes.",
+          "page": 29,
+          "foundational": "Respect Aboriginal cultural traditions."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Build on group and leadership skills.",
+          "page": 29,
+          "foundational": "Respect Aboriginal cultural traditions."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Identify the major elements of Aboriginal worldviews.",
+          "page": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Deepen understanding of Aboriginal worldviews.",
+          "page": 30,
+          "foundational": "Identify the major elements of Aboriginal worldviews."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Make connections between Aboriginal worldviews and personal world-views.",
+          "page": 30,
+          "foundational": "Identify the major elements of Aboriginal worldviews."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe an understanding of the cyclical nature of life.",
+          "page": 30,
+          "foundational": "Identify the major elements of Aboriginal worldviews."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Identify and explain the ethics by which Aboriginal peoples live.",
+          "page": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Display an understanding of the spiritual philosophy of Aboriginal peoples.",
+          "page": 30,
+          "foundational": "Identify and explain the ethics by which Aboriginal peoples live."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the value of ethics in everyday life.",
+          "page": 30,
+          "foundational": "Identify and explain the ethics by which Aboriginal peoples live."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Produce codes of ethics that represent personal values.",
+          "page": 30,
+          "foundational": "Identify and explain the ethics by which Aboriginal peoples live."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Interpret the important teachings of tricksters in Aboriginal stories.",
+          "page": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Display understanding that Aboriginal worldviews are embedded in Aboriginal literature.",
+          "page": 30,
+          "foundational": "Interpret the important teachings of tricksters in Aboriginal stories."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Gain insight into the importance of trickster stories to Aboriginal cultures.",
+          "page": 30,
+          "foundational": "Interpret the important teachings of tricksters in Aboriginal stories."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Value Aboriginal authors’ literary contributions.",
+          "page": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss how Aboriginal authors express worldview through their works.",
+          "page": 30,
+          "foundational": "Value Aboriginal authors’ literary contributions."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Experience and analyze Aboriginal literature.",
+          "page": 30,
+          "foundational": "Value Aboriginal authors’ literary contributions."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Value storytelling, both as a teaching tool and as an art form.",
+          "page": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Engage in listening for a variety of purposes.",
+          "page": 30,
+          "foundational": "Value storytelling, both as a teaching tool and as an art form."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Write with a specific audience in mind.",
+          "page": 30,
+          "foundational": "Value storytelling, both as a teaching tool and as an art form."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Explore the unique ways in which Aboriginal peoples experience spirituality.",
+          "page": 30
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Distinguish similarities and differences among the spiritual beliefs of Aboriginal groups.",
+          "page": 30,
+          "foundational": "Explore the unique ways in which Aboriginal peoples experience spirituality."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Choose and practise a variety of presentation skills.",
+          "page": 30,
+          "foundational": "Explore the unique ways in which Aboriginal peoples experience spirituality."
+        }
+      ]
+    },
+    {
+      "name": "Unit Two - Community and Kinship",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze the functions of families.",
+          "page": 31
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Summarize the importance of family life in the development of the individual.",
+          "page": 31,
+          "foundational": "Analyze the functions of families."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Illustrate the fact that family size or composition does not hinder its importance or function.",
+          "page": 31,
+          "foundational": "Analyze the functions of families."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify the individual needs met by families.",
+          "page": 31,
+          "foundational": "Analyze the functions of families."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "State the benefits and drawbacks to flexibility in familial roles.",
+          "page": 31,
+          "foundational": "Analyze the functions of families."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify family patterns.",
+          "page": 31,
+          "foundational": "Analyze the functions of families."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Determine the importance of family members as role models.",
+          "page": 31
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss specific examples of Aboriginal family life.",
+          "page": 31,
+          "foundational": "Determine the importance of family members as role models."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Categorize the qualities of Aboriginal family members.",
+          "page": 31,
+          "foundational": "Determine the importance of family members as role models."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify similarities and differences between traditional Aboriginal family life and contemporary family life.",
+          "page": 31,
+          "foundational": "Determine the importance of family members as role models."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "State the similarities and differences in contemporary and traditional family roles.",
+          "page": 31,
+          "foundational": "Determine the importance of family members as role models."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Show the importance of role models to Aboriginal families.",
+          "page": 31,
+          "foundational": "Determine the importance of family members as role models."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Interpret the importance of traditional Aboriginal family life.",
+          "page": 31
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Relate the various ways in which Aboriginal people established kinship ties.",
+          "page": 31,
+          "foundational": "Interpret the importance of traditional Aboriginal family life."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the benefits of traditional kinship ties.",
+          "page": 31,
+          "foundational": "Interpret the importance of traditional Aboriginal family life."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare the traditional roles of women and men with regard to the Aboriginal groups being studied.",
+          "page": 31,
+          "foundational": "Interpret the importance of traditional Aboriginal family life."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Infer the benefits of consensus decision making to Métis family life.",
+          "page": 31,
+          "foundational": "Interpret the importance of traditional Aboriginal family life."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Illustrate the importance of traditional Aboriginal family values today.",
+          "page": 31
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify the values that underlie traditional Aboriginal relationships.",
+          "page": 31,
+          "foundational": "Illustrate the importance of traditional Aboriginal family values today."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Evaluate individual and family values.",
+          "page": 31,
+          "foundational": "Illustrate the importance of traditional Aboriginal family values today."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Detail how Aboriginal societies cultivated a sense of belonging.",
+          "page": 32
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain traditional Aboriginal child-rearing practices.",
+          "page": 32,
+          "foundational": "Detail how Aboriginal societies cultivated a sense of belonging."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Interpret the goals of traditional Aboriginal education.",
+          "page": 32,
+          "foundational": "Detail how Aboriginal societies cultivated a sense of belonging."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Analyze the methodologies of traditional Aboriginal child rearing and education.",
+          "page": 32,
+          "foundational": "Detail how Aboriginal societies cultivated a sense of belonging."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Show how a sense of family and community extended to the environment.",
+          "page": 32,
+          "foundational": "Detail how Aboriginal societies cultivated a sense of belonging."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Appreciate the relevance of traditional Aboriginal childrearing philosophies to contemporary society.",
+          "page": 32
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the importance of Elders to Aboriginal family life.",
+          "page": 32,
+          "foundational": "Appreciate the relevance of traditional Aboriginal childrearing philosophies to contemporary society."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List Aboriginal approaches to education and youth development.",
+          "page": 32,
+          "foundational": "Appreciate the relevance of traditional Aboriginal childrearing philosophies to contemporary society."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Illustrate the different views on child rearing and discipline in Aboriginal societies.",
+          "page": 32,
+          "foundational": "Appreciate the relevance of traditional Aboriginal childrearing philosophies to contemporary society."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the ways in which Aboriginal peoples nurture self-esteem.",
+          "page": 32,
+          "foundational": "Appreciate the relevance of traditional Aboriginal childrearing philosophies to contemporary society."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Synthesize the impact of residential schools on Aboriginal family life.",
+          "page": 32
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the importance of spirituality to Aboriginal family life.",
+          "page": 32,
+          "foundational": "Synthesize the impact of residential schools on Aboriginal family life."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Illustrate the impact of colonialism on Aboriginal family life.",
+          "page": 32,
+          "foundational": "Synthesize the impact of residential schools on Aboriginal family life."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain how being removed from one’s family for education impacted individuals and families.",
+          "page": 32,
+          "foundational": "Synthesize the impact of residential schools on Aboriginal family life."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List specific elements of traditional Aboriginal childrearing practices.",
+          "page": 32,
+          "foundational": "Synthesize the impact of residential schools on Aboriginal family life."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Appreciate the discipline and guidance techniques of Aboriginal peoples.",
+          "page": 32
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Differentiate between traditional Aboriginal education and European education.",
+          "page": 32,
+          "foundational": "Appreciate the discipline and guidance techniques of Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Evaluate how external changes can be both beneficial and detrimental to individuals.",
+          "page": 32,
+          "foundational": "Appreciate the discipline and guidance techniques of Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "State the role of children to Aboriginal family life.",
+          "page": 32,
+          "foundational": "Appreciate the discipline and guidance techniques of Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Respect the intellectual integrity of the oral tradition.",
+          "page": 33
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss aspects of the Aboriginal intellectual tradition.",
+          "page": 33,
+          "foundational": "Respect the intellectual integrity of the oral tradition."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand that, with the assistance of their Elders, Aboriginal people strive to preserve their cultural knowledge.",
+          "page": 33,
+          "foundational": "Respect the intellectual integrity of the oral tradition."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss some characteristics of Aboriginal Elders.",
+          "page": 33,
+          "foundational": "Respect the intellectual integrity of the oral tradition."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the value of sharing knowledge orally.",
+          "page": 33,
+          "foundational": "Respect the intellectual integrity of the oral tradition."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Determine how the intellectual integrity of the oral tradition was undermined by government policy.",
+          "page": 33
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the changes in government policy on Aboriginal education in the 1960s.",
+          "page": 33,
+          "foundational": "Determine how the intellectual integrity of the oral tradition was undermined by government policy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the goals of the foreign education system.",
+          "page": 33,
+          "foundational": "Determine how the intellectual integrity of the oral tradition was undermined by government policy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the factors that disrupted Aboriginal education systems.",
+          "page": 33,
+          "foundational": "Determine how the intellectual integrity of the oral tradition was undermined by government policy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand how the differences between Aboriginal and European worldviews caused conflict.",
+          "page": 33,
+          "foundational": "Determine how the intellectual integrity of the oral tradition was undermined by government policy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss Aboriginal peoples’ reaction to government policy.",
+          "page": 33,
+          "foundational": "Determine how the intellectual integrity of the oral tradition was undermined by government policy."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Determine how Aboriginal people have reclaimed their education.",
+          "page": 33
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the important values in Aboriginal education.",
+          "page": 33,
+          "foundational": "Determine how Aboriginal people have reclaimed their education."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss how Indian education benefits everyone.",
+          "page": 33,
+          "foundational": "Determine how Aboriginal people have reclaimed their education."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate individual contributions to Indian education.",
+          "page": 33,
+          "foundational": "Determine how Aboriginal people have reclaimed their education."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List ways in which challenges in Aboriginal education may be met.",
+          "page": 33,
+          "foundational": "Determine how Aboriginal people have reclaimed their education."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Discover what Aboriginal people are doing to heal from the residential school experience.",
+          "page": 33
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate the cross-generation effects of residential schools on Aboriginal people.",
+          "page": 33,
+          "foundational": "Discover what Aboriginal people are doing to heal from the residential school experience."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate the challenges that Residential School survivors and their families face.",
+          "page": 33,
+          "foundational": "Discover what Aboriginal people are doing to heal from the residential school experience."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze the ways in which Métis people preserve their cultural heritage through education.",
+          "page": 33
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the goals of Métis education.",
+          "page": 33,
+          "foundational": "Analyze the ways in which Métis people preserve their cultural heritage through education."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Infer the relationship between Métis and Non-status Indian education.",
+          "page": 33,
+          "foundational": "Analyze the ways in which Métis people preserve their cultural heritage through education."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Analyze the unique features of Métis education.",
+          "page": 33,
+          "foundational": "Analyze the ways in which Métis people preserve their cultural heritage through education."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Compare Aboriginal peoples’ and European views of the land.",
+          "page": 34
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Deepen understanding of how worldview contributes to a peoples’ view of the land.",
+          "page": 34,
+          "foundational": "Compare Aboriginal peoples’ and European views of the land."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand Aboriginal peoples’ special relationship with the land.",
+          "page": 34,
+          "foundational": "Compare Aboriginal peoples’ and European views of the land."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Explain the unique ways in which Aboriginal peoples chose to live.",
+          "page": 34
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Analyze traditional marriage and child-rearing customs to discover their value.",
+          "page": 34,
+          "foundational": "Explain the unique ways in which Aboriginal peoples chose to live."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discover the different ways in which Aboriginal nations celebrate the coming of age.",
+          "page": 34,
+          "foundational": "Explain the unique ways in which Aboriginal peoples chose to live."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Make personal connections with historical customs.",
+          "page": 34,
+          "foundational": "Explain the unique ways in which Aboriginal peoples chose to live."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Appreciate the historical customs of Aboriginal peoples.",
+          "page": 34
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Identify similarities and differences between personal experiences of \"coming of age\" and historical experiences.",
+          "page": 34,
+          "foundational": "Appreciate the historical customs of Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze the importance of the clan and extended family systems to Aboriginal people.",
+          "page": 34
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore aspects of a specific clan system.",
+          "page": 34,
+          "foundational": "Analyze the importance of the clan and extended family systems to Aboriginal people."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Research factors that influence(d) Aboriginal housing.",
+          "page": 34
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Locate information from a variety of sources.",
+          "page": 34,
+          "foundational": "Research factors that influence(d) Aboriginal housing."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Make inferences based on accurate information.",
+          "page": 34,
+          "foundational": "Research factors that influence(d) Aboriginal housing."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Become aware of and respect specific customs and beliefs of cultural groups that may be different from personal customs and beliefs.",
+          "page": 34,
+          "foundational": "Research factors that influence(d) Aboriginal housing."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Account for the longevity of Aboriginal values and customs.",
+          "page": 34,
+          "foundational": "Research factors that influence(d) Aboriginal housing."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Become aware of current issues that concern the integrity of Aboriginal families.",
+          "page": 34,
+          "foundational": "Research factors that influence(d) Aboriginal housing."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze the importance of the concept of circularity to Aboriginal peoples.",
+          "page": 34
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the concept of circularity as applied by Aboriginal peoples.",
+          "page": 34,
+          "foundational": "Analyze the importance of the concept of circularity to Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Apply the concept of circularity to self.",
+          "page": 34,
+          "foundational": "Analyze the importance of the concept of circularity to Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Discern and appreciate the values that underlie Aboriginal recreation.",
+          "page": 35
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand the values embedded in traditional Aboriginal forms of recreation.",
+          "page": 35,
+          "foundational": "Discern and appreciate the values that underlie Aboriginal recreation."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List some of the goals of traditional Aboriginal recreational activity.",
+          "page": 35,
+          "foundational": "Discern and appreciate the values that underlie Aboriginal recreation."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Discover how Métis people emerged and developed.",
+          "page": 35
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Research how the Métis Nation emerged from the marriages between First Nations women and explorers.",
+          "page": 35,
+          "foundational": "Discover how Métis people emerged and developed."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand how Aboriginal families were affected by the fur trade.",
+          "page": 35,
+          "foundational": "Discover how Métis people emerged and developed."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate the unique familial patterns of the Métis Nation.",
+          "page": 35,
+          "foundational": "Discover how Métis people emerged and developed."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Display understanding of the evolution of Aboriginal family life.",
+          "page": 35
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Express understanding of Aboriginal family life over time.",
+          "page": 35,
+          "foundational": "Display understanding of the evolution of Aboriginal family life."
+        }
+      ]
+    },
+    {
+      "name": "Unit Three - Governance: Aboriginal Perspectives",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Determine how, historically, Aboriginal leaders were chosen.",
+          "page": 35
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Evaluate the criteria by which leadership is chosen.",
+          "page": 35,
+          "foundational": "Determine how, historically, Aboriginal leaders were chosen."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Assess leadership qualities based on personal knowledge.",
+          "page": 35,
+          "foundational": "Determine how, historically, Aboriginal leaders were chosen."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Investigate how Aboriginal leadership is based on values that may differ from the values of Euro/Canadians.",
+          "page": 35
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Research a variety of sources for accurate information.",
+          "page": 35,
+          "foundational": "Investigate how Aboriginal leadership is based on values that may differ from the values of Euro/Canadians."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Categorize information into specific time, place and situational contexts.",
+          "page": 35,
+          "foundational": "Investigate how Aboriginal leadership is based on values that may differ from the values of Euro/Canadians."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use symbols to convey meaning",
+          "page": 35,
+          "foundational": "Investigate how Aboriginal leadership is based on values that may differ from the values of Euro/Canadians."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Increase knowledge base on Aboriginal leadership.",
+          "page": 35,
+          "foundational": "Investigate how Aboriginal leadership is based on values that may differ from the values of Euro/Canadians."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Appreciate the unique political processes and structures of Aboriginal peoples.",
+          "page": 36
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Work cooperatively to enhance the learning of self and others.",
+          "page": 36,
+          "foundational": "Appreciate the unique political processes and structures of Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Rethink previously held thoughts on Aboriginal leadership.",
+          "page": 36,
+          "foundational": "Appreciate the unique political processes and structures of Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Assemble information in a coherent format.",
+          "page": 36,
+          "foundational": "Appreciate the unique political processes and structures of Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate the unique ways in which Aboriginal peoples traditionally chose leaders.",
+          "page": 36,
+          "foundational": "Appreciate the unique political processes and structures of Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Respect that First Nations, Inuit and the Métis Nation have always had political structures designed to serve their needs.",
+          "page": 36
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the important qualities of Aboriginal leadership.",
+          "page": 36,
+          "foundational": "Respect that First Nations, Inuit and the Métis Nation have always had political structures designed to serve their needs."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Examine the harmful effects of forced change.",
+          "page": 36
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Read, interpret and summarize written material.",
+          "page": 36,
+          "foundational": "Examine the harmful effects of forced change."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare different political structures.",
+          "page": 36,
+          "foundational": "Examine the harmful effects of forced change."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use symbols to express ideas.",
+          "page": 36,
+          "foundational": "Examine the harmful effects of forced change."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Know that Euro/Canadian government policies intended to 1) remove Aboriginal people from their land, 2) suppress Aboriginal nations and their governments, 3) undermine Aboriginal cultures, 4) erode Aboriginal identity.",
+          "page": 36
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Dramatize an interpretation of a specific time period in history.",
+          "page": 36,
+          "foundational": "Know that Euro/Canadian government policies intended to 1) remove Aboriginal people from their land, 2) suppress Aboriginal nations and their governments, 3) undermine Aboriginal cultures, 4) erode Aboriginal identity."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand the legislation that affects Aboriginal peoples.",
+          "page": 36
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Interact with specific policies and legislation that put Aboriginal independence in jeopardy.",
+          "page": 36,
+          "foundational": "Understand the legislation that affects Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain how policies and legislation jeopardized traditional Aboriginal governance.",
+          "page": 36,
+          "foundational": "Understand the legislation that affects Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain how legislation discriminated against Aboriginal women.",
+          "page": 36,
+          "foundational": "Understand the legislation that affects Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Analyze the intent and detriment of government assimilation policies.",
+          "page": 36,
+          "foundational": "Understand the legislation that affects Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Make connections between new learnings and prior knowledge.",
+          "page": 36,
+          "foundational": "Understand the legislation that affects Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate the resiliency of Aboriginal peoples under oppressive conditions.",
+          "page": 36,
+          "foundational": "Understand the legislation that affects Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Recognize the effects of an imposed system of governance by examining a specific example.",
+          "page": 37
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Empathize with people who have experienced a process of assimilation.",
+          "page": 37,
+          "foundational": "Recognize the effects of an imposed system of governance by examining a specific example."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Question why the government would implement assimilationist policies to the detriment of the people involved.",
+          "page": 37,
+          "foundational": "Recognize the effects of an imposed system of governance by examining a specific example."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Imagine what it would be like to have your history and identity completely devalued.",
+          "page": 37,
+          "foundational": "Recognize the effects of an imposed system of governance by examining a specific example."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Realize the devastating effects of the Residential School system.",
+          "page": 37
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Learn the means by which governments oppressed Aboriginal peoples.",
+          "page": 37,
+          "foundational": "Realize the devastating effects of the Residential School system."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Make inferences based on research and personal accounts.",
+          "page": 37,
+          "foundational": "Realize the devastating effects of the Residential School system."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Compare an imposed education system to traditional Aboriginal education.",
+          "page": 37,
+          "foundational": "Realize the devastating effects of the Residential School system."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Gain knowledge of the Residential School system from primary sources.",
+          "page": 37,
+          "foundational": "Realize the devastating effects of the Residential School system."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze the concept of contractual agreements.",
+          "page": 37
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Brainstorm the components that comprise agreements.",
+          "page": 37,
+          "foundational": "Analyze the concept of contractual agreements."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Imagine situations in which agreements may be necessary.",
+          "page": 37,
+          "foundational": "Analyze the concept of contractual agreements."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss factors that may cause different interpretations of the same agreement.",
+          "page": 37,
+          "foundational": "Analyze the concept of contractual agreements."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the consequences of breaking an agreement.",
+          "page": 37,
+          "foundational": "Analyze the concept of contractual agreements."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Investigate the factors that led to Aboriginal peoples losing their traditional, historical territories.",
+          "page": 37
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Use a variety of sources for information to discover how Aboriginal peoples lost their land.",
+          "page": 37,
+          "foundational": "Investigate the factors that led to Aboriginal peoples losing their traditional, historical territories."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore the implications, for Aboriginal peoples, of the loss of their land.",
+          "page": 37,
+          "foundational": "Investigate the factors that led to Aboriginal peoples losing their traditional, historical territories."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Infer that Aboriginal peoples had, and have, different experiences with governments regarding their land.",
+          "page": 37
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Research a specific Aboriginal group’s experience with their traditional, historical land.",
+          "page": 37,
+          "foundational": "Infer that Aboriginal peoples had, and have, different experiences with governments regarding their land."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Demonstrate understanding of the objective.",
+          "page": 37,
+          "foundational": "Infer that Aboriginal peoples had, and have, different experiences with governments regarding their land."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Interpret the circumstances under which Métis people lost their land.",
+          "page": 38
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discover the government’s motives for their mistreatment of the Métis.",
+          "page": 38,
+          "foundational": "Interpret the circumstances under which Métis people lost their land."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Know that Métis people organized governments to assert their needs.",
+          "page": 38,
+          "foundational": "Interpret the circumstances under which Métis people lost their land."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Know that the Métis do not have a collective land base from which to build the nation.",
+          "page": 38,
+          "foundational": "Interpret the circumstances under which Métis people lost their land."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Simulate writing a land agreement for the Métis nation.",
+          "page": 38,
+          "foundational": "Interpret the circumstances under which Métis people lost their land."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Discover why Louis Riel is an important figure to Saskatchewan and Canadian history.",
+          "page": 38
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Research one aspect of Métis history.",
+          "page": 38,
+          "foundational": "Discover why Louis Riel is an important figure to Saskatchewan and Canadian history."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Demonstrate a variety of researching, writing and critical thinking skills.",
+          "page": 38,
+          "foundational": "Discover why Louis Riel is an important figure to Saskatchewan and Canadian history."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand the significance of provincial recognition of Métis people.",
+          "page": 38
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate the lengthy struggle of Métis people for provincial recognition.",
+          "page": 38,
+          "foundational": "Understand the significance of provincial recognition of Métis people."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Interpret the implications of legislation affecting Métis people.",
+          "page": 38,
+          "foundational": "Understand the significance of provincial recognition of Métis people."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Infer the implications of a symbolic gesture.",
+          "page": 38,
+          "foundational": "Understand the significance of provincial recognition of Métis people."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Research the unique land agreements between the Inuit and various governments.",
+          "page": 38
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Respect the sacredness with which treaties were signed.",
+          "page": 38,
+          "foundational": "Research the unique land agreements between the Inuit and various governments."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Research a specific land agreement between Aboriginal peoples and the government.",
+          "page": 38,
+          "foundational": "Research the unique land agreements between the Inuit and various governments."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "View and interpret video productions on treaty and other land agreements.",
+          "page": 38,
+          "foundational": "Research the unique land agreements between the Inuit and various governments."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Display understanding of the Elders’ perspectives on treaty.",
+          "page": 38,
+          "foundational": "Research the unique land agreements between the Inuit and various governments."
+        }
+      ]
+    },
+    {
+      "name": "Unit Four - Economies: Aboriginal Perspectives",
+      "items": [
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze how Aboriginal economies were environmentally responsible.",
+          "page": 39
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain Aboriginal peoples’ reciprocal relationship with the environment.",
+          "page": 39,
+          "foundational": "Analyze how Aboriginal economies were environmentally responsible."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List Aboriginal peoples’ contributions of food to the well-being of everyone.",
+          "page": 39,
+          "foundational": "Analyze how Aboriginal economies were environmentally responsible."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Provide evidence of the reciprocal relationship that involved spiritual rituals of showing respect and giving thanks for that which was harvested.",
+          "page": 39,
+          "foundational": "Analyze how Aboriginal economies were environmentally responsible."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Understand that the message of reciprocal obligations is carried in Aboriginal stories.",
+          "page": 39,
+          "foundational": "Analyze how Aboriginal economies were environmentally responsible."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate the economic contributions of Aboriginal peoples to historical and contemporary society.",
+          "page": 39,
+          "foundational": "Analyze how Aboriginal economies were environmentally responsible."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Infer that the buffalo economy was one part of diverse Aboriginal economies.",
+          "page": 39
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the requirements of pursuing a buffalo economy.",
+          "page": 39,
+          "foundational": "Infer that the buffalo economy was one part of diverse Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the contributions of women to Aboriginal economic life.",
+          "page": 39,
+          "foundational": "Infer that the buffalo economy was one part of diverse Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how Aboriginal peoples replenished the environment to ensure renewal and abundance.",
+          "page": 39,
+          "foundational": "Infer that the buffalo economy was one part of diverse Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Confirm that Aboriginal peoples were agriculturists prior to the arrival of Europeans.",
+          "page": 39,
+          "foundational": "Infer that the buffalo economy was one part of diverse Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Provide evidence that Aboriginal peoples were habitat specialists.",
+          "page": 39,
+          "foundational": "Infer that the buffalo economy was one part of diverse Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Recognize that Aboriginal peoples were economically self-reliant prior to European contact.",
+          "page": 39
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Illustrate how the Cree adapted to environmental changes.",
+          "page": 39,
+          "foundational": "Recognize that Aboriginal peoples were economically self-reliant prior to European contact."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss how sharing was an economic necessity and a diplomatic virtue.",
+          "page": 39,
+          "foundational": "Recognize that Aboriginal peoples were economically self-reliant prior to European contact."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate the independence and sophistication of Cree trade systems and uses of technology.",
+          "page": 39,
+          "foundational": "Recognize that Aboriginal peoples were economically self-reliant prior to European contact."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Interpret how the horse dramatically altered Aboriginal economic enterprise.",
+          "page": 39
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the effects of the horse on Aboriginal economies.",
+          "page": 39,
+          "foundational": "Interpret how the horse dramatically altered Aboriginal economic enterprise."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how the horse became a status symbol.",
+          "page": 39,
+          "foundational": "Interpret how the horse dramatically altered Aboriginal economic enterprise."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Provide evidence that economic activity thrived prior to the arrival of Europeans.",
+          "page": 39
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe Aboriginal economic activity prior to arrival of Europeans.",
+          "page": 39,
+          "foundational": "Provide evidence that economic activity thrived prior to the arrival of Europeans."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how Europeans adapted to Aboriginal commerce.",
+          "page": 39,
+          "foundational": "Provide evidence that economic activity thrived prior to the arrival of Europeans."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List specific Aboriginal trade strategies.",
+          "page": 39,
+          "foundational": "Provide evidence that economic activity thrived prior to the arrival of Europeans."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze the factors that contributed to successful Aboriginal economies.",
+          "page": 40
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Provide details of cooperation and organization.",
+          "page": 40,
+          "foundational": "Analyze the factors that contributed to successful Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Give evidence that Aboriginal peoples were astute business people.",
+          "page": 40,
+          "foundational": "Analyze the factors that contributed to successful Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Supply evidence of Aboriginal diplomacy.",
+          "page": 40,
+          "foundational": "Analyze the factors that contributed to successful Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe Aboriginal hospitality.",
+          "page": 40,
+          "foundational": "Analyze the factors that contributed to successful Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate Aboriginal adaptations of European technology.",
+          "page": 40,
+          "foundational": "Analyze the factors that contributed to successful Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Illustrate the physical dexterity and mental acuity required for hunting buffalo.",
+          "page": 40
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe specific skills required of buffalo hunters.",
+          "page": 40,
+          "foundational": "Illustrate the physical dexterity and mental acuity required for hunting buffalo."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the difficulties involved in butchering and preparing a buffalo.",
+          "page": 40,
+          "foundational": "Illustrate the physical dexterity and mental acuity required for hunting buffalo."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the duties involved in butchering and preparing a buffalo.",
+          "page": 40,
+          "foundational": "Illustrate the physical dexterity and mental acuity required for hunting buffalo."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Construct a buffalo pound.",
+          "page": 40,
+          "foundational": "Illustrate the physical dexterity and mental acuity required for hunting buffalo."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Explain how the Métis buffalo hunt was a highly organized, democratic event.",
+          "page": 40
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the Métis buffalo hunt.",
+          "page": 40,
+          "foundational": "Explain how the Métis buffalo hunt was a highly organized, democratic event."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Justify regulations for the Métis buffalo hunt.",
+          "page": 40,
+          "foundational": "Explain how the Métis buffalo hunt was a highly organized, democratic event."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how American policy altered the buffalo hunt.",
+          "page": 40,
+          "foundational": "Explain how the Métis buffalo hunt was a highly organized, democratic event."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how the Métis prevented a HBC monopoly of the buffalo hunt.",
+          "page": 40,
+          "foundational": "Explain how the Métis buffalo hunt was a highly organized, democratic event."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze the factors that disrupted traditional Aboriginal economies.",
+          "page": 40
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the technologies that disrupted traditional Aboriginal economies.",
+          "page": 40,
+          "foundational": "Analyze the factors that disrupted traditional Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the developments that broke Aboriginal nations apart.",
+          "page": 40,
+          "foundational": "Analyze the factors that disrupted traditional Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how different government Acts impeded Aboriginal control of their economies.",
+          "page": 40,
+          "foundational": "Analyze the factors that disrupted traditional Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain why certain government economic projects ultimately failed.",
+          "page": 40,
+          "foundational": "Analyze the factors that disrupted traditional Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Provide evidence of Aboriginal economic diversity.",
+          "page": 40,
+          "foundational": "Analyze the factors that disrupted traditional Aboriginal economies."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Understand that European diseases devastated entire Aboriginal populations.",
+          "page": 40
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how the fur trade facilitated epidemics.",
+          "page": 40,
+          "foundational": "Understand that European diseases devastated entire Aboriginal populations."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the causes for the change in relationships between Aboriginal nations.",
+          "page": 40,
+          "foundational": "Understand that European diseases devastated entire Aboriginal populations."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "See that while Aboriginal and Euro-Canadian worldviews are vastly different, basic values can be shared.",
+          "page": 41
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the values that can be shared by Aboriginal and non-Aboriginal Canadians.",
+          "page": 41,
+          "foundational": "See that while Aboriginal and Euro-Canadian worldviews are vastly different, basic values can be shared."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Create an imaginary business in which traditional Aboriginal values are incorporated.",
+          "page": 41,
+          "foundational": "See that while Aboriginal and Euro-Canadian worldviews are vastly different, basic values can be shared."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Explain the importance of a land base to Métis economic well being.",
+          "page": 41
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the ways in which Métis peoples used the land and its resources.",
+          "page": 41,
+          "foundational": "Explain the importance of a land base to Métis economic well being."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate the Métis traditional use of land in spite of not having a land base.",
+          "page": 41,
+          "foundational": "Explain the importance of a land base to Métis economic well being."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Recognize how the rich history of Métis people attracts economic activity.",
+          "page": 41
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discover why Louis Riel is still an important figure to Saskatchewan and Canadian history.",
+          "page": 41,
+          "foundational": "Recognize how the rich history of Métis people attracts economic activity."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Research one strand of Métis history.",
+          "page": 41,
+          "foundational": "Recognize how the rich history of Métis people attracts economic activity."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze the impact of the post-contact economy to traditional Aboriginal societies.",
+          "page": 41
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe the economic pressures experienced by Aboriginal peoples.",
+          "page": 41,
+          "foundational": "Analyze the impact of the post-contact economy to traditional Aboriginal societies."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explain the factors that made economic transition difficult.",
+          "page": 41,
+          "foundational": "Analyze the impact of the post-contact economy to traditional Aboriginal societies."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Realize some of the barriers to employment for Aboriginal peoples.",
+          "page": 41
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the obstacles to employment off reserve.",
+          "page": 41,
+          "foundational": "Realize some of the barriers to employment for Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List other barriers to Aboriginal peoples gaining employment off reserve.",
+          "page": 41,
+          "foundational": "Realize some of the barriers to employment for Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Realize that traditional Aboriginal skills and values are relevant to a contemporary economy.",
+          "page": 41
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the effects of economic devastation.",
+          "page": 41,
+          "foundational": "Realize that traditional Aboriginal skills and values are relevant to a contemporary economy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List and provide details of Aboriginal entrepreneurial temperament and skills.",
+          "page": 41,
+          "foundational": "Realize that traditional Aboriginal skills and values are relevant to a contemporary economy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how government policy restricts Aboriginal economic development.",
+          "page": 41,
+          "foundational": "Realize that traditional Aboriginal skills and values are relevant to a contemporary economy."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "State the importance of preserving Indigenous knowledge.",
+          "page": 42
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the academic disciplines to which Aboriginal peoples contribute.",
+          "page": 42,
+          "foundational": "State the importance of preserving Indigenous knowledge."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "List the academic institutions that Aboriginal knowledge can enhance.",
+          "page": 42,
+          "foundational": "State the importance of preserving Indigenous knowledge."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Appreciate the scholarly contributions of Aboriginal peoples.",
+          "page": 42,
+          "foundational": "State the importance of preserving Indigenous knowledge."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze the importance of Aboriginal peoples and individuals to the current economy.",
+          "page": 42
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Gauge the current and projected growth of the Aboriginal population.",
+          "page": 42,
+          "foundational": "Analyze the importance of Aboriginal peoples and individuals to the current economy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Interpret the purchasing power of Aboriginal Canadians.",
+          "page": 42,
+          "foundational": "Analyze the importance of Aboriginal peoples and individuals to the current economy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Calculate the projected growth of the Aboriginal labour force.",
+          "page": 42,
+          "foundational": "Analyze the importance of Aboriginal peoples and individuals to the current economy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Calculate the increase in educated Aboriginal peoples over time.",
+          "page": 42,
+          "foundational": "Analyze the importance of Aboriginal peoples and individuals to the current economy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore the kinds of occupational choices Aboriginal peoples are making.",
+          "page": 42,
+          "foundational": "Analyze the importance of Aboriginal peoples and individuals to the current economy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Infer factors that make Aboriginal peoples accessible employees.",
+          "page": 42,
+          "foundational": "Analyze the importance of Aboriginal peoples and individuals to the current economy."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Describe how Aboriginal economic success is beneficial to Canadian society.",
+          "page": 42,
+          "foundational": "Analyze the importance of Aboriginal peoples and individuals to the current economy."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Strategize for ways in which work environments can be inclusive.",
+          "page": 42
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Convert statistics into a visual format.",
+          "page": 42,
+          "foundational": "Strategize for ways in which work environments can be inclusive."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Brainstorm for ways to embrace a diverse work force.",
+          "page": 42,
+          "foundational": "Strategize for ways in which work environments can be inclusive."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Analyze Aboriginal participation in artistic economic endeavors.",
+          "page": 42
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Explore the implications of the growth of Aboriginal involvement in the arts.",
+          "page": 42,
+          "foundational": "Analyze Aboriginal participation in artistic economic endeavors."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the successes and challenges of Aboriginal economic ventures.",
+          "page": 42,
+          "foundational": "Analyze Aboriginal participation in artistic economic endeavors."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Investigate the qualities of Aboriginal film and/or television programming.",
+          "page": 42,
+          "foundational": "Analyze Aboriginal participation in artistic economic endeavors."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Display understanding of the damage stereotypes and misinformation do to the employment opportunities of Aboriginal peoples.",
+          "page": 42
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the myths surrounding Aboriginal peoples.",
+          "page": 42,
+          "foundational": "Display understanding of the damage stereotypes and misinformation do to the employment opportunities of Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the facts that dispel stereotypes of Aboriginal peoples.",
+          "page": 42,
+          "foundational": "Display understanding of the damage stereotypes and misinformation do to the employment opportunities of Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "foundational",
+          "text": "Display knowledge of the economic experiences of Aboriginal peoples.",
+          "page": 43
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Discuss the experiences of historical and/or contemporary Aboriginal peoples.",
+          "page": 43,
+          "foundational": "Display knowledge of the economic experiences of Aboriginal peoples."
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "text": "Apply previous knowledge to a group project. Aboriginal worldviews are as diverse as they are complex. Aboriginal peoples in Saskatchewan, like all other Canadians, have divergent cultural backgrounds and innumerable experiences that shape the ways in which they see the world. Saskatchewan Education acknowledges the complexity of Aboriginal worldviews. However, it is important for teachers to explore and expand their understanding of Aboriginal worldviews because they are so closely linked to Aboriginal identity. Such knowledge aids in dispelling stereotypes and enhances our ability to empathize. Seeing the world from another person’s perspective is an invaluable skill that can enhance all the relationships we have in life. Teachers and students need a guide or benchmark from which to begin discussions and learning. Therefore, the following model of a traditional Aboriginal worldview is presented. It is important to remember that the Aboriginal students in Saskatchewan classrooms may or may not have this worldview and that their own is just as important as anyone else’s, even those expressed in this curriculum guide. Within Aboriginal philosophy, four dimensions of human nature (spiritual, mental, emotional and physical) are identified and viewed as interrelated.",
+          "page": 43,
+          "foundational": "Display knowledge of the economic experiences of Aboriginal peoples."
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Source is the course-wide \"Foundational and Learning Objectives\" table (PDF pages 27-43). Each learning objective sits beside a foundational objective in the printed table; \"foundational\" on a learning item gives the foundational objective it is printed beside (by vertical position on the page, carried across page breaks).",
+    "Text comes from the PDF text layer (Acrobat Web Capture of the original web document), not OCR. Bullet glyph \"G\" (ZapfDingbats) removed.",
+    "Unit names are the headings printed in this table. The table prints \"Unit Two - Community and Kinship\" while the guide’s contents list \"Unit Two - Community and Kinship: Aboriginal Perspectives\". The same objectives are printed again at the start of each unit (PDF pages 196, 269, 403, 541 by the bookmarks); those copies were not compared."
+  ]
+}

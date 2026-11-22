@@ -62,15 +62,28 @@ Google Classroom setup (once per deployment):
 
 ## Curriculum data
 
-`src/data/curriculum/sk.json` holds every Saskatchewan Grade 10–12 curriculum: courses, units, outcomes (code and verbatim wording) and indicators. It is generated, never edited by hand:
+`src/data/curriculum/` holds every Saskatchewan Grade 10–12 curriculum, copied verbatim from the Ministry. It is generated, never edited by hand:
+
+| File | What it holds |
+|---|---|
+| `sk.json` | All 135 English curricula: courses, units (each listing its outcomes), outcomes and indicators, practical and applied arts course configurations (the modules in each course level), the official grouping per course with evidence, and status flags (`legacy`, `preliminary`, `listedInMenu`, `notACurriculum`). Courses whose content exists only as a PDF carry it in `course.document` |
+| `sk-fr.json` | The 159 French immersion and Fransaskois curricula, same shape, each with its English equivalent |
+| `by-grade/grade-10.json`, `grade-11.json`, `grade-12.json` (and `by-grade/fr/`) | The courses available in each grade (10-, 20- and 30-level), with only that level's units, outcomes and modules. `sk-by-grade.md` is the readable overview |
+| `documents/<id>.json` | Verbatim extractions from the official PDFs: the Social Studies, History, Native Studies, Geography and Economics guides, the 1992 sciences, Treaty Education 10–12 and the 2026 drafts. Each records the PDF's URL, filename, SHA-256 and page numbers |
+| `evidence/` | Quotes and citations behind groupings, ELA themes, legacy flags and French–English equivalents |
+| `sk-report.md`, `sk-fr-report.md` | Counts, cross-checks, and everything a person should look at, including source typos and discrepancies |
 
 ```bash
 node scripts/curriculum/import-sk.mjs            # about an hour the first time; cached pages make re-runs fast
+node scripts/curriculum/import-sk.mjs --offline  # rebuild from cached pages only
 node scripts/curriculum/import-sk.mjs --refresh  # fetch every page again (when the Ministry changes something)
+node scripts/curriculum/import-sk.mjs --lang=fr  # the French curricula, into sk-fr.json
 node scripts/curriculum/import-sk.mjs --only=63  # one curriculum, by its curriculum.gov.sk.ca id
 ```
 
-The importer reads the course list, each course's outcomes page and each outcome's own page on curriculum.gov.sk.ca (two requests at a time, under one a second), then compares every statement with the Ministry's CSV files on EDonline. It writes `sk.json` and `sk-report.md` (counts, and everything a person should look at, such as an indicator letter printed twice). Raw pages are cached in `.cache/curriculum/` (not committed).
+The importer reads the course list, each course's outcomes page, each outcome's own page and the course configuration pages on curriculum.gov.sk.ca (two requests at a time, under one a second), then compares every statement with the Ministry's CSV files on EDonline. It attaches the committed `documents/` extractions, checking each PDF's SHA-256 so a changed PDF is flagged for re-extraction; it never runs OCR itself. The extraction scripts are in `scripts/curriculum/documents/`. At the end it writes the per-grade files (`scripts/curriculum/split-by-grade.mjs`). Raw pages are cached in `.cache/curriculum/` (not committed).
+
+Document-sourced text has its own statuses: `document-extracted` (a PDF with a real text layer) and `document-ocr-unverified` (a scanned guide read by OCR; uncertain items are flagged one by one, and nobody has proofread them yet). History 30 is only partly extracted. Math and 13 other courses have no official grouping: the Ministry leaves the order and grouping of outcomes to the teacher.
 
 | Status | Meaning | Usable |
 |---|---|---|
@@ -79,7 +92,7 @@ The importer reads the course list, each course's outcomes page and each outcome
 | `source-checked` | Copied by a team member (Science 10 FM1–FM4) | Yes |
 | `verified` | Compared with the official page by a second person | Yes (none yet) |
 
-No person has checked the imported text, so the review checklist asks the teacher to confirm it before approval. French immersion and Fransaskois curricula are not imported yet, and the Ministry's reuse terms for the wording are still to be confirmed.
+No person has checked the imported text, so the review checklist asks the teacher to confirm it before approval. The app reads only `sk.json` today; the French data, the per-grade files and `course.document` are ready for when the app uses them. The Ministry's reuse terms for the wording are still to be confirmed.
 
 ## Security: what is in place and what is still open
 

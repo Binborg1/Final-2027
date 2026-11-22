@@ -1,0 +1,2870 @@
+{
+  "curriculumId": 67,
+  "name": "Biology 20, 30",
+  "levels": [
+    20,
+    30
+  ],
+  "kind": "objectives",
+  "textSource": "text-layer",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=67",
+    "filename": "Biology_20_30_1992.pdf",
+    "sha256": "2120b556a777ac9e56cf4a86337b22c99597ca41852d222e107dc839db4872e9",
+    "retrievedOn": "2026-11-21",
+    "pages": 156,
+    "pageNumbering": "`page` is the 1-based PDF page; `printedPage` is the number printed on that page (PDF page = printed page + 5 in the body).",
+    "documentTitle": "Science: A Curriculum Guide for the Secondary Level — Biology 20/30 (Saskatchewan Education, September 1992)",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=67"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the legacy-and-drafts research on 2026-11-21)",
+  "hyphenDecisions": [
+    "Evolution 3.2: kept hyphen before capital in \"Hardy-Weinberg principle.\""
+  ],
+  "units": [
+    {
+      "name": "Introduction to Biology",
+      "level": 20,
+      "unitNumber": 1,
+      "hours": 7,
+      "pages": [
+        92,
+        97
+      ],
+      "factorsEmphasized": [
+        "A6 probabilistic",
+        "A7 unique",
+        "A8 tentative",
+        "A9 human-culture related",
+        "B20 theory",
+        "B22 fundamental entities",
+        "B26 evolution",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C12 interpreting data",
+        "D5 public understanding gap",
+        "D7 variable positions",
+        "E1 using magnifying instruments",
+        "E2 using natural environments",
+        "E13 using quantitative relationships",
+        "F7 demand for verification",
+        "F8 consideration of premises",
+        "G8 explanation preference",
+        "G9 valuing contributors"
+      ],
+      "items": [
+        {
+          "code": "CCT",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop an understanding of how knowledge is created, evaluated, refined and changed within biology.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "COM",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To enable students to understand and use the vocabulary, structures and forms of expression which characterize the study of biology.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "IL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop students' abilities to access knowledge.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "1",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Understand the nature of the study of biology.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "1.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Examine the types of questions which biologists investigate.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "1.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Exhibit a curiosity about life and the conditions which support life.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "1.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Appreciate the nature of scientific investigations and the findings of science.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "1.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Recognize the relationship between what is studied in biology and daily life.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "1.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Define the term biology.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "2",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Use a microscope to examine cells.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "2.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Develop proper techniques for handling and care of a microscope.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "2.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "View prepared slides.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "2.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Prepare wet-mount slides.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "2.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Sketch what is seen in the field of view.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "2.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Estimate sizes of objects observed.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "2.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Compare the images produced by light microscopes and electron microscopes.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "2.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Discuss examples of how the microscope has altered what we know.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "3",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Explain the importance of theory in biology.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "3.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Outline the key aspects of a scientific theory. (See the Unit Overview and web.)",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "3.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Discuss the development of the cell theory.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "3.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Recognize the link between the development of cell theory and the technology available to study cells.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "3.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Realize the significance of cell theory in establishing the relatedness of all living organisms.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "3.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Examine the principles of natural selection as identified by Darwin and Wallace.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "3.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Explain how natural selection is the basis of the theory of evolution.",
+          "page": 94,
+          "printedPage": "89"
+        },
+        {
+          "code": "3.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Describe how a theory might change using an example(s).",
+          "page": 94,
+          "printedPage": "89"
+        }
+      ]
+    },
+    {
+      "name": "Ecological Organization",
+      "level": 20,
+      "unitNumber": 2,
+      "hours": 25,
+      "pages": [
+        98,
+        106
+      ],
+      "factorsEmphasized": [
+        "A3 holistic",
+        "A4 replicable",
+        "A6 probabilistic",
+        "A7 unique",
+        "A9 human/culture related",
+        "B1 change",
+        "B2 interaction",
+        "B3 orderliness",
+        "B4 organism",
+        "B5 perception",
+        "B8 quantification",
+        "B11 predictability",
+        "B12 conservation",
+        "B15 model",
+        "B16 system",
+        "B18 population",
+        "B19 probability",
+        "B20 theory",
+        "B21 accuracy",
+        "B22 fundamental entities",
+        "B24 scale",
+        "B26 evolution",
+        "B28 equilibrium",
+        "B29 gradient",
+        "C1 classifying",
+        "C5 measuring",
+        "C7 using numbers",
+        "C8 hypothesizing",
+        "C10 predicting",
+        "C12 interpreting data",
+        "C13 formulating models",
+        "C14 problem solving",
+        "C15 analyzing",
+        "C17 using mathematics",
+        "C19 consensus making",
+        "C20 defining operationally",
+        "D3 impact of science and technology",
+        "D4 science, technology, and the environment",
+        "D5 public understanding gap",
+        "D7 variable positions",
+        "D8 limitations of science and technology",
+        "D9 social influence on science and technology",
+        "D10 technology controlled by society",
+        "D11 science, technology and other realms",
+        "E1 using magnifying instruments",
+        "E2 using natural environments",
+        "E4 using audio visual aids",
+        "E7 manipulative ability",
+        "F3 search for data and their meaning",
+        "F4 valuing natural environments",
+        "F5 respect for logic",
+        "F6 consideration of consequence",
+        "F7 demand for verification",
+        "F8 consideration of premises",
+        "G5 avocation",
+        "G6 response preference"
+      ],
+      "items": [
+        {
+          "code": "NUM",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To strengthen students' knowledge and understanding of how to compute, measure, estimate and interpret numerical data, when to apply these skills and techniques, and why these processes apply to the study of populations.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "CCT",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop an understanding of how knowledge is created, evaluated, refined, and changed within biology.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "CCT",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To promote intuitive, imaginative thought and the ability to evaluate ideas, processes, experiences and objects in the context of the study of the environment.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "COM",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To enable students to understand and use the vocabulary, structures and forms of expression which characterize the study of ecology.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "IL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To support the development of a positive disposition to life-long learning.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "PSVS",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To support students in coming to a better understanding of the personal, moral, social, and cultural aspects of the study of life.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "TL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop an understanding that technology both shapes society and is shaped by society.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "1",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Explain how the interactions among the soil, climate, and living organisms produce the ecosystems which can be observed.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "1.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Identify the components of soil.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "1.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe the soil types of Saskatchewan.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "1.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Determine how soil characteristics influence plant growth.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "1.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe how climatic variations in Saskatchewan influence plant growth.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "1.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Investigate variations in plant growth on slopes.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "1.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Identify some soil microorganisms.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "1.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Discuss the importance of soil microorganisms.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "1.8",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Appreciate that the soil and the climate are the keys to life in Saskatchewan, and on this planet.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "1.9",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Investigate the interrelationship of agriculture and the environment.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "1.10",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Discuss the following cycles and attempt to illustrate their interrelationship: water, carbon dioxide-oxygen, nitrogen.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Analyze a variety of ecosystems.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Understand the concept of niche and habitat.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Identify the biotic and abiotic components and interactions in the ecosystems observed.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe how the human community is dependent on the soil, water, and air.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Formulate some food chains and webs involving the human community.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe how the human community in which one lives is dependent on, and influenced by, the climate.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Identify both symbiotic and competitive relationships among organisms within a community.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Investigate a natural community in the neighbourhood of the school.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.8",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Compare the similarities and differences between the natural community and the constructed/human community.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.9",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Compare communities which have other soil types or other climate types.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.10",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Discuss succession in communities.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.11",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Identify how human activity, e.g. agriculture and urbanization, has altered succession or changed its rate.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "2.12",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Indicate some determiners of succession.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "3",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Describe life in past ecosystems.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "3.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Examine the evidence of life in the past.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "3.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Debate change and extinction theories.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "3.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Investigate the role of humans in creating and sustaining conditions which alter the rate of ecological change.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "4",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Explain how populations are counted.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "4.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Recall the criteria which define a population.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "4.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Identify some populations of plants or animals in the local area.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "4.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Describe methods of estimation by sampling.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "4.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Estimate some populations using one or more methods.",
+          "page": 101,
+          "printedPage": "96"
+        },
+        {
+          "code": "5",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Analyze population changes.",
+          "page": 102,
+          "printedPage": "97"
+        },
+        {
+          "code": "5.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Identify factors which influence reproduction rates and death rates.",
+          "page": 102,
+          "printedPage": "97"
+        },
+        {
+          "code": "5.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Recognize factors which affect immigration and emigration.",
+          "page": 102,
+          "printedPage": "97"
+        },
+        {
+          "code": "5.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Compare cyclic populations and stable populations.",
+          "page": 102,
+          "printedPage": "97"
+        },
+        {
+          "code": "5.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Discuss the carrying capacity of planet Earth for the human population.",
+          "page": 102,
+          "printedPage": "97"
+        },
+        {
+          "code": "6",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Recognize ecological sequencing.",
+          "page": 102,
+          "printedPage": "97"
+        },
+        {
+          "code": "6.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "6",
+          "text": "Identify the sequencing present in the following terms: biosphere, biome, ecosystem, community, and population.",
+          "page": 102,
+          "printedPage": "97"
+        },
+        {
+          "code": "6.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "6",
+          "text": "Review several examples of biomes by discussing some of their major kinds of plants.",
+          "page": 102,
+          "printedPage": "97"
+        },
+        {
+          "code": "6.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "6",
+          "text": "Draw a climatogram and discuss temperature and moisture as major determiners of a specific ecological area.",
+          "page": 102,
+          "printedPage": "97"
+        }
+      ]
+    },
+    {
+      "name": "The Diversity of Life",
+      "level": 20,
+      "unitNumber": 3,
+      "hours": 25,
+      "pages": [
+        107,
+        112
+      ],
+      "factorsEmphasized": [
+        "A2 historic",
+        "A7 unique",
+        "A8 tentative",
+        "B2 interaction",
+        "B4 organism",
+        "B11 predictability",
+        "B13 energy-matter",
+        "B14 cycle",
+        "B16 system",
+        "B18 population",
+        "B26 evolution",
+        "C1 classifying",
+        "C3 observing and describing",
+        "C9 inferring",
+        "C12 interpreting data",
+        "C15 analyzing",
+        "C21 synthesizing",
+        "D2 scientists and technologists are human",
+        "D7 variable positions",
+        "E2 using natural environments",
+        "F3 search for data and their meaning",
+        "F5 respect for logic",
+        "G3 continuous learner",
+        "G5 avocation",
+        "G7 vocation"
+      ],
+      "items": [
+        {
+          "code": "CCT",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop an understanding of how knowledge is created, evaluated, refined, and changed within biology.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "COM",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To use a wide range of possibilities for developing students' knowledge of the major concepts within biology.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "IL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To support the development of a positive disposition to life-long learning.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "PSVS",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop compassionate, empathetic and fair-minded students who can make positive contributions to society as individuals and as members of groups.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "1",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Describe the principles of classification.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "1.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Discuss everyday examples of classification. (Then discuss the value of having a biological classification and some of the unique problems that might manifest themselves.)",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "1.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Compare several different ways organisms are grouped into kingdoms. (It would be useful to have the students see the historical development of the 5 kingdom structure from a 2 kingdom structure.)",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "1.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Understand the system of binomial nomenclature. (Discuss the 7 major classification units which include Kingdom, Phylum, Class, Order, Family, Genus, and Species and their associated relationships.)",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "1.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Use dichotomous keys to help identify organisms. (One could demonstrate that a key locates actual organisms just as binomial nomenclature and the species level identifies actual organisms.)",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Recognize the role of monera, protists, and fungi in the ecosystem.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe viral structure and activity.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Identify some viral diseases prevalent in plants, animals, and humans in Saskatchewan.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Discuss the various ways bacteria are classified.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe some diseases caused by bacteria which affect organisms living in Saskatchewan.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Identify some valuable roles played in the ecosystem by bacteria.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Distinguish between prokaryotes and eukaryotes.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe how the protist kingdom is classified.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2.8",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Collect, culture, and observe a variety of protists.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2.9",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe the general characteristics of fungi.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2.10",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Collect and observe some samples of fungi.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "2.11",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Identify the basic structural features of bacteria.",
+          "page": 109,
+          "printedPage": "104"
+        },
+        {
+          "code": "3",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Describe the diversity of plants.",
+          "page": 110,
+          "printedPage": "105"
+        },
+        {
+          "code": "3.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Compare nonvascular and vascular plants.",
+          "page": 110,
+          "printedPage": "105"
+        },
+        {
+          "code": "3.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Identify, describe, and collect some examples of nonvascular and vascular plants.",
+          "page": 110,
+          "printedPage": "105"
+        },
+        {
+          "code": "3.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Discuss the ways that vascular plants are classified.",
+          "page": 110,
+          "printedPage": "105"
+        },
+        {
+          "code": "3.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Describe grain crops and forage crops grown in Saskatchewan. (Correlate with Unit 20-4.)",
+          "page": 110,
+          "printedPage": "105"
+        },
+        {
+          "code": "3.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Chart the ranges of representative plants of Saskatchewan.",
+          "page": 110,
+          "printedPage": "105"
+        },
+        {
+          "code": "4",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Recognize the diversity of animals.",
+          "page": 110,
+          "printedPage": "105"
+        },
+        {
+          "code": "4.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Describe the characteristics of the major animal phyla. (It is suggested that the teacher consider a mollusk such as a clam or snail, an annelid such as an earthworm, an arthropod such as an insect or spider, and one or more of the chordates, as time allows, which would include a mammal.)",
+          "page": 110,
+          "printedPage": "105"
+        },
+        {
+          "code": "4.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Identify members of each phylum which contains animals native to Saskatchewan.",
+          "page": 110,
+          "printedPage": "105"
+        },
+        {
+          "code": "4.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Describe the habitat and niche of animals native to Saskatchewan.",
+          "page": 110,
+          "printedPage": "105"
+        },
+        {
+          "code": "4.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Contrast innate behaviour in animals with learned behaviour.",
+          "page": 110,
+          "printedPage": "105"
+        },
+        {
+          "code": "4.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Describe social behaviour in animals.",
+          "page": 110,
+          "printedPage": "105"
+        }
+      ]
+    },
+    {
+      "name": "Agricultural Botany of Saskatchewan",
+      "level": 20,
+      "unitNumber": 4,
+      "hours": 15,
+      "pages": [
+        113,
+        119
+      ],
+      "factorsEmphasized": [
+        "A2 historic",
+        "B1 change",
+        "B4 organism",
+        "B12 conservation",
+        "B18 population",
+        "B20 theory",
+        "C6 questioning",
+        "C8 hypothesizing",
+        "C12 interpreting data",
+        "C14 problem solving",
+        "C15 analyzing",
+        "C20 defining operationally",
+        "D5 public understanding gap",
+        "D7 variable positions",
+        "E2 using natural environments",
+        "E4 using audio visual aids",
+        "E7 manipulative ability",
+        "F4 valuing natural environments",
+        "F6 consideration of consequence",
+        "F7 demand for verification",
+        "G7 vocation",
+        "G8 explanation preference"
+      ],
+      "printedNotes": [
+        {
+          "text": "Note: Objective 1.8 should be seen as a general organizer and is not intended to be used to rigorously cover great detail on plant tissues.",
+          "page": 115,
+          "printedPage": "110"
+        }
+      ],
+      "items": [
+        {
+          "code": "CCT",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To promote both intuitive, imaginative thought and the ability to evaluate ideas, processes, experiences, and objects within the context of the study of ecosystems.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "COM",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To use a wide range of possibilities for developing students' knowledge of the major concepts within biology.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "IL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop students' abilities to meet their own learning needs.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "PSVS",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To support students in coming to a better understanding of the personal, moral, social, and cultural aspects of the study of life.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "1",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Recognize the various biological processes associated with plant systems.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "1.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Compare sexual and asexual reproduction in angiosperms.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "1.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe the processes of pollen production, fertilization and seed formation of plants.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "1.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe the means by which solutions are transported through plants.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "1.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Investigate the environmental and biological influences on growth.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "1.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe the major plant systems of various cereal, oilseed, pulse, forage, or native crops.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "1.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Identify the effects of climate and pest on different stages of crop development.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "1.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Review the three major structures of a plant which include the root, stem and leaf along with their locations and functions.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "1.8",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Identify four broad tissue areas found in a plant which include meristematic, protective, vascular and fundamental.\n• meristematic: frequent mitotic division for growth which includes cambium.\n• protective: epidermis and cuticle.\n• vascular: conducts water and minerals (xylem and phloem).\n• fundamental tissue: three functions which include food storage, food production and support. (Examples include sclerenchyma, collenchyma and parenchyma. If you use these terms, discuss the Greek/Latin origins and help students make these connections.)",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "2",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Appreciate the relation of Saskatchewan's biogeographical regions and agricultural activity.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "2.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Identify the characteristics of all the biogeographical regions of Saskatchewan.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "2.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Compare kinds of grain and forage crops.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "2.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Discuss the reasons and issues associated with various land uses and crop diversity.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "2.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Identify various species of trees, shrubs, plants and grasses of Saskatchewan.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "2.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Compare such plant characteristics as reproduction and growth patterns as they relate to the Saskatchewan environment.",
+          "page": 115,
+          "printedPage": "110"
+        },
+        {
+          "code": "3",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Describe the internal and external influences on plant growth.",
+          "page": 116,
+          "printedPage": "111"
+        },
+        {
+          "code": "3.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Describe the function and effect of cytokinins, auxins, and gibberelins.",
+          "page": 116,
+          "printedPage": "111"
+        },
+        {
+          "code": "3.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Contrast tropisms with responses due to changes in turgor pressure.",
+          "page": 116,
+          "printedPage": "111"
+        },
+        {
+          "code": "3.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Investigate how plants respond to chemicals such as fertilizers and herbicides.",
+          "page": 116,
+          "printedPage": "111"
+        },
+        {
+          "code": "3.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Examine the effect on soil of the application of fertilizers and biofertilizers.",
+          "page": 116,
+          "printedPage": "111"
+        },
+        {
+          "code": "3.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Identify the impact and examples of soil degradation.",
+          "page": 116,
+          "printedPage": "111"
+        },
+        {
+          "code": "4",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Recognize the interconnectedness of agriculture and the environment.",
+          "page": 116,
+          "printedPage": "111"
+        },
+        {
+          "code": "4.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Describe the impact of agriculture on the local environment.",
+          "page": 116,
+          "printedPage": "111"
+        },
+        {
+          "code": "4.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Identify local and global issues associated with agriculture.",
+          "page": 116,
+          "printedPage": "111"
+        },
+        {
+          "code": "4.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Appreciate the complexity of issues such as soil degradation, world hunger and environmental concerns.",
+          "page": 116,
+          "printedPage": "111"
+        }
+      ]
+    },
+    {
+      "name": "The Chemical Basis of Life",
+      "level": 30,
+      "unitNumber": 1,
+      "hours": 10,
+      "pages": [
+        122,
+        126
+      ],
+      "factorsEmphasized": [
+        "A1 public/private",
+        "A7 unique",
+        "A8 tentative",
+        "B7 force",
+        "B11 predictability",
+        "B13 energy-matter",
+        "B15 model",
+        "B22 fundamental entities",
+        "B33 entropy",
+        "C13 formulating models",
+        "C15 analyzing",
+        "D1 science and technology",
+        "D3 impact of science and technology",
+        "E7 manipulative ability",
+        "F2 questioning",
+        "F5 respect for logic",
+        "F8 consideration of premises",
+        "G6 response preference",
+        "G8 explanation preference"
+      ],
+      "items": [
+        {
+          "code": "CCT",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop an understanding of how knowledge is created, evaluated, refined, and changed within biology.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "COM",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To enable students to understand and use the vocabulary, structures and forms of expression which characterize the study of science.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "IL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop students' abilities to access knowledge.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "1",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Appreciate the basic principles of chemistry which are involved in life processes.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "1.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Recognize that organisms are made of atoms.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "1.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Realize the relationship between the electron structure of atoms and the type of bond which forms.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "1.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Understand the relationship between chemical bonds and stored energy.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "1.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Recognize the importance and ongoing nature of various chemical reactions in the body.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "1.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Discuss a chemical reaction — the reactants, products and energy either required or produced.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "1.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Illustrate with examples the similarities and differences between synthesis and decomposition reactions.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "1.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe some relationships which exist between synthesis and decomposition reactions in relation to the functioning of the body ie., dynamic balance (homeostasis).",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "2",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Investigate the properties of carbohydrates, lipids, and proteins.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "2.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Explain how carbon-based molecules interact with each other through hydrogen bonding.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "2.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Compare mono-, di-, and polysaccharides and then provide examples of their usefulness to a living system.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "2.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe the relationship between fatty acids and fats by providing examples to illustrate when they are useful to a living system.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "2.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe the relationship between amino acids and proteins with reference to the peptide bond.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "2.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Discuss enzymes using a series of key words which should be included in a concept web with the heading of proteins. (The key words are substrate, enzyme—substrate complex, lock and key, catalyst, factors affecting enzyme activity [temperature; relative concentration of substrate], enzymes, and coenzymes.)",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "2.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Indicate the component parts of a fat molecule.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "2.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Recognize the value of proteins by using examples from the human body.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "3",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Describe the structure of nucleic acids.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "3.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Describe the similarities and differences in the structure of DNA and RNA.",
+          "page": 124,
+          "printedPage": "119"
+        },
+        {
+          "code": "3.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Describe the processes of replication and transcription.",
+          "page": 124,
+          "printedPage": "119"
+        }
+      ]
+    },
+    {
+      "name": "Cell Structure and Function",
+      "level": 30,
+      "unitNumber": 2,
+      "hours": 10,
+      "pages": [
+        127,
+        131
+      ],
+      "factorsEmphasized": [
+        "A2 historic",
+        "A3 holistic",
+        "A4 replicable",
+        "A8 tentative",
+        "B1 change",
+        "B6 symmetry",
+        "B10 cause-effect",
+        "B12 conservation",
+        "B13 energy-matter",
+        "B14 cycle",
+        "B20 theory",
+        "B22 fundamental entities",
+        "B26 evolution",
+        "B31 significance",
+        "B32 validation",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C11 controlling variables",
+        "C12 interpreting data",
+        "C15 analyzing",
+        "C16 designing experiments",
+        "C19 consensus making",
+        "C20 defining operationally",
+        "D5 public understanding gap",
+        "E3 using equipment safely page for expla abou see s 81-82 an nation t webs.",
+        "E7 manipulative ability",
+        "F5 respect for logic",
+        "F7 demand for verification",
+        "G8 explanation preference",
+        "G9 valuing contributors"
+      ],
+      "items": [
+        {
+          "code": "CCT",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To promote both intuitive, imaginative thought and the ability to evaluate ideas, processes, experiences, and objects within the context of the study of ecosystems.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "COM",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To use a wide range of possibilities for developing students' knowledge of the major concepts within biology.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "IL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop students' abilities to meet their own learning needs.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "IL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To support the development of a positive disposition to life-long learning.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "TL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop an understanding that technology both shapes society and is shaped by society.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "1",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Describe the structures and functions of cell components.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "1.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Review evidence for the existence of cells.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "1.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Observe, sketch, and describe a representative sampling of plant and animal cells.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "1.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe the structure of a cell membrane.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "1.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe the functions of the organelles found in eukaryotic cells.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "1.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Contrast the structure of prokaryotic and eukaryotic cells.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "2",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Explain how the processes of diffusion, active transport, photosynthesis, and respiration are accomplished in a cell.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "2.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Identify the factors which influence the rate and direction of diffusion.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "2.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Examine the mechanisms of active transport by identifying and explaining the two processes. (Process one involves the expenditure of energy where a carrier molecule takes a substance from one side of a membrane to the other side of the membrane. Process two involves the inpocketing of material by a membrance -- pinocytosis and exocytosis.)",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "2.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Recognize how the ATP-ADP system, and the NAD-NADH system, transfer energy within a cell.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "2.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Compare aerobic and anaerobic metabolism.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "2.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe the processes involved in photosynthesis and then compare the process of photosynthesis with respiration.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "2.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Examine how the structure of the leaf is adapted for the processes involved in photosynthesis.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "2.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Identify how osmosis is related to diffusion and the value of osmosis to living organisms.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "2.8",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Compare the similarities and differences between active and passive transport.",
+          "page": 129,
+          "printedPage": "124"
+        },
+        {
+          "code": "2.9",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Indicate the importance of the light and dark reactions in the process of photosynthesis.",
+          "page": 129,
+          "printedPage": "124"
+        }
+      ]
+    },
+    {
+      "name": "Genetics",
+      "level": 30,
+      "unitNumber": 3,
+      "hours": 20,
+      "pages": [
+        132,
+        136
+      ],
+      "factorsEmphasized": [
+        "A1 public/private",
+        "A2 historic",
+        "A6 probabilistic",
+        "A8 tentative",
+        "A9 human/culture related",
+        "B16 system",
+        "B18 population",
+        "B19 probability",
+        "B20 theory",
+        "B26 evolution",
+        "B32 validation",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C10 predicting",
+        "C12 interpreting data",
+        "C14 problem solving",
+        "C17 using mathematics",
+        "C18 using time-space relationships",
+        "D2 scientists and technologists are human",
+        "D3 impact of science and technology",
+        "D6 resources for science and technology",
+        "D9 social influence on science and technology",
+        "D10 technology controlled by society",
+        "D11 science, technology, and other realms",
+        "E13 using quantitative relationships",
+        "F2 questioning",
+        "F5 respect for logic",
+        "F6 consideration of consequence",
+        "F7 demand for verification",
+        "G3 continuous learner",
+        "G7 vocation",
+        "G9 valuing contributors"
+      ],
+      "items": [
+        {
+          "code": "COM",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To enable students to understand and use the vocabulary, structure and forms of expression which characterize the study of biology.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "TL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop a contemporary view of technology.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "TL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop an understanding that technology both shapes society and is shaped by society.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "IL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To support the development of a positive disposition to life-long learning.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "CCT",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To contribute to the development of \"strong sense\" critical and creative thinkers.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "PSVS",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop compassionate, empathetic and fair-minded students who can make positive contributions to society as individuals and as members of groups.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "1",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Explain the significance of Mendel's experiments and observations, and the laws derived from them.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "1.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Explain the concept of independent events.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "1.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Understand that the probability of an independent event is not altered by the outcomes of previous events.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "1.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe Mendel's experiments and observations.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "1.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe the relationship between genotype and phenotype.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "1.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Use the concept of the gene to explain Mendel's laws.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "1.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe the ideas of dominant and recessive traits with examples.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "1.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Consider the value of the punnett square by creating examples of mono and dihybrid crosses.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "1.8",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Explain the law of segregation.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Discuss the relationships among chromosomes, genes, and DNA.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe how the genetic code is carried on the DNA.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Outline the process of replication.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Compare mitosis and meiosis.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe the process of transcription.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe the functions of mRNA, tRNA, amino acids, and ribosomes in protein synthesis.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe the causes and effects of both chromosome and gene mutations.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Consider the purposes and techniques of gene mapping.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2.8",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Examine incomplete dominance, alleles, sex determination, and sex-linked traits in the context of human genetics.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2.9",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Discuss several human genetic disorders such as hemophilia, sickle-cell anemia, Down's syndrome, and Tay-Sach's disease.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2.10",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Discuss the similarities and differences between sex chromosomes and somatic chromosomes.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "2.11",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Using examples from living organisms discuss the importance of asexual and sexual reproduction to their growth and survival.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "3",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Delineate the impact of biotechnology on our society.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "3.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Describe the basic processes involved in the production of recombinant DNA.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "3.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Discuss examples of current uses of recombinant DNA technology in the agricultural and pharmaceutical industries.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "3.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Discuss the techniques of genetic screening.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "3.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Consider the implications of genetic screening of adults, children, and fetuses.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "4",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Discuss the application of population genetics to the study of evolution.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "4.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Describe the concepts of the deme and the gene pool.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "4.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Consider the Hardy-Weinberg principle.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "4.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Describe the factors which influence genetic drift.",
+          "page": 134,
+          "printedPage": "129"
+        },
+        {
+          "code": "4.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Consider the relevance of the gene pool and the idea of mutations to the concept of evolution which will be studied later in unit 5.",
+          "page": 134,
+          "printedPage": "129"
+        }
+      ]
+    },
+    {
+      "name": "Animal Systems",
+      "level": 30,
+      "unitNumber": 4,
+      "hours": 20,
+      "pages": [
+        137,
+        141
+      ],
+      "factorsEmphasized": [
+        "A3 holistic",
+        "A4 replicable",
+        "A5 empirical",
+        "A9 human/culture related",
+        "B10 cause-effect",
+        "B14 cycle",
+        "B15 model",
+        "B16 system",
+        "B26 evolution",
+        "B28 equilibrium",
+        "B29 gradient",
+        "B33 entropy",
+        "C6 questioning",
+        "C9 inferring",
+        "C12 interpreting data",
+        "C13 formulating models",
+        "C21 synthesizing",
+        "D7 variable positions",
+        "D8 limitations of science and technology",
+        "D11 science, technology, and other realms",
+        "E4 using audio visual aids",
+        "E7 manipulative ability",
+        "F1 longing to know and understand",
+        "F6 consideration of consequence",
+        "F8 consideration of premises",
+        "G3 continuous learner",
+        "G5 avocation",
+        "G6 response preference",
+        "G7 vocation",
+        "G8 explanation preference",
+        "G9 valuing contributors"
+      ],
+      "items": [
+        {
+          "code": "CCT",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To promote both intuitive, imaginative thought and the ability to evaluate ideas, processes, experiences, and objects within the context of the study of biological systems.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "COM",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To enable students to understand and use the vocabulary, structure and forms of expression which characterize the study of biology.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "IL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop students' abilities to meet their own learning needs.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "PSVS",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To support students in coming to a better understanding of the personal, moral, social, and cultural aspects of the study of life.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "TL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop students' appreciation of the value and limitations of technology within society.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "TL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To provide opportunities for students' active involvement in decision-making related to technological developments.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "1",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Describe how nutrients and oxygen are moved to the body cells.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "1.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Review the principles of diffusion and active transport.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "1.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Contrast passive transport systems, as in the cnidaria, with active transport systems, such as the human blood circulation system.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "1.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Compare open circulation systems, as in the grasshopper, with the closed systems of vertebrates.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "1.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Compare the efficiencies of hearts with one, two, three, and four chambers.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "1.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe the blood circulation pattern and vessels in the mammalian systems.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "2",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Explain the functioning of the human circulation system.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "2.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe the functions of the heart, lungs, kidneys, and liver in the circulation system.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "2.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe the ABO and Rh typing systems for human blood.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "2.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Consider the role of the blood in the immune system and the effect of the human immunodeficiency virus on the T4 cells of the blood.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "2.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Research the use of artificial hearts, heart transplants, the and circulation machines used during open-heart surgery.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "2.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Discuss respiration by relating the activity to the physical structure like the lungs and blood and the cells fed by the blood.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "3",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Describe the functions and functioning of nervous systems.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "3.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Describe the structure of a neuron.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "3.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Explain how neurons transmit impulses within and between themselves.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "3.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Compare the complexity of nervous systems in the planaria, earthworm, and human.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "3.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Contrast the functions of the central nervous system and the peripheral nervous system in humans.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "3.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Compare the structure of the brains of reptiles and humans.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "4",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Explain how the human endocrine system influences body development and maintenance.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "4.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Describe the general structure of hormones.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "4.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Describe the influence of the pituitary gland on body processes and on other glands.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "4.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Discuss the relationship between insulin and the body's control of blood sugar levels in the two forms of diabetes.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "4.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "4",
+          "text": "Outline the functions of hormones produced by several other glands.",
+          "page": 139,
+          "printedPage": "134"
+        },
+        {
+          "code": "5",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Compare reproductive strategies among animal phyla.",
+          "page": 140,
+          "printedPage": "135"
+        },
+        {
+          "code": "5.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Contrast the advantages and disadvantages of asexual reproduction with those of sexual reproduction.",
+          "page": 140,
+          "printedPage": "135"
+        },
+        {
+          "code": "5.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Compare external fertilization with internal fertilization.",
+          "page": 140,
+          "printedPage": "135"
+        },
+        {
+          "code": "5.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Describe fertilization in the earthworm.",
+          "page": 140,
+          "printedPage": "135"
+        },
+        {
+          "code": "5.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Compare the amniotic egg of reptiles and birds with the structures which form in the uterus of a pregnant mammal.",
+          "page": 140,
+          "printedPage": "135"
+        },
+        {
+          "code": "5.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Describe the production of semen in humans.",
+          "page": 140,
+          "printedPage": "135"
+        },
+        {
+          "code": "5.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Describe the human female reproductive cycle from ovulation to either menstuation or implantation.",
+          "page": 140,
+          "printedPage": "135"
+        },
+        {
+          "code": "5.7",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Trace the major developmental events from implantation of a fertilized egg to the birth of a human baby.",
+          "page": 140,
+          "printedPage": "135"
+        },
+        {
+          "code": "5.8",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Identify the biofeedback mechanisms which are important in the regulation of the female reproductive cycle.",
+          "page": 140,
+          "printedPage": "135"
+        },
+        {
+          "code": "5.9",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Describe how the use of the hormones found in birth control pills alters the reproductive cycle.",
+          "page": 140,
+          "printedPage": "135"
+        },
+        {
+          "code": "5.10",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Discuss the relationship between the diet and health of the mother and the development of the fetus.",
+          "page": 140,
+          "printedPage": "135"
+        },
+        {
+          "code": "5.11",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "5",
+          "text": "Investigate some technologies related to reproduction, such as in vitro fertilization, use of fertility drugs, birth control, amniocentesis, genetic screening of prospective parents, sperm banks, etc.",
+          "page": 140,
+          "printedPage": "135"
+        }
+      ]
+    },
+    {
+      "name": "Evolution",
+      "level": 30,
+      "unitNumber": 5,
+      "hours": 15,
+      "pages": [
+        142,
+        146
+      ],
+      "factorsEmphasized": [
+        "A2 historic",
+        "A3 holistic",
+        "A7 unique",
+        "A8 tentative",
+        "A9 human/culture related",
+        "B1 change",
+        "B2 interaction",
+        "B10 cause-effect",
+        "B18 population",
+        "B20 theory",
+        "B26 evolution",
+        "B29 gradient",
+        "C1 classifying",
+        "C6 questioning",
+        "C8 hypothesizing",
+        "C9 inferring",
+        "C13 formulating models",
+        "C18 using time-space relationships",
+        "C21 synthesizing",
+        "D7 variable positions",
+        "D11 science, technology, and other realms",
+        "E2 using natural environments",
+        "E4 using audio visual aids",
+        "F3 search for data and their meaning",
+        "F5 respect for logic",
+        "F8 consideration of premises",
+        "G5 avocation",
+        "G6 response preference"
+      ],
+      "items": [
+        {
+          "code": "CCT",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To develop an understanding of how knowledge is created, evaluated, refined, and changed within biology.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "COM",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To enable students to understand and use the vocabulary, structures and forms of expression which characterize the study of science.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "IL",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To support the development of a positive disposition to life-long learning.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "PSVS",
+          "type": "foundational",
+          "section": "Common Essential Learnings Foundational Objectives",
+          "text": "To support students in treating themselves and others with respect.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "1",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Explain how the evolutionary theory unifies biology.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "1.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Describe how individual variations are produced.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "1.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Discuss the action of natural selection on individuals, populations, and species.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "1.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Explain how Darwin's observations led to his inferences about evolution.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "1.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "1",
+          "text": "Compare the development of theories of evolutionary change (some examples - Lamarck, De Vries, Weisman).",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "2",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Recognize evidence of evolution.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "2.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Discuss the use of the fossil record in the creation of lines of phylogeny.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "2.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Examine data from comparative anatomy and comparative embryology.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "2.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Describe instances of evolution documented in earth history.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "2.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Discuss the theory of continental drift and how that might have contributed to the changing variety of organisms that exist today. Where possible consider examples.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "2.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Examine broad climatic changes during the earth's history (ice ages, melting of the ice caps) and consider how these changes may have contributed to the changing organisms.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "2.6",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "2",
+          "text": "Examine the effects of migration and mutations on evolutionary change.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "3",
+          "type": "foundational",
+          "section": "Biology Foundational and Learning Objectives",
+          "text": "Discuss how evolution proceeds.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "3.1",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Compare gradualism and punctuated equilibrium.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "3.2",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Discuss the implications of the Hardy-Weinberg principle.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "3.3",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Describe the role of isolation in speciation.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "3.4",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Identify both pre-mating and post-mating barriers to recombination and reproduction.",
+          "page": 144,
+          "printedPage": "139"
+        },
+        {
+          "code": "3.5",
+          "type": "learning",
+          "section": "Biology Foundational and Learning Objectives",
+          "parentCode": "3",
+          "text": "Consider the speciation and development of humans.",
+          "page": 144,
+          "printedPage": "139"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Structure as printed: for each core unit, 'Factors of Scientific Literacy Which Should be Emphasized' (codes defined in the guide's Dimensions of Scientific Literacy section; kept as printed in factorsEmphasized), 'Common Essential Learnings Foundational Objectives' (code = CEL abbreviation as printed), and 'Biology Foundational and Learning Objectives' (bold numbered foundational objectives, decimal-numbered learning objectives).",
+    "The guide says learning objectives 'can be selected from those listed or can be developed by the teacher and students' (p. 3 printed); they are not all mandatory.",
+    "Biology 20: 4 core units (78 h minimum) + optional time; Biology 30: 5 core units + optional time. Optional Plans pages list suggestions only (no objectives) and are not extracted.",
+    "The guide states 'Biology 20 is not a prerequisite for Biology 30' (printed p. 82).",
+    "Codes like '1' and '1.1' restart in every unit; they are only unique within a unit (and level).",
+    "Text extracted with pdfjs-dist (legacy build) from a 1992 WordPerfect-generated PDF; two-column pages split at x=300. Bullet glyphs (WPTypographicSymbols '!') and box-drawing dashes (WPBoxDrawing ')') were mapped to '•' and '—'.",
+    "Status on the site (2026-11-21): the course page has no notice that the guide is superseded; it offers only the PDF (its 'Outcomes & Indicators' page is empty). The course is reachable only through the site's search list: the 'Browse by Subject' → Sciences menu lists Science 10, Computer Science 20/30, Environmental Science 20, Health Science 20, Physical Science 20, Biology 30, Chemistry 30, Physics 30 and Earth Science 30, and not the 1992 'Biology/Chemistry/Physics 20, 30' entries.",
+    "The renewed Health Science 20 curriculum (CurriculumFile?id=74, Health_Science_20_2020.pdf, p. 3) says: 'Saskatchewan has developed science courses at Grade 11 that provide students with opportunities to learn core biology, chemistry and physics disciplinary ideas within interdisciplinary contexts.' and 'The current credit requirements for graduation from Grade 12 are one 10-level credit and one 20-level credit in science.' Neither document names Biology 20, Chemistry 20 or Physics 20 or says they were withdrawn; the authoritative list of courses in effect is the Registrar's Handbook for School Administrators (not checked).",
+    "The 30-level parts of this guide are superseded on the site by the renewed Biology 30 / Chemistry 30 / Physics 30 (ids 68, 69, 72), which have outcomes in sk.json.",
+    "p128: line in the factors list not kept: \"Note:\"",
+    "Items with `flags`: 0. Each flag names a source line containing a symbol-font glyph or a flattened sub/superscript; check those against the printed page before use."
+  ]
+}

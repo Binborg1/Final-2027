@@ -1,0 +1,1445 @@
+{
+  "curriculumId": 183,
+  "name": "Economics 20",
+  "levels": [
+    20
+  ],
+  "kind": "objectives",
+  "textSource": "ocr",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=183",
+    "filename": "Economics_20_1975.pdf",
+    "sha256": "e517c9f8bdf7377cf7565c3a1d39df4f3f9dc8098622fb5e6aaa664c8d7f194c",
+    "retrievedOn": "2026-11-21",
+    "bytes": 3729307,
+    "pages": [
+      37,
+      47,
+      55,
+      67,
+      73,
+      81,
+      91,
+      101,
+      113,
+      131
+    ],
+    "pageNumbering": "page = 1-based PDF page",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=183"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the social-studies research on 2026-11-21)",
+  "text": "OCR of a scanned image-only PDF; see notes",
+  "counts": {
+    "units": 10,
+    "foundational": 0,
+    "learning": 150
+  },
+  "units": [
+    {
+      "name": "Unit One: THE ECONOMIC SETTING",
+      "nameSource": "page 37",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "text": "To give students an overview of the basic economic concepts of scarcity, choice and the marketplace.",
+          "page": 37,
+          "printedHeading": "Objectives:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "scarcity",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "wants",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "choice",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "capital goods",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "consumer goods",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "market",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "circular flow",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "8",
+          "text": "Gross National Product",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "9",
+          "text": "producers",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "10",
+          "text": "consumers",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "11",
+          "text": "supply",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "12",
+          "text": "demand",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "efficiency",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "free goods",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "economic goods",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "factors of production",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "utility",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "opportunity cost",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "barter",
+          "page": 37,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        }
+      ],
+      "siteUnitName": "The Economic Setting"
+    },
+    {
+      "name": "Unit Two: PRODUCTION, SPECIALIZATION AND EXCHANGE",
+      "nameSource": "page 47",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "text": "To gain an understanding of production, the reasons for specialization in our economy, and the interdependence of people, institutions and regions.",
+          "page": 47,
+          "printedHeading": "Objectives:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "specialization",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "interdependence",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "exchange",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "medium of exchange",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "factors of production a. land b. labour c. capital d. entrepreneurship",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "payment for factors a. rent b. interest c. wages d. profit",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "optimum factor combination",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "surplus",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "self-sufficiency",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "staple (primary products)",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "barter",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "private property",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "public property",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "opportunity cost",
+          "page": 47,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        }
+      ],
+      "siteUnitName": "Production, Specialization and Exchange"
+    },
+    {
+      "name": "Unit Three: BUSINESS ORGANIZATION",
+      "nameSource": "page 55",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "text": "To assist students to gain an understanding of the organization, the operation and the problems of business institutions.",
+          "page": 55,
+          "printedHeading": "Objectives:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "types of business organization a. sole proprietorship b. partnership c. co-operative d. corporation",
+          "page": 55,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "profit and loss",
+          "page": 55,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "risk",
+          "page": 55,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "competition",
+          "page": 55,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "business regulation",
+          "page": 55,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "stockholders",
+          "page": 55,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "board of directors",
+          "page": 55,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "investors",
+          "page": 55,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "holding company",
+          "page": 55,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "depreciation",
+          "page": 55,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "location analysis",
+          "page": 55,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        }
+      ],
+      "siteUnitName": "Business Organization"
+    },
+    {
+      "name": "Unit Four: LABOUR ORGANIZATION",
+      "nameSource": "page 67",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "text": "To give the student an understanding of the process of collective bargaining and the role unions play in the economy.",
+          "page": 67,
+          "printedHeading": "Objectives:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "union",
+          "page": 67,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "union organization",
+          "page": 67,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "collective bargaining",
+          "page": 67,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "conciliation",
+          "page": 67,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": ". mediation",
+          "page": 67,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "arbitration",
+          "page": 67,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "strikes",
+          "page": 67,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "dues",
+          "page": 67,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "check-off",
+          "page": 67,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "union security",
+          "page": 67,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "lockouts",
+          "page": 67,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        }
+      ],
+      "siteUnitName": "Labour Organization"
+    },
+    {
+      "name": "Unit Five: THE ROLE OF THE MARKET",
+      "nameSource": "page 73",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "text": "To provide the student with an understanding of the role of the market in the determination of prices and quantities.",
+          "page": 73,
+          "printedHeading": "Objectives:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "market",
+          "page": 73,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "price",
+          "page": 73,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "supply",
+          "page": 73,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "demand",
+          "page": 73,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "inflation",
+          "page": 73,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "deflation",
+          "page": 73,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "consumer price index",
+          "page": 73,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "8",
+          "text": "profit",
+          "page": 73,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "utility",
+          "page": 73,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "production",
+          "page": 73,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "consumption",
+          "page": 73,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        }
+      ],
+      "siteUnitName": "The Role of the Market"
+    },
+    {
+      "name": "Unit Six: MONEY AND BANKING",
+      "nameSource": "page 81",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "text": "To provide students with an understanding and appre-ciation of the role of money and financial institutions in the Canadian economy.",
+          "page": 81,
+          "printedHeading": "Objectives:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "banks",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "inflation and deflation",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "credit( business, retail, service, sources of trade)",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "currency",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "financial institutions",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "money",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "money supply",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "bank loans",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "bond market",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "capital",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "cash flow",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "cash reserve",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "cheques",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "coinage",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "8",
+          "text": "consumer credit",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "9",
+          "text": "credit union",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "10",
+          "text": "deposits",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "11",
+          "text": "discount (bond, loan, mortage)",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "12",
+          "text": "finance company",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "13",
+          "text": "savings",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "14",
+          "text": "trust company",
+          "page": 81,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        }
+      ],
+      "siteUnitName": "Money and Banking"
+    },
+    {
+      "name": "Unit Seven: PERSONAL FINANCES",
+      "nameSource": "page 91",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "text": "To give students an understandine of the nature of a weli-thought-out savings and inv.tment plan.",
+          "page": 91,
+          "printedHeading": "Objectives:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "risk",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "profits",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "interest",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "short-term investments",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "long-term investments",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "stock exchange",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "insurance",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "10",
+          "text": "",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "11",
+          "text": "",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "12",
+          "text": "",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "13",
+          "text": "",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "14",
+          "text": "",
+          "page": 91,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        }
+      ],
+      "siteUnitName": "Personal Finance"
+    },
+    {
+      "name": "Unit Eight: INTERNATIONAL TRADE",
+      "nameSource": "page 101",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "text": "To assist students in acquiring an appreciation of the role and importance of international trade in the Canadian economy. To provide an understanding of the nature of barriers to trade.",
+          "page": 101,
+          "printedHeading": "Objectives:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "GNP",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "staple",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "foreign trade",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "comparative advantage",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "balance of payments",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "protectionism",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "foreign investment",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "8",
+          "text": "imports and exports",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "9",
+          "text": "tariffs",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "foreign lending",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "exchange rate",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "stabilization",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "quotas",
+          "page": 101,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        }
+      ],
+      "siteUnitName": "International Trade"
+    },
+    {
+      "name": "Unit Nine: THF ROLE OF GOVERNMENT IN THE CANADIAN ECONOMY",
+      "nameSource": "page 113",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "text": "To give students an understanding of the role of government in the economy.",
+          "page": 113,
+          "printedHeading": "Objectives:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "government revenue",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "government expenditures",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "taxation",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "income redistribution",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "government regulation",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "business cycle",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "consumer protection",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "equity in taxation",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "progressive taxation",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "income tax",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "property tax",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "sales tax",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "7",
+          "text": "non-tax revenues",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "8",
+          "text": "fiscal policy",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "9",
+          "text": "capital gains tax",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "10",
+          "text": "transfer payments",
+          "page": 113,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        }
+      ],
+      "siteUnitName": "The Role of Government in the Canadian Economy"
+    },
+    {
+      "name": "Unit Ten: COMPARATIVE ECONOMIC SYSTEMS",
+      "nameSource": "page 131",
+      "items": [
+        {
+          "code": null,
+          "type": "learning",
+          "text": "To give students an understanding and appreciation of our own and alternative economic systems.",
+          "page": 131,
+          "printedHeading": "Objectives:"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "1",
+          "text": "capitalism",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "2",
+          "text": "communism",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "private (or free) enterprise",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "socialism",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "mixed economy (or mixed enterprise)",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "10",
+          "text": "",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "11",
+          "text": "",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "A. Primary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "3",
+          "text": "laissez-faire",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "4",
+          "text": "fascism, corporate state",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "5",
+          "text": "production",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "6",
+          "text": "private property competition command economy",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        },
+        {
+          "code": null,
+          "type": "learning",
+          "label": "9",
+          "text": "planned economy collectives profit motive",
+          "page": 131,
+          "printedHeading": "Understandings:",
+          "group": "B. Secondary"
+        }
+      ],
+      "siteUnitName": "Comparative Economic Systems"
+    }
+  ],
+  "notes": [
+    "OCR (RapidOCR PP-OCRv6, 200 dpi) of a scanned, typewritten 1975 guide; the typescript OCRs less cleanly than the 1990s guides (e.g. \"Fole\" for \"Role\" in the contents). Only the ten unit introduction pages were recognised in full; the strategy pages, appendices and bibliography were not.",
+    "Per unit: \"Objectives:\" (one item, printedHeading \"Objectives:\") and the \"Understandings:\" lists (\"group\" = \"A. Primary\" or \"B. Secondary\"; label = the printed number). The two lists are printed side by side and were split at the \"B. Secondary\" heading.",
+    "This guide predates foundational/learning objectives; the unit objectives and understandings are given type \"learning\". \"Content:\" headings are not extracted.",
+    "Units found: 10 of 10 listed on the site."
+  ]
+}

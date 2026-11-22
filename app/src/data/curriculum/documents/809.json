@@ -1,0 +1,974 @@
+{
+  "curriculumId": 809,
+  "name": "Social Studies 10 (2026 PRELIMINARY)",
+  "levels": [
+    10
+  ],
+  "kind": "outcomes",
+  "textSource": "text-layer",
+  "source": {
+    "url": "https://curriculum.gov.sk.ca/CurriculumFile?id=809",
+    "filename": "Social_Studies_10__260917_PRELIMINARY.pdf",
+    "sha256": "0827a9ff383de9108ab7cfaf3ad27ca4c2845e6f2066d588ee9d3ec69f21a64c",
+    "retrievedOn": "2026-11-21",
+    "bytes": 935767,
+    "pages": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "pageNumbering": "page = 1-based PDF page; printedPage = the number printed in the page footer",
+    "coursePage": "https://curriculum.gov.sk.ca/CurriculumHome?id=809"
+  },
+  "extractedBy": "scripts/curriculum/documents/ (copied from the social-studies research on 2026-11-21)",
+  "structure": "Outcomes (code + statement) each with lettered indicators; an indicator's bulleted sub-list is kept as lines starting \"- \".",
+  "counts": {
+    "units": 4,
+    "outcomes": 16,
+    "indicators": 87
+  },
+  "units": [
+    {
+      "name": "Content Knowledge Outcomes (CK)",
+      "nameSource": "outcome section heading in Outcomes at a Glance (page 14); the document has no units",
+      "items": [
+        {
+          "code": "CK10.1",
+          "type": "outcome",
+          "page": 15,
+          "printedPage": 15,
+          "text": "Identify the impact of provincial economics on individuals and communities."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "CK10.1",
+          "type": "indicator",
+          "page": 15,
+          "printedPage": 15,
+          "text": "Define terms related to the study of economics, including production, wealth, ownership, and exchange."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "CK10.1",
+          "type": "indicator",
+          "page": 15,
+          "printedPage": 15,
+          "text": "Explain that economics is the study of how individuals and societies allocate resources to produce a standard of living."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "CK10.1",
+          "type": "indicator",
+          "page": 15,
+          "printedPage": 15,
+          "text": "Describe how personal values, experiences and beliefs impact one’s perceptions of production, wealth, ownership, and exchange."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "CK10.1",
+          "type": "indicator",
+          "page": 15,
+          "printedPage": 15,
+          "text": "Identify economic systems (e.g. the buffalo hunt, barter, colonial expansion and communal, open-market or centralized economies) that have influenced Saskatchewan’s economy over time."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "CK10.1",
+          "type": "indicator",
+          "page": 15,
+          "printedPage": 15,
+          "text": "Examine the contributions of agriculture, natural resource industries, cooperatives, entrepreneurship, and public services to Saskatchewan's economic development."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "CK10.1",
+          "type": "indicator",
+          "page": 15,
+          "printedPage": 15,
+          "text": "Explore how national and international economic policies (e.g. the Royal Proclamation, Tariffs, National Policy, Protectionism, NAFTA, CUSMA, globalism, WTO) have impacted Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "CK10.1",
+          "type": "indicator",
+          "page": 15,
+          "printedPage": 15,
+          "text": "Investigate elements of the local economy such as:\n- wealth-creation, wealth-distribution, and poverty;\n- businesses;\n- natural resources and industries;\n- agriculture;\n- public sector;\n- environment and tourism;\n- waterways;\n- infrastructure and transportation; and,\n- availability of capital, cooperatives."
+        },
+        {
+          "code": "CK10.2",
+          "type": "outcome",
+          "page": 16,
+          "printedPage": 16,
+          "text": "Compare political ideologies and their impact on public decision-making in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "CK10.2",
+          "type": "indicator",
+          "page": 16,
+          "printedPage": 16,
+          "text": "Explain various political ideologies including conservatism, liberalism and socialism."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "CK10.2",
+          "type": "indicator",
+          "page": 16,
+          "printedPage": 16,
+          "text": "Examine examples of Saskatchewan public policy decisions since the province’s creation in 1905 (e.g. crown corporations, public education, universal healthcare, private versus public ownership)."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "CK10.2",
+          "type": "indicator",
+          "page": 16,
+          "printedPage": 16,
+          "text": "Investigate the influence of ideologies (e.g. conservatism, liberalism and socialism) on Saskatchewan public policy decisions since 1905."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "CK10.2",
+          "type": "indicator",
+          "page": 16,
+          "printedPage": 16,
+          "text": "Research historical or contemporary provincial politicians and their contributions to Saskatchewan public policy decision-making, such as:\n- Amédée Forget;\n- Walter Scott;\n- Louise McKinney;\n- Tommy Douglas; and,\n- Brad Wall."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "CK10.2",
+          "type": "indicator",
+          "page": 16,
+          "printedPage": 16,
+          "text": "Analyze how different political ideologies may shape responses to a public issue in a local or provincial context."
+        },
+        {
+          "code": "CK10.3",
+          "type": "outcome",
+          "page": 17,
+          "printedPage": 17,
+          "text": "Examine the effects of historical or contemporary government policies and practices and their impact on the people of Saskatchewan, including Indigenous peoples."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "CK10.3",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 17,
+          "text": "Describe the historical context of the local Treaty negotiation from both Indigenous and government perspectives (e.g., differing objectives, the spirit and intent of treaties)."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "CK10.3",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 17,
+          "text": "Analyse how laws (e.g. An Act to Amend the Statute Law 1916, Dominion’s Election Act 1920), including the Indian Act, have impacted Saskatchewan people’s ability to participate in local governance (e.g. enfranchisement)."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "CK10.3",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 17,
+          "text": "Explain the ramifications (e.g., Permit and Pass systems, Duty to Consult, Truth and Reconciliation Commission of Canada’s Calls to Action, social and child welfare) of imposing federal governance systems and legislation (e.g., Indian Act, Chief and Council structures, Band system) on local Saskatchewan Indigenous communities."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "CK10.3",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 17,
+          "text": "Research the experiences of Saskatchewan Métis communities under government policies after 1867, such as those of the Métis road allowance communities."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "CK10.3",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 17,
+          "text": "Explore how provincial laws and policies (e.g. Section 17 of the Saskatchewan Act, 1905, Act to Prevent the Employment of Female Labour in Certain Capacities 1912, The Saskatchewan Bill of Rights 1947, The Language Act of 1988) have affected various groups in Saskatchewan over time."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "CK10.3",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 17,
+          "text": "Identify key historical or contemporary federal policies, laws (e.g., Residential Schools, Jordan’s Principle, Section 25 of the Canadian Charter of Rights and Freedoms, the Indigenous Languages Act) and practices (e.g., the Pass System, the Sixties’ Scoop, birth alerts) impacting Indigenous people in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "CK10.3",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 17,
+          "text": "Examine unique Saskatchewan political, social or economic initiatives involving Indigenous communities such as:\n- Office of the Treaty Commissioner;\n- Office of the Commissioner of the Indigenous Languages;\n- MN-S Child and Family Services;\n- ITEP/SUNTEP;\n- Whitecap Dakota Nation;\n- Cowessess;\n- First Nations University of Canada; and,\n- Gabriel Dumont Institute."
+        },
+        {
+          "code": null,
+          "label": "h",
+          "parent": "CK10.3",
+          "type": "indicator",
+          "page": 17,
+          "printedPage": 17,
+          "text": "Examine examples of partnership, reconciliation, self-determination, institutional change, or collaborative initiatives involving governments and Indigenous communities."
+        },
+        {
+          "code": "CK10.4",
+          "type": "outcome",
+          "page": 18,
+          "printedPage": 18,
+          "text": "Review the origins and evolution of Saskatchewan’s models of governance."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "CK10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 18,
+          "text": "Explain the responsibilities (e.g., healthcare, education, highways, provincial parks, municipalities) and functions (e.g. executive government, the opposition, elections process, question period, how bills become laws) of the provincial legislative assembly."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "CK10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 18,
+          "text": "Examine the influence of British parliamentary traditions, including the Westminster model, on Saskatchewan’s system of provincial governance."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "CK10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 18,
+          "text": "Investigate examples of democratic development, responsible government, public institutions, and civic leadership that have influenced Saskatchewan's political development."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "CK10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 18,
+          "text": "Describe the influence of Indigenous worldviews on contemporary governance structures (e.g. Métis Nation Legislative Assembly, Federation of Sovereign Indigenous Nations Legislative Assembly, Prince Albert Grand Council)."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "CK10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 18,
+          "text": "Investigate the diversity of traditional and contemporary First Nations governance structures or practices in Saskatchewan (e.g. Consensus and Natural Law, Clan System and Councils, Merit‑Based Leadership and Collective Responsibility, Kinship‑Based Leadership, Leadership as Service, Whitecap Dakota First Nations self-governance, Federation of Sovereign Indigenous Nations)."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "CK10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 18,
+          "text": "Explore the evolution of Métis governance structures in Saskatchewan (e.g. the buffalo hunts, Red River governance formation, Batoche Provisional Government, the Michif matriarchs and their influence on governance, Métis Locals, Métis Nation-Saskatchewan, Métis National Council)."
+        },
+        {
+          "code": null,
+          "label": "g",
+          "parent": "CK10.4",
+          "type": "indicator",
+          "page": 18,
+          "printedPage": 18,
+          "text": "Analyze the contemporary political relationship between an Indigenous governance structure and the provincial government."
+        },
+        {
+          "code": "CK10.5",
+          "type": "outcome",
+          "page": 19,
+          "printedPage": 19,
+          "text": "Investigate how social movements have led to change in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "CK10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 19,
+          "text": "Examine the factors (e.g. racism, power imbalance, assimilation, underrepresentation, exclusion, community-led initiatives) that lead to the creation of social movements."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "CK10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 19,
+          "text": "Identify key social movements in Saskatchewan history (e.g. Northwest Resistance, suffrage, Indigenous social justice, cooperatives, universal healthcare, assertion of minority francophone rights)."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "CK10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 19,
+          "text": "Investigate how community leadership, volunteerism, civic participation, or collaborative initiatives have contributed to social change in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "CK10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 19,
+          "text": "Explain how advocacy groups, parties, community organizations, economic perspectives and social groups (e.g. Mennonites, Doukhobors, Fransaskois, Métis, First Nations, People of African/Black descent, South Asians) have influenced public debate and social change in Saskatchewan over time."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "CK10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 19,
+          "text": "Discuss nationwide Indigenous movements that impact Saskatchewan (e.g. Idle No More, Ribbon Shirt/Skirt Day)."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "CK10.5",
+          "type": "indicator",
+          "page": 19,
+          "printedPage": 19,
+          "text": "Evaluate the impact of a social movement on contemporary Saskatchewan."
+        },
+        {
+          "code": "CK10.6",
+          "type": "outcome",
+          "page": 20,
+          "printedPage": 20,
+          "text": "Explore historical or contemporary people, events and places, including Indigenous people."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "CK10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 20,
+          "text": "Analyze the impact of historical or contemporary local, provincial, national, or international events (e.g. Riel Resistance, founding of Saskatchewan, Regina Riots, World Wars, the Great Depression, Holodomor, economic and scientific innovations) that have shaped Saskatchewan, including the Holocaust."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "CK10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 20,
+          "text": "Describe the role and contributions of a variety of notable people (e.g., Gabriel Dumont, Violet Clara McNaughton, André Mercure, Lewis & Lillie LaFayette, Pitikwahanapiwiyin - Chief Poundmaker, Lilian Dyck) in shaping Saskatchewan society."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "CK10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 20,
+          "text": "Investigate historical or contemporary regions, communities and landmarks (e.g. Canadian shield, Great Sand Hills, Nipawin, Batoche, grain elevators, Moose Jaw Tunnels, The Forks, the Saskatchewan Hotel, the local treaty area, Gravelbourg co-cathedral, Wanuskewin) in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "CK10.6",
+          "type": "indicator",
+          "page": 20,
+          "printedPage": 20,
+          "text": "Research historical or contemporary people (e.g. role models, artists, authors, activists) or events that have not been widely represented in accounts of Saskatchewan’s history."
+        },
+        {
+          "code": "CK10.7",
+          "type": "outcome",
+          "page": 21,
+          "printedPage": 21,
+          "text": "Analyze elements that shape Saskatchewan Indigenous and non-Indigenous identities."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "CK10.7",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 21,
+          "text": "Investigate historical or contemporary elements of local culture (e.g., ways of life, language, food and medicines, art and media, traditions, leisure, kinship and relationships) and identities (e.g., Francophone, Ukrainian, People of African Canadian/Black descent), including a local First Nations community."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "CK10.7",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 21,
+          "text": "Discuss ways in which an individual’s lived experience shapes their worldview (e.g. age, ethnicity, language, gender, religion, environment)."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "CK10.7",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 21,
+          "text": "Outline historical or contemporary instances of discrimination and assimilation in Saskatchewan (e.g. Ku Klux Klan, repression of minority groups, racial profiling, residential and day schools, the Sixties’ Scoop, the Indian Act)."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "CK10.7",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 21,
+          "text": "Compare past and present methods of cultural reclamation, preservation and transmission of various cultural groups and nations in Saskatchewan’s diverse cultural heritage (e.g. community organizations, language and dialect reclamation and revitalization)."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "CK10.7",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 21,
+          "text": "Explore various elements that contribute to the cultural fabric of Saskatchewan such as celebrations, commemorations, festivals, traditions or local oral stories and histories (e.g. values and morals, seasonal stories)."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "CK10.7",
+          "type": "indicator",
+          "page": 21,
+          "printedPage": 21,
+          "text": "Describe personal connections to one or more local cultures or identities (e.g. the intersectionality of race, ethnicity, language, gender, religion)."
+        },
+        {
+          "code": "CK10.8",
+          "type": "outcome",
+          "page": 22,
+          "printedPage": 22,
+          "text": "Research historical or contemporary factors that influenced the movement and settlement of people in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "CK10.8",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 22,
+          "text": "Examine the historical or contemporary patterns of settlement in Saskatchewan. (e.g. Dominion Lands Act, Last Best West campaign, north-to-south settlement, major waves of immigration, the Great Depression, reservation land, major cultural communities, settlers of African/Black descent, Metis displacement and Road Allowance communities, urban vs rural settlement)."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "CK10.8",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 22,
+          "text": "Investigate how federal and provincial distribution of land has impacted Indigenous and non-Indigenous people in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "CK10.8",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 22,
+          "text": "Explain historical or contemporary forces that drive (e.g. economic opportunities, social and political stability, government incentives) regional immigration to Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "CK10.8",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 22,
+          "text": "Discuss historical or contemporary challenges faced by newcomers to Saskatchewan (e.g. learning the majority language, racism, discrimination, marginalization, the natural environment, cost of living)."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "CK10.8",
+          "type": "indicator",
+          "page": 22,
+          "printedPage": 22,
+          "text": "Research historical or contemporary inclusive practices used to welcome and accompany newcomers to Saskatchewan (e.g., multicultural and intercultural associations, Service d’accueil et d’inclusion de la Saskatchewan, Open Door Society)."
+        },
+        {
+          "code": "CK10.9",
+          "type": "outcome",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Examine how land shapes worldviews and identities of people living within Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "CK10.9",
+          "type": "indicator",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Identify the characteristics of specific geographical areas in Saskatchewan (e.g. prairie parkland, northern boreal forest, Canadian shield, key waterways, North and South Saskatchewan Rivers)."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "CK10.9",
+          "type": "indicator",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Link the role of the environment in shaping health, culture, identity and worldview."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "CK10.9",
+          "type": "indicator",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Connect contemporary place names in Saskatchewan to their traditional or colonial origins"
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "CK10.9",
+          "type": "indicator",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Explore the impacts of natural, political and linguistic boundaries on culture, identity and worldview."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "CK10.9",
+          "type": "indicator",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Investigate how the historical or contemporary availability of resources on the land influences cultural and economic activities (e.g. hunting and fishing rights, agriculture, potash, uranium tourism) at local or provincial levels."
+        }
+      ]
+    },
+    {
+      "name": "Disciplinary Thinking Skills Outcomes (DTS)",
+      "nameSource": "outcome section heading in Outcomes at a Glance (page 14); the document has no units",
+      "items": [
+        {
+          "code": "DTS10.10",
+          "type": "outcome",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Demonstrate the significance of people, places, events or ideas."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "DTS10.10",
+          "type": "indicator",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Describe the concept of significance as it relates to people, place, events or ideas."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "DTS10.10",
+          "type": "indicator",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Investigate the enduring issues revealed by a significant person, place, event or idea."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "DTS10.10",
+          "type": "indicator",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Explain how views on significance may differ according to place, time and group to group."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "DTS10.10",
+          "type": "indicator",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Determine how attributing significance can lead to the underrepresentation of certain groups."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "DTS10.10",
+          "type": "indicator",
+          "page": 23,
+          "printedPage": 23,
+          "text": "Develop a personal interpretation of the significance of a person, place, event or idea."
+        },
+        {
+          "code": "DTS10.11",
+          "type": "outcome",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Determine impacts of continuity and change on people, places or ideas."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "DTS10.11",
+          "type": "indicator",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Explain how some things continue and others change in Saskatchewan."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "DTS10.11",
+          "type": "indicator",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Identify how and why people, places and ideas have stayed the same or have changed over time."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "DTS10.11",
+          "type": "indicator",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Examine change over time as either progress or decline in relation to differing people and from multiple perspectives."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "DTS10.11",
+          "type": "indicator",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Create chronologies that show how things stay the same and how they change over time."
+        },
+        {
+          "code": "DTS10.12",
+          "type": "outcome",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Investigate the causes and consequences of events, ideas or decisions."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "DTS10.12",
+          "type": "indicator",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Examine the causes and consequences of historical turning points on individuals, peoples or communities."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "DTS10.12",
+          "type": "indicator",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Explain how multiple causes may result in multiple consequences, both short and long term."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "DTS10.12",
+          "type": "indicator",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Discuss how people’s decisions and actions can cause historical events."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "DTS10.12",
+          "type": "indicator",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Explore the social, political and economic conditions in which decisions are made by historical actors."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "DTS10.12",
+          "type": "indicator",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Research the short- and long-term consequences of an event or of a person’s actions."
+        },
+        {
+          "code": null,
+          "label": "f",
+          "parent": "DTS10.12",
+          "type": "indicator",
+          "page": 24,
+          "printedPage": 24,
+          "text": "Predict how a contemporary event, idea or decision may have various intentional or unexpected consequences in the future."
+        },
+        {
+          "code": "DTS10.13",
+          "type": "outcome",
+          "page": 25,
+          "printedPage": 25,
+          "text": "Differentiate between various historical or contemporary social, political or economic perspectives."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "DTS10.13",
+          "type": "indicator",
+          "page": 25,
+          "printedPage": 25,
+          "text": "Compare and contrast how different groups respond to similar social, economic or political issues."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "DTS10.13",
+          "type": "indicator",
+          "page": 25,
+          "printedPage": 25,
+          "text": "Differentiate between current worldviews (e.g. beliefs, values, and motivations) and those of earlier periods."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "DTS10.13",
+          "type": "indicator",
+          "page": 25,
+          "printedPage": 25,
+          "text": "Examine the social, economic or political context of people, places or events in relation to their time or place, and not just the present."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "DTS10.13",
+          "type": "indicator",
+          "page": 25,
+          "printedPage": 25,
+          "text": "Identify the influence of beliefs, values or motivations on a person’s social, political or economic perspective."
+        }
+      ]
+    },
+    {
+      "name": "Ethical Dimension Outcome (ED)",
+      "nameSource": "outcome section heading in Outcomes at a Glance (page 14); the document has no units",
+      "items": [
+        {
+          "code": "ED10.14",
+          "type": "outcome",
+          "page": 25,
+          "printedPage": 25,
+          "text": "Explain ethical judgments about past events, ideas or decisions."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "ED10.14",
+          "type": "indicator",
+          "page": 25,
+          "printedPage": 25,
+          "text": "Define what constitutes an ethical judgement in the context of past events or decisions."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "ED10.14",
+          "type": "indicator",
+          "page": 25,
+          "printedPage": 25,
+          "text": "Analyze how the social sciences involve making ethical judgments about past events or people."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "ED10.14",
+          "type": "indicator",
+          "page": 25,
+          "printedPage": 25,
+          "text": "Examine ethical judgments regarding decisions and actions taken by people in society."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "ED10.14",
+          "type": "indicator",
+          "page": 25,
+          "printedPage": 25,
+          "text": "Discuss how the past helps us face ethical issues and differing perspectives of today."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "ED10.14",
+          "type": "indicator",
+          "page": 25,
+          "printedPage": 25,
+          "text": "Develop an informed ethical judgment about an issue of personal interest."
+        }
+      ]
+    },
+    {
+      "name": "Information Literacy Outcomes (IL)",
+      "nameSource": "outcome section heading in Outcomes at a Glance (page 14); the document has no units",
+      "items": [
+        {
+          "code": "IS10.15",
+          "type": "outcome",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Evaluate primary and secondary sources for accuracy, reliability, and bias.",
+          "glanceCode": "IL10.15",
+          "glanceText": "Evaluate primary and secondary sources for accuracy, reliability and bias."
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.15",
+          "type": "indicator",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Identify the differences between primary and secondary sources, including oral histories."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.15",
+          "type": "indicator",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Explore various citation styles (e.g. APA, MLA, Chicago Style) to cite sources in different types of texts (e.g., essays, articles) and social sciences disciplines (e.g., psychology, history, political science)."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.15",
+          "type": "indicator",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Compare and contrast primary and secondary sources."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.15",
+          "type": "indicator",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Employ criteria to evaluate sources, including AI search results, for accuracy, reliability, and bias (e.g., CRAAP, SIFT, University of Saskatchewan resource guides, OWL at Purdue, Elders and Knowledge Keepers)."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.15",
+          "type": "indicator",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Differentiate between facts, opinion, and belief in primary and secondary sources."
+        },
+        {
+          "code": "IS10.16",
+          "type": "outcome",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Describe the origins and relevancy of current affairs topics.",
+          "glanceCode": "IL10.16"
+        },
+        {
+          "code": null,
+          "label": "a",
+          "parent": "IS10.16",
+          "type": "indicator",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Explore the ways current affairs can be disseminated and consumed."
+        },
+        {
+          "code": null,
+          "label": "b",
+          "parent": "IS10.16",
+          "type": "indicator",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Identify the varying perspectives of current affairs issues."
+        },
+        {
+          "code": null,
+          "label": "c",
+          "parent": "IS10.16",
+          "type": "indicator",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Examine if the portrayal of Saskatchewan people, places, events, ideas or developments in current affairs is accurate."
+        },
+        {
+          "code": null,
+          "label": "d",
+          "parent": "IS10.16",
+          "type": "indicator",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Recognize how current affairs issues can become controversial."
+        },
+        {
+          "code": null,
+          "label": "e",
+          "parent": "IS10.16",
+          "type": "indicator",
+          "page": 26,
+          "printedPage": 26,
+          "text": "Develop a personal stance in response to a current affairs topic."
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Page 26: the indicator list for IS10.16 is headed 'Indicator' (singular) in the document.",
+    "IS10.15 on page 26 is printed as IL10.15 in Outcomes at a Glance (page 14).",
+    "IS10.15: Outcomes at a Glance (page 14) prints 'Evaluate primary and secondary sources for accuracy, reliability and bias.'; the outcome page 26 prints 'Evaluate primary and secondary sources for accuracy, reliability, and bias.'.",
+    "IS10.16 on page 26 is printed as IL10.16 in Outcomes at a Glance (page 14).",
+    "Heading printed on page 15: 'Content Outcomes and Indicators'.",
+    "Heading printed on page 23: 'Disciplinary Thinking Skill Outcomes and Indicators'.",
+    "Heading printed on page 25: 'Ethical Dimension Outcome and Indicators'.",
+    "Heading printed on page 26: 'Information Literacy Outcomes and Indicators'."
+  ]
+}

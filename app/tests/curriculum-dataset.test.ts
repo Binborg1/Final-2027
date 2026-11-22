@@ -23,7 +23,8 @@ test("every imported course and outcome carries its official source and an exact
     assert.equal(new URL(c.url).hostname, OFFICIAL, c.name);
     assert.ok(c.levels.length > 0 && c.levels.every((l) => [10, 20, 30].includes(l)), `${c.name} has 10/20/30 levels`);
     assert.deepEqual(c.grades, c.levels.map((l) => (l === 10 ? 10 : l === 20 ? 11 : 12)), c.name);
-    assert.ok(isSecondary(c.name), `${c.name} is a Grade 10–12 course`);
+    // Treaty Education is a K-12 curriculum taught within other subjects; its Grade 10–12 part is imported as a course.
+    assert.ok(isSecondary(c.name) || c.crossCurricular, `${c.name} is a Grade 10–12 course`);
     for (const o of c.outcomes) {
       const where = `${c.name} ${o.code}`;
       assert.ok(o.code.trim() && o.statement.trim(), `${where} has a code and wording`);
@@ -65,7 +66,11 @@ test("the import covers the Grade 10–12 courses teachers expect", () => {
   const acct1 = byId.get(526)!.outcomes.find((o) => o.code === "ACCT1")!;
   assert.equal(acct1.statement, "Investigate the need for accounting in business.", "module pages give the module's code and its outcome");
   assert.match(acct1.printedWith ?? "", /^Module 1: Introduction to Accounting/);
-  assert.equal(acct1.level, null, "a module's number is not a level");
+  // A module's number is not a level: its level comes from the course configuration that includes it.
+  assert.equal(acct1.level, 10, "ACCT1 is configured into Accounting 10");
+  const acct20 = byId.get(526)!.outcomes.find((o) => o.code === "ACCT20")!;
+  assert.deepEqual([acct20.level, acct20.levels], [30, [30]], "module 20 is configured into Accounting 30, not 20");
+  assert.equal(acct20.levelSource, "course configurations");
   assert.ok(!all.some((o) => /^Module \d/.test(o.code)), "no module name stands in for a code");
   assert.ok(!data.courses.some((c) => /\b(Mathematics|Science) [1-9]$/.test(c.name)), "no Kindergarten to Grade 9 course");
   const sci10 = byId.get(63)!;
