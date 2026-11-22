@@ -10,16 +10,19 @@ import { blueprintOf } from "@/lib/resources/blueprint";
 import { itemFp, sectionFp } from "@/lib/resources/checks";
 import { defaultBrief, isQuestionKind, suggestedTitle } from "@/lib/resources/kinds";
 import { isObject, sanitizeDraft, sanitizeItem, sanitizeResource, sanitizeSections } from "@/lib/resources/sanitize";
+import { storageKeyFor } from "@/lib/resources/storage-key";
 import type { Brief, Delivery, Draft, FixAction, Item, MixRow, QType, Resource, ResourceKind, Section } from "@/lib/resources/types";
 
 /**
  * The teacher's workspace in the browser. Resources and drafts are saved in this
- * browser's storage (validated again on every load) until teacher accounts and
- * a database arrive. Nothing is sent anywhere except an AI draft request
- * (outcome, brief, optional file text) and an explicit Classroom post.
+ * browser's storage, under a key for the signed-in teacher (validated again on
+ * every load), until step 4 moves them to the database. Nothing is sent anywhere
+ * except an AI draft request (outcome, brief, optional file text) and an explicit
+ * Classroom post.
  */
 
-const STORAGE_KEY = "funza.workspace.v1";
+/** Set by loadWorkspace(); nothing is saved before a teacher is known. */
+let storageKey: string | null = null;
 
 export type GenStage = { id: string; label: string; detail: string };
 export type GenError = { code: string; title: string; message: string; atStage: number };
@@ -50,7 +53,7 @@ const INITIAL: WorkspaceState = {
   resources: [],
   drafts: {},
   settings: { schoolName: "" },
-  brief: defaultBrief("quiz", ["sk-sci10-fm2"]),
+  brief: defaultBrief("quiz", []),
   generation: IDLE,
   selection: [],
   toasts: [],
@@ -90,8 +93,9 @@ function scheduleSave() {
 }
 function saveNow() {
   saveTimer = null;
+  if (!storageKey) return;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, resources: state.resources, drafts: state.drafts, settings: state.settings }));
+    localStorage.setItem(storageKey, JSON.stringify({ version: 1, resources: state.resources, drafts: state.drafts, settings: state.settings }));
     if (!state.savedOk) set((s) => ({ ...s, savedOk: true }));
   } catch {
     if (state.savedOk) {
@@ -103,7 +107,7 @@ function saveNow() {
 
 function readStored(): Pick<WorkspaceState, "resources" | "drafts" | "settings"> {
   try {
-    const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "null") as unknown;
+    const raw = JSON.parse((storageKey && localStorage.getItem(storageKey)) || "null") as unknown;
     if (!isObject(raw)) return { resources: [], drafts: {}, settings: { schoolName: "" } };
     const resources = (Array.isArray(raw.resources) ? raw.resources : []).map(sanitizeResource).filter((r): r is Resource => r !== null);
     const drafts: Record<string, Draft> = {};
@@ -120,15 +124,19 @@ function readStored(): Pick<WorkspaceState, "resources" | "drafts" | "settings">
 }
 
 let loaded = false;
-/** Called once from the app shell after hydration. */
-export function loadWorkspace() {
+/**
+ * Called once from the app shell after hydration, with the signed-in teacher and
+ * the outcomes of their first course (the starting point for a new brief).
+ */
+export function loadWorkspace(teacherId: string, startOutcomeIds: string[] = []) {
   if (loaded) return;
   loaded = true;
+  storageKey = storageKeyFor(teacherId);
   loadCurriculumCache();
   subscribeCatalog(() => set((s) => ({ ...s, catalogVersion: catalogVersion() })));
-  set((s) => ({ ...s, ...readStored(), hydrated: true, catalogVersion: catalogVersion() }));
+  set((s) => ({ ...s, ...readStored(), brief: startOutcomeIds.length > 0 ? defaultBrief("quiz", startOutcomeIds) : s.brief, hydrated: true, catalogVersion: catalogVersion() }));
   window.addEventListener("storage", (e) => {
-    if (e.key === STORAGE_KEY) set((s) => ({ ...s, ...readStored() }));
+    if (e.key === storageKey) set((s) => ({ ...s, ...readStored() }));
   });
   void ensureOutcomes([...state.brief.outcomeIds, ...state.resources.flatMap((r) => r.outcomeIds)]);
   fetch("/api/teach", { cache: "no-store" })
@@ -171,7 +179,7 @@ export function clearSelection() {
 
 export function startBrief(kind: ResourceKind, outcomeIds?: string[]) {
   set((s) => {
-    const ids = outcomeIds && outcomeIds.length > 0 ? outcomeIds : s.brief.outcomeIds.length > 0 ? s.brief.outcomeIds : ["sk-sci10-fm2"];
+    const ids = outcomeIds && outcomeIds.length > 0 ? outcomeIds : s.brief.outcomeIds;
     return { ...s, brief: defaultBrief(kind, ids), generation: IDLE };
   });
 }
@@ -227,7 +235,7 @@ function stagesFor(b: Brief): GenStage[] {
   return [
     { id: "outcome", label: "Checking the outcomes", detail: problems.length === 0 ? `${b.outcomeIds.map(codeOf).join(", ")}: found in Funza's catalog, wording intact.` : problems[0] },
     { id: "blueprint", label: "Fixing the blueprint", detail: isQuestionKind(b.kind) ? `${bp.questions} questions, ${bp.marks} marks, from your settings.` : `${bp.parts.length} parts, from your settings.` },
-    { id: "draft", label: `Drafting with ${state.ai.provider ?? "the AI provider"}`, detail: "Sends the blueprint and the outcome wording. The model may cite only these outcomes." },
+    { id: "draft", label: "Funza is drafting", detail: "Funza gets the blueprint and the outcome wording, and may cite only these outcomes." },
     { id: "validate", label: "Validating the reply", detail: "Format, outcome references and marks. Anything that fails is dropped and listed." },
     { id: "recompute", label: "Recomputing answers", detail: "Funza recalculates every answer it can; the AI's arithmetic is not trusted." },
   ];

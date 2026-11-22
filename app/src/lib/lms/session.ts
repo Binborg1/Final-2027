@@ -2,9 +2,11 @@ import "server-only";
 import { createCipheriv, createDecipheriv, createHash, randomBytes } from "node:crypto";
 
 /**
- * The Google Classroom connection without accounts: OAuth tokens live in an
- * encrypted, httpOnly cookie scoped to /api/lms/google. The browser can neither
- * read nor change them; only this server, holding FUNZA_SESSION_SECRET, can.
+ * The Google Classroom connection: OAuth tokens live in an encrypted, httpOnly
+ * cookie scoped to /api/lms/google. The browser can neither read nor change them;
+ * only this server, holding FUNZA_SESSION_SECRET, can. The signed-in teacher's id
+ * is sealed in with the tokens, and the cookie is refused for anyone else, so the
+ * next teacher on a shared school computer doesn't inherit the connection.
  * Release 2 moves the tokens to the encrypted google_connections table.
  */
 
@@ -46,13 +48,30 @@ export function unseal<T>(sealed: string | undefined, secret: string): T | null 
   }
 }
 
+/** The token cookie's contents: Google's tokens plus the id of the teacher they belong to. */
+type SealedTokens = GoogleTokens & { tid: string };
+
+/** Seals Google's tokens for one teacher. */
+export function sealTokens(tokens: GoogleTokens, teacherId: string, secret: string): string {
+  const { rt, at, exp } = tokens;
+  return seal({ rt, at, exp, tid: teacherId } satisfies SealedTokens, secret);
+}
+
+/** The tokens in the cookie, only if they belong to this teacher. A cookie from before teacher sign-in (no id) is refused too. */
+export function tokensFor(sealed: string | undefined, teacherId: string, secret: string): GoogleTokens | null {
+  const t = unseal<Partial<SealedTokens>>(sealed, secret);
+  if (!t || typeof t.tid !== "string" || t.tid !== teacherId || typeof t.at !== "string" || typeof t.exp !== "number") return null;
+  return { rt: typeof t.rt === "string" ? t.rt : null, at: t.at, exp: t.exp };
+}
+
+/** The consent round trip: a nonce, where to return, when it started, and which teacher started it. */
+export type ConnectState = { n: string; r: string; t: number; tid: string };
+
 export function cookieOptions(requestUrl: string, maxAge: number) {
   return { httpOnly: true, sameSite: "lax" as const, secure: new URL(requestUrl).protocol === "https:", path: COOKIE_PATH, maxAge };
 }
 
 /** Only same-site paths are allowed as a place to return to after Google. */
-export function safeReturn(path: unknown): string {
-  return typeof path === "string" && path.startsWith("/") && !path.startsWith("//") && !path.includes("\\") ? path.slice(0, 300) : "/";
-}
+export { safeReturn } from "@/lib/auth/redirect";
 
 export const newNonce = () => randomBytes(18).toString("base64url");
