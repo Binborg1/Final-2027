@@ -42,6 +42,17 @@ jobs:
       - uses: supabase/setup-cli@v3
         with:
           version: 2.108.0
+      # The CLI pulls pg_prove and postgres-meta from public.ecr.aws, whose anonymous
+      # pulls hit "Data limit exceeded" on shared runners, and it has no fallback for
+      # these two. Pull them from GitHub's registry and tag them with the names the
+      # CLI looks for, so it finds them locally. The tags match CLI 2.108.0 above;
+      # update both together.
+      - name: Pull the test and type-generation images from ghcr.io
+        run: |
+          for image in pg_prove:3.36 postgres-meta:v0.96.1; do
+            docker pull --quiet "ghcr.io/supabase/$image"
+            docker tag "ghcr.io/supabase/$image" "public.ecr.aws/supabase/$image"
+          done
       - name: Start Postgres and apply the migrations
         run: supabase db start
       - name: Run the pgTAP tests in db/supabase/tests
