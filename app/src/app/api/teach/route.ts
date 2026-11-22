@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
+import { teacherForRequest, unauthorized } from "@/lib/auth/api";
 import { parseJsonObject, SchemaError } from "@/lib/ai/json";
 import { itemPrompt, resourcePrompt, type PromptOutcome } from "@/lib/ai/resource-prompts";
 import { AiError, aiConfig, complete } from "@/lib/ai/server";
@@ -13,18 +14,21 @@ import type { Difficulty, QType } from "@/lib/resources/types";
 export const runtime = "nodejs";
 
 /**
- * Drafting for the teacher workspace. Every request names catalog outcomes; the
- * server re-reads them, checks their wording against its fingerprint, and sends
- * the model only those ids and their verbatim statements. Replies are validated
- * before they leave the server. Material text is used for the request only.
+ * Drafting for Make, for signed-in teachers only (401 otherwise). Every request
+ * names catalog outcomes; the server re-reads them, checks their wording against
+ * its fingerprint, and sends the model only those ids and their verbatim
+ * statements. Replies are validated before they leave the server. Material text
+ * is used for the request only.
  */
 
 const sha256 = (s: string) => createHash("sha256").update(s, "utf8").digest("hex");
 
-/** Tells the browser whether an AI provider is configured, without revealing the key or the model. */
-export async function GET() {
+/** Tells a signed-in teacher whether an AI provider is configured, without revealing the key or the model. */
+export async function GET(request: NextRequest) {
+  const teacher = await teacherForRequest(request);
+  if (!teacher) return unauthorized();
   const cfg = aiConfig();
-  return NextResponse.json(cfg ? { configured: true, provider: cfg.provider } : { configured: false });
+  return teacher.respond(NextResponse.json(cfg ? { configured: true, provider: cfg.provider } : { configured: false }, { headers: { "Cache-Control": "no-store" } }));
 }
 
 function outcomesFor(ids: string[]): { ok: true; outcomes: PromptOutcome[] } | { ok: false; message: string } {
@@ -44,7 +48,13 @@ function outcomesFor(ids: string[]): { ok: true; outcomes: PromptOutcome[] } | {
 
 const bad = (message: string, reason = "bad-request") => NextResponse.json({ ok: false, reason, message }, { status: 400 });
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
+  const teacher = await teacherForRequest(request);
+  if (!teacher) return unauthorized();
+  return teacher.respond(await draft(request));
+}
+
+async function draft(request: NextRequest): Promise<NextResponse> {
   let body: unknown;
   try {
     body = await request.json();

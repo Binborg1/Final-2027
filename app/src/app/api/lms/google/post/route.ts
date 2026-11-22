@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { teacherForRequest, unauthorized } from "@/lib/auth/api";
 import { createPost } from "@/lib/lms/google";
 import { withGoogle } from "@/lib/lms/route";
 import { sameOrigin } from "@/lib/origin";
@@ -10,6 +11,8 @@ const refuse = (message: string, status = 400) => NextResponse.json({ ok: false,
 
 /** Creates one post (material or assignment) in one class with the Doc attached view-only. Drafts unless told otherwise. */
 export async function POST(request: NextRequest) {
+  const teacher = await teacherForRequest(request);
+  if (!teacher) return unauthorized();
   if (!sameOrigin(request)) return refuse("Cross-site request refused.", 403);
   const b = (await request.json().catch(() => null)) as unknown;
   if (!isObject(b)) return refuse("Invalid request.");
@@ -19,7 +22,7 @@ export async function POST(request: NextRequest) {
   if (!/^[\w-]+$/.test(courseId) || !/^[\w-]+$/.test(fileId) || !title) return refuse("Missing class, file or title.");
   const scheduledTime = typeof b.scheduledTime === "string" && !Number.isNaN(Date.parse(b.scheduledTime)) ? new Date(b.scheduledTime).toISOString() : undefined;
   const topicId = typeof b.topicId === "string" && /^[\w-]{1,64}$/.test(b.topicId) ? b.topicId : undefined;
-  return withGoogle(request, (token) =>
+  return withGoogle(request, teacher, (token) =>
     createPost(token, courseId, {
       kind: b.kind === "assignment" ? "assignment" : "material",
       title,

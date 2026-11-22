@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { teacherForRequest, unauthorized } from "@/lib/auth/api";
 import { uploadDoc } from "@/lib/lms/google";
 import { withGoogle } from "@/lib/lms/route";
 import { sameOrigin } from "@/lib/origin";
@@ -16,6 +17,8 @@ const refuse = (message: string, status = 400) => NextResponse.json({ ok: false,
  * sections on the server; answers, keys and rubrics are never part of it.
  */
 export async function POST(request: NextRequest) {
+  const teacher = await teacherForRequest(request);
+  if (!teacher) return unauthorized();
   if (!sameOrigin(request)) return refuse("Cross-site request refused.", 403);
   const body = (await request.json().catch(() => null)) as unknown;
   if (!isObject(body)) return refuse("Invalid request.");
@@ -35,5 +38,5 @@ export async function POST(request: NextRequest) {
     school: str(body.school, 120),
     sections,
   });
-  return withGoogle(request, (token) => uploadDoc(token, `${title} (v${version})`, html));
+  return withGoogle(request, teacher, (token) => uploadDoc(token, `${title} (v${version})`, html));
 }

@@ -1,1 +1,184 @@
 @import "tailwindcss";
+
+/*
+ * F · Oak, the Funza Teacher Studio design (Figma FIMcX0HYeZurSRrgxJygxz, page 17:2).
+ * The Figma file has no variables, so these are the values its frames use; see
+ * docs/03_design/03_ui_design/ui_design.md. Components use these names, not hex values.
+ */
+
+@theme inline {
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme {
+  /* Text */
+  --color-ink: #241b14;
+  --color-ink-2: #5e5046; /* secondary text and placeholders (5.2:1 or better on cards) */
+  --color-on-accent: #ffffff;
+
+  /* Accent: terracotta. White on accent is 4.54:1; hover darkens to the logo's end colour. */
+  --color-accent: #c8501e;
+  --color-accent-hover: #b8441a;
+  --color-accent-pressed: #a33c17;
+  --color-accent-ink: #8a3410; /* terracotta text on tint and on glass */
+  --color-accent-tint: #f6dccb;
+  --color-accent-tint-soft: rgb(246 220 203 / 0.75);
+
+  /* Status */
+  --color-sage: #3d7a55;
+  --color-sage-ink: #2f5e41;
+  --color-sage-tint: #dcebdd;
+  --color-amber-ink: #7a4a00;
+  --color-amber-tint: #fbe7c6;
+  --color-red: #b4321f;
+  --color-red-ink: #9a2a19;
+  --color-red-tint: #f8dcd6;
+  --color-dot: #d6353b; /* count badges and dots (not "badge": that name is a text size) */
+
+  /* Glass surfaces (white with alpha) */
+  --color-glass-panel: rgb(255 255 255 / 0.4);
+  --color-glass-auth: rgb(255 255 255 / 0.62);
+  --color-glass-sidebar: rgb(255 255 255 / 0.5);
+  --color-glass-bar: rgb(255 255 255 / 0.5);
+  --color-glass-ask: rgb(255 255 255 / 0.72); /* 0.55 in Figma; raised so its placeholder passes AA over dark wood */
+  --color-glass-dock: rgb(255 255 255 / 0.6);
+  --color-surface: rgb(255 255 255 / 0.65); /* cards (not "card": that name is the card-title text size) */
+  --color-surface-soft: rgb(255 255 255 / 0.55);
+  --color-tile: rgb(255 255 255 / 0.62);
+  --color-chip: rgb(255 255 255 / 0.75);
+  --color-raised: rgb(255 255 255 / 0.85);
+  --color-button-2: rgb(255 255 255 / 0.88);
+  --color-field: rgb(255 255 255 / 0.95);
+  --color-popover: rgb(255 255 255 / 0.9);
+
+  /* Lines */
+  --color-line: rgb(36 27 20 / 0.08); /* dividers */
+  --color-line-2: rgb(36 27 20 / 0.14); /* secondary button, draft chip */
+  --color-line-control: rgb(36 27 20 / 0.5); /* field and checkbox edges: 3.3:1 against white (WCAG 1.4.11) */
+  --color-line-glass: rgb(255 255 255 / 0.5);
+  --color-line-glass-strong: rgb(255 255 255 / 0.9);
+
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 12px;
+  --radius-md: 14px;
+  --radius-tile: 16px;
+  --radius-row: 18px;
+  --radius-card: 22px;
+  --radius-box: 28px;
+  --radius-panel: 32px;
+  --radius-auth: 36px;
+
+  /* Shadows: warm brown, never pure black */
+  --shadow-panel: 0 24px 64px 0 rgb(58 36 20 / 0.1);
+  --shadow-auth: 0 24px 32px 0 rgb(58 36 20 / 0.12);
+  --shadow-sidebar: 0 16px 24px 0 rgb(58 36 20 / 0.1);
+  --shadow-dock: 0 10px 15px 0 rgb(58 36 20 / 0.14);
+  --shadow-box: 0 10px 15px 0 rgb(58 36 20 / 0.08);
+  --shadow-tooltip: 0 6px 10px 0 rgb(58 36 20 / 0.14);
+  --shadow-dialog: 0 24px 32px 0 rgb(36 27 20 / 0.28);
+  --shadow-cta: 0 6px 8px 0 rgb(200 80 30 / 0.28);
+  --shadow-cta-lg: 0 8px 10px 0 rgb(200 80 30 / 0.3);
+  --shadow-active: 0 2px 4px 0 rgb(58 36 20 / 0.08);
+  --shadow-toggle: 0 2px 5px 0 rgb(58 36 20 / 0.2);
+
+  /* Type scale (Figtree): size / line height / weight */
+  --text-display: 40px;
+  --text-display--line-height: 48px;
+  --text-title: 36px;
+  --text-title--line-height: 44px;
+  --text-hero: 34px;
+  --text-hero--line-height: 40px;
+  --text-title-sm: 30px;
+  --text-title-sm--line-height: 38px;
+  --text-section: 20px;
+  --text-section--line-height: 28px;
+  --text-card: 18px;
+  --text-card--line-height: 24px;
+  --text-card-sm: 16px;
+  --text-card-sm--line-height: 22px;
+  --text-row: 15px;
+  --text-row--line-height: 20px;
+  --text-body: 14px;
+  --text-body--line-height: 20px;
+  --text-meta: 13px;
+  --text-meta--line-height: 18px;
+  --text-badge: 12px;
+  --text-badge--line-height: 16px;
+  --text-kbd: 11px;
+  --text-kbd--line-height: 14px;
+}
+
+@layer base {
+  html {
+    color: var(--color-ink);
+    background: #6b4f3a url("/backgrounds/oak-library-blur.webp") center / cover fixed no-repeat;
+  }
+  body {
+    font-weight: 500;
+  }
+  ::selection {
+    background: var(--color-accent-tint);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+/*
+ * Frosted glass without backdrop-filter. The element shows the pre-blurred photo,
+ * fixed to the viewport so it lines up with the sharp photo behind it, under a
+ * white tint. It looks like a 28px blur and costs nothing on a Chromebook. Phones
+ * and tablets (where fixed backgrounds are ignored) get a more opaque tint.
+ */
+@utility frost {
+  background-image: linear-gradient(var(--frost-tint, rgb(255 255 255 / 0.4)), var(--frost-tint, rgb(255 255 255 / 0.4))), url("/backgrounds/oak-library-blur.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  @media (hover: none) {
+    background-image: linear-gradient(var(--frost-tint-touch, rgb(255 255 255 / 0.72)), var(--frost-tint-touch, rgb(255 255 255 / 0.72))), url("/backgrounds/oak-library-blur.webp");
+    background-attachment: scroll;
+  }
+}
+
+@utility frost-panel {
+  --frost-tint: var(--color-glass-panel);
+}
+@utility frost-auth {
+  --frost-tint: var(--color-glass-auth);
+  --frost-tint-touch: rgb(255 255 255 / 0.78);
+}
+@utility frost-sidebar {
+  --frost-tint: var(--color-glass-sidebar);
+}
+@utility frost-bar {
+  --frost-tint: var(--color-glass-bar);
+}
+@utility frost-ask {
+  --frost-tint: var(--color-glass-ask);
+}
+@utility frost-dock {
+  --frost-tint: var(--color-glass-dock);
+}
+
+/* The Funza mark's gradient. */
+@utility bg-logo {
+  background-image: linear-gradient(135deg, #e0662f 0%, #b8441a 100%);
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(36 27 20 / 0.25) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

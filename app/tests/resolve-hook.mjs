@@ -21,6 +21,8 @@ function locate(filePath) {
 
 export async function resolve(specifier, context, nextResolve) {
   if (specifier === "server-only") return { url: serverOnly, shortCircuit: true };
+  // Next has no "exports" map, so Node's ESM loader needs "next/server.js" for "next/server".
+  if (/^next\/[\w/-]+$/.test(specifier)) return nextResolve(`${specifier}.js`, context);
   let filePath = null;
   if (specifier.startsWith("@/")) {
     filePath = path.join(src, specifier.slice(2));

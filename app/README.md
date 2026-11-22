@@ -2,7 +2,7 @@
 
 The Next.js app for **Funza Teacher Studio**: Prepare and Live modes for Saskatchewan Grade 10–12 teachers. What it must do is in [requirements and architecture](../docs/03_design/02_requirements_and_architecture/requirements_and_architecture.md), and the build order is in the [development steps](../docs/04_development/01_development_steps.md).
 
-**State on 21 November 2026.** The earlier teacher workspace's screens were removed, because Teacher Studio gets a new design (development step 2). The home page is a placeholder. What stays is the logic and the API: AI drafting with checked replies, the Saskatchewan curriculum, the review checks, the student copy and Google Classroom publishing. The ideas from the removed screens are written up in [concepts from the earlier app](../docs/04_development/04_concepts_from_the_earlier_app.md).
+**State on 21 November 2026 (development step 3).** Teachers sign in with Google or an email link, go through first-time setup (grades, subjects, courses), and land on Home. Make works on the new F · Oak design: brief, AI draft, review, approve. Drafts are kept in the teacher's browser until development step 4 moves them to the database. The design and its tokens are described in [UI design](../docs/03_design/03_ui_design/ui_design.md).
 
 ## Run it
 
@@ -11,7 +11,23 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. Checks: `npm test`, `npm run lint`, `npm run build`. Tests use Node's own test runner (Node 22.6 or newer).
+Open http://localhost:3000. Checks: `npm test`, `npm run lint`, `npx tsc --noEmit`, `npm run build`. Tests use Node's own test runner (Node 22.6 or newer).
+
+## Sign-in
+
+Teachers sign in through Supabase Auth: Google, or a one-time link sent by email. Students never sign in.
+
+| Route | What it does |
+|---|---|
+| `/sign-in` | The sign-in page. `?next=/some/page` returns there afterwards (same-site paths only) |
+| `/auth/callback` | Google comes back here; the one-time code becomes a session (PKCE) |
+| `/auth/confirm` | The email link comes back here with a token hash; works even when the link is opened on another device |
+| `/auth/sign-out` | POST only, from Funza's own pages: ends the session and deletes the Google Classroom cookies |
+| `/setup` | First-time setup. Every teacher page sends a teacher here until setup is finished |
+
+**Who can open what.** `src/proxy.ts` refreshes the session cookie on each request and sends a signed-out visitor on a teacher page to `/sign-in`. That is only a quick first check: every teacher page calls `requireTeacher()`, every Server Function `teacherForAction()`, and every API route `teacherForRequest()` (`src/lib/auth/`), which ask Supabase Auth. Signed-out API calls get `401`. Public, with no sign-in: `/sign-in`, `/auth/*`, `/join`, `/play/*`, `/c/*`, `/api/health` and `/api/curriculum/*` (the published Saskatchewan curriculum, with no teacher or student data).
+
+**Supabase settings** (Authentication → URL Configuration): the Site URL is the production address, and the Redirect URLs include `http://localhost:3000/**`, the production address with `/**`, and a pattern for the Vercel previews such as `https://funza-*-<team-slug>.vercel.app/**`. For email links that work across devices, the "Magic Link" and "Confirm signup" templates link to `{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=email`. Supabase's built-in email sender only reaches members of the Supabase organization, a few times an hour; real teachers need a custom SMTP sender.
 
 ## Configuration
 
@@ -23,7 +39,7 @@ Copy `.env.example` to `.env.local` (or set the variables in Vercel).
 | `GEMINI_API_KEY` (Groq or OpenRouter can stand in during development) | AI drafting of whole materials and single questions | Drafts start from Funza's starter question bank (Science 10, SCI10-FM2 and FM3) or from empty parts |
 | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `FUNZA_SESSION_SECRET` | Publishing to Google Classroom | Classroom reports that it is not set up; printing still works |
 
-**Don't put the Gemini key on a Vercel deployment until teacher sign-in protects `/api/teach`** (development step 3). Until then, anyone who finds the URL could spend it.
+`/api/teach` answers signed-in teachers only (development step 3). Put the free-tier development key in Vercel's *Preview* environment only once step 3 is merged, and only use it with made-up data.
 
 Google Classroom setup (once per deployment):
 
@@ -36,13 +52,21 @@ Google Classroom setup (once per deployment):
 
 | Path | What it holds |
 |---|---|
-| `src/app/page.tsx`, `layout.tsx`, `globals.css` | A placeholder page and a bare layout (Tailwind 4 through PostCSS), until the new screens |
+| `src/app/layout.tsx`, `globals.css` | The root layout (Figtree, the background photo) and the F · Oak design tokens and frosted-glass utilities (Tailwind 4 through PostCSS) |
+| `src/app/(studio)/` | The teacher pages inside the page shell: Home (`page.tsx`), Make (`make/`, the brief; `make/[id]/`, review), Settings |
+| `src/app/sign-in/`, `src/app/setup/`, `src/app/auth/` | Sign-in, first-time setup, and the sign-in and sign-out routes |
+| `src/proxy.ts` | Refreshes the Supabase session and redirects signed-out visitors on teacher pages (an optimistic check only) |
+| `src/lib/auth/` | Who is asking: `teacher.ts` (pages and Server Functions), `api.ts` (API routes, 401), `routes.ts` (which paths are public), `redirect.ts` (safe return paths) |
+| `src/lib/teachers/` | First-time setup rules (`setup.ts`), its Server Functions (`actions.ts`) and labels |
+| `src/lib/make/` | Chapters for Make (curriculum units at a course's level) and the quick-prompt phrases |
+| `src/components/ui/`, `src/components/shell/` | The shared parts (buttons, chips, cards, fields, dialogs) and the page shell (sidebar, top bar, Ask Funza, tab dock) |
+| `public/backgrounds/` | The background photo and its pre-blurred copy, with the photo credit |
 | `src/app/api/teach/` | AI drafting: checks each outcome against the curriculum, sends the model only those outcomes, and validates the reply before it leaves the server |
 | `src/app/api/curriculum/` | The curriculum: course list, one course, search, outcomes |
 | `src/app/api/health/` | Says whether the deployment reaches its database (`reachable` or `unreachable`, nothing more) |
 | `src/app/api/lms/google/` | Google Classroom: connect, callback, status, classes, topics, create the student copy as a Google Doc, post, disconnect |
 | `src/lib/ai/` | `server.ts`: the only code that calls the AI (Gemini first, key in a header, time limit, safe error messages). `resource-prompts.ts`: prompts, with uploaded text wrapped and defused as data. `json.ts`: reply parsing |
-| `src/lib/db/` | The three Supabase clients: `browser.ts` (publishable key, the teacher's session), `server.ts` (the teacher's session from the request cookies), `admin.ts` (secret key, server only, for student writes and scheduled jobs), and `types.ts`, generated from the schema |
+| `src/lib/db/` | The Supabase clients: `browser.ts` (publishable key, the teacher's session), `server.ts` (the teacher's session from the request cookies, for pages and Server Functions), `route.ts` (the same for Route Handlers, writing refreshed cookies onto the response), `admin.ts` (secret key, server only, for student writes and scheduled jobs), and `types.ts`, generated from the schema |
 | `src/lib/env.ts`, `src/lib/env-server.ts`, `src/instrumentation.ts` | The environment variables, checked with Zod when the server starts |
 | `db/` | The database: `schema.sql` (the current schema, generated), `supabase/migrations/` (one file per change, each named by its applied version), `supabase/tests/` (pgTAP tests of row-level security and the schema's rules) and a log of what was applied where. See [`db/README.md`](db/README.md) |
 | `src/lib/resources/` | The material model (notes, slides, quiz, test, exam), the blueprint computed before any AI call, the starter bank, draft assembly, the review checks, validation of untrusted input, the student-copy renderer, and the browser store (`store.ts`, local storage until development step 4) |
@@ -53,7 +77,7 @@ Google Classroom setup (once per deployment):
 | `src/lib/math/expr.ts` | A safe calculator language that recomputes answer keys. Not for marking students' typed answers |
 | `src/lib/pdf/extract.ts` | Reads a PDF's text in the browser with pdf.js (the worker in `public/` must match the pinned `pdfjs-dist` version) |
 | `src/lib/origin.ts` | Refuses cross-site POSTs to cookie-protected routes |
-| `tests/` | Curriculum, resources, Classroom, expression engine, environment, database-client and security tests |
+| `tests/` | Curriculum, resources, Classroom, expression engine, environment, database-client, security, sign-in (`auth.test.ts`), API guard and Classroom cookie (`api-guard.test.ts`), setup and Make tests. `tests/helpers/auth.ts` makes real Supabase session cookies and answers Supabase Auth offline |
 
 ## Database
 
@@ -115,6 +139,6 @@ No person has checked the imported text, so the review checklist asks the teache
 
 ## Security: what is in place and what is still open
 
-In place: AI keys only on the server; teacher files treated as data in prompts; AI replies rebuilt field by field; the Google token in an AES-256-GCM encrypted, httpOnly cookie scoped to `/api/lms/google`; the OAuth state checked with a nonce and a 15-minute expiry; cross-site POSTs refused; answer keys never sent to Classroom.
+In place: teacher sign-in checked on every teacher page, Server Function and API route (not only in the proxy), with `401` for signed-out API calls; return paths after sign-in limited to this site; AI keys only on the server; teacher files treated as data in prompts; AI replies rebuilt field by field; the Google token in an AES-256-GCM encrypted, httpOnly cookie scoped to `/api/lms/google`, sealed with the teacher's id and refused for anyone else; sign-out deletes it; the OAuth state checked with a nonce, a 15-minute expiry and the teacher who started it; cross-site POSTs refused; answer keys never sent to Classroom; drafts in browser storage kept per teacher.
 
-Still open, each scheduled in the [development steps](../docs/04_development/01_development_steps.md): `/api/teach` and the Classroom routes don't yet require a signed-in teacher; the Classroom cookie isn't tied to a teacher, so on a shared computer the next person inherits the connection; there is no daily AI allowance; approval is enforced only in the browser; the Classroom Doc is built from content the browser sends rather than a saved version.
+Still open, each scheduled in the [development steps](../docs/04_development/01_development_steps.md): there is no daily AI allowance; approval is enforced only in the browser; the Classroom Doc is built from content the browser sends rather than a saved version; drafts live in the browser until step 4.

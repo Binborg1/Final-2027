@@ -101,12 +101,14 @@ Still open, and scheduled below: sign-in on `/api/teach` and the Classroom route
 
 ## Step 3. Teacher sign-in (23 Nov)
 
-1. Build the sign-in page (Google, or an email link) and the callback route.
-2. Protect teacher pages so they need a session. Student pages stay public.
-3. On first sign-in, create the `teachers` row and show first-time setup: grades, subjects and courses.
-4. `/api/teach` and every `/api/lms/google/*` route answer 401 without a signed-in teacher.
-5. Tie the Classroom cookie to the teacher: seal the teacher's id into it, refuse it for anyone else, and delete it on sign-out. Today the next person on a shared school computer inherits the connection.
+1. ✅ Build the sign-in page (Google, or an email link) and the callback route. *Built on branch `sign-in`: `/sign-in`, `/auth/callback` (Google), `/auth/confirm` (email link, works across devices), `/auth/sign-out`.*
+2. ✅ Protect teacher pages so they need a session. Student pages stay public. *`src/proxy.ts` refreshes the session and redirects signed-out visitors; every page, Server Function and API route checks again itself (`src/lib/auth/`). Public: sign-in, `/auth/*`, `/join`, `/play/*`, `/c/*`, `/api/health`, `/api/curriculum/*`.*
+3. ✅ On first sign-in, create the `teachers` row and show first-time setup: grades, subjects and courses.
+4. ✅ `/api/teach` and every `/api/lms/google/*` route answer 401 without a signed-in teacher.
+5. ✅ Tie the Classroom cookie to the teacher: seal the teacher's id into it, refuse it for anyone else, and delete it on sign-out.
 6. Only after this step is merged, add the Gemini development key to Vercel's *Preview* environment.
+
+Also in this step: the F · Oak design system and page shell ([UI design](../03_design/03_ui_design/ui_design.md)), Home, Settings, and Make (brief, draft, review, approve) on the new design. Drafts stay in the browser, now kept per teacher, until step 4.
 
 **Done when:** you can sign in on the Vercel preview and land on an empty Home, and a signed-out request to `/api/teach` gets 401.
 
