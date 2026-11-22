@@ -209,7 +209,7 @@ Code runs in three places: the browser, Vercel and Supabase. Google provides the
 | **Student pages** | Vercel (Next.js) | `/join` (code, name, number), `/play/[session]` (answer, see result), `/c/[link]` (course page). | New |
 | **API routes** | Vercel functions, Node.js, Montréal | `/api/teach` (drafts and edits), `/api/live/*` (start, join, answer, close, reveal, state, end), `/api/lms/*` (Classroom), `/api/curriculum/*`. | Partial |
 | **Shared server code** | Inside the API | `lib/ai` (Gemini and the allowance), `lib/live` (session rules and marking), `lib/db` (Supabase clients), `lib/curriculum`, `lib/lms`. | Partial |
-| **Curriculum data** | A JSON file in the repo | 134 courses and 3,219 outcomes. It is read-only, so it stays a file, and the database stores only outcome codes. | Real |
+| **Curriculum data** | A JSON file in the repo | 134 courses and 3,219 outcomes. It is read-only, so it stays a file, and the database stores only the dataset's ids (such as `sk-63` for a course and `sk-63-162290` for an outcome; codes repeat across courses, so never the bare code). | Real |
 | **Auth** | Supabase | Teacher accounts with Google or an email link. Sessions are kept in cookies, so server code knows who is asking. | New |
 | **Postgres** | Supabase, Canada | Every course, chapter, draft, version, template, bank question, live session, answer and AI usage row, all with row-level security. | New |
 | **Realtime** | Supabase | One channel per live session. The API sends pings; phones and the console listen. | New |
@@ -325,8 +325,8 @@ There are three environments: your laptop, a preview for each pull request, and 
 
 | Setting | Where | Notes |
 |---|---|---|
-| `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Browser and server | Public by design; row-level security protects the data. |
-| `SUPABASE_SERVICE_ROLE_KEY` | Server only | Bypasses row-level security. Used only for student writes and scheduled work. |
+| `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Browser and server | Public by design; row-level security protects the data. The key is the `sb_publishable_…` key, not the legacy anon key. |
+| `SUPABASE_SECRET_KEY` | Server only | The `sb_secret_…` key, not the legacy service_role key. Bypasses row-level security. Used only for student writes and scheduled work. |
 | `FUNZA_AI_PROVIDER=gemini`, `GEMINI_API_KEY`, `FUNZA_AI_MODEL` | Server only | Already read by `lib/ai/server.ts`. Use separate keys for dev and production. |
 | `FUNZA_AI_DAILY_LIMIT` | Server only | New; default 40. |
 | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `FUNZA_SESSION_SECRET` | Server only | Already used by Classroom publishing. The same Google client is entered in Supabase for sign-in. |
