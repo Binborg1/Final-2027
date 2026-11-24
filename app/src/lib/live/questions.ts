@@ -144,3 +144,30 @@ export function displayKey(c: LiveContent): string {
 
 /** The key's number as written ("13.3 min" → 13.3). */
 export const writtenKeyNumber = (c: LiveContent) => firstNumber(c.answer.answer ?? "");
+
+/** A bank question as an editable draft question (the reverse of answerOf in bank-rows.ts). */
+export function itemFromBank(row: { id: string; type: string; stem: string; options: unknown; answer: unknown; marks: number; outcome_ref: string | null }): Item {
+  const a = isObj(row.answer) ? row.answer : {};
+  const key = readKey(row.answer);
+  const type = (["mcq", "tf", "fill", "match", "calc", "short", "long"] as QType[]).find((t) => t === row.type) ?? "short";
+  const pairs = Array.isArray(a.pairs) ? a.pairs.filter(isObj).map((p) => ({ left: str(p.left, 300), right: str(p.right, 300) })) : [];
+  return {
+    id: row.id,
+    type,
+    prompt: row.stem,
+    options: type === "mcq" ? (readOptions(row.options) ?? []) : [],
+    correctId: key.correctId ?? null,
+    tf: key.tf ?? null,
+    answer: key.answer ?? "",
+    pairs,
+    calc: key.calc ?? null,
+    solution: key.solution ?? "",
+    rubric: key.rubric ?? [],
+    marks: row.marks,
+    difficulty: "grade",
+    outcomeIds: row.outcome_ref ? [row.outcome_ref] : [],
+    verbs: [],
+    origin: "bank",
+    reviewedFp: null,
+  };
+}

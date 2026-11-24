@@ -1,11 +1,9 @@
 "use server";
 
-import { createHash } from "node:crypto";
 import { revalidatePath } from "next/cache";
 import { teacherForAction } from "@/lib/auth/teacher";
 import { loadDataset } from "@/lib/curriculum/dataset";
-import type { Json } from "@/lib/db/types";
-import { bankRowsFor } from "@/lib/resources/bank-rows";
+import { approveStored, insertMaterial } from "@/lib/resources/approve-core";
 import { approvalBlockers, computeChecks } from "@/lib/resources/checks";
 import { GUID, isObject } from "@/lib/resources/sanitize";
 import { readStoredContent, toStoredContent, type StoredContent } from "@/lib/resources/stored";
@@ -23,8 +21,6 @@ type Fail = { ok: false; message: string; code?: "signed-out" | "approved" | "bl
 const SIGNED_OUT: Fail = { ok: false, code: "signed-out", message: "Your session has ended. Sign in again; your last changes weren’t saved." };
 const FAILED: Fail = { ok: false, message: "Funza couldn’t save that. Check your connection and try again." };
 const MISSING: Fail = { ok: false, code: "missing", message: "That material wasn’t found." };
-
-const sha256 = (text: string) => createHash("sha256").update(text, "utf8").digest("hex");
 
 /** Checks the browser's copy: the right id, a valid resource and draft. */
 function clean(id: string, input: unknown): StoredContent | null {
@@ -71,26 +67,8 @@ export async function createMaterial(input: { id: unknown; content: unknown }): 
   if (!content) return { ok: false, message: "That draft couldn’t be saved. Try again." };
   const courseId = content.resource.brief.courseId;
   if (!courseId) return { ok: false, message: "Choose a course first." };
-  const { supabase, teacher } = current;
-
-  const created = await supabase.from("resources").insert({ id, teacher_id: teacher.id, course_id: courseId, kind: content.resource.kind, title: content.draft.title || content.resource.title, status: "draft" });
-  if (created.error) {
-    console.error("Creating a material failed:", created.error.message);
-    return created.error.code === "23503" ? { ok: false, message: "That course wasn’t found. Reload and try again." } : FAILED;
-  }
-  const chapterIds = content.resource.brief.chapterIds;
-  if (chapterIds.length > 0) {
-    const links = await supabase.from("resource_chapters").insert(chapterIds.map((chapter_id) => ({ resource_id: id, chapter_id, teacher_id: teacher.id })));
-    if (links.error) console.error("Linking a material to its chapters failed:", links.error.message);
-  }
-  const version = await supabase.from("resource_versions").insert({ teacher_id: teacher.id, resource_id: id, number: 1, content }).select("id").single();
-  if (version.error || !version.data) {
-    console.error("Saving version 1 failed:", version.error?.message);
-    await supabase.from("resources").delete().eq("id", id);
-    return FAILED;
-  }
-  const linked = await supabase.from("resources").update({ current_version_id: version.data.id }).eq("id", id);
-  if (linked.error) return FAILED;
+  const saved = await insertMaterial(current.supabase, current.teacher.id, id, content);
+  if (!saved.ok) return { ok: false, message: saved.message };
   refresh();
   return { ok: true };
 }
@@ -152,32 +130,10 @@ export async function approveMaterial(input: { id: unknown }): Promise<{ ok: tru
     return { ok: false, code: "blocked", message: `${blockers.length} ${blockers.length === 1 ? "check still needs" : "checks still need"} you before this can be approved. Open the checks in Review.` };
   }
 
-  const { supabase } = current;
-  const links = await supabase.from("resource_chapters").select("chapter_id").eq("resource_id", id);
-  if (links.error) return FAILED;
-  let chapterIds = links.data.map((l) => l.chapter_id);
-  if (chapterIds.length === 0) {
-    const first = await supabase.from("chapters").select("id").eq("course_id", resource.course_id).order("position").limit(1);
-    chapterIds = (first.data ?? []).map((c) => c.id);
-  }
-  const chapters = chapterIds.length > 0 ? await supabase.from("chapters").select("id, outcome_refs, position").in("id", chapterIds).order("position") : { data: [], error: null };
-  if (chapters.error) return FAILED;
-  const rows = bankRowsFor(stored.draft, chapters.data.map((c) => ({ id: c.id, outcomeRefs: c.outcome_refs })), sha256);
-  const hasQuestions = stored.draft.sections.some((s) => s.kind === "questions" && s.items.length > 0);
-  if (hasQuestions && rows.length === 0) return { ok: false, message: "Add a chapter to this course first, so the questions have a place in the bank." };
-
-  const at = new Date().toISOString();
-  const frozen = { ...stored, draft: { ...stored.draft, status: "approved" as const, approved: { at, version: version.number, title: stored.draft.title, sections: stored.draft.sections }, pendingAlt: null } };
-  const kept = await supabase.from("resource_versions").update({ content: frozen }).eq("id", version.id).is("approved_at", null);
-  if (kept.error) return FAILED;
-
-  const { data: banked, error } = await supabase.rpc("approve_version", { p_version: version.id, p_questions: rows as unknown as Json });
-  if (error) {
-    console.error("Approving failed:", error.code, error.message);
-    return FAILED;
-  }
+  const approved = await approveStored(current.supabase, { resourceId: id, courseId: resource.course_id, versionId: version.id, number: version.number, stored });
+  if (!approved.ok) return { ok: false, message: approved.message };
   refresh();
-  return { ok: true, at, version: version.number, banked: banked ?? 0 };
+  return { ok: true, at: approved.at, version: version.number, banked: approved.banked };
 }
 
 /** After approval, editing starts the next version, a copy of the approved one. */
