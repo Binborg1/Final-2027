@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Check, CircleAlert, FileText, LoaderCircle, Lock, Paperclip, Plus, RotateCcw, Sparkles, Target, X } from "lucide-react";
+import { BookOpen, Check, CircleAlert, FileText, LoaderCircle, Lock, Paperclip, RotateCcw, Sparkles, Target, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -16,7 +16,7 @@ import type { TeacherCourse } from "@/lib/auth/teacher";
 import type { CatalogCourse } from "@/lib/curriculum/catalog";
 import { loadCourse } from "@/lib/curriculum/client";
 import type { ChapterChoice } from "@/lib/courses/model";
-import { ADD_PROMPTS, composeInstructions, type AddPromptId } from "@/lib/make/chapters";
+import { composeInstructions, type AddPromptId } from "@/lib/make/chapters";
 import { blueprintOf, PRESETS } from "@/lib/resources/blueprint";
 import { sourceText } from "@/lib/sources/actions";
 import { isQuestionKind, NOTES_STYLES, QTYPE_LABEL } from "@/lib/resources/kinds";
@@ -158,7 +158,7 @@ export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, init
   if (courses.length === 0) {
     return (
       <div className="flex flex-col gap-5">
-        <PageHeader title="What do you want to make?" />
+        <PageHeader title="What do you want to make?" size="title-sm" />
         <Card className="p-6">
           <EmptyState icon={BookOpen} title="Add a course first">
             Make starts from a course’s curriculum. Courses come from first-time setup; adding more arrives in the next update.
@@ -179,7 +179,7 @@ export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, init
 
   return (
     <div className="flex flex-col gap-[22px]">
-      <PageHeader crumbs={crumbs} title="What do you want to make?" />
+      <PageHeader crumbs={crumbs} title="What do you want to make?" size="title-sm" />
 
       <div className="grid grid-cols-1 items-start gap-5 xl:grid-cols-[minmax(0,1fr)_372px]">
         {/* The Make box */}
@@ -282,21 +282,6 @@ export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, init
                   <LoaderCircle aria-hidden size={16} className="animate-spin" /> Loading the curriculum…
                 </span>
               ) : null}
-            </ChoiceRow>
-            <ChoiceRow label="Add">
-              {ADD_PROMPTS.filter((p) => p.id !== "notes" || brief.material).map((p) => (
-                <ChoiceChip
-                  key={p.id}
-                  icon={Plus}
-                  selected={p.id === "notes" ? brief.material?.use === "source" : chips.includes(p.id)}
-                  onClick={() => {
-                    if (p.id === "notes" && brief.material) patchBrief({ material: { ...brief.material, use: brief.material.use === "source" ? "inspiration" : "source" } });
-                    setChips((c) => (c.includes(p.id) ? c.filter((x) => x !== p.id) : [...c, p.id]));
-                  }}
-                >
-                  {p.label}
-                </ChoiceChip>
-              ))}
             </ChoiceRow>
           </div>
 
@@ -443,13 +428,13 @@ function MakeActions({ aiKnown, aiConfigured, disabled, busy, onMake }: { aiKnow
   };
   if (aiKnown && !aiConfigured) {
     return (
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col items-center gap-3 text-center">
         <p className="flex items-start gap-2 text-body text-ink-2">
           <CircleAlert aria-hidden size={18} className="mt-px shrink-0 text-amber-ink" />
           AI drafting isn’t switched on for this Funza server yet. Start from the question bank, or lay it out and write it yourself.
         </p>
-        <div className="flex flex-wrap gap-3">
-          <Button size="lg" icon={Sparkles} disabled={disabled} onClick={() => withoutAi("bank")}>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button icon={Sparkles} disabled={disabled} onClick={() => withoutAi("bank")}>
             Start from the question bank
           </Button>
           <Button variant="secondary" disabled={disabled} onClick={() => withoutAi("blank")}>
@@ -460,11 +445,11 @@ function MakeActions({ aiKnown, aiConfigured, disabled, busy, onMake }: { aiKnow
     );
   }
   return (
-    <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-      <Button size="lg" icon={Sparkles} className="shadow-cta-lg" disabled={disabled || !aiKnown} loading={busy} onClick={onMake}>
+    <div className="flex flex-col items-center gap-2.5 text-center">
+      <Button icon={Sparkles} disabled={disabled || !aiKnown} loading={busy} onClick={onMake}>
         Make draft
       </Button>
-      <p className="flex items-center gap-2 text-body font-medium text-ink-2">
+      <p className="flex items-center gap-2 text-meta font-medium text-ink-2">
         <Lock aria-hidden size={16} strokeWidth={1.2} className="shrink-0" />
         Funza drafts it. You review and approve it before students see anything.
       </p>
