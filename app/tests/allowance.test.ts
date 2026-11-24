@@ -61,7 +61,7 @@ test("the refusal says how many and when they reset", () => {
 const FM2 = "sk-63-110477";
 const ITEM = { type: "mcq", prompt: "Which is faster?", options: [{ id: "a", text: "A" }, { id: "b", text: "B" }], correctId: "a", difficulty: "grade", outcomeIds: [FM2], verbs: [], solution: "Steeper." };
 
-type Fake = { used: number | "down"; aiStatus?: number; counts: string[]; inserts: Record<string, unknown>[]; aiCalls: number };
+type Fake = { used: number | "down"; aiStatus?: number; counts: string[]; inserts: Record<string, unknown>[]; aiCalls: number; aiReply?: unknown; aiBodies?: string[] };
 
 /** Supabase Auth (from the shared helper), the ai_usage table, and the AI provider, all offline. */
 function stubServices(fake: Fake) {
@@ -82,8 +82,9 @@ function stubServices(fake: Fake) {
     }
     if (url === `${AI_BASE}/chat/completions`) {
       fake.aiCalls++;
+      fake.aiBodies?.push(String(init?.body));
       if (fake.aiStatus) return new Response("busy", { status: fake.aiStatus });
-      const reply = { model: "test-model-1", choices: [{ message: { content: JSON.stringify({ item: ITEM }) }, finish_reason: "stop" }], usage: { prompt_tokens: 120, completion_tokens: 45 } };
+      const reply = { model: "test-model-1", choices: [{ message: { content: JSON.stringify(fake.aiReply ?? { item: ITEM }) }, finish_reason: "stop" }], usage: { prompt_tokens: 120, completion_tokens: 45 } };
       return new Response(JSON.stringify(reply), { status: 200, headers: { "content-type": "application/json" } });
     }
     return auth(input, init);
@@ -171,4 +172,32 @@ test("GET tells a signed-in teacher how many actions are left today", async () =
   assert.deepEqual(await status(cookies), { configured: true, provider: "groq", remaining: 0 }, "never below 0");
   stubServices(fake("down"));
   assert.deepEqual(await quietly(() => status(cookies)), { configured: true, provider: "groq", remaining: null }, "unknown when the database can't say");
+});
+
+/* ---------- Live mode: "Funza suggests" (development step 5) ---------- */
+
+test("Funza's live suggestions ask only for phone types, avoid the set's questions, and are logged as live-suggest", async () => {
+  const cookies = await sessionCookies(TEACHER_A);
+  const fill = { type: "fill", prompt: "Speed is ______.", answer: "distance over time", difficulty: "grade", outcomeIds: [FM2], verbs: [], solution: "" };
+  const db = fake(0, { aiReply: { items: [ITEM, fill] }, aiBodies: [] });
+  stubServices(db);
+  const { POST } = await import("@/app/api/teach/route");
+  const body = { task: "live-suggest", brief: defaultBrief("quiz", [FM2]), avoid: ["Which force keeps a puck sliding?"] };
+  const res = await POST(makeRequest("/api/teach", { method: "POST", cookies, headers: { origin: "http://localhost:3000", "content-type": "application/json" }, body: JSON.stringify(body) }));
+  const json = (await res.json()) as { ok: boolean; data: { sections: { items: { type: string }[] }[] } };
+  assert.equal(json.ok, true);
+  assert.deepEqual(json.data.sections.flatMap((sec) => sec.items.map((i) => i.type)), ["mcq"], "a fill-in question in the reply is dropped");
+  const prompt = db.aiBodies?.[0] ?? "";
+  assert.match(prompt, /answered on students' phones/);
+  assert.match(prompt, /Which force keeps a puck sliding\?/);
+  assert.equal(/fill-in|Matching/i.test(prompt.split("Questions:")[1]?.split("Item shapes")[0] ?? ""), false, "no fill-in or matching questions are asked for");
+  assert.equal(db.inserts[0]?.task, "live-suggest");
+});
+
+test("/api/teach refuses a draft request from another site", async () => {
+  const cookies = await sessionCookies(TEACHER_A);
+  stubServices(fake(0));
+  const { POST } = await import("@/app/api/teach/route");
+  const res = await POST(makeRequest("/api/teach", { method: "POST", cookies, headers: { origin: "https://evil.example", "content-type": "text/plain" }, body: JSON.stringify({ task: "resource-draft", brief: defaultBrief("quiz", [FM2]) }) }));
+  assert.equal(res.status, 403);
 });

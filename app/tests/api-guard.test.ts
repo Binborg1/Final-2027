@@ -72,6 +72,48 @@ test("a signed-in teacher gets through the guard", async () => {
   assert.deepEqual(await status.json(), { configured: true, connected: false });
 });
 
+/* ---------- Live mode (development step 5) ---------- */
+
+const LIVE_ID = "5e550000-0000-4000-8000-000000000001";
+type LiveHandler = (request: ReturnType<typeof makeRequest>, ctx: { params: Promise<{ id: string }> }) => Promise<Response>;
+const LIVE: { path: string; method: "GET" | "POST"; load: () => Promise<Record<string, unknown>> }[] = [
+  { path: "/api/live/start", method: "POST", load: () => import("@/app/api/live/start/route") },
+  { path: `/api/live/${LIVE_ID}`, method: "GET", load: () => import("@/app/api/live/[id]/route") },
+  { path: `/api/live/${LIVE_ID}/open`, method: "POST", load: () => import("@/app/api/live/[id]/open/route") },
+  { path: `/api/live/${LIVE_ID}/close`, method: "POST", load: () => import("@/app/api/live/[id]/close/route") },
+  { path: `/api/live/${LIVE_ID}/mark`, method: "POST", load: () => import("@/app/api/live/[id]/mark/route") },
+  { path: `/api/live/${LIVE_ID}/marks`, method: "POST", load: () => import("@/app/api/live/[id]/marks/route") },
+  { path: `/api/live/${LIVE_ID}/reveal`, method: "POST", load: () => import("@/app/api/live/[id]/reveal/route") },
+  { path: `/api/live/${LIVE_ID}/end`, method: "POST", load: () => import("@/app/api/live/[id]/end/route") },
+  { path: `/api/live/${LIVE_ID}/remove`, method: "POST", load: () => import("@/app/api/live/[id]/remove/route") },
+  { path: `/api/live/${LIVE_ID}/csv`, method: "GET", load: () => import("@/app/api/live/[id]/csv/route") },
+];
+
+async function callLive(route: (typeof LIVE)[number], cookies?: Record<string, string>, origin = ORIGIN.origin) {
+  const handler = (await route.load())[route.method] as LiveHandler;
+  const headers: Record<string, string> = route.method === "POST" ? { origin, "content-type": "application/json" } : {};
+  return handler(makeRequest(route.path, { method: route.method, cookies, headers, body: route.method === "POST" ? "{}" : undefined }), { params: Promise.resolve({ id: LIVE_ID }) });
+}
+
+test("every teacher live route answers 401 without a session", async () => {
+  stubAuth([]);
+  for (const route of LIVE) {
+    const res = await callLive(route);
+    assert.equal(res.status, 401, `${route.method} ${route.path}`);
+    assert.equal(((await res.json()) as { reason: string }).reason, "signed-out");
+  }
+});
+
+test("a signed-in teacher's live actions are refused from another site", async () => {
+  const cookies = await sessionCookies(TEACHER_A);
+  stubAuth([TEACHER_A]);
+  for (const route of LIVE.filter((r) => r.method === "POST")) {
+    const res = await callLive(route, cookies, "https://evil.example");
+    assert.equal(res.status, 403, `${route.method} ${route.path}`);
+    assert.equal(((await res.json()) as { reason: string }).reason, "forbidden");
+  }
+});
+
 /* ---------- the Classroom cookie belongs to one teacher ---------- */
 
 const TOKENS = { at: "access-token", rt: "refresh-token", exp: Date.now() + 3_600_000 };

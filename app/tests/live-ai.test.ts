@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { SchemaError } from "@/lib/ai/json";
 import { buildMarkJob, MARK_SYSTEM, validateMarkReply } from "@/lib/live/mark-ai";
+import { DEFAULT_LIVE_MIX, liveBrief, MAX_SUGGEST } from "@/lib/live/suggest";
+import { defaultBrief } from "@/lib/resources/kinds";
 import { P, SHORT } from "./helpers/live-fixtures";
 
 /*
@@ -77,4 +79,16 @@ test("a reply that marks an answer twice, misses most answers or isn't the right
   const partial = validateMarkReply({ marks: [{ id: r1, marks: 1 }, { id: [...job.idsByRid.keys()][1], marks: 2 }] }, job.idsByRid, 3);
   assert.equal(partial.marks.size, 2, "an answer Funza left out stays unmarked for the teacher");
   assert.equal(partial.summary, null);
+});
+
+test("a live suggestion asks only for phone types, at most 20 questions, short answers worth up to 3 marks", () => {
+  const b = defaultBrief("quiz", ["sk-63-110477"]);
+  const live = liveBrief(b);
+  assert.deepEqual(live.mix.map((r) => r.type), ["mcq", "tf", "calc", "short"]);
+  assert.equal(live.mix.find((r) => r.type === "short")?.marks, 3, "a 4-mark short answer becomes 3");
+  const huge = liveBrief({ ...b, mix: b.mix.map((r) => ({ ...r, count: 25 })) });
+  assert.equal(huge.mix.reduce((n, r) => n + r.count, 0), MAX_SUGGEST);
+  const none = liveBrief({ ...b, mix: b.mix.map((r) => ({ ...r, count: 0 })) });
+  assert.deepEqual(none.mix, DEFAULT_LIVE_MIX, "an empty mix falls back to the 8-question default");
+  assert.equal(liveBrief({ ...b, kind: "exam" }).kind, "quiz");
 });

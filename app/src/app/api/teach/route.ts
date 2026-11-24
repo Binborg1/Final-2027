@@ -9,6 +9,8 @@ import { findOutcome, outcomeProblems } from "@/lib/curriculum/catalog";
 import { loadDataset } from "@/lib/curriculum/dataset";
 import { validateItemReply, validateResourceReply } from "@/lib/resources/ai-reply";
 import { isQuestionKind, QTYPE_ORDER } from "@/lib/resources/kinds";
+import { liveBrief, livePrompt } from "@/lib/live/suggest";
+import { sameOrigin } from "@/lib/origin";
 import { isObject, sanitizeBrief, str } from "@/lib/resources/sanitize";
 import type { Difficulty, QType } from "@/lib/resources/types";
 
@@ -65,11 +67,12 @@ const bad = (message: string, reason = "bad-request") => NextResponse.json({ ok:
 export async function POST(request: NextRequest) {
   const teacher = await teacherForRequest(request);
   if (!teacher) return unauthorized();
+  if (!sameOrigin(request)) return teacher.respond(NextResponse.json({ ok: false, reason: "forbidden", message: "Cross-site request refused." }, { status: 403 }));
   return teacher.respond(await draft(request, teacher.id));
 }
 
 /** One AI call: its `ai_usage` task name, the prompt, and how the reply becomes the response's data. */
-type Job = { task: "resource-draft" | "resource-item"; system: string; user: string; maxTokens: number; data: (reply: string) => unknown };
+type Job = { task: "resource-draft" | "resource-item" | "live-suggest"; system: string; user: string; maxTokens: number; data: (reply: string) => unknown };
 
 async function draft(request: NextRequest, teacherId: string): Promise<NextResponse> {
   let body: unknown;
@@ -101,6 +104,12 @@ async function draft(request: NextRequest, teacherId: string): Promise<NextRespo
       const avoid = (Array.isArray(body.avoid) ? body.avoid : []).map((a) => str(a, 300)).filter(Boolean).slice(0, 40);
       const { system, user } = itemPrompt(brief, checked.outcomes, { type, marks, difficulty, outcomeId }, str(body.guidance, 300), avoid);
       job = { task: body.task, system, user, maxTokens: 2500, data: (reply) => ({ item: validateItemReply(brief, parseJsonObject(reply), type, marks), provider: cfg.provider }) };
+    } else if (body.task === "live-suggest") {
+      // Live setup: phone types only, short questions, none repeating the set (FR-6).
+      const live = liveBrief(brief);
+      const avoid = (Array.isArray(body.avoid) ? body.avoid : []).map((a) => str(a, 300)).filter(Boolean).slice(0, 40);
+      const { system, user } = livePrompt(live, checked.outcomes, avoid);
+      job = { task: body.task, system, user, maxTokens: 7000, data: (reply) => ({ ...validateResourceReply(live, parseJsonObject(reply)), provider: cfg.provider }) };
     } else {
       return bad("Unknown task.");
     }
@@ -114,7 +123,7 @@ async function draft(request: NextRequest, teacherId: string): Promise<NextRespo
     if (used === null) return NextResponse.json({ ok: false, reason: "allowance-unavailable", message: "Funza couldn’t check today’s AI allowance. Nothing was saved. Try again in a moment." });
     if (used >= limit) return NextResponse.json({ ok: false, reason: "allowance", message: allowanceMessage(limit) });
 
-    if (body.stream === true && job.task === "resource-draft") return streamed(job, teacherId, isQuestionKind(brief.kind) ? "items" : "sections");
+    if (body.stream === true && job.task !== "resource-item") return streamed(job, teacherId, job.task === "live-suggest" || isQuestionKind(brief.kind) ? "items" : "sections");
 
     const reply = await complete({ system: job.system, user: job.user, maxTokens: job.maxTokens });
     // A finished call counts even if its reply then fails validation: the tokens were spent.
