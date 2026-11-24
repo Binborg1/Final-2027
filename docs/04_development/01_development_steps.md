@@ -1,8 +1,8 @@
 # Funza development steps
 
-**Funza Teacher Studio · v0.5 · 23 November 2026**
+**Funza Teacher Studio · v0.6 · 24 November 2026**
 
-*Changed in v0.5: step 5 (Live mode) is built; the whole set runs at once on one shared timer, and the migrations for steps 4 and 5 are applied to the development project. v0.4: step 4 is built (courses and chapters, drafts and approval in the database, the question bank, the daily AI allowance); the chapter rule is decided. v0.3: teacher sign-in is Google, or email and password, instead of an email link (step 3).*
+*Changed in v0.6: the step 3 sign-in settings are set on the development project; the email templates wait for a custom SMTP sender, and reset links from the default template work in the browser that asked. v0.5: step 5 (Live mode) is built; the whole set runs at once on one shared timer, and the migrations for steps 4 and 5 are applied to the development project. v0.4: step 4 is built (courses and chapters, drafts and approval in the database, the question bank, the daily AI allowance); the chapter rule is decided. v0.3: teacher sign-in is Google, or email and password, instead of an email link (step 3).*
 
 This is the order in which Funza gets built, from creating accounts to the final release. Each step lists what to do and how to know it's done. The *why* behind each choice is in [requirements and architecture](../03_design/02_requirements_and_architecture/requirements_and_architecture.md); the product is summarized in the [repo README](../../README.md).
 
@@ -113,8 +113,9 @@ Still open, and scheduled below: sign-in on `/api/teach` and the Classroom route
 6. Only after this step is merged, add the Gemini development key to Vercel's *Preview* environment.
 7. Supabase settings on the development project (dashboard):
    - ✅ Authentication → URL Configuration (set 23 Nov): Site URL `https://funza-rose.vercel.app`; Redirect URLs `https://funza-rose.vercel.app/**`, `http://localhost:3000/**` and `https://*-aubino-chris-projects.vercel.app/**`.
-   - Authentication → Sign In / Providers → Email: Email on, minimum password length **8**, "Confirm email" **off** for the bazaar so a visitor can make an account on the spot.
-   - Authentication → Emails: the "Confirm signup" template links to `{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=email`, and "Reset password" to `{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=recovery`. The "Magic link" template is no longer used.
+   - ✅ Authentication → Sign In / Providers → Email (set 24 Nov): Email on, minimum password length **8**, "Confirm email" **off** for the bazaar so a visitor can make an account on the spot.
+   - ✅ Realtime → Settings: public access is on (checked 24 Nov with a broadcast on a public channel).
+   - Authentication → Emails: Supabase lets a project edit its templates only once it has a custom SMTP sender (step 7, item 5), so the default templates stay for now. Their links come back to `/auth/confirm` with a one-time code, which works in the browser that asked; another browser gets "Sign-in started in another browser". With the custom sender, the "Confirm signup" template links to `{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=email` and "Reset password" to `{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=recovery`, and the links work on any device. The "Magic link" template is no longer used.
 
 Also in this step: the F · Oak design system and page shell ([UI design](../03_design/03_ui_design/ui_design.md)), Home, Settings, and Make (brief, draft, review, approve) on the new design. Drafts stay in the browser, now kept per teacher, until step 4.
 
@@ -192,7 +193,7 @@ Built on branch `step-4-courses-and-bank` (23 November). The migration `step4_co
    - No answer key appears before Reveal.
 3. Test on iPhone Safari, Android Chrome and a Chromebook, and on a school-like network.
 4. Apply the migrations to `funza-prod`, merge to `main`, and check the production deployment.
-5. In `funza-prod`, set up a custom SMTP sender (for example Resend) and turn "Confirm email" on, so confirmation and reset emails reach any teacher, and nobody can make an account with an address that isn't theirs.
+5. In `funza-prod`, set up a custom SMTP sender (for example Resend), set the two email templates to the token-hash links (step 3, item 7), and turn "Confirm email" on, so confirmation and reset emails reach any teacher, and nobody can make an account with an address that isn't theirs.
 
 **Done when:** production runs a full live session and a full Prepare flow. **1 December: Release 1 and Vlog 2.**
 

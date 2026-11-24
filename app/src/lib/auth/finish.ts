@@ -32,6 +32,17 @@ export function errorCode(e: { code?: string | null; error?: string | null; mess
   return "failed";
 }
 
+/**
+ * Swaps a one-time sign-in code for a session. It needs the PKCE verifier cookie
+ * the browser kept when sign-in started, so a code works only in that browser.
+ * When Supabase names the flow in the link (`sb_flow_id`), that flow's verifier is
+ * used; otherwise the most recent one.
+ */
+export function exchangeCode(supabase: SupabaseClient<Database>, code: string, params: URLSearchParams) {
+  const flowId = params.get("sb_flow_id");
+  return supabase.auth.exchangeCodeForSession(code, flowId ? { flowId } : undefined);
+}
+
 export async function finishSignIn(request: NextRequest, supabase: SupabaseClient<Database>, user: User, next: string | null, options: { skipSetup?: boolean } = {}) {
   try {
     const row = await ensureTeacherRow(supabase, user);

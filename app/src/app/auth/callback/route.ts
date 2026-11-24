@@ -1,5 +1,5 @@
 import type { NextRequest } from "next/server";
-import { errorCode, finishSignIn, signInFailed } from "@/lib/auth/finish";
+import { errorCode, exchangeCode, finishSignIn, signInFailed } from "@/lib/auth/finish";
 import { routeClient } from "@/lib/db/route";
 
 export const runtime = "nodejs";
@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
   if (!code) return signInFailed(request, "failed");
 
   const { supabase, respond } = routeClient(request);
-  const { data, error } = await supabase.auth.exchangeCodeForSession(code);
+  const { data, error } = await exchangeCode(supabase, code, params);
   if (error || !data.user) return respond(signInFailed(request, errorCode(error)));
   return respond(await finishSignIn(request, supabase, data.user, params.get("next")));
 }
