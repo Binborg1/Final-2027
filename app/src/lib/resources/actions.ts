@@ -216,3 +216,27 @@ export async function deleteMaterial(input: { id: unknown }): Promise<{ ok: true
   refresh();
   return { ok: true };
 }
+
+/**
+ * Records where the approved version went (FR-29): a Classroom post or a print.
+ * The database refuses a publication of a version that isn't approved. A post
+ * students can see now marks the material as published.
+ */
+export async function recordPublication(input: { id: unknown; channel: unknown; externalId: unknown; live: unknown }): Promise<{ ok: true } | Fail> {
+  if (typeof input?.id !== "string") return MISSING;
+  const channel = input.channel === "classroom" || input.channel === "print" ? input.channel : null;
+  if (!channel) return { ok: false, message: "Unknown destination." };
+  const found = await currentVersion(input.id.toLowerCase());
+  if ("error" in found) return found.error!;
+  if (!found.version.approved_at) return { ok: false, message: "Approve this version first." };
+  const externalId = typeof input.externalId === "string" && input.externalId.trim() ? input.externalId.trim().slice(0, 500) : null;
+  const { supabase, teacher } = found.current;
+  const saved = await supabase.from("publications").insert({ teacher_id: teacher.id, version_id: found.version.id, channel, external_id: externalId });
+  if (saved.error) {
+    console.error("Recording a publication failed:", saved.error.message);
+    return FAILED;
+  }
+  if (input.live === true) await supabase.from("resources").update({ status: "published" }).eq("id", found.resource.id);
+  refresh();
+  return { ok: true };
+}

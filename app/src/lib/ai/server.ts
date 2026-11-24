@@ -161,3 +161,86 @@ async function geminiComplete(cfg: AiConfig, { system, user, maxTokens }: Comple
   const usage = data.usageMetadata;
   return { text, model: modelName(data.modelVersion, cfg.model), tokensIn: tokens(usage?.promptTokenCount), tokensOut: tokens(usage?.candidatesTokenCount, usage?.thoughtsTokenCount) };
 }
+
+/**
+ * Like `complete`, but reports the reply as it grows (`onText` gets the text so
+ * far), so Make can show progress on long drafts. Gemini streams its reply
+ * (server-sent events); the other providers answer in one piece and report once.
+ * The same checks run on the finished reply.
+ */
+export async function completeStream(input: Completion, onText: (soFar: string) => void): Promise<CompletionResult> {
+  const cfg = aiConfig();
+  if (!cfg) throw new AiError("not-configured", "No AI provider is configured on the server.");
+  if (cfg.provider !== "gemini") {
+    const result = await complete(input);
+    onText(result.text);
+    return result;
+  }
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(cfg.model)}:streamGenerateContent?alt=sse`;
+  const res = await send(cfg.provider, url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "x-goog-api-key": cfg.key },
+    body: JSON.stringify({
+      systemInstruction: { parts: [{ text: input.system }] },
+      contents: [{ role: "user", parts: [{ text: input.user }] }],
+      generationConfig: { maxOutputTokens: input.maxTokens, responseMimeType: "application/json" },
+    }),
+  });
+  if (!res.body) throw new AiError("empty", "The model returned no text.");
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let text = "";
+  let finish: string | undefined;
+  let blocked = false;
+  let model: unknown;
+  let usage: GeminiReply["usageMetadata"];
+  const take = (line: string) => {
+    if (!line.startsWith("data:")) return;
+    let chunk: GeminiReply;
+    try {
+      chunk = JSON.parse(line.slice(5).trim()) as GeminiReply;
+    } catch {
+      return;
+    }
+    if (chunk.promptFeedback?.blockReason) blocked = true;
+    const candidate = chunk.candidates?.[0];
+    const part = candidate?.content?.parts?.map((p) => p.text ?? "").join("") ?? "";
+    if (candidate?.finishReason) finish = candidate.finishReason;
+    if (chunk.modelVersion) model = chunk.modelVersion;
+    if (chunk.usageMetadata) usage = chunk.usageMetadata;
+    if (part) {
+      text += part;
+      onText(text);
+    }
+  };
+  try {
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      let nl: number;
+      while ((nl = buffer.indexOf("\n")) >= 0) {
+        take(buffer.slice(0, nl).replace(/\r$/, ""));
+        buffer = buffer.slice(nl + 1);
+      }
+    }
+    if (buffer) take(buffer.trim());
+  } catch (error) {
+    if (error instanceof DOMException && (error.name === "TimeoutError" || error.name === "AbortError")) throw new AiError("timeout", "The AI provider took too long to answer. Try again in a moment.");
+    throw new AiError("provider", "The AI provider stopped answering part-way. Try again.");
+  }
+
+  if (blocked || finish === "SAFETY" || finish === "PROHIBITED_CONTENT" || finish === "BLOCKLIST" || finish === "SPII") {
+    throw new AiError("refused", "Gemini declined this request. Try different wording, or start from the question bank.");
+  }
+  if (finish === "MAX_TOKENS") throw new AiError("truncated", "The AI reply was cut off before it finished. Ask for fewer questions and try again.");
+  if (!text.trim()) throw new AiError("empty", "The model returned no text.");
+  return { text: text.trim(), model: modelName(model, cfg.model), tokensIn: tokens(usage?.promptTokenCount), tokensOut: tokens(usage?.candidatesTokenCount, usage?.thoughtsTokenCount) };
+}
+
+/** How many questions (or sections) a partial JSON reply has started, for progress. */
+export function writtenSoFar(text: string, unit: "items" | "sections"): number {
+  return (text.match(unit === "items" ? /"prompt"\s*:/g : /"body"\s*:/g) ?? []).length;
+}

@@ -17,6 +17,7 @@ import { loadCourse } from "@/lib/curriculum/client";
 import type { ChapterChoice } from "@/lib/courses/model";
 import { ADD_PROMPTS, composeInstructions, type AddPromptId } from "@/lib/make/chapters";
 import { blueprintOf, PRESETS } from "@/lib/resources/blueprint";
+import { sourceText } from "@/lib/sources/actions";
 import { isQuestionKind, NOTES_STYLES, QTYPE_LABEL } from "@/lib/resources/kinds";
 import { cancelGeneration, createWithoutAi, patchBrief, resetGeneration, setKind, setMixRow, startGeneration, useWorkspace } from "@/lib/resources/store";
 import type { ResourceKind } from "@/lib/resources/types";
@@ -38,7 +39,7 @@ const TYPES: { kind: ResourceKind; label: string }[] = [
  * from which chapter, then "Make draft". Everything detailed starts collapsed
  * under Adjust. Funza drafts; the teacher reviews and approves on the next screen.
  */
-export function MakeBrief({ courses, chapters, initialPrompt, initialCourseId, initialChapterId }: { courses: TeacherCourse[]; chapters: Record<string, ChapterChoice[]>; initialPrompt: string; initialCourseId: string | null; initialChapterId: string | null }) {
+export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, initialCourseId, initialChapterId }: { courses: TeacherCourse[]; chapters: Record<string, ChapterChoice[]>; sources?: Record<string, { id: string; title: string }[]>; initialPrompt: string; initialCourseId: string | null; initialChapterId: string | null }) {
   const router = useRouter();
   const ws = useWorkspace();
   const { brief, generation, ai } = ws;
@@ -112,6 +113,16 @@ export function MakeBrief({ courses, chapters, initialPrompt, initialCourseId, i
     const next = brief.outcomeIds.includes(id) ? brief.outcomeIds.filter((x) => x !== id) : [...brief.outcomeIds, id];
     if (next.length === 0) return;
     patchBrief({ outcomeIds: next });
+  }
+
+  /** A source already attached to one of the chosen chapters, used as the teacher's notes. */
+  const chapterSources = useMemo(() => chapterIds.flatMap((id) => sources[id] ?? []).slice(0, 4), [chapterIds, sources]);
+  async function pickSource(id: string) {
+    setAttachError(null);
+    const res = await sourceText(id);
+    if (!res.ok) return setAttachError(res.message);
+    patchBrief({ material: { name: res.title.slice(0, 120), use: "source", text: res.text.slice(0, 60000) } });
+    setChips((c) => (c.includes("notes") ? c : [...c, "notes"]));
   }
 
   async function attach(file: File) {
@@ -201,7 +212,14 @@ export function MakeBrief({ courses, chapters, initialPrompt, initialCourseId, i
                       <X aria-hidden size={14} />
                     </button>
                   </span>
-                ) : null}
+                ) : (
+                  chapterSources.map((s) => (
+                    <button key={s.id} type="button" onClick={() => void pickSource(s.id)} title="Use this chapter source as your notes" className="inline-flex h-8 max-w-[240px] items-center gap-1.5 rounded-full border border-ink/12 bg-white/60 px-3 text-meta font-semibold text-ink hover:bg-white pointer-coarse:h-11">
+                      <FileText aria-hidden size={14} className="shrink-0" />
+                      <span className="truncate">Use {s.title}</span>
+                    </button>
+                  ))
+                )}
                 <input ref={fileRef} type="file" accept=".pdf,.txt,.md,application/pdf,text/plain" className="sr-only" tabIndex={-1} onChange={(e) => e.target.files?.[0] && attach(e.target.files[0])} />
                 <button type="button" onClick={() => fileRef.current?.click()} className="inline-flex h-8 items-center gap-1.5 rounded-full px-2 text-meta font-semibold text-ink-2 hover:bg-ink/5 pointer-coarse:h-11">
                   <Paperclip aria-hidden size={16} strokeWidth={1.5} />

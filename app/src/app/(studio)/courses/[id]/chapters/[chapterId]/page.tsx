@@ -1,4 +1,4 @@
-import { FileUp, Layers, Radio, Sparkles, Target } from "lucide-react";
+import { Layers, Radio, Sparkles, Target } from "lucide-react";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/shell/PageHeader";
 import { ButtonLink } from "@/components/ui/Button";
@@ -11,21 +11,22 @@ import { idSchema } from "@/lib/courses/model";
 import { QTYPE_LABEL } from "@/lib/resources/kinds";
 import type { QType } from "@/lib/resources/types";
 import { Materials } from "../../../Materials";
+import { ChapterSources } from "./ChapterSources";
 
 export const metadata = { title: "Chapter" };
 
 /**
  * P2 A chapter (Figma F2): its materials, the curriculum outcomes it covers with
- * their official wording, and its question bank. Sources and live sessions arrive
- * with their steps.
+ * their official wording, its question bank and its sources. Live sessions arrive
+ * with Live mode.
  */
 export default async function ChapterPage({ params }: { params: Promise<{ id: string; chapterId: string }> }) {
   const { id, chapterId } = await params;
-  await requireTeacher({ next: `/courses/${encodeURIComponent(id)}/chapters/${encodeURIComponent(chapterId)}` });
+  const { teacher } = await requireTeacher({ next: `/courses/${encodeURIComponent(id)}/chapters/${encodeURIComponent(chapterId)}` });
   if (!idSchema.safeParse(id).success || !idSchema.safeParse(chapterId).success) notFound();
   const detail = await chapterDetail(id, chapterId);
   if (!detail) notFound();
-  const { course, chapter, index, total, materials, outcomes, questions } = detail;
+  const { course, chapter, index, total, materials, outcomes, questions, sources } = detail;
   const makeHref = course.curriculumCourseId ? `/make?course=${course.id}&chapter=${chapter.id}` : null;
 
   const byType = new Map<string, number>();
@@ -91,12 +92,7 @@ export default async function ChapterPage({ params }: { params: Promise<{ id: st
             )}
           </Card>
 
-          <Card className="flex flex-col gap-3 px-6 pt-5 pb-5" aria-labelledby="sources-title">
-            <CardHeader id="sources-title" title="Sources" />
-            <EmptyState icon={FileUp} title="Adding sources arrives next">
-              Notes, PDFs and past exams attached to this chapter. For now, attach a file in Make.
-            </EmptyState>
-          </Card>
+          <ChapterSources teacherId={teacher.id} chapterId={chapter.id} sources={sources} />
 
           <Card className="flex flex-col gap-3 px-6 pt-5 pb-5" aria-labelledby="live-title">
             <CardHeader id="live-title" title="Live sessions" />

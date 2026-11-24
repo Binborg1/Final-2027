@@ -1,7 +1,5 @@
 "use client";
 
-import type { Section } from "@/lib/resources/types";
-
 /** Browser calls to the Google Classroom routes. Tokens never reach the browser. */
 
 export type LmsResult<T> = { ok: true; data: T } | { ok: false; reason: string; message: string };
@@ -32,8 +30,8 @@ export const lmsClasses = () => call<LmsClass[]>("/api/lms/google/classes");
 export const lmsTopics = (courseId: string) => call<{ id: string; name: string }[]>(`/api/lms/google/topics?course=${encodeURIComponent(courseId)}`);
 export const lmsDisconnect = () => call<null>("/api/lms/google/disconnect", { method: "POST", body: "{}" });
 
-export const lmsCreateDoc = (doc: { kind: string; title: string; version: number; courseName: string; outcomeCodes: string[]; duration: number | null; school: string; sections: Section[] }) =>
-  call<{ id: string; link: string | null }>("/api/lms/google/doc", { method: "POST", body: JSON.stringify(doc) });
+/** The server builds the Doc from the material's saved, approved version; only its id is sent. */
+export const lmsCreateDoc = (doc: { resourceId: string }) => call<{ id: string; link: string | null }>("/api/lms/google/doc", { method: "POST", body: JSON.stringify(doc) });
 
 export const lmsPost = (p: { courseId: string; fileId: string; kind: "material" | "assignment"; title: string; description: string; state: "DRAFT" | "PUBLISHED"; topicId?: string; scheduledTime?: string }) =>
   call<{ id: string; link: string | null; state: string }>("/api/lms/google/post", { method: "POST", body: JSON.stringify(p) });
