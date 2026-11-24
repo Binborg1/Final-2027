@@ -1,6 +1,8 @@
 # Funza development steps
 
-**Funza Teacher Studio · v0.2 · 21 November 2026**
+**Funza Teacher Studio · v0.3 · 23 November 2026**
+
+*Changed in v0.3: teacher sign-in is Google, or email and password, instead of an email link (step 3).*
 
 This is the order in which Funza gets built, from creating accounts to the final release. Each step lists what to do and how to know it's done. The *why* behind each choice is in [requirements and architecture](../03_design/02_requirements_and_architecture/requirements_and_architecture.md); the product is summarized in the [repo README](../../README.md).
 
@@ -11,7 +13,7 @@ This is the order in which Funza gets built, from creating accounts to the final
 | Website and backend | **Vercel**, the existing Pro team "Aubino Chris' projects" (no new cost) | One Next.js app in `app/`. Its API routes are the Node.js backend. Functions run in Montréal (`yul1`). |
 | Database | **Supabase Postgres**, Canada (Central) | Courses, chapters, drafts, versions, templates, question bank, live sessions, answers, AI usage. Row-level security on every table. |
 | Files | **Supabase Storage**, Canada (Central) | Uploaded PDFs, past exams, images. |
-| Teacher sign-in | **Supabase Auth** | Google, or a link sent by email. Students never sign in. |
+| Teacher sign-in | **Supabase Auth** | Google, or email and password. Students never sign in. |
 | Live updates | **Supabase Realtime** | One channel per live session; pings only. |
 | AI | **Gemini API** | Called only by the server, through `app/src/lib/ai/server.ts`. |
 | Publishing | **Google Classroom API**, course page, print | Classroom works today. |
@@ -101,16 +103,22 @@ Still open, and scheduled below: sign-in on `/api/teach` and the Classroom route
 
 ## Step 3. Teacher sign-in (23 Nov)
 
-1. ✅ Build the sign-in page (Google, or an email link) and the callback route. *Built on branch `sign-in`: `/sign-in`, `/auth/callback` (Google), `/auth/confirm` (email link, works across devices), `/auth/sign-out`.*
+1. ✅ Build the sign-in page and the callback routes. *Built on branch `sign-in`: `/sign-in`, `/auth/callback` (Google), `/auth/confirm`, `/auth/sign-out`.*
+   - ✅ **Changed 23 Nov:** Google stays the first button. Below it is an email and password form with "Create account" and "Forgot password?". The email sign-in link is gone. Passwords need at least 8 characters, checked in the page, in the server and by Supabase.
+   - `/auth/confirm` takes the two links Funza emails: confirm a new account, and reset a password. Both work across devices. A reset link opens `/new-password` ("Choose a new password"), which Settings also links to as "Change password".
 2. ✅ Protect teacher pages so they need a session. Student pages stay public. *`src/proxy.ts` refreshes the session and redirects signed-out visitors; every page, Server Function and API route checks again itself (`src/lib/auth/`). Public: sign-in, `/auth/*`, `/join`, `/play/*`, `/c/*`, `/api/health`, `/api/curriculum/*`.*
 3. ✅ On first sign-in, create the `teachers` row and show first-time setup: grades, subjects and courses.
 4. ✅ `/api/teach` and every `/api/lms/google/*` route answer 401 without a signed-in teacher.
 5. ✅ Tie the Classroom cookie to the teacher: seal the teacher's id into it, refuse it for anyone else, and delete it on sign-out.
 6. Only after this step is merged, add the Gemini development key to Vercel's *Preview* environment.
+7. Supabase settings on the development project (dashboard):
+   - ✅ Authentication → URL Configuration (set 23 Nov): Site URL `https://funza-rose.vercel.app`; Redirect URLs `https://funza-rose.vercel.app/**`, `http://localhost:3000/**` and `https://*-aubino-chris-projects.vercel.app/**`.
+   - Authentication → Sign In / Providers → Email: Email on, minimum password length **8**, "Confirm email" **off** for the bazaar so a visitor can make an account on the spot.
+   - Authentication → Emails: the "Confirm signup" template links to `{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=email`, and "Reset password" to `{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=recovery`. The "Magic link" template is no longer used.
 
 Also in this step: the F · Oak design system and page shell ([UI design](../03_design/03_ui_design/ui_design.md)), Home, Settings, and Make (brief, draft, review, approve) on the new design. Drafts stay in the browser, now kept per teacher, until step 4.
 
-**Done when:** you can sign in on the Vercel preview and land on an empty Home, and a signed-out request to `/api/teach` gets 401.
+**Done when:** you can sign in on the Vercel preview with Google, or create an email and password account, and land on an empty Home; a forgotten password can be reset from the sign-in page; and a signed-out request to `/api/teach` gets 401.
 
 **Bazaar (24 Nov):** show the plan documents, plus sign-in and Make working on the deployed app.
 
@@ -168,6 +176,7 @@ Also in this step: the F · Oak design system and page shell ([UI design](../03_
    - No answer key appears before Reveal.
 3. Test on iPhone Safari, Android Chrome and a Chromebook, and on a school-like network.
 4. Apply the migrations to `funza-prod`, merge to `main`, and check the production deployment.
+5. In `funza-prod`, set up a custom SMTP sender (for example Resend) and turn "Confirm email" on, so confirmation and reset emails reach any teacher, and nobody can make an account with an address that isn't theirs.
 
 **Done when:** production runs a full live session and a full Prepare flow. **1 December: Release 1 and Vlog 2.**
 

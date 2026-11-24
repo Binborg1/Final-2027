@@ -14,7 +14,7 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
   return (
     <div className="flex flex-col gap-5">
       <PageHeader title="Settings" summary="Your account, Google Classroom and how Funza looks after student data." />
-      <SettingsCards teacher={teacher} curriculum={curriculum} classroomConfigured={!!googleConfig()} lmsResult={typeof sp.lms === "string" ? sp.lms : null} />
+      <SettingsCards teacher={teacher} curriculum={curriculum} classroomConfigured={!!googleConfig()} lmsResult={typeof sp.lms === "string" ? sp.lms : null} passwordSaved={sp.password === "saved"} />
       <TabDock
         tabs={[
           { id: "profile", label: "Profile" },

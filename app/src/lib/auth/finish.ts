@@ -6,8 +6,10 @@ import { ensureTeacherRow } from "@/lib/auth/teacher-row";
 import type { Database } from "@/lib/db/types";
 
 /**
- * The end of both sign-in routes (Google callback and email link): make sure the
- * teacher row exists, then go to setup if it isn't finished, or to `next`.
+ * The end of both sign-in routes (Google callback, and the confirm and reset
+ * links from email): make sure the teacher row exists, then go to setup if it
+ * isn't finished, or to `next`. A password reset skips setup and goes straight to
+ * /new-password; setup follows once the new password is saved.
  * Failures go back to sign-in with a short code the page turns into a sentence;
  * provider text never reaches the page.
  */
@@ -30,10 +32,10 @@ export function errorCode(e: { code?: string | null; error?: string | null; mess
   return "failed";
 }
 
-export async function finishSignIn(request: NextRequest, supabase: SupabaseClient<Database>, user: User, next: string | null) {
+export async function finishSignIn(request: NextRequest, supabase: SupabaseClient<Database>, user: User, next: string | null, options: { skipSetup?: boolean } = {}) {
   try {
     const row = await ensureTeacherRow(supabase, user);
-    const to = row.setup_done_at ? safeNext(next) : "/setup";
+    const to = row.setup_done_at || options.skipSetup ? safeNext(next) : "/setup";
     return NextResponse.redirect(new URL(to, request.url));
   } catch (error) {
     console.error("Sign-in: could not prepare the teacher row:", error instanceof Error ? error.message : "unknown error");

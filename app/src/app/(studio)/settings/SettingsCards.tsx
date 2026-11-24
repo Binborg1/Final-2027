@@ -1,6 +1,7 @@
 "use client";
 
 import { Check, CircleAlert, CircleCheck, GraduationCap, LogOut, PenLine } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition, type ReactNode } from "react";
 import { Avatar } from "@/components/shell/Avatar";
@@ -24,11 +25,11 @@ const LMS_RESULT: Record<string, { tone: "ok" | "bad"; text: string }> = {
   "not-configured": { tone: "bad", text: "Google Classroom isn’t set up on this Funza server." },
 };
 
-export function SettingsCards({ teacher, curriculum, classroomConfigured, lmsResult }: { teacher: Teacher; curriculum: CurriculumCourse[]; classroomConfigured: boolean; lmsResult: string | null }) {
+export function SettingsCards({ teacher, curriculum, classroomConfigured, lmsResult, passwordSaved = false }: { teacher: Teacher; curriculum: CurriculumCourse[]; classroomConfigured: boolean; lmsResult: string | null; passwordSaved?: boolean }) {
   return (
     <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-2">
       <div className="flex flex-col gap-4">
-        <ProfileCard teacher={teacher} curriculum={curriculum} />
+        <ProfileCard teacher={teacher} curriculum={curriculum} passwordSaved={passwordSaved} />
       </div>
       <div className="flex flex-col gap-4">
         <ClassroomCard configured={classroomConfigured} result={lmsResult ? LMS_RESULT[lmsResult] ?? LMS_RESULT.error : null} />
@@ -47,12 +48,12 @@ function Row({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-function ProfileCard({ teacher, curriculum }: { teacher: Teacher; curriculum: CurriculumCourse[] }) {
+function ProfileCard({ teacher, curriculum, passwordSaved }: { teacher: Teacher; curriculum: CurriculumCourse[]; passwordSaved: boolean }) {
   const router = useRouter();
   const [editing, setEditing] = useState(false);
   const [form, setForm] = useState({ name: teacher.name, school: teacher.school, grades: teacher.grades, subjects: teacher.subjects });
   const [error, setError] = useState<string | null>(null);
-  const [saved, setSaved] = useState(false);
+  const [saved, setSaved] = useState<string | null>(passwordSaved ? "Your new password is saved." : null);
   const [pending, start] = useTransition();
   const subjects = useMemo(() => subjectOptions(curriculum, form.grades), [curriculum, form.grades]);
   const toggle = <T,>(list: T[], v: T) => (list.includes(v) ? list.filter((x) => x !== v) : [...list, v]);
@@ -63,7 +64,7 @@ function ProfileCard({ teacher, curriculum }: { teacher: Teacher; curriculum: Cu
       if (!res.ok) return setError(res.message);
       setError(null);
       setEditing(false);
-      setSaved(true);
+      setSaved("Saved.");
       router.refresh();
     });
 
@@ -74,7 +75,7 @@ function ProfileCard({ teacher, curriculum }: { teacher: Teacher; curriculum: Cu
         title="Profile"
         actions={
           !editing ? (
-            <Button variant="ghost" size="sm" icon={PenLine} onClick={() => { setEditing(true); setSaved(false); }}>
+            <Button variant="ghost" size="sm" icon={PenLine} onClick={() => { setEditing(true); setSaved(null); }}>
               Edit
             </Button>
           ) : null
@@ -89,7 +90,7 @@ function ProfileCard({ teacher, curriculum }: { teacher: Teacher; curriculum: Cu
       </div>
       {saved ? (
         <p role="status" className="flex items-center gap-2 text-body font-semibold text-sage-ink">
-          <CircleCheck aria-hidden size={16} /> Saved.
+          <CircleCheck aria-hidden size={16} /> {saved}
         </p>
       ) : null}
       {editing ? (
@@ -138,7 +139,18 @@ function ProfileCard({ teacher, curriculum }: { teacher: Teacher; curriculum: Cu
       ) : (
         <div className="flex flex-col">
           <Row label="Email">{teacher.email ?? "None"}</Row>
-          <Row label="Signs in with">{teacher.provider === "google" ? "Google" : "Email link"}</Row>
+          <Row label="Signs in with">
+            {teacher.provider === "google" ? (
+              "Google"
+            ) : (
+              <span className="flex items-center justify-between gap-3">
+                Email and password
+                <Link href="/new-password" className="shrink-0 rounded-sm font-semibold text-accent-ink hover:underline focus-visible:outline-2 focus-visible:outline-accent">
+                  Change password
+                </Link>
+              </span>
+            )}
+          </Row>
           <Row label="School">{teacher.school || "Not set"}</Row>
           <Row label="Grades">{gradesLabel(teacher.grades) || "Not set"}</Row>
           <Row label="Subjects">{teacher.subjects.join(", ") || "Not set"}</Row>
