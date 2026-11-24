@@ -75,13 +75,13 @@ The old model spent most of each reply's length limit thinking, so long replies 
 - [ ] **Check the Wi-Fi**, or bring a phone hotspot.
 - [ ] **Use made-up names and answers.** The site uses the development database.
 
-## The demo (slide 13)
+## The demo (slide 14)
 
 Aubin drives and Chop narrates. The times are when each step should be finished. The whole run takes about 3:10, against 2:50 on the slide plan: take 20 seconds from the slides, or skip **See results** at the end.
 
 | # | By | Do | Say |
 |---|---|---|---|
-| 1 | 0:15 | Open **Courses**, click **Add a course**, choose **Grade 10** and **Science 10**, and add it. Point at the four chapters. | "A teacher picks the course they teach. The chapters come straight from the Saskatchewan curriculum." |
+| 1 | 0:15 | On Home, click **Add a course**. Type **Science 10** in the search box, choose it, click **Add course**, then **Open course**. Point at the four chapters. | "A teacher picks the course they teach. The chapters come straight from the Saskatchewan curriculum." |
 | 2 | 1:05 | Open **Make**. Choose **Quiz** and the chapter **Force and Motion in Our World**. In **Format**, click **Template**, then **New template**. Drop **Quiz 4 Chemical Reactions.pdf** in the box and click **Read the format**. It takes about 2 seconds. Point at the two parts Funza found, then click **Save template**. | "Teachers already have their own quiz format. They upload an old quiz once, and Funza learns its layout: the parts, the question types and the marks." |
 | 3 | 1:15 | Back in Make, the new template is chosen. Click **Make draft**. It takes about 3 seconds. | "Funza writes a new quiz on Force and Motion in the teacher's own format." |
 | 4 | 1:40 | In Review, open the calculation and point at the answer and the outcome code. Click **I’ve checked this** on both questions, then **Approve** and **Approve version 1**. | "Nothing is approved until the teacher has checked every part." |
