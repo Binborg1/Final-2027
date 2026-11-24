@@ -13,8 +13,8 @@ export function RevealOptions({ q, large = false }: { q: Pick<ConsoleQuestion, "
           return (
             <li key={o.id} className={cn("rounded-card border px-5 py-3", right ? "border-sage bg-sage-tint" : "border-white/80 bg-raised")}>
               <div className="flex items-center gap-3">
-                {right ? <CircleCheck aria-hidden size={large ? 30 : 20} className="shrink-0 text-sage" /> : null}
-                <span className={cn("flex-1 font-bold", large ? "text-hero" : "text-card")}>{o.text}</span>
+                {right ? <CircleCheck aria-hidden size={large ? 24 : 20} className="shrink-0 text-sage" /> : null}
+                <span className={cn("flex-1 font-bold", large ? "text-[24px] leading-[30px]" : "text-card")}>{o.text}</span>
                 {right ? <span className={cn("rounded-full bg-sage px-3 py-1 font-semibold text-white", large ? "text-card-sm" : "text-meta")}>Correct answer</span> : null}
               </div>
               <div className="mt-2 flex items-center gap-3">
@@ -32,13 +32,13 @@ export function RevealOptions({ q, large = false }: { q: Pick<ConsoleQuestion, "
   return (
     <div className="flex flex-col gap-3">
       <div className="rounded-card border border-sage bg-sage-tint px-5 py-4">
-        <p className={cn("font-semibold text-sage-ink", large ? "text-card" : "text-meta")}>Answer</p>
-        <p className={cn("font-bold", large ? "text-hero" : "text-card")}>{q.key}</p>
+        <p className={cn("font-semibold text-sage-ink", large ? "text-card-sm" : "text-meta")}>Answer</p>
+        <p className={cn("font-bold", large ? "text-[24px] leading-[30px]" : "text-card")}>{q.key}</p>
       </div>
       {q.commonWrong ? (
         <div className="rounded-card border border-white/80 bg-raised px-5 py-4">
           <p className={cn("font-semibold text-ink-2", large ? "text-card" : "text-meta")}>Most common wrong answer · {q.commonWrong.percent}%</p>
-          <p className={cn("font-bold", large ? "text-title-sm" : "text-card")}>{q.commonWrong.text}</p>
+          <p className={cn("font-bold", large ? "text-section" : "text-card")}>{q.commonWrong.text}</p>
         </div>
       ) : null}
     </div>

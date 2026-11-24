@@ -115,12 +115,12 @@ export function Projector({ initial, courseTitle, qr }: { initial: ScreenSnapsho
               ))}
             </span>
           </div>
-          <p className="text-display font-bold">{questions[index].stem}</p>
+          <p className="text-title-sm font-bold">{questions[index].stem}</p>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
             <RevealOptions q={{ ...questions[index], commonWrong: null }} large />
             <div className="flex flex-col justify-center rounded-card bg-raised px-8 py-8">
-              <p className="text-[96px] leading-none font-bold tabular-nums">{questions[index].percentRight ?? 0}%</p>
-              <p className="mt-4 text-title-sm font-medium">of the class got it right</p>
+              <p className="text-[72px] leading-none font-bold tabular-nums">{questions[index].percentRight ?? 0}%</p>
+              <p className="mt-3 text-section font-medium">of the class got it right</p>
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4 text-card-sm font-medium text-ink-2">

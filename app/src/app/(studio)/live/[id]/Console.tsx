@@ -542,11 +542,11 @@ function Revealed({ snap, crumbs, busy, onProjector, onStep, onMark, onUndo, onR
               </button>
             </span>
           </div>
-          <p className="text-hero font-bold">{q.stem}</p>
+          <p className="text-[26px] leading-[32px] font-bold">{q.stem}</p>
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_260px]">
             <RevealOptions q={q} />
             <div className="flex flex-col justify-center rounded-card bg-raised px-6 py-5">
-              <p className="text-display font-bold tabular-nums">{q.percentRight ?? 0}%</p>
+              <p className="text-title-sm font-bold tabular-nums">{q.percentRight ?? 0}%</p>
               <p className="text-card-sm font-medium">of the class got it right</p>
             </div>
           </div>
