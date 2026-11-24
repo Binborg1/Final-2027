@@ -84,6 +84,7 @@ Course stage: Development Workshops 1–3 and the weekly scrums (from 27 October
 | 4.4 | Code quality review report | `04_development/03_code_quality_review.md` | What was reviewed, against which checklist, what was found and fixed | ENSE 477 | |
 | 4.5 | Concepts from the earlier app | [`04_development/04_concepts_from_the_earlier_app.md`](04_development/04_concepts_from_the_earlier_app.md) | The features of the removed screens and code, to implement in Teacher Studio, with where the code is in git | Done (v0.1, 21 Nov) | |
 | 4.6 | Library | [`04_development/05_library.md`](04_development/05_library.md) | The Library feature: decisions, logic (what is in it, which version shows), data (no schema change; queries and row-level security), UI, code and "done when" | Done (v0.3, 24 Nov: course cards first; v0.2: deleting materials and chapters; v0.1 built the same day) | |
+| 4.7 | Live history | [`04_development/06_live_history.md`](04_development/06_live_history.md) | Past live sessions: decisions, logic (what is kept and for how long, numbers that stay the same after the 30-day clean-up, ending, sessions left open, deleting, Run again), how the screens connect, UI, data (migration, functions, jobs), privacy, cases, code, tests and "done when" | Planned (v0.1, 24 Nov), not built yet | |
 
 ## 5. Testing: [`05_testing/`](05_testing/)
 
