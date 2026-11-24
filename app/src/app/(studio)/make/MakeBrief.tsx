@@ -299,10 +299,12 @@ export function MakeBrief({
   const newTemplateHref = `/templates/new?category=${category}&return=${encodeURIComponent(`/make?${back.toString()}`)}`;
 
   return (
-    <div className="flex flex-col gap-[22px]">
+    // On wide screens the Format panel is its own glass layer on the right, like the sidebar on the left;
+    // the page keeps clear of it.
+    <div className="flex flex-col gap-[22px] xl:pr-[364px]">
       <PageHeader crumbs={crumbs} title="What do you want to make?" size="title-sm" />
 
-      <div className="grid grid-cols-1 items-start gap-5 xl:grid-cols-[minmax(0,1fr)_372px]">
+      <div className="grid grid-cols-1 items-start gap-5">
         {/* The Make box */}
         <section aria-label="Your brief" className="flex flex-col gap-5 rounded-box border border-white/60 bg-surface p-7 shadow-box max-sm:p-4">
           {busy || generation.state === "failed" || generation.state === "cancelled" ? (
@@ -432,7 +434,15 @@ export function MakeBrief({
         </section>
 
         {/* Format (Adjust or a template) and "Funza will use": on wide screens one panel that scrolls on its own */}
-        <aside className={cn("flex flex-col gap-4 xl:sticky xl:top-4 xl:max-h-[calc(100dvh-140px)] xl:overflow-y-auto xl:overscroll-contain xl:pr-1 [scrollbar-width:thin]", busy && "pointer-events-none opacity-60")}>
+        <aside
+          aria-label="Format and what Funza will use"
+          className={cn(
+            "flex flex-col gap-4",
+            // Wide screens: a fixed glass panel from the top of the workspace to its bottom, scrolling on its own.
+            "xl:frost xl:frost-sidebar xl:scrollbar-thin xl:fixed xl:top-[84px] xl:right-6 xl:bottom-6 xl:z-20 xl:w-[380px] xl:overflow-y-auto xl:overscroll-contain xl:rounded-panel xl:border xl:border-white/45 xl:p-4 xl:pb-5 xl:shadow-sidebar",
+            busy && "pointer-events-none opacity-60",
+          )}
+        >
           <FormatPanel
             mode={formatMode}
             onMode={chooseMode}

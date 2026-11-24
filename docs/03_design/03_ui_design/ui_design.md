@@ -343,7 +343,7 @@ Templates are the teacher's own formats. Funza copies how they're made, never wh
   - **Pinned questions** (quizzes, tests and exams), collapsed: each pin shows its section letter, the start of the question, its type and marks, and an unpin button. To add one, choose a chapter, a question from its bank, then a section that asks for that type, and press **Pin it**. Every material from the template includes pinned questions unchanged, and Funza writes the rest of the section around them.
   - **Buttons:** **Save changes** (enabled only when something changed), Use in Make (secondary), Duplicate (ghost), and Delete template (ghost, with a confirm dialog).
 - **The list:** each row also has a Duplicate button ("… (copy)").
-- **Make's Format panel:** the right column is one panel. On wide screens it is sticky and scrolls on its own, so the Make box stays in place.
+- **Make's Format panel:** the right column is one panel. On wide screens (1280 px and up) it is its own glass layer, like the sidebar: from the top of the workspace to its bottom, with the same rounded corners, overlapping the workspace's right edge and scrolling on its own. The page keeps clear of it, so the Make box stays in place.
   - **Header:** the title, the switch **(Adjust) (Template)** and one value line.
   - **Adjust:** today's collapsed rows.
   - **Template:** the category's templates as choices. The chosen one has the selected recipe (tint, terracotta border, check) and shows its skeleton. Below are "+ New template" and Manage.
