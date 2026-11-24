@@ -10,5 +10,6 @@ How Funza is built, and how the work is going week by week. The code is in [`app
 | 04 | [Concepts from the earlier app](04_concepts_from_the_earlier_app.md): features of the removed screens and code, to implement later | v0.1, 21 Nov 2026 |
 | 05 | [Library](05_library.md): every approved material by course, with its versions, read-only; the plan, logic, data and UI | v0.3, 24 Nov 2026: course cards first; v0.2: deleting materials and chapters |
 | 06 | [Live history](06_live_history.md): past live sessions by course, their quizzes, each student's answers (30 days) and the class's results (kept); the plan, logic, screens, data and UI | v0.1, 24 Nov 2026: planned, not built yet |
+| 07 | [Modify my existing material](07_modify_existing_material.md): Word and PowerPoint sources, importing a quiz to edit, copying a material or a course; the plan, logic, data and order | v0.1, 24 Nov 2026: planned, not built yet |
 
 What each must contain, and its status, is in the [document tracker](../document_tracker.md#4-development-04_development).
