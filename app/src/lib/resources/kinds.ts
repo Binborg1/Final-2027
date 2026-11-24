@@ -109,5 +109,11 @@ export function defaultBrief(kind: ResourceKind = "quiz", outcomeIds: string[] =
     instructions: "",
     courseId: null,
     chapterIds: [],
+    templateId: null,
+    layout: null,
+    parts: null,
+    style: null,
+    drafted: null,
+    pinned: null,
   };
 }

@@ -43,6 +43,39 @@ export function blueprintOf(b: Brief): Blueprint {
   if (b.outcomeIds.length === 0) warnings.push("Choose at least one curriculum outcome.");
   if (b.material) includes.push(`Uses your file “${b.material.name}” as ${b.material.use === "source" ? "the source" : "ideas"}`);
 
+  if (isQuestionKind(b.kind) && b.layout && b.layout.length > 0) {
+    // A template's layout: its sections in order, and totals added up from its rows.
+    const rows = b.layout.flatMap((s) => s.rows);
+    const questions = rows.reduce((n, r) => n + r.count, 0);
+    const marks = rows.reduce((n, r) => n + r.count * r.marks, 0);
+    const est = Math.round(rows.reduce((n, r) => n + r.count * MINUTES_PER[r.type], 0));
+    const split = PRESETS[b.difficulty].split;
+    const per = b.outcomeIds.length > 0 ? marks / b.outcomeIds.length : 0;
+    const spec = b.outcomeIds.map((id) => {
+      const cells = split.map((s) => Math.round((per * s) / 100)) as [number, number, number];
+      return { outcomeId: id, code: codeOf(id), cells, total: cells[0] + cells[1] + cells[2] };
+    });
+    includes.push("Follows your template");
+    if (b.answerKey) includes.push("Answer key, kept for you only");
+    if (b.workedSolutions && rows.some((r) => r.type === "calc")) includes.push("Worked solutions for calculations");
+    if (b.rubric && rows.some((r) => r.type === "short" || r.type === "long")) includes.push("Marking rubric for written answers");
+    if (est > b.duration) warnings.push(`About ${est} minutes of work for a ${b.duration}-minute sitting. Consider fewer questions.`);
+    return {
+      sentence: `A ${b.duration}-minute ${info.label.toLowerCase()} for ${courseText} on ${codeText}, in your template's format: ${questions} questions, ${marks} marks.`,
+      parts: b.layout.map((s, i) => ({
+        title: `${String.fromCharCode(65 + i)} · ${s.title}`,
+        detail: s.rows.map((r) => `${r.count} ${QTYPE_LABEL[r.type].toLowerCase()} × ${r.marks} mark${r.marks === 1 ? "" : "s"}`).join(" · "),
+        marks: s.rows.reduce((n, r) => n + r.count * r.marks, 0),
+      })),
+      questions,
+      marks,
+      estMinutes: est,
+      spec,
+      includes,
+      warnings,
+    };
+  }
+
   if (isQuestionKind(b.kind)) {
     const rows = b.mix.filter((r) => r.count > 0);
     const questions = rows.reduce((n, r) => n + r.count, 0);
@@ -76,7 +109,11 @@ export function blueprintOf(b: Brief): Blueprint {
   }
 
   const style = NOTES_STYLES.find((s) => s.id === b.notesStyle)!;
-  const sections = b.outcomeIds.map((id) => ({ title: codeOf(id), detail: NOTES[id] ? NOTES[id].map((n) => n.title).join(" · ") : "Sections written for this outcome", marks: null }));
+  const sections =
+    b.parts && b.parts.length > 0
+      ? b.parts.map((p) => ({ title: p.title, detail: p.detail || "From your template", marks: null }))
+      : b.outcomeIds.map((id) => ({ title: codeOf(id), detail: NOTES[id] ? NOTES[id].map((n) => n.title).join(" · ") : "Sections written for this outcome", marks: null }));
+  if (b.parts && b.parts.length > 0) includes.push("Follows your template");
   if (b.kind === "presentation") {
     if (b.speakerNotes) includes.push("Speaker notes on every slide");
     return {

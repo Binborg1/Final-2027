@@ -3,7 +3,8 @@
 import { revalidatePath } from "next/cache";
 import { teacherForAction } from "@/lib/auth/teacher";
 import { addCourseSchema, idSchema, moved, nameSchema } from "@/lib/courses/model";
-import { seedChapters } from "@/lib/courses/server";
+import { curriculumSeeds, seedChapters } from "@/lib/courses/server";
+import { missingSeeds, seedKey } from "@/lib/courses/seed";
 import { loadDataset } from "@/lib/curriculum/dataset";
 import { levelTitle } from "@/lib/teachers/setup";
 
@@ -149,7 +150,11 @@ export async function moveChapter(chapterId: unknown, direction: unknown): Promi
   return { ok: true };
 }
 
-/** Deletes a chapter. Its bank questions stay, retired; materials made from it keep their other chapters. */
+/**
+ * Deletes a chapter from the teacher's course, for good. Only their own row goes: the
+ * curriculum doesn't change, and a curriculum chapter can be brought back with
+ * restoreChapters. Its bank questions stay, retired; materials made from it are kept.
+ */
 export async function deleteChapter(chapterId: unknown): Promise<Result> {
   const current = await teacherForAction();
   if (!current) return SIGNED_OUT;
@@ -161,5 +166,41 @@ export async function deleteChapter(chapterId: unknown): Promise<Result> {
     return FAILED;
   }
   refresh(data?.course_id);
+  return { ok: true };
+}
+
+/**
+ * "Bring back curriculum chapters": adds back the chosen curriculum chapters the
+ * teacher deleted from this course, at the end, in curriculum order. The chapters
+ * come from the curriculum again (the curriculum itself never changes); their old
+ * questions stay retired in the bank.
+ */
+export async function restoreChapters(courseId: unknown, keys: unknown): Promise<Result> {
+  const current = await teacherForAction();
+  if (!current) return SIGNED_OUT;
+  const id = idSchema.safeParse(courseId);
+  if (!id.success) return { ok: false, message: "That course wasn’t found." };
+  const chosen = new Set(Array.isArray(keys) ? keys.filter((k): k is string => typeof k === "string" && k.length <= 260).slice(0, MAX_CHAPTERS) : []);
+  if (chosen.size === 0) return { ok: false, message: "Choose at least one chapter to bring back." };
+  const { supabase, teacher } = current;
+
+  const [course, chapters] = await Promise.all([
+    supabase.from("courses").select("id, curriculum_course_id, level").eq("id", id.data).maybeSingle(),
+    supabase.from("chapters").select("title, source_ref, position").eq("course_id", id.data),
+  ]);
+  if (course.error || chapters.error) return FAILED;
+  if (!course.data) return { ok: false, message: "That course wasn’t found." };
+  const back = missingSeeds(curriculumSeeds(course.data), chapters.data.map((c) => ({ title: c.title, sourceRef: c.source_ref }))).filter((s) => chosen.has(seedKey(s)));
+  if (back.length === 0) return { ok: true }; // already back (another tab, or a double click)
+  if (chapters.data.length + back.length > MAX_CHAPTERS) return { ok: false, message: `A course can have up to ${MAX_CHAPTERS} chapters.` };
+
+  const start = chapters.data.reduce((m, c) => Math.max(m, c.position + 1), 0);
+  const rows = back.map((s, i) => ({ teacher_id: teacher.id, course_id: id.data, title: s.title, position: start + i, source_kind: s.source_kind, source_ref: s.source_ref, outcome_refs: s.outcome_refs }));
+  const { error } = await supabase.from("chapters").insert(rows);
+  if (error && error.code !== "23505") {
+    console.error("Bringing back chapters failed:", error.message);
+    return FAILED;
+  }
+  refresh(id.data);
   return { ok: true };
 }

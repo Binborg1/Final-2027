@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDown, ArrowUp, Check, CircleAlert, PenLine, Plus, Trash2, X } from "lucide-react";
+import { ArrowDown, ArrowUp, Check, CircleAlert, PenLine, Plus, RotateCcw, Trash2, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
@@ -8,14 +8,19 @@ import { Button } from "@/components/ui/Button";
 import { Card, CardHeader } from "@/components/ui/Card";
 import { CountPill } from "@/components/ui/Chip";
 import { Dialog } from "@/components/ui/Dialog";
-import { Input } from "@/components/ui/Field";
-import { addChapter, deleteChapter, moveChapter, renameChapter, type Result } from "@/lib/courses/actions";
+import { Checkbox, Input } from "@/components/ui/Field";
+import { addChapter, deleteChapter, moveChapter, renameChapter, restoreChapters, type Result } from "@/lib/courses/actions";
+import type { RemovedChapter } from "@/lib/courses/data";
 import { cn } from "@/lib/ui/cn";
 
 export type ChapterItem = { id: string; title: string; outcomes: number; fromCurriculum: boolean };
 
-/** The course's chapters: open, rename, reorder, delete, and add one (FR-3). */
-export function CourseChapters({ courseId, chapters }: { courseId: string; chapters: ChapterItem[] }) {
+/**
+ * The course's chapters: open, rename, reorder, delete, and add one (FR-3). Deleting
+ * removes the chapter from this teacher's course only; curriculum chapters they
+ * deleted can be brought back from `removed`.
+ */
+export function CourseChapters({ courseId, chapters, removed }: { courseId: string; chapters: ChapterItem[]; removed: RemovedChapter[] }) {
   const router = useRouter();
   const [pending, start] = useTransition();
   const [editing, setEditing] = useState<string | null>(null);
@@ -23,6 +28,8 @@ export function CourseChapters({ courseId, chapters }: { courseId: string; chapt
   const [newTitle, setNewTitle] = useState("");
   const [deleting, setDeleting] = useState<ChapterItem | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [restoring, setRestoring] = useState(false);
+  const [picked, setPicked] = useState<string[]>([]);
 
   const run = (action: () => Promise<Result>, after?: () => void) =>
     start(async () => {
@@ -76,6 +83,21 @@ export function CourseChapters({ courseId, chapters }: { courseId: string; chapt
           </li>
         ))}
       </ol>
+      {chapters.length === 0 ? <p className="text-body text-ink-2">No chapters. Add one below{removed.length > 0 ? ", or bring back the curriculum’s" : ""}.</p> : null}
+      {removed.length > 0 ? (
+        <button
+          type="button"
+          disabled={pending}
+          onClick={() => {
+            setPicked(removed.map((r) => r.key));
+            setRestoring(true);
+          }}
+          className="inline-flex items-center gap-2 self-start rounded-full px-1 text-body font-semibold text-accent-ink hover:underline disabled:opacity-50"
+        >
+          <RotateCcw aria-hidden size={16} strokeWidth={1.75} />
+          Bring back curriculum chapters ({removed.length})
+        </button>
+      ) : null}
       <form
         className="flex items-center gap-2 pt-1"
         onSubmit={(e) => {
@@ -95,7 +117,11 @@ export function CourseChapters({ courseId, chapters }: { courseId: string; chapt
         onClose={() => setDeleting(null)}
         labelledBy="delete-chapter-title"
         title={`Delete “${deleting?.title ?? ""}”?`}
-        description="Its questions stay in your bank, marked retired. Materials made from it are kept."
+        description={
+          deleting?.fromCurriculum
+            ? "It’s removed from your course only; the Saskatchewan curriculum doesn’t change, and you can bring it back later. Its questions are retired from your bank. Materials made from it are kept."
+            : "It’s removed from your course for good. Its questions are retired from your bank. Materials made from it are kept."
+        }
         footer={
           <>
             <Button variant="secondary" onClick={() => setDeleting(null)} disabled={pending}>
@@ -107,6 +133,41 @@ export function CourseChapters({ courseId, chapters }: { courseId: string; chapt
           </>
         }
       />
+
+      <Dialog
+        open={restoring}
+        onClose={() => setRestoring(false)}
+        labelledBy="restore-chapters-title"
+        title="Bring back curriculum chapters"
+        description="These chapters from the Saskatchewan curriculum were deleted from this course. The ones you choose come back at the end of the list, with their outcomes. Their old questions stay retired."
+        footer={
+          <>
+            <Button variant="secondary" onClick={() => setRestoring(false)} disabled={pending}>
+              Cancel
+            </Button>
+            <Button icon={RotateCcw} loading={pending} disabled={picked.length === 0} onClick={() => run(() => restoreChapters(courseId, picked), () => setRestoring(false))}>
+              Bring back {picked.length === 1 ? "1 chapter" : `${picked.length} chapters`}
+            </Button>
+          </>
+        }
+      >
+        <ul className="flex max-h-[50vh] flex-col gap-1 overflow-y-auto">
+          {removed.map((r) => {
+            const on = picked.includes(r.key);
+            return (
+              <li key={r.key}>
+                <label className="flex cursor-pointer items-center gap-3 rounded-tile px-2 py-2 hover:bg-white/60">
+                  <Checkbox checked={on} onChange={() => setPicked((p) => (on ? p.filter((k) => k !== r.key) : [...p, r.key]))} />
+                  <span className="flex min-w-0 flex-col">
+                    <span className="truncate text-row font-semibold">{r.title}</span>
+                    <span className="text-meta text-ink-2">{r.outcomes > 0 ? `${r.outcomes} outcome${r.outcomes === 1 ? "" : "s"}` : "No curriculum outcomes"}</span>
+                  </span>
+                </label>
+              </li>
+            );
+          })}
+        </ul>
+      </Dialog>
     </Card>
   );
 }

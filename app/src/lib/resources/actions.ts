@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { teacherForAction } from "@/lib/auth/teacher";
 import { loadDataset } from "@/lib/curriculum/dataset";
+import { questionsToRetire } from "@/lib/library/model";
 import { approveStored, insertMaterial } from "@/lib/resources/approve-core";
 import { approvalBlockers, computeChecks } from "@/lib/resources/checks";
 import { GUID, isObject } from "@/lib/resources/sanitize";
@@ -160,17 +161,45 @@ export async function startMaterialVersion(input: { id: unknown }): Promise<{ ok
   return { ok: true, version: number };
 }
 
-export async function deleteMaterial(input: { id: unknown }): Promise<{ ok: true } | Fail> {
+/**
+ * Deletes a material from the teacher's account, for good: the resource and, with
+ * it, every version, its chapter links and its record of prints and posts. Copies
+ * already printed or posted to Classroom stay where they are. The bank questions
+ * only this material used are retired (they stay in the database, unoffered); a
+ * question another material still uses stays active.
+ */
+export async function deleteMaterial(input: { id: unknown }): Promise<{ ok: true; retired: number } | Fail> {
   const current = await teacherForAction();
   if (!current) return SIGNED_OUT;
   if (typeof input?.id !== "string" || !GUID.test(input.id)) return MISSING;
-  const { error } = await current.supabase.from("resources").delete().eq("id", input.id.toLowerCase());
+  const id = input.id.toLowerCase();
+  const { supabase } = current;
+
+  // Its questions, read before the delete removes the links.
+  const versions = await supabase.from("resource_versions").select("id").eq("resource_id", id);
+  if (versions.error) return FAILED;
+  const versionIds = versions.data.map((v) => v.id);
+  const links = versionIds.length > 0 ? await supabase.from("version_questions").select("question_id").in("version_id", versionIds) : { data: [], error: null };
+  if (links.error) return FAILED;
+  const used = [...new Set(links.data.map((l) => l.question_id))];
+
+  const { error } = await supabase.from("resources").delete().eq("id", id);
   if (error) {
     console.error("Deleting a material failed:", error.message);
     return FAILED;
   }
+
+  let retired = 0;
+  if (used.length > 0) {
+    const still = await supabase.from("version_questions").select("question_id").in("question_id", used);
+    const ids = still.error ? [] : questionsToRetire(used, still.data.map((l) => l.question_id));
+    const done = ids.length > 0 ? await supabase.from("questions").update({ retired: true }).in("id", ids) : { error: null };
+    // The material is gone either way; questions left active are still approved ones.
+    if (still.error || done.error) console.error("Retiring a deleted material's questions failed:", (still.error ?? done.error)?.message);
+    else retired = ids.length;
+  }
   refresh();
-  return { ok: true };
+  return { ok: true, retired };
 }
 
 /**

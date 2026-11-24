@@ -21,7 +21,12 @@ export const sha256 = (text: string) => createHash("sha256").update(text, "utf8"
 export async function insertMaterial(supabase: Db, teacherId: string, id: string, content: StoredContent): Promise<CoreResult<{ versionId: string }>> {
   const courseId = content.resource.brief.courseId;
   if (!courseId) return { ok: false, message: "Choose a course first." };
-  const created = await supabase.from("resources").insert({ id, teacher_id: teacherId, course_id: courseId, kind: content.resource.kind, title: content.draft.title || content.resource.title, status: "draft" });
+  // The template it was made from, when there is one. If that template was deleted in the
+  // meantime (or isn't this teacher's), the material is still saved, without the link.
+  const templateId = content.resource.brief.templateId ?? null;
+  const row = { id, teacher_id: teacherId, course_id: courseId, kind: content.resource.kind, title: content.draft.title || content.resource.title, status: "draft", template_id: templateId };
+  let created = await supabase.from("resources").insert(row);
+  if (created.error?.code === "23503" && templateId) created = await supabase.from("resources").insert({ ...row, template_id: null });
   if (created.error) {
     console.error("Creating a material failed:", created.error.message);
     return created.error.code === "23503" ? { ok: false, code: "course", message: "That course wasn’t found. Reload and try again." } : { ok: false, message: FAILED };

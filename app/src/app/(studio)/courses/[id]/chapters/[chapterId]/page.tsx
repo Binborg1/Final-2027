@@ -58,7 +58,7 @@ export default async function ChapterPage({ params }: { params: Promise<{ id: st
 
       <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-[minmax(0,1fr)_400px]">
         <div className="flex flex-col gap-5">
-          <Materials materials={materials} makeHref={makeHref} empty="Materials made from this chapter appear here." />
+          <Materials courseId={course.id} materials={materials} makeHref={makeHref} empty="Materials made from this chapter appear here." />
 
           <Card className="flex flex-col gap-3 px-6 pt-5 pb-5" aria-labelledby="outcomes-title">
             <CardHeader id="outcomes-title" title="Outcomes" after={<span className="text-meta text-ink-2">From the official source</span>} />

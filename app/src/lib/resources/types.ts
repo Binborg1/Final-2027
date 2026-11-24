@@ -1,3 +1,5 @@
+import type { TemplatePart, TemplateSection, TemplateStyle } from "@/lib/templates/model";
+
 /**
  * The teacher workspace's resource model. A resource is a document made of
  * sections; question sections hold items. A draft becomes an approved version
@@ -94,6 +96,20 @@ export type Brief = {
   /** The teacher's course (courses.id) and the chapters it is made from (chapters.id). */
   courseId: string | null;
   chapterIds: string[];
+  /**
+   * The teacher's template (templates.id), or null for Funza's own controls. With a
+   * template, `layout` (quizzes, tests, exams) or `parts` (notes, slides) come from
+   * it; the server always reloads the template and replaces both with its own copy.
+   */
+  templateId: string | null;
+  layout: TemplateSection[] | null;
+  parts: TemplatePart[] | null;
+  /** The template's wording and print style (numbering, how marks are shown, the cover page), kept for printing. */
+  style: TemplateStyle | null;
+  /** The structure the material had when it was drafted from the template, so only the teacher's own changes count as changes (T7). */
+  drafted: TemplateSection[] | null;
+  /** The template's pinned questions, each in its section; Funza writes the rest around them. */
+  pinned: { section: number; item: Item }[] | null;
 };
 
 export type ResourceStatus = "draft" | "approved";

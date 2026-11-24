@@ -17,21 +17,25 @@ import { readStoredContent } from "@/lib/resources/stored";
 
 export type StudentCopy = { ok: true; title: string; version: number; html: string; kind: string; versionId: string } | { ok: false; status: number; message: string };
 
-export async function studentCopy(supabase: SupabaseClient<Database>, teacherId: string, resourceId: unknown): Promise<StudentCopy> {
+export async function studentCopy(supabase: SupabaseClient<Database>, teacherId: string, resourceId: unknown, versionNumber?: number): Promise<StudentCopy> {
   if (typeof resourceId !== "string" || !GUID.test(resourceId)) return { ok: false, status: 400, message: "That material wasn’t found." };
   const r = await supabase.from("resources").select("id, kind, title, course_id, created_at, updated_at, current_version_id").eq("id", resourceId.toLowerCase()).maybeSingle();
   if (r.error) return { ok: false, status: 500, message: "Funza couldn’t read that material. Try again." };
   const row = r.data;
-  if (!row?.current_version_id) return { ok: false, status: 404, message: "That material wasn’t found." };
+  // A chosen version (the Library prints the version on screen); otherwise the current one.
+  const chosen = versionNumber !== undefined && Number.isInteger(versionNumber) && versionNumber > 0 ? versionNumber : null;
+  if (!row || (!chosen && !row.current_version_id)) return { ok: false, status: 404, message: "That material wasn’t found." };
   const kind = KINDS.find((k) => k.kind === row.kind);
   if (!kind?.forStudents) return { ok: false, status: 400, message: "This material is for teachers only and isn’t given to students." };
 
+  const versionQuery = supabase.from("resource_versions").select("id, number, approved_at, content");
   const [v, course, teacher] = await Promise.all([
-    supabase.from("resource_versions").select("id, number, approved_at, content").eq("id", row.current_version_id).single(),
+    chosen ? versionQuery.eq("resource_id", row.id).eq("number", chosen).maybeSingle() : versionQuery.eq("id", row.current_version_id!).single(),
     supabase.from("courses").select("title").eq("id", row.course_id).maybeSingle(),
     supabase.from("teachers").select("school").eq("id", teacherId).maybeSingle(),
   ]);
-  if (v.error || !v.data) return { ok: false, status: 500, message: "Funza couldn’t read that material. Try again." };
+  if (v.error) return { ok: false, status: 500, message: "Funza couldn’t read that material. Try again." };
+  if (!v.data) return { ok: false, status: 404, message: "That version wasn’t found." };
   if (!v.data.approved_at) return { ok: false, status: 409, message: "Approve this version first. Nothing reaches students before you approve it." };
   const stored = readStoredContent(row, v.data);
   if (!stored || stored.draft.sections.length === 0) return { ok: false, status: 409, message: "This version has nothing to give students." };
@@ -45,6 +49,7 @@ export async function studentCopy(supabase: SupabaseClient<Database>, teacherId:
     duration: stored.draft.duration,
     school: teacher.data?.school ?? "",
     sections: stored.draft.sections,
+    style: stored.resource.brief.style,
   });
   return { ok: true, title: stored.draft.title, version: v.data.number, html, kind: kind.kind, versionId: v.data.id };
 }

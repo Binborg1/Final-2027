@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
-import { teacherForRequest, unauthorized } from "@/lib/auth/api";
+import { teacherForRequest, unauthorized, type ApiTeacher } from "@/lib/auth/api";
 import { allowanceMessage, dailyLimit, recordUsage, remainingToday, usedToday } from "@/lib/ai/allowance";
 import { parseJsonObject, SchemaError } from "@/lib/ai/json";
 import { itemPrompt, resourcePrompt, type PromptOutcome } from "@/lib/ai/resource-prompts";
@@ -11,8 +11,12 @@ import { validateItemReply, validateResourceReply } from "@/lib/resources/ai-rep
 import { isQuestionKind, QTYPE_ORDER } from "@/lib/resources/kinds";
 import { liveBrief, livePrompt } from "@/lib/live/suggest";
 import { sameOrigin } from "@/lib/origin";
+import { applyTemplate } from "@/lib/templates/apply";
+import type { TemplateGuide } from "@/lib/templates/model";
+import { fromAiReply, sanitizeTemplateRequest, templateReadPrompt } from "@/lib/templates/read";
+import { guideOf, loadTemplateFor } from "@/lib/templates/server";
 import { isObject, sanitizeBrief, str } from "@/lib/resources/sanitize";
-import type { Difficulty, QType } from "@/lib/resources/types";
+import type { Brief, Difficulty, QType } from "@/lib/resources/types";
 
 export const runtime = "nodejs";
 /** A long draft may take the AI up to two minutes (TIMEOUT_MS in lib/ai/server.ts), plus the checks around it. */
@@ -68,13 +72,52 @@ export async function POST(request: NextRequest) {
   const teacher = await teacherForRequest(request);
   if (!teacher) return unauthorized();
   if (!sameOrigin(request)) return teacher.respond(NextResponse.json({ ok: false, reason: "forbidden", message: "Cross-site request refused." }, { status: 403 }));
-  return teacher.respond(await draft(request, teacher.id));
+  return teacher.respond(await draft(request, teacher));
 }
 
 /** One AI call: its `ai_usage` task name, the prompt, and how the reply becomes the response's data. */
-type Job = { task: "resource-draft" | "resource-item" | "live-suggest"; system: string; user: string; maxTokens: number; data: (reply: string) => unknown };
+type Job = { task: "resource-draft" | "resource-item" | "live-suggest" | "template-read"; system: string; user: string; maxTokens: number; data: (reply: string) => unknown };
 
-async function draft(request: NextRequest, teacherId: string): Promise<NextResponse> {
+/** The daily allowance (FR-30). If today's count can't be read, nothing goes to the AI. */
+async function allowanceProblem(teacherId: string): Promise<NextResponse | null> {
+  const limit = dailyLimit();
+  const used = await usedToday(teacherId).catch((error: unknown) => {
+    console.error("AI allowance check failed:", error instanceof Error ? error.message : "unknown error");
+    return null;
+  });
+  if (used === null) return NextResponse.json({ ok: false, reason: "allowance-unavailable", message: "Funza couldn’t check today’s AI allowance. Nothing was saved. Try again in a moment." });
+  if (used >= limit) return NextResponse.json({ ok: false, reason: "allowance", message: allowanceMessage(limit) });
+  return null;
+}
+
+/** One AI call, after the allowance; a finished call is logged even if its reply then fails validation. */
+async function runJob(job: Job, teacherId: string): Promise<NextResponse> {
+  const blocked = await allowanceProblem(teacherId);
+  if (blocked) return blocked;
+  const reply = await complete({ system: job.system, user: job.user, maxTokens: job.maxTokens });
+  await recordUsage({ teacherId, task: job.task, model: reply.model, tokensIn: reply.tokensIn, tokensOut: reply.tokensOut });
+  return NextResponse.json({ ok: true, data: job.data(reply.text) });
+}
+
+/**
+ * Templates: "Read the format" (FR-20). The examples are text from the teacher's own
+ * files, used for this request only: never stored, never logged.
+ */
+async function templateRead(body: Record<string, unknown>, teacherId: string): Promise<NextResponse> {
+  const req = sanitizeTemplateRequest(body);
+  if (!req.ok) return bad(req.message);
+  const cfg = aiConfig();
+  if (!cfg) return NextResponse.json({ ok: false, reason: "not-configured", message: "No AI provider is configured on this Funza server." });
+  try {
+    const { system, user } = templateReadPrompt(req.value);
+    return await runJob({ task: "template-read", system, user, maxTokens: 3000, data: (reply) => ({ ...fromAiReply(req.value, parseJsonObject(reply)), provider: cfg.provider }) }, teacherId);
+  } catch (error) {
+    return NextResponse.json(failure(error));
+  }
+}
+
+async function draft(request: NextRequest, teacher: ApiTeacher): Promise<NextResponse> {
+  const teacherId = teacher.id;
   let body: unknown;
   try {
     body = await request.json();
@@ -82,19 +125,33 @@ async function draft(request: NextRequest, teacherId: string): Promise<NextRespo
     return bad("Invalid JSON.");
   }
   if (!isObject(body)) return bad("Invalid request.");
-  const brief = sanitizeBrief(body.brief);
-  if (!brief) return bad("The brief is missing or malformed.");
-  const checked = outcomesFor(brief.outcomeIds);
+  if (body.task === "template-read") return templateRead(body, teacherId);
+  const parsed = sanitizeBrief(body.brief);
+  if (!parsed) return bad("The brief is missing or malformed.");
+  const checked = outcomesFor(parsed.outcomeIds);
   if (!checked.ok) return bad(checked.message, "invalid-outcome");
 
   const cfg = aiConfig();
   if (!cfg) return NextResponse.json({ ok: false, reason: "not-configured", message: "No AI provider is configured on this Funza server." });
 
+  // A draft from the teacher's template (FR-20): the stored template, read as this teacher,
+  // replaces whatever layout or parts the browser sent.
+  let brief: Brief = parsed;
+  let guide: TemplateGuide | undefined;
+  if (body.task === "resource-draft" && parsed.templateId) {
+    const loaded = await loadTemplateFor(teacher.supabase, parsed.templateId, parsed.kind);
+    if (!loaded.ok) return bad(loaded.message, loaded.reason);
+    brief = applyTemplate(parsed, loaded.template);
+    guide = guideOf(loaded.template);
+  }
+
   try {
     let job: Job;
     if (body.task === "resource-draft") {
-      const { system, user } = resourcePrompt(brief, checked.outcomes);
-      job = { task: body.task, system, user, maxTokens: isQuestionKind(brief.kind) ? 9000 : 7000, data: (reply) => ({ ...validateResourceReply(brief, parseJsonObject(reply)), provider: cfg.provider }) };
+      const { system, user } = resourcePrompt(brief, checked.outcomes, guide);
+      const questions = brief.layout ? brief.layout.reduce((n, s) => n + s.rows.reduce((m, r) => m + r.count, 0), 0) : 0;
+      const maxTokens = brief.layout ? Math.min(16000, Math.max(9000, 2000 + 220 * questions)) : isQuestionKind(brief.kind) ? 9000 : 7000;
+      job = { task: body.task, system, user, maxTokens, data: (reply) => ({ ...validateResourceReply(brief, parseJsonObject(reply)), provider: cfg.provider }) };
     } else if (body.task === "resource-item") {
       const type = QTYPE_ORDER.find((t) => t === body.type) as QType | undefined;
       const outcomeId = typeof body.outcomeId === "string" && brief.outcomeIds.includes(body.outcomeId) ? body.outcomeId : brief.outcomeIds[0];
@@ -114,21 +171,12 @@ async function draft(request: NextRequest, teacherId: string): Promise<NextRespo
       return bad("Unknown task.");
     }
 
-    // The daily allowance (FR-30). If today's count can't be read, nothing goes to the AI.
-    const limit = dailyLimit();
-    const used = await usedToday(teacherId).catch((error: unknown) => {
-      console.error("AI allowance check failed:", error instanceof Error ? error.message : "unknown error");
-      return null;
-    });
-    if (used === null) return NextResponse.json({ ok: false, reason: "allowance-unavailable", message: "Funza couldn’t check today’s AI allowance. Nothing was saved. Try again in a moment." });
-    if (used >= limit) return NextResponse.json({ ok: false, reason: "allowance", message: allowanceMessage(limit) });
-
-    if (body.stream === true && job.task !== "resource-item") return streamed(job, teacherId, job.task === "live-suggest" || isQuestionKind(brief.kind) ? "items" : "sections");
-
-    const reply = await complete({ system: job.system, user: job.user, maxTokens: job.maxTokens });
-    // A finished call counts even if its reply then fails validation: the tokens were spent.
-    await recordUsage({ teacherId, task: job.task, model: reply.model, tokensIn: reply.tokensIn, tokensOut: reply.tokensOut });
-    return NextResponse.json({ ok: true, data: job.data(reply.text) });
+    if (body.stream === true && job.task !== "resource-item") {
+      const blocked = await allowanceProblem(teacherId);
+      if (blocked) return blocked;
+      return streamed(job, teacherId, job.task === "live-suggest" || isQuestionKind(brief.kind) ? "items" : "sections");
+    }
+    return await runJob(job, teacherId);
   } catch (error) {
     return NextResponse.json(failure(error));
   }

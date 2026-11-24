@@ -815,18 +815,21 @@ export type Database = {
         Row: {
           position: number
           question_id: string
+          section: number
           teacher_id: string
           template_id: string
         }
         Insert: {
           position?: number
           question_id: string
+          section?: number
           teacher_id: string
           template_id: string
         }
         Update: {
           position?: number
           question_id?: string
+          section?: number
           teacher_id?: string
           template_id?: string
         }
@@ -854,7 +857,9 @@ export type Database = {
           format: Json
           id: string
           kind: string
+          learned_from: Json
           name: string
+          summary: string
           teacher_id: string | null
           updated_at: string
         }
@@ -864,7 +869,9 @@ export type Database = {
           format?: Json
           id?: string
           kind: string
+          learned_from?: Json
           name: string
+          summary?: string
           teacher_id?: string | null
           updated_at?: string
         }
@@ -874,7 +881,9 @@ export type Database = {
           format?: Json
           id?: string
           kind?: string
+          learned_from?: Json
           name?: string
+          summary?: string
           teacher_id?: string | null
           updated_at?: string
         }

@@ -1,17 +1,20 @@
 "use client";
 
-import { BookOpen, Check, CircleAlert, FileText, LoaderCircle, Lock, Paperclip, RotateCcw, Sparkles, Target, X } from "lucide-react";
+import { BookOpen, Check, CircleAlert, FileText, LoaderCircle, Lock, Paperclip, RotateCcw, Sparkles, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { PageHeader } from "@/components/shell/PageHeader";
 import { Button, ButtonLink } from "@/components/ui/Button";
-import { Card, CardHeader } from "@/components/ui/Card";
+import { Card } from "@/components/ui/Card";
 import { ChoiceChip } from "@/components/ui/Chip";
-import { Checkbox } from "@/components/ui/Field";
+import { Input } from "@/components/ui/Field";
+import { Dialog } from "@/components/ui/Dialog";
 import { Disclosure } from "@/components/ui/Disclosure";
 import { EmptyState } from "@/components/ui/Misc";
 import { MultiSelect } from "@/components/ui/MultiSelect";
+import { NumberStepper } from "@/components/ui/NumberStepper";
+import { ToggleRow } from "@/components/ui/ToggleRow";
 import type { TeacherCourse } from "@/lib/auth/teacher";
 import type { CatalogCourse } from "@/lib/curriculum/catalog";
 import { loadCourse } from "@/lib/curriculum/client";
@@ -19,9 +22,14 @@ import type { ChapterChoice } from "@/lib/courses/model";
 import { composeInstructions, type AddPromptId } from "@/lib/make/chapters";
 import { blueprintOf, PRESETS } from "@/lib/resources/blueprint";
 import { sourceText } from "@/lib/sources/actions";
-import { isQuestionKind, NOTES_STYLES, QTYPE_LABEL } from "@/lib/resources/kinds";
+import { defaultBrief, isQuestionKind, NOTES_STYLES, QTYPE_LABEL } from "@/lib/resources/kinds";
 import { cancelGeneration, createWithoutAi, patchBrief, resetGeneration, setKind, setMixRow, startGeneration, useWorkspace } from "@/lib/resources/store";
 import type { ResourceKind } from "@/lib/resources/types";
+import { saveTemplate } from "@/lib/templates/actions";
+import { applyTemplate, clearTemplate, controlsOf, type Controls } from "@/lib/templates/apply";
+import { formatFromBrief } from "@/lib/templates/from";
+import { categoryInfo, categoryOf } from "@/lib/templates/model";
+import { FormatPanel, type FormatMode, type MakeTemplate } from "./FormatPanel";
 import { cn } from "@/lib/ui/cn";
 
 /** The server keeps at most six outcomes on a brief. */
@@ -40,7 +48,25 @@ const TYPES: { kind: ResourceKind; label: string }[] = [
  * from which chapter, then "Make draft". Everything detailed starts collapsed
  * under Adjust. Funza drafts; the teacher reviews and approves on the next screen.
  */
-export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, initialCourseId, initialChapterId }: { courses: TeacherCourse[]; chapters: Record<string, ChapterChoice[]>; sources?: Record<string, { id: string; title: string }[]>; initialPrompt: string; initialCourseId: string | null; initialChapterId: string | null }) {
+export function MakeBrief({
+  courses,
+  chapters,
+  sources = {},
+  templates = [],
+  initialPrompt,
+  initialCourseId,
+  initialChapterIds = [],
+  initialTemplateId = null,
+}: {
+  courses: TeacherCourse[];
+  chapters: Record<string, ChapterChoice[]>;
+  sources?: Record<string, { id: string; title: string }[]>;
+  templates?: MakeTemplate[];
+  initialPrompt: string;
+  initialCourseId: string | null;
+  initialChapterIds?: string[];
+  initialTemplateId?: string | null;
+}) {
   const router = useRouter();
   const ws = useWorkspace();
   const { brief, generation, ai } = ws;
@@ -53,7 +79,18 @@ export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, init
   const [chips, setChips] = useState<AddPromptId[]>([]);
   const [attachError, setAttachError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
-  const startChapter = useRef(initialChapterId);
+  const startChapters = useRef(initialChapterIds);
+  const startTemplate = useRef(initialTemplateId);
+  const [formatMode, setFormatMode] = useState<FormatMode>("adjust");
+  const [panelOpen, setPanelOpen] = useState<boolean | null>(null);
+  // The teacher's own Adjust settings, kept aside while a template is in use.
+  const adjustControls = useRef<Controls | null>(null);
+  // "Save these settings as a template": the dialog, and the new template to use once the page has it.
+  const [saveOpen, setSaveOpen] = useState(false);
+  const [saveName, setSaveName] = useState("");
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const savedPending = useRef<string | null>(null);
   const courseChapters = useMemo(() => (course ? chapters[course.id] ?? [] : []), [chapters, course]);
   const chapterItems = useMemo(
     () => courseChapters.map((c) => ({ id: c.id, label: c.title, hint: c.outcomeRefs.length > 0 ? `${c.outcomeRefs.length} outcome${c.outcomeRefs.length === 1 ? "" : "s"}` : "No outcomes" })),
@@ -76,12 +113,89 @@ export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, init
   useEffect(() => {
     if (!course) return;
     const list = chapters[course.id] ?? [];
-    const first = list.find((c) => c.id === startChapter.current) ?? list.find((c) => c.outcomeRefs.length > 0) ?? list[0];
-    startChapter.current = null;
-    const ids = first ? [first.id] : [];
+    const fromLink = list.filter((c) => startChapters.current.includes(c.id));
+    startChapters.current = [];
+    const first = list.find((c) => c.outcomeRefs.length > 0) ?? list[0];
+    const picked = fromLink.length > 0 ? fromLink : first ? [first] : [];
+    const ids = picked.map((c) => c.id);
     setChapterIds(ids);
-    patchBrief({ courseId: course.id, chapterIds: ids, outcomeIds: first ? first.outcomeRefs.slice(0, MAX_OUTCOMES) : [] });
+    patchBrief({ courseId: course.id, chapterIds: ids, outcomeIds: [...new Set(picked.flatMap((c) => c.outcomeRefs))].slice(0, MAX_OUTCOMES) });
   }, [course, chapters]);
+
+  // The panel starts open on wide screens and closed on narrow ones.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- the screen width is known only in the browser
+    setPanelOpen(window.matchMedia("(min-width: 1280px)").matches);
+  }, []);
+
+  // A template named in the link (back from "New template", or "Use in Make"): switch to its kind, then use it.
+  useEffect(() => {
+    const id = startTemplate.current;
+    if (!id) return;
+    const t = templates.find((x) => x.id === id);
+    if (!t) {
+      startTemplate.current = null;
+      return;
+    }
+    if (categoryOf(brief.kind) !== t.category) return setKind(categoryInfo(t.category).kinds[0]);
+    if (!brief.courseId) return;
+    startTemplate.current = null;
+    adjustControls.current = controlsOf(brief);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- applying the link once, after the course is set
+    setFormatMode("template");
+    patchBrief(applyTemplate(brief, t));
+  }, [brief, templates]);
+
+  // With Template chosen, a change of kind picks that category's most-used template (or none).
+  const category = categoryOf(brief.kind);
+  useEffect(() => {
+    adjustControls.current = null;
+  }, [category]);
+  useEffect(() => {
+    if (formatMode !== "template" || brief.templateId || startTemplate.current) return;
+    const best = templates.filter((t) => t.category === category).sort((a, b) => b.used - a.used)[0];
+    if (best) {
+      adjustControls.current = adjustControls.current ?? controlsOf(brief);
+      patchBrief(applyTemplate(brief, best));
+    }
+  }, [formatMode, category, brief, templates]);
+
+  // The template just saved from these settings, once the refreshed page lists it.
+  useEffect(() => {
+    const id = savedPending.current;
+    const t = id ? templates.find((x) => x.id === id) : undefined;
+    if (!t || categoryOf(brief.kind) !== t.category) return;
+    savedPending.current = null;
+    adjustControls.current = controlsOf(brief);
+    setFormatMode("template");
+    patchBrief(applyTemplate(brief, t));
+  }, [templates, brief]);
+
+  async function saveSettings() {
+    const format = formatFromBrief(brief);
+    if (!format) return setSaveError("Add at least one question first.");
+    setSaving(true);
+    setSaveError(null);
+    const res = await saveTemplate({ category, name: saveName, summary: "", format, learnedFrom: [{ kind: "controls", name: "Make settings" }] });
+    setSaving(false);
+    if (!res.ok) return setSaveError(res.message);
+    savedPending.current = res.id;
+    setSaveOpen(false);
+    router.refresh();
+  }
+
+  function chooseTemplate(t: MakeTemplate) {
+    if (!brief.templateId) adjustControls.current = controlsOf(brief);
+    patchBrief(applyTemplate(brief, t));
+  }
+
+  function chooseMode(m: FormatMode) {
+    setFormatMode(m);
+    if (m === "adjust" && brief.templateId) {
+      patchBrief(clearTemplate(brief, adjustControls.current ?? controlsOf(defaultBrief(brief.kind, brief.outcomeIds))));
+      adjustControls.current = null;
+    }
+  }
 
   // The request and the quick prompts become the brief's instructions.
   useEffect(() => patchBrief({ instructions: composeInstructions(request, chips) }), [request, chips]);
@@ -100,24 +214,12 @@ export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, init
   const questionKind = isQuestionKind(brief.kind);
   const busy = generation.state === "running";
 
-  const chosenOutcomes = useMemo(() => {
-    if (!catalog?.course) return [];
-    const want = new Set(courseChapters.filter((c) => chapterIds.includes(c.id)).flatMap((c) => c.outcomeRefs));
-    return catalog.course.units.flatMap((u) => u.outcomes).filter((o) => want.has(o.id));
-  }, [catalog, courseChapters, chapterIds]);
-
   function toggleChapter(id: string) {
     const next = chapterIds.includes(id) ? chapterIds.filter((x) => x !== id) : [...chapterIds, id];
     if (next.length === 0) return;
     setChapterIds(next);
     const outcomeIds = [...new Set(courseChapters.filter((c) => next.includes(c.id)).flatMap((c) => c.outcomeRefs))].slice(0, MAX_OUTCOMES);
     patchBrief({ chapterIds: next, outcomeIds });
-  }
-
-  function toggleOutcome(id: string) {
-    const next = brief.outcomeIds.includes(id) ? brief.outcomeIds.filter((x) => x !== id) : [...brief.outcomeIds, id];
-    if (next.length === 0) return;
-    patchBrief({ outcomeIds: next });
   }
 
   /** A source already attached to one of the chosen chapters, used as the teacher's notes. */
@@ -176,12 +278,21 @@ export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, init
         ? `${NOTES_STYLES.find((s) => s.id === brief.notesStyle)?.label ?? "Notes"} · ${brief.outcomeIds.length} outcome${brief.outcomeIds.length === 1 ? "" : "s"}`
         : `${brief.slides} slides${brief.speakerNotes ? " with speaker notes" : ""}`
     : "…";
+  const chosenTemplate = templates.find((t) => t.id === brief.templateId) ?? null;
+  const formatValue = formatMode === "template" ? (chosenTemplate ? `Template · ${chosenTemplate.name}` : "Choose a template, or switch to Adjust") : summary;
+  const back = new URLSearchParams();
+  if (courseId) back.set("course", courseId);
+  if (chapterIds.length > 0) back.set("chapters", chapterIds.join(","));
+  if (request.trim()) back.set("prompt", request.trim().slice(0, 500));
+  const newTemplateHref = `/templates/new?category=${category}&return=${encodeURIComponent(`/make?${back.toString()}`)}`;
 
   return (
-    <div className="flex flex-col gap-[22px]">
+    // On wide screens the Format panel is its own glass layer on the right, like the sidebar on the left;
+    // the page keeps clear of it.
+    <div className="flex flex-col gap-[22px] xl:pr-[364px]">
       <PageHeader crumbs={crumbs} title="What do you want to make?" size="title-sm" />
 
-      <div className="grid grid-cols-1 items-start gap-5 xl:grid-cols-[minmax(0,1fr)_372px]">
+      <div className="grid grid-cols-1 items-start gap-5">
         {/* The Make box */}
         <section aria-label="Your brief" className="flex flex-col gap-5 rounded-box border border-white/60 bg-surface p-7 shadow-box max-sm:p-4">
           {busy || generation.state === "failed" || generation.state === "cancelled" ? (
@@ -287,12 +398,22 @@ export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, init
 
           <div className="flex items-center gap-2.5 rounded-tile border border-white/80 bg-white/60 px-4 py-3">
             <Sparkles aria-hidden size={18} strokeWidth={1.5} className="shrink-0 text-accent" />
-            <p className="text-row font-semibold" aria-live="polite">
-              {summary}
+            <p className="min-w-0 flex-1 text-row font-semibold" aria-live="polite">
+              {chosenTemplate ? `${chosenTemplate.name} · ${summary}` : summary}
             </p>
+            <button
+              type="button"
+              onClick={() => {
+                setPanelOpen(true);
+                document.getElementById("format")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="shrink-0 text-meta font-semibold text-accent-ink hover:underline xl:hidden"
+            >
+              Change
+            </button>
           </div>
 
-          <MakeActions aiKnown={ai.known} aiConfigured={ai.configured} disabled={brief.outcomeIds.length === 0 || loadingCourse} busy={busy} onMake={() => void startGeneration()} />
+          <MakeActions aiKnown={ai.known} aiConfigured={ai.configured} disabled={brief.outcomeIds.length === 0 || loadingCourse || (formatMode === "template" && !brief.templateId)} busy={busy} onMake={() => void startGeneration()} />
           {ai.configured && ai.remaining !== null && ai.remaining <= 5 ? (
             <p role="status" className="text-meta font-medium text-ink-2">
               {ai.remaining === 0 ? "You’ve used today’s Funza actions. They reset at midnight, Saskatchewan time. You can still start from the question bank." : `${ai.remaining} Funza action${ai.remaining === 1 ? "" : "s"} left today.`}
@@ -300,113 +421,134 @@ export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, init
           ) : null}
         </section>
 
-        {/* Adjust and "Funza will use" */}
-        <div className={cn("flex flex-col gap-4", busy && "pointer-events-none opacity-60")}>
-          <Card className="flex flex-col gap-3 p-5">
-            <CardHeader title="Adjust" size="sm" actions={<span className="text-meta font-medium text-ink-2">Optional</span>} />
-            {questionKind ? (
+        {/* Format (Adjust or a template): on wide screens its own panel that scrolls on its own */}
+        <aside
+          aria-label="Format"
+          className={cn(
+            "flex flex-col gap-4",
+            // Wide screens: a fixed glass panel from the top of the workspace to its bottom, scrolling on its own.
+            "xl:frost xl:frost-sidebar xl:scrollbar-thin xl:fixed xl:top-[84px] xl:right-6 xl:bottom-6 xl:z-20 xl:w-[380px] xl:overflow-y-auto xl:overscroll-contain xl:rounded-panel xl:border xl:border-white/45 xl:p-4 xl:pb-5 xl:shadow-sidebar",
+            busy && "pointer-events-none opacity-60",
+          )}
+        >
+          <FormatPanel
+            mode={formatMode}
+            onMode={chooseMode}
+            open={panelOpen}
+            onOpen={setPanelOpen}
+            value={formatValue}
+            category={category}
+            templates={templates}
+            chosenId={brief.templateId}
+            onChoose={chooseTemplate}
+            newHref={newTemplateHref}
+            onSaveSettings={() => {
+              setSaveName("");
+              setSaveError(null);
+              setSaveOpen(true);
+            }}
+            adjust={
               <>
-                <Disclosure title="Sections and questions" summary={bp ? `${bp.parts.length} section${bp.parts.length === 1 ? "" : "s"} · ${bp.questions} questions` : ""}>
-                  {brief.mix.map((row) => (
-                    <div key={row.type} className="flex items-center gap-3">
-                      <span className="min-w-0 flex-1 text-body font-medium">{QTYPE_LABEL[row.type]}</span>
-                      <Stepper label={`${QTYPE_LABEL[row.type]}: questions`} value={row.count} min={0} max={40} onChange={(count) => setMixRow(row.type, { count })} suffix="q" />
-                      <Stepper label={`${QTYPE_LABEL[row.type]}: marks each`} value={row.marks} min={1} max={20} onChange={(marks) => setMixRow(row.type, { marks })} suffix="m" />
+                {questionKind ? (
+                  <>
+                    <Disclosure title="Sections and questions" summary={bp ? `${bp.parts.length} section${bp.parts.length === 1 ? "" : "s"} · ${bp.questions} questions` : ""}>
+                      <p className="text-meta text-ink-2">For each type: how many questions (q), and the marks for each (m).</p>
+                      <ul className="flex flex-col divide-y divide-line">
+                        {brief.mix.map((row) => (
+                          <li key={row.type} className={cn("flex flex-col gap-1.5 py-2.5 first:pt-0 last:pb-0", row.count === 0 && "opacity-70")}>
+                            <span className="flex items-baseline justify-between gap-3">
+                              <span className="text-body font-medium">{QTYPE_LABEL[row.type]}</span>
+                              <span className="shrink-0 text-meta text-ink-2 tabular-nums">{row.count > 0 ? `${row.count * row.marks} mark${row.count * row.marks === 1 ? "" : "s"}` : "None"}</span>
+                            </span>
+                            <span className="flex flex-wrap gap-2">
+                              <NumberStepper size="sm" label={`${QTYPE_LABEL[row.type]}: questions`} value={row.count} min={0} max={25} onChange={(count) => setMixRow(row.type, { count })} suffix="q" />
+                              <NumberStepper size="sm" label={`${QTYPE_LABEL[row.type]}: marks each`} value={row.marks} min={1} max={20} onChange={(marks) => setMixRow(row.type, { marks })} suffix="m" />
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </Disclosure>
+                    <Disclosure title="Marks and time" summary={bp ? `${bp.marks} marks · ${brief.duration} minutes` : ""}>
+                      <div className="flex items-center gap-3">
+                        <span className="flex-1 text-body font-medium">Time allowed</span>
+                        <NumberStepper size="sm" label="Minutes" value={brief.duration} min={5} max={180} step={5} onChange={(duration) => patchBrief({ duration })} suffix="min" />
+                      </div>
+                      <p className="text-meta text-ink-2">Marks add up from the questions above: {bp?.marks ?? 0} in total.</p>
+                    </Disclosure>
+                    <Disclosure title="Difficulty" summary={PRESETS[brief.difficulty].label}>
+                      <div className="flex flex-wrap gap-2">
+                        {(Object.keys(PRESETS) as (keyof typeof PRESETS)[]).map((k) => (
+                          <ChoiceChip key={k} size="md" selected={brief.difficulty === k} onClick={() => patchBrief({ difficulty: k })} suffix={`${PRESETS[k].split.join("/")}`}>
+                            {PRESETS[k].label}
+                          </ChoiceChip>
+                        ))}
+                      </div>
+                      <p className="text-meta text-ink-2">Foundational / grade level / extending, as a percent of marks.</p>
+                    </Disclosure>
+                    <Disclosure title="Extras" summary={[brief.answerKey && "Answer key", brief.workedSolutions && "Worked solutions", brief.rubric && "Rubric"].filter(Boolean).join(" · ") || "None"}>
+                      <ToggleRow label="Answer key" checked={brief.answerKey} onChange={(answerKey) => patchBrief({ answerKey })} />
+                      <ToggleRow label="Worked solutions" checked={brief.workedSolutions} onChange={(workedSolutions) => patchBrief({ workedSolutions })} />
+                      <ToggleRow label="Rubric for written answers" checked={brief.rubric} onChange={(rubric) => patchBrief({ rubric })} />
+                    </Disclosure>
+                  </>
+                ) : brief.kind === "notes" ? (
+                  <>
+                    <Disclosure title="Style" summary={NOTES_STYLES.find((s) => s.id === brief.notesStyle)?.label}>
+                      <div className="flex flex-wrap gap-2">
+                        {NOTES_STYLES.map((s) => (
+                          <ChoiceChip key={s.id} size="md" selected={brief.notesStyle === s.id} onClick={() => patchBrief({ notesStyle: s.id })} title={s.blurb}>
+                            {s.label}
+                          </ChoiceChip>
+                        ))}
+                      </div>
+                    </Disclosure>
+                    <Disclosure title="Extras" summary={[brief.keyTerms && "Key terms", brief.checkQuestions && "Check questions"].filter(Boolean).join(" · ") || "None"}>
+                      <ToggleRow label="Key terms" checked={brief.keyTerms} onChange={(keyTerms) => patchBrief({ keyTerms })} />
+                      <ToggleRow label="Check-your-understanding questions" checked={brief.checkQuestions} onChange={(checkQuestions) => patchBrief({ checkQuestions })} />
+                    </Disclosure>
+                  </>
+                ) : (
+                  <Disclosure title="Slides" summary={`${brief.slides} slides${brief.speakerNotes ? " · speaker notes" : ""}`}>
+                    <div className="flex items-center gap-3">
+                      <span className="flex-1 text-body font-medium">Number of slides</span>
+                      <NumberStepper size="sm" label="Slides" value={brief.slides} min={3} max={20} onChange={(slides) => patchBrief({ slides })} />
                     </div>
-                  ))}
-                </Disclosure>
-                <Disclosure title="Marks and time" summary={bp ? `${bp.marks} marks · ${brief.duration} minutes` : ""}>
-                  <div className="flex items-center gap-3">
-                    <span className="flex-1 text-body font-medium">Time allowed</span>
-                    <Stepper label="Minutes" value={brief.duration} min={5} max={180} step={5} onChange={(duration) => patchBrief({ duration })} suffix="min" />
-                  </div>
-                  <p className="text-meta text-ink-2">Marks add up from the questions above: {bp?.marks ?? 0} in total.</p>
-                </Disclosure>
-                <Disclosure title="Difficulty" summary={PRESETS[brief.difficulty].label}>
-                  <div className="flex flex-wrap gap-2">
-                    {(Object.keys(PRESETS) as (keyof typeof PRESETS)[]).map((k) => (
-                      <ChoiceChip key={k} size="md" selected={brief.difficulty === k} onClick={() => patchBrief({ difficulty: k })} suffix={`${PRESETS[k].split.join("/")}`}>
-                        {PRESETS[k].label}
-                      </ChoiceChip>
-                    ))}
-                  </div>
-                  <p className="text-meta text-ink-2">Foundational / grade level / extending, as a percent of marks.</p>
-                </Disclosure>
-                <Disclosure title="Extras" summary={[brief.answerKey && "Answer key", brief.workedSolutions && "Worked solutions", brief.rubric && "Rubric"].filter(Boolean).join(" · ") || "None"}>
-                  <Toggle label="Answer key" checked={brief.answerKey} onChange={(answerKey) => patchBrief({ answerKey })} />
-                  <Toggle label="Worked solutions" checked={brief.workedSolutions} onChange={(workedSolutions) => patchBrief({ workedSolutions })} />
-                  <Toggle label="Rubric for written answers" checked={brief.rubric} onChange={(rubric) => patchBrief({ rubric })} />
-                </Disclosure>
+                    <ToggleRow label="Speaker notes" checked={brief.speakerNotes} onChange={(speakerNotes) => patchBrief({ speakerNotes })} />
+                  </Disclosure>
+                )}
               </>
-            ) : brief.kind === "notes" ? (
-              <>
-                <Disclosure title="Style" summary={NOTES_STYLES.find((s) => s.id === brief.notesStyle)?.label}>
-                  <div className="flex flex-wrap gap-2">
-                    {NOTES_STYLES.map((s) => (
-                      <ChoiceChip key={s.id} size="md" selected={brief.notesStyle === s.id} onClick={() => patchBrief({ notesStyle: s.id })} title={s.blurb}>
-                        {s.label}
-                      </ChoiceChip>
-                    ))}
-                  </div>
-                </Disclosure>
-                <Disclosure title="Extras" summary={[brief.keyTerms && "Key terms", brief.checkQuestions && "Check questions"].filter(Boolean).join(" · ") || "None"}>
-                  <Toggle label="Key terms" checked={brief.keyTerms} onChange={(keyTerms) => patchBrief({ keyTerms })} />
-                  <Toggle label="Check-your-understanding questions" checked={brief.checkQuestions} onChange={(checkQuestions) => patchBrief({ checkQuestions })} />
-                </Disclosure>
-              </>
-            ) : (
-              <Disclosure title="Slides" summary={`${brief.slides} slides${brief.speakerNotes ? " · speaker notes" : ""}`}>
-                <div className="flex items-center gap-3">
-                  <span className="flex-1 text-body font-medium">Number of slides</span>
-                  <Stepper label="Slides" value={brief.slides} min={3} max={20} onChange={(slides) => patchBrief({ slides })} />
-                </div>
-                <Toggle label="Speaker notes" checked={brief.speakerNotes} onChange={(speakerNotes) => patchBrief({ speakerNotes })} />
-              </Disclosure>
-            )}
-          </Card>
-
-          <Card className="flex flex-col gap-3 p-5" aria-labelledby="uses-title">
-            <div className="flex items-center gap-2.5">
-              <span aria-hidden className="size-2.5 rounded-full bg-accent shadow-[0_0_8px_1px_rgb(224_102_47/0.7)]" />
-              <h2 id="uses-title" className="text-row font-bold">
-                Funza will use
-              </h2>
-            </div>
-            {brief.material ? (
-              <p className="flex items-center gap-2.5 text-body font-medium">
-                <FileText aria-hidden size={18} strokeWidth={1.35} className="shrink-0 text-accent" />
-                <span className="truncate">{brief.material.name}</span>
-              </p>
-            ) : null}
-            <details className="group/o">
-              <summary className="flex cursor-pointer list-none items-center gap-2.5 text-body font-medium [&::-webkit-details-marker]:hidden">
-                <Target aria-hidden size={18} strokeWidth={1.35} className="shrink-0 text-accent" />
-                <span>
-                  {brief.outcomeIds.length} curriculum outcome{brief.outcomeIds.length === 1 ? "" : "s"}
-                </span>
-                <span className="ml-auto text-meta font-semibold text-accent-ink group-open/o:hidden">Choose</span>
-              </summary>
-              <ul className="mt-3 flex max-h-72 flex-col gap-1 overflow-y-auto">
-                {chosenOutcomes.map((o) => (
-                  <li key={o.id}>
-                    <label className="flex cursor-pointer items-start gap-3 rounded-[14px] px-2 py-2 hover:bg-white/60">
-                      <Checkbox checked={brief.outcomeIds.includes(o.id)} onChange={() => toggleOutcome(o.id)} className="mt-0.5" />
-                      <span className="flex flex-col">
-                        <span className="text-meta font-bold">{o.code}</span>
-                        <span className="text-meta text-ink-2">{o.statement}</span>
-                      </span>
-                    </label>
-                  </li>
-                ))}
-              </ul>
-            </details>
-            <p className="flex items-center gap-2.5 text-body font-medium">
-              <BookOpen aria-hidden size={18} strokeWidth={1.35} className="shrink-0 text-accent" />
-              The official Saskatchewan wording
-            </p>
-          </Card>
-        </div>
+            }
+          />
+        </aside>
       </div>
+
+      <Dialog
+        open={saveOpen}
+        onClose={() => setSaveOpen(false)}
+        labelledBy="save-settings-title"
+        title="Save these settings as a template"
+        description={`Your ${categoryInfo(category).one.toLowerCase()} settings, ready to use again on any chapter. You can change it on the Templates page.`}
+        footer={
+          <>
+            <Button variant="secondary" onClick={() => setSaveOpen(false)} disabled={saving}>
+              Cancel
+            </Button>
+            <Button loading={saving} disabled={!saveName.trim()} onClick={() => void saveSettings()}>
+              Save template
+            </Button>
+          </>
+        }
+      >
+        <label className="flex flex-col gap-1.5">
+          <span className="text-meta font-semibold text-ink-2">Name</span>
+          <Input value={saveName} maxLength={80} placeholder="e.g. My weekly quiz" onChange={(e) => setSaveName(e.target.value)} onKeyDown={(e) => e.key === "Enter" && saveName.trim() && void saveSettings()} autoFocus />
+        </label>
+        {saveError ? (
+          <p role="alert" className="text-body font-medium text-red-ink">
+            {saveError}
+          </p>
+        ) : null}
+      </Dialog>
     </div>
   );
 }
@@ -516,40 +658,5 @@ function Drafting() {
         Keep working; Funza finishes in the background
       </ButtonLink>
     </div>
-  );
-}
-
-function Stepper({ label, value, min, max, step = 1, suffix, onChange }: { label: string; value: number; min: number; max: number; step?: number; suffix?: string; onChange: (v: number) => void }) {
-  const clamp = (v: number) => Math.min(max, Math.max(min, v));
-  return (
-    <span className="inline-flex h-9 items-center rounded-full border border-line-control bg-field">
-      <button type="button" aria-label={`Less: ${label}`} onClick={() => onChange(clamp(value - step))} disabled={value <= min} className="flex size-9 items-center justify-center rounded-full text-ink disabled:opacity-40 pointer-coarse:size-11">
-        −
-      </button>
-      <input
-        aria-label={label}
-        inputMode="numeric"
-        value={value}
-        onChange={(e) => {
-          const n = Number(e.target.value.replace(/\D/g, ""));
-          if (!Number.isNaN(n)) onChange(clamp(n));
-        }}
-        className="w-9 bg-transparent text-center text-body font-semibold outline-none"
-      />
-      {suffix ? <span className="-ml-1 text-meta text-ink-2">{suffix}</span> : null}
-      <button type="button" aria-label={`More: ${label}`} onClick={() => onChange(clamp(value + step))} disabled={value >= max} className="flex size-9 items-center justify-center rounded-full text-ink disabled:opacity-40 pointer-coarse:size-11">
-        +
-      </button>
-    </span>
-  );
-}
-
-function Toggle({ label, checked, onChange }: { label: string; checked: boolean; onChange: (v: boolean) => void }) {
-  return (
-    <label className="flex min-h-9 cursor-pointer items-center gap-3">
-      <span className="flex-1 text-body font-medium">{label}</span>
-      <input type="checkbox" role="switch" checked={checked} onChange={(e) => onChange(e.target.checked)} className="peer sr-only" />
-      <span aria-hidden className="relative h-6 w-10 shrink-0 rounded-full bg-ink/25 transition-colors peer-checked:bg-sage peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent after:absolute after:top-[3px] after:left-[3px] after:size-[18px] after:rounded-full after:bg-white after:shadow-[0_1px_3px_rgb(58_36_20/0.25)] after:transition-transform peer-checked:after:translate-x-4" />
-    </label>
   );
 }

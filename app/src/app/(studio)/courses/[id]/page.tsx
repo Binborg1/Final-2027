@@ -18,7 +18,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
   if (!idSchema.safeParse(id).success) notFound();
   const detail = await courseDetail(id);
   if (!detail) notFound();
-  const { course, chapters, materials } = detail;
+  const { course, chapters, materials, removed } = detail;
   const makeHref = course.curriculumCourseId ? `/make?course=${course.id}` : null;
 
   return (
@@ -30,8 +30,8 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
         actions={makeHref ? <ButtonLink href={makeHref} icon={Sparkles}>Make something</ButtonLink> : null}
       />
       <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-[minmax(0,1fr)_420px]">
-        <CourseChapters courseId={course.id} chapters={chapters.map((c) => ({ id: c.id, title: c.title, outcomes: c.outcomeRefs.length, fromCurriculum: c.sourceKind !== "custom" }))} />
-        <Materials materials={materials} makeHref={makeHref} empty="Notes, slides, quizzes and exams you make for this course appear here." />
+        <CourseChapters courseId={course.id} chapters={chapters.map((c) => ({ id: c.id, title: c.title, outcomes: c.outcomeRefs.length, fromCurriculum: c.sourceKind !== "custom" }))} removed={removed} />
+        <Materials courseId={course.id} materials={materials} makeHref={makeHref} empty="Notes, slides, quizzes and exams you make for this course appear here." />
       </div>
       <CourseSettings courseId={course.id} title={course.title} />
     </div>

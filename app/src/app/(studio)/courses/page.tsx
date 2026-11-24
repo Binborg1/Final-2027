@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { Tag } from "@/components/ui/Chip";
 import { EmptyState } from "@/components/ui/Misc";
 import { requireTeacher } from "@/lib/auth/teacher";
-import { courseList, ensureChapters } from "@/lib/courses/data";
+import { courseList } from "@/lib/courses/data";
 import { loadDataset } from "@/lib/curriculum/dataset";
 import { gradeOfLevel } from "@/lib/teachers/labels";
 import { cn } from "@/lib/ui/cn";
@@ -18,7 +18,6 @@ const plural = (n: number, one: string, many = `${one}s`) => `${n} ${n === 1 ? o
 /** P1 Courses: the teacher's courses, and "Add a course". Everything lives in a course. */
 export default async function CoursesPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const [{ teacher }, sp] = await Promise.all([requireTeacher({ next: "/courses" }), searchParams]);
-  await ensureChapters();
   const courses = await courseList();
   const curriculum = loadDataset().summaries.map((s) => ({ id: s.id, name: s.name, subject: s.subject, levels: s.levels, units: s.units }));
   const existing = courses.filter((c) => c.curriculumCourseId && c.level).map((c) => `${c.curriculumCourseId}:${c.level}`);

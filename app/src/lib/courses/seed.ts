@@ -76,3 +76,16 @@ export function chapterSeeds(course: Pick<DatasetCourse, "units" | "outcomes" | 
 
   return seeds.map((s, i) => ({ ...s, position: i }));
 }
+
+/**
+ * Which of a curriculum course's chapters the teacher has deleted from their course.
+ * A seeded chapter is found by its curriculum reference, even when the teacher
+ * renamed it. Chapters named after the curriculum document's units have no
+ * reference, so they are found by title.
+ */
+export const seedKey = (s: Pick<ChapterSeed, "title" | "source_ref">) => s.source_ref ?? `title:${s.title.trim().toLowerCase()}`;
+
+export function missingSeeds(seeds: ChapterSeed[], chapters: { title: string; sourceRef: string | null }[]): ChapterSeed[] {
+  const have = new Set(chapters.map((c) => seedKey({ title: c.title, source_ref: c.sourceRef })));
+  return seeds.filter((s) => !have.has(seedKey(s)));
+}

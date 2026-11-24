@@ -31,7 +31,7 @@ export function liveBrief(b: Brief): Brief {
     biggest.count--;
     total--;
   }
-  return { ...b, kind: "quiz", mix: total === 0 ? DEFAULT_LIVE_MIX.map((r) => ({ ...r })) : mix };
+  return { ...b, kind: "quiz", mix: total === 0 ? DEFAULT_LIVE_MIX.map((r) => ({ ...r })) : mix, templateId: null, layout: null, parts: null, style: null, drafted: null, pinned: null };
 }
 
 const oneLine = (s: string) => s.replace(/[\r\n<>]+/g, " ").trim().slice(0, 200);

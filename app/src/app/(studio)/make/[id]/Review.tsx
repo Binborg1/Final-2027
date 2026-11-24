@@ -15,6 +15,7 @@ import { isQuestionKind, kindInfo, QTYPE_LABEL } from "@/lib/resources/kinds";
 import { acceptAlt, applyFix, approve, deleteItem, discardAlt, dismissNotices, duplicateItem, markReviewed, moveItem, regenerateItem, setGlobal, setTitle, startNewVersion, updateItem, updateSection, useWorkspace } from "@/lib/resources/store";
 import type { CheckRow, Draft, Item, Section } from "@/lib/resources/types";
 import { PublishPanel } from "./PublishPanel";
+import { TemplateSync } from "./TemplateSync";
 import { cn } from "@/lib/ui/cn";
 
 type Part = { id: string; kind: "item"; item: Item; section: Section; number: number } | { id: string; kind: "section"; section: Section };
@@ -150,6 +151,8 @@ export function Review({ id }: { id: string }) {
           </button>
         </div>
       ) : null}
+
+      <TemplateSync id={id} draft={draft} resource={resource} />
 
       {approved ? <PublishPanel id={id} title={draft.title} kind={draft.kind} version={draft.version} /> : null}
 

@@ -31,11 +31,16 @@ export function WaitingForReview() {
         </EmptyState>
       ) : (
         <>
-          {waiting.length === 0 ? <p className="py-4 text-body text-ink-2">Nothing waiting. Everything you made is approved.</p> : <Rows rows={waiting} />}
+          {waiting.length === 0 ? <p className="py-4 text-body text-ink-2">Nothing waiting. Everything you made is approved.</p> : <Rows rows={waiting} href={(id) => `/make/${id}`} />}
           {approved.length > 0 ? (
             <>
-              <p className="mt-2 border-t border-line pt-3 text-badge font-bold tracking-[0.06em] text-ink-2 uppercase">Approved</p>
-              <Rows rows={approved} />
+              <div className="mt-2 flex items-center justify-between gap-3 border-t border-line pt-3">
+                <p className="text-badge font-bold tracking-[0.06em] text-ink-2 uppercase">Approved</p>
+                <Link href="/library" className="text-meta font-semibold text-accent-ink hover:underline">
+                  See all in Library
+                </Link>
+              </div>
+              <Rows rows={approved} href={(id) => `/library/${id}`} />
             </>
           ) : null}
         </>
@@ -44,7 +49,7 @@ export function WaitingForReview() {
   );
 }
 
-function Rows({ rows }: { rows: { r: ReturnType<typeof useWorkspace>["resources"][number]; d: ReturnType<typeof useWorkspace>["drafts"][string] }[] }) {
+function Rows({ rows, href }: { rows: { r: ReturnType<typeof useWorkspace>["resources"][number]; d: ReturnType<typeof useWorkspace>["drafts"][string] }[]; href: (id: string) => string }) {
   return (
     <ul className="flex flex-col">
       {rows.map(({ r, d }) => {
@@ -52,7 +57,7 @@ function Rows({ rows }: { rows: { r: ReturnType<typeof useWorkspace>["resources"
         const meta = [r.courseName, count > 0 ? `${count} question${count === 1 ? "" : "s"}` : `${d.sections.length} part${d.sections.length === 1 ? "" : "s"}`, formatWhen(r.updatedAt)].filter(Boolean).join(" · ");
         return (
           <li key={r.id} className="border-b border-line last:border-b-0">
-            <Link href={`/make/${r.id}`} className="group -mx-2 flex items-center gap-3.5 rounded-tile px-2 py-3 hover:bg-white/50">
+            <Link href={href(r.id)} className="group -mx-2 flex items-center gap-3.5 rounded-tile px-2 py-3 hover:bg-white/50">
               <span aria-hidden className="flex size-10 shrink-0 items-center justify-center rounded-sm bg-white/85 text-accent">
                 <FileText size={20} strokeWidth={1.6} />
               </span>
