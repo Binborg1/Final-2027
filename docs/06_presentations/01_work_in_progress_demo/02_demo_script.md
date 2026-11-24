@@ -1,6 +1,8 @@
 # Work-in-progress demo: script
 
-**Funza Teacher Studio · v0.6 · 24 November 2026**
+**Funza Teacher Studio · v0.7 · 24 November 2026**
+
+*Changed in v0.7: the deck has 15 slides. Slide 4 is new and says what Funza does (Prepare and Live) right after the problem. The Kanban, Gantt, story map and timeline match the work as of 24 November, and the demo slide's notes follow the demo below.*
 
 The script for the ENSE 400 work-in-progress demo on **Tuesday 24 November 2026**: 10 minutes, then 5 minutes of questions. The slides are [`01_work_in_progress_demo.pptx`](01_work_in_progress_demo.pptx) (PDF: [`01_work_in_progress_demo.pdf`](01_work_in_progress_demo.pdf)), and each slide's talk track is in its speaker notes.
 
@@ -13,20 +15,21 @@ The speaker split is a suggestion. Swap it as you like, but change speakers only
 | Slide | Covers (from the brief) | Time | Speaker |
 |---|---|---|---|
 | 1. Funza Teacher Studio | Project name | 0:20 | Chop |
-| 2. From a student study app to a teacher studio | Work from the confirmed idea to now | 0:40 | Chop |
+| 2. From a student study app to a teacher studio | Work from the confirmed idea to now | 0:30 | Chop |
 | 3. Teachers spend their evenings on curriculum work | Problems and needs | 0:35 | Chop |
-| 4. Who has a stake in Funza | Key stakeholders | 0:30 | Chop |
-| 5. Pain points for teachers and for schools | User and business pain points | 0:35 | Chop |
-| 6. Funza drafts from the curriculum; the teacher approves | UVP and strategy | 0:35 | Chop |
-| 7. What competitors do well, and the gap we fill | Competitor analysis | 0:35 | Chop |
-| 8. Free for teachers first; schools and divisions pay later | Business model and goals | 0:35 | Aubin |
-| 9. Project charter: requirements and scope | Charter, core requirements, scope | 0:35 | Aubin |
-| 10. Milestones | Gantt | 0:30 | Aubin |
-| 11. User story map | USM | 0:30 | Aubin |
-| 12. Kanban: Prepare and Live are online; phone tests are next | Kanban, development progress | 0:30 | Aubin |
-| 13. Live demo | Work-in-progress demo | 2:50 | Aubin drives, Chop narrates |
-| 14. Next, and questions | Next steps | 0:20 | Chop |
-| | **Total** | **9:40** | 20 seconds spare |
+| 4. What Funza does: Prepare before class, Live in class | The solution: what the product does | 0:40 | Chop |
+| 5. Who has a stake in Funza | Key stakeholders | 0:30 | Chop |
+| 6. Pain points for teachers and for schools | User and business pain points | 0:30 | Chop |
+| 7. Funza drafts from the curriculum; the teacher approves | UVP and strategy | 0:25 | Chop |
+| 8. What competitors do well, and the gap we fill | Competitor analysis | 0:35 | Chop |
+| 9. Free for teachers first; schools and divisions pay later | Business model and goals | 0:35 | Aubin |
+| 10. Project charter: requirements and scope | Charter, core requirements, scope | 0:30 | Aubin |
+| 11. Milestones | Gantt | 0:30 | Aubin |
+| 12. User story map | USM | 0:30 | Aubin |
+| 13. Kanban: Prepare and Live are built; phone tests are next | Kanban, development progress | 0:30 | Aubin |
+| 14. Live demo | Work-in-progress demo | 2:50 | Aubin drives, Chop narrates |
+| 15. Next, and questions | Next steps | 0:20 | Chop |
+| | **Total** | **9:50** | 10 seconds spare |
 
 ## The course to use
 
@@ -72,7 +75,7 @@ The old model spent most of each reply's length limit thinking, so long replies 
 - [ ] **Check the Wi-Fi**, or bring a phone hotspot.
 - [ ] **Use made-up names and answers.** The site uses the development database.
 
-## The demo (slide 13, 2:50)
+## The demo (slide 14, 2:50)
 
 Aubin drives and Chop narrates. The times are when each step should be finished.
 
@@ -97,11 +100,11 @@ Close with: "The course page and the 40-phone test are what's left before Releas
 
 | Question | Short answer |
 |---|---|
-| How do you know teachers want this? | We don't yet, and we say so on slide 5. The pain points are our assumptions from the requirements work. Interviews with Saskatchewan teachers are the next research step. |
+| How do you know teachers want this? | We don't yet, and we say so on slide 6. The pain points are our assumptions from the requirements work. Interviews with Saskatchewan teachers are the next research step. |
 | What if the AI is wrong? | Every draft is checked for structure, answers and coverage before the teacher sees it. The teacher reviews every part, and Approve stays locked until they have. In Live mode, multiple-choice, true/false and number answers are marked by code, not by the AI. Funza marks short answers and the teacher can change any mark. |
 | Is the curriculum data accurate? | It's imported from curriculum.gov.sk.ca and cross-checked against the Ministry's CSV files: 3,208 of 3,219 outcomes match its wording and 11 differ. No person has checked the outcomes by hand yet, and 35 of the 135 imported curricula have no outcomes in the data. |
 | What about student privacy? | By design, students have no accounts: just a session code, a name and, if the teacher asks, a student number. The database is in Canada (Supabase, Canada Central) with row-level security on every table. Short answers go to Gemini for marking with a random id and no names, so don't say all student data stays in Canada (the sign-in page currently says "Your data stays in Canada"). Names and answers are deleted 30 days after a session. |
-| Why not just use Kahoot or ChatGPT? | Slide 7. Those tools are good, and Kahoot and Wayground have AI too. Our focus is starting from the Saskatchewan outcomes, checking the draft, and running it live without accounts, in one tool. ChatGPT and Gemini are a chat with one person: we found no interactive layer where a teacher runs something live with students. Say "we found none", because Google is adding teacher tools to Classroom. We did a web check, not hands-on testing, and haven't looked at Brisk. |
+| Why not just use Kahoot or ChatGPT? | Slide 8. Those tools are good, and Kahoot and Wayground have AI too. Our focus is starting from the Saskatchewan outcomes, checking the draft, and running it live without accounts, in one tool. ChatGPT and Gemini are a chat with one person: we found no interactive layer where a teacher runs something live with students. Say "we found none", because Google is adding teacher tools to Classroom. We did a web check, not hands-on testing, and haven't looked at Brisk. |
 | How will it make money? | Our proposal: free for teachers, with a daily AI allowance, and a paid licence for departments and divisions. At school scale it costs about US$45 a month, plus US$1–3 of AI per active teacher. Prices will be set after the pilot. |
 | Why Gemini? | It reads PDFs and scanned exams, and on the paid tier our prompts aren't used to improve Google's products. Development uses the free tier, so only made-up data goes there. Only the server calls it. The model is one setting: the demo uses Gemini 3.5 Flash with minimal thinking, so drafts come back in seconds. |
 | What if a school network blocks it? | We'll test on a real school network before the pilot. If real-time updates can't connect, Live mode asks the server every 2 seconds instead. |
@@ -115,6 +118,8 @@ Close with: "The course page and the 40-phone test are what's left before Releas
 - Screens: [UI design](../../03_design/03_ui_design/ui_design.md)
 - Curriculum counts: `app/src/data/curriculum/sk-report.md`
 - Competitors (web check, 23–24 November 2026, no hands-on testing): [Gemini in Classroom](https://blog.google/products-and-platforms/products/education/classroom-ai-features/), [Google's plans for Classroom](https://techcrunch.com/2025/06/30/google-embraces-ai-in-the-classroom-with-new-gemini-tools-for-educators-chatbots-for-students-and-more), [Kahoot AI from PDF](https://kahoot.com/blog/2024/01/17/ai-pdf-question-generator-for-educators/), [Wayground standards](https://help.wayground.com/support/solutions/articles/158000405028-generate-standards-aligned-assessments-quizzes-with-wayground-ai), [MagicSchool standards](https://www.magicschool.ai/blog-posts/standards-aligned-curriculum), [MagicSchool with Saskatchewan outcomes](https://openpress.usask.ca/etad402teachingandcreatingwithgenai/?p=99), [Surrey Schools review](https://surreyschoolsone.ca/resources/magicschool)
-- Test count: `npm test` on a clean copy of `main` at `81380f2`, run on 24 November 2026: 215 of 215 passed. Database checks: 136 planned in `app/db/supabase/tests/`, run by CI
-- Live site: `/sign-in`, `/join` and `/api/health` answered on 24 November 2026; signed-in pages, AI drafting and a live session were not checked for this script
+- Test count: `npm test` on `main` at `998985e`, run on 24 November 2026: 274 of 274 passed. Database checks: 159 planned in `app/db/supabase/tests/database/`, run by CI; 19 tables, each with row-level security (Supabase table list, 24 November)
+- Live site: `/sign-in`, `/join` and `/api/health` answered on 24 November 2026, and the health check reached the database
+- Live mode: two sessions in the development database ran to Reveal on 24 November 2026, each with one student. No session with several phones is recorded yet, so the slides say Live mode "ran end to end" and list the real-phone test as Doing
+- Kanban (slide 13): the work as of 24 November 2026, from the development steps and git history (PRs #24–#33; templates and the Library were pushed straight to `main` on 24 November). The GitHub project "Final-2027 Kanban" exists but has no issues yet
 - AI timings: the app's own prompts and checks, run against the Gemini API on 24 November 2026 (Live suggestions and a 2-question quiz from the demo notes, a 12-question quiz, notes, marking 3 short answers), 2–4 runs each
