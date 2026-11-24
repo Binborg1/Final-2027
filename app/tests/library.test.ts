@@ -6,10 +6,11 @@ import {
   filterFromParams,
   filterRows,
   filterToQuery,
-  groupByCourse,
+  courseTotals,
   historyOf,
   kindCounts,
   latestApproved,
+  newestFirst,
   partPrefix,
   questionsToRetire,
   questionNumbers,
@@ -95,10 +96,19 @@ test("chip counts follow the chosen course and search, not the chosen kind", () 
   assert.equal(counts.exam, 0);
 });
 
-test("groups follow the teacher's course order, newest approval first, and skip empty courses", () => {
-  const groups = groupByCourse(rows, courses);
-  assert.deepEqual(groups.map((g) => g.course.id), ["phy", "sci"]);
-  assert.deepEqual(groups[1].rows.map((r) => r.id), ["q1", "n1", "s1"]);
+test("the first step has a card per course, in the teacher's order, with its number of documents (0 included)", () => {
+  assert.deepEqual(
+    courseTotals(rows, courses).map((t) => [t.course.id, t.count]),
+    [
+      ["phy", 1],
+      ["sci", 3],
+      ["empty", 0],
+    ],
+  );
+});
+
+test("a course's documents are listed newest approval first", () => {
+  assert.deepEqual(newestFirst(rows.filter((r) => r.courseId === "sci")).map((r) => r.id), ["q1", "n1", "s1"]);
 });
 
 test("filters round-trip through the address, and unknown values fall back to all", () => {

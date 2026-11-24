@@ -5,19 +5,18 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { KindIcon } from "@/components/materials/KindIcon";
 import { Button } from "@/components/ui/Button";
-import { Card, CardHeader } from "@/components/ui/Card";
-import { ChoiceChip, CountPill, StatusChip } from "@/components/ui/Chip";
-import { Select } from "@/components/ui/Field";
+import { Card } from "@/components/ui/Card";
+import { ChoiceChip, StatusChip } from "@/components/ui/Chip";
 import { EmptyState } from "@/components/ui/Misc";
-import { filterRows, filterToQuery, groupByCourse, KIND_FILTERS, kindCounts, NO_FILTER, type LibraryCourse, type LibraryFilter, type LibraryRow } from "@/lib/library/model";
+import { filterRows, filterToQuery, KIND_FILTERS, kindCounts, newestFirst, NO_FILTER, type LibraryFilter, type LibraryRow } from "@/lib/library/model";
 import { kindInfo } from "@/lib/resources/kinds";
 
 /**
- * The Library's filters and groups. Everything is already loaded, so filtering is
- * instant; the filters are kept in the address, so Back returns to them and a
- * course page can link to its own part of the Library.
+ * The Library's second step: one course's documents, with a title search and kind
+ * chips. Everything is already loaded, so filtering is instant; the filters are
+ * kept in the address with the course, so Back returns to them.
  */
-export function LibraryBrowser({ rows, courses, initial }: { rows: LibraryRow[]; courses: LibraryCourse[]; initial: LibraryFilter }) {
+export function LibraryBrowser({ rows, initial }: { rows: LibraryRow[]; initial: LibraryFilter }) {
   const [filter, setFilter] = useState(initial);
   const set = (patch: Partial<LibraryFilter>) => setFilter((f) => ({ ...f, ...patch }));
 
@@ -28,43 +27,26 @@ export function LibraryBrowser({ rows, courses, initial }: { rows: LibraryRow[];
   }, [filter]);
 
   const counts = useMemo(() => kindCounts(rows, filter), [rows, filter]);
-  const groups = useMemo(() => groupByCourse(filterRows(rows, filter), courses), [rows, filter, courses]);
-  // A chip for each kind the teacher has approved at all, so chips don't come and go while typing.
+  const list = useMemo(() => newestFirst(filterRows(rows, filter)), [rows, filter]);
+  // A chip for each kind this course has at all, so chips don't come and go while typing.
   const present = useMemo(() => kindCounts(rows, NO_FILTER), [rows]);
   const kinds = KIND_FILTERS.filter((k) => k.id === "all" || k.id === filter.kind || present[k.id] > 0);
 
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-3">
-        <div className="flex flex-wrap items-center gap-3">
-          <label className="relative min-w-[220px] flex-1 sm:max-w-[420px]">
-            <span className="sr-only">Search titles</span>
-            <Search aria-hidden size={18} strokeWidth={1.75} className="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-ink-2" />
-            <input
-              type="search"
-              placeholder="Search titles"
-              value={filter.q}
-              maxLength={100}
-              onChange={(e) => set({ q: e.target.value })}
-              className="h-[52px] w-full rounded-md border border-line-control bg-field pr-4 pl-11 text-card-sm font-normal text-ink transition-shadow placeholder:text-ink-2 focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent"
-            />
-          </label>
-          {courses.length > 1 ? (
-            <>
-              <label htmlFor="library-course" className="sr-only">
-                Course
-              </label>
-              <Select id="library-course" value={filter.course} onChange={(e) => set({ course: e.target.value })} className="w-full sm:w-64">
-                <option value="all">All courses</option>
-                {courses.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.title}
-                  </option>
-                ))}
-              </Select>
-            </>
-          ) : null}
-        </div>
+        <label className="relative max-w-[420px] min-w-[220px]">
+          <span className="sr-only">Search titles</span>
+          <Search aria-hidden size={18} strokeWidth={1.75} className="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-ink-2" />
+          <input
+            type="search"
+            placeholder="Search titles"
+            value={filter.q}
+            maxLength={100}
+            onChange={(e) => set({ q: e.target.value })}
+            className="h-[52px] w-full rounded-md border border-line-control bg-field pr-4 pl-11 text-card-sm font-normal text-ink transition-shadow placeholder:text-ink-2 focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent"
+          />
+        </label>
         <div role="group" aria-label="Kind" className="flex flex-wrap gap-2">
           {kinds.map((k) => (
             <ChoiceChip key={k.id} selected={filter.kind === k.id} suffix={counts[k.id]} onClick={() => set({ kind: k.id })}>
@@ -74,42 +56,30 @@ export function LibraryBrowser({ rows, courses, initial }: { rows: LibraryRow[];
         </div>
       </div>
 
-      {groups.length === 0 ? (
+      {list.length === 0 ? (
         <Card className="p-6">
           <EmptyState
             icon={SearchX}
             title="Nothing matches"
             action={
-              <Button variant="secondary" size="sm" onClick={() => setFilter(NO_FILTER)}>
+              <Button variant="secondary" size="sm" onClick={() => setFilter({ ...NO_FILTER, course: filter.course })}>
                 Clear filters
               </Button>
             }
           >
-            Try another word, or fewer filters.
+            Try another word, or another kind.
           </EmptyState>
         </Card>
       ) : (
-        groups.map(({ course, rows: list }) => (
-          <Card key={course.id} className="flex flex-col gap-3 px-6 pt-5 pb-5 max-sm:px-4" aria-labelledby={`library-${course.id}`}>
-            <CardHeader
-              id={`library-${course.id}`}
-              title={course.title}
-              after={<CountPill>{list.length}</CountPill>}
-              actions={
-                <Link href={`/courses/${course.id}`} className="text-body font-semibold text-accent-ink hover:underline">
-                  Open course
-                </Link>
-              }
-            />
-            <ul className="flex flex-col gap-2">
-              {list.map((r) => (
-                <li key={r.id}>
-                  <Row row={r} />
-                </li>
-              ))}
-            </ul>
-          </Card>
-        ))
+        <Card className="px-6 pt-5 pb-5 max-sm:px-4" aria-label="Documents">
+          <ul className="flex flex-col gap-2">
+            {list.map((r) => (
+              <li key={r.id}>
+                <Row row={r} />
+              </li>
+            ))}
+          </ul>
+        </Card>
       )}
     </div>
   );

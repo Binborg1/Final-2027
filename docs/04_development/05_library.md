@@ -1,7 +1,7 @@
 # Library: every approved material, with its history
-**Funza Teacher Studio · v0.2 · 24 November 2026**
+**Funza Teacher Studio · v0.3 · 24 November 2026**
 
-*Changed in v0.2: deleting an approved material, and deleting and bringing back curriculum chapters (section 8).*
+*Changed in v0.3: the Library opens on a card per course with its number of documents; a course's documents are the second step (section 4). v0.2: deleting an approved material, and deleting and bringing back curriculum chapters (section 8).*
 
 The sidebar's **Question bank** item, a disabled placeholder until now, becomes **Library**: one page that keeps every material the teacher has approved, in every course, with every approved version. Each course's **Materials** card shows the same materials for that course. Any approved material opens in a read-only view, where the teacher can switch between the teacher copy and the student copy, print it, and see its history.
 
@@ -66,17 +66,17 @@ Decided by the team on 24 November 2026:
 - **Ask Funza (Ctrl K)** gains a **Library** shortcut: "Every material you approved, with its versions".
 - **Home**, card "Waiting for review": the **Approved** rows open the read-only view, and a **See all in Library** link sits beside the "Approved" label.
 
-### Library (`/library`)
-- **Header:** "Library", one line ("Every material you approved, by course, with each version kept."), and the primary **Make something**.
-- **Filters**, one row:
-  - kind chips with counts: All · Notes · Slides · Quizzes · Unit tests · Exams (a kind with none is hidden);
-  - a course select ("All courses"), shown when the teacher has more than one course;
-  - a search field for titles (case and accents ignored).
-  - The filters live in the address (`?kind=quiz&course=…&q=…`), so a course page can link to its own part of the Library and Back keeps the filters.
-- **Groups:** one card per course, in the teacher's course order: the course title, a count and **Open course**.
-  - **Rows:** a kind icon, the title, "Unit test · v2 · approved Nov 24 · Force and Motion in Our World", "v3 in review" when a draft follows, and the state chip. The row opens the view. Newest approvals first.
-- **Empty:** "Nothing approved yet. When you approve a material in Review, it's kept here with every version." with **Make something**, and a link to the drafts waiting on Home when there are any.
-- **No match:** "Nothing matches" with **Clear filters**.
+### Library (`/library`), in two steps (v0.3)
+1. **Courses** (`/library`):
+   - **Header:** "Library", one line ("Every material you approved, by course, with each version kept. Choose a course."), and the primary **Make something**.
+   - **Cards:** one rectangle per course, in a grid (one, two or three across), in the teacher's course order: the course's dot (the same colour as in the sidebar), its name, the number of documents in large type ("2 documents"), and **Open**. A course with nothing approved shows "0 documents" in grey and is still a card.
+   - **Nothing approved yet:** one line above the cards, with a link to the drafts waiting on Home. **No courses:** "No courses yet" with **Add a course**.
+2. **A course's documents** (`/library?course={id}`):
+   - **Header:** crumbs "Library › {course}", the course name, "N documents · approved, with each version kept", **Open course** (secondary) and **Make something** (curriculum courses).
+   - **Filters:** a "Search titles" field (case and accents ignored), then kind chips with counts: All · Notes · Slides · Quizzes · Unit tests · Exams (a kind the course has none of is hidden). They live in the address with the course (`?course=…&kind=quiz&q=…`), so Back keeps them.
+   - **Rows,** in one card: a kind icon, the title, "Unit test · v2 · approved Nov 24 · Force and Motion in Our World", "v3 in review" when a draft follows, and the state chip. The row opens the view. Newest approvals first.
+   - **Empty:** "Nothing approved in this course yet" with **Back to the Library**. **No match:** "Nothing matches" with **Clear filters**.
+- A course page's "See all in Library" and the view's course crumb open step 2 directly.
 
 ### A material (`/library/[id]`, `?v=N`, `?view=student`)
 - **Header:** crumbs "Library › {course} › {title}", the title of the version on screen, then the state chip, a "vN" pill, the kind, "N sections · N questions · N marks · N min" and "Approved November 24, 2026". Actions as in section 2.
@@ -103,7 +103,7 @@ Decided by the team on 24 November 2026:
 
 | File | Change |
 |---|---|
-| `src/lib/library/model.ts` | New, pure and tested: latest approved version per material, the draft that follows it, the kind filters, filtering and grouping by course, splitting a course's materials, a version's history, and splitting text into paragraphs, bullets and speaker notes |
+| `src/lib/library/model.ts` | New, pure and tested: latest approved version per material, the draft that follows it, the kind filters, filtering, the course cards' totals, splitting a course's materials, a version's history, and splitting text into paragraphs, bullets and speaker notes |
 | `src/lib/library/data.ts` | New, server only: `libraryRows()` for the Library and `libraryItem(id, v)` for the view |
 | `src/app/(studio)/library/page.tsx`, `LibraryBrowser.tsx` | New: the Library page, and its filters and groups in the browser |
 | `src/app/(studio)/library/[id]/page.tsx`, `MaterialDocument.tsx` | New: the read-only view and the document renderer |

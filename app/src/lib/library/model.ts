@@ -105,14 +105,19 @@ export function kindCounts(rows: LibraryRow[], f: LibraryFilter): Record<KindFil
   return out;
 }
 
-/** One group per course, in the teacher's course order; newest approvals first inside each. */
-export function groupByCourse(rows: LibraryRow[], courses: LibraryCourse[]): { course: LibraryCourse; rows: LibraryRow[] }[] {
-  const byCourse = new Map<string, LibraryRow[]>();
-  for (const r of rows) (byCourse.get(r.courseId) ?? byCourse.set(r.courseId, []).get(r.courseId)!).push(r);
-  return courses
-    .filter((c) => byCourse.has(c.id))
-    .map((course) => ({ course, rows: [...byCourse.get(course.id)!].sort((a, b) => b.approved.at.localeCompare(a.approved.at)) }));
+/**
+ * The Library's first step: one card per course, in the teacher's course order, with
+ * how many documents (approved materials) it holds. A course with none is still
+ * listed, with 0, so every course has its place.
+ */
+export function courseTotals(rows: LibraryRow[], courses: LibraryCourse[]): { course: LibraryCourse; count: number }[] {
+  const n = new Map<string, number>();
+  for (const r of rows) n.set(r.courseId, (n.get(r.courseId) ?? 0) + 1);
+  return courses.map((course) => ({ course, count: n.get(course.id) ?? 0 }));
 }
+
+/** A course's documents, newest approval first. */
+export const newestFirst = (rows: LibraryRow[]) => [...rows].sort((a, b) => b.approved.at.localeCompare(a.approved.at));
 
 /* ---------- a course's Materials card ---------- */
 

@@ -1,8 +1,8 @@
 # UI design: F · Oak
 
-**Funza Teacher Studio · v0.8 · 24 November 2026**
+**Funza Teacher Studio · v0.9 · 24 November 2026**
 
-*Changed in v0.8: deleting a material from the Library, and "Bring back curriculum chapters" on a course (sections 4b and 4e). v0.7: the Library (section 4e) replaces the sidebar's disabled Question bank item; a course's Materials card lists approved materials first, opening them read-only, then those still in review. v0.6: templates (section 4d): Word, PowerPoint and Funza materials as examples, saved Make settings, duplicate, pinned questions, printing in the template's style and saving review changes back; and Make's Format panel, which scrolls on its own. v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
+*Changed in v0.9: the Library opens on a card per course with its number of documents (section 4e). v0.8: deleting a material from the Library, and "Bring back curriculum chapters" on a course (sections 4b and 4e). v0.7: the Library (section 4e) replaces the sidebar's disabled Question bank item; a course's Materials card lists approved materials first, opening them read-only, then those still in review. v0.6: templates (section 4d): Word, PowerPoint and Funza materials as examples, saved Make settings, duplicate, pinned questions, printing in the template's style and saving review changes back; and Make's Format panel, which scrolls on its own. v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
 
 *Changed in v0.3: the step 4 screens (Courses, a course, a chapter, sources, publishing), section 4b.*
 
@@ -364,11 +364,9 @@ Templates are the teacher's own formats. Funza copies how they're made, never wh
 
 Every material the teacher has approved, in every course, with each approved version kept. Drafts stay in Review until they're approved. The plan, with the logic and data, is in [`docs/04_development/05_library.md`](../../04_development/05_library.md). Not drawn in Figma; built from the shared parts.
 
-- **Library** (`/library`, sidebar, Ctrl K):
-  - **Header:** "Library", "Every material you approved, by course, with each version kept.", and the primary **Make something**.
-  - **Filters:** a "Search titles" field and, with more than one course, an "All courses" select; under them, kind chips with counts: All · Notes · Slides · Quizzes · Unit tests · Exams (a kind with none is hidden). The filters are kept in the address (`?kind=&course=&q=`).
-  - **Groups:** one card per course, in the teacher's course order, with a count and **Open course**. Each row has a kind icon, the title, "Unit test · v2 · approved Nov 24 · {chapters}", "v3 in review" in amber when a draft follows, and the state chip. Newest approvals first.
-  - **Empty:** "Nothing approved yet" and a link to the drafts waiting on Home. **No match:** "Nothing matches" with **Clear filters**.
+- **Library** (`/library`, sidebar, Ctrl K), in two steps:
+  1. **Courses:** the header ("Library", "Every material you approved, by course, with each version kept. Choose a course.", primary **Make something**), then one card per course in a grid, like the Courses page cards: the course's dot, its name, the number of documents in large type ("2 documents") and **Open**. A course with nothing approved shows "0 documents" in grey. With nothing approved anywhere, one line above the cards says so and links to the drafts waiting on Home.
+  2. **A course's documents** (`/library?course=`): crumbs "Library › {course}", the course name, "N documents · approved, with each version kept", **Open course** (secondary) and **Make something**; a "Search titles" field and kind chips with counts (All · Notes · Slides · Quizzes · Unit tests · Exams; a kind the course has none of is hidden), kept in the address. The rows sit in one card: a kind icon, the title, "Unit test · v2 · approved Nov 24 · {chapters}", "v3 in review" in amber when a draft follows, and the state chip, newest approvals first. **Empty:** "Nothing approved in this course yet" with **Back to the Library**. **No match:** "Nothing matches" with **Clear filters**.
 - **A material** (`/library/[id]`, `?v=N` for an older version, `?view=student`):
   - **Header:** crumbs "Library › {course} › {title}", then the state chip, a "vN" pill, the kind with its sections, questions, marks and minutes, and "Approved November 24, 2026".
   - **Buttons:** **Print or save as PDF** (primary; the student copy of the version on screen, in a new tab), **Open in Review** or **Open draft vN** (secondary), and **Run live** for quizzes, tests and exams when the version on screen is the current one.
