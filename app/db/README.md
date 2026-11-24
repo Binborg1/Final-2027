@@ -29,8 +29,8 @@ Add a row whenever a migration is applied to a project, and fill in the Producti
 | Role | Access |
 |---|---|
 | `anon` (a browser with no session) | Nothing. Students never use the database directly; their requests go through the API. |
-| `authenticated` (a signed-in teacher) | Their own rows only (`teacher_id = auth.uid()`), in every teacher table. Built-in templates are readable by all. Participants, answers and AI usage are read-only; the Google refresh token column can't be read at all. |
-| `service_role` (the server, with the secret key) | Everything. Used only for student writes, AI usage rows and scheduled work, after the API has checked who is asking. |
+| `authenticated` (a signed-in teacher) | Their own rows only (`teacher_id = auth.uid()`), in every teacher table. Built-in templates are readable by all. AI usage is read-only. Participants are read-only except that a teacher may remove one of their own students; on answers a teacher may change only the mark columns (`correct`, `marks`, `marked_by`, `ai_marks`), never what a student answered. The Google refresh token column can't be read at all. |
+| `service_role` (the server, with the secret key) | Everything. Used only for student writes, AI usage rows, the rate-limit counters (`rate_limits`, `rate_hit()`) and scheduled work, after the API has checked who is asking. |
 
 A child row points at its parent with `(parent_id, teacher_id)`, so it can only belong to a parent of the same teacher, even when the server writes it.
 

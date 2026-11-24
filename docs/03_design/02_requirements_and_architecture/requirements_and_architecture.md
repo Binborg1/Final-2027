@@ -1,6 +1,8 @@
 # Teacher Studio: requirements and architecture
 
-**Funza Teacher Studio · v0.3 · 23 November 2026**
+**Funza Teacher Studio · v0.4 · 23 November 2026**
+
+*Changed in v0.4: a live session runs the whole set at once on one shared timer (sections 8 and 12, Q18), answer saves are limited to 60 a minute, the rate-limit counters are a table, and the code layout matches what was built (section 17).*
 
 *Changed in v0.3: teachers sign in with Google, or with an email and password. The email sign-in link is gone (FR-1, sections 7 and 10, Q13).*
 
@@ -227,12 +229,13 @@ Live mode has the strictest timing in the system. The server keeps the only true
 
 *Diagram 2. One live session, start to finish. Solid arrows are requests; dashed arrows are replies. Realtime only says "something changed"; the content always comes from the API.*
 
-- **Only the server changes state.** A session moves lobby → question open → closed → revealed → (next question) → ended. Each step is one API call by the teacher, saved in Postgres before the ping goes out.
-- **Pings, then a fetch.** Realtime messages carry no questions, answers or names. Anyone holding the public key can send on a channel, but a fake ping only makes phones ask the server again. Reconnecting uses the same fetch.
+- **Only the server changes state.** A session moves lobby → open (the whole set, on one shared timer) → closed (time is up; Funza marks short answers) → revealed (each phone sees its own result; the projector steps through the questions) → ended. Each step is one API call by the teacher, saved in Postgres before the ping goes out, and each raises a revision number so a late reply can't overwrite a newer one.
+- **Pings, then a fetch.** Realtime messages carry no questions, answers or names, only the revision number. Phones listen on `live:<id>`; the console and projector also listen on `live:<id>:teacher`, which carries answer counts, so answers don't wake every phone. Anyone holding the public key can send on a channel, but a fake ping only makes phones ask the server again. Reconnecting uses the same fetch.
 - **One clock: the server's.** The server stores when each question ends. Phones get the server's time on every fetch and count down from it, so a phone whose clock is wrong still shows the right time. Answers that arrive more than 2 seconds late are refused.
 - **Questions close even if the laptop sleeps.** The console closes the question at 0:00. If the console is gone, the first request after the end time closes it. The teacher can reopen the console on any device and carry on.
 - **Codes that can't be mixed up.** Codes are six characters with no look-alikes (no O and 0, no I and 1). Each is unique among open sessions and stops working once the session ends. The channel is named by the session's random id, not the code.
 - **One answer per student per question.** A database constraint keeps one row, and a later save replaces it until 0:00. Saving twice can't create a duplicate.
+- **Each live question keeps a snapshot** of the question and its key when the session starts, so an edit in the bank can't change a running quiz.
 - **If Realtime is blocked.** Some school networks block WebSockets. Phones that can't connect ask for the state every 2 seconds instead, which is slower but still works.
 - **Budget per session.** About 10 pings per question go to 31 listeners, so a 15-question session uses roughly 5,000 messages. The free plan's 2 million messages a month cover about 400 sessions.
 
@@ -275,7 +278,7 @@ The ranges use the Flash prices on Google's pricing page on 21 November 2026. Li
 
 ## 11. The data
 
-The database has fifteen tables and three join tables. Today all of this data lives in one browser's local storage under `funza.workspace.v1`.
+The database has fifteen tables and three join tables, plus a server-only `rate_limits` table for the counters in section 12.
 
 ![Data model](diagrams/04_data_model.png)
 
@@ -290,9 +293,8 @@ The database has fifteen tables and three join tables. Today all of this data li
 
 **How the bank learns:**
 - Approving a version copies its new questions into the chapter's bank and links them through `version_questions`.
-- When a live session ends, each question's percent correct updates its difficulty.
+- When a revealed live session ends, each question's answer and correct counts are added to its bank question, which gives its difficulty.
 - Difficulty is shown only after at least 10 answers, so one small class doesn't mislabel a question.
-- On first sign-in, Funza offers to import drafts already saved in that browser.
 
 ## 12. Rate limits and allowances
 
@@ -305,7 +307,7 @@ In R1 the counters live in Postgres, since each of these requests already writes
 | Students per session | 60 | Keeps Realtime connections predictable, and stops a leaked code from filling a session. |
 | Open sessions per teacher | 2 | Catches old sessions left open by mistake. |
 | Join attempts | 10 a minute per phone; 100 a minute per network address | Stops code guessing. A class of 30 behind one school address stays well under it. |
-| Answer saves | 30 a minute per student token | Repeated taps and scripts. |
+| Answer saves | 60 a minute per student token | Repeated taps and scripts. Text answers save after a short pause and on Next, and retries count, so 30 was too tight. |
 | State fetches | 60 a minute per student token | Covers the 2-second polling fallback with room to spare. |
 | Uploads | 20 MB a file | Supabase's free plan has 1 GB of storage in total. |
 | Gemini busy (HTTP 429) | Two retries with backoff | Then a plain "try again shortly" message. |
@@ -381,12 +383,13 @@ Most of today's app stays. The biggest change is moving storage from the browser
 
 ```
 app/
-  src/app/(teacher)/     home, courses, make, review, live console, projector view
-  src/app/(student)/     join, play/[session], c/[link]
-  src/app/api/           teach, live/{start,join,answer,close,reveal,state,end}, lms, curriculum
-  src/lib/               ai, db, live, curriculum, resources, lms
-  supabase/migrations/   one .sql file per schema change
-  tests/                 node:test, plus a 40-phone live script
+  src/app/(studio)/      home, courses, make, review, live setup, console, results
+  src/app/(projector)/   live/[id]/screen, the projector view
+  src/app/(student)/     join, play/[session] (c/[link] in step 6)
+  src/app/api/           teach, live/{join,state,answer,start,[id]/{open,close,mark,marks,reveal,end,remove,csv}}, lms, curriculum
+  src/lib/               ai, db, live, curriculum, resources, lms, sources
+  db/supabase/           migrations (one .sql file per schema change) and pgTAP tests
+  tests/                 node:test; scripts/live-load.mjs is the 40-phone load test
 .github/workflows/ci.yml lint, types, tests on every pull request
 ```
 
@@ -414,6 +417,7 @@ Each question has a default that applies until the team decides otherwise. Numbe
 | Q15 | Daily AI allowance per teacher? | 40 actions a day in R1. | At most about US$2 to 3 per teacher per day. Raise it once real use is known. |
 | Q16 | Release 1 scope? | Every Must row marked R1, plus the course page and CSV if time allows. | Templates, bank reuse, chat edits and practice sets go to R2. |
 | Q17 | Whose accounts host it? | **Decided 21 Nov 2026.** Vercel: Aubin's existing Pro team, "Aubino Chris' projects". Supabase: an organization on the team's Funza Google account (project **Funza**, `oitifuxpuxsbzubokukn`, Canada Central), with Aubin and Chop sharing that account's login. | A separate Funza account keeps RydeHub's Supabase projects and limits apart. |
+| Q18 | How does a live quiz run on phones? | **Decided 23 Nov 2026:** the whole set at once, on one shared timer (5:00 by default; an exit ticket is 3 questions in 3:00). Students answer in any order; at Reveal the projector steps through the questions. No Pause or leaderboard in R1, and the projector never shows names. | It matches the flows plan ("the whole set at once") and PRODUCT.md ("one shared timer"). One open-and-close step is more reliable on school Wi-Fi than a cycle per question, and students can go back to a question. |
 
 ## 20. Sources
 

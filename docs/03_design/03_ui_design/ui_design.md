@@ -1,12 +1,14 @@
 # UI design: F · Oak
 
-**Funza Teacher Studio · v0.3 · 23 November 2026**
+**Funza Teacher Studio · v0.4 · 23 November 2026**
+
+*Changed in v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
 
 *Changed in v0.3: the step 4 screens (Courses, a course, a chapter, sources, publishing), section 4b.*
 
 *Changed in v0.2: the sign-in card has an email and password form, with "Create account" and "Forgot password?", instead of the email link, and a new "Choose a new password" screen (section 4).*
 
-This is the design Funza is built on, and how the app turns it into code. The team picked **F · Oak** on 21 November from eight directions (`01_ui_directions.pdf` in this folder). This version covers the tokens, the shared parts and the screens of development step 3 (sign-in, first-time setup, Home, Make, review and Settings). The Live and student screens are added when they are built (steps 5 and 6).
+This is the design Funza is built on, and how the app turns it into code. The team picked **F · Oak** on 21 November from eight directions (`01_ui_directions.pdf` in this folder). This version covers the tokens, the shared parts and the screens of development step 3 (sign-in, first-time setup, Home, Make, review and Settings). The Live screens and the student join and answer screens are in section 4c; the student course page is added with step 6.
 
 - **Figma file:** [Funza UI directions](https://www.figma.com/design/FIMcX0HYeZurSRrgxJygxz), page "★ F · Oak (picked)" plus the pages "F · Account and students", "F · Prepare screens" and "F · Live screens".
 - **In the code:** the tokens are in `app/src/app/globals.css`, the shared parts in `app/src/components/ui/`, and the page shell in `app/src/components/shell/`.
@@ -90,6 +92,7 @@ The utilities are `frost` plus `frost-panel`, `frost-auth`, `frost-sidebar`, `fr
 | Badge | 12 / 16 | SemiBold |
 | Overline | 12, uppercase, tracking 0.72 px | Bold |
 | Button | 15 (16 for the large one) | SemiBold |
+| Projector clock and join code (`--text-timer`, added) | 144 / 144 | Bold |
 
 On phones, page titles drop to 28 / 34.
 
@@ -164,7 +167,7 @@ Each step is saved as the teacher moves on, so a teacher who stops halfway comes
 
 ![Home](diagrams/04_home.png)
 
-- **Kept as drawn:** the greeting with the date, and the two mode cards. "Go live" is shown but disabled until Live mode (step 5).
+- **Kept as drawn:** the greeting with the date, and the two mode cards. "Go live" opens Live setup (step 5).
 - **Waiting for review:** lists this teacher's drafts that aren't approved yet, with an empty state.
 - **Your courses:** shows the courses chosen in setup. Each one opens Make for that course.
 - **Left out until Live exists:** "Last live session" and "Most missed".
@@ -176,7 +179,7 @@ Each step is saved as the teacher moves on, so a teacher who stops halfway comes
 - **Sidebar:**
   - Desktop (1024 px and wider): 264 px expanded or 64 px collapsed; the setting is remembered.
   - Expanded, it overlaps the panel, which pads its content instead of moving, as in F1.
-  - It lists the drawn items. Those not built yet (Courses, Review, Question bank, Templates, Go live, Live sessions) are shown disabled, with a note saying when they arrive.
+  - It lists the drawn items. Those not built yet (Review, Question bank, Templates) are shown disabled, with a note saying when they arrive.
 - **Ask Funza (Ctrl K):** opens a command dialog. Typed text starts a Make brief; the other entries go to Home, Make or Settings, or sign out. Chatting with Funza is Release 2.
 - **Sign out:** in the account menu on the sidebar's profile row, and in the Ask Funza dialog.
 - **The chapter screen itself** comes with courses and chapters in step 4.
@@ -269,6 +272,47 @@ Built from the shared parts, following the F2 chapter frame (27:531). Screenshot
   - Chips choose Assignment or Material, and "Save as a draft in Classroom" or "Post now".
   - The primary button reads "Save draft to N classes" or "Post to N classes".
 
+## 4c. Screens in step 5 (Live)
+
+Drawn in Figma on the page "F · Live screens" (L1 to L5) and in the student phone frame F5 (32:220). The lobby and the phone's "You're in" screen weren't drawn; they follow the requirements and the other frames. Every Live screen ends with the stepper pill **Setup › Lobby › Answering › Marking › Reveal › Results**, the current step on white.
+
+**Decided:** the whole set runs at once on one shared timer. No Pause and no leaderboard in R1 (the Figma Pause button and leaderboard toggle are left out, or shown off). **The projector never shows names:** the setup's Name row says "Shown to you, never on the projector", so the projector lobby shows only how many have joined; names are on the console.
+
+### Go live (L1, `/live/new`)
+- Crumbs: course › chapter › Go live. Course and chapter selects under the source chips.
+- **Source chips:** This chapter / Upload a PDF or notes (the chapter's sources) / A saved quiz / Exit ticket preset (3 questions, 3:00).
+- **Question card:** "Funza suggested N questions" with a "You kept N" pill and "Show the N you skipped". Each row has a checkbox, Q#, the question, a type tag, marks, the outcome code, where it came from, and a pencil that edits the wording in place. Questions from an approved quiz show "Edit in Review" instead, because an approved version can't change. Fill-in, matching and long answers are shown dimmed: "Not on phones yet". An empty bank offers "Suggest 8 questions".
+- **Ask Funza for:** "+ 3 more", "Easier", "Harder", and "N Funza actions left today" when 5 or fewer remain.
+- **Session settings:** the timer (− 5:00 +, steps of 30 s), the title, Name (always, never on the projector), Student number (on by default), Pacing "Whole set at once", Leaderboard (off, disabled), a summary ("8 questions · 13 marks · 5:00"), and the one primary action, **Open the lobby →**. When new or edited questions are kept, the summary says they will be saved to the chapter's bank as an approved quiz.
+
+### The console (`/live/[id]`)
+- **Lobby (added):** a card with "Join code", the code at 40 px, a QR code, and the join address; a Students card with each name (and student number) and a remove button with a confirm dialog. Actions: "Cancel session" (ghost), "Open projector view" (opens the projector in its own window), **Start answering**. Starting with nobody joined asks to confirm.
+- **Answering (L2):** the title, "Students are answering · 8 questions · 28 joined with code K7QM4P", "Projector shows the clock and the join code", and "End early" (with a confirm). A ring timer ("3:12 left of 5:00"), "21 of 28 answered", answers in, finished and not started; "Answers per question" bars; a Students grid with a dot per question and "✓", "7 of 8" or "Not started". Footer: "Answers stay hidden until you press Reveal".
+- **Check marks (L3):** "Funza marked N answers…". Left, the questions with their state ("marked exactly ✓", "check Funza's marks", "Funza is marking…", "Couldn't mark"). Right, the chosen question: tags, correct / partly / incorrect counts, the answer, then a table of Student, Answer, Funza's mark, Marks and Change. Change opens the marks (0 to the question's marks, or Right/Wrong for exact questions); a changed row is tinted, says "Changed by you · Funza gave N", and offers Undo. "Funza marks answers without seeing student names". The primary action is **Reveal**; with unmarked answers it asks first.
+- **Reveal:** the projector's view in small, with ‹ n/N › (which also moves the projector), "Change a mark", and **See results**, which ends the session.
+
+### The projector (`/live/[id]/screen`, L4; no shell)
+- A pill at the top: title · course (· Answers revealed).
+- **Lobby (added):** a large QR code (up to 42% of the screen height) on white with its quiet zone, "Join on your phone", the address, the code in `--text-timer` (144 px), and "N joined". No names.
+- **Answering:** the clock in `--text-timer`, red in the last 30 seconds; "21 of 28 answered"; the address and code for late joiners.
+- **Time's up**, then **Reveal (L4):** "Question 4 of 8" with its type and progress dots; the question at 40 px (NFR-18 asks for at least 32); the options with their percent bars, the correct one in sage with "✓ Correct answer" (for typed answers, the answer); "38% of the class got it right" at 96 px; "Names are never shown" and "Each phone now shows that student's own result". ← and → step (kept in step with the console), F goes full screen.
+
+### Results (L5, `/live/[id]/results`)
+- "Title · results", the date, course, chapter, questions, marks and timer. Actions: "Export CSV" and "Make practice" (disabled until Release 2). "Save to course" is left out.
+- Class average; By outcome (% right bars); Funza's summary (its one-line notes from marking, when there are any); Most missed (the 3 lowest, with "Common wrong answer: False · 62%"); "Results added to N questions in the bank" with "Open question bank"; Student scores in two columns ("Only you see this list").
+- After the 30-day clean-up, a note says names and answers are gone and only the per-question counts remain.
+
+### Live sessions (`/live`)
+"Open now" (each with its state and "Open console · code") and "Past sessions" (each with "Results"), and the primary "Go live". The chapter page lists its five latest sessions and has a secondary "Go live".
+
+### Student phone (F5)
+- **Join (`/join`):** the Funza logo, "Join a live session", "The code is on your teacher's screen.", Code (filled in from the QR code, spaced capitals), Name, "Student number (if your teacher asks)", **Join →**, "No account needed. Your teacher will see your name." A phone that joined before sees "Rejoin as {name}". Inputs are at least 16 px, so iOS doesn't zoom.
+- **You're in (added):** a sage check, "You're in, {name}.", "Wait for your teacher…", and the number of questions and minutes.
+- **Answer:** "Question 3 of 8", the timer pill (the server's clock; red in the last 30 s), a progress bar, the question card, option rows at least 52 px tall with a round check (selected: terracotta edge on tint), a number box with the unit after it and a hint under it when it can't be read, or a text box. Under it: the "✓ Saved" pill ("Saving…", "Not saved yet · retrying", "Locked"), Back and **Next →**, and dots that jump to a question. A last screen, "Check your answers", lists every question. At 0:00 the phone locks: "Time's up. Your answers are locked."
+- **Time's up:** "You answered 7 of 8. Your teacher is checking the answers."
+- **After Reveal:** "Your result · 6 of 8 · 75%", then each question with Right, "Not quite" (with "You: True · Answer: False"), "Partly · 2 of 3", "No answer" or "Not marked", and "Your teacher will go over the answers now."
+- **Removed or ended:** "This phone isn't in the session." with **Join again**.
+
 ## 5. Phones (added; not drawn for teacher screens)
 
 Only the student phone (F5, 32:220) is drawn. Teacher screens below 768 px follow its rules:
@@ -338,4 +382,4 @@ These screenshots come from the app on branch `sign-in`. They were taken with a 
 
 ## 9. Not in this version
 
-Live mode (lobby, console, reveal, results), the student join and answer screens, the student course page, a bank page across chapters, and templates. Each is drawn in Figma and gets its section here when it is built.
+The student course page (step 6), a bank page across chapters, templates, and in Live mode: Pause, a leaderboard and "Make practice". Each is drawn in Figma and gets its section here when it is built.

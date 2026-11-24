@@ -13,7 +13,8 @@
     "db:reset": "supabase --workdir db db reset",
     "db:test": "supabase --workdir db test db",
     "db:types": "supabase --workdir db gen types typescript --local > src/lib/db/types.ts",
-    "db:schema": "supabase --workdir db db dump --local --schema public -f schema.sql"
+    "db:schema": "supabase --workdir db db dump --local --schema public -f schema.sql",
+    "live:load": "node scripts/live-load.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
