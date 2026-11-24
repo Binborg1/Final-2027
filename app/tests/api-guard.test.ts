@@ -60,9 +60,11 @@ test("a session Supabase Auth no longer accepts gets 401 too", async () => {
 test("a signed-in teacher gets through the guard", async () => {
   const cookies = await sessionCookies(TEACHER_A);
   stubAuth([TEACHER_A]);
-  const teach = await call(ROUTES[0], cookies);
+  const original = console.error;
+  console.error = () => {}; // This test has no database, so today's allowance is unknown.
+  const teach = await call(ROUTES[0], cookies).finally(() => (console.error = original));
   assert.equal(teach.status, 200);
-  assert.deepEqual(await teach.json(), { configured: false });
+  assert.deepEqual(await teach.json(), { configured: false, remaining: null });
   const draft = await call(ROUTES[1], cookies);
   assert.equal(draft.status, 400, "past the guard, the empty brief is refused as a bad request");
   const status = await call(ROUTES.find((r) => r.path.endsWith("/status"))!, cookies);

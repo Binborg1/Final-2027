@@ -68,6 +68,14 @@ test("Classroom needs its three settings together", () => {
   assert.equal(ok.GOOGLE_CLIENT_SECRET, "made-up");
 });
 
+test("the daily AI limit is optional, and a whole number above 0 when set", () => {
+  assert.equal(checkEnv(serverEnvSchema, GOOD).FUNZA_AI_DAILY_LIMIT, undefined);
+  assert.equal(checkEnv(serverEnvSchema, { ...GOOD, FUNZA_AI_DAILY_LIMIT: "25" }).FUNZA_AI_DAILY_LIMIT, 25);
+  for (const bad of ["many", "0", "-5", "2.5"]) {
+    assert.deepEqual(problemsOf(() => checkEnv(serverEnvSchema, { ...GOOD, FUNZA_AI_DAILY_LIMIT: bad })), ["FUNZA_AI_DAILY_LIMIT must be a whole number above 0"], bad);
+  }
+});
+
 test("the public schema holds no server secret", () => {
   assert.deepEqual(Object.keys(publicEnvSchema.shape).sort(), ["NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", "NEXT_PUBLIC_SUPABASE_URL"]);
   for (const name of Object.keys(publicEnvSchema.shape)) assert.match(name, /^NEXT_PUBLIC_/);

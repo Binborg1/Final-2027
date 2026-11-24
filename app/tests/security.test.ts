@@ -51,9 +51,34 @@ test("Gemini is preferred, and its key goes in a header, never the URL", async (
   process.env.GROQ_API_KEY = "groq-key";
   assert.equal(aiConfig()?.provider, "gemini");
   const seen = fakeFetch(200, { candidates: [{ content: { parts: [{ text: "{}" }] }, finishReason: "STOP" }] });
-  assert.equal(await complete(ask), "{}");
+  assert.equal((await complete(ask)).text, "{}");
   assert.doesNotMatch(seen.url!, /gemini-secret-key|key=/);
   assert.equal(new Headers(seen.init!.headers).get("x-goog-api-key"), "gemini-secret-key");
+});
+
+test("Gemini asks for a JSON reply and reports the model and its tokens", async () => {
+  useGemini();
+  const seen = fakeFetch(200, {
+    candidates: [{ content: { parts: [{ text: '{"items":[]}' }] }, finishReason: "STOP" }],
+    modelVersion: "gemini-2.5-flash-001",
+    usageMetadata: { promptTokenCount: 812, candidatesTokenCount: 230, thoughtsTokenCount: 70, totalTokenCount: 1112 },
+  });
+  assert.deepEqual(await complete(ask), { text: '{"items":[]}', model: "gemini-2.5-flash-001", tokensIn: 812, tokensOut: 300 }, "thinking tokens are billed as output");
+  assert.equal(JSON.parse(String(seen.init!.body)).generationConfig.responseMimeType, "application/json");
+
+  fakeFetch(200, { candidates: [{ content: { parts: [{ text: "{}" }] }, finishReason: "STOP" }] });
+  assert.deepEqual(await complete(ask), { text: "{}", model: "gemini-2.5-flash", tokensIn: 0, tokensOut: 0 }, "no usage block: zero tokens, the requested model");
+});
+
+test("an OpenAI-compatible provider reports the model and its tokens", async () => {
+  for (const k of ["GEMINI_API_KEY", "FUNZA_AI_MODEL", "OPENROUTER_API_KEY"]) delete process.env[k];
+  Object.assign(process.env, { FUNZA_AI_PROVIDER: "groq", FUNZA_AI_API_KEY: "test-key", FUNZA_AI_BASE_URL: "https://ai.test/v1/" });
+  const seen = fakeFetch(200, { model: "llama-test", choices: [{ message: { content: '{"item":{}}' }, finish_reason: "stop" }], usage: { prompt_tokens: 50, completion_tokens: 12, total_tokens: 62 } });
+  assert.deepEqual(await complete(ask), { text: '{"item":{}}', model: "llama-test", tokensIn: 50, tokensOut: 12 });
+  assert.equal(seen.url, "https://ai.test/v1/chat/completions");
+
+  fakeFetch(200, { choices: [{ message: { content: "{}" }, finish_reason: "stop" }], usage: { prompt_tokens: -4, completion_tokens: "lots" } });
+  assert.deepEqual(await complete(ask), { text: "{}", model: "llama-3.3-70b-versatile", tokensIn: 0, tokensOut: 0 }, "odd counts become 0");
 });
 
 test("provider error text stays on the server", async () => {
