@@ -17,6 +17,7 @@ Rules:
 - Reply with one JSON object only, no prose, in exactly the shape requested.
 - Every item and section must list "outcomeIds" taken only from the outcome ids supplied. Never invent or mention other curriculum codes, outcomes or indicators.
 - Write for students at the stated grade: plain, accurate, Canadian spelling, SI units.
+- Write plain text that shows as typed on a phone or a projector: no LaTeX, no $ signs around math, no Markdown. Write formulas and units with ordinary characters, for example 2Na + Cl₂ → 2NaCl or 9.8 m/s².
 - For any question whose answer is a number, include "calc": {"expr": "...", "vars": {...}, "unit": "...", "show": "..."}: "expr" uses only numbers, the variable names in "vars", + - * / ^ and parentheses; "vars" maps each name to a number; "unit" is the answer's unit; "show" is the working in words, e.g. "150 m ÷ 6 m/s". The stated answer must equal the value of expr.
 - Mark each item's difficulty as "foundational", "grade" or "extending".
 - Tag "verbs" with "investigate", "represent" or "explore" only when the item really asks students to do that.
