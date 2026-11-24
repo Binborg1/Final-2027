@@ -8,7 +8,8 @@ import { PageHeader } from "@/components/shell/PageHeader";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ChoiceChip } from "@/components/ui/Chip";
-import { Checkbox } from "@/components/ui/Field";
+import { Checkbox, Input } from "@/components/ui/Field";
+import { Dialog } from "@/components/ui/Dialog";
 import { Disclosure } from "@/components/ui/Disclosure";
 import { EmptyState } from "@/components/ui/Misc";
 import { MultiSelect } from "@/components/ui/MultiSelect";
@@ -24,7 +25,9 @@ import { sourceText } from "@/lib/sources/actions";
 import { defaultBrief, isQuestionKind, NOTES_STYLES, QTYPE_LABEL } from "@/lib/resources/kinds";
 import { cancelGeneration, createWithoutAi, patchBrief, resetGeneration, setKind, setMixRow, startGeneration, useWorkspace } from "@/lib/resources/store";
 import type { ResourceKind } from "@/lib/resources/types";
+import { saveTemplate } from "@/lib/templates/actions";
 import { applyTemplate, clearTemplate, controlsOf, type Controls } from "@/lib/templates/apply";
+import { formatFromBrief } from "@/lib/templates/from";
 import { categoryInfo, categoryOf } from "@/lib/templates/model";
 import { FormatPanel, type FormatMode, type MakeTemplate } from "./FormatPanel";
 import { cn } from "@/lib/ui/cn";
@@ -82,6 +85,12 @@ export function MakeBrief({
   const [panelOpen, setPanelOpen] = useState<boolean | null>(null);
   // The teacher's own Adjust settings, kept aside while a template is in use.
   const adjustControls = useRef<Controls | null>(null);
+  // "Save these settings as a template": the dialog, and the new template to use once the page has it.
+  const [saveOpen, setSaveOpen] = useState(false);
+  const [saveName, setSaveName] = useState("");
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const savedPending = useRef<string | null>(null);
   const courseChapters = useMemo(() => (course ? chapters[course.id] ?? [] : []), [chapters, course]);
   const chapterItems = useMemo(
     () => courseChapters.map((c) => ({ id: c.id, label: c.title, hint: c.outcomeRefs.length > 0 ? `${c.outcomeRefs.length} outcome${c.outcomeRefs.length === 1 ? "" : "s"}` : "No outcomes" })),
@@ -150,6 +159,30 @@ export function MakeBrief({
       patchBrief(applyTemplate(brief, best));
     }
   }, [formatMode, category, brief, templates]);
+
+  // The template just saved from these settings, once the refreshed page lists it.
+  useEffect(() => {
+    const id = savedPending.current;
+    const t = id ? templates.find((x) => x.id === id) : undefined;
+    if (!t || categoryOf(brief.kind) !== t.category) return;
+    savedPending.current = null;
+    adjustControls.current = controlsOf(brief);
+    setFormatMode("template");
+    patchBrief(applyTemplate(brief, t));
+  }, [templates, brief]);
+
+  async function saveSettings() {
+    const format = formatFromBrief(brief);
+    if (!format) return setSaveError("Add at least one question first.");
+    setSaving(true);
+    setSaveError(null);
+    const res = await saveTemplate({ category, name: saveName, summary: "", format, learnedFrom: [{ kind: "controls", name: "Make settings" }] });
+    setSaving(false);
+    if (!res.ok) return setSaveError(res.message);
+    savedPending.current = res.id;
+    setSaveOpen(false);
+    router.refresh();
+  }
 
   function chooseTemplate(t: MakeTemplate) {
     if (!brief.templateId) adjustControls.current = controlsOf(brief);
@@ -411,6 +444,11 @@ export function MakeBrief({
             chosenId={brief.templateId}
             onChoose={chooseTemplate}
             newHref={newTemplateHref}
+            onSaveSettings={() => {
+              setSaveName("");
+              setSaveError(null);
+              setSaveOpen(true);
+            }}
             adjust={
               <>
                 {questionKind ? (
@@ -527,6 +565,34 @@ export function MakeBrief({
           </Card>
         </aside>
       </div>
+
+      <Dialog
+        open={saveOpen}
+        onClose={() => setSaveOpen(false)}
+        labelledBy="save-settings-title"
+        title="Save these settings as a template"
+        description={`Your ${categoryInfo(category).one.toLowerCase()} settings, ready to use again on any chapter. You can change it on the Templates page.`}
+        footer={
+          <>
+            <Button variant="secondary" onClick={() => setSaveOpen(false)} disabled={saving}>
+              Cancel
+            </Button>
+            <Button loading={saving} disabled={!saveName.trim()} onClick={() => void saveSettings()}>
+              Save template
+            </Button>
+          </>
+        }
+      >
+        <label className="flex flex-col gap-1.5">
+          <span className="text-meta font-semibold text-ink-2">Name</span>
+          <Input value={saveName} maxLength={80} placeholder="e.g. My weekly quiz" onChange={(e) => setSaveName(e.target.value)} onKeyDown={(e) => e.key === "Enter" && saveName.trim() && void saveSettings()} autoFocus />
+        </label>
+        {saveError ? (
+          <p role="alert" className="text-body font-medium text-red-ink">
+            {saveError}
+          </p>
+        ) : null}
+      </Dialog>
     </div>
   );
 }

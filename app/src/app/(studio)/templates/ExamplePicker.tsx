@@ -2,12 +2,15 @@
 
 import { FileText, Lock, Upload, X } from "lucide-react";
 import { useRef, useState } from "react";
-import { Textarea } from "@/components/ui/Field";
+import { Button } from "@/components/ui/Button";
+import { Select, Textarea } from "@/components/ui/Field";
+import { materialExample } from "@/lib/templates/actions";
 import { exampleText } from "@/lib/templates/condense";
-import { categoryInfo, LIMITS, type LearnedFrom, type TemplateCategory, type TemplateFormat } from "@/lib/templates/model";
+import { categoryInfo, LIMITS, type LearnedFrom, type MaterialChoice, type TemplateCategory, type TemplateFormat } from "@/lib/templates/model";
 import { cn } from "@/lib/ui/cn";
 
-export type Example = { name: string; text: string };
+/** An example: a file read in this browser, or one of the teacher's Funza materials as text. */
+export type Example = { name: string; text: string; material?: boolean };
 export type ReadData = { format: TemplateFormat; name: string; summary: string; notices: string[] };
 
 /** "Read the format": the examples go to Funza once, for this request only. */
@@ -23,19 +26,57 @@ export async function readFormat(category: TemplateCategory, examples: Example[]
 }
 
 export const learnedFromOf = (examples: Example[], description: string): LearnedFrom[] => [
-  ...examples.map((e) => ({ kind: "file" as const, name: e.name })),
+  ...examples.map((e) => ({ kind: e.material ? ("material" as const) : ("file" as const), name: e.name })),
   ...(description.trim() ? [{ kind: "description" as const, name: "Your description" }] : []),
 ];
 
 export const canRead = (examples: Example[], description: string) => examples.some((e) => e.text.trim().length >= 40) || description.trim().length >= 20;
 
-/** Up to three example files (PDF or text, read in this browser) and an optional description. */
-export function ExamplePicker({ category, examples, onExamples, description, onDescription, disabled }: { category: TemplateCategory; examples: Example[]; onExamples: (e: Example[]) => void; description: string; onDescription: (d: string) => void; disabled?: boolean }) {
+/**
+ * Up to three examples (PDF, Word, PowerPoint or text files, read in this browser,
+ * or the teacher's own Funza materials) and an optional description. A Funza quiz,
+ * test or exam gives its exact structure straight away (`onFormat`), with no AI.
+ */
+export function ExamplePicker({
+  category,
+  examples,
+  onExamples,
+  description,
+  onDescription,
+  disabled,
+  materials = [],
+  onFormat,
+}: {
+  category: TemplateCategory;
+  examples: Example[];
+  onExamples: (e: Example[]) => void;
+  description: string;
+  onDescription: (d: string) => void;
+  disabled?: boolean;
+  materials?: MaterialChoice[];
+  onFormat?: (format: TemplateFormat, name: string) => void;
+}) {
   const input = useRef<HTMLInputElement>(null);
   const [errors, setErrors] = useState<string[]>([]);
   const [reading, setReading] = useState(false);
   const [describe, setDescribe] = useState(description.length > 0);
   const [over, setOver] = useState(false);
+  const [pickMaterial, setPickMaterial] = useState(false);
+  const [materialId, setMaterialId] = useState("");
+  const pool = materials.filter((m) => categoryInfo(category).kinds.includes(m.kind));
+
+  async function addMaterial() {
+    if (!materialId) return;
+    setReading(true);
+    const res = await materialExample(materialId, category);
+    setReading(false);
+    if (!res.ok) return setErrors([res.message]);
+    setErrors([]);
+    if (res.format && onFormat) return onFormat(res.format, res.name);
+    if (examples.length >= LIMITS.examples) return setErrors([`Up to ${LIMITS.examples} examples. Remove one first.`]);
+    onExamples([...examples, { name: res.name, text: res.text, material: true }]);
+    setMaterialId("");
+  }
 
   async function add(files: FileList | File[]) {
     setReading(true);
@@ -78,13 +119,13 @@ export function ExamplePicker({ category, examples, onExamples, description, onD
         <Upload aria-hidden size={20} strokeWidth={1.6} className="shrink-0 text-accent" />
         <span className="flex flex-col">
           <span className="text-row font-semibold">{reading ? "Reading…" : `Drop ${info.example} here, or choose a file`}</span>
-          <span className="text-meta text-ink-2">PDF or text · up to {LIMITS.examples}</span>
+          <span className="text-meta text-ink-2">PDF, Word, PowerPoint or text · up to {LIMITS.examples}</span>
         </span>
         <input
           ref={input}
           type="file"
           multiple
-          accept=".pdf,.txt,.md,application/pdf,text/plain,text/markdown"
+          accept=".pdf,.docx,.pptx,.txt,.md,application/pdf,text/plain,text/markdown,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation"
           className="sr-only"
           onChange={(e) => {
             if (e.target.files?.length) void add(e.target.files);
@@ -127,6 +168,28 @@ export function ExamplePicker({ category, examples, onExamples, description, onD
           Or describe it in words
         </button>
       )}
+      {pool.length > 0 ? (
+        pickMaterial ? (
+          <div className="flex flex-wrap items-center gap-2">
+            <Select aria-label="One of your Funza materials" value={materialId} onChange={(e) => setMaterialId(e.target.value)} className="min-w-[220px] flex-1 [&_select]:h-11">
+              <option value="">Choose one of your materials</option>
+              {pool.map((m) => (
+                <option key={m.id} value={m.id}>
+                  {m.title}
+                  {m.status === "approved" || m.status === "published" ? " · approved" : ""}
+                </option>
+              ))}
+            </Select>
+            <Button variant="secondary" size="sm" loading={reading} disabled={!materialId} onClick={() => void addMaterial()}>
+              Use it
+            </Button>
+          </div>
+        ) : (
+          <button type="button" onClick={() => setPickMaterial(true)} className="self-start text-body font-semibold text-accent-ink hover:underline">
+            Or start from one of your Funza materials
+          </button>
+        )
+      ) : null}
       <p className="flex items-center gap-2 text-meta text-ink-2">
         <Lock aria-hidden size={14} strokeWidth={1.6} className="shrink-0" />
         Funza reads it once to learn the format. The file isn&rsquo;t kept.

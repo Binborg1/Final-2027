@@ -59,6 +59,9 @@ export type TemplateGuide = { name: string; style: TemplateStyle; perSlide: { ma
 
 export const isQuestionFormat = (f: TemplateFormat): f is QuestionFormat => f.category === "quiz" || f.category === "exam";
 
+/** One of the teacher's materials, offered as an example. */
+export type MaterialChoice = { id: string; title: string; kind: ResourceKind; status: string };
+
 export type LearnedFrom = { kind: "file" | "description" | "material" | "controls"; name: string };
 
 /** A saved template as the app uses it. `format` is null when the stored row can't be read. */
@@ -113,7 +116,7 @@ export function line(v: unknown, max: number): string {
 
 export const sectionLetter = (i: number) => String.fromCharCode(65 + (i % 26));
 
-function sanitizeStyle(raw: unknown): TemplateStyle {
+export function sanitizeStyle(raw: unknown): TemplateStyle {
   const s = isObject(raw) ? raw : {};
   const cover = isObject(s.cover) ? s.cover : null;
   const coverOut = cover

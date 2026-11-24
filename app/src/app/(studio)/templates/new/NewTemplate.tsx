@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { ChoiceChip } from "@/components/ui/Chip";
 import { Input } from "@/components/ui/Field";
 import { saveTemplate } from "@/lib/templates/actions";
-import { CATEGORIES, LIMITS, starterFormat, type LearnedFrom, type TemplateCategory, type TemplateFormat } from "@/lib/templates/model";
+import { CATEGORIES, LIMITS, starterFormat, type LearnedFrom, type MaterialChoice, type TemplateCategory, type TemplateFormat } from "@/lib/templates/model";
 import { canRead, ExamplePicker, learnedFromOf, readFormat, type Example } from "../ExamplePicker";
 import { FormatEditor } from "../FormatEditor";
 
@@ -16,7 +16,7 @@ import { FormatEditor } from "../FormatEditor";
  * "Read the format". Funza shows the skeleton for a yes before anything is saved;
  * "Set it up yourself" starts from Funza's defaults with no AI.
  */
-export function NewTemplate({ initialCategory, returnTo }: { initialCategory: TemplateCategory; returnTo: string | null }) {
+export function NewTemplate({ initialCategory, returnTo, materials = [] }: { initialCategory: TemplateCategory; returnTo: string | null; materials?: MaterialChoice[] }) {
   const router = useRouter();
   const [category, setCategory] = useState<TemplateCategory>(initialCategory);
   const [examples, setExamples] = useState<Example[]>([]);
@@ -41,6 +41,15 @@ export function NewTemplate({ initialCategory, returnTo }: { initialCategory: Te
     setName((n) => n || res.data.name);
     setSummary((s) => s || res.data.summary);
     setLearnedFrom(learnedFromOf(examples, description));
+  }
+
+  /** A Funza quiz, test or exam of the teacher's: its exact structure, no AI. */
+  function fromMaterial(f: TemplateFormat, title: string) {
+    setError(null);
+    setFormat(f);
+    setNotices([]);
+    setLearnedFrom([{ kind: "material", name: title }]);
+    setName((n) => n || `Like ${title}`.slice(0, LIMITS.name));
   }
 
   function byHand() {
@@ -88,14 +97,14 @@ export function NewTemplate({ initialCategory, returnTo }: { initialCategory: Te
       <Step n={2} label="Example">
         {read_ ? (
           <p className="flex flex-wrap items-center gap-x-2 pt-2 text-body text-ink-2">
-            {learnedFrom[0]?.kind === "controls" ? "Set up by hand from Funza’s defaults." : `Read from ${learnedFrom.map((l) => l.name).join(", ")}.`}
+            {learnedFrom[0]?.kind === "controls" ? "Set up by hand from Funza’s defaults." : learnedFrom[0]?.kind === "material" && learnedFrom.length === 1 ? `The exact structure of ${learnedFrom[0].name}.` : `Read from ${learnedFrom.map((l) => l.name).join(", ")}.`}
             <button type="button" onClick={() => setFormat(null)} className="font-semibold text-accent-ink hover:underline">
               Change
             </button>
           </p>
         ) : (
           <div className="flex flex-col gap-4">
-            <ExamplePicker category={category} examples={examples} onExamples={setExamples} description={description} onDescription={setDescription} disabled={reading} />
+            <ExamplePicker category={category} examples={examples} onExamples={setExamples} description={description} onDescription={setDescription} disabled={reading} materials={materials} onFormat={fromMaterial} />
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <Button size="lg" icon={Sparkles} loading={reading} disabled={!canRead(examples, description)} onClick={() => void read()}>
                 {reading ? "Reading the format…" : "Read the format"}

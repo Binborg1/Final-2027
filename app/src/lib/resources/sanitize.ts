@@ -2,7 +2,7 @@ import { OUTCOME_ID } from "@/lib/curriculum/catalog";
 import { defaultBrief, KINDS, NOTES_STYLES, QTYPE_ORDER } from "@/lib/resources/kinds";
 import type { Brief, Calc, Delivery, Difficulty, Draft, Item, Origin, QType, Resource, ResourceKind, Section, SectionKind, Verb } from "@/lib/resources/types";
 import { compileExpr, isIdentifier } from "@/lib/math/expr";
-import { sanitizeLayout, sanitizeParts } from "@/lib/templates/model";
+import { sanitizeLayout, sanitizeParts, sanitizeStyle } from "@/lib/templates/model";
 
 /**
  * Rebuilds resources field by field from untrusted JSON: AI replies, browser
@@ -182,6 +182,7 @@ export function sanitizeBrief(raw: unknown): Brief | null {
     templateId,
     layout: layout.length > 0 ? layout : null,
     parts: parts.length > 0 ? parts : null,
+    style: templateId && isObject(raw.style) ? sanitizeStyle(raw.style) : null,
   };
 }
 

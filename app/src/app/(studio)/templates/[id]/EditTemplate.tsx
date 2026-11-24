@@ -1,19 +1,19 @@
 "use client";
 
-import { CircleAlert, Sparkles, Trash2 } from "lucide-react";
+import { CircleAlert, Copy, Sparkles, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Dialog } from "@/components/ui/Dialog";
 import { Disclosure } from "@/components/ui/Disclosure";
 import { Input } from "@/components/ui/Field";
-import { deleteTemplate, saveTemplate } from "@/lib/templates/actions";
-import { categoryInfo, LIMITS, type LearnedFrom, type Template, type TemplateFormat } from "@/lib/templates/model";
+import { deleteTemplate, duplicateTemplate, saveTemplate } from "@/lib/templates/actions";
+import { categoryInfo, LIMITS, type LearnedFrom, type MaterialChoice, type Template, type TemplateFormat } from "@/lib/templates/model";
 import { canRead, ExamplePicker, learnedFromOf, readFormat, type Example } from "../ExamplePicker";
 import { FormatEditor } from "../FormatEditor";
 
 /** One template: check and change its skeleton, rename it, read another example, or delete it. */
-export function EditTemplate({ template }: { template: Template & { format: TemplateFormat } }) {
+export function EditTemplate({ template, materials = [] }: { template: Template & { format: TemplateFormat }; materials?: MaterialChoice[] }) {
   const router = useRouter();
   const [format, setFormat] = useState<TemplateFormat>(template.format);
   const [name, setName] = useState(template.name);
@@ -78,7 +78,21 @@ export function EditTemplate({ template }: { template: Template & { format: Temp
       <FormatEditor format={format} onChange={(f) => (setFormat(f), setSaved(false))} />
 
       <Disclosure title="Read another example" summary="Replace this skeleton with one Funza reads from another file">
-        <ExamplePicker category={template.category} examples={examples} onExamples={setExamples} description={description} onDescription={setDescription} disabled={reading} />
+        <ExamplePicker
+          category={template.category}
+          examples={examples}
+          onExamples={setExamples}
+          description={description}
+          onDescription={setDescription}
+          disabled={reading}
+          materials={materials}
+          onFormat={(f, title) => {
+            setFormat(f);
+            setNotices([]);
+            setLearnedFrom([{ kind: "material", name: title }]);
+            setSaved(false);
+          }}
+        />
         <div>
           <Button variant="secondary" icon={Sparkles} loading={reading} disabled={!canRead(examples, description)} onClick={() => void readAgain()}>
             Read the format
@@ -99,6 +113,20 @@ export function EditTemplate({ template }: { template: Template & { format: Temp
         <ButtonLink href={`/make?template=${template.id}`} variant="secondary">
           Use in Make
         </ButtonLink>
+        <Button
+          variant="ghost"
+          icon={Copy}
+          disabled={pending}
+          onClick={() =>
+            start(async () => {
+              const res = await duplicateTemplate(template.id);
+              if (!res.ok) return setError(res.message);
+              router.push(`/templates/${res.id}`);
+            })
+          }
+        >
+          Duplicate
+        </Button>
         <Button variant="ghost" icon={Trash2} className="ml-auto text-red-ink" onClick={() => setDeleting(true)}>
           Delete template
         </Button>

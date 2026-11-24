@@ -1,8 +1,10 @@
 import "server-only";
 import { cache } from "react";
 import { currentTeacher } from "@/lib/auth/teacher";
+import { KINDS } from "@/lib/resources/kinds";
 import { GUID } from "@/lib/resources/sanitize";
-import { isCategory, sanitizeFormat, sanitizeLearnedFrom, type Template } from "@/lib/templates/model";
+import type { ResourceKind } from "@/lib/resources/types";
+import { isCategory, sanitizeFormat, sanitizeLearnedFrom, type MaterialChoice, type Template } from "@/lib/templates/model";
 
 /**
  * The teacher's templates, read through their own session (row-level security
@@ -10,6 +12,7 @@ import { isCategory, sanitizeFormat, sanitizeLearnedFrom, type Template } from "
  * that can't be read comes back with `format: null`, and can only be deleted.
  */
 
+const KIND_IDS = KINDS.map((k) => k.kind);
 const COLUMNS = "id, kind, name, summary, format, learned_from, updated_at, built_in, resources(count)";
 const countOf = (v: unknown) => (Array.isArray(v) && v[0] && typeof v[0] === "object" && "count" in v[0] ? Number(v[0].count) || 0 : 0);
 
@@ -26,6 +29,15 @@ export const templateList = cache(async (): Promise<Template[]> => {
   const { data, error } = await current.supabase.from("templates").select(COLUMNS).eq("built_in", false).order("updated_at", { ascending: false });
   if (error) throw new Error(`Could not read templates: ${error.message}`);
   return (data as Row[]).map(toTemplate).filter((t): t is Template => t !== null);
+});
+
+/** The teacher's materials, newest first, for "start from one of your Funza materials". */
+export const templateMaterials = cache(async (): Promise<MaterialChoice[]> => {
+  const current = await currentTeacher();
+  if (!current) return [];
+  const { data, error } = await current.supabase.from("resources").select("id, title, kind, status, updated_at").not("current_version_id", "is", null).order("updated_at", { ascending: false }).limit(200);
+  if (error) throw new Error(`Could not read materials: ${error.message}`);
+  return data.flatMap((r) => (KIND_IDS.includes(r.kind as ResourceKind) ? [{ id: r.id, title: r.title, kind: r.kind as ResourceKind, status: r.status }] : []));
 });
 
 export const templateById = cache(async (id: string): Promise<Template | null> => {

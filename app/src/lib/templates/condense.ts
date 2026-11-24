@@ -58,7 +58,14 @@ export async function exampleText(file: File): Promise<{ ok: true; text: string 
       const text = condenseLines((await file.text()).split(/\r?\n/).map((t) => ({ text: t, size: 0 })));
       return text.trim() ? { ok: true, text } : { ok: false, message: `${file.name} is empty.` };
     }
-    if (/\.(docx?|pptx?)$/.test(name)) return { ok: false, message: `Word and PowerPoint files come in a later update. Save ${file.name} as a PDF and add that.` };
+    if (/\.(docx|pptx)$/.test(name)) {
+      const { officeLines } = await import("@/lib/templates/office");
+      const lines = officeLines(new Uint8Array(await file.arrayBuffer()), name);
+      if (!lines) return { ok: false, message: `${file.name} couldn’t be read. Save it again from Word or PowerPoint, or as a PDF.` };
+      const text = condenseLines(lines);
+      return text.trim() ? { ok: true, text } : { ok: false, message: `Funza couldn’t find any text in ${file.name}.` };
+    }
+    if (/\.(doc|ppt)$/.test(name)) return { ok: false, message: `${file.name} is an older Word or PowerPoint file. Save it as .docx, .pptx or PDF and add that.` };
     return { ok: false, message: `${file.name} isn’t a PDF or text file.` };
   } catch {
     return { ok: false, message: `${file.name} couldn’t be read. Try another PDF.` };

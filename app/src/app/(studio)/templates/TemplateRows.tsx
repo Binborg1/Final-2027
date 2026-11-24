@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, CircleAlert, PenLine, Trash2, X } from "lucide-react";
+import { Check, CircleAlert, Copy, PenLine, Trash2, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
@@ -9,7 +9,7 @@ import { Card, CardHeader } from "@/components/ui/Card";
 import { CountPill } from "@/components/ui/Chip";
 import { Dialog } from "@/components/ui/Dialog";
 import { Input } from "@/components/ui/Field";
-import { deleteTemplate, renameTemplate, type Result } from "@/lib/templates/actions";
+import { deleteTemplate, duplicateTemplate, renameTemplate, type Result } from "@/lib/templates/actions";
 import { CATEGORIES, formatLine, LIMITS, type Template } from "@/lib/templates/model";
 
 /** The teacher's templates in the four categories, always in the same order. */
@@ -76,6 +76,7 @@ export function TemplateRows({ templates }: { templates: Template[] }) {
                             {t.used > 0 ? ` · used ${t.used}×` : ""}
                           </span>
                         </Link>
+                        <RowButton icon={Copy} label={`Duplicate ${t.name}`} disabled={pending} onClick={() => run(async () => { const res = await duplicateTemplate(t.id); return res.ok ? { ok: true } : res; })} />
                         <RowButton icon={PenLine} label={`Rename ${t.name}`} disabled={pending} onClick={() => { setEditing(t.id); setDraftName(t.name); }} />
                         <RowButton icon={Trash2} label={`Delete ${t.name}`} disabled={pending} onClick={() => setDeleting(t)} />
                       </>

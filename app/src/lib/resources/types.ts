@@ -1,4 +1,4 @@
-import type { TemplatePart, TemplateSection } from "@/lib/templates/model";
+import type { TemplatePart, TemplateSection, TemplateStyle } from "@/lib/templates/model";
 
 /**
  * The teacher workspace's resource model. A resource is a document made of
@@ -104,6 +104,8 @@ export type Brief = {
   templateId: string | null;
   layout: TemplateSection[] | null;
   parts: TemplatePart[] | null;
+  /** The template's wording and print style (numbering, how marks are shown, the cover page), kept for printing. */
+  style: TemplateStyle | null;
 };
 
 export type ResourceStatus = "draft" | "approved";

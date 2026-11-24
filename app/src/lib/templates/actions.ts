@@ -3,7 +3,9 @@
 import { revalidatePath } from "next/cache";
 import { teacherForAction } from "@/lib/auth/teacher";
 import { GUID } from "@/lib/resources/sanitize";
-import { isCategory, LIMITS, line, sanitizeFormat, sanitizeLearnedFrom } from "@/lib/templates/model";
+import { readStoredContent } from "@/lib/resources/stored";
+import { formatFromDraft, materialText } from "@/lib/templates/from";
+import { categoryOf, isCategory, LIMITS, line, sanitizeFormat, sanitizeLearnedFrom, type TemplateCategory, type TemplateFormat } from "@/lib/templates/model";
 
 /**
  * Server Functions for templates (FR-20, FR-21). Each checks the signed-in teacher
@@ -93,4 +95,52 @@ export async function deleteTemplate(templateId: unknown): Promise<Result> {
   }
   refresh();
   return { ok: true };
+}
+
+/** A copy of a template, named "… (copy)", to change without touching the original. */
+export async function duplicateTemplate(templateId: unknown): Promise<SaveResult> {
+  const current = await teacherForAction();
+  if (!current) return SIGNED_OUT;
+  const id = guid(templateId);
+  if (!id) return NOT_FOUND;
+  const { supabase, teacher } = current;
+  const { data, error } = await supabase.from("templates").select("kind, name, summary, format, learned_from").eq("id", id).eq("built_in", false).maybeSingle();
+  if (error) return FAILED;
+  if (!data) return NOT_FOUND;
+  const count = await supabase.from("templates").select("id", { count: "exact", head: true }).eq("built_in", false);
+  if (count.error) return FAILED;
+  if ((count.count ?? 0) >= LIMITS.perTeacher) return { ok: false, message: `You can keep up to ${LIMITS.perTeacher} templates. Delete one you no longer use.` };
+  const name = `${data.name.slice(0, LIMITS.name - 7)} (copy)`;
+  const copy = await supabase.from("templates").insert({ teacher_id: teacher.id, kind: data.kind, name, summary: data.summary, format: data.format, learned_from: data.learned_from }).select("id").single();
+  if (copy.error || !copy.data) {
+    console.error("Duplicating a template failed:", copy.error?.message);
+    return FAILED;
+  }
+  refresh();
+  return { ok: true, id: copy.data.id };
+}
+
+export type MaterialExample = { ok: true; name: string; format: TemplateFormat | null; text: string } | { ok: false; message: string };
+
+/**
+ * One of the teacher's Funza materials as an example. A quiz, test or exam gives its
+ * exact structure at once (no AI); notes and slides come back as text for Funza to
+ * read, since their section titles are topics rather than a format.
+ */
+export async function materialExample(resourceId: unknown, category: unknown): Promise<MaterialExample> {
+  const current = await teacherForAction();
+  if (!current) return SIGNED_OUT;
+  const id = guid(resourceId);
+  if (!id || !isCategory(category)) return { ok: false, message: "That material wasn’t found." };
+  const { supabase } = current;
+  const r = await supabase.from("resources").select("id, kind, title, created_at, updated_at, current_version_id").eq("id", id).maybeSingle();
+  if (r.error || !r.data?.current_version_id) return { ok: false, message: "That material wasn’t found." };
+  const want: TemplateCategory = category;
+  const kind = r.data.kind as Parameters<typeof categoryOf>[0];
+  if (categoryOf(kind) !== want) return { ok: false, message: "That material is a different kind. Choose one of the same kind as the template." };
+  const v = await supabase.from("resource_versions").select("number, approved_at, content").eq("id", r.data.current_version_id).maybeSingle();
+  if (v.error || !v.data) return { ok: false, message: "Funza couldn’t read that material. Try again." };
+  const stored = readStoredContent(r.data, v.data);
+  if (!stored || stored.draft.sections.length === 0) return { ok: false, message: "That material has nothing in it yet." };
+  return { ok: true, name: line(stored.draft.title, 120), format: formatFromDraft(stored.draft, stored.resource.brief), text: materialText(stored.draft) };
 }

@@ -30,6 +30,7 @@ export function FormatPanel({
   chosenId,
   onChoose,
   newHref,
+  onSaveSettings,
 }: {
   mode: FormatMode;
   onMode: (m: FormatMode) => void;
@@ -42,6 +43,7 @@ export function FormatPanel({
   chosenId: string | null;
   onChoose: (t: MakeTemplate) => void;
   newHref: string;
+  onSaveSettings?: () => void;
 }) {
   const list = templates.filter((t) => t.category === category);
   const info = categoryInfo(category);
@@ -72,7 +74,14 @@ export function FormatPanel({
 
       <div id="format-body" className={cn("flex flex-col gap-3", open === null ? "max-xl:hidden" : !open && "hidden")}>
         {mode === "adjust" ? (
-          adjust
+          <>
+            {adjust}
+            {onSaveSettings ? (
+              <button type="button" onClick={onSaveSettings} className="inline-flex items-center gap-1.5 self-start text-body font-semibold text-accent-ink hover:underline">
+                <LayoutTemplate aria-hidden size={16} strokeWidth={1.6} /> Save these settings as a template
+              </button>
+            ) : null}
+          </>
         ) : list.length === 0 ? (
           <div className="flex flex-col items-start gap-3 rounded-tile border border-white/85 bg-tile px-4 py-4">
             <span className="flex items-center gap-2.5 text-row font-semibold">
