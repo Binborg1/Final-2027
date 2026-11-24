@@ -31,16 +31,13 @@ The speaker split is a suggestion. Swap it as you like, but change speakers only
 | 15. Next, and questions | Next steps | 0:20 | Chop |
 | | **Total** | **9:50** | 10 seconds spare |
 
-## The course to use
+## The course and files to use
 
-Use **Science 10**, and inside it the chapter **Force and Motion in Our World** (outcome SCI10-FM2, uniform motion).
-
-- Everyone in the room remembers speed = distance ÷ time, so nobody gets lost in the content.
-- The questions show what Funza checks: a number question has an answer that code verifies, not the AI.
-- The deck and the Figma screens already use Science 10 · Force and Motion, so the demo matches the slides.
-- Science 10 adds four chapters straight from the Saskatchewan curriculum, which is easy to point at.
-
-The notes to upload are [`03_demo_notes_uniform_motion.pdf`](03_demo_notes_uniform_motion.pdf): 2 pages of our own notes on uniform motion, with Saskatchewan examples (a grain truck, Highway 1, the Wascana trail). Source: [`03_demo_notes_uniform_motion.md`](03_demo_notes_uniform_motion.md). Before the demo, copy the PDF to the desktop as **Uniform motion notes.pdf**: the file name is what the screen shows.
+- **Course:** Science 10. Everyone remembers speed = distance ÷ time, and the deck and Figma screens already use Science 10.
+- **The quiz Funza makes:** chapter **Force and Motion in Our World**.
+- **The live test:** chapter **Climate and Ecosystem Dynamics**, a different topic with no formulas, so every question reads cleanly on a phone.
+- **The past quiz to upload:** [`04_demo_past_quiz_chemical_reactions.pdf`](04_demo_past_quiz_chemical_reactions.pdf) (source: [`04_demo_past_quiz_chemical_reactions.md`](04_demo_past_quiz_chemical_reactions.md)). It's our own 2-question Science 10 quiz on Chemical Reactions with a clear format: a name, block and date line, then **Part A: Multiple choice** (1 mark) and **Part B: Show your work** (a calculation, 2 marks). Funza copies the format, not the topic. Before the demo, copy it to the desktop as **Quiz 4 Chemical Reactions.pdf**.
+- Optional: [`03_demo_notes_uniform_motion.pdf`](03_demo_notes_uniform_motion.pdf), notes on uniform motion, if you also want to attach notes in Make with **Attach a source**.
 
 ## Demo settings (switched on 24 November)
 
@@ -56,43 +53,47 @@ Timed on 24 November with the app's own prompts and checks:
 
 | Task | Before (`gemini-2.5-flash`) | Now |
 |---|---|---|
+| Reading the format of the 2-question past quiz | not timed | about 2 s |
+| A 2-question quiz in that format | not timed | about 3 s |
+| Live: suggest questions for a chapter | not timed | 7–11 s |
 | A 2-question quiz from the notes | not timed | 3–4 s |
 | Live: suggest 8 questions from the notes | about 29 s, then cut off ("The AI reply was cut off") | 7–9 s |
 | A 12-question quiz | about 35 s | 10–16 s |
 | Notes | about 31 s, then cut off | 6–8 s |
 | Marking 3 short answers | cut off: Funza couldn't mark them | 2 s |
 
-The old model spent most of each reply's length limit thinking, so long replies were cut off. The server now also asks Gemini once more, unseen, if a reply comes back unreadable (about 1 reply in 12 in testing).
+The old model spent most of each reply's length limit thinking, so long replies were cut off. The server now also asks Gemini once more, unseen, if a reply comes back unreadable (about 1 reply in 12 in testing). Funza is also told to write plain text, because the app doesn't display LaTeX: one early Chemical Reactions run had formulas in LaTeX, and none did after the change.
 
 ## Before the demo
 
-- [ ] **Copy the notes** to the desktop as **Uniform motion notes.pdf**.
-- [ ] **Make the 2-question template once.** Sign in with the demo account. Open **Make**, choose **Quiz**, open **Format** and choose **Adjust**. Set **Multiple choice** to 1 and **Calculation** to 1, and every other type to 0. Click **Save these settings as a template** and name it **Class check**. A template belongs to the account, not a course, so it stays when you delete the course in the last step.
-- [ ] **Rehearse the whole demo below once**, timed, with two real phones: one on the room's Wi-Fi and one on mobile data.
-- [ ] **Reset for the real run.** Open Science 10, then **Delete this course** in its settings, so that adding the course on stage works again. "Add a course" lists only courses you don't already have.
+- [ ] **Copy the past quiz** to the desktop as **Quiz 4 Chemical Reactions.pdf**.
+- [ ] **Rehearse the whole demo below once** with the demo account, timed, with two real phones: one on the room's Wi-Fi and one on mobile data.
+- [ ] **Get a clean account for the real run.** After the rehearsal, ask Claude for a fresh demo account, so the real run starts with no courses, templates or sessions.
+- [ ] **Sign in on the projector laptop** at <https://funza-rose.vercel.app> with **email and password**, and stay signed in.
 - [ ] **Line up two people to join** (Chop's phone and one friend), so the lobby never sits empty.
-- [ ] **Set up the projector laptop.** Close other tabs, mute notifications, set the browser zoom to 110–125%, and sign in to <https://funza-rose.vercel.app> before the session starts. Keep the slides in another tab.
+- [ ] **Set up the projector laptop.** Close other tabs, mute notifications, and set the browser zoom to 110–125%. Keep the slides in another tab.
 - [ ] **Check the Wi-Fi**, or bring a phone hotspot.
 - [ ] **Use made-up names and answers.** The site uses the development database.
 
-## The demo (slide 14, 2:50)
+## The demo (slide 13)
 
-Aubin drives and Chop narrates. The times are when each step should be finished.
+Aubin drives and Chop narrates. The times are when each step should be finished. The whole run takes about 3:10, against 2:50 on the slide plan: take 20 seconds from the slides, or skip **See results** at the end.
 
 | # | By | Do | Say |
 |---|---|---|---|
-| 1 | 0:15 | Open **Courses**, click **Add a course**, choose Grade 10 and **Science 10**, and add it. Point at the four chapters. | "A teacher picks the course they teach. Its chapters come straight from the Saskatchewan curriculum." |
-| 2 | 0:35 | Open **Force and Motion in Our World**. Under **Sources**, attach **Uniform motion notes.pdf**. | "Teachers already have notes. They attach them to the chapter once." |
-| 3 | 1:00 | Click **Make something**. Choose **Quiz**, click **Use Uniform motion notes.pdf**, then in **Format** choose **Template** and **Class check**. Click **Make draft**. It takes about 4 seconds. | "Funza drafts from the curriculum outcomes and the teacher's own notes, in the teacher's own format." |
-| 4 | 1:25 | In Review, open the calculation and point at the answer and the outcome code. Click **I’ve checked this** on both questions, then **Approve** and **Approve version 1**. | "Nothing is approved until the teacher has checked every part. Approving saves the questions to the chapter's question bank." |
-| 5 | 1:55 | Click **Run live**. Under **Students type**, switch off **Student number** so joining is quicker. Click **Open the lobby**, then **Open projector view**. Ask the room to scan the QR code. | "Students join on their phones with the code and a name. No account, no app." |
-| 6 | 2:40 | When a few names are in, click **Start answering**. After about 20 seconds click **End early** and confirm. On **Check marks**, click **Reveal**, then **See results**. | "Multiple choice and number answers are marked by code. Each phone sees its own result, the projector shows the class, and the teacher sees what was missed most." |
+| 1 | 0:15 | Open **Courses**, click **Add a course**, choose **Grade 10** and **Science 10**, and add it. Point at the four chapters. | "A teacher picks the course they teach. The chapters come straight from the Saskatchewan curriculum." |
+| 2 | 1:05 | Open **Make**. Choose **Quiz** and the chapter **Force and Motion in Our World**. In **Format**, click **Template**, then **New template**. Drop **Quiz 4 Chemical Reactions.pdf** in the box and click **Read the format**. It takes about 2 seconds. Point at the two parts Funza found, then click **Save template**. | "Teachers already have their own quiz format. They upload an old quiz once, and Funza learns its layout: the parts, the question types and the marks." |
+| 3 | 1:15 | Back in Make, the new template is chosen. Click **Make draft**. It takes about 3 seconds. | "Funza writes a new quiz on Force and Motion in the teacher's own format." |
+| 4 | 1:40 | In Review, open the calculation and point at the answer and the outcome code. Click **I’ve checked this** on both questions, then **Approve** and **Approve version 1**. | "Nothing is approved until the teacher has checked every part." |
+| 5 | 2:25 | Open **Live** and click **Go live**. Choose **Science 10** and the chapter **Climate and Ecosystem Dynamics**. Click **Suggest 8 questions** (about 10 seconds). Untick all but 2: one multiple choice and one true or false. Switch off **Student number**. Click **Open the lobby**, then **Open projector view**, and ask the room to scan the QR code. | "In class, the teacher picks a topic and Funza suggests questions. Students join on their phones: no account, no app." |
+| 6 | 3:10 | When a few names are in, click **Start answering**. After about 20 seconds click **End early** and confirm. On **Check marks**, click **Reveal**, then **See results**. | "Multiple choice and true or false are marked by code. Each phone sees its own result, the projector shows the class, and the teacher sees what was missed most." |
 
 Close with: "The course page and the 40-phone test are what's left before Release 1 on 1 December."
 
 **If something fails.** Say what happened in one sentence, then:
 
-- **Make draft fails or hangs:** click **Make draft** once more. If it fails again, click **Go live** on the chapter page, choose **Upload a PDF or notes**, click **Suggest 8 questions**, untick all but 2, and carry on from step 5.
+- **Read the format or Make draft fails:** click it once more. If it fails again, set the quiz up by hand: **Format** → **Adjust**, 1 multiple choice and 1 calculation, every other type 0.
+- **Suggest 8 questions fails:** click it once more. If it fails again, open the quiz you just approved and click **Run live**: its 2 questions are ready.
 - **Phones can't join:** show the lobby and the projector view, and say a real-phone test is next on the Kanban.
 - **The site is down:** open the screenshots in [`docs/03_design/03_ui_design/diagrams/`](../../03_design/03_ui_design/diagrams/) (`09_built_sign_in.png` to `13_built_review_phone.png`). Don't debug in front of the room.
 
@@ -122,4 +123,4 @@ Close with: "The course page and the 40-phone test are what's left before Releas
 - Live site: `/sign-in`, `/join` and `/api/health` answered on 24 November 2026, and the health check reached the database
 - Live mode: two sessions in the development database ran to Reveal on 24 November 2026, each with one student. No session with several phones is recorded yet, so the slides say Live mode "ran end to end" and list the real-phone test as Doing
 - Kanban (slide 13): the work as of 24 November 2026, from the development steps and git history (PRs #24–#33; templates and the Library were pushed straight to `main` on 24 November). The GitHub project "Final-2027 Kanban" exists but has no issues yet
-- AI timings: the app's own prompts and checks, run against the Gemini API on 24 November 2026 (Live suggestions and a 2-question quiz from the demo notes, a 12-question quiz, notes, marking 3 short answers), 2–4 runs each
+- AI timings: the app's own prompts and checks, run against the Gemini API on 24 November 2026 (reading the past quiz's format and a quiz in it, Live suggestions for three Science 10 chapters, a 2-question quiz from the demo notes, a 12-question quiz, notes, marking 3 short answers), 2–4 runs each
