@@ -10,7 +10,7 @@ import { useLiveRefresh } from "@/lib/live/listen";
 import { numberHint, parseStudentNumber } from "@/lib/live/number";
 import type { PhoneResultItem, PhoneState } from "@/lib/live/payload";
 import type { PublicQuestion } from "@/lib/live/questions";
-import { forgetSeat, pendingKey, savedSeat, type Seat } from "@/lib/live/seat";
+import { forgetSeat, pendingKey, savedSeat, submittedKey, type Seat } from "@/lib/live/seat";
 import { TOKEN_HEADER } from "@/lib/live/token";
 import type { LiveResponse } from "@/lib/live/types";
 import { cn } from "@/lib/ui/cn";
@@ -19,7 +19,9 @@ import { cn } from "@/lib/ui/cn";
  * F5 on a student's phone. The server's clock is the only clock: the phone keeps
  * the difference between its clock and the server's, so a phone set to the wrong
  * time still counts down correctly. Answers save as the student goes; a reload or
- * a dropped connection loses nothing.
+ * a dropped connection loses nothing. Submit is the student saying "I'm done": the
+ * phone shows a waiting screen until Reveal, and the answers can still be changed
+ * until time is up.
  */
 
 const card = "frost frost-auth h-fit w-full max-w-[440px] rounded-auth border border-white/45 shadow-auth";
@@ -100,7 +102,7 @@ export function Play({ sessionId }: { sessionId: string }) {
           </span>
           <h1 className="mt-5 text-hero font-bold max-sm:text-[28px] max-sm:leading-[34px]">Time&rsquo;s up.</h1>
           <p className="mt-2 text-card-sm font-medium text-ink-2">
-            You answered {view.answered ?? 0} of {view.total}. Your teacher is checking the answers.
+            You answered {view.answered ?? 0} of {view.total}. Your teacher is checking the answers; you&rsquo;ll see your results here when they reveal them.
           </p>
         </div>
       );
@@ -152,18 +154,26 @@ function Answering({ sessionId, seat, view, offset, onTimeUp }: { sessionId: str
   const [mine, setMine] = useState<Record<string, LiveResponse>>(() => ({ ...(view.mine ?? {}), ...Object.fromEntries(queue.waiting()) }));
   const [index, setIndex] = useState(0);
   const timers = useRef(new Map<string, ReturnType<typeof setTimeout>>());
+  // Answering only renders in the browser (after the seat is read), so storage is there.
+  const [submitted, setSubmitted] = useState(() => window.localStorage.getItem(submittedKey(sessionId)) === "1");
+  const [confirming, setConfirming] = useState(false);
 
-  const left = useClock(view.endsAt, offset);
-  const timeUp = left === 0;
-  useEffect(() => {
-    if (!timeUp) return;
-    // Send whatever is still waiting now; the server accepts it for 2 more seconds.
+  /** Sends now whatever is waiting for a pause in typing. */
+  const flushAll = () => {
     for (const [qid, t] of timers.current) {
       clearTimeout(t);
       const r = mine[qid];
       if (r) queue.set(qid, r);
     }
     timers.current.clear();
+  };
+
+  const left = useClock(view.endsAt, offset);
+  const timeUp = left === 0;
+  useEffect(() => {
+    if (!timeUp) return;
+    // Send whatever is still waiting now; the server accepts it for 2 more seconds.
+    flushAll();
     queue.stop();
     const t = setTimeout(onTimeUp, 2_500);
     return () => clearTimeout(t);
@@ -195,12 +205,56 @@ function Answering({ sessionId, seat, view, offset, onTimeUp }: { sessionId: str
   const go = (to: number) => {
     const q = questions[index];
     if (q) flush(q.id);
+    setConfirming(false);
     setIndex(Math.max(0, Math.min(questions.length, to)));
   };
 
   const answered = questions.filter((q) => isAnswered(mine[q.id])).length;
   const onReview = index >= questions.length;
   const q = questions[index];
+
+  const submit = () => {
+    if (answered < questions.length && !confirming) return setConfirming(true);
+    flushAll();
+    window.localStorage.setItem(submittedKey(sessionId), "1");
+    setConfirming(false);
+    setSubmitted(true);
+  };
+  const reopen = () => {
+    window.localStorage.removeItem(submittedKey(sessionId));
+    setSubmitted(false);
+    setIndex(questions.length);
+  };
+
+  if (submitted) {
+    const sending = queue.unsent > 0;
+    const retrying = questions.some((x) => queue.status(x.id) === "retrying");
+    return (
+      <div className={cn(card, "px-8 py-10 text-center max-sm:px-5")}>
+        <span className={cn("mx-auto flex size-14 items-center justify-center rounded-full", sending ? "bg-raised text-ink-2" : "bg-sage-tint text-sage-ink")}>
+          {sending ? <LoaderCircle aria-hidden size={28} className="animate-spin motion-reduce:animate-none" /> : <Check aria-hidden size={28} strokeWidth={2} />}
+        </span>
+        <h1 aria-live="polite" className="mt-5 text-hero font-bold max-sm:text-[28px] max-sm:leading-[34px]">
+          {sending ? "Sending your answers…" : "Your answers are in."}
+        </h1>
+        <p className="mt-2 text-card-sm font-medium text-ink-2">
+          You answered {answered} of {questions.length}. You&rsquo;ll see your results here when your teacher reveals the answers.
+        </p>
+        {retrying ? (
+          <p className="mt-4 rounded-md bg-amber-tint px-4 py-3 text-row font-semibold text-amber-ink">
+            <WifiOff aria-hidden size={16} className="mr-1.5 inline align-[-2px]" />
+            Not sent yet. Keep this page open; Funza keeps trying.
+          </p>
+        ) : null}
+        <p className="mt-6 text-meta font-semibold text-ink-2 tabular-nums">{timeUp ? "Time’s up." : `${mmss(left)} left for the class`}</p>
+        {!timeUp ? (
+          <Button variant="ghost" onClick={reopen} className="mt-2">
+            Change my answers
+          </Button>
+        ) : null}
+      </div>
+    );
+  }
 
   return (
     <div className={cn(card, "flex min-h-[calc(100dvh-2rem)] flex-col px-5 pt-5 pb-4 sm:min-h-[640px] sm:px-6")}>
@@ -231,8 +285,10 @@ function Answering({ sessionId, seat, view, offset, onTimeUp }: { sessionId: str
 
       <div className="mt-5 flex items-center justify-between gap-3">
         {onReview ? (
-          <span className="text-meta font-semibold text-ink-2">
-            {answered} of {questions.length} answered
+          <span role={confirming ? "alert" : undefined} className={cn("text-meta font-semibold", confirming ? "text-amber-ink" : "text-ink-2")}>
+            {confirming
+              ? `${questions.length - answered} question${questions.length - answered === 1 ? " has" : "s have"} no answer. Submit anyway?`
+              : `${answered} of ${questions.length} answered`}
           </span>
         ) : q ? (
           <SavedPill status={queue.status(q.id)} answered={isAnswered(mine[q.id])} />
@@ -244,6 +300,10 @@ function Answering({ sessionId, seat, view, offset, onTimeUp }: { sessionId: str
           {!onReview ? (
             <Button iconRight={ArrowRight} onClick={() => go(index + 1)}>
               {index === questions.length - 1 ? "Check" : "Next"}
+            </Button>
+          ) : !timeUp ? (
+            <Button icon={Check} onClick={submit}>
+              {confirming ? "Submit anyway" : "Submit"}
             </Button>
           ) : null}
         </div>

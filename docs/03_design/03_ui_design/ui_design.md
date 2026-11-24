@@ -1,8 +1,8 @@
 # UI design: F · Oak
 
-**Funza Teacher Studio · v0.4 · 23 November 2026**
+**Funza Teacher Studio · v0.5 · 24 November 2026**
 
-*Changed in v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
+*Changed in v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
 
 *Changed in v0.3: the step 4 screens (Courses, a course, a chapter, sources, publishing), section 4b.*
 
@@ -308,8 +308,9 @@ Drawn in Figma on the page "F · Live screens" (L1 to L5) and in the student pho
 ### Student phone (F5)
 - **Join (`/join`):** the Funza logo, "Join a live session", "The code is on your teacher's screen.", Code (filled in from the QR code, spaced capitals), Name, "Student number (if your teacher asks)", **Join →**, "No account needed. Your teacher will see your name." A phone that joined before sees "Rejoin as {name}". Inputs are at least 16 px, so iOS doesn't zoom.
 - **You're in (added):** a sage check, "You're in, {name}.", "Wait for your teacher…", and the number of questions and minutes.
-- **Answer:** "Question 3 of 8", the timer pill (the server's clock; red in the last 30 s), a progress bar, the question card, option rows at least 52 px tall with a round check (selected: terracotta edge on tint), a number box with the unit after it and a hint under it when it can't be read, or a text box. Under it: the "✓ Saved" pill ("Saving…", "Not saved yet · retrying", "Locked"), Back and **Next →**, and dots that jump to a question. A last screen, "Check your answers", lists every question. At 0:00 the phone locks: "Time's up. Your answers are locked."
-- **Time's up:** "You answered 7 of 8. Your teacher is checking the answers."
+- **Answer:** "Question 3 of 8", the timer pill (the server's clock; red in the last 30 s), a progress bar, the question card, option rows at least 52 px tall with a round check (selected: terracotta edge on tint), a number box with the unit after it and a hint under it when it can't be read, or a text box. Under it: the "✓ Saved" pill ("Saving…", "Not saved yet · retrying", "Locked"), Back and **Next →**, and dots that jump to a question. A last screen, "Check your answers", lists every question, with Back and **✓ Submit**. If a question has no answer, Submit first asks: "2 questions have no answer. Submit anyway?" At 0:00 the phone locks: "Time's up. Your answers are locked."
+- **Submitted:** "Your answers are in." (with a spinner and "Sending your answers…" until the server has every answer), "You answered 7 of 8. You'll see your results here when your teacher reveals the answers.", the time left for the class, and a ghost "Change my answers" while time remains. Submit is the student's "I'm done"; it stays after a reload, and answers can still change until 0:00.
+- **Time's up:** "You answered 7 of 8. Your teacher is checking the answers; you'll see your results here when they reveal them."
 - **After Reveal:** "Your result · 6 of 8 · 75%", then each question with Right, "Not quite" (with "You: True · Answer: False"), "Partly · 2 of 3", "No answer" or "Not marked", and "Your teacher will go over the answers now."
 - **Removed or ended:** "This phone isn't in the session." with **Join again**.
 
