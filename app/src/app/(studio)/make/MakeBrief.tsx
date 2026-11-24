@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Check, CircleAlert, FileText, LayoutTemplate, LoaderCircle, Lock, Paperclip, RotateCcw, Sparkles, Target, X } from "lucide-react";
+import { BookOpen, Check, CircleAlert, FileText, LoaderCircle, Lock, Paperclip, RotateCcw, Sparkles, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -8,7 +8,7 @@ import { PageHeader } from "@/components/shell/PageHeader";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ChoiceChip } from "@/components/ui/Chip";
-import { Checkbox, Input } from "@/components/ui/Field";
+import { Input } from "@/components/ui/Field";
 import { Dialog } from "@/components/ui/Dialog";
 import { Disclosure } from "@/components/ui/Disclosure";
 import { EmptyState } from "@/components/ui/Misc";
@@ -214,24 +214,12 @@ export function MakeBrief({
   const questionKind = isQuestionKind(brief.kind);
   const busy = generation.state === "running";
 
-  const chosenOutcomes = useMemo(() => {
-    if (!catalog?.course) return [];
-    const want = new Set(courseChapters.filter((c) => chapterIds.includes(c.id)).flatMap((c) => c.outcomeRefs));
-    return catalog.course.units.flatMap((u) => u.outcomes).filter((o) => want.has(o.id));
-  }, [catalog, courseChapters, chapterIds]);
-
   function toggleChapter(id: string) {
     const next = chapterIds.includes(id) ? chapterIds.filter((x) => x !== id) : [...chapterIds, id];
     if (next.length === 0) return;
     setChapterIds(next);
     const outcomeIds = [...new Set(courseChapters.filter((c) => next.includes(c.id)).flatMap((c) => c.outcomeRefs))].slice(0, MAX_OUTCOMES);
     patchBrief({ chapterIds: next, outcomeIds });
-  }
-
-  function toggleOutcome(id: string) {
-    const next = brief.outcomeIds.includes(id) ? brief.outcomeIds.filter((x) => x !== id) : [...brief.outcomeIds, id];
-    if (next.length === 0) return;
-    patchBrief({ outcomeIds: next });
   }
 
   /** A source already attached to one of the chosen chapters, used as the teacher's notes. */
@@ -433,9 +421,9 @@ export function MakeBrief({
           ) : null}
         </section>
 
-        {/* Format (Adjust or a template) and "Funza will use": on wide screens one panel that scrolls on its own */}
+        {/* Format (Adjust or a template): on wide screens its own panel that scrolls on its own */}
         <aside
-          aria-label="Format and what Funza will use"
+          aria-label="Format"
           className={cn(
             "flex flex-col gap-4",
             // Wide screens: a fixed glass panel from the top of the workspace to its bottom, scrolling on its own.
@@ -531,56 +519,6 @@ export function MakeBrief({
               </>
             }
           />
-
-          <Card className="flex flex-col gap-3 p-5" aria-labelledby="uses-title">
-            <div className="flex items-center gap-2.5">
-              <span aria-hidden className="size-2.5 rounded-full bg-accent shadow-[0_0_8px_1px_rgb(224_102_47/0.7)]" />
-              <h2 id="uses-title" className="text-row font-bold">
-                Funza will use
-              </h2>
-            </div>
-            {chosenTemplate ? (
-              <p className="flex items-start gap-2.5 text-body font-medium">
-                <LayoutTemplate aria-hidden size={18} strokeWidth={1.35} className="mt-px shrink-0 text-accent" />
-                <span className="flex min-w-0 flex-col">
-                  <span className="truncate">Your template “{chosenTemplate.name}”</span>
-                  <span className="text-meta text-ink-2">Its format and wording style, never its content</span>
-                </span>
-              </p>
-            ) : null}
-            {brief.material ? (
-              <p className="flex items-center gap-2.5 text-body font-medium">
-                <FileText aria-hidden size={18} strokeWidth={1.35} className="shrink-0 text-accent" />
-                <span className="truncate">{brief.material.name}</span>
-              </p>
-            ) : null}
-            <details className="group/o">
-              <summary className="flex cursor-pointer list-none items-center gap-2.5 text-body font-medium [&::-webkit-details-marker]:hidden">
-                <Target aria-hidden size={18} strokeWidth={1.35} className="shrink-0 text-accent" />
-                <span>
-                  {brief.outcomeIds.length} curriculum outcome{brief.outcomeIds.length === 1 ? "" : "s"}
-                </span>
-                <span className="ml-auto text-meta font-semibold text-accent-ink group-open/o:hidden">Choose</span>
-              </summary>
-              <ul className="mt-3 flex max-h-72 flex-col gap-1 overflow-y-auto">
-                {chosenOutcomes.map((o) => (
-                  <li key={o.id}>
-                    <label className="flex cursor-pointer items-start gap-3 rounded-[14px] px-2 py-2 hover:bg-white/60">
-                      <Checkbox checked={brief.outcomeIds.includes(o.id)} onChange={() => toggleOutcome(o.id)} className="mt-0.5" />
-                      <span className="flex flex-col">
-                        <span className="text-meta font-bold">{o.code}</span>
-                        <span className="text-meta text-ink-2">{o.statement}</span>
-                      </span>
-                    </label>
-                  </li>
-                ))}
-              </ul>
-            </details>
-            <p className="flex items-center gap-2.5 text-body font-medium">
-              <BookOpen aria-hidden size={18} strokeWidth={1.35} className="shrink-0 text-accent" />
-              The official Saskatchewan wording
-            </p>
-          </Card>
         </aside>
       </div>
 

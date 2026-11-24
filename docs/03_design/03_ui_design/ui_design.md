@@ -193,7 +193,7 @@ Each step is saved as the teacher moves on, so a teacher who stops halfway comes
   - **Chapters:** the course's curriculum units at its level. Courses whose curriculum has no units show their outcomes instead.
   - **Add:** the quick prompts: "Use my notes", "EAL-friendly", "Saskatchewan examples", "Include a data table", "No trick questions".
 - **Below the chips:** a live summary line, then "Make draft" with the promise line.
-- **Adjust column:** starts with every row collapsed (sections and questions, marks and time, difficulty, extras). "Funza will use" lists the source and the outcomes.
+- **Adjust column:** starts with every row collapsed (sections and questions, marks and time, difficulty, extras). The outcomes come from the chosen chapters (up to six); the "Funza will use" card was removed on 24 Nov.
 - **Left out for now:**
   - The **Template** row waits for templates (built-in ones with step 4, the teacher's own in step 8).
   - "Practice" and "More" have no matching kind yet.
@@ -353,7 +353,6 @@ Templates are the teacher's own formats. Funza copies how they're made, never wh
     - Quiz ↔ Test keeps it; another type clears it.
     - Adjust brings back the teacher's own settings.
     - With Template chosen and no template, Make draft is disabled.
-  - **"Funza will use":** starts with "Your template "…" · Its format and wording style, never its content".
   - **Below wide screens:** the panel sits under the Make box, collapsed at first, and the summary line has a "Change" link.
   - **Adjust** ends with "Save these settings as a template": a dialog asks for a name, and the new template is chosen straight away.
   - The chosen template's skeleton shows "· 1 pinned" on sections with pinned questions.
