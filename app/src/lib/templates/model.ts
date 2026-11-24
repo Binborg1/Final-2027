@@ -1,5 +1,5 @@
 import { defaultBrief, NOTES_STYLES, QTYPE_LABEL, QTYPE_ORDER } from "@/lib/resources/kinds";
-import type { DifficultyPreset, NotesStyle, QType, ResourceKind } from "@/lib/resources/types";
+import type { DifficultyPreset, Item, NotesStyle, QType, ResourceKind } from "@/lib/resources/types";
 
 /**
  * Templates (FR-20, FR-21): a teacher's own format, learned from an example or set
@@ -59,13 +59,18 @@ export type TemplateGuide = { name: string; style: TemplateStyle; perSlide: { ma
 
 export const isQuestionFormat = (f: TemplateFormat): f is QuestionFormat => f.category === "quiz" || f.category === "exam";
 
+/** A bank question pinned to one section of a quiz, test or exam template (T4): every material from the template includes it unchanged. */
+export type TemplatePin = { questionId: string; section: number; item: Item };
+
+export const MAX_PINS = 20;
+
 /** One of the teacher's materials, offered as an example. */
 export type MaterialChoice = { id: string; title: string; kind: ResourceKind; status: string };
 
 export type LearnedFrom = { kind: "file" | "description" | "material" | "controls"; name: string };
 
 /** A saved template as the app uses it. `format` is null when the stored row can't be read. */
-export type Template = { id: string; category: TemplateCategory; name: string; summary: string; format: TemplateFormat | null; learnedFrom: LearnedFrom[]; used: number; updatedAt: string };
+export type Template = { id: string; category: TemplateCategory; name: string; summary: string; format: TemplateFormat | null; learnedFrom: LearnedFrom[]; used: number; updatedAt: string; pins: TemplatePin[] };
 
 export const LIMITS = {
   name: 80,
@@ -271,3 +276,6 @@ export function starterFormat(category: TemplateCategory): TemplateFormat {
     style: { ...EMPTY_STYLE },
   };
 }
+
+/** The columns that read a template's pins with their questions (composite key: same teacher). */
+export const PIN_COLUMNS = "template_pins(section, position, questions!template_pins_question_id_teacher_id_fkey(id, type, stem, options, answer, marks, outcome_ref))";

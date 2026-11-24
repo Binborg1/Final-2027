@@ -5,7 +5,7 @@ import { teacherForAction } from "@/lib/auth/teacher";
 import { GUID } from "@/lib/resources/sanitize";
 import { readStoredContent } from "@/lib/resources/stored";
 import { formatFromDraft, materialText } from "@/lib/templates/from";
-import { categoryOf, isCategory, LIMITS, line, sanitizeFormat, sanitizeLearnedFrom, type TemplateCategory, type TemplateFormat } from "@/lib/templates/model";
+import { categoryOf, isCategory, isQuestionFormat, LIMITS, line, MAX_PINS, sanitizeFormat, sanitizeLearnedFrom, type TemplateCategory, type TemplateFormat } from "@/lib/templates/model";
 
 /**
  * Server Functions for templates (FR-20, FR-21). Each checks the signed-in teacher
@@ -168,5 +168,69 @@ export async function saveStructureToTemplate(templateId: unknown, kind: unknown
   if (updated.error) return FAILED;
   if (!updated.data) return NOT_FOUND;
   refresh(id);
+  return { ok: true };
+}
+
+export type BankChoice = { id: string; type: string; stem: string; marks: number };
+
+/** A chapter's bank questions, for pinning one to a template. */
+export async function bankForChapter(chapterId: unknown): Promise<{ ok: true; questions: BankChoice[] } | { ok: false; message: string }> {
+  const current = await teacherForAction();
+  if (!current) return SIGNED_OUT;
+  const id = guid(chapterId);
+  if (!id) return { ok: false, message: "That chapter wasn’t found." };
+  const { data, error } = await current.supabase.from("questions").select("id, type, stem, marks").eq("chapter_id", id).eq("retired", false).order("created_at").limit(300);
+  if (error) return FAILED;
+  return { ok: true, questions: data.map((q) => ({ id: q.id, type: q.type, stem: q.stem.slice(0, 300), marks: q.marks })) };
+}
+
+/**
+ * Pins a bank question to one section of a quiz, test or exam template (T4). The
+ * section must ask for that type of question, and have room for one more pin of it.
+ */
+export async function pinQuestion(templateId: unknown, questionId: unknown, section: unknown): Promise<Result> {
+  const current = await teacherForAction();
+  if (!current) return SIGNED_OUT;
+  const tid = guid(templateId);
+  const qid = guid(questionId);
+  const k = typeof section === "number" && Number.isInteger(section) ? section : -1;
+  if (!tid || !qid || k < 0 || k > 7) return NOT_FOUND;
+  const { supabase, teacher } = current;
+  const [t, q, pins] = await Promise.all([
+    supabase.from("templates").select("kind, format").eq("id", tid).eq("built_in", false).maybeSingle(),
+    supabase.from("questions").select("type").eq("id", qid).maybeSingle(),
+    supabase.from("template_pins").select("question_id, section, position, questions!template_pins_question_id_teacher_id_fkey(type)").eq("template_id", tid),
+  ]);
+  if (t.error || q.error || pins.error) return FAILED;
+  if (!t.data || !isCategory(t.data.kind)) return NOT_FOUND;
+  if (!q.data) return { ok: false, message: "That question wasn’t found in your bank." };
+  const type = q.data.type;
+  const format = sanitizeFormat(t.data.kind, t.data.format);
+  if (!format || !isQuestionFormat(format)) return { ok: false, message: "Questions can be pinned to quiz, test and exam templates." };
+  const row = format.sections[k]?.rows.find((r) => r.type === type);
+  if (!row) return { ok: false, message: "That section doesn’t have questions of this type. Choose another section, or add the type to it first." };
+  const existing = (pins.data ?? []) as unknown as { question_id: string; section: number; position: number; questions: { type: string } | null }[];
+  if (existing.some((p) => p.question_id === qid)) return { ok: false, message: "That question is already pinned to this template." };
+  if (existing.length >= MAX_PINS) return { ok: false, message: `A template can have up to ${MAX_PINS} pinned questions.` };
+  if (existing.filter((p) => p.section === k && p.questions?.type === row.type).length >= row.count) return { ok: false, message: "That section is already full of pinned questions of this type. Raise its count first." };
+  const position = existing.reduce((m, p) => Math.max(m, p.position + 1), 0);
+  const { error } = await supabase.from("template_pins").insert({ template_id: tid, question_id: qid, teacher_id: teacher.id, section: k, position });
+  if (error) {
+    console.error("Pinning a question failed:", error.message);
+    return FAILED;
+  }
+  refresh(tid);
+  return { ok: true };
+}
+
+export async function unpinQuestion(templateId: unknown, questionId: unknown): Promise<Result> {
+  const current = await teacherForAction();
+  if (!current) return SIGNED_OUT;
+  const tid = guid(templateId);
+  const qid = guid(questionId);
+  if (!tid || !qid) return NOT_FOUND;
+  const { error } = await current.supabase.from("template_pins").delete().eq("template_id", tid).eq("question_id", qid);
+  if (error) return FAILED;
+  refresh(tid);
   return { ok: true };
 }

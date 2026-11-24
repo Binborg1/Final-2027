@@ -2,6 +2,7 @@ import { SchemaError } from "@/lib/ai/json";
 import { emptySection, INSTRUCTIONS, layoutSections, questionSections, rubricFor } from "@/lib/resources/assemble";
 import { isQuestionKind, QTYPE_LABEL } from "@/lib/resources/kinds";
 import { isObject, sanitizeItem, sanitizeSection } from "@/lib/resources/sanitize";
+import { aiLayout, fittingPins } from "@/lib/templates/apply";
 import type { Brief, Item, Section } from "@/lib/resources/types";
 
 /**
@@ -66,17 +67,20 @@ function validateLayoutReply(b: Brief, reply: Record<string, unknown>, layout: N
     }
     return dropped;
   };
+  // Pinned questions are already in their sections; Funza fills what is left.
+  const write = aiLayout(layout, b.pinned);
+  const pins = fittingPins(layout, b.pinned ?? []);
   const groups: Item[][] = layout.map(() => []);
   const drops: number[][] = layout.map((s) => s.rows.map(() => 0));
   // First pass: items the model placed in this section.
-  layout.forEach((s, k) =>
+  write.forEach((s, k) =>
     s.rows.forEach((row, j) => {
       const have = () => groups[k].filter((i) => i.type === row.type).length;
       drops[k][j] += take(raw.filter((r) => r.x.type === row.type && Number(r.x.section) === k + 1), row, k, groups[k], have);
     }),
   );
   // Second pass: unplaced or misplaced items fill what is still missing.
-  layout.forEach((s, k) =>
+  write.forEach((s, k) =>
     s.rows.forEach((row, j) => {
       const have = () => groups[k].filter((i) => i.type === row.type).length;
       const before = have();
@@ -88,8 +92,9 @@ function validateLayoutReply(b: Brief, reply: Record<string, unknown>, layout: N
     }),
   );
   if (moved > 0) notices.push(`${moved} question${moved === 1 ? " was" : "s were"} placed in a section by type, because the reply didn’t say which section ${moved === 1 ? "it" : "they"} belonged to.`);
-  if (groups.every((g) => g.length === 0)) throw new SchemaError("The reply had no usable questions.");
-  return { sections: layoutSections(b, groups).map((s) => ({ ...s, origin: "ai" })), notices };
+  if (groups.every((g) => g.length === 0) && write.some((s) => s.rows.some((r) => r.count > 0))) throw new SchemaError("The reply had no usable questions.");
+  const full = groups.map((g, k) => [...pins.filter((p) => p.section === k).map((p) => ({ ...p.item })), ...g]);
+  return { sections: layoutSections(b, full).map((s) => ({ ...s, origin: "ai" })), notices };
 }
 
 export function validateResourceReply(b: Brief, reply: Record<string, unknown>): ValidatedDraft {

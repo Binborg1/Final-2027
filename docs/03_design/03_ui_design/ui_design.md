@@ -2,7 +2,7 @@
 
 **Funza Teacher Studio · v0.6 · 24 November 2026**
 
-*Changed in v0.6: templates (section 4d) and Make's Format panel, which scrolls on its own. v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
+*Changed in v0.6: templates (section 4d): Word, PowerPoint and Funza materials as examples, saved Make settings, duplicate, pinned questions, printing in the template's style and saving review changes back; and Make's Format panel, which scrolls on its own. v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
 
 *Changed in v0.3: the step 4 screens (Courses, a course, a chapter, sources, publishing), section 4b.*
 
@@ -336,10 +336,13 @@ Templates are the teacher's own formats. Funza copies how they're made, never wh
      - Notices in amber appear when Funza left out copied lines or couldn't read a section.
   4. **Name:** name and an optional one-sentence summary, then **Save template**.
   - Opened from Make, saving goes back to Make with the new template chosen.
+  - **Examples:** files can be PDF, Word (.docx), PowerPoint (.pptx) or text. "Or start from one of your Funza materials" lists materials of the same kind. A quiz, test or exam gives its exact structure at once, with no AI; notes and slides are read by Funza.
 - **A template** (`/templates/[id]`):
   - **Header:** "Exam · learned from midterm.pdf · used for 4 materials", the name and summary fields, and the same skeleton editor.
   - **Read another example:** collapsed; it replaces the skeleton.
-  - **Buttons:** **Save changes** (enabled only when something changed), Use in Make (secondary), and Delete template (ghost, with a confirm dialog).
+  - **Pinned questions** (quizzes, tests and exams), collapsed: each pin shows its section letter, the start of the question, its type and marks, and an unpin button. To add one, choose a chapter, a question from its bank, then a section that asks for that type, and press **Pin it**. Every material from the template includes pinned questions unchanged, and Funza writes the rest of the section around them.
+  - **Buttons:** **Save changes** (enabled only when something changed), Use in Make (secondary), Duplicate (ghost), and Delete template (ghost, with a confirm dialog).
+- **The list:** each row also has a Duplicate button ("… (copy)").
 - **Make's Format panel:** the right column is one panel. On wide screens it is sticky and scrolls on its own, so the Make box stays in place.
   - **Header:** the title, the switch **(Adjust) (Template)** and one value line.
   - **Adjust:** today's collapsed rows.
@@ -352,6 +355,10 @@ Templates are the teacher's own formats. Funza copies how they're made, never wh
     - With Template chosen and no template, Make draft is disabled.
   - **"Funza will use":** starts with "Your template "…" · Its format and wording style, never its content".
   - **Below wide screens:** the panel sits under the Make box, collapsed at first, and the summary line has a "Change" link.
+  - **Adjust** ends with "Save these settings as a template": a dialog asks for a name, and the new template is chosen straight away.
+  - The chosen template's skeleton shows "· 1 pinned" on sections with pinned questions.
+- **Review (a material made from a template):** when the teacher has changed its structure (a question more or less, other marks, instructions or time), a row says "You changed this material's structure. Save it to your template so the next one starts from it?" with **Save to template** (secondary) and ×. Questions Funza couldn't draft don't count as a change.
+- **Printed copies and Classroom Docs** follow the template: numbering straight through or restarting in each section, marks in brackets, in the margin or not shown, and the cover page (title, name line, totals, instructions) on its own page.
 
 ## 5. Phones (added; not drawn for teacher screens)
 
@@ -422,4 +429,4 @@ These screenshots come from the app on branch `sign-in`. They were taken with a 
 
 ## 9. Not in this version
 
-The student course page (step 6), a bank page across chapters, template pins and saving review changes back to a template, and in Live mode: Pause, a leaderboard and "Make practice". Each is drawn in Figma and gets its section here when it is built.
+The student course page (step 6), a bank page across chapters, scanned pages as template examples, and in Live mode: Pause, a leaderboard and "Make practice". Each is drawn in Figma and gets its section here when it is built.

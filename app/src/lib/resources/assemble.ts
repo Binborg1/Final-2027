@@ -2,6 +2,7 @@ import { placeOf } from "@/lib/curriculum/sources";
 import { BANK, NOTES } from "@/lib/resources/bank";
 import { isQuestionKind, QTYPE_LABEL, QTYPE_ORDER } from "@/lib/resources/kinds";
 import type { BankItem, Brief, Difficulty, Draft, Item, Origin, QType, Section } from "@/lib/resources/types";
+import { aiLayout, fittingPins } from "@/lib/templates/apply";
 
 /** Building blocks shared by every way a draft is made: AI, starter bank, or by hand. */
 
@@ -129,14 +130,16 @@ export function fromBank(b: Brief, resourceId: string): Draft {
 
   if (isQuestionKind(b.kind) && b.layout) {
     const used = new Set<string>();
-    const groups = b.layout.map((s) =>
-      s.rows.flatMap((row) => {
+    const pins = fittingPins(b.layout, b.pinned ?? []);
+    const groups = aiLayout(b.layout, b.pinned).map((s, k) => [
+      ...pins.filter((p) => p.section === k).map((p) => ({ ...p.item })),
+      ...s.rows.flatMap((row) => {
         const picked = interleave(b.outcomeIds, row.type).filter((p) => !used.has(p.id)).slice(0, row.count);
         picked.forEach((p) => used.add(p.id));
         if (picked.length < row.count) notices.push(`${s.title}: the bank has ${picked.length} of the ${row.count} ${QTYPE_LABEL[row.type].toLowerCase()} question${row.count === 1 ? "" : "s"} it needs. Add the rest yourself or generate them with AI.`);
         return picked.map((p) => bankItem(p, row.marks, p.id));
       }),
-    );
+    ]);
     sections.push(...layoutSections(b, groups));
   } else if (isQuestionKind(b.kind)) {
     const items: Item[] = [];
@@ -179,7 +182,8 @@ export function fromBank(b: Brief, resourceId: string): Draft {
 export function blankDraft(b: Brief, resourceId: string): Draft {
   const notices = ["Written by you: the blueprint is laid out as empty parts. The checks work the same way."];
   if (isQuestionKind(b.kind) && b.layout) {
-    const groups = b.layout.map((s, k) => s.rows.flatMap((r) => Array.from({ length: r.count }, (_, i) => blankItem(r.type, r.marks, b.outcomeIds, `q-t${k + 1}-${r.type}-${i + 1}`))));
+    const pins = fittingPins(b.layout, b.pinned ?? []);
+    const groups = aiLayout(b.layout, b.pinned).map((s, k) => [...pins.filter((p) => p.section === k).map((p) => ({ ...p.item })), ...s.rows.flatMap((r) => Array.from({ length: r.count }, (_, i) => blankItem(r.type, r.marks, b.outcomeIds, `q-t${k + 1}-${r.type}-${i + 1}`)))]);
     return draftShell(b, resourceId, layoutSections(b, groups).map((s) => ({ ...s, origin: "teacher" })), "teacher", null, notices);
   }
   const parts = b.parts;

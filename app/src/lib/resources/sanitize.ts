@@ -144,6 +144,18 @@ export function sanitizeSections(raw: unknown, ctx: { allowedOutcomes?: Readonly
   return out;
 }
 
+/** A brief's pinned questions: at most 20, each a valid question in section 0 to 7. */
+function pinnedList(v: unknown): Brief["pinned"] {
+  const out = (Array.isArray(v) ? v : [])
+    .filter(isObject)
+    .slice(0, 20)
+    .flatMap((p) => {
+      const item = sanitizeItem(p.item, { fallbackId: "pin", origin: "bank" });
+      return item ? [{ section: int(p.section, 0, 7, 0), item }] : [];
+    });
+  return out.length > 0 ? out : null;
+}
+
 export function sanitizeBrief(raw: unknown): Brief | null {
   if (!isObject(raw)) return null;
   const kind = oneOf(raw.kind, KIND_IDS, "quiz");
@@ -184,6 +196,7 @@ export function sanitizeBrief(raw: unknown): Brief | null {
     parts: parts.length > 0 ? parts : null,
     style: templateId && isObject(raw.style) ? sanitizeStyle(raw.style) : null,
     drafted: templateId && questionKind && Array.isArray(raw.drafted) ? sanitizeLayout(raw.drafted) : null,
+    pinned: templateId && questionKind ? pinnedList(raw.pinned) : null,
   };
 }
 

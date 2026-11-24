@@ -203,7 +203,7 @@ Built on branch `step-4-courses-and-bank` (23 November). The migration `step4_co
 
 | Step | What | Target |
 |---|---|---|
-| 8 | **Templates:** describe a format, upload a past exam (Gemini reads it, scans included), or save the builder's controls. Pin questions to a template. *Built early on 24 Nov: describe it, upload a PDF or text example, or set it up by hand, for quizzes and tests, exams, notes and slides; Make's Format panel offers Adjust or Template. Still to come: scans, Word and PowerPoint, saving the controls, pins, saving review changes back.* | January |
+| 8 | **Templates:** describe a format, upload a past exam (Gemini reads it, scans included), or save the builder's controls. Pin questions to a template. *Built early on 24 Nov: describe it, upload a PDF or text example, or set it up by hand, for quizzes and tests, exams, notes and slides; Make's Format panel offers Adjust or Template. Then the same day: Word and PowerPoint examples, Funza materials as examples, saving Make's settings, duplicating, pinned questions, printing in the template's style, and saving review changes back. Still to come: scanned pages.* | January |
 | 9 | **Bank reuse:** drafts take from the bank first and Funza writes only the gaps, with the 60-day repeat rule and a bank page per chapter (search, edit, retire, pin). | January–February |
 | 10 | **Difficulty from live results**, shown after at least 10 answers. | February |
 | 11 | **Funza chat edits**, each change saved as a new version. | February |

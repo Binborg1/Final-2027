@@ -815,18 +815,21 @@ export type Database = {
         Row: {
           position: number
           question_id: string
+          section: number
           teacher_id: string
           template_id: string
         }
         Insert: {
           position?: number
           question_id: string
+          section?: number
           teacher_id: string
           template_id: string
         }
         Update: {
           position?: number
           question_id?: string
+          section?: number
           teacher_id?: string
           template_id?: string
         }

@@ -122,7 +122,10 @@ export function FormatPanel({
                             <span key={i} className="flex gap-2 text-meta">
                               <span className="w-4 shrink-0 font-bold text-ink-2">{sectionLetter(i)}</span>
                               <span className="min-w-0 flex-1 truncate">{s.title}</span>
-                              <span className="shrink-0 text-ink-2">{s.rows.map(rowLine).join(" · ")}</span>
+                              <span className="shrink-0 text-ink-2">
+                                {s.rows.map(rowLine).join(" · ")}
+                                {(t.pins ?? []).some((p) => p.section === i) ? ` · ${(t.pins ?? []).filter((p) => p.section === i).length} pinned` : ""}
+                              </span>
                             </span>
                           ))}
                         </span>

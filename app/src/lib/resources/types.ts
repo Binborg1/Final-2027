@@ -108,6 +108,8 @@ export type Brief = {
   style: TemplateStyle | null;
   /** The structure the material had when it was drafted from the template, so only the teacher's own changes count as changes (T7). */
   drafted: TemplateSection[] | null;
+  /** The template's pinned questions, each in its section; Funza writes the rest around them. */
+  pinned: { section: number; item: Item }[] | null;
 };
 
 export type ResourceStatus = "draft" | "approved";

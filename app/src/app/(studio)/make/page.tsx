@@ -17,7 +17,7 @@ export default async function MakePage({ searchParams }: { searchParams: Promise
   const courseId = typeof sp.course === "string" ? sp.course : null;
   // One chapter (from a chapter page) or several (back from "New template").
   const chapterIds = [typeof sp.chapter === "string" ? sp.chapter : "", ...(typeof sp.chapters === "string" ? sp.chapters.split(",") : [])].filter((id) => GUID.test(id)).slice(0, 20);
-  const templates: MakeTemplate[] = saved.flatMap((t) => (t.format ? [{ id: t.id, category: t.category, name: t.name, format: t.format, used: t.used }] : []));
+  const templates: MakeTemplate[] = saved.flatMap((t) => (t.format ? [{ id: t.id, category: t.category, name: t.name, format: t.format, used: t.used, pins: t.pins }] : []));
   const templateId = typeof sp.template === "string" && GUID.test(sp.template) ? sp.template : null;
   const chapters: Record<string, ChapterChoice[]> = Object.fromEntries(Object.entries(byCourse).map(([id, list]) => [id, list.map((c) => ({ id: c.id, title: c.title, outcomeRefs: c.outcomeRefs }))]));
   return <MakeBrief courses={courses.filter((c) => c.curriculumCourseId)} chapters={chapters} sources={sources} templates={templates} initialPrompt={prompt} initialCourseId={courseId} initialChapterIds={chapterIds} initialTemplateId={templateId} />;

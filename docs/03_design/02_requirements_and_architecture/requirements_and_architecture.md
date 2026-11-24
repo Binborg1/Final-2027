@@ -130,7 +130,7 @@ Each requirement traces to a use case (UC) in the flows plan. Priority is Must, 
 |---|---|---|---|---|
 | FR-18 | Make notes or slides from chosen chapters, using quick prompts. *Exists today; moves from the browser to the database.* | UC14 | Must | R1 |
 | FR-19 | Make a quiz, test or exam with one builder and the built-in templates: Quiz, Unit test, Midterm, Final. | UC15 | Must | R1 |
-| FR-20 | Save a template by describing it, uploading a past exam, or saving the controls. Pin questions to it. *Built early (24 Nov): describe it, upload an example (PDF or text) or set it up by hand; pins and saving the controls come later.* | UC16 | Should | R2 |
+| FR-20 | Save a template by describing it, uploading a past exam, or saving the controls. Pin questions to it. *Built early (24 Nov): describe it, upload an example (PDF, Word, PowerPoint or text), start from a Funza material, set it up by hand or save Make's settings; pin questions; save review changes back (T7). Scanned pages come later.* | UC16 | Should | R2 |
 | FR-21 | Templates for notes. *Built early (24 Nov), with slides templates too.* | UC16 | Could | R2 |
 | FR-22 | Edit a draft by chatting with Funza. Each change is kept as a new version. *Redoing one question with a hint exists today.* | UC17 | Should | R2 |
 | FR-23 | Review and approve. Approving locks a version. The states are draft, in review, approved and published. | UC18 | Must | R1 |
@@ -303,7 +303,9 @@ The database has fifteen tables and three join tables, plus a server-only `rate_
   - `summary`: one sentence.
   - `learned_from`: the example names only.
 - **Examples:** an example is read once in the teacher's browser and sent to the AI for that request. It is not stored or logged (this changes step T2 of the flows plan, which kept the file in Sources). The AI describes the format, never the content, and a check drops any line that repeats eight words of the example.
-- **Making a material from a template:** the server reloads the template with the teacher's own session and uses its own copy, never the browser's. The template's text is single-line data inside a `<format>` tag. A material records the template it came from (`resources.template_id`), and a trigger requires the same category.
+- **Pinned questions:** `template_pins.section` places a pinned bank question in one of the template's sections. A material from the template includes it unchanged, and Funza writes only the rest of that section. Pins that no longer fit the layout are skipped.
+- **Printing:** the material's brief keeps the template's style, so the printed copy and the Classroom Doc use its numbering, marks style and cover page.
+- **Making a material from a template:** the server reloads the template (and its pins) with the teacher's own session and uses its own copy, never the browser's. The template's text is single-line data inside a `<format>` tag. A material records the template it came from (`resources.template_id`), and a trigger requires the same category.
 
 ## 12. Rate limits and allowances
 

@@ -8,12 +8,13 @@ import { Dialog } from "@/components/ui/Dialog";
 import { Disclosure } from "@/components/ui/Disclosure";
 import { Input } from "@/components/ui/Field";
 import { deleteTemplate, duplicateTemplate, saveTemplate } from "@/lib/templates/actions";
-import { categoryInfo, LIMITS, type LearnedFrom, type MaterialChoice, type Template, type TemplateFormat } from "@/lib/templates/model";
+import { categoryInfo, isQuestionFormat, LIMITS, type LearnedFrom, type MaterialChoice, type Template, type TemplateFormat } from "@/lib/templates/model";
+import { PinnedQuestions } from "./PinnedQuestions";
 import { canRead, ExamplePicker, learnedFromOf, readFormat, type Example } from "../ExamplePicker";
 import { FormatEditor } from "../FormatEditor";
 
 /** One template: check and change its skeleton, rename it, read another example, or delete it. */
-export function EditTemplate({ template, materials = [] }: { template: Template & { format: TemplateFormat }; materials?: MaterialChoice[] }) {
+export function EditTemplate({ template, materials = [], chapters = [] }: { template: Template & { format: TemplateFormat }; materials?: MaterialChoice[]; chapters?: { id: string; label: string }[] }) {
   const router = useRouter();
   const [format, setFormat] = useState<TemplateFormat>(template.format);
   const [name, setName] = useState(template.name);
@@ -76,6 +77,8 @@ export function EditTemplate({ template, materials = [] }: { template: Template 
       ))}
 
       <FormatEditor format={format} onChange={(f) => (setFormat(f), setSaved(false))} />
+
+      {isQuestionFormat(template.format) ? <PinnedQuestions templateId={template.id} format={template.format} pins={template.pins} chapters={chapters} /> : null}
 
       <Disclosure title="Read another example" summary="Replace this skeleton with one Funza reads from another file">
         <ExamplePicker
