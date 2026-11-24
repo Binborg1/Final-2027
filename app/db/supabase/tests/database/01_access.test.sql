@@ -3,7 +3,7 @@
 -- written only by the server.
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(37);
+select plan(39);
 
 insert into auth.users (id, email, aud, role) values
   ('11111111-1111-1111-1111-111111111111', 'teacher-a@example.test', 'authenticated', 'authenticated'),
@@ -13,8 +13,8 @@ insert into auth.users (id, email, aud, role) values
 
 select is(
   (select count(*)::int from pg_tables where schemaname = 'public'),
-  18,
-  'the schema has 15 tables and 3 join tables'
+  19,
+  'the schema has 15 tables, 3 join tables and the rate-limit counters'
 );
 select is(
   (select count(*)::int from pg_class c join pg_namespace n on n.oid = c.relnamespace
@@ -26,7 +26,7 @@ select is(
   (select count(*)::int from information_schema.columns
    where table_schema = 'public' and column_name = 'teacher_id'),
   17,
-  'every table but teachers (whose id is the teacher) carries teacher_id'
+  'every table but teachers (whose id is the teacher) and the rate-limit counters carries teacher_id'
 );
 
 -- A built-in template, added by the database owner.
@@ -43,6 +43,7 @@ select throws_ok('select count(*) from public.live_sessions', '42501', null, 'an
 select throws_ok('select count(*) from public.participants', '42501', null, 'anon cannot read participants');
 select throws_ok('select count(*) from public.answers', '42501', null, 'anon cannot read answers');
 select throws_ok('select count(*) from public.templates', '42501', null, 'anon cannot read templates');
+select throws_ok('select count(*) from public.rate_limits', '42501', null, 'anon cannot read the rate-limit counters');
 reset role;
 
 -- Teacher A builds a course -------------------------------------------------
@@ -103,6 +104,7 @@ select throws_ok(
   '42501', null,
   'a teacher cannot add a built-in template'
 );
+select throws_ok('select count(*) from public.rate_limits', '42501', null, 'a teacher cannot read the rate-limit counters');
 reset role;
 
 -- The server writes a student and an AI usage row with the secret key.

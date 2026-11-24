@@ -23,9 +23,11 @@ insert into public.live_sessions (id, teacher_id, course_id, code, state, create
   ('aaaaaaaa-0000-0000-0000-000000000030', '11111111-1111-1111-1111-111111111111', 'aaaaaaaa-0000-0000-0000-000000000001',
    'CCCCCC', 'lobby', now() - interval '40 days', null);
 
-insert into public.live_questions (id, teacher_id, session_id, question_id, position) values
-  ('aaaaaaaa-0000-0000-0000-000000000011', '11111111-1111-1111-1111-111111111111', 'aaaaaaaa-0000-0000-0000-000000000010', 'aaaaaaaa-0000-0000-0000-000000000003', 1),
-  ('aaaaaaaa-0000-0000-0000-000000000021', '11111111-1111-1111-1111-111111111111', 'aaaaaaaa-0000-0000-0000-000000000020', 'aaaaaaaa-0000-0000-0000-000000000003', 1);
+insert into public.live_questions (id, teacher_id, session_id, question_id, position, content) values
+  ('aaaaaaaa-0000-0000-0000-000000000011', '11111111-1111-1111-1111-111111111111', 'aaaaaaaa-0000-0000-0000-000000000010', 'aaaaaaaa-0000-0000-0000-000000000003', 1,
+   '{"type": "tf", "stem": "Speed is a vector.", "answer": {"tf": false}, "marks": 1}'),
+  ('aaaaaaaa-0000-0000-0000-000000000021', '11111111-1111-1111-1111-111111111111', 'aaaaaaaa-0000-0000-0000-000000000020', 'aaaaaaaa-0000-0000-0000-000000000003', 1,
+   '{"type": "tf", "stem": "Speed is a vector.", "answer": {"tf": false}, "marks": 1}');
 
 insert into public.participants (id, teacher_id, session_id, name, student_no, token_hash) values
   ('aaaaaaaa-0000-0000-0000-000000000012', '11111111-1111-1111-1111-111111111111', 'aaaaaaaa-0000-0000-0000-000000000010', 'Sam', '200123', repeat('a', 64)),
