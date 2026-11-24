@@ -23,7 +23,7 @@ export function fakeJwt(user: TestUser, expiresIn = 3600) {
   return `${b64url({ alg: "HS256", typ: "JWT" })}.${b64url({ sub: user.id, email: user.email, role: "authenticated", aud: "authenticated", iat: now, exp: now + expiresIn })}.c2lnbmF0dXJl`;
 }
 
-function userJson(user: TestUser) {
+export function userJson(user: TestUser) {
   return { id: user.id, aud: "authenticated", role: "authenticated", email: user.email, app_metadata: { provider: "google" }, user_metadata: { full_name: "Test Teacher" }, created_at: "2026-11-21T00:00:00Z" };
 }
 
@@ -64,24 +64,49 @@ export function restoreFetch() {
   globalThis.fetch = realFetch;
 }
 
+/** A Supabase client whose cookies live in `jar`, as a browser's would. */
+function jarClient(jar: Record<string, string>) {
+  return createServerClient(SUPABASE_URL, "sb_publishable_test", {
+    cookies: {
+      getAll: () => Object.entries(jar).map(([name, value]) => ({ name, value })),
+      setAll: (cookies) => {
+        for (const { name, value } of cookies) {
+          if (value) jar[name] = value;
+          else delete jar[name];
+        }
+      },
+    },
+  });
+}
+
 /** The cookies @supabase/ssr writes for a signed-in user, made by the library itself. */
 export async function sessionCookies(user: TestUser): Promise<Record<string, string>> {
   const jar: Record<string, string> = {};
   const previous = globalThis.fetch;
   stubAuth([user]);
   try {
-    const client = createServerClient(SUPABASE_URL, "sb_publishable_test", {
-      cookies: {
-        getAll: () => Object.entries(jar).map(([name, value]) => ({ name, value })),
-        setAll: (cookies) => {
-          for (const { name, value } of cookies) {
-            if (value) jar[name] = value;
-            else delete jar[name];
-          }
-        },
-      },
-    });
-    const { error } = await client.auth.setSession({ access_token: fakeJwt(user), refresh_token: "refresh-token" });
+    const { error } = await jarClient(jar).auth.setSession({ access_token: fakeJwt(user), refresh_token: "refresh-token" });
+    if (error) throw error;
+  } finally {
+    globalThis.fetch = previous;
+  }
+  return jar;
+}
+
+/**
+ * The cookies a browser keeps after "Forgot password": the library's own PKCE
+ * verifier for the reset, which the code in Supabase's default reset link needs.
+ */
+export async function resetCookies(email: string, redirectTo: string): Promise<Record<string, string>> {
+  const jar: Record<string, string> = {};
+  const previous = globalThis.fetch;
+  globalThis.fetch = (async (input: string | URL | Request) => {
+    const url = typeof input === "string" ? input : input instanceof URL ? input.href : input.url;
+    if (url.startsWith(`${SUPABASE_URL}/auth/v1/recover`)) return new Response("{}", { status: 200, headers: { "content-type": "application/json" } });
+    throw new Error(`Unexpected network request in a test: ${url}`);
+  }) as typeof fetch;
+  try {
+    const { error } = await jarClient(jar).auth.resetPasswordForEmail(email, { redirectTo });
     if (error) throw error;
   } finally {
     globalThis.fetch = previous;

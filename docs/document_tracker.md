@@ -78,7 +78,7 @@ Course stage: Development Workshops 1–3 and the weekly scrums (from 27 October
 
 | # | Document | File | What it must contain | Status | Owner |
 |---|---|---|---|---|---|
-| 4.1 | Development steps | [`04_development/01_development_steps.md`](04_development/01_development_steps.md) | The build order from accounts to Release 1, with "done when" checks, and the Release 2 outline | Done (v0.5, 23 Nov: step 5 Live mode built; the load test with real phones still to run) | |
+| 4.1 | Development steps | [`04_development/01_development_steps.md`](04_development/01_development_steps.md) | The build order from accounts to Release 1, with "done when" checks, and the Release 2 outline | Done (v0.6, 24 Nov: sign-in settings set, email templates wait for a custom SMTP sender; step 5 Live mode built, the load test with real phones still to run) | |
 | 4.2 | Setup and run guide | [`../app/README.md`](../app/README.md) | How to install, configure and run the app | Updated 23 Nov for Live mode (step 5): routes, how a session works, Realtime and the load test | |
 | 4.3 | Weekly status reports | `04_development/02_status_reports/YYYY-MM-DD.md` | For each week: status (green, yellow or red) and why; what was done; what is planned; issues; changes. Bring to the scrums | Ongoing | |
 | 4.4 | Code quality review report | `04_development/03_code_quality_review.md` | What was reviewed, against which checklist, what was found and fixed | ENSE 477 | |

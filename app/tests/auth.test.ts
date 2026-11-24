@@ -5,7 +5,7 @@ import { authMessage, passwordProblem } from "@/lib/auth/email-sign-in";
 import { safeNext, safeReturn } from "@/lib/auth/redirect";
 import { routeKind } from "@/lib/auth/routes";
 import { firstName, initials, teacherName } from "@/lib/auth/teacher-model";
-import { makeRequest, restoreFetch, sessionCookies, setCookies, stubAuth, TEACHER_A, setTestEnv } from "./helpers/auth";
+import { fakeJwt, makeRequest, resetCookies, restoreFetch, sessionCookies, setCookies, stubAuth, SUPABASE_URL, TEACHER_A, setTestEnv, userJson } from "./helpers/auth";
 
 setTestEnv();
 afterEach(() => restoreFetch());
@@ -120,6 +120,75 @@ test("a password reset goes to the new-password page, even before setup is finis
   const req = makeRequest("/auth/confirm?token_hash=x&type=recovery");
   const res = await finishSignIn(req, fakeDb({ setup_done_at: null }), user, "/new-password", { skipSetup: true });
   assert.equal(res.headers.get("location"), "http://localhost:3000/new-password");
+});
+
+/* ---------- links in Supabase's default emails (a one-time code) ---------- */
+
+const RESET_RETURN = "http://localhost:3000/auth/confirm?next=%2Fnew-password";
+
+/** Supabase swapping a code for a session, and the teacher's row. Returns what was asked. */
+function stubCodeExchange(row: { setup_done_at: string | null }) {
+  const seen: { url: string; body: { auth_code?: string; code_verifier?: string } | null }[] = [];
+  const json = (v: unknown) => new Response(JSON.stringify(v), { status: 200, headers: { "content-type": "application/json" } });
+  globalThis.fetch = (async (input: string | URL | Request, init?: RequestInit) => {
+    const url = typeof input === "string" ? input : input instanceof URL ? input.href : input.url;
+    seen.push({ url, body: typeof init?.body === "string" ? JSON.parse(init.body) : null });
+    if (url.startsWith(`${SUPABASE_URL}/auth/v1/token?grant_type=pkce`)) {
+      const now = Math.floor(Date.now() / 1000);
+      return json({ access_token: fakeJwt(TEACHER_A), refresh_token: "refresh-token", token_type: "bearer", expires_in: 3600, expires_at: now + 3600, user: userJson(TEACHER_A) });
+    }
+    if (url.startsWith(`${SUPABASE_URL}/rest/v1/teachers`)) return json([{ id: TEACHER_A.id, name: "Test Teacher", school: "", grades: [], subjects: [], created_at: "", updated_at: "", ...row }]);
+    throw new Error(`Unexpected network request in a test: ${url}`);
+  }) as typeof fetch;
+  return seen;
+}
+
+const sessionSet = (res: Response) => Object.entries(setCookies(res)).some(([name, line]) => /-auth-token(\.\d+)?$/.test(name) && !line.startsWith(`${name}=;`));
+
+test("a reset link from Supabase's default email signs the teacher in and opens the new-password page, even before setup", async () => {
+  const cookies = await resetCookies(TEACHER_A.email, RESET_RETURN);
+  const seen = stubCodeExchange({ setup_done_at: null });
+  const { GET } = await import("@/app/auth/confirm/route");
+  const res = await GET(makeRequest("/auth/confirm?next=%2Fnew-password&code=one-time-code", { cookies }));
+  assert.equal(res.status, 307);
+  assert.equal(res.headers.get("location"), "http://localhost:3000/new-password");
+  const exchange = seen.find((s) => s.url.includes("grant_type=pkce"));
+  assert.equal(exchange?.body?.auth_code, "one-time-code");
+  assert.ok(exchange?.body?.code_verifier, "the verifier kept by the browser that asked is sent");
+  assert.ok(sessionSet(res), "the session cookie is set");
+});
+
+test("a code from any other email link keeps the usual order: setup first, then where the teacher was going", async () => {
+  const cookies = await resetCookies(TEACHER_A.email, RESET_RETURN);
+  const { GET } = await import("@/app/auth/confirm/route");
+  stubCodeExchange({ setup_done_at: null });
+  assert.equal((await GET(makeRequest("/auth/confirm?next=%2Fmake&code=c", { cookies }))).headers.get("location"), "http://localhost:3000/setup");
+  stubCodeExchange({ setup_done_at: "2026-11-21T00:00:00Z" });
+  assert.equal((await GET(makeRequest("/auth/confirm?next=%2Fmake&code=c", { cookies }))).headers.get("location"), "http://localhost:3000/make");
+});
+
+test("the link opened in another browser says so, without asking Supabase", async () => {
+  const seen = stubAuth([]);
+  const { GET } = await import("@/app/auth/confirm/route");
+  const res = await GET(makeRequest("/auth/confirm?next=%2Fnew-password&code=one-time-code"));
+  assert.equal(res.headers.get("location"), "http://localhost:3000/sign-in?error=other-browser");
+  assert.deepEqual(seen, []);
+});
+
+test("when the link names its sign-in flow, only that flow's verifier is used", async () => {
+  const cookies = await resetCookies(TEACHER_A.email, RESET_RETURN);
+  const flowId = Object.keys(cookies)
+    .map((name) => /-flow-([A-Za-z0-9_-]+)-code-verifier$/.exec(name)?.[1])
+    .find(Boolean);
+  assert.ok(flowId, "the library keeps one verifier per flow");
+  const { GET } = await import("@/app/auth/confirm/route");
+  stubCodeExchange({ setup_done_at: "2026-11-21T00:00:00Z" });
+  const ok = await GET(makeRequest(`/auth/confirm?next=%2Fnew-password&code=c&sb_flow_id=${flowId}`, { cookies }));
+  assert.equal(ok.headers.get("location"), "http://localhost:3000/new-password");
+  const seen = stubAuth([]);
+  const other = await GET(makeRequest("/auth/confirm?next=%2Fnew-password&code=c&sb_flow_id=someotherflow123", { cookies }));
+  assert.equal(other.headers.get("location"), "http://localhost:3000/sign-in?error=other-browser", "another flow's verifier would burn the code");
+  assert.deepEqual(seen, []);
 });
 
 /* ---------- email and password ---------- */
