@@ -62,6 +62,15 @@ export function Play({ sessionId }: { sessionId: string }) {
 
   useLiveRefresh({ sessionId, topics: ["state"], refresh: fetchState, spread: true, enabled: Boolean(seat) && !gone });
 
+  // While waiting for the teacher (lobby, or time up before Reveal), also ask every 3 seconds,
+  // in case Realtime is connected but a ping is lost.
+  const waiting = view?.state === "lobby" || view?.state === "closed";
+  useEffect(() => {
+    if (!waiting || gone) return;
+    const t = setInterval(() => void fetchState(), 3_000);
+    return () => clearInterval(t);
+  }, [waiting, gone, fetchState]);
+
   if (seat === undefined) return <Waiting text="Opening…" />;
   if (seat === null || gone) return <NotIn />;
   if (!view) return <Waiting text={offline ? "Can’t reach Funza. Check your Wi-Fi." : "Opening…"} />;

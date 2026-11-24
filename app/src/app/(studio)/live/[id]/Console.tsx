@@ -56,6 +56,13 @@ export function Console({ initial, courseTitle, chapterTitle, qr }: { initial: C
     }
   }
 
+  // One screen, so it can afford to ask every 3 seconds as well, in case a ping is lost.
+  useEffect(() => {
+    if (session.state === "ended") return;
+    const t = setInterval(() => void refresh(), 3_000);
+    return () => clearInterval(t);
+  }, [session.state, refresh]);
+
   const openProjector = () => window.open(`/live/${session.id}/screen`, "funza-projector", "noopener");
   const left = useSecondsLeft(session.state === "open" ? session.endsAt : null, offset);
 
