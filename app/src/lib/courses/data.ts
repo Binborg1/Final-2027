@@ -1,7 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { currentTeacher } from "@/lib/auth/teacher";
-import { outcomesOf, seedChapters } from "@/lib/courses/server";
+import { outcomesOf, removedCurriculumChapters } from "@/lib/courses/server";
 import { draftAfter, latestApproved, type VersionMeta } from "@/lib/library/model";
 import type { ResourceKind } from "@/lib/resources/types";
 
@@ -11,7 +11,7 @@ import type { ResourceKind } from "@/lib/resources/types";
  */
 
 export type CourseSummaryRow = { id: string; title: string; level: number | null; curriculumCourseId: string | null; chapters: number; materials: number };
-export type ChapterRow = { id: string; title: string; position: number; sourceKind: string; outcomeRefs: string[] };
+export type ChapterRow = { id: string; title: string; position: number; sourceKind: string; sourceRef: string | null; outcomeRefs: string[] };
 export type MaterialStatus = "draft" | "in_review" | "approved" | "published";
 /**
  * `approved` is the latest approved version (the one in the Library), and `draft`
@@ -45,9 +45,9 @@ export const courseList = cache(async (): Promise<CourseSummaryRow[]> => {
 async function readChapters(courseId: string): Promise<ChapterRow[]> {
   const current = await currentTeacher();
   if (!current) return [];
-  const { data, error } = await current.supabase.from("chapters").select("id, title, position, source_kind, outcome_refs, created_at").eq("course_id", courseId).order("position").order("created_at");
+  const { data, error } = await current.supabase.from("chapters").select("id, title, position, source_kind, source_ref, outcome_refs, created_at").eq("course_id", courseId).order("position").order("created_at");
   if (error) throw new Error(`Could not read chapters: ${error.message}`);
-  return data.map((c) => ({ id: c.id, title: c.title, position: c.position, sourceKind: c.source_kind, outcomeRefs: c.outcome_refs }));
+  return data.map((c) => ({ id: c.id, title: c.title, position: c.position, sourceKind: c.source_kind, sourceRef: c.source_ref, outcomeRefs: c.outcome_refs }));
 }
 
 async function readMaterials(courseId: string): Promise<MaterialRow[]> {
@@ -82,20 +82,22 @@ async function readMaterials(courseId: string): Promise<MaterialRow[]> {
   });
 }
 
-/** A course, its chapters (seeding them from the curriculum the first time) and its materials. */
-export async function courseDetail(courseId: string): Promise<{ course: CourseRow; chapters: ChapterRow[]; materials: MaterialRow[] } | null> {
+export type RemovedChapter = { key: string; title: string; outcomes: number };
+
+/**
+ * A course, its chapters and its materials. Chapters are added from the curriculum
+ * only when the course is made, so chapters the teacher deleted stay deleted, even
+ * all of them; `removed` lists the curriculum chapters they can bring back.
+ */
+export async function courseDetail(courseId: string): Promise<{ course: CourseRow; chapters: ChapterRow[]; materials: MaterialRow[]; removed: RemovedChapter[] } | null> {
   const current = await currentTeacher();
   if (!current) return null;
   const { data: course, error } = await current.supabase.from("courses").select("id, title, level, curriculum_course_id").eq("id", courseId).maybeSingle();
   if (error) throw new Error(`Could not read the course: ${error.message}`);
   if (!course) return null;
-  let chapters = await readChapters(course.id);
-  if (chapters.length === 0 && course.curriculum_course_id) {
-    await seedChapters(current.supabase, current.teacher.id, course);
-    chapters = await readChapters(course.id);
-  }
-  const materials = await readMaterials(course.id);
-  return { course: { id: course.id, title: course.title, level: course.level, curriculumCourseId: course.curriculum_course_id }, chapters, materials };
+  const [chapters, materials] = await Promise.all([readChapters(course.id), readMaterials(course.id)]);
+  const removed = removedCurriculumChapters(course, chapters);
+  return { course: { id: course.id, title: course.title, level: course.level, curriculumCourseId: course.curriculum_course_id }, chapters, materials, removed };
 }
 
 /** One chapter: its materials, its outcomes with their official wording, and its bank questions. */
@@ -128,22 +130,12 @@ export async function chapterDetail(courseId: string, chapterId: string) {
 export const makeChapters = cache(async (): Promise<Record<string, ChapterRow[]>> => {
   const current = await currentTeacher();
   if (!current) return {};
-  const { data, error } = await current.supabase.from("chapters").select("id, course_id, title, position, source_kind, outcome_refs, created_at").order("position").order("created_at");
+  const { data, error } = await current.supabase.from("chapters").select("id, course_id, title, position, source_kind, source_ref, outcome_refs, created_at").order("position").order("created_at");
   if (error) throw new Error(`Could not read chapters: ${error.message}`);
   const out: Record<string, ChapterRow[]> = {};
-  for (const c of data) (out[c.course_id] ??= []).push({ id: c.id, title: c.title, position: c.position, sourceKind: c.source_kind, outcomeRefs: c.outcome_refs });
+  for (const c of data) (out[c.course_id] ??= []).push({ id: c.id, title: c.title, position: c.position, sourceKind: c.source_kind, sourceRef: c.source_ref, outcomeRefs: c.outcome_refs });
   return out;
 });
-
-/** Seeds chapters for any curriculum course that has none yet (courses made in setup before step 4). */
-export async function ensureChapters(): Promise<void> {
-  const current = await currentTeacher();
-  if (!current) return;
-  const [courses, chapters] = await Promise.all([current.supabase.from("courses").select("id, curriculum_course_id, level"), current.supabase.from("chapters").select("course_id")]);
-  if (courses.error || chapters.error) return;
-  const has = new Set(chapters.data.map((c) => c.course_id));
-  for (const c of courses.data) if (!has.has(c.id) && c.curriculum_course_id) await seedChapters(current.supabase, current.teacher.id, c).catch(() => undefined);
-}
 
 /** The sources with text in each chapter, for Make's "Use my notes from this chapter". */
 export const makeSources = cache(async (): Promise<Record<string, { id: string; title: string }[]>> => {

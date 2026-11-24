@@ -15,6 +15,7 @@ import { CHANNEL_LABEL, longDate, shortDate } from "@/lib/library/model";
 import { allItems, totalMarks } from "@/lib/resources/checks";
 import { isQuestionKind, kindInfo } from "@/lib/resources/kinds";
 import { cn } from "@/lib/ui/cn";
+import { DeleteMaterial } from "./DeleteMaterial";
 import { MaterialDocument } from "./MaterialDocument";
 
 export const metadata = { title: "Library" };
@@ -194,6 +195,9 @@ export default async function LibraryItemPage({ params, searchParams }: { params
               </Detail>
             ) : null}
             <Detail label="First made">{longDate(item.createdAt)}</Detail>
+            <div className="border-t border-line pt-3">
+              <DeleteMaterial id={item.id} title={doc.title} versions={item.history.length} assessment={isQuestionKind(item.kind)} />
+            </div>
           </Card>
         </div>
       </div>

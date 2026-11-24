@@ -11,6 +11,7 @@ import {
   kindCounts,
   latestApproved,
   partPrefix,
+  questionsToRetire,
   questionNumbers,
   shortDate,
   splitMaterials,
@@ -235,3 +236,12 @@ test("a draft version or a missing one is never printed as a student copy", asyn
   const current = await studentCopy(printDb().client, "t1", R1);
   assert.deepEqual(current.ok ? null : current.status, 409, "without a number, the current version as before, which is the draft here");
 });
+
+/* ---------- deleting a material ---------- */
+
+test("deleting a material retires the questions only it used, once each; questions another material uses stay active", () => {
+  assert.deepEqual(questionsToRetire(["q1", "q2", "q2", "q3"], ["q3"]), ["q1", "q2"]);
+  assert.deepEqual(questionsToRetire([], []), []);
+  assert.deepEqual(questionsToRetire(["q1"], ["q1", "q1"]), []);
+});
+

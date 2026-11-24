@@ -211,3 +211,15 @@ export function longDate(iso: string): string {
   const d = new Date(iso);
   return Number.isNaN(d.getTime()) ? "" : new Intl.DateTimeFormat("en-CA", { day: "numeric", month: "long", year: "numeric", timeZone: "America/Regina" }).format(d);
 }
+
+/* ---------- deleting a material ---------- */
+
+/**
+ * The bank questions to retire when a material is deleted: those its versions used
+ * that no other material still uses. Retired questions stay in the database (and on
+ * any template that pins them) but aren't offered for new drafts or Live.
+ */
+export function questionsToRetire(usedByDeleted: string[], stillUsed: string[]): string[] {
+  const keep = new Set(stillUsed);
+  return [...new Set(usedByDeleted)].filter((id) => !keep.has(id));
+}

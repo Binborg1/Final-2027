@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
-import { atLevel, chapterSeeds, outcomeTitle } from "@/lib/courses/seed";
+import { atLevel, chapterSeeds, missingSeeds, outcomeTitle, seedKey } from "@/lib/courses/seed";
 import { addCourseSchema, moved } from "@/lib/courses/model";
 import type { Dataset, DatasetCourse } from "@/lib/curriculum/imported";
 import { fromBank } from "@/lib/resources/assemble";
@@ -56,6 +56,27 @@ test("courses without web outcomes get chapters from their curriculum document, 
   assert.ok(history.length > 0);
   assert.ok(history.every((s) => s.source_kind === "custom" && s.source_ref === null && s.outcome_refs.length === 0));
   assert.deepEqual(chapterSeeds({ units: [], outcomes: [], document: undefined }, 10).map((s) => s.title), ["Chapter 1"]);
+});
+
+/* ---------- deleted curriculum chapters, and bringing them back ---------- */
+
+test("a deleted curriculum chapter is offered back, and a renamed one isn't, because it is found by its curriculum reference", () => {
+  const seeds = chapterSeeds(course("Science 10"), 10);
+  const kept = seeds.slice(1).map((s, i) => ({ title: i === 0 ? "My renamed unit" : s.title, sourceRef: s.source_ref }));
+  const missing = missingSeeds(seeds, kept);
+  assert.deepEqual(missing.map((s) => s.title), [seeds[0].title], "only the deleted one");
+  assert.equal(missingSeeds(seeds, []).length, seeds.length, "a course whose chapters were all deleted offers them all");
+  assert.deepEqual(missingSeeds(seeds, seeds.map((s) => ({ title: s.title, sourceRef: s.source_ref }))), [], "nothing to bring back");
+});
+
+test("chapters named after the curriculum document are found by title, and a teacher's own chapter is never offered", () => {
+  const seeds = chapterSeeds(course("History 30: Canadian Studies"), 30);
+  const missing = missingSeeds(seeds, [{ title: `  ${seeds[0].title.toUpperCase()} `, sourceRef: null }, { title: "My own chapter", sourceRef: null }]);
+  assert.equal(missing.length, seeds.length - 1);
+  assert.ok(!missing.some((s) => s.title === "My own chapter"));
+  assert.equal(seedKey(seeds[0]), `title:${seeds[0].title.trim().toLowerCase()}`);
+  const sci = chapterSeeds(course("Science 10"), 10)[0];
+  assert.equal(seedKey(sci), sci.source_ref, "a seeded unit's key is its curriculum reference");
 });
 
 test("an outcome belongs to a level by its levels, its level, or to every level when it has neither", () => {

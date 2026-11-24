@@ -1,8 +1,8 @@
 # Teacher Studio: requirements and architecture
 
-**Funza Teacher Studio · v0.6 · 24 November 2026**
+**Funza Teacher Studio · v0.7 · 24 November 2026**
 
-*Changed in v0.6: the Library (FR-32) keeps every approved material by course, with each approved version, and opens it read-only; it replaces the sidebar's placeholder for a bank page, and the question bank stays per chapter. No schema change. v0.5: templates (FR-20, FR-21) are built early, without pinned questions: four categories, learned from an uploaded example or set up by hand, and used from Make (section 11). v0.4: a live session runs the whole set at once on one shared timer (sections 8 and 12, Q18), answer saves are limited to 60 a minute, the rate-limit counters are a table, and the code layout matches what was built (section 17).*
+*Changed in v0.7: the teacher deletes approved materials from the Library and curriculum chapters from a course, from their own account only; deleted curriculum chapters can be brought back, and they no longer come back on their own (FR-3, FR-32). v0.6: the Library (FR-32) keeps every approved material by course, with each approved version, and opens it read-only; it replaces the sidebar's placeholder for a bank page, and the question bank stays per chapter. No schema change. v0.5: templates (FR-20, FR-21) are built early, without pinned questions: four categories, learned from an uploaded example or set up by hand, and used from Make (section 11). v0.4: a live session runs the whole set at once on one shared timer (sections 8 and 12, Q18), answer saves are limited to 60 a minute, the rate-limit counters are a table, and the code layout matches what was built (section 17).*
 
 *Changed in v0.3: teachers sign in with Google, or with an email and password. The email sign-in link is gone (FR-1, sections 7 and 10, Q13).*
 
@@ -103,7 +103,7 @@ Each requirement traces to a use case (UC) in the flows plan. Priority is Must, 
 |---|---|---|---|---|
 | FR-1 | A teacher signs up and logs in with Google, or with an email and a password of at least 8 characters. A teacher who forgets their password gets a reset link by email. | UC1 | Must | R1 |
 | FR-2 | First-time setup asks for grades, subjects and courses from the Saskatchewan curriculum. | UC2 | Should | R1 |
-| FR-3 | Create, rename, reorder and delete courses and chapters. New chapters start from the curriculum units. | UC3 | Must | R1 |
+| FR-3 | Create, rename, reorder and delete courses and chapters. New chapters start from the curriculum units. Deleting removes only the teacher's own copy, never the curriculum; deleted curriculum chapters can be brought back. | UC3 | Must | R1 |
 | FR-4 | Show the curriculum outcomes for each chapter. *Exists today.* | UC4 | Must | R1 |
 | FR-5 | Attach notes, PDFs and past exams to a chapter. They stay attached for later drafts instead of being discarded. | UC5 | Must | R1 |
 
@@ -137,7 +137,7 @@ Each requirement traces to a use case (UC) in the flows plan. Priority is Must, 
 | FR-24 | Publish to a course page that students open by link or QR code, without accounts. | UC19, UC20 | Should | R1 |
 | FR-25 | Post to Google Classroom. *Works today with a browser cookie; R2 keeps the connection on the teacher's account.* | UC21 | Should | R1 |
 | FR-26 | Print or save as PDF. *Exists today.* | UC22 | Must | R1 |
-| FR-32 | A library of every approved material, by course, keeping each approved version. Any version opens read-only as the teacher copy or the student copy, and prints. Drafts stay in review until approved. *Built early (24 Nov); see [Library](../../04_development/05_library.md).* | UC18, UC22 | Should | R1 |
+| FR-32 | A library of every approved material, by course, keeping each approved version. Any version opens read-only as the teacher copy or the student copy, and prints. Drafts stay in review until approved. The teacher can delete a material from their account, for good; questions only it used are retired from the bank. *Built early (24 Nov); see [Library](../../04_development/05_library.md).* | UC18, UC22 | Should | R1 |
 
 ### Question bank
 

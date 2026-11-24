@@ -1,5 +1,7 @@
 # Library: every approved material, with its history
-**Funza Teacher Studio · v0.1 · 24 November 2026**
+**Funza Teacher Studio · v0.2 · 24 November 2026**
+
+*Changed in v0.2: deleting an approved material, and deleting and bringing back curriculum chapters (section 8).*
 
 The sidebar's **Question bank** item, a disabled placeholder until now, becomes **Library**: one page that keeps every material the teacher has approved, in every course, with every approved version. Each course's **Materials** card shows the same materials for that course. Any approved material opens in a read-only view, where the teacher can switch between the teacher copy and the student copy, print it, and see its history.
 
@@ -123,6 +125,35 @@ Decided by the team on 24 November 2026:
 
 ## 7. Not in this version
 - Reusing a material as the start of a new one ("Use as a starting point"), which the earlier app's library had.
-- Deleting or archiving from the Library (deleting stays in Review).
+- Archiving, or restoring a deleted material: a delete is for good (section 8).
 - A bank page across chapters (FR-29 stays per chapter, Release 2).
 - Showing on the course page which version students have, when a Classroom post was saved as a draft. `publications` doesn't record draft or live yet.
+
+## 8. Deleting materials and chapters (v0.2)
+
+Asked for on 24 November 2026: the teacher can delete approved materials in the Library, and the chapters a course was preloaded with, so they control what's in their account.
+
+**Decisions** (the team, 24 November 2026):
+
+| Question | Decision |
+|---|---|
+| What a delete does | Removes the teacher's own copy for good, after a confirm dialog. Nothing shared changes: the Saskatchewan curriculum is a file in the repo, and every row deleted belongs to that teacher (row-level security). No restore and no schema change. |
+| Bank questions of a deleted quiz, test or exam | Retired: they stay in the database but aren't offered for new drafts or Live. A question another material still uses stays active. |
+| Preloaded chapters | Deletable like any chapter. A deleted curriculum chapter can be brought back from the curriculum. |
+
+**Deleting a material** (`deleteMaterial`, from **Delete this material** in the Library view):
+1. Reads the questions its versions used (`version_questions`).
+2. Deletes the resource. Its versions, chapter links, `version_questions` and `publications` go with it (foreign keys `on delete cascade`). A live session that ran it keeps its results; its link to the version becomes empty (`on delete set null`).
+3. Retires the questions no other material's version uses (`questionsToRetire`). Template pins of those questions stay.
+- Copies already printed, or posted to Google Classroom, are outside Funza and stay where they are. The dialog says so.
+
+**Deleting a chapter** (`deleteChapter`, already on the course page): removes the teacher's chapter row. Its bank questions are retired by the existing trigger, materials made from it are kept, and its sources go with it.
+
+**Chapters no longer come back on their own.** Until now, a curriculum course with no chapters was given its chapters again whenever it was opened (`courseDetail`) or the Courses and Make pages loaded (`ensureChapters`). A teacher who deleted every chapter saw them all return. Chapters are now added only when the course is made, in setup or "Add a course", which both already did. `ensureChapters` is removed.
+
+**Bringing chapters back** (`restoreChapters`):
+- `removedCurriculumChapters` compares the curriculum's chapters at the course's level (`chapterSeeds`) with the course's chapters. A unit, module or outcome chapter is matched by its curriculum reference (`source_ref`), so a renamed one still counts as present. Chapters named after the curriculum document have no reference and are matched by title.
+- The course page shows **Bring back curriculum chapters (N)**. The dialog lists them with checkboxes; the chosen ones are added at the end, in curriculum order, with their outcomes. The server recomputes what is missing and adds only those, so a double click or a second tab can't add a chapter twice (the unique index on `course_id, source_ref` backs this up).
+- Their old questions stay retired; the bank fills again as new materials are approved.
+
+**Tests:** `missingSeeds` and `seedKey` (`tests/courses.test.ts`), `questionsToRetire` (`tests/library.test.ts`).

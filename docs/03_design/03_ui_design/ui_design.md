@@ -1,8 +1,8 @@
 # UI design: F · Oak
 
-**Funza Teacher Studio · v0.7 · 24 November 2026**
+**Funza Teacher Studio · v0.8 · 24 November 2026**
 
-*Changed in v0.7: the Library (section 4e) replaces the sidebar's disabled Question bank item; a course's Materials card lists approved materials first, opening them read-only, then those still in review. v0.6: templates (section 4d): Word, PowerPoint and Funza materials as examples, saved Make settings, duplicate, pinned questions, printing in the template's style and saving review changes back; and Make's Format panel, which scrolls on its own. v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
+*Changed in v0.8: deleting a material from the Library, and "Bring back curriculum chapters" on a course (sections 4b and 4e). v0.7: the Library (section 4e) replaces the sidebar's disabled Question bank item; a course's Materials card lists approved materials first, opening them read-only, then those still in review. v0.6: templates (section 4d): Word, PowerPoint and Funza materials as examples, saved Make settings, duplicate, pinned questions, printing in the template's style and saving review changes back; and Make's Format panel, which scrolls on its own. v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
 
 *Changed in v0.3: the step 4 screens (Courses, a course, a chapter, sources, publishing), section 4b.*
 
@@ -242,7 +242,8 @@ Built from the shared parts, following the F2 chapter frame (27:531). Screenshot
 - **Header:** crumbs "Courses › {course}", the title, "N chapters · From the Saskatchewan curriculum" (or "Your own course"), and the primary "Make something". Make is offered only for curriculum courses.
 - **Chapters card:**
   - Numbered rows with the chapter title and "N outcomes · from the curriculum". The title opens the chapter page.
-  - Four quiet round buttons on each row: rename (in place, with Save and Cancel), up, down, delete (with a confirm dialog saying its questions stay in the bank, retired).
+  - Four quiet round buttons on each row: rename (in place, with Save and Cancel), up, down, delete. The delete dialog says the chapter is removed from this course only, that the Saskatchewan curriculum doesn't change and a curriculum chapter can be brought back, that its questions are retired from the bank, and that materials made from it are kept.
+  - **Bring back curriculum chapters (N):** a link under the list when curriculum chapters were deleted. Its dialog lists them with checkboxes (all ticked) and their outcome counts; **Bring back N chapters** adds the chosen ones at the end of the list. Deleted chapters never come back on their own, even when all of them were deleted.
   - An "Add a chapter" field at the end.
 - **Materials card** (right column): approved materials first, each with its kind icon, latest approved version, date and state chip, opening read-only in the Library; then "Still in review", drafts never approved, opening in Review. "See all in Library" in the header (section 4e).
 - **Course settings** (collapsed): rename, and "Delete this course" with a confirm dialog.
@@ -373,6 +374,7 @@ Every material the teacher has approved, in every course, with each approved ver
   - **Buttons:** **Print or save as PDF** (primary; the student copy of the version on screen, in a new tab), **Open in Review** or **Open draft vN** (secondary), and **Run live** for quizzes, tests and exams when the version on screen is the current one.
   - **Notices** in amber: an older version ("This is version 1. Version 2 is the latest approved." with **See version 2**), or a draft in progress ("Version 3 is being edited in Review. This approved version stays as it is.").
   - **Left:** the document in a card, with the chips **Teacher copy** and **Student copy** and a line saying what each holds. The teacher copy marks the correct option "Correct" in sage, as Review does, and shows answers, worked solutions, rubrics and slide speaker notes in a sage box under each question. The student copy follows the printed copy: answer lines, True / False, the matching column reordered, no keys. Assessments start with "Total: N marks · Time: N minutes", and sections read "Part A: {title} (N marks)". Slides are one tile per slide.
+  - **Delete this material:** a red text button at the bottom of Details. The dialog says it's removed from the account for good, with every version and the record of prints and posts; that a quiz, test or exam's questions are retired from the bank unless another material uses them; and that copies already printed or posted to Classroom stay where they are. **Delete material** returns to the Library.
   - **Right:** **Versions**: each approved version, newest first ("v2 · Approved Nov 24"), with "Posted to Google Classroom" or "Printed" and the date under it; the one on screen says "Showing"; a draft in progress is listed first ("v3 · Draft in Review") and opens Review. **Details**: course and chapters (links), outcome code tags, and the date it was first made.
 - **Home:** in "Waiting for review", the Approved rows open the read-only view, with **See all in Library** beside the "Approved" label.
 
