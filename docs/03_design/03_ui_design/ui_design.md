@@ -1,8 +1,8 @@
 # UI design: F · Oak
 
-**Funza Teacher Studio · v0.5 · 24 November 2026**
+**Funza Teacher Studio · v0.6 · 24 November 2026**
 
-*Changed in v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
+*Changed in v0.6: templates (section 4d) and Make's Format panel, which scrolls on its own. v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
 
 *Changed in v0.3: the step 4 screens (Courses, a course, a chapter, sources, publishing), section 4b.*
 
@@ -179,7 +179,7 @@ Each step is saved as the teacher moves on, so a teacher who stops halfway comes
 - **Sidebar:**
   - Desktop (1024 px and wider): 264 px expanded or 64 px collapsed; the setting is remembered.
   - Expanded, it overlaps the panel, which pads its content instead of moving, as in F1.
-  - It lists the drawn items. Those not built yet (Review, Question bank, Templates) are shown disabled, with a note saying when they arrive.
+  - It lists the drawn items. Those not built yet (Review, Question bank) are shown disabled, with a note saying when they arrive. Templates is built (section 4d).
 - **Ask Funza (Ctrl K):** opens a command dialog. Typed text starts a Make brief; the other entries go to Home, Make or Settings, or sign out. Chatting with Funza is Release 2.
 - **Sign out:** in the account menu on the sidebar's profile row, and in the Ask Funza dialog.
 - **The chapter screen itself** comes with courses and chapters in step 4.
@@ -314,6 +314,45 @@ Drawn in Figma on the page "F · Live screens" (L1 to L5) and in the student pho
 - **After Reveal:** "Your result · 6 of 8 · 75%", then each question with Right, "Not quite" (with "You: True · Answer: False"), "Partly · 2 of 3", "No answer" or "Not marked", and "Your teacher will go over the answers now."
 - **Removed or ended:** "This phone isn't in the session." with **Join again**.
 
+## 4d. Templates (built early)
+
+Templates are the teacher's own formats. Funza copies how they're made, never what's in them. Rows start collapsed and show their value; each screen has one primary button.
+
+- **Templates** (`/templates`, sidebar):
+  - Four groups, always in this order: Quizzes & tests, Exams, Notes, Slides.
+  - **Rows:** each shows the name and its value ("3 sections · 27 questions · 60 marks · 90 min · used 4×"). A row opens the template. ✎ renames in place, and 🗑 deletes after a confirm dialog ("Materials made from it stay as they are").
+  - **Empty:** an empty group says "None yet" with a link. A teacher with no templates sees one empty-state card.
+  - The primary button is **+ New template**.
+- **New template** (`/templates/new`), one page that unfolds:
+  1. **For:** chips for the four categories.
+  2. **Example:**
+     - a drop zone for up to three files (PDF or text), and "Or describe it in words";
+     - a lock line: "Funza reads it once to learn the format. The file isn't kept."
+     - **Read the format** is the primary button; "or set it up yourself" starts from Funza's defaults with no AI.
+  3. **Check:** the skeleton.
+     - Each section shows its title and rows ("20 multiple choice × 1 mark"). Opened, a section has its title, instructions and type/count/marks rows, with ↑ ↓ and remove.
+     - Then the rows Time and difficulty, Extras, Wording style and Cover page.
+     - Notes show Parts, Style and Extras. Slides show Slides (count, most bullets, the pattern of a content slide, speaker notes) and Parts.
+     - Notices in amber appear when Funza left out copied lines or couldn't read a section.
+  4. **Name:** name and an optional one-sentence summary, then **Save template**.
+  - Opened from Make, saving goes back to Make with the new template chosen.
+- **A template** (`/templates/[id]`):
+  - **Header:** "Exam · learned from midterm.pdf · used for 4 materials", the name and summary fields, and the same skeleton editor.
+  - **Read another example:** collapsed; it replaces the skeleton.
+  - **Buttons:** **Save changes** (enabled only when something changed), Use in Make (secondary), and Delete template (ghost, with a confirm dialog).
+- **Make's Format panel:** the right column is one panel. On wide screens it is sticky and scrolls on its own, so the Make box stays in place.
+  - **Header:** the title, the switch **(Adjust) (Template)** and one value line.
+  - **Adjust:** today's collapsed rows.
+  - **Template:** the category's templates as choices. The chosen one has the selected recipe (tint, terracotta border, check) and shows its skeleton. Below are "+ New template" and Manage.
+  - **No templates yet:** "No exam templates yet. Show Funza a past exam and it makes new ones in the same format." with **New template**.
+  - **Switching:**
+    - Template picks the most-used template.
+    - Quiz ↔ Test keeps it; another type clears it.
+    - Adjust brings back the teacher's own settings.
+    - With Template chosen and no template, Make draft is disabled.
+  - **"Funza will use":** starts with "Your template "…" · Its format and wording style, never its content".
+  - **Below wide screens:** the panel sits under the Make box, collapsed at first, and the summary line has a "Change" link.
+
 ## 5. Phones (added; not drawn for teacher screens)
 
 Only the student phone (F5, 32:220) is drawn. Teacher screens below 768 px follow its rules:
@@ -383,4 +422,4 @@ These screenshots come from the app on branch `sign-in`. They were taken with a 
 
 ## 9. Not in this version
 
-The student course page (step 6), a bank page across chapters, templates, and in Live mode: Pause, a leaderboard and "Make practice". Each is drawn in Figma and gets its section here when it is built.
+The student course page (step 6), a bank page across chapters, template pins and saving review changes back to a template, and in Live mode: Pause, a leaderboard and "Make practice". Each is drawn in Figma and gets its section here when it is built.

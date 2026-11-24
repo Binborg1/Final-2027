@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, ChartColumn, CornerDownLeft, House, LogOut, Plus, Radio, Search, Settings, Sparkles, type LucideIcon } from "lucide-react";
+import { BookOpen, ChartColumn, CornerDownLeft, House, LayoutTemplate, LogOut, Plus, Radio, Search, Settings, Sparkles, type LucideIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Kbd } from "@/components/ui/Card";
@@ -40,6 +40,8 @@ export function CommandDialog({ open, onClose }: { open: boolean; onClose: () =>
       { id: "make", label: "Make something", hint: "Notes, a quiz, a test, an exam or slides", icon: Sparkles, run: go("/make") },
       { id: "courses", label: "Courses", hint: "Chapters, materials and question banks", icon: BookOpen, run: go("/courses") },
       { id: "add-course", label: "Add a course", icon: Plus, run: go("/courses?add=1") },
+      { id: "templates", label: "Templates", hint: "Your own formats for quizzes, exams, notes and slides", icon: LayoutTemplate, run: go("/templates") },
+      { id: "new-template", label: "New template", hint: "Funza learns the format of one of yours", icon: Plus, run: go("/templates/new") },
       { id: "go-live", label: "Go live", hint: "Run a quiz in class on students' phones", icon: Radio, run: go("/live/new") },
       { id: "live-sessions", label: "Live sessions", hint: "Open sessions and past results", icon: ChartColumn, run: go("/live") },
       { id: "settings", label: "Settings", icon: Settings, run: go("/settings") },

@@ -1,5 +1,5 @@
 import { SchemaError } from "@/lib/ai/json";
-import { emptySection, INSTRUCTIONS, questionSections, rubricFor } from "@/lib/resources/assemble";
+import { emptySection, INSTRUCTIONS, layoutSections, questionSections, rubricFor } from "@/lib/resources/assemble";
 import { isQuestionKind, QTYPE_LABEL } from "@/lib/resources/kinds";
 import { isObject, sanitizeItem, sanitizeSection } from "@/lib/resources/sanitize";
 import type { Brief, Item, Section } from "@/lib/resources/types";
@@ -37,9 +37,65 @@ function itemProblem(i: Item): string | null {
   return null;
 }
 
+/**
+ * A reply for a template's layout: for each section, up to its count of each type,
+ * with the marks the template sets. Items the model put in no section (or a wrong
+ * one) fill the gaps of their type, in order, with a notice.
+ */
+function validateLayoutReply(b: Brief, reply: Record<string, unknown>, layout: NonNullable<Brief["layout"]>): ValidatedDraft {
+  const allowed = new Set(b.outcomeIds);
+  const notices: string[] = [];
+  const defaultOutcome = b.outcomeIds.length === 1 ? b.outcomeIds : null;
+  const raw = (Array.isArray(reply.items) ? reply.items : []).map((x, n) => ({ x, n })).filter((r): r is { x: Record<string, unknown>; n: number } => isObject(r.x));
+  const used = new Set<number>();
+  let moved = 0;
+  const take = (candidates: typeof raw, row: { type: Item["type"]; count: number; marks: number }, k: number, into: Item[], have: () => number) => {
+    let dropped = 0;
+    for (const { x, n } of candidates) {
+      if (have() >= row.count) break;
+      if (used.has(n)) continue;
+      used.add(n);
+      const id = `ai-t${k + 1}-${row.type}-${n + 1}`;
+      const it = sanitizeItem(x, { allowedOutcomes: allowed, fallbackId: id, origin: "ai" });
+      const fixed = it ? { ...it, id, reviewedFp: null, outcomeIds: it.outcomeIds.length === 0 && defaultOutcome ? defaultOutcome : it.outcomeIds } : null;
+      if (!fixed || itemProblem(fixed) || fixed.outcomeIds.length === 0) {
+        dropped++;
+        continue;
+      }
+      into.push({ ...fixed, marks: row.marks, rubric: fixed.type === "short" || fixed.type === "long" ? rubricFor(fixed.rubric.map((r) => r.text), row.marks) : [] });
+    }
+    return dropped;
+  };
+  const groups: Item[][] = layout.map(() => []);
+  const drops: number[][] = layout.map((s) => s.rows.map(() => 0));
+  // First pass: items the model placed in this section.
+  layout.forEach((s, k) =>
+    s.rows.forEach((row, j) => {
+      const have = () => groups[k].filter((i) => i.type === row.type).length;
+      drops[k][j] += take(raw.filter((r) => r.x.type === row.type && Number(r.x.section) === k + 1), row, k, groups[k], have);
+    }),
+  );
+  // Second pass: unplaced or misplaced items fill what is still missing.
+  layout.forEach((s, k) =>
+    s.rows.forEach((row, j) => {
+      const have = () => groups[k].filter((i) => i.type === row.type).length;
+      const before = have();
+      drops[k][j] += take(raw.filter((r) => r.x.type === row.type), row, k, groups[k], have);
+      moved += have() - before;
+      const got = have();
+      if (got < row.count)
+        notices.push(`${s.title}: drafted ${got} of ${row.count} ${QTYPE_LABEL[row.type].toLowerCase()} question${row.count === 1 ? "" : "s"}.${drops[k][j] > 0 ? ` ${drops[k][j]} failed validation and ${drops[k][j] === 1 ? "was" : "were"} dropped.` : " The reply had no more."} Add the rest yourself.`);
+    }),
+  );
+  if (moved > 0) notices.push(`${moved} question${moved === 1 ? " was" : "s were"} placed in a section by type, because the reply didn’t say which section ${moved === 1 ? "it" : "they"} belonged to.`);
+  if (groups.every((g) => g.length === 0)) throw new SchemaError("The reply had no usable questions.");
+  return { sections: layoutSections(b, groups).map((s) => ({ ...s, origin: "ai" })), notices };
+}
+
 export function validateResourceReply(b: Brief, reply: Record<string, unknown>): ValidatedDraft {
   const allowed = new Set(b.outcomeIds);
   assertOnlyAllowed(reply, allowed);
+  if (isQuestionKind(b.kind) && b.layout && b.layout.length > 0) return validateLayoutReply(b, reply, b.layout);
   const notices: string[] = [];
   const defaultOutcome = b.outcomeIds.length === 1 ? b.outcomeIds : null;
   const withOutcome = (it: Item) => (it.outcomeIds.length === 0 && defaultOutcome ? { ...it, outcomeIds: defaultOutcome } : it);

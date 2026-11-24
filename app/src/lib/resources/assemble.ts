@@ -79,6 +79,22 @@ export function questionSections(b: Brief, items: Item[]): Section[] {
   });
 }
 
+/**
+ * With a template: one section per template section, in its order, titled as the
+ * template says and with its instructions (or Funza's standard instructions when a
+ * section has one question type and none of its own). `groups[k]` are section k's items.
+ */
+export function layoutSections(b: Brief, groups: Item[][]): Section[] {
+  return (b.layout ?? []).flatMap((s, k) => {
+    let list = groups[k] ?? [];
+    if (list.length === 0) return [];
+    if (b.ordering === "by-difficulty") list = [...list].sort((x, y) => DIFF_RANK[x.difficulty] - DIFF_RANK[y.difficulty]);
+    if (b.ordering === "by-outcome") list = [...list].sort((x, y) => b.outcomeIds.indexOf(x.outcomeIds[0]) - b.outcomeIds.indexOf(y.outcomeIds[0]));
+    const body = s.instructions || (s.rows.length === 1 ? INSTRUCTIONS[s.rows[0].type] : "");
+    return [emptySection({ id: `s-t${k + 1}`, kind: "questions", title: s.title, body, items: list, outcomeIds: [...new Set(list.flatMap((i) => i.outcomeIds))], origin: list[0].origin })];
+  });
+}
+
 export function draftShell(b: Brief, resourceId: string, sections: Section[], draftedBy: Origin, provider: string | null, notices: string[]): Draft {
   return {
     resourceId,
@@ -111,7 +127,18 @@ export function fromBank(b: Brief, resourceId: string): Draft {
   const notices: string[] = [];
   let sections: Section[] = [];
 
-  if (isQuestionKind(b.kind)) {
+  if (isQuestionKind(b.kind) && b.layout) {
+    const used = new Set<string>();
+    const groups = b.layout.map((s) =>
+      s.rows.flatMap((row) => {
+        const picked = interleave(b.outcomeIds, row.type).filter((p) => !used.has(p.id)).slice(0, row.count);
+        picked.forEach((p) => used.add(p.id));
+        if (picked.length < row.count) notices.push(`${s.title}: the bank has ${picked.length} of the ${row.count} ${QTYPE_LABEL[row.type].toLowerCase()} question${row.count === 1 ? "" : "s"} it needs. Add the rest yourself or generate them with AI.`);
+        return picked.map((p) => bankItem(p, row.marks, p.id));
+      }),
+    );
+    sections.push(...layoutSections(b, groups));
+  } else if (isQuestionKind(b.kind)) {
     const items: Item[] = [];
     for (const row of b.mix) {
       if (row.count === 0) continue;
@@ -151,6 +178,15 @@ export function fromBank(b: Brief, resourceId: string): Draft {
 /** The blueprint laid out as empty parts for the teacher to write. */
 export function blankDraft(b: Brief, resourceId: string): Draft {
   const notices = ["Written by you: the blueprint is laid out as empty parts. The checks work the same way."];
+  if (isQuestionKind(b.kind) && b.layout) {
+    const groups = b.layout.map((s, k) => s.rows.flatMap((r) => Array.from({ length: r.count }, (_, i) => blankItem(r.type, r.marks, b.outcomeIds, `q-t${k + 1}-${r.type}-${i + 1}`))));
+    return draftShell(b, resourceId, layoutSections(b, groups).map((s) => ({ ...s, origin: "teacher" })), "teacher", null, notices);
+  }
+  const parts = b.parts;
+  if (!isQuestionKind(b.kind) && parts && parts.length > 0) {
+    const titles = b.kind === "presentation" ? Array.from({ length: b.slides }, (_, i) => parts[i]?.title ?? `Slide ${i + 1}`) : parts.map((p) => p.title);
+    return draftShell(b, resourceId, titles.map((title, i) => emptySection({ id: `s-${i + 1}`, kind: "text", title, outcomeIds: b.outcomeIds.slice(0, 1), origin: "teacher" })), "teacher", null, notices);
+  }
   if (isQuestionKind(b.kind)) {
     const items = b.mix.flatMap((r) => Array.from({ length: r.count }, (_, i) => blankItem(r.type, r.marks, b.outcomeIds, `q-${r.type}-${i + 1}`)));
     return draftShell(b, resourceId, questionSections(b, items).map((s) => ({ ...s, origin: "teacher" })), "teacher", null, notices);

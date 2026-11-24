@@ -854,7 +854,9 @@ export type Database = {
           format: Json
           id: string
           kind: string
+          learned_from: Json
           name: string
+          summary: string
           teacher_id: string | null
           updated_at: string
         }
@@ -864,7 +866,9 @@ export type Database = {
           format?: Json
           id?: string
           kind: string
+          learned_from?: Json
           name: string
+          summary?: string
           teacher_id?: string | null
           updated_at?: string
         }
@@ -874,7 +878,9 @@ export type Database = {
           format?: Json
           id?: string
           kind?: string
+          learned_from?: Json
           name?: string
+          summary?: string
           teacher_id?: string | null
           updated_at?: string
         }

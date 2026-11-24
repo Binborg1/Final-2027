@@ -2,6 +2,7 @@ import { OUTCOME_ID } from "@/lib/curriculum/catalog";
 import { defaultBrief, KINDS, NOTES_STYLES, QTYPE_ORDER } from "@/lib/resources/kinds";
 import type { Brief, Calc, Delivery, Difficulty, Draft, Item, Origin, QType, Resource, ResourceKind, Section, SectionKind, Verb } from "@/lib/resources/types";
 import { compileExpr, isIdentifier } from "@/lib/math/expr";
+import { sanitizeLayout, sanitizeParts } from "@/lib/templates/model";
 
 /**
  * Rebuilds resources field by field from untrusted JSON: AI replies, browser
@@ -150,6 +151,11 @@ export function sanitizeBrief(raw: unknown): Brief | null {
   const base = defaultBrief(kind, outcomeList(raw.outcomeIds));
   const mixIn = Array.isArray(raw.mix) ? raw.mix.filter(isObject) : [];
   const material = isObject(raw.material) ? { name: str(raw.material.name, 120), use: oneOf(raw.material.use, ["source", "inspiration"] as const, "source"), text: str(raw.material.text, 12000) } : null;
+  // Without a template, a layout or parts can't come in: Funza's own controls work exactly as before.
+  const templateId = typeof raw.templateId === "string" && GUID.test(raw.templateId) ? raw.templateId.toLowerCase() : null;
+  const questionKind = kind === "quiz" || kind === "test" || kind === "exam";
+  const layout = templateId && questionKind ? sanitizeLayout(raw.layout) : [];
+  const parts = templateId && !questionKind ? sanitizeParts(raw.parts) : [];
   return {
     ...base,
     title: str(raw.title, 160) || base.title,
@@ -173,6 +179,9 @@ export function sanitizeBrief(raw: unknown): Brief | null {
     instructions: str(raw.instructions, 600),
     courseId: typeof raw.courseId === "string" && GUID.test(raw.courseId) ? raw.courseId.toLowerCase() : null,
     chapterIds: [...new Set((Array.isArray(raw.chapterIds) ? raw.chapterIds : []).filter((x): x is string => typeof x === "string" && GUID.test(x)).map((x) => x.toLowerCase()))].slice(0, 20),
+    templateId,
+    layout: layout.length > 0 ? layout : null,
+    parts: parts.length > 0 ? parts : null,
   };
 }
 

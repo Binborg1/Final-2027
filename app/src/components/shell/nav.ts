@@ -15,7 +15,7 @@ export const NAV: NavSection[] = [
       { id: "courses", label: "Courses", icon: BookOpen, href: "/courses", match: (p) => p.startsWith("/courses") },
       { id: "review", label: "Review", icon: ClipboardCheck, soon: "Drafts waiting for review are on Home for now" },
       { id: "bank", label: "Question bank", icon: Layers, soon: "Each chapter’s question bank is on its chapter page; a bank page for all of them arrives later" },
-      { id: "templates", label: "Templates", icon: LayoutTemplate, soon: "Templates arrive later" },
+      { id: "templates", label: "Templates", icon: LayoutTemplate, href: "/templates", match: (p) => p.startsWith("/templates") },
     ],
   },
   {

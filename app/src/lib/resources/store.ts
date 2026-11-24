@@ -12,6 +12,7 @@ import { defaultBrief, isQuestionKind, suggestedTitle } from "@/lib/resources/ki
 import { approveMaterial, createMaterial, deleteMaterial, loadWorkspaceData, saveMaterial, startMaterialVersion } from "@/lib/resources/actions";
 import { sanitizeItem, sanitizeSections } from "@/lib/resources/sanitize";
 import { toStoredContent } from "@/lib/resources/stored";
+import { categoryOf } from "@/lib/templates/model";
 import type { Brief, Delivery, Draft, FixAction, Item, MixRow, QType, Resource, ResourceKind, Section } from "@/lib/resources/types";
 
 /**
@@ -218,10 +219,18 @@ export function patchBrief(patch: Partial<Brief>) {
     return { ...s, brief: next };
   });
 }
+/**
+ * A new kind of material starts from that kind's defaults, keeping the course, the
+ * chapters and their outcomes, the teacher's request and file. A template stays
+ * when the new kind shares its category (a quiz template on a test).
+ */
 export function setKind(kind: ResourceKind) {
   set((s) => {
-    const fresh = defaultBrief(kind, s.brief.outcomeIds);
-    return { ...s, brief: { ...fresh, material: s.brief.material, reuseId: s.brief.reuseId, instructions: s.brief.instructions } };
+    const b = s.brief;
+    const title = b.title === suggestedTitle(b.kind, b.outcomeIds) ? suggestedTitle(kind, b.outcomeIds) : b.title;
+    if (b.templateId && categoryOf(b.kind) === categoryOf(kind)) return { ...s, brief: { ...b, kind, title } };
+    const fresh = defaultBrief(kind, b.outcomeIds);
+    return { ...s, brief: { ...fresh, material: b.material, reuseId: b.reuseId, instructions: b.instructions, courseId: b.courseId, chapterIds: b.chapterIds } };
   });
 }
 export function setMixRow(type: QType, patch: Partial<MixRow>) {
@@ -254,6 +263,8 @@ const ERROR_TEXT: Record<string, { title: string; message: string; stage: number
   network: { title: "Funza could not be reached", message: "Check your connection. Nothing was saved.", stage: 2 },
   allowance: { title: "Today’s Funza actions are used up", message: "", stage: 2 },
   "allowance-unavailable": { title: "Funza couldn’t check today’s allowance", message: "", stage: 2 },
+  "template-missing": { title: "That template is gone", message: "", stage: 1 },
+  "template-kind": { title: "That template is for something else", message: "", stage: 1 },
 };
 
 function stagesFor(b: Brief): GenStage[] {
@@ -264,7 +275,7 @@ function stagesFor(b: Brief): GenStage[] {
   });
   return [
     { id: "outcome", label: "Checking the outcomes", detail: problems.length === 0 ? `${b.outcomeIds.map(codeOf).join(", ")}: found in Funza's catalog, wording intact.` : problems[0] },
-    { id: "blueprint", label: "Fixing the blueprint", detail: isQuestionKind(b.kind) ? `${bp.questions} questions, ${bp.marks} marks, from your settings.` : `${bp.parts.length} parts, from your settings.` },
+    { id: "blueprint", label: "Fixing the blueprint", detail: isQuestionKind(b.kind) ? `${bp.questions} questions, ${bp.marks} marks, ${b.templateId ? "in your template's format" : "from your settings"}.` : `${bp.parts.length} parts, ${b.templateId ? "from your template" : "from your settings"}.` },
     { id: "draft", label: "Funza is drafting", detail: "Funza gets the blueprint and the outcome wording, and may cite only these outcomes." },
     { id: "validate", label: "Validating the reply", detail: "Format, outcome references and marks. Anything that fails is dropped and listed." },
     { id: "recompute", label: "Recomputing answers", detail: "Funza recalculates every answer it can; the AI's arithmetic is not trusted." },

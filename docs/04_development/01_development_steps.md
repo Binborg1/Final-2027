@@ -1,8 +1,8 @@
 # Funza development steps
 
-**Funza Teacher Studio · v0.6 · 24 November 2026**
+**Funza Teacher Studio · v0.7 · 24 November 2026**
 
-*Changed in v0.6: the step 3 sign-in settings are set on the development project; the email templates wait for a custom SMTP sender, and reset links from the default template work in the browser that asked. v0.5: step 5 (Live mode) is built; the whole set runs at once on one shared timer, and the migrations for steps 4 and 5 are applied to the development project. v0.4: step 4 is built (courses and chapters, drafts and approval in the database, the question bank, the daily AI allowance); the chapter rule is decided. v0.3: teacher sign-in is Google, or email and password, instead of an email link (step 3).*
+*Changed in v0.7: templates (Release 2 item 8, and the notes templates of item 12) are built early; pins and saving the controls stay in Release 2. Make's Type change now keeps the course and chapters. v0.6: the step 3 sign-in settings are set on the development project; the email templates wait for a custom SMTP sender, and reset links from the default template work in the browser that asked. v0.5: step 5 (Live mode) is built; the whole set runs at once on one shared timer, and the migrations for steps 4 and 5 are applied to the development project. v0.4: step 4 is built (courses and chapters, drafts and approval in the database, the question bank, the daily AI allowance); the chapter rule is decided. v0.3: teacher sign-in is Google, or email and password, instead of an email link (step 3).*
 
 This is the order in which Funza gets built, from creating accounts to the final release. Each step lists what to do and how to know it's done. The *why* behind each choice is in [requirements and architecture](../03_design/02_requirements_and_architecture/requirements_and_architecture.md); the product is summarized in the [repo README](../../README.md).
 
@@ -203,7 +203,7 @@ Built on branch `step-4-courses-and-bank` (23 November). The migration `step4_co
 
 | Step | What | Target |
 |---|---|---|
-| 8 | **Templates:** describe a format, upload a past exam (Gemini reads it, scans included), or save the builder's controls. Pin questions to a template. | January |
+| 8 | **Templates:** describe a format, upload a past exam (Gemini reads it, scans included), or save the builder's controls. Pin questions to a template. *Built early on 24 Nov: describe it, upload a PDF or text example, or set it up by hand, for quizzes and tests, exams, notes and slides; Make's Format panel offers Adjust or Template. Still to come: scans, Word and PowerPoint, saving the controls, pins, saving review changes back.* | January |
 | 9 | **Bank reuse:** drafts take from the bank first and Funza writes only the gaps, with the 60-day repeat rule and a bank page per chapter (search, edit, retire, pin). | January–February |
 | 10 | **Difficulty from live results**, shown after at least 10 answers. | February |
 | 11 | **Funza chat edits**, each change saved as a new version. | February |

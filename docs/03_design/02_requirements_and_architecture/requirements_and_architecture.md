@@ -1,8 +1,8 @@
 # Teacher Studio: requirements and architecture
 
-**Funza Teacher Studio · v0.4 · 23 November 2026**
+**Funza Teacher Studio · v0.5 · 24 November 2026**
 
-*Changed in v0.4: a live session runs the whole set at once on one shared timer (sections 8 and 12, Q18), answer saves are limited to 60 a minute, the rate-limit counters are a table, and the code layout matches what was built (section 17).*
+*Changed in v0.5: templates (FR-20, FR-21) are built early, without pinned questions: four categories, learned from an uploaded example or set up by hand, and used from Make (section 11). v0.4: a live session runs the whole set at once on one shared timer (sections 8 and 12, Q18), answer saves are limited to 60 a minute, the rate-limit counters are a table, and the code layout matches what was built (section 17).*
 
 *Changed in v0.3: teachers sign in with Google, or with an email and password. The email sign-in link is gone (FR-1, sections 7 and 10, Q13).*
 
@@ -130,8 +130,8 @@ Each requirement traces to a use case (UC) in the flows plan. Priority is Must, 
 |---|---|---|---|---|
 | FR-18 | Make notes or slides from chosen chapters, using quick prompts. *Exists today; moves from the browser to the database.* | UC14 | Must | R1 |
 | FR-19 | Make a quiz, test or exam with one builder and the built-in templates: Quiz, Unit test, Midterm, Final. | UC15 | Must | R1 |
-| FR-20 | Save a template by describing it, uploading a past exam, or saving the controls. Pin questions to it. | UC16 | Should | R2 |
-| FR-21 | Templates for notes. | UC16 | Could | R2 |
+| FR-20 | Save a template by describing it, uploading a past exam, or saving the controls. Pin questions to it. *Built early (24 Nov): describe it, upload an example (PDF or text) or set it up by hand; pins and saving the controls come later.* | UC16 | Should | R2 |
+| FR-21 | Templates for notes. *Built early (24 Nov), with slides templates too.* | UC16 | Could | R2 |
 | FR-22 | Edit a draft by chatting with Funza. Each change is kept as a new version. *Redoing one question with a hint exists today.* | UC17 | Should | R2 |
 | FR-23 | Review and approve. Approving locks a version. The states are draft, in review, approved and published. | UC18 | Must | R1 |
 | FR-24 | Publish to a course page that students open by link or QR code, without accounts. | UC19, UC20 | Should | R1 |
@@ -295,6 +295,15 @@ The database has fifteen tables and three join tables, plus a server-only `rate_
 - Approving a version copies its new questions into the chapter's bank and links them through `version_questions`.
 - When a revealed live session ends, each question's answer and correct counts are added to its bank question, which gives its difficulty.
 - Difficulty is shown only after at least 10 answers, so one small class doesn't mislabel a question.
+
+**Templates** (`templates`, built early):
+- **Categories:** `quiz` (quizzes and tests), `exam`, `notes`, `slides`.
+- **What a row holds:**
+  - `format`: a versioned JSON object of at most 40 KB. Quizzes and exams have sections, each with its instructions and rows of question type, count and marks, plus the time, difficulty and extras. Notes and slides have their parts and the slide pattern. Every category has a wording style.
+  - `summary`: one sentence.
+  - `learned_from`: the example names only.
+- **Examples:** an example is read once in the teacher's browser and sent to the AI for that request. It is not stored or logged (this changes step T2 of the flows plan, which kept the file in Sources). The AI describes the format, never the content, and a check drops any line that repeats eight words of the example.
+- **Making a material from a template:** the server reloads the template with the teacher's own session and uses its own copy, never the browser's. The template's text is single-line data inside a `<format>` tag. A material records the template it came from (`resources.template_id`), and a trigger requires the same category.
 
 ## 12. Rate limits and allowances
 
