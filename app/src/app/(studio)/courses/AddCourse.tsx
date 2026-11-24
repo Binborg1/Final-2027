@@ -93,9 +93,7 @@ export function AddCourse({ curriculum, grades, openInitially = false, existing,
         title={added ? "Course added" : "Add a course"}
         description={
           added
-            ? added.curriculum
-              ? "It’s saved in your courses, with its chapters from the Saskatchewan curriculum units."
-              : "It’s saved in your courses. Add its chapters on the course page."
+            ? "It’s saved on the Courses page and on Home, under Your courses."
             : mode === "curriculum"
               ? "Its chapters start from the Saskatchewan curriculum units. You can rename, reorder or delete them."
               : "Start with no chapters and add your own."
@@ -130,8 +128,7 @@ export function AddCourse({ curriculum, grades, openInitially = false, existing,
             <span className="flex min-w-0 flex-1 flex-col">
               <span className="text-row font-semibold text-ink">{added.title}</span>
               <span className="text-meta text-sage-ink">
-                Saved in Courses
-                {added.chapters === null ? null : added.chapters > 0 ? ` · ${chaptersLabel(added.chapters)} ready` : " · no curriculum units yet, so you add its chapters"}
+                {added.chapters ? `${chaptersLabel(added.chapters)} from the Saskatchewan curriculum units` : "No chapters yet: add them on the course page"}
               </span>
             </span>
             {added.grade ? <Tag className="bg-white/70">Grade {added.grade}</Tag> : null}
