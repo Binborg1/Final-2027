@@ -43,9 +43,9 @@ function Inner({ icon: Icon, iconRight: IconRight, loading, size = "md", childre
   const px = ICON[size];
   return (
     <>
-      {loading ? <LoaderCircle aria-hidden size={px} className="animate-spin" /> : Icon ? <Icon aria-hidden size={px} strokeWidth={1.75} /> : null}
+      {loading ? <LoaderCircle aria-hidden size={px} className="shrink-0 animate-spin" /> : Icon ? <Icon aria-hidden size={px} strokeWidth={1.75} className="shrink-0" /> : null}
       {children}
-      {IconRight && !loading ? <IconRight aria-hidden size={px} strokeWidth={1.75} /> : null}
+      {IconRight && !loading ? <IconRight aria-hidden size={px} strokeWidth={1.75} className="shrink-0" /> : null}
     </>
   );
 }
