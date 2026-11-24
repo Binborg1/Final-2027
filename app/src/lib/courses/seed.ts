@@ -46,8 +46,8 @@ function clip(text: string, max: number): string {
   return `${(space > max * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,;:–-]+$/, "")}…`;
 }
 
-/** `idOf` gives the catalog id of an outcome (see catalogIdOf in lib/curriculum/imported.ts). */
-export function chapterSeeds(course: Pick<DatasetCourse, "units" | "outcomes" | "document">, level: number, idOf: (o: DatasetOutcome) => string = (o) => o.id): ChapterSeed[] {
+export function chapterSeeds(course: Pick<DatasetCourse, "units" | "outcomes" | "document">, level: number): ChapterSeed[] {
+  const idOf = (o: DatasetOutcome) => o.id;
   const outcomes = course.outcomes.filter((o) => atLevel(o, level));
   const seeds: Omit<ChapterSeed, "position">[] = [];
 

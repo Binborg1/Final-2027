@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
-import { CATALOG, currentCatalog, findOutcome, outcomeLimitations, outcomeProblems, OUTCOME_ID } from "@/lib/curriculum/catalog";
+import { currentCatalog, findOutcome, outcomeLimitations, outcomeProblems, OUTCOME_ID } from "@/lib/curriculum/catalog";
 import { loadDataset, searchOutcomes } from "@/lib/curriculum/dataset";
 import { isCatalogCourse, toCatalogCourse, type Dataset } from "@/lib/curriculum/imported";
 import { outcomeList } from "@/lib/resources/sanitize";
@@ -80,14 +80,12 @@ test("the import covers the Grade 10–12 courses teachers expect", () => {
 
 /* ---------- conversion into the catalog ---------- */
 
-test("hand-copied outcomes keep their id, wording and status and gain the imported indicators", () => {
+test("imported outcomes keep the dataset's id and wording and carry their indicators", () => {
   const sci10 = toCatalogCourse(data.courses.find((c) => c.curriculumId === 63)!, data.importedOn);
   const fm2 = sci10.units.flatMap((u) => u.outcomes).find((o) => o.code === "SCI10-FM2")!;
-  const hand = findOutcome("sk-sci10-fm2", CATALOG)!.outcome;
-  assert.equal(fm2.id, "sk-sci10-fm2");
-  assert.equal(fm2.status, "source-checked");
-  assert.equal(fm2.statement, hand.statement, "the hand copy and the import agree word for word");
-  assert.ok(!(fm2.notes ?? []).some((n) => /hand-copied wording differs/.test(n)));
+  assert.equal(fm2.id, "sk-63-110477");
+  assert.equal(fm2.status, "cross-checked");
+  assert.equal(fm2.statement, "Investigate and represent the motion of objects that travel at a constant speed in a straight line.");
   assert.equal(fm2.indicatorsStatus, "imported");
   assert.ok(fm2.indicators.length >= 8 && fm2.indicators.every((i) => i.status === "imported"));
   assert.equal(new Set(fm2.indicators.map((i) => i.id)).size, fm2.indicators.length, "indicator ids stay unique where the page prints (b) twice");
@@ -99,9 +97,9 @@ test("hand-copied outcomes keep their id, wording and status and gain the import
 test("loading the dataset registers every course, and every outcome passes the catalog checks", () => {
   const { courses } = loadDataset();
   assert.ok(courses.size >= 1);
-  const found = findOutcome("sk-sci10-fm2")!;
+  const found = findOutcome("sk-63-110477")!;
   assert.equal(found.course.origin, "import", "Science 10 now comes from the import");
-  assert.equal(currentCatalog()[0].courses.filter((c) => c.curriculumId === 63).length, 1, "the hand-copied Science 10 is replaced, not duplicated");
+  assert.equal(currentCatalog()[0].courses.filter((c) => c.curriculumId === 63).length, 1, "Science 10 is registered once");
   for (const c of courses.values())
     for (const u of c.units)
       for (const o of u.outcomes) {
@@ -109,21 +107,21 @@ test("loading the dataset registers every course, and every outcome passes the c
         assert.equal(f.outcome, o);
         assert.deepEqual(outcomeProblems(f, sha256), [], `${c.name} ${o.code}`);
       }
-  const imported = [...courses.values()].flatMap((c) => c.units.flatMap((u) => u.outcomes)).find((o) => o.status === "cross-checked" && o.lessonTemplate === null)!;
+  const imported = [...courses.values()].flatMap((c) => c.units.flatMap((u) => u.outcomes)).find((o) => o.status === "cross-checked")!;
   assert.ok(outcomeLimitations(findOutcome(imported.id)!).some((l) => /automatically/.test(l)), "automatic copies say so");
 });
 
 test("search finds outcomes by code and by words, and respects the grade filter", () => {
   loadDataset();
-  assert.equal(searchOutcomes("SCI10-FM2").hits[0]?.id, "sk-sci10-fm2");
-  assert.ok(searchOutcomes("constant speed").hits.some((h) => h.id === "sk-sci10-fm2"));
-  assert.equal(searchOutcomes("constant speed", { grade: 12 }).hits.some((h) => h.id === "sk-sci10-fm2"), false);
+  assert.equal(searchOutcomes("SCI10-FM2").hits[0]?.id, "sk-63-110477");
+  assert.ok(searchOutcomes("constant speed").hits.some((h) => h.id === "sk-63-110477"));
+  assert.equal(searchOutcomes("constant speed", { grade: 12 }).hits.some((h) => h.id === "sk-63-110477"), false);
   assert.equal(searchOutcomes("   ").total, 0);
   assert.ok(searchOutcomes("trigonometric ratios").hits.some((h) => h.code === "FP10.4"));
 });
 
 test("only well-formed outcome ids survive sanitising; the server still checks each one", () => {
-  assert.deepEqual(outcomeList(["sk-sci10-fm2", "sk-155-111596", "SCI10-FM2", "<script>", 42, "sk-"]), ["sk-sci10-fm2", "sk-155-111596"]);
+  assert.deepEqual(outcomeList(["sk-63-110477", "sk-155-111596", "SCI10-FM2", "<script>", 42, "sk-"]), ["sk-63-110477", "sk-155-111596"]);
 });
 
 /* ---------- the importer's parsers ---------- */

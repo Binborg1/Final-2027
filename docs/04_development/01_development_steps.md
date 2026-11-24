@@ -133,8 +133,8 @@ Built on branch `step-4-courses-and-bank` (23 November). The migration `step4_co
      - one per outcome where the curriculum has neither (all 9 Mathematics courses);
      - chapters named after the curriculum document's units, or a single "Chapter 1", where there are no web outcomes.
      - The teacher renames, reorders or deletes them.
-   - Chapters are seeded in setup, on "Add a course", and the first time an older course opens. They store the catalog's outcome ids, so the hand-copied Science 10 outcomes still match.
-   - *Moved to after the bazaar:* removing the Science 10 hand-copied entry and its `lessonTemplate` rule (the starter bank is tied to its ids), the lesson-plan content in `bank.ts`, and `scripts/curriculum/schema.sql` and `export-sql.mjs`.
+   - Chapters are seeded in setup, on "Add a course", and the first time an older course opens. They store the dataset's outcome ids (Science 10's SCI10-FM2 is `sk-63-110477`).
+   - ✅ Removed (23 Nov): the Science 10 hand-copied entry and its `lessonTemplate` rule (the import has the same words and adds the indicators; the starter bank now uses the dataset ids), the lesson-plan content in `bank.ts`, and `scripts/curriculum/schema.sql` and `export-sql.mjs`.
 2. Sources: upload to Storage, extract the text once, and attach the source to its chapter. *Next; needs a Storage bucket migration.*
 3. ✅ `lib/resources/store.ts` saves to Supabase. The browser keeps the working copy and saves each change through Server Functions (`lib/resources/actions.ts`). The draft is a resource version's `content`. Approving locks the version; editing starts the next one.
 4. AI:

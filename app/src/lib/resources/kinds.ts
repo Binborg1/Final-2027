@@ -41,10 +41,10 @@ export const NOTES_STYLES = [
 
 /** Action verbs read from each outcome statement's opening words. Shown as suggestions, never as a score. */
 export const OUTCOME_VERBS: Record<string, Verb[]> = {
-  "sk-sci10-fm1": ["explore"],
-  "sk-sci10-fm2": ["investigate", "represent"],
-  "sk-sci10-fm3": ["investigate", "represent"],
-  "sk-sci10-fm4": ["explore"],
+  "sk-63-110470": ["explore"],
+  "sk-63-110477": ["investigate", "represent"],
+  "sk-63-110487": ["investigate", "represent"],
+  "sk-63-110496": ["explore"],
 };
 
 const MIX: Record<"quiz" | "test" | "exam", [QType, number, number][]> = {
@@ -64,10 +64,10 @@ const TITLE: Record<ResourceKind, string> = {
 };
 
 const TOPIC: Record<string, string> = {
-  "sk-sci10-fm1": "Motion technologies",
-  "sk-sci10-fm2": "Constant speed in a straight line",
-  "sk-sci10-fm3": "Acceleration",
-  "sk-sci10-fm4": "Force and motion",
+  "sk-63-110470": "Motion technologies",
+  "sk-63-110477": "Constant speed in a straight line",
+  "sk-63-110487": "Acceleration",
+  "sk-63-110496": "Force and motion",
 };
 
 /** A topic for the title: Funza's short names for FM1 to FM4, else the unit (several outcomes) or the code. */

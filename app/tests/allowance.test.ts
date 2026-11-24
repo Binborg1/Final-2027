@@ -3,6 +3,10 @@ import { afterEach, beforeEach, test } from "node:test";
 import { allowanceMessage, dailyLimit, DEFAULT_DAILY_LIMIT, startOfDaySaskatchewan } from "@/lib/ai/allowance";
 import { defaultBrief } from "@/lib/resources/kinds";
 import { makeRequest, restoreFetch, sessionCookies, setTestEnv, stubAuth, SUPABASE_URL, TEACHER_A } from "./helpers/auth";
+import { loadDataset } from "@/lib/curriculum/dataset";
+
+// Outcomes come from the imported dataset, as on the server.
+loadDataset();
 
 /*
  * Development step 4: the daily AI allowance (FR-30). Each teacher gets
@@ -54,7 +58,7 @@ test("the refusal says how many and when they reset", () => {
 
 /* ---------- /api/teach ---------- */
 
-const FM2 = "sk-sci10-fm2";
+const FM2 = "sk-63-110477";
 const ITEM = { type: "mcq", prompt: "Which is faster?", options: [{ id: "a", text: "A" }, { id: "b", text: "B" }], correctId: "a", difficulty: "grade", outcomeIds: [FM2], verbs: [], solution: "Steeper." };
 
 type Fake = { used: number | "down"; aiStatus?: number; counts: string[]; inserts: Record<string, unknown>[]; aiCalls: number };

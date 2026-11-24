@@ -1,4 +1,4 @@
-import { CATALOG, type CatalogCourse, type CatalogIndicator, type CatalogOutcome, type CatalogUnit, type VerificationStatus } from "@/lib/curriculum/catalog";
+import type { CatalogCourse, CatalogIndicator, CatalogOutcome, CatalogUnit, VerificationStatus } from "@/lib/curriculum/catalog";
 
 /**
  * The shape of src/data/curriculum/sk.json, written by scripts/curriculum/import-sk.mjs,
@@ -193,34 +193,12 @@ function indicatorsOf(outcomeId: string, list: DatasetOutcome["indicators"]): Ca
 
 const METHOD = "Copied automatically from the outcome's official page by scripts/curriculum/import-sk.mjs.";
 
-/**
- * The id the catalog gives each of a course's outcomes: the hand-copied id where a
- * team member copied the outcome by hand (Science 10's "sk-sci10-fm2"), otherwise the
- * dataset id. Chapters store these ids, so Make and the checks find the outcomes.
- */
-export function catalogIdOf(c: Pick<DatasetCourse, "curriculumId">, hand = CATALOG): (o: Pick<DatasetOutcome, "id" | "code">) => string {
-  const handCourse = hand.flatMap((j) => j.courses).find((h) => h.curriculumId === c.curriculumId);
-  const ids = new Map((handCourse?.units ?? []).flatMap((u) => u.outcomes).map((o) => [o.code, o.id]));
-  return (o) => ids.get(o.code) ?? o.id;
-}
-
-/**
- * Converts one imported course. Outcomes a team member copied by hand (CATALOG) keep
- * their id, wording and status and gain the imported indicators; a difference between
- * the two copies is added to the outcome's notes.
- */
-export function toCatalogCourse(c: DatasetCourse, importedOn: string, hand = CATALOG): CatalogCourse {
-  const handCourse = hand.flatMap((j) => j.courses).find((h) => h.curriculumId === c.curriculumId);
-  const handOutcomes = new Map((handCourse?.units ?? []).flatMap((u) => u.outcomes).map((o) => [o.code, o]));
-
+/** Converts one imported course into a catalog course. Nothing changes the official wording. */
+export function toCatalogCourse(c: DatasetCourse, importedOn: string): CatalogCourse {
   const outcome = (o: DatasetOutcome): CatalogOutcome => {
-    const h = handOutcomes.get(o.code);
-    const id = h?.id ?? o.id;
+    const id = o.id;
     const indicators = indicatorsOf(id, o.indicators);
-    const notes = [...o.notes];
-    if (h && h.statement !== o.statement) notes.push(`The hand-copied wording differs from the imported wording: “${o.statement}”.`);
-    const extra = { url: o.url, level: o.level, printedWith: o.printedWith, guidance: o.guidance, notes };
-    if (h) return { ...h, ...extra, indicators, indicatorsStatus: indicators.length > 0 ? "imported" : "pending" };
+    const extra = { url: o.url, level: o.level, printedWith: o.printedWith, guidance: o.guidance, notes: [...o.notes] };
     return {
       id,
       code: o.code,
@@ -232,7 +210,6 @@ export function toCatalogCourse(c: DatasetCourse, importedOn: string, hand = CAT
       secondCheck: "pending",
       indicators,
       indicatorsStatus: indicators.length > 0 ? "imported" : "pending",
-      lessonTemplate: null,
       ...extra,
     };
   };

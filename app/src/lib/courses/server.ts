@@ -2,7 +2,7 @@ import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { chapterSeeds } from "@/lib/courses/seed";
 import { importedCourse, loadDataset } from "@/lib/curriculum/dataset";
-import { catalogIdOf, type DatasetCourse } from "@/lib/curriculum/imported";
+import type { DatasetCourse } from "@/lib/curriculum/imported";
 import type { Database } from "@/lib/db/types";
 
 type Db = SupabaseClient<Database>;
@@ -27,7 +27,7 @@ export async function seedChapters(supabase: Db, teacherId: string, course: { id
   const existing = await supabase.from("chapters").select("id", { count: "exact", head: true }).eq("course_id", course.id);
   if (existing.error) throw new Error(`Could not read chapters: ${existing.error.message}`);
   if (existing.count) return;
-  const rows = chapterSeeds(source, course.level, catalogIdOf(source)).map((s) => ({ ...s, teacher_id: teacherId, course_id: course.id }));
+  const rows = chapterSeeds(source, course.level).map((s) => ({ ...s, teacher_id: teacherId, course_id: course.id }));
   const { error } = await supabase.from("chapters").insert(rows);
   if (error && error.code !== "23505") throw new Error(`Could not add chapters: ${error.message}`);
 }

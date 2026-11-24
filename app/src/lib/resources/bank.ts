@@ -1,7 +1,7 @@
-import type { BankItem, Verb } from "@/lib/resources/types";
+import type { BankItem } from "@/lib/resources/types";
 
 /**
- * Funza's starter bank: questions, notes and lesson-plan phases written by hand
+ * Funza's starter bank: questions and notes written by hand
  * by the Funza team for Saskatchewan Science 10, Force and Motion (SCI10-FM2
  * and FM3), with the physics checked. It is the no-AI path: when no AI provider
  * is configured, or the teacher prefers it, a draft is assembled from here and
@@ -9,8 +9,8 @@ import type { BankItem, Verb } from "@/lib/resources/types";
  * every part still goes through the teacher's review.
  */
 
-const FM2 = "sk-sci10-fm2";
-const FM3 = "sk-sci10-fm3";
+const FM2 = "sk-63-110477"; // SCI10-FM2
+const FM3 = "sk-63-110487"; // SCI10-FM3
 
 /* ---------- questions ---------- */
 
@@ -290,7 +290,7 @@ export const BANK: BankItem[] = [
   }),
 ];
 
-/* ---------- notes and lesson plans ---------- */
+/* ---------- notes ---------- */
 
 export const NOTES: Record<string, { title: string; body: string; claim?: { expr: string; vars: Record<string, number>; unit: string; show: string; stated: string } }[]> = {
   [FM2]: [
@@ -322,37 +322,3 @@ export const NOTES: Record<string, { title: string; body: string; claim?: { expr
     { title: "Speed–time graphs", body: "On a speed–time graph, a straight rising line shows constant acceleration. Its slope is the acceleration." },
   ],
 };
-
-export const LESSON_PLAN: Record<string, { title: string; minutes: number; body: string; verbs: Verb[] }[]> = {
-  [FM2]: [
-    {
-      title: "Hook",
-      minutes: 5,
-      body: "Two volunteers walk the length of the gym at different steady paces. Ask: without a race, how could we show who is faster, and by how much?",
-      verbs: [],
-    },
-    {
-      title: "Investigate",
-      minutes: 20,
-      body: "In pairs, one student walks at a steady pace while the partner records the time at every 2 m tape mark. Repeat at a faster pace. Record distance and time in a table.\nMaterials: stopwatches, measuring tape, masking tape.\nSafety: keep the walking lane clear.",
-      verbs: ["investigate"],
-    },
-    {
-      title: "Represent",
-      minutes: 15,
-      body: "Each pair plots both walks on one distance–time graph and compares the slopes. Ask: what does the steeper line tell you?",
-      verbs: ["represent"],
-    },
-    { title: "Explain", minutes: 10, body: "Connect slope to speed and introduce v = d ÷ t. Work one example on the board with the class's own data.", verbs: [] },
-    { title: "Check", minutes: 10, body: "Exit ticket: two questions from the quiz bank (horizontal line; steeper line).", verbs: ["represent"] },
-  ],
-  [FM3]: [
-    { title: "Hook", minutes: 5, body: "Roll a ball down a ramp and ask: is it moving at a constant speed? How could we find out?", verbs: [] },
-    { title: "Investigate", minutes: 25, body: "Groups time a cart at marked points down a ramp and record time and distance in a table.", verbs: ["investigate"] },
-    { title: "Represent", minutes: 15, body: "Groups plot distance–time and speed–time graphs and describe their shapes.", verbs: ["represent"] },
-    { title: "Check", minutes: 15, body: "Short practice on a = Δv ÷ Δt, then an exit ticket.", verbs: [] },
-  ],
-};
-
-export const ADAPTATIONS =
-  "Provide pre-drawn axes for students who need them. Pair students so each pair has a confident graph reader. Extension: predict where each walker will be after 30 s, then check with the graph.";

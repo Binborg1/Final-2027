@@ -265,7 +265,7 @@ export function computeChecks(d: Draft): CheckRow[] {
     rows.push({ id: `changed-${r.id}`, group: "review", state: "stale", label: `${it ? q(it) : `“${d.sections.find((s) => s.id === r.id)?.title}”`} changed after you reviewed it`, detail: "Its checks ran again. Review it once more.", targetId: r.id });
   });
   const found = d.outcomeIds.map((id) => findOutcome(id)).filter((f) => f !== null);
-  const grades = [...new Set(found.map((f) => gradeOfLevel(f.outcome.level ?? (f.course.levels?.length === 1 ? f.course.levels[0] : null)) ?? (f.course.origin === "hand" ? f.course.grade : null)))];
+  const grades = [...new Set(found.map((f) => gradeOfLevel(f.outcome.level ?? (f.course.levels?.length === 1 ? f.course.levels[0] : null)) ?? f.course.grade))];
   const gradeText = grades.length === 1 && grades[0] ? `Grade ${grades[0]}` : "your grade";
   if (!d.globals.readingLevel) rows.push({ id: "g-reading", group: "review", state: "needs-you", label: `Reading level suits ${gradeText}`, detail: "Funza does not grade reading level. Confirm it for your students." });
   // One confirmation covers what no person has checked in the curriculum text (the global keeps its original name).

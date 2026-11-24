@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { atLevel, chapterSeeds, outcomeTitle } from "@/lib/courses/seed";
 import { addCourseSchema, moved } from "@/lib/courses/model";
-import { catalogIdOf, type Dataset, type DatasetCourse } from "@/lib/curriculum/imported";
+import type { Dataset, DatasetCourse } from "@/lib/curriculum/imported";
 import { fromBank } from "@/lib/resources/assemble";
 import { bankRowsFor } from "@/lib/resources/bank-rows";
 import { approvalBlockers, computeChecks, itemFp } from "@/lib/resources/checks";
@@ -11,6 +11,10 @@ import { defaultBrief } from "@/lib/resources/kinds";
 import { sanitizeBrief } from "@/lib/resources/sanitize";
 import { readStoredContent, toStoredContent } from "@/lib/resources/stored";
 import type { Draft, Item, Resource } from "@/lib/resources/types";
+import { loadDataset } from "@/lib/curriculum/dataset";
+
+// Outcomes come from the imported dataset, as on the server.
+loadDataset();
 
 const dataset = JSON.parse(readFileSync("src/data/curriculum/sk.json", "utf8")) as Dataset;
 const course = (name: string): DatasetCourse => {
@@ -21,15 +25,15 @@ const course = (name: string): DatasetCourse => {
 
 /* ---------- chapters from the curriculum ---------- */
 
-test("a course with units gets one chapter per unit, with the catalog's outcome ids", () => {
+test("a course with units gets one chapter per unit, with the dataset's outcome ids", () => {
   const sci = course("Science 10");
-  const seeds = chapterSeeds(sci, 10, catalogIdOf(sci));
+  const seeds = chapterSeeds(sci, 10);
   assert.equal(seeds.length, 4);
   assert.deepEqual(seeds.map((s) => s.position), [0, 1, 2, 3]);
   assert.ok(seeds.every((s) => s.source_kind === "unit" && s.source_ref?.startsWith("sk-63-u")));
   const fm = seeds.find((s) => s.title === "Force and Motion in Our World");
   assert.ok(fm, "the Force and Motion unit is a chapter");
-  assert.ok(fm.outcome_refs.includes("sk-sci10-fm2"), "hand-copied outcomes keep their catalog id, so Make and the checks find them");
+  assert.ok(fm.outcome_refs.includes("sk-63-110477"), "SCI10-FM2 is in Force and Motion");
   assert.equal(seeds.reduce((n, s) => n + s.outcome_refs.length, 0), 13, "every Science 10 outcome is in a chapter");
 });
 
@@ -85,14 +89,14 @@ test("a new course is a curriculum course at a real level, or a named course of 
 
 /* ---------- the question bank ---------- */
 
-const FM2 = "sk-sci10-fm2";
-const FM3 = "sk-sci10-fm3";
+const FM2 = "sk-63-110477";
+const FM3 = "sk-63-110487";
 const fakeHash = (text: string) => `h${text.length}:${text.slice(0, 40)}`;
 
 test("approving copies each question into the chapter that holds its outcome, with its answer key", () => {
   const draft = fromBank(defaultBrief("quiz", [FM2, FM3]), "r-bank");
   const chapters = [
-    { id: "ch-other", outcomeRefs: ["sk-sci10-fm1"] },
+    { id: "ch-other", outcomeRefs: ["sk-63-110470"] },
     { id: "ch-fm2", outcomeRefs: [FM2] },
     { id: "ch-fm3", outcomeRefs: [FM3] },
   ];

@@ -5,8 +5,12 @@ import { AiError, aiConfig, complete } from "@/lib/ai/server";
 import { sameOrigin } from "@/lib/origin";
 import { publishToClassroom, type PublishOptions } from "@/lib/lms/publish";
 import { defaultBrief } from "@/lib/resources/kinds";
+import { loadDataset } from "@/lib/curriculum/dataset";
 
-const FM2 = "sk-sci10-fm2";
+// Outcomes come from the imported dataset, as on the server.
+loadDataset();
+
+const FM2 = "sk-63-110477";
 const OUTCOME = { id: FM2, code: "SCI10-FM2", statement: "Investigate…", course: "Science 10", unit: "Force and Motion" };
 
 /* ---------- prompt injection ---------- */
