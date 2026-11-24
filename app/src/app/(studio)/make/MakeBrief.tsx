@@ -464,18 +464,26 @@ export function MakeBrief({
                 {questionKind ? (
                   <>
                     <Disclosure title="Sections and questions" summary={bp ? `${bp.parts.length} section${bp.parts.length === 1 ? "" : "s"} · ${bp.questions} questions` : ""}>
-                      {brief.mix.map((row) => (
-                        <div key={row.type} className="flex items-center gap-3">
-                          <span className="min-w-0 flex-1 text-body font-medium">{QTYPE_LABEL[row.type]}</span>
-                          <NumberStepper label={`${QTYPE_LABEL[row.type]}: questions`} value={row.count} min={0} max={40} onChange={(count) => setMixRow(row.type, { count })} suffix="q" />
-                          <NumberStepper label={`${QTYPE_LABEL[row.type]}: marks each`} value={row.marks} min={1} max={20} onChange={(marks) => setMixRow(row.type, { marks })} suffix="m" />
-                        </div>
-                      ))}
+                      <p className="text-meta text-ink-2">For each type: how many questions (q), and the marks for each (m).</p>
+                      <ul className="flex flex-col divide-y divide-line">
+                        {brief.mix.map((row) => (
+                          <li key={row.type} className={cn("flex flex-col gap-1.5 py-2.5 first:pt-0 last:pb-0", row.count === 0 && "opacity-70")}>
+                            <span className="flex items-baseline justify-between gap-3">
+                              <span className="text-body font-medium">{QTYPE_LABEL[row.type]}</span>
+                              <span className="shrink-0 text-meta text-ink-2 tabular-nums">{row.count > 0 ? `${row.count * row.marks} mark${row.count * row.marks === 1 ? "" : "s"}` : "None"}</span>
+                            </span>
+                            <span className="flex flex-wrap gap-2">
+                              <NumberStepper size="sm" label={`${QTYPE_LABEL[row.type]}: questions`} value={row.count} min={0} max={25} onChange={(count) => setMixRow(row.type, { count })} suffix="q" />
+                              <NumberStepper size="sm" label={`${QTYPE_LABEL[row.type]}: marks each`} value={row.marks} min={1} max={20} onChange={(marks) => setMixRow(row.type, { marks })} suffix="m" />
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
                     </Disclosure>
                     <Disclosure title="Marks and time" summary={bp ? `${bp.marks} marks · ${brief.duration} minutes` : ""}>
                       <div className="flex items-center gap-3">
                         <span className="flex-1 text-body font-medium">Time allowed</span>
-                        <NumberStepper label="Minutes" value={brief.duration} min={5} max={180} step={5} onChange={(duration) => patchBrief({ duration })} suffix="min" />
+                        <NumberStepper size="sm" label="Minutes" value={brief.duration} min={5} max={180} step={5} onChange={(duration) => patchBrief({ duration })} suffix="min" />
                       </div>
                       <p className="text-meta text-ink-2">Marks add up from the questions above: {bp?.marks ?? 0} in total.</p>
                     </Disclosure>
@@ -515,7 +523,7 @@ export function MakeBrief({
                   <Disclosure title="Slides" summary={`${brief.slides} slides${brief.speakerNotes ? " · speaker notes" : ""}`}>
                     <div className="flex items-center gap-3">
                       <span className="flex-1 text-body font-medium">Number of slides</span>
-                      <NumberStepper label="Slides" value={brief.slides} min={3} max={20} onChange={(slides) => patchBrief({ slides })} />
+                      <NumberStepper size="sm" label="Slides" value={brief.slides} min={3} max={20} onChange={(slides) => patchBrief({ slides })} />
                     </div>
                     <ToggleRow label="Speaker notes" checked={brief.speakerNotes} onChange={(speakerNotes) => patchBrief({ speakerNotes })} />
                   </Disclosure>

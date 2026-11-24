@@ -68,7 +68,7 @@ export function FormatPanel({
           Template
         </ChoiceChip>
       </div>
-      <p className="truncate text-meta font-medium text-ink-2" aria-live="polite">
+      <p className="line-clamp-2 text-meta font-medium text-ink-2" aria-live="polite">
         {value}
       </p>
 
