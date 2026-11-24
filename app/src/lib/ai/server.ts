@@ -8,6 +8,9 @@ import "server-only";
  *   FUNZA_AI_PROVIDER = gemini | groq | openrouter
  *   FUNZA_AI_API_KEY  = the key (or the provider's own variable, see providerKeys)
  *   FUNZA_AI_MODEL    = optional model override
+ *   FUNZA_AI_THINKING = optional Gemini thinking setting: minimal | low | medium | high
+ *                       (Gemini 3 and later), or a token budget such as 0 (Gemini 2.5).
+ *                       Unset leaves the model's default.
  */
 export type Provider = "gemini" | "groq" | "openrouter";
 
@@ -25,7 +28,20 @@ function providerKeys(): Record<Provider, string | undefined> {
 /** Long drafts can take a while; anything slower than this is treated as a failure. */
 const TIMEOUT_MS = 120_000;
 
-export type AiConfig = { provider: Provider; key: string; model: string };
+/** Gemini's thinking setting from FUNZA_AI_THINKING: a level for Gemini 3 and later, a token budget for 2.5; null keeps the model's default. */
+export type Thinking = { thinkingLevel: "minimal" | "low" | "medium" | "high" } | { thinkingBudget: number };
+
+const LEVELS = ["minimal", "low", "medium", "high"] as const;
+
+export function thinkingSetting(raw = process.env.FUNZA_AI_THINKING): Thinking | null {
+  const value = raw?.trim().toLowerCase();
+  if (!value) return null;
+  const level = LEVELS.find((l) => l === value);
+  if (level) return { thinkingLevel: level };
+  return /^\d+$/.test(value) ? { thinkingBudget: Number(value) } : null;
+}
+
+export type AiConfig = { provider: Provider; key: string; model: string; thinking: Thinking | null };
 
 export function aiConfig(): AiConfig | null {
   const keys = providerKeys();
@@ -35,7 +51,7 @@ export function aiConfig(): AiConfig | null {
   if (!provider) return null;
   const key = process.env.FUNZA_AI_API_KEY || keys[provider];
   if (!key) return null;
-  return { provider, key, model: process.env.FUNZA_AI_MODEL || DEFAULT_MODELS[provider] };
+  return { provider, key, model: process.env.FUNZA_AI_MODEL || DEFAULT_MODELS[provider], thinking: thinkingSetting() };
 }
 
 export type AiErrorCode = "not-configured" | "auth" | "rate-limit" | "refused" | "provider" | "empty" | "truncated" | "timeout";
@@ -135,6 +151,11 @@ type GeminiReply = {
   usageMetadata?: { promptTokenCount?: number; candidatesTokenCount?: number; thoughtsTokenCount?: number };
 };
 
+/** Thinking tokens count against maxOutputTokens, so a thinking model can run out before the reply is written. */
+function geminiConfig(cfg: AiConfig, maxTokens: number) {
+  return { maxOutputTokens: maxTokens, responseMimeType: "application/json", ...(cfg.thinking ? { thinkingConfig: cfg.thinking } : {}) };
+}
+
 async function geminiComplete(cfg: AiConfig, { system, user, maxTokens }: Completion): Promise<CompletionResult> {
   // The key goes in a header, never in the URL, so it can't end up in request logs.
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(cfg.model)}:generateContent`;
@@ -144,7 +165,7 @@ async function geminiComplete(cfg: AiConfig, { system, user, maxTokens }: Comple
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: system }] },
       contents: [{ role: "user", parts: [{ text: user }] }],
-      generationConfig: { maxOutputTokens: maxTokens, responseMimeType: "application/json" },
+      generationConfig: geminiConfig(cfg, maxTokens),
     }),
   });
   const data = (await res.json()) as GeminiReply;
@@ -183,7 +204,7 @@ export async function completeStream(input: Completion, onText: (soFar: string) 
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: input.system }] },
       contents: [{ role: "user", parts: [{ text: input.user }] }],
-      generationConfig: { maxOutputTokens: input.maxTokens, responseMimeType: "application/json" },
+      generationConfig: geminiConfig(cfg, input.maxTokens),
     }),
   });
   if (!res.body) throw new AiError("empty", "The model returned no text.");

@@ -20,6 +20,11 @@ export const serverEnvSchema = publicEnvSchema
       .startsWith("sb_secret_", { error: "must be the sb_secret_… key (not the legacy service_role key)" }),
     GEMINI_API_KEY: z.string().optional(),
     FUNZA_AI_MODEL: z.string().optional(),
+    // Gemini thinking: minimal | low | medium | high, or a token budget (src/lib/ai/server.ts).
+    FUNZA_AI_THINKING: z
+      .string()
+      .regex(/^\s*(minimal|low|medium|high|\d+)\s*$/i, { error: "must be minimal, low, medium, high or a whole number" })
+      .optional(),
     // AI actions per teacher per day (FR-30); unset means 40 (src/lib/ai/allowance.ts).
     FUNZA_AI_DAILY_LIMIT: z.coerce.number(WHOLE).int(WHOLE).positive(WHOLE).optional(),
     GOOGLE_CLIENT_ID: z.string().endsWith(".apps.googleusercontent.com", { error: "must be an OAuth client ID" }).optional(),

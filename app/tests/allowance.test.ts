@@ -61,7 +61,7 @@ test("the refusal says how many and when they reset", () => {
 const FM2 = "sk-63-110477";
 const ITEM = { type: "mcq", prompt: "Which is faster?", options: [{ id: "a", text: "A" }, { id: "b", text: "B" }], correctId: "a", difficulty: "grade", outcomeIds: [FM2], verbs: [], solution: "Steeper." };
 
-type Fake = { used: number | "down"; aiStatus?: number; counts: string[]; inserts: Record<string, unknown>[]; aiCalls: number; aiReply?: unknown; aiBodies?: string[] };
+type Fake = { used: number | "down"; aiStatus?: number; counts: string[]; inserts: Record<string, unknown>[]; aiCalls: number; aiReply?: unknown; aiBodies?: string[]; aiTexts?: string[] };
 
 /** Supabase Auth (from the shared helper), the ai_usage table, and the AI provider, all offline. */
 function stubServices(fake: Fake) {
@@ -84,7 +84,9 @@ function stubServices(fake: Fake) {
       fake.aiCalls++;
       fake.aiBodies?.push(String(init?.body));
       if (fake.aiStatus) return new Response("busy", { status: fake.aiStatus });
-      const reply = { model: "test-model-1", choices: [{ message: { content: JSON.stringify(fake.aiReply ?? { item: ITEM }) }, finish_reason: "stop" }], usage: { prompt_tokens: 120, completion_tokens: 45 } };
+      // aiTexts: raw reply texts, one per call, before falling back to aiReply.
+      const content = fake.aiTexts?.length ? fake.aiTexts.shift()! : JSON.stringify(fake.aiReply ?? { item: ITEM });
+      const reply = { model: "test-model-1", choices: [{ message: { content }, finish_reason: "stop" }], usage: { prompt_tokens: 120, completion_tokens: 45 } };
       return new Response(JSON.stringify(reply), { status: 200, headers: { "content-type": "application/json" } });
     }
     return auth(input, init);
@@ -129,6 +131,26 @@ test("a teacher who has used today's allowance is refused before the AI is calle
   assert.equal(db.counts.length, 1);
   assert.match(db.counts[0], new RegExp(`teacher_id=eq\\.${TEACHER_A.id}`), "only this teacher's rows count");
   assert.match(db.counts[0], /created_at=gte\.\d{4}-\d{2}-\d{2}T06:00:00\.000Z/, "counted from midnight in Saskatchewan");
+});
+
+test("an unreadable reply is asked for once more, and both calls are logged", async () => {
+  const cookies = await sessionCookies(TEACHER_A);
+  const db = fake(0, { aiTexts: ['{"item": {"type": "mcq", "prompt": "Which?" "        },'] });
+  stubServices(db);
+  const { json } = await regenerate(cookies);
+  assert.equal(json.ok, true, json.message);
+  assert.equal(db.aiCalls, 2);
+  assert.equal(db.inserts.length, 2, "the tokens of both calls were spent");
+});
+
+test("a second unreadable reply is reported, not retried again", async () => {
+  const cookies = await sessionCookies(TEACHER_A);
+  const db = fake(0, { aiTexts: ["not json", "still not json"] });
+  stubServices(db);
+  const { json } = await regenerate(cookies);
+  assert.equal(json.ok, false);
+  assert.equal(json.reason, "invalid-response");
+  assert.equal(db.aiCalls, 2);
 });
 
 test("under the limit, the call goes through and is logged with its model and tokens", async () => {

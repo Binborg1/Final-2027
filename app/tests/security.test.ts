@@ -74,6 +74,25 @@ test("Gemini asks for a JSON reply and reports the model and its tokens", async 
   assert.deepEqual(await complete(ask), { text: "{}", model: "gemini-2.5-flash", tokensIn: 0, tokensOut: 0 }, "no usage block: zero tokens, the requested model");
 });
 
+test("FUNZA_AI_THINKING becomes Gemini's thinkingConfig; unset or unknown leaves the model's default", async () => {
+  useGemini();
+  const reply = { candidates: [{ content: { parts: [{ text: "{}" }] }, finishReason: "STOP" }] };
+  const sent = async () => {
+    const seen = fakeFetch(200, reply);
+    await complete(ask);
+    return JSON.parse(String(seen.init!.body)).generationConfig;
+  };
+  delete process.env.FUNZA_AI_THINKING;
+  assert.equal((await sent()).thinkingConfig, undefined);
+  process.env.FUNZA_AI_THINKING = " Minimal ";
+  assert.deepEqual((await sent()).thinkingConfig, { thinkingLevel: "minimal" });
+  process.env.FUNZA_AI_THINKING = "0";
+  assert.deepEqual((await sent()).thinkingConfig, { thinkingBudget: 0 }, "a number is a Gemini 2.5 token budget");
+  process.env.FUNZA_AI_THINKING = "fast";
+  assert.equal((await sent()).thinkingConfig, undefined);
+  assert.equal((await sent()).maxOutputTokens, 100);
+});
+
 test("an OpenAI-compatible provider reports the model and its tokens", async () => {
   for (const k of ["GEMINI_API_KEY", "FUNZA_AI_MODEL", "OPENROUTER_API_KEY"]) delete process.env[k];
   Object.assign(process.env, { FUNZA_AI_PROVIDER: "groq", FUNZA_AI_API_KEY: "test-key", FUNZA_AI_BASE_URL: "https://ai.test/v1/" });

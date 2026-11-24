@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
 import { teacherForRequest, unauthorized, type ApiTeacher } from "@/lib/auth/api";
 import { allowanceMessage, dailyLimit, recordUsage, remainingToday, usedToday } from "@/lib/ai/allowance";
-import { parseJsonObject, SchemaError } from "@/lib/ai/json";
+import { JsonSyntaxError, parseJsonObject, SchemaError } from "@/lib/ai/json";
 import { itemPrompt, resourcePrompt, type PromptOutcome } from "@/lib/ai/resource-prompts";
 import { AiError, aiConfig, complete, completeStream, writtenSoFar } from "@/lib/ai/server";
 import { findOutcome, outcomeProblems } from "@/lib/curriculum/catalog";
@@ -90,13 +90,22 @@ async function allowanceProblem(teacherId: string): Promise<NextResponse | null>
   return null;
 }
 
+/** Asks once more when a reply isn't readable JSON at all; a reply that parses but fails validation is reported as it is. */
+const RETRIES_ON_BAD_JSON = 1;
+
 /** One AI call, after the allowance; a finished call is logged even if its reply then fails validation. */
 async function runJob(job: Job, teacherId: string): Promise<NextResponse> {
   const blocked = await allowanceProblem(teacherId);
   if (blocked) return blocked;
-  const reply = await complete({ system: job.system, user: job.user, maxTokens: job.maxTokens });
-  await recordUsage({ teacherId, task: job.task, model: reply.model, tokensIn: reply.tokensIn, tokensOut: reply.tokensOut });
-  return NextResponse.json({ ok: true, data: job.data(reply.text) });
+  for (let attempt = 0; ; attempt++) {
+    const reply = await complete({ system: job.system, user: job.user, maxTokens: job.maxTokens });
+    await recordUsage({ teacherId, task: job.task, model: reply.model, tokensIn: reply.tokensIn, tokensOut: reply.tokensOut });
+    try {
+      return NextResponse.json({ ok: true, data: job.data(reply.text) });
+    } catch (error) {
+      if (!(error instanceof JsonSyntaxError) || attempt >= RETRIES_ON_BAD_JSON) throw error;
+    }
+  }
 }
 
 /**
@@ -199,20 +208,28 @@ function streamed(job: Job, teacherId: string, unit: "items" | "sections"): Next
       let lastAt = 0;
       send({ type: "progress", written: 0 });
       try {
-        const reply = await completeStream({ system: job.system, user: job.user, maxTokens: job.maxTokens }, (soFar) => {
-          const written = writtenSoFar(soFar, unit);
-          const now = Date.now();
-          if (written === last && now - lastAt < 3000) return;
-          last = written;
-          lastAt = now;
-          send({ type: "progress", written });
-        });
-        await recordUsage({ teacherId, task: job.task, model: reply.model, tokensIn: reply.tokensIn, tokensOut: reply.tokensOut });
-        let result: object;
-        try {
-          result = { ok: true, data: job.data(reply.text) };
-        } catch (error) {
-          result = failure(error);
+        let result: object | null = null;
+        for (let attempt = 0; !result; attempt++) {
+          const reply = await completeStream({ system: job.system, user: job.user, maxTokens: job.maxTokens }, (soFar) => {
+            const written = writtenSoFar(soFar, unit);
+            const now = Date.now();
+            if (written === last && now - lastAt < 3000) return;
+            last = written;
+            lastAt = now;
+            send({ type: "progress", written });
+          });
+          await recordUsage({ teacherId, task: job.task, model: reply.model, tokensIn: reply.tokensIn, tokensOut: reply.tokensOut });
+          try {
+            result = { ok: true, data: job.data(reply.text) };
+          } catch (error) {
+            // An unreadable reply is asked for again; the count starts over.
+            if (error instanceof JsonSyntaxError && attempt < RETRIES_ON_BAD_JSON) {
+              last = -1;
+              send({ type: "progress", written: 0 });
+              continue;
+            }
+            result = failure(error);
+          }
         }
         send({ type: "result", ...result });
       } catch (error) {
