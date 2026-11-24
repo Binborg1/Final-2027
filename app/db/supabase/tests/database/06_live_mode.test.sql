@@ -25,7 +25,7 @@ insert into public.questions (id, teacher_id, chapter_id, type, stem, options, a
 
 insert into public.live_sessions (id, teacher_id, course_id, chapter_id, code, title)
 values ('cccccccc-0000-0000-0000-000000000010', '11111111-1111-1111-1111-111111111111', 'cccccccc-0000-0000-0000-000000000001',
-        'cccccccc-0000-0000-0000-000000000002', 'LIVE22', 'Motion check');
+        'cccccccc-0000-0000-0000-000000000002', 'LVQ22K', 'Motion check');
 
 -- Sessions and live questions ---------------------------------------------------------
 
@@ -303,7 +303,7 @@ select is(
 -- A session ended without Reveal teaches the bank nothing.
 insert into public.live_sessions (id, teacher_id, course_id, code, state, opened_at, ends_at)
 values ('cccccccc-0000-0000-0000-000000000040', '11111111-1111-1111-1111-111111111111', 'cccccccc-0000-0000-0000-000000000001',
-        'LIVE33', 'open', now(), now() + interval '3 minutes');
+        'LVQ33M', 'open', now(), now() + interval '3 minutes');
 insert into public.live_questions (id, teacher_id, session_id, question_id, position, content)
 values ('cccccccc-0000-0000-0000-000000000041', '11111111-1111-1111-1111-111111111111', 'cccccccc-0000-0000-0000-000000000040',
         'cccccccc-0000-0000-0000-000000000003', 1,

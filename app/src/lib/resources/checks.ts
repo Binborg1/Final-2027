@@ -2,8 +2,9 @@ import { findOutcome, isAutomatic, outcomeProblems } from "@/lib/curriculum/cata
 import { gradeOfLevel } from "@/lib/curriculum/imported";
 import { codeOf } from "@/lib/curriculum/sources";
 import { isQuestionKind, OUTCOME_VERBS } from "@/lib/resources/kinds";
-import type { Calc, CheckRow, Difficulty, Draft, Item, Section, Verb } from "@/lib/resources/types";
-import { compileExpr, formatNumber } from "@/lib/math/expr";
+import type { CheckRow, Difficulty, Draft, Item, Section, Verb } from "@/lib/resources/types";
+import { formatNumber } from "@/lib/math/expr";
+import { closeEnough, evalCalc, firstNumber } from "@/lib/resources/calc";
 
 /**
  * The checks behind review and approval. Every result is computed from the
@@ -55,19 +56,8 @@ export const reviewables = (d: Draft) => [
 
 /* ---------- answers ---------- */
 
-export function evalCalc(c: Calc): number | null {
-  try {
-    const v = compileExpr(c.expr, Object.keys(c.vars))(c.vars);
-    return Number.isFinite(v) ? v : null;
-  } catch {
-    return null;
-  }
-}
-export const firstNumber = (text: string): number | null => {
-  const m = text.replace(/−/g, "-").replace(/,/g, "").match(/-?\d+(?:\.\d+)?/);
-  return m ? Number(m[0]) : null;
-};
-const close = (a: number, b: number) => Math.abs(a - b) <= Math.max(0.005 * Math.abs(b), 0.01);
+export { evalCalc, firstNumber };
+const close = closeEnough;
 
 export function itemProblems(i: Item): string[] {
   const p: string[] = [];
