@@ -5,9 +5,9 @@ import { useEffect } from "react";
 import { dismissToast, loadWorkspace, useWorkspace } from "@/lib/resources/store";
 import { cn } from "@/lib/ui/cn";
 
-/** Loads this teacher's drafts from this browser once, and shows the store's toasts. */
-export function WorkspaceBoot({ teacherId }: { teacherId: string }) {
-  useEffect(() => loadWorkspace(teacherId), [teacherId]);
+/** Loads the teacher's materials from the database once, and shows the store's toasts. */
+export function WorkspaceBoot() {
+  useEffect(() => loadWorkspace(), []);
   const { toasts } = useWorkspace();
   return (
     <div aria-live="polite" className="pointer-events-none fixed bottom-24 left-1/2 z-50 flex w-[min(440px,calc(100vw-24px))] -translate-x-1/2 flex-col items-center gap-2 md:left-[calc(104px_+_(100vw_-_128px)/2)]">

@@ -9,20 +9,21 @@ import { BANK } from "@/lib/resources/bank";
 import { blueprintOf } from "@/lib/resources/blueprint";
 import { itemFp, sectionFp } from "@/lib/resources/checks";
 import { defaultBrief, isQuestionKind, suggestedTitle } from "@/lib/resources/kinds";
-import { isObject, sanitizeDraft, sanitizeItem, sanitizeResource, sanitizeSections } from "@/lib/resources/sanitize";
-import { storageKeyFor } from "@/lib/resources/storage-key";
+import { approveMaterial, createMaterial, deleteMaterial, loadWorkspaceData, saveMaterial, startMaterialVersion } from "@/lib/resources/actions";
+import { sanitizeItem, sanitizeSections } from "@/lib/resources/sanitize";
+import { toStoredContent } from "@/lib/resources/stored";
 import type { Brief, Delivery, Draft, FixAction, Item, MixRow, QType, Resource, ResourceKind, Section } from "@/lib/resources/types";
 
 /**
- * The teacher's workspace in the browser. Resources and drafts are saved in this
- * browser's storage, under a key for the signed-in teacher (validated again on
- * every load), until step 4 moves them to the database. Nothing is sent anywhere
- * except an AI draft request (outcome, brief, optional file text) and an explicit
- * Classroom post.
+ * The teacher's workspace in the browser: the working copy of their materials. Each
+ * material is saved in the database (development step 4) through Server Functions
+ * in lib/resources/actions.ts: edits are saved a moment after they happen, and
+ * creating, approving and starting a new version wait for the server, which runs
+ * the review checks again before it approves anything.
  */
 
-/** Set by loadWorkspace(); nothing is saved before a teacher is known. */
-let storageKey: string | null = null;
+type Saved<T = object> = ({ ok: true } & T) | { ok: false; message: string };
+const UNREACHABLE = { ok: false as const, message: "Funza could not be reached. Check your connection and try again." };
 
 export type GenStage = { id: string; label: string; detail: string };
 export type GenError = { code: string; title: string; message: string; atStage: number };
@@ -69,10 +70,9 @@ const subscribe = (l: () => void) => {
     listeners.delete(l);
   };
 };
-function set(fn: (s: WorkspaceState) => WorkspaceState, persist = false) {
+function set(fn: (s: WorkspaceState) => WorkspaceState) {
   state = fn(state);
   listeners.forEach((l) => l());
-  if (persist) scheduleSave();
 }
 export const getWorkspace = () => state;
 
@@ -84,61 +84,88 @@ export function useWorkspace(): WorkspaceState {
   );
 }
 
-/* ---------- persistence ---------- */
+/* ---------- persistence: the database, through Server Functions ---------- */
 
+const dirty = new Set<string>();
+const queues = new Map<string, Promise<unknown>>();
 let saveTimer: ReturnType<typeof setTimeout> | null = null;
+
+/** Runs one material's server calls in order, so a save never overtakes an earlier one. */
+function queue<T>(id: string, task: () => Promise<T>): Promise<T> {
+  const next = (queues.get(id) ?? Promise.resolve()).catch(() => undefined).then(task);
+  queues.set(id, next);
+  void next.finally(() => {
+    if (queues.get(id) === next) queues.delete(id);
+  });
+  return next;
+}
+
 function scheduleSave() {
   if (saveTimer) clearTimeout(saveTimer);
-  saveTimer = setTimeout(saveNow, 300);
+  saveTimer = setTimeout(saveNow, 600);
 }
+
 function saveNow() {
   saveTimer = null;
-  if (!storageKey) return;
-  try {
-    localStorage.setItem(storageKey, JSON.stringify({ version: 1, resources: state.resources, drafts: state.drafts, settings: state.settings }));
-    if (!state.savedOk) set((s) => ({ ...s, savedOk: true }));
-  } catch {
-    if (state.savedOk) {
-      set((s) => ({ ...s, savedOk: false }));
-      toast("This browser would not save your work. Free some space or allow site storage.", "bad");
-    }
+  for (const id of [...dirty]) {
+    dirty.delete(id);
+    void queue(id, async () => {
+      const r = state.resources.find((x) => x.id === id);
+      const d = state.drafts[id];
+      if (!r || !d || d.status === "approved") return;
+      const res = await saveMaterial({ id, content: toStoredContent(r, d) }).catch(() => UNREACHABLE);
+      if (res.ok) {
+        if (!state.savedOk) set((s) => ({ ...s, savedOk: true }));
+        return;
+      }
+      dirty.add(id); // tried again with the next change
+      if (state.savedOk) {
+        set((s) => ({ ...s, savedOk: false }));
+        toast(res.message === UNREACHABLE.message ? "Funza could not be reached. Your latest changes aren’t saved yet." : res.message, "bad");
+      }
+    });
   }
 }
 
-function readStored(): Pick<WorkspaceState, "resources" | "drafts" | "settings"> {
-  try {
-    const raw = JSON.parse((storageKey && localStorage.getItem(storageKey)) || "null") as unknown;
-    if (!isObject(raw)) return { resources: [], drafts: {}, settings: { schoolName: "" } };
-    const resources = (Array.isArray(raw.resources) ? raw.resources : []).map(sanitizeResource).filter((r): r is Resource => r !== null);
-    const drafts: Record<string, Draft> = {};
-    const rawDrafts = isObject(raw.drafts) ? raw.drafts : {};
-    for (const r of resources) {
-      const d = sanitizeDraft(rawDrafts[r.id], r);
-      if (d) drafts[r.id] = d;
-    }
-    const settings = isObject(raw.settings) && typeof raw.settings.schoolName === "string" ? { schoolName: raw.settings.schoolName.slice(0, 120) } : { schoolName: "" };
-    return { resources: resources.filter((r) => drafts[r.id]), drafts, settings };
-  } catch {
-    return { resources: [], drafts: {}, settings: { schoolName: "" } };
+/** Waits until this material's changes so far are saved. */
+async function flush(id: string) {
+  if (saveTimer && dirty.has(id)) {
+    clearTimeout(saveTimer);
+    saveNow();
   }
+  await (queues.get(id) ?? Promise.resolve()).catch(() => undefined);
 }
 
 let loaded = false;
 /**
- * Called once from the app shell after hydration, with the signed-in teacher and
- * the outcomes of their first course (the starting point for a new brief).
+ * Called once from the app shell after hydration, with the outcomes of the
+ * teacher's first course (the starting point for a new brief). Reads the teacher's
+ * materials from the database.
  */
-export function loadWorkspace(teacherId: string, startOutcomeIds: string[] = []) {
+export function loadWorkspace(startOutcomeIds: string[] = []) {
   if (loaded) return;
   loaded = true;
-  storageKey = storageKeyFor(teacherId);
   loadCurriculumCache();
   subscribeCatalog(() => set((s) => ({ ...s, catalogVersion: catalogVersion() })));
-  set((s) => ({ ...s, ...readStored(), brief: startOutcomeIds.length > 0 ? defaultBrief("quiz", startOutcomeIds) : s.brief, hydrated: true, catalogVersion: catalogVersion() }));
-  window.addEventListener("storage", (e) => {
-    if (e.key === storageKey) set((s) => ({ ...s, ...readStored() }));
+  set((s) => ({ ...s, brief: startOutcomeIds.length > 0 ? defaultBrief("quiz", startOutcomeIds) : s.brief, catalogVersion: catalogVersion() }));
+  void loadWorkspaceData()
+    .catch(() => UNREACHABLE)
+    .then((res) => {
+      if (!res.ok) {
+        set((s) => ({ ...s, hydrated: true }));
+        toast(res.message === UNREACHABLE.message ? "Funza couldn’t load your materials. Check your connection and reload." : res.message, "bad");
+        return;
+      }
+      const resources = res.items.map((i) => i.resource);
+      const drafts: Record<string, Draft> = Object.fromEntries(res.items.map((i) => [i.resource.id, i.draft]));
+      set((s) => ({ ...s, resources, drafts, hydrated: true }));
+      void ensureOutcomes([...state.brief.outcomeIds, ...resources.flatMap((r) => r.outcomeIds)]);
+    });
+  window.addEventListener("beforeunload", (e) => {
+    if (dirty.size === 0 && queues.size === 0) return;
+    saveNow();
+    e.preventDefault();
   });
-  void ensureOutcomes([...state.brief.outcomeIds, ...state.resources.flatMap((r) => r.outcomeIds)]);
   fetch("/api/teach", { cache: "no-store" })
     .then((r) => (r.ok ? (r.json() as Promise<{ configured: boolean; provider?: string }>) : { configured: false }))
     .catch(() => ({ configured: false, provider: undefined }))
@@ -163,7 +190,7 @@ export function dismissToast(id: string) {
 }
 
 export function setSchoolName(schoolName: string) {
-  set((s) => ({ ...s, settings: { ...s.settings, schoolName: schoolName.slice(0, 120) } }), true);
+  set((s) => ({ ...s, settings: { ...s.settings, schoolName: schoolName.slice(0, 120) } }));
 }
 
 /* ---------- curriculum selection ---------- */
@@ -224,6 +251,7 @@ const ERROR_TEXT: Record<string, { title: string; message: string; stage: number
   "invalid-response": { title: "The draft did not pass validation", message: "", stage: 3 },
   "invalid-outcome": { title: "That outcome cannot be used", message: "", stage: 0 },
   network: { title: "Funza could not be reached", message: "Check your connection. Nothing was saved.", stage: 2 },
+  allowance: { title: "Today’s Funza actions are used up", message: "", stage: 2 },
 };
 
 function stagesFor(b: Brief): GenStage[] {
@@ -241,21 +269,28 @@ function stagesFor(b: Brief): GenStage[] {
   ];
 }
 
-function createResource(b: Brief, draft: Draft): string {
+/** Saves a new material (resource, chapters, version 1), then adds it to the workspace. */
+async function createResource(b: Brief, draft: Draft): Promise<Saved<{ id: string }>> {
   const now = new Date().toISOString();
   const id = draft.resourceId;
-  const resource: Resource = { id, kind: b.kind, title: b.title, ...placeOf(b.outcomeIds), outcomeIds: b.outcomeIds, createdAt: now, updatedAt: now, deliveries: [], brief: { ...b, material: b.material ? { ...b.material, text: "" } : null } };
-  set((s) => ({ ...s, resources: [resource, ...s.resources], drafts: { ...s.drafts, [id]: { ...draft, title: b.title } } }), true);
-  return id;
+  const place = placeOf(b.outcomeIds);
+  const resource: Resource = { id, kind: b.kind, title: b.title, courseName: place.courseName, unitName: place.unitName, outcomeIds: b.outcomeIds, createdAt: now, updatedAt: now, deliveries: [], brief: { ...b, material: b.material ? { ...b.material, text: "" } : null } };
+  const full = { ...draft, title: b.title };
+  const res = await createMaterial({ id, content: toStoredContent(resource, full) }).catch(() => UNREACHABLE);
+  if (!res.ok) return res;
+  set((s) => ({ ...s, resources: [resource, ...s.resources], drafts: { ...s.drafts, [id]: full } }));
+  return { ok: true, id };
 }
 
-/** Without AI: the starter bank or the blueprint laid out empty. Returns the new resource id. */
-export function createWithoutAi(mode: "bank" | "blank"): string {
+/** Without AI: the starter bank or the blueprint laid out empty. */
+export async function createWithoutAi(mode: "bank" | "blank"): Promise<Saved<{ id: string }>> {
   const b = state.brief;
-  const id = newId("r");
+  const id = crypto.randomUUID();
   const draft = mode === "bank" ? fromBank(b, id) : blankDraft(b, id);
   set((s) => ({ ...s, generation: IDLE }));
-  return createResource(b, draft);
+  const res = await createResource(b, draft);
+  if (!res.ok) toast(res.message, "bad");
+  return res;
 }
 
 export async function startGeneration() {
@@ -288,9 +323,13 @@ export async function startGeneration() {
   set((s) => ({ ...s, generation: { ...s.generation, stage: 4 } }));
   await wait(300);
   if (state.generation.state !== "running") return;
-  const id = newId("r");
+  const id = crypto.randomUUID();
   const draft: Draft = { ...blankDraft(b, id), sections, draftedBy: "ai", provider: json.data.provider, notices: json.data.notices ?? [] };
-  createResource(b, draft);
+  const created = await createResource(b, draft);
+  if (!created.ok) {
+    set((s) => ({ ...s, generation: { ...s.generation, state: "failed", stage: 4, error: { code: "save", title: "The draft couldn’t be saved", message: created.message, atStage: 4 } } }));
+    return;
+  }
   set((s) => ({ ...s, generation: { ...s.generation, state: "done", stage: s.generation.stages.length, resourceId: id } }));
 }
 
@@ -307,7 +346,8 @@ export function resetGeneration() {
 
 /* ---------- editing a draft ---------- */
 
-function patchDraft(id: string, fn: (d: Draft) => Draft) {
+/** Changes a draft in the workspace; `save` (the default) saves it to the database a moment later. */
+function patchDraft(id: string, fn: (d: Draft) => Draft, save = true) {
   set((s) => {
     const d = s.drafts[id];
     if (!d) return s;
@@ -317,7 +357,11 @@ function patchDraft(id: string, fn: (d: Draft) => Draft) {
       drafts: { ...s.drafts, [id]: next },
       resources: s.resources.map((r) => (r.id === id ? { ...r, updatedAt: new Date().toISOString(), title: next.title, outcomeIds: next.outcomeIds } : r)),
     };
-  }, true);
+  });
+  if (save && state.drafts[id]) {
+    dirty.add(id);
+    scheduleSave();
+  }
 }
 
 const mapItems = (d: Draft, fn: (i: Item) => Item): Draft => ({ ...d, sections: d.sections.map((s) => ({ ...s, items: s.items.map(fn) })) });
@@ -465,26 +509,48 @@ export const discardAlt = (id: string) => patchDraft(id, (d) => ({ ...d, pending
 
 /* ---------- approval and versions ---------- */
 
-export function approve(id: string) {
-  patchDraft(id, (d) => ({ ...d, status: "approved", approved: { at: new Date().toISOString(), version: d.version, title: d.title, sections: structuredClone(d.sections) }, pendingAlt: null }));
-  toast("Approved. This version is ready to publish.");
-}
-export function startNewVersion(id: string) {
-  patchDraft(id, (d) => ({ ...d, status: "draft", version: d.version + 1 }));
-  toast(`Editing version ${state.drafts[id]?.version ?? 2}. The approved version stays exactly as published.`, "info");
+/** Approves on the server, which runs the review checks again and saves the questions to the chapter's bank. */
+export async function approve(id: string): Promise<boolean> {
+  await flush(id);
+  const res = await queue(id, () => approveMaterial({ id })).catch(() => UNREACHABLE);
+  if (!res.ok) {
+    toast(res.message, "bad");
+    return false;
+  }
+  patchDraft(id, (d) => ({ ...d, status: "approved", version: res.version, approved: { at: res.at, version: res.version, title: d.title, sections: structuredClone(d.sections) }, pendingAlt: null }), false);
+  toast(res.banked > 0 ? `Approved. ${res.banked} question${res.banked === 1 ? "" : "s"} saved to the chapter’s question bank.` : "Approved. This version is ready to publish.");
+  return true;
 }
 
-export function deleteResource(id: string) {
+export async function startNewVersion(id: string): Promise<boolean> {
+  const res = await queue(id, () => startMaterialVersion({ id })).catch(() => UNREACHABLE);
+  if (!res.ok) {
+    toast(res.message, "bad");
+    return false;
+  }
+  patchDraft(id, (d) => ({ ...d, status: "draft", version: res.version }), false);
+  toast(`Editing version ${res.version}. The approved version stays exactly as it was.`, "info");
+  return true;
+}
+
+export async function deleteResource(id: string): Promise<boolean> {
+  dirty.delete(id);
+  const res = await queue(id, () => deleteMaterial({ id })).catch(() => UNREACHABLE);
+  if (!res.ok) {
+    toast(res.message, "bad");
+    return false;
+  }
   set((s) => {
     const drafts = { ...s.drafts };
     delete drafts[id];
     return { ...s, resources: s.resources.filter((r) => r.id !== id), drafts };
-  }, true);
+  });
+  return true;
 }
 
 export function recordDelivery(id: string, delivery: Omit<Delivery, "id" | "at">) {
   const entry: Delivery = { ...delivery, id: newId("d"), at: new Date().toISOString() };
-  set((s) => ({ ...s, resources: s.resources.map((r) => (r.id === id ? { ...r, deliveries: [entry, ...r.deliveries] } : r)) }), true);
+  set((s) => ({ ...s, resources: s.resources.map((r) => (r.id === id ? { ...r, deliveries: [entry, ...r.deliveries] } : r)) }));
+  dirty.add(id);
+  scheduleSave();
 }
-
-

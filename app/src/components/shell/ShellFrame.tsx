@@ -174,9 +174,11 @@ function Sidebar({ teacher, courses, expanded, onToggle, onSearch }: { teacher: 
                 {item.id === "courses" && courses.length > 0 ? (
                   <ul className={cn("hidden flex-col", expanded && "lg:flex")} aria-label="Your courses">
                     {courses.map((c, i) => (
-                      <li key={c.id} className="flex h-[34px] items-center gap-2.5 pl-[46px] text-body font-medium text-ink" title="Course pages arrive in the next update">
-                        <span aria-hidden className={cn("size-2 shrink-0 rounded-full", i % 2 === 0 ? "bg-accent" : "bg-sage")} />
-                        <span className="truncate">{c.title}</span>
+                      <li key={c.id}>
+                        <Link href={`/courses/${c.id}`} aria-current={path.startsWith(`/courses/${c.id}`) ? "page" : undefined} className={cn("flex h-[34px] items-center gap-2.5 rounded-full pr-3 pl-[46px] text-body font-medium text-ink hover:bg-white/50", path.startsWith(`/courses/${c.id}`) && "font-semibold")}>
+                          <span aria-hidden className={cn("size-2 shrink-0 rounded-full", i % 2 === 0 ? "bg-accent" : "bg-sage")} />
+                          <span className="truncate">{c.title}</span>
+                        </Link>
                       </li>
                     ))}
                   </ul>

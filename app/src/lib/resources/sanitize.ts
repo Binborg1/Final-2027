@@ -171,8 +171,13 @@ export function sanitizeBrief(raw: unknown): Brief | null {
     material: material && material.name ? material : null,
     reuseId: typeof raw.reuseId === "string" ? raw.reuseId.slice(0, 64) : null,
     instructions: str(raw.instructions, 600),
+    courseId: typeof raw.courseId === "string" && GUID.test(raw.courseId) ? raw.courseId.toLowerCase() : null,
+    chapterIds: [...new Set((Array.isArray(raw.chapterIds) ? raw.chapterIds : []).filter((x): x is string => typeof x === "string" && GUID.test(x)).map((x) => x.toLowerCase()))].slice(0, 20),
   };
 }
+
+/** A database id (Postgres uuid). */
+export const GUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 function sanitizeDelivery(raw: unknown): Delivery | null {
   if (!isObject(raw)) return null;

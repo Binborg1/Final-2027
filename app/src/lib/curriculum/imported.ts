@@ -194,6 +194,17 @@ function indicatorsOf(outcomeId: string, list: DatasetOutcome["indicators"]): Ca
 const METHOD = "Copied automatically from the outcome's official page by scripts/curriculum/import-sk.mjs.";
 
 /**
+ * The id the catalog gives each of a course's outcomes: the hand-copied id where a
+ * team member copied the outcome by hand (Science 10's "sk-sci10-fm2"), otherwise the
+ * dataset id. Chapters store these ids, so Make and the checks find the outcomes.
+ */
+export function catalogIdOf(c: Pick<DatasetCourse, "curriculumId">, hand = CATALOG): (o: Pick<DatasetOutcome, "id" | "code">) => string {
+  const handCourse = hand.flatMap((j) => j.courses).find((h) => h.curriculumId === c.curriculumId);
+  const ids = new Map((handCourse?.units ?? []).flatMap((u) => u.outcomes).map((o) => [o.code, o.id]));
+  return (o) => ids.get(o.code) ?? o.id;
+}
+
+/**
  * Converts one imported course. Outcomes a team member copied by hand (CATALOG) keep
  * their id, wording and status and gain the imported indicators; a difference between
  * the two copies is added to the outcome's notes.

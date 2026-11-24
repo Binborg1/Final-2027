@@ -10,7 +10,7 @@ import { allItems } from "@/lib/resources/checks";
 import { kindInfo } from "@/lib/resources/kinds";
 import { formatWhen, useWorkspace } from "@/lib/resources/store";
 
-/** Drafts in this teacher's browser: those still waiting for review first, then the approved ones. */
+/** The teacher's materials (saved in the database): those still waiting for review first, then the approved ones. */
 export function WaitingForReview() {
   const { hydrated, resources, drafts } = useWorkspace();
   const rows = resources

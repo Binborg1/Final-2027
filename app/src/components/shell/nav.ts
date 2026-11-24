@@ -12,9 +12,9 @@ export const NAV: NavSection[] = [
     label: "Prepare",
     items: [
       { id: "home", label: "Home", icon: House, href: "/", match: (p) => p === "/" || p.startsWith("/make") },
-      { id: "courses", label: "Courses", icon: BookOpen, soon: "Courses and chapters arrive in the next update" },
+      { id: "courses", label: "Courses", icon: BookOpen, href: "/courses", match: (p) => p.startsWith("/courses") },
       { id: "review", label: "Review", icon: ClipboardCheck, soon: "Drafts waiting for review are on Home for now" },
-      { id: "bank", label: "Question bank", icon: Layers, soon: "The question bank arrives with courses" },
+      { id: "bank", label: "Question bank", icon: Layers, soon: "Each chapter’s question bank is on its chapter page; a bank page for all of them arrives later" },
       { id: "templates", label: "Templates", icon: LayoutTemplate, soon: "Templates arrive later" },
     ],
   },

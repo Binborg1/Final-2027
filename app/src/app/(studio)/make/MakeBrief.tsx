@@ -1,6 +1,7 @@
 "use client";
 
 import { BookOpen, Check, CircleAlert, FileText, LoaderCircle, Lock, Paperclip, Plus, RotateCcw, Sparkles, Target, X } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { PageHeader } from "@/components/shell/PageHeader";
@@ -13,12 +14,16 @@ import { EmptyState } from "@/components/ui/Misc";
 import type { TeacherCourse } from "@/lib/auth/teacher";
 import type { CatalogCourse } from "@/lib/curriculum/catalog";
 import { loadCourse } from "@/lib/curriculum/client";
-import { ADD_PROMPTS, chaptersFor, composeInstructions, type AddPromptId } from "@/lib/make/chapters";
+import type { ChapterChoice } from "@/lib/courses/model";
+import { ADD_PROMPTS, composeInstructions, type AddPromptId } from "@/lib/make/chapters";
 import { blueprintOf, PRESETS } from "@/lib/resources/blueprint";
 import { isQuestionKind, NOTES_STYLES, QTYPE_LABEL } from "@/lib/resources/kinds";
 import { cancelGeneration, createWithoutAi, patchBrief, resetGeneration, setKind, setMixRow, startGeneration, useWorkspace } from "@/lib/resources/store";
 import type { ResourceKind } from "@/lib/resources/types";
 import { cn } from "@/lib/ui/cn";
+
+/** The server keeps at most six outcomes on a brief. */
+const MAX_OUTCOMES = 6;
 
 const TYPES: { kind: ResourceKind; label: string }[] = [
   { kind: "notes", label: "Notes" },
@@ -33,7 +38,7 @@ const TYPES: { kind: ResourceKind; label: string }[] = [
  * from which chapter, then "Make draft". Everything detailed starts collapsed
  * under Adjust. Funza drafts; the teacher reviews and approves on the next screen.
  */
-export function MakeBrief({ courses, initialPrompt, initialCourseId }: { courses: TeacherCourse[]; initialPrompt: string; initialCourseId: string | null }) {
+export function MakeBrief({ courses, chapters, initialPrompt, initialCourseId, initialChapterId }: { courses: TeacherCourse[]; chapters: Record<string, ChapterChoice[]>; initialPrompt: string; initialCourseId: string | null; initialChapterId: string | null }) {
   const router = useRouter();
   const ws = useWorkspace();
   const { brief, generation, ai } = ws;
@@ -46,24 +51,31 @@ export function MakeBrief({ courses, initialPrompt, initialCourseId }: { courses
   const [chips, setChips] = useState<AddPromptId[]>([]);
   const [attachError, setAttachError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const startChapter = useRef(initialChapterId);
+  const courseChapters = useMemo(() => (course ? chapters[course.id] ?? [] : []), [chapters, course]);
 
-  // Load the course's curriculum (once per course), then start from its first chapter.
+  // Load the course's curriculum (once per course) for the outcome wording and checks.
   useEffect(() => {
     if (!course?.curriculumCourseId) return;
     let live = true;
     void loadCourse(course.curriculumCourseId).then((c) => {
-      if (!live) return;
-      setCatalog({ id: course.id, course: c });
-      if (!c) return;
-      const ch = chaptersFor(c, course.level);
-      const first = ch.mode === "units" ? ch.chapters[0] : null;
-      setChapterIds(first ? [first.id] : []);
-      patchBrief({ outcomeIds: first ? first.outcomes.map((o) => o.id) : ch.mode === "outcomes" ? ch.outcomes.slice(0, 1).map((o) => o.id) : [] });
+      if (live) setCatalog({ id: course.id, course: c });
     });
     return () => {
       live = false;
     };
-  }, [course?.id, course?.curriculumCourseId, course?.level]);
+  }, [course?.id, course?.curriculumCourseId]);
+
+  // Start from the chapter in the link, else the course's first chapter with outcomes.
+  useEffect(() => {
+    if (!course) return;
+    const list = chapters[course.id] ?? [];
+    const first = list.find((c) => c.id === startChapter.current) ?? list.find((c) => c.outcomeRefs.length > 0) ?? list[0];
+    startChapter.current = null;
+    const ids = first ? [first.id] : [];
+    setChapterIds(ids);
+    patchBrief({ courseId: course.id, chapterIds: ids, outcomeIds: first ? first.outcomeRefs.slice(0, MAX_OUTCOMES) : [] });
+  }, [course, chapters]);
 
   // The request and the quick prompts become the brief's instructions.
   useEffect(() => patchBrief({ instructions: composeInstructions(request, chips) }), [request, chips]);
@@ -77,24 +89,23 @@ export function MakeBrief({ courses, initialPrompt, initialCourseId }: { courses
     }
   }, [generation.state, generation.resourceId, router]);
 
-  const chapters = useMemo(() => (catalog?.course && course ? chaptersFor(catalog.course, course.level) : null), [catalog, course]);
   const loadingCourse = !!course && catalog?.id !== course.id;
   const bp = useMemo(() => (ws.hydrated ? blueprintOf(brief) : null), [brief, ws.hydrated, ws.catalogVersion]); // eslint-disable-line react-hooks/exhaustive-deps
   const questionKind = isQuestionKind(brief.kind);
   const busy = generation.state === "running";
 
   const chosenOutcomes = useMemo(() => {
-    if (!chapters) return [];
-    const all = chapters.mode === "units" ? chapters.chapters.filter((c) => chapterIds.includes(c.id)).flatMap((c) => c.outcomes) : chapters.outcomes;
-    return all;
-  }, [chapters, chapterIds]);
+    if (!catalog?.course) return [];
+    const want = new Set(courseChapters.filter((c) => chapterIds.includes(c.id)).flatMap((c) => c.outcomeRefs));
+    return catalog.course.units.flatMap((u) => u.outcomes).filter((o) => want.has(o.id));
+  }, [catalog, courseChapters, chapterIds]);
 
   function toggleChapter(id: string) {
-    if (!chapters || chapters.mode !== "units") return;
     const next = chapterIds.includes(id) ? chapterIds.filter((x) => x !== id) : [...chapterIds, id];
     if (next.length === 0) return;
     setChapterIds(next);
-    patchBrief({ outcomeIds: chapters.chapters.filter((c) => next.includes(c.id)).flatMap((c) => c.outcomes.map((o) => o.id)) });
+    const outcomeIds = [...new Set(courseChapters.filter((c) => next.includes(c.id)).flatMap((c) => c.outcomeRefs))].slice(0, MAX_OUTCOMES);
+    patchBrief({ chapterIds: next, outcomeIds });
   }
 
   function toggleOutcome(id: string) {
@@ -222,26 +233,28 @@ export function MakeBrief({ courses, initialPrompt, initialCourseId }: { courses
                 </ChoiceChip>
               ))}
             </ChoiceRow>
-            <ChoiceRow label={chapters?.mode === "outcomes" ? "Outcomes" : "Chapters"}>
+            <ChoiceRow label="Chapters">
+              {courseChapters.length === 0 ? (
+                <span className="pt-2 text-body text-ink-2">
+                  This course has no chapters yet.{" "}
+                  {course ? (
+                    <Link href={`/courses/${course.id}`} className="font-semibold text-accent-ink hover:underline">
+                      Add one on the course page
+                    </Link>
+                  ) : null}
+                </span>
+              ) : (
+                courseChapters.map((c) => (
+                  <ChoiceChip key={c.id} selected={chapterIds.includes(c.id)} onClick={() => toggleChapter(c.id)} title={c.outcomeRefs.length > 0 ? `${c.outcomeRefs.length} outcome${c.outcomeRefs.length === 1 ? "" : "s"}` : "No curriculum outcomes"}>
+                    {c.title}
+                  </ChoiceChip>
+                ))
+              )}
               {loadingCourse ? (
                 <span className="inline-flex h-9 items-center gap-2 text-body text-ink-2">
                   <LoaderCircle aria-hidden size={16} className="animate-spin" /> Loading the curriculum…
                 </span>
-              ) : !chapters ? (
-                <span className="text-body text-ink-2">This course’s curriculum couldn’t be loaded. Check your connection and reload.</span>
-              ) : chapters.mode === "units" ? (
-                chapters.chapters.map((c) => (
-                  <ChoiceChip key={c.id} selected={chapterIds.includes(c.id)} onClick={() => toggleChapter(c.id)} title={`${c.outcomes.length} outcome${c.outcomes.length === 1 ? "" : "s"}`}>
-                    {c.name}
-                  </ChoiceChip>
-                ))
-              ) : (
-                chapters.outcomes.map((o) => (
-                  <ChoiceChip key={o.id} selected={brief.outcomeIds.includes(o.id)} onClick={() => toggleOutcome(o.id)} title={o.statement}>
-                    {o.code}
-                  </ChoiceChip>
-                ))
-              )}
+              ) : null}
             </ChoiceRow>
             <ChoiceRow label="Add">
               {ADD_PROMPTS.filter((p) => p.id !== "notes" || brief.material).map((p) => (
@@ -392,7 +405,10 @@ function ChoiceRow({ label, children }: { label: string; children: React.ReactNo
 
 function MakeActions({ aiKnown, aiConfigured, disabled, busy, onMake }: { aiKnown: boolean; aiConfigured: boolean; disabled: boolean; busy: boolean; onMake: () => void }) {
   const router = useRouter();
-  const withoutAi = (mode: "bank" | "blank") => router.push(`/make/${createWithoutAi(mode)}`);
+  const withoutAi = async (mode: "bank" | "blank") => {
+    const res = await createWithoutAi(mode);
+    if (res.ok) router.push(`/make/${res.id}`);
+  };
   if (aiKnown && !aiConfigured) {
     return (
       <div className="flex flex-col gap-3">
@@ -463,7 +479,14 @@ function Drafting() {
             <Button size="sm" icon={RotateCcw} onClick={() => void startGeneration()}>
               Try again
             </Button>
-            <Button variant="secondary" size="sm" onClick={() => router.push(`/make/${createWithoutAi("bank")}`)}>
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={async () => {
+                const res = await createWithoutAi("bank");
+                if (res.ok) router.push(`/make/${res.id}`);
+              }}
+            >
               Start from the question bank
             </Button>
             <Button variant="secondary" size="sm" onClick={resetGeneration}>
