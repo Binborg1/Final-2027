@@ -6,11 +6,11 @@ import { Input } from "@/components/ui/Field";
 import { cn } from "@/lib/ui/cn";
 
 /** A password field with a show/hide button inside its right edge (44 px tap target). */
-export function PasswordInput({ className, invalid, hasHint, ...rest }: Omit<InputHTMLAttributes<HTMLInputElement>, "type"> & { invalid?: boolean; hasHint?: boolean }) {
+export function PasswordInput({ className, invalid, hasHint, compact, ...rest }: Omit<InputHTMLAttributes<HTMLInputElement>, "type"> & { invalid?: boolean; hasHint?: boolean; compact?: boolean }) {
   const [shown, setShown] = useState(false);
   return (
     <span className="relative block">
-      <Input type={shown ? "text" : "password"} invalid={invalid} hasHint={hasHint} className={cn("pr-14", className)} {...rest} />
+      <Input type={shown ? "text" : "password"} invalid={invalid} hasHint={hasHint} compact={compact} className={cn("pr-14", className)} {...rest} />
       <button
         type="button"
         onClick={() => setShown((s) => !s)}

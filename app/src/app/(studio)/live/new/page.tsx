@@ -1,4 +1,4 @@
-import { Radio } from "lucide-react";
+import { Plus, Radio } from "lucide-react";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/shell/PageHeader";
 import { ButtonLink } from "@/components/ui/Button";
@@ -25,7 +25,7 @@ export default async function GoLivePage({ searchParams }: { searchParams: Promi
       <div className="flex flex-col gap-5">
         <PageHeader title="Go live" summary="Run a quiz in class: students answer on their phones, no accounts." />
         <Card className="p-6">
-          <EmptyState icon={Radio} title="Add a course first" action={<ButtonLink href="/courses?add=1">Add a course</ButtonLink>}>
+          <EmptyState icon={Radio} title="Add a course first" action={<ButtonLink href="/courses?add=1&then=live" icon={Plus}>Add a course</ButtonLink>}>
             Live questions come from a course&rsquo;s chapters, its question bank and its saved quizzes.
           </EmptyState>
         </Card>

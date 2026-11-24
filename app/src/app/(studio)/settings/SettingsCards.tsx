@@ -121,7 +121,13 @@ function ProfileCard({ teacher, curriculum, passwordSaved }: { teacher: Teacher;
               ))}
             </div>
           </fieldset>
-          <p className="text-meta text-ink-2">Adding and removing courses arrives with course pages in the next update.</p>
+          <p className="text-meta text-ink-2">
+            Add or remove courses on the{" "}
+            <Link href="/courses" className="rounded-sm font-semibold text-accent-ink hover:underline focus-visible:outline-2 focus-visible:outline-accent">
+              Courses
+            </Link>{" "}
+            page.
+          </p>
           {error ? (
             <p role="alert" className="flex items-center gap-2 text-body font-medium text-red-ink">
               <CircleAlert aria-hidden size={16} /> {error}

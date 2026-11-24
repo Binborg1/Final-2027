@@ -33,8 +33,9 @@ export function Field({ id, label, hint, error, children, className }: { id: str
 
 const describedBy = (id: string | undefined, error?: boolean, hint?: boolean) => (id ? (error ? `${id}-error` : hint ? `${id}-hint` : undefined) : undefined);
 
-export function Input({ className, invalid, hasHint, ...rest }: InputHTMLAttributes<HTMLInputElement> & { invalid?: boolean; hasHint?: boolean }) {
-  return <input aria-invalid={invalid || undefined} aria-describedby={describedBy(rest.id, invalid, hasHint)} className={cn(control, "h-[52px]", className)} {...rest} />;
+/** `compact` is 46 px tall, the height of a medium button, for the small sign-in cards. */
+export function Input({ className, invalid, hasHint, compact, ...rest }: InputHTMLAttributes<HTMLInputElement> & { invalid?: boolean; hasHint?: boolean; compact?: boolean }) {
+  return <input aria-invalid={invalid || undefined} aria-describedby={describedBy(rest.id, invalid, hasHint)} className={cn(control, compact ? "h-[46px]" : "h-[52px]", className)} {...rest} />;
 }
 
 export function Textarea({ className, invalid, hasHint, ...rest }: TextareaHTMLAttributes<HTMLTextAreaElement> & { invalid?: boolean; hasHint?: boolean }) {

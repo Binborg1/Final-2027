@@ -1,8 +1,8 @@
 # UI design: F · Oak
 
-**Funza Teacher Studio · v0.9 · 24 November 2026**
+**Funza Teacher Studio · v0.10 · 24 November 2026**
 
-*Changed in v0.9: the Library opens on a card per course with its number of documents (section 4e). v0.8: deleting a material from the Library, and "Bring back curriculum chapters" on a course (sections 4b and 4e). v0.7: the Library (section 4e) replaces the sidebar's disabled Question bank item; a course's Materials card lists approved materials first, opening them read-only, then those still in review. v0.6: templates (section 4d): Word, PowerPoint and Funza materials as examples, saved Make settings, duplicate, pinned questions, printing in the template's style and saving review changes back; and Make's Format panel, which scrolls on its own. v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
+*Changed in v0.10: a smaller sign-in card that fits a laptop screen (section 4); Home shows Prepare before Go live; "Add a course" picks from a search box over a short list instead of a select, and Make and Go live with no course link to it and come back (section 4b). v0.9: the Library opens on a card per course with its number of documents (section 4e). v0.8: deleting a material from the Library, and "Bring back curriculum chapters" on a course (sections 4b and 4e). v0.7: the Library (section 4e) replaces the sidebar's disabled Question bank item; a course's Materials card lists approved materials first, opening them read-only, then those still in review. v0.6: templates (section 4d): Word, PowerPoint and Funza materials as examples, saved Make settings, duplicate, pinned questions, printing in the template's style and saving review changes back; and Make's Format panel, which scrolls on its own. v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
 
 *Changed in v0.3: the step 4 screens (Courses, a course, a chapter, sources, publishing), section 4b.*
 
@@ -125,7 +125,7 @@ On phones, page titles drop to 28 / 34.
 
 ![Sign in](diagrams/02_sign_in.png)
 
-- **Card:** a centred 472 px glass card with no app chrome. "Continue with Google" comes first. Below the "or" divider is an email and password form; the copy above it is as drawn.
+- **Card:** a centred 420 px glass card with no app chrome, about 610 px tall, so it fits a laptop screen with room around it (reduced from 472 px on 24 Nov: 26 px title, 46 px fields and buttons, a 12 px footer line). "Continue with Google" comes first. Below the "or" divider is an email and password form; the copy above it is as drawn.
 - **Changed from Figma (23 Nov):** the frame still shows the email field with "Email me a sign-in link". The built card replaces it with email and password (the built screenshot in section 8 is the reference until the frame is redrawn):
   - **Sign in:** School email, Password with a show/hide eye button, "Forgot password?" right-aligned under it, a "Sign in" button (secondary), and "New to Funza? Create an account" under the form.
   - **Create account:** the same card titled "Create your account", Google still first, the password hint "At least 8 characters", a "Create account" button and "Already have an account? Sign in".
@@ -167,9 +167,9 @@ Each step is saved as the teacher moves on, so a teacher who stops halfway comes
 
 ![Home](diagrams/04_home.png)
 
-- **Kept as drawn:** the greeting with the date, and the two mode cards. "Go live" opens Live setup (step 5).
+- **Kept as drawn:** the greeting with the date, and the two mode cards. **Changed from Figma (24 Nov):** Prepare comes first and Go live second, matching the sidebar. "Go live" opens Live setup (step 5).
 - **Waiting for review:** lists this teacher's drafts that aren't approved yet, with an empty state.
-- **Your courses:** shows the courses chosen in setup. Each one opens Make for that course.
+- **Your courses:** shows the courses chosen in setup. Each one opens Make for that course. With no courses, the empty state has an "Add a course" button in place of the header link.
 - **Left out until Live exists:** "Last live session" and "Most missed".
 
 ### The page shell (F2, 27:531)
@@ -234,9 +234,11 @@ Built from the shared parts, following the F2 chapter frame (27:531). Screenshot
 - **Header:** "Courses", with one line saying what a course holds, and the primary "Add a course".
 - **Cards:** one per course: a terracotta or sage dot, the title, a "Grade N" tag, "N chapters · N materials", and "Open course".
 - **Add a course (dialog):** two chips, "From the curriculum" and "My own course".
-  - *From the curriculum:* grade chips (the teacher's first grade selected), then one Course select grouped by subject. It lists each course at each level ("Accounting 20") and hides courses the teacher already has.
+  - *From the curriculum:* grade chips (the teacher's first grade selected), then one Course box: a search field over a short scrolling list (about six rows), not a select, because a grade has 60 to 90 courses. It lists each course at each level ("Accounting 20"), alphabetically, with its subject in grey on the right, and hides courses the teacher already has. Typing narrows the list (words in any order, the subject included); arrow keys and Enter choose; Escape clears the search. The chosen row has a tint and a check, and the line under the box names it with its number of chapters. With no match: "No Grade 11 course matches …" and "Add it as your own course", which switches to *My own course* with the text filled in.
+  - A curriculum name that lists several courses keeps the first: "Hairstyling & Esthetics 10, 20, 30; Hairstyling 20, 30; Esthetics 20, 30" at Grade 10 is "Hairstyling & Esthetics 10".
   - *My own course:* one Course name field.
   - Footer: Cancel and "Add course". It opens the new course. Home's "Add a course" and the command menu open this dialog (`/courses?add=1`).
+  - **From Make or Go live:** with no course, both show "Add a course first" and an **Add a course** button (`/courses?add=1&then=make` or `then=live`). After a curriculum course is added, the teacher goes back to Make or Go live with it chosen; a course of their own opens on its page, because it has no chapters yet.
 
 ### A course (`/courses/[id]`)
 - **Header:** crumbs "Courses › {course}", the title, "N chapters · From the Saskatchewan curriculum" (or "Your own course"), and the primary "Make something". Make is offered only for curriculum courses.
@@ -427,7 +429,7 @@ The team should review this before the bazaar.
 
 ## 8. The built screens (21 November)
 
-These screenshots come from the app on branch `sign-in`. They were taken with a test teacher and a real Gemini draft. The sign-in screenshots were retaken on 23 November, after the change to email and password.
+These screenshots come from the app on branch `sign-in`. They were taken with a test teacher and a real Gemini draft. The sign-in screenshots were retaken on 24 November, after the card was made smaller.
 
 | Sign in | Create account |
 |---|---|

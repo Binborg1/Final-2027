@@ -2,6 +2,14 @@ import { Check, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/ui/cn";
 
+/**
+ * The sign-in card's frame, shared by "Choose a new password": a 420 px glass
+ * card that sits inside a laptop screen with room around it.
+ */
+export const AUTH_CARD = "frost frost-auth w-full max-w-[420px] rounded-panel border border-white/45 px-8 pt-7 pb-6 shadow-auth max-sm:px-5 max-sm:pt-6 max-sm:pb-5";
+export const AUTH_HEADING = "text-[26px] leading-8 font-bold tracking-[-0.01em]";
+export const AUTH_FOOTER = "mt-5 border-t border-line pt-3.5";
+
 /** The Funza mark: a terracotta circle with the letter F, plus the two-line wordmark. */
 export function Logo({ size = 40, wordmark = true, className }: { size?: 32 | 40; wordmark?: boolean; className?: string }) {
   return (

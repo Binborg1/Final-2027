@@ -15,6 +15,10 @@ test("a multi-level course becomes one course per level, named for that level", 
   assert.equal(levelTitle("Agriculture Production A10, B10, A20, B20, A30, B30", [10, 20, 30], 30), "Agriculture Production 30");
   assert.equal(levelTitle("Physics 30", [30], 30), "Physics 30");
   assert.equal(levelTitle("Wellness", [10, 20], 20), "Wellness (20)", "no level list in the name");
+  assert.equal(levelTitle("Hairstyling & Esthetics 10, 20, 30; Hairstyling 20, 30; Esthetics 20, 30", [10, 20, 30], 20), "Hairstyling & Esthetics 20", "a name listing several courses keeps the first");
+  assert.equal(levelTitle("Electrical and Electronics 10, Electrical 20, 30, Electronics 20, A30, B30", [10, 20, 30], 30), "Electrical and Electronics 30");
+  assert.equal(levelTitle("Michif French 10, 20, 30 (2026 PRELIMINARY)", [10, 20, 30], 10), "Michif French 10");
+  assert.equal(levelTitle("Instructional Physical Education 20/30 (1994)", [20, 30], 30), "Instructional Physical Education 30");
   assert.equal(gradeOfLevel(20), 11);
 });
 

@@ -37,11 +37,15 @@ export const firstIssue = (e: z.ZodError) => e.issues[0]?.message ?? "Check the 
 
 export const keyOf = (c: CourseChoice) => `${c.curriculumCourseId}:${c.level}`;
 
-/** "Accounting 10, 20, 30" at level 20 → "Accounting 20". Single-level names stay as they are. */
+/**
+ * "Accounting 10, 20, 30" at level 20 → "Accounting 20". A name that lists several
+ * courses ("Hairstyling & Esthetics 10, 20, 30; Hairstyling 20, 30; …") keeps the
+ * first, so the list stays readable. Single-level names stay as they are.
+ */
 export function levelTitle(name: string, levels: number[], level: number): string {
   if (levels.length <= 1) return name;
-  const base = name.replace(/\s+[AB]?\d0(\s*,\s*[AB]?\d0)*\s*$/, "").trim();
-  return base && base !== name ? `${base} ${level}` : `${name} (${level})`;
+  const base = name.match(/^(.*?)\s+[AB]?\d0\b/)?.[1]?.trim();
+  return base ? `${base} ${level}` : `${name} (${level})`;
 }
 
 export const subjectOf = (c: Pick<CurriculumCourse, "subject">) => c.subject ?? OTHER_SUBJECT;

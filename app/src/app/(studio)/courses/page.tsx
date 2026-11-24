@@ -27,7 +27,7 @@ export default async function CoursesPage({ searchParams }: { searchParams: Prom
       <PageHeader
         title="Courses"
         summary="Each course holds its chapters, materials and question bank."
-        actions={<AddCourse curriculum={curriculum} grades={teacher.grades} openInitially={sp.add === "1"} existing={existing} />}
+        actions={<AddCourse curriculum={curriculum} grades={teacher.grades} openInitially={sp.add === "1"} existing={existing} then={sp.then === "make" || sp.then === "live" ? sp.then : undefined} />}
       />
       {courses.length === 0 ? (
         <Card className="p-6">

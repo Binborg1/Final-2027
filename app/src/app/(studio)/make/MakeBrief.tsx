@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Check, CircleAlert, FileText, LoaderCircle, Lock, Paperclip, RotateCcw, Sparkles, X } from "lucide-react";
+import { BookOpen, Check, CircleAlert, FileText, LoaderCircle, Lock, Paperclip, Plus, RotateCcw, Sparkles, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -262,8 +262,8 @@ export function MakeBrief({
       <div className="flex flex-col gap-5">
         <PageHeader title="What do you want to make?" size="title-sm" />
         <Card className="p-6">
-          <EmptyState icon={BookOpen} title="Add a course first">
-            Make starts from a course’s curriculum. Courses come from first-time setup; adding more arrives in the next update.
+          <EmptyState icon={BookOpen} title="Add a course first" action={<ButtonLink href="/courses?add=1&then=make" icon={Plus}>Add a course</ButtonLink>}>
+            Make starts from a course’s curriculum chapters. Add a Saskatchewan curriculum course and you come straight back here.
           </EmptyState>
         </Card>
       </div>

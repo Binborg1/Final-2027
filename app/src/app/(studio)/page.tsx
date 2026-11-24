@@ -1,6 +1,7 @@
 import { ArrowRight, BookOpen, Plus, Radio, Sparkles, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { PageHeader } from "@/components/shell/PageHeader";
+import { ButtonLink } from "@/components/ui/Button";
 import { Card, CardHeader } from "@/components/ui/Card";
 import { Tag } from "@/components/ui/Chip";
 import { EmptyState } from "@/components/ui/Misc";
@@ -12,7 +13,7 @@ import { WaitingForReview } from "./WaitingForReview";
 
 export const metadata = { title: "Home" };
 
-/** F1 Home: the two modes, drafts waiting for review, and the teacher's courses. */
+/** F1 Home: the two modes (Prepare first), drafts waiting for review, and the teacher's courses. */
 export default async function HomePage() {
   const { teacher } = await requireTeacher({ next: "/" });
   const courses = await teacherCourses();
@@ -21,8 +22,8 @@ export default async function HomePage() {
       <PageHeader size="display" title={`${greeting()}, ${firstName(teacher)}`} summary={todayLabel()} />
 
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-        <ModeCard icon={Radio} title="Go live" text="Run a timed question set in class. Students join on their phones." href="/live/new" />
         <ModeCard icon={Sparkles} title="Prepare" text="Make notes, slides, quizzes and exams for your courses." href="/make" />
+        <ModeCard icon={Radio} title="Go live" text="Run a timed question set in class. Students join on their phones." href="/live/new" />
       </div>
 
       <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-[minmax(0,1fr)_400px]">
@@ -32,14 +33,16 @@ export default async function HomePage() {
             id="courses-title"
             title="Your courses"
             actions={
-              <Link href="/courses?add=1" className="inline-flex items-center gap-1.5 text-body font-semibold text-accent-ink hover:underline">
-                <Plus aria-hidden size={16} strokeWidth={2} />
-                Add a course
-              </Link>
+              courses.length > 0 ? (
+                <Link href="/courses?add=1" className="inline-flex items-center gap-1.5 text-body font-semibold text-accent-ink hover:underline">
+                  <Plus aria-hidden size={16} strokeWidth={2} />
+                  Add a course
+                </Link>
+              ) : null
             }
           />
           {courses.length === 0 ? (
-            <EmptyState icon={BookOpen} title="No courses yet">
+            <EmptyState icon={BookOpen} title="No courses yet" action={<ButtonLink href="/courses?add=1" variant="secondary" icon={Plus} size="sm">Add a course</ButtonLink>}>
               Add a course to start making materials for it.
             </EmptyState>
           ) : (

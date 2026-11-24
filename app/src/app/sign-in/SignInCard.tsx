@@ -4,7 +4,7 @@ import { ArrowLeft, CircleAlert, CircleCheck, Info, Lock, MailCheck, Send } from
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/Button";
 import { Field, Input } from "@/components/ui/Field";
-import { GoogleG, Logo } from "@/components/ui/Misc";
+import { AUTH_CARD, AUTH_FOOTER, AUTH_HEADING, GoogleG, Logo } from "@/components/ui/Misc";
 import { PasswordInput } from "@/components/ui/PasswordInput";
 import { authMessage, EMAIL_PATTERN, MIN_PASSWORD, passwordProblem, type SignInMode } from "@/lib/auth/email-sign-in";
 import { browserClient } from "@/lib/db/browser";
@@ -100,15 +100,15 @@ export function SignInCard({ next, notice, initialMode = "sign-in" }: { next: st
   }
 
   return (
-    <div className="frost frost-auth w-full max-w-[472px] rounded-auth border border-white/45 px-11 pt-11 pb-9 shadow-auth max-sm:px-6 max-sm:pt-8 max-sm:pb-7">
+    <div className={AUTH_CARD}>
       <Logo />
       {sent ? (
-        <div className="mt-9 flex flex-col gap-4" role="status">
-          <span className="flex size-12 items-center justify-center rounded-md bg-sage-tint text-sage-ink">
-            <MailCheck aria-hidden size={24} strokeWidth={1.6} />
+        <div className="mt-6 flex flex-col gap-3" role="status">
+          <span className="flex size-11 items-center justify-center rounded-md bg-sage-tint text-sage-ink">
+            <MailCheck aria-hidden size={22} strokeWidth={1.6} />
           </span>
-          <h1 className="text-hero font-bold">Check your email</h1>
-          <p className="text-card-sm font-medium text-ink-2">
+          <h1 className={AUTH_HEADING}>Check your email</h1>
+          <p className="text-body font-medium text-ink-2">
             {sent.kind === "confirm" ? (
               <>
                 Open the link we sent to <span className="font-semibold text-ink">{sent.to}</span> to confirm your account. Already have one? Sign in instead.
@@ -119,29 +119,29 @@ export function SignInCard({ next, notice, initialMode = "sign-in" }: { next: st
               </>
             )}
           </p>
-          <Button variant="secondary" icon={ArrowLeft} className="mt-2 w-full" onClick={() => { setSent(null); switchTo("sign-in"); }}>
+          <Button variant="secondary" icon={ArrowLeft} className="mt-1 w-full" onClick={() => { setSent(null); switchTo("sign-in"); }}>
             Back to sign in
           </Button>
         </div>
       ) : (
         <>
-          <h1 className="mt-9 text-hero font-bold">{TITLES[mode]}</h1>
-          <p className="mt-1.5 text-card-sm font-medium text-ink-2">{SUBTITLES[mode]}</p>
+          <h1 className={cn("mt-5", AUTH_HEADING)}>{TITLES[mode]}</h1>
+          <p className="mt-1 text-body font-medium text-ink-2">{SUBTITLES[mode]}</p>
 
           {message ? <Notice notice={message} /> : null}
 
           {mode !== "forgot" ? (
             <>
-              <Button size="lg" className="mt-8 h-[54px] w-full gap-3 px-6" loading={busy === "google"} disabled={busy !== null} onClick={google}>
+              <Button className="mt-5 w-full gap-2.5" loading={busy === "google"} disabled={busy !== null} onClick={google}>
                 {busy !== "google" ? (
-                  <span aria-hidden className="flex size-[30px] items-center justify-center rounded-full bg-white">
-                    <GoogleG size={20} />
+                  <span aria-hidden className="flex size-7 items-center justify-center rounded-full bg-white">
+                    <GoogleG size={18} />
                   </span>
                 ) : null}
                 Continue with Google
               </Button>
 
-              <div className="mt-[26px] flex items-center gap-3" aria-hidden>
+              <div className="mt-4 flex items-center gap-3" aria-hidden>
                 <span className="h-px flex-1 bg-ink/12" />
                 <span className="text-meta text-ink-2">or</span>
                 <span className="h-px flex-1 bg-ink/12" />
@@ -149,9 +149,9 @@ export function SignInCard({ next, notice, initialMode = "sign-in" }: { next: st
             </>
           ) : null}
 
-          <form onSubmit={submit} noValidate className={cn("flex flex-col gap-3", mode === "forgot" ? "mt-8" : "mt-[22px]")}>
+          <form onSubmit={submit} noValidate className={cn("flex flex-col gap-3", mode === "forgot" ? "mt-5" : "mt-3")}>
             <Field id="email" label="School email" error={errors.email}>
-              <Input id="email" type="email" inputMode="email" autoComplete={mode === "create" ? "email" : "username"} placeholder="name@yourschool.ca" value={email} invalid={!!errors.email} onChange={(e) => setEmail(e.target.value)} disabled={busy !== null} />
+              <Input id="email" type="email" inputMode="email" autoComplete={mode === "create" ? "email" : "username"} placeholder="name@yourschool.ca" value={email} invalid={!!errors.email} compact onChange={(e) => setEmail(e.target.value)} disabled={busy !== null} />
             </Field>
 
             {mode !== "forgot" ? (
@@ -162,6 +162,7 @@ export function SignInCard({ next, notice, initialMode = "sign-in" }: { next: st
                   value={password}
                   invalid={!!errors.password}
                   hasHint={mode === "create"}
+                  compact
                   onChange={(e) => setPassword(e.target.value)}
                   disabled={busy !== null}
                 />
@@ -169,17 +170,17 @@ export function SignInCard({ next, notice, initialMode = "sign-in" }: { next: st
             ) : null}
 
             {mode === "sign-in" ? (
-              <button type="button" onClick={() => switchTo("forgot")} disabled={busy !== null} className="self-end rounded-sm text-meta font-semibold text-accent-ink hover:underline focus-visible:outline-2 focus-visible:outline-accent pointer-coarse:min-h-11">
+              <button type="button" onClick={() => switchTo("forgot")} disabled={busy !== null} className="-mt-1 self-end rounded-sm text-meta font-semibold text-accent-ink hover:underline focus-visible:outline-2 focus-visible:outline-accent pointer-coarse:min-h-11">
                 Forgot password?
               </button>
             ) : null}
 
-            <Button type="submit" variant="secondary" icon={mode === "forgot" ? Send : undefined} className="mt-1 h-[50px] w-full" loading={busy === "email"} disabled={busy !== null}>
+            <Button type="submit" variant="secondary" icon={mode === "forgot" ? Send : undefined} className="mt-1 w-full" loading={busy === "email"} disabled={busy !== null}>
               {mode === "sign-in" ? "Sign in" : mode === "create" ? "Create account" : "Email me a reset link"}
             </Button>
           </form>
 
-          <p className="mt-5 text-center text-body font-medium text-ink-2">
+          <p className="mt-4 text-center text-body font-medium text-ink-2">
             {mode === "sign-in" ? (
               <>
                 New to Funza? <ModeLink onClick={() => switchTo("create")} disabled={busy !== null}>Create an account</ModeLink>
@@ -195,9 +196,9 @@ export function SignInCard({ next, notice, initialMode = "sign-in" }: { next: st
         </>
       )}
 
-      <div className="mt-7 border-t border-line pt-[18px]">
-        <p className="flex items-center justify-center gap-2 text-center text-meta leading-[19px] text-ink-2">
-          <Lock aria-hidden size={16} strokeWidth={1.5} className="shrink-0" />
+      <div className={AUTH_FOOTER}>
+        <p className="flex items-center justify-center gap-1.5 text-center text-badge text-balance text-ink-2">
+          <Lock aria-hidden size={14} strokeWidth={1.75} className="shrink-0" />
           Students never need an account. Your data stays in Canada.
         </p>
       </div>
@@ -216,7 +217,7 @@ function ModeLink({ onClick, disabled, children }: { onClick: () => void; disabl
 function Notice({ notice }: { notice: SignInNotice }) {
   const Icon = notice.tone === "bad" ? CircleAlert : notice.tone === "ok" ? CircleCheck : Info;
   return (
-    <p role={notice.tone === "bad" ? "alert" : "status"} className={cn("mt-5 flex items-start gap-2.5 rounded-md px-3.5 py-3 text-body font-medium", notice.tone === "bad" ? "bg-red-tint text-red-ink" : notice.tone === "ok" ? "bg-sage-tint text-sage-ink" : "bg-amber-tint text-amber-ink")}>
+    <p role={notice.tone === "bad" ? "alert" : "status"} className={cn("mt-4 flex items-start gap-2 rounded-md px-3 py-2.5 text-body font-medium", notice.tone === "bad" ? "bg-red-tint text-red-ink" : notice.tone === "ok" ? "bg-sage-tint text-sage-ink" : "bg-amber-tint text-amber-ink")}>
       <Icon aria-hidden size={18} strokeWidth={1.75} className="mt-px shrink-0" />
       {notice.text}
     </p>

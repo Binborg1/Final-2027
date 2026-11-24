@@ -6,16 +6,18 @@ import { useMemo, useState, useTransition } from "react";
 import { Button } from "@/components/ui/Button";
 import { ChoiceChip } from "@/components/ui/Chip";
 import { Dialog } from "@/components/ui/Dialog";
-import { Field, Input, Select } from "@/components/ui/Field";
+import { Field, Input } from "@/components/ui/Field";
+import { SearchList } from "@/components/ui/SearchList";
 import { addCourse } from "@/lib/courses/actions";
-import { courseRows, type CurriculumCourse } from "@/lib/teachers/setup";
+import { courseRows, OTHER_SUBJECT, type CurriculumCourse } from "@/lib/teachers/setup";
 
 /**
  * "Add a course": a Saskatchewan curriculum course at one level (its chapters come
  * from the curriculum units), or a course of the teacher's own. One direction: pick,
- * then Add.
+ * then Add. The curriculum list is a search box over a short list, not a select:
+ * a grade has dozens of courses. `then` sends the teacher back to Make or Go live.
  */
-export function AddCourse({ curriculum, grades, openInitially = false, existing }: { curriculum: CurriculumCourse[]; grades: number[]; openInitially?: boolean; existing: string[] }) {
+export function AddCourse({ curriculum, grades, openInitially = false, existing, then }: { curriculum: CurriculumCourse[]; grades: number[]; openInitially?: boolean; existing: string[]; then?: "make" | "live" }) {
   const router = useRouter();
   const [open, setOpen] = useState(openInitially);
   const [mode, setMode] = useState<"curriculum" | "own">("curriculum");
@@ -26,11 +28,8 @@ export function AddCourse({ curriculum, grades, openInitially = false, existing 
   const [pending, start] = useTransition();
 
   const rows = useMemo(() => courseRows(curriculum, [grade], []).filter((r) => !existing.includes(r.key)), [curriculum, grade, existing]);
-  const bySubject = useMemo(() => {
-    const groups = new Map<string, typeof rows>();
-    for (const r of rows) groups.set(r.subject, [...(groups.get(r.subject) ?? []), r]);
-    return [...groups.entries()];
-  }, [rows]);
+  const items = useMemo(() => rows.map((r) => ({ id: r.key, label: r.title, hint: r.subject === OTHER_SUBJECT ? undefined : r.subject })), [rows]);
+  const chosen = rows.find((r) => r.key === choice);
 
   function close() {
     setOpen(false);
@@ -41,9 +40,8 @@ export function AddCourse({ curriculum, grades, openInitially = false, existing 
     setError(null);
     let input: unknown;
     if (mode === "curriculum") {
-      const row = rows.find((r) => r.key === choice);
-      if (!row) return setError("Choose a course.");
-      input = { curriculumCourseId: row.curriculumCourseId, level: row.level };
+      if (!chosen) return setError("Choose a course.");
+      input = { curriculumCourseId: chosen.curriculumCourseId, level: chosen.level };
     } else {
       if (!title.trim()) return setError("Give your course a name.");
       input = { title };
@@ -52,7 +50,9 @@ export function AddCourse({ curriculum, grades, openInitially = false, existing 
       const res = await addCourse(input);
       if (!res.ok) return setError(res.message);
       setOpen(false);
-      router.push(`/courses/${res.id}`);
+      // Opened from Make or Go live with no course: go back there with the new one chosen.
+      // A course of the teacher's own has no chapters yet, so it opens on its page.
+      router.push(then && mode === "curriculum" ? `${then === "make" ? "/make" : "/live/new"}?course=${res.id}` : `/courses/${res.id}`);
     });
   }
 
@@ -96,19 +96,47 @@ export function AddCourse({ curriculum, grades, openInitially = false, existing 
                   </ChoiceChip>
                 ))}
               </div>
-              <Field id="add-course-choice" label="Course">
-                <Select id="add-course-choice" value={choice} onChange={(e) => setChoice(e.target.value)}>
-                  <option value="">Choose a course…</option>
-                  {bySubject.map(([subject, list]) => (
-                    <optgroup key={subject} label={subject}>
-                      {list.map((r) => (
-                        <option key={r.key} value={r.key}>
-                          {r.title}
-                        </option>
-                      ))}
-                    </optgroup>
-                  ))}
-                </Select>
+              <Field
+                id="add-course-choice"
+                label="Course"
+                hint={
+                  chosen ? (
+                    <>
+                      <span className="font-semibold text-ink">{chosen.title}</span> · {chosen.units > 0 ? `${chosen.units} ${chosen.units === 1 ? "chapter" : "chapters"} from the curriculum units` : "no curriculum units yet, so you add its chapters"}
+                    </>
+                  ) : (
+                    `${rows.length} Grade ${grade} ${rows.length === 1 ? "course" : "courses"}. Type to narrow the list.`
+                  )
+                }
+              >
+                <SearchList
+                  id="add-course-choice"
+                  label={`Grade ${grade} courses`}
+                  items={items}
+                  value={choice}
+                  onChange={(key) => {
+                    setChoice(key);
+                    setError(null);
+                  }}
+                  placeholder={`Search Grade ${grade} courses`}
+                  describedBy="add-course-choice-hint"
+                  disabled={pending}
+                  empty={(q) => (
+                    <>
+                      No Grade {grade} course matches “{q}”.{" "}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setMode("own");
+                          setTitle(q.trim());
+                        }}
+                        className="rounded-sm font-semibold text-accent-ink hover:underline focus-visible:outline-2 focus-visible:outline-accent"
+                      >
+                        Add it as your own course
+                      </button>
+                    </>
+                  )}
+                />
               </Field>
             </>
           ) : (
