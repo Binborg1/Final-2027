@@ -281,6 +281,11 @@ export function MakeBrief({ courses, chapters, initialPrompt, initialCourseId, i
           </div>
 
           <MakeActions aiKnown={ai.known} aiConfigured={ai.configured} disabled={brief.outcomeIds.length === 0 || loadingCourse} busy={busy} onMake={() => void startGeneration()} />
+          {ai.configured && ai.remaining !== null && ai.remaining <= 5 ? (
+            <p role="status" className="text-meta font-medium text-ink-2">
+              {ai.remaining === 0 ? "You’ve used today’s Funza actions. They reset at midnight, Saskatchewan time. You can still start from the question bank." : `${ai.remaining} Funza action${ai.remaining === 1 ? "" : "s"} left today.`}
+            </p>
+          ) : null}
         </section>
 
         {/* Adjust and "Funza will use" */}

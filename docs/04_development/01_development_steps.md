@@ -1,8 +1,8 @@
 # Funza development steps
 
-**Funza Teacher Studio · v0.3 · 23 November 2026**
+**Funza Teacher Studio · v0.4 · 23 November 2026**
 
-*Changed in v0.3: teacher sign-in is Google, or email and password, instead of an email link (step 3).*
+*Changed in v0.4: step 4 is built (courses and chapters, drafts and approval in the database, the question bank, the daily AI allowance); the chapter rule is decided. v0.3: teacher sign-in is Google, or email and password, instead of an email link (step 3).*
 
 This is the order in which Funza gets built, from creating accounts to the final release. Each step lists what to do and how to know it's done. The *why* behind each choice is in [requirements and architecture](../03_design/02_requirements_and_architecture/requirements_and_architecture.md); the product is summarized in the [repo README](../../README.md).
 
@@ -124,20 +124,28 @@ Also in this step: the F · Oak design system and page shell ([UI design](../03_
 
 ## Step 4. Courses, Make and the bank in the database (24–25 Nov)
 
-1. Courses and chapters: create, rename, reorder and delete. New chapters start from the curriculum units.
-   - **Curriculum data, left alone on 21 November, is decided here.** Only 58 of the 134 courses in `sk.json` have units (none of the 9 math courses do), so choose the chapter rule for the rest (suggested: one chapter per outcome, which the teacher can rename or merge). Then remove the Science 10 hand-copied entry and its `lessonTemplate` rule from `catalog.ts`, the unused lesson-plan content in `bank.ts`, and `scripts/curriculum/schema.sql` and `export-sql.mjs`, which contradict "the curriculum stays JSON".
-2. Sources: upload to Storage, extract the text once, and attach the source to its chapter.
-3. Move `lib/resources/store.ts` from local storage to Supabase: drafts, versions, and approve, which locks a version.
-4. AI:
-   - Gemini is already first (21 November); move it to the current Flash model.
-   - Every call goes through the daily allowance (`FUNZA_AI_DAILY_LIMIT`, default 40) and is logged in `ai_usage`.
-   - Long drafts stream to the screen.
-5. Approving saves the questions to the chapter's bank. **Approval is enforced on the server:** it recomputes the checks and refuses to approve while anything has failed or waits on the teacher. Today only the browser checks.
-6. On first sign-in, offer to import drafts saved in that browser.
-7. Publishing to Classroom builds the Google Doc on the server from a saved approved version, found by its id, instead of from sections the browser sends (`api/lms/google/doc/route.ts`, which also still defaults the course name to "Science 10").
-8. Gemini replies use a JSON response schema, `complete()` returns token counts for `ai_usage`, and `/api/teach` sets a `maxDuration` for long drafts.
+Built on branch `step-4-courses-and-bank` (23 November). The migration `step4_courses_and_bank` adds unique seeded chapters, question fingerprints and `approve_version()`.
 
-**Done when:** a teacher makes and approves a quiz on one computer and finds it on another.
+1. ✅ Courses and chapters: create, rename, reorder and delete, on `/courses`, `/courses/[id]` and the chapter page. New chapters start from the curriculum.
+   - **Chapter rule (decided 23 Nov):**
+     - one chapter per curriculum unit with outcomes at the course's level;
+     - one per Practical and Applied Arts module;
+     - one per outcome where the curriculum has neither (all 9 Mathematics courses);
+     - chapters named after the curriculum document's units, or a single "Chapter 1", where there are no web outcomes.
+     - The teacher renames, reorders or deletes them.
+   - Chapters are seeded in setup, on "Add a course", and the first time an older course opens. They store the catalog's outcome ids, so the hand-copied Science 10 outcomes still match.
+   - *Moved to after the bazaar:* removing the Science 10 hand-copied entry and its `lessonTemplate` rule (the starter bank is tied to its ids), the lesson-plan content in `bank.ts`, and `scripts/curriculum/schema.sql` and `export-sql.mjs`.
+2. Sources: upload to Storage, extract the text once, and attach the source to its chapter. *Next; needs a Storage bucket migration.*
+3. ✅ `lib/resources/store.ts` saves to Supabase. The browser keeps the working copy and saves each change through Server Functions (`lib/resources/actions.ts`). The draft is a resource version's `content`. Approving locks the version; editing starts the next one.
+4. AI:
+   - ✅ Every call goes through the daily allowance (`FUNZA_AI_DAILY_LIMIT`, default 40, counted from midnight Saskatchewan time) and is logged in `ai_usage` with its tokens. Make says how many are left when 5 or fewer remain.
+   - Move to the current Flash model, and stream long drafts. *Later.*
+5. ✅ Approving saves the questions to the chapter's bank. **Approval is enforced on the server:** it reruns the checks on the saved copy and refuses while anything has failed, waits on the teacher or changed since review. `approve_version()` then approves the version and upserts its questions in one transaction. Unchanged questions keep their bank row.
+6. On first sign-in, offer to import drafts saved in that browser. *Dropped: only test drafts existed.*
+7. Publishing to Classroom builds the Google Doc on the server from a saved approved version, found by its id. *Later: no screen publishes to Classroom yet.*
+8. ✅ Gemini replies are requested as JSON, `complete()` returns token counts, and `/api/teach` sets `maxDuration = 150`.
+
+**Done when:** a teacher makes and approves a quiz on one computer and finds it on another, with its questions in the chapter's bank.
 
 ## Step 5. Live mode (26–28 Nov)
 

@@ -1,6 +1,8 @@
 # UI design: F · Oak
 
-**Funza Teacher Studio · v0.2 · 23 November 2026**
+**Funza Teacher Studio · v0.3 · 23 November 2026**
+
+*Changed in v0.3: the step 4 screens (Courses, a course, a chapter), section 4b.*
 
 *Changed in v0.2: the sign-in card has an email and password form, with "Create account" and "Forgot password?", instead of the email link, and a new "Choose a new password" screen (section 4).*
 
@@ -221,6 +223,41 @@ Each step is saved as the teacher moves on, so a teacher who stops halfway comes
 - **Left out:** "Funza today" (the daily AI allowance arrives in step 4) and "Theme" (no dark design exists).
 - **Course list:** choosing a class per course arrives with course pages.
 
+## 4b. Screens in step 4
+
+Built from the shared parts, following the F2 chapter frame (27:531). Screenshots are added once the step 4 migration is on the database.
+
+### Courses (`/courses`)
+- **Header:** "Courses", with one line saying what a course holds, and the primary "Add a course".
+- **Cards:** one per course: a terracotta or sage dot, the title, a "Grade N" tag, "N chapters · N materials", and "Open course".
+- **Add a course (dialog):** two chips, "From the curriculum" and "My own course".
+  - *From the curriculum:* grade chips (the teacher's first grade selected), then one Course select grouped by subject. It lists each course at each level ("Accounting 20") and hides courses the teacher already has.
+  - *My own course:* one Course name field.
+  - Footer: Cancel and "Add course". It opens the new course. Home's "Add a course" and the command menu open this dialog (`/courses?add=1`).
+
+### A course (`/courses/[id]`)
+- **Header:** crumbs "Courses › {course}", the title, "N chapters · From the Saskatchewan curriculum" (or "Your own course"), and the primary "Make something". Make is offered only for curriculum courses.
+- **Chapters card:**
+  - Numbered rows with the chapter title and "N outcomes · from the curriculum". The title opens the chapter page.
+  - Four quiet round buttons on each row: rename (in place, with Save and Cancel), up, down, delete (with a confirm dialog saying its questions stay in the bank, retired).
+  - An "Add a chapter" field at the end.
+- **Materials card** (right column): each material with its type, version, date and state chip, opening in Review.
+- **Course settings** (collapsed): rename, and "Delete this course" with a confirm dialog.
+
+### A chapter (`/courses/[id]/chapters/[chapterId]`)
+- **Header:** crumbs "Courses › {course} › {chapter}", "Chapter N of M · N outcomes · From the Saskatchewan curriculum", and "Make something", which starts Make on this chapter.
+- **Left column:** Materials, then **Outcomes**, "From the official source": each outcome's code tag and its official wording.
+- **Right column:**
+  - **Question bank:** count, a line "N Multiple choice · N True or false · … · N marks in all", and a scrolling list of stems with type and marks (and "% right in class" once live results exist).
+  - **Sources** and **Live sessions:** empty states saying when they arrive.
+- **Changed from Figma:** the frame's bottom tab dock is left out until the page has five sections that hold something.
+
+### Make
+- **Chapters:** the chips are the course's chapters from the database, so a teacher's renamed or added chapters appear.
+- **Opening Make from a chapter page** starts on that chapter.
+- **No chapters:** a course with none says so and links to its course page.
+- **Daily allowance:** when 5 or fewer AI actions are left today, a quiet line under Make draft says how many. At 0 it says when they reset and that the question bank still works.
+
 ## 5. Phones (added; not drawn for teacher screens)
 
 Only the student phone (F5, 32:220) is drawn. Teacher screens below 768 px follow its rules:
@@ -290,4 +327,4 @@ These screenshots come from the app on branch `sign-in`. They were taken with a 
 
 ## 9. Not in this version
 
-Live mode (lobby, console, reveal, results), the student join and answer screens, the student course page, the chapter page, the question bank and templates. Each is drawn in Figma and gets its section here when it is built.
+Live mode (lobby, console, reveal, results), the student join and answer screens, the student course page, a bank page across chapters, and templates. Each is drawn in Figma and gets its section here when it is built.

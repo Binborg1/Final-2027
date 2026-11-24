@@ -29,7 +29,8 @@ export type GenStage = { id: string; label: string; detail: string };
 export type GenError = { code: string; title: string; message: string; atStage: number };
 export type GenerationState = { state: "idle" | "running" | "failed" | "cancelled" | "done"; stage: number; stages: GenStage[]; error: GenError | null; resourceId: string | null; startedAt: number };
 export type Toast = { id: string; tone: "ok" | "info" | "bad"; text: string };
-export type AiInfo = { known: boolean; configured: boolean; provider: string | null };
+/** `remaining`: AI actions left today under the daily allowance (null when unknown). */
+export type AiInfo = { known: boolean; configured: boolean; provider: string | null; remaining: number | null };
 
 export type WorkspaceState = {
   hydrated: boolean;
@@ -58,7 +59,7 @@ const INITIAL: WorkspaceState = {
   generation: IDLE,
   selection: [],
   toasts: [],
-  ai: { known: false, configured: false, provider: null },
+  ai: { known: false, configured: false, provider: null, remaining: null },
   catalogVersion: 0,
 };
 
@@ -167,9 +168,9 @@ export function loadWorkspace(startOutcomeIds: string[] = []) {
     e.preventDefault();
   });
   fetch("/api/teach", { cache: "no-store" })
-    .then((r) => (r.ok ? (r.json() as Promise<{ configured: boolean; provider?: string }>) : { configured: false }))
+    .then((r) => (r.ok ? (r.json() as Promise<{ configured: boolean; provider?: string; remaining?: number | null }>) : { configured: false }))
     .catch(() => ({ configured: false, provider: undefined }))
-    .then((a) => set((s) => ({ ...s, ai: { known: true, configured: !!a.configured, provider: ("provider" in a && a.provider) || null } })));
+    .then((a) => set((s) => ({ ...s, ai: { known: true, configured: !!a.configured, provider: ("provider" in a && a.provider) || null, remaining: "remaining" in a && typeof a.remaining === "number" ? a.remaining : null } })));
 }
 
 /* ---------- helpers ---------- */
@@ -252,6 +253,7 @@ const ERROR_TEXT: Record<string, { title: string; message: string; stage: number
   "invalid-outcome": { title: "That outcome cannot be used", message: "", stage: 0 },
   network: { title: "Funza could not be reached", message: "Check your connection. Nothing was saved.", stage: 2 },
   allowance: { title: "Today’s Funza actions are used up", message: "", stage: 2 },
+  "allowance-unavailable": { title: "Funza couldn’t check today’s allowance", message: "", stage: 2 },
 };
 
 function stagesFor(b: Brief): GenStage[] {
@@ -312,12 +314,13 @@ export async function startGeneration() {
     json = { ok: false, reason: "network" };
   }
   if (state.generation.state !== "running") return;
+  if (json.reason === "allowance") set((s) => ({ ...s, ai: { ...s.ai, remaining: 0 } }));
   if (!json.ok || !json.data) {
     const known = ERROR_TEXT[json.reason ?? ""] ?? { title: "The AI request failed", message: "", stage: 2 };
     set((s) => ({ ...s, generation: { ...s.generation, state: "failed", stage: known.stage, error: { code: json.reason ?? "provider", title: known.title, message: known.message || json.message || "Nothing was saved.", atStage: known.stage } } }));
     return;
   }
-  set((s) => ({ ...s, generation: { ...s.generation, stage: 3 } }));
+  set((s) => ({ ...s, ai: { ...s.ai, remaining: s.ai.remaining === null ? null : Math.max(0, s.ai.remaining - 1) }, generation: { ...s.generation, stage: 3 } }));
   const sections = sanitizeSections(json.data.sections, { allowedOutcomes: new Set(b.outcomeIds), origin: "ai" });
   await wait(300);
   set((s) => ({ ...s, generation: { ...s.generation, stage: 4 } }));
@@ -491,6 +494,7 @@ export async function regenerateItem(id: string, itemId: string, guidance: strin
       });
       const json = (await res.json()) as { ok: boolean; message?: string; data?: { item: unknown } };
       const alt = json.ok && json.data ? sanitizeItem(json.data.item, { allowedOutcomes: new Set(d.outcomeIds), fallbackId: newId("q"), origin: "ai" }) : null;
+      if (json.ok) set((s) => ({ ...s, ai: { ...s.ai, remaining: s.ai.remaining === null ? null : Math.max(0, s.ai.remaining - 1) } }));
       if (!alt) return { ok: false, message: json.message ?? "The AI did not return a usable question." };
       patchDraft(id, (dd) => ({ ...dd, pendingAlt: { targetId: itemId, item: { ...alt, id: newId("q"), reviewedFp: null } } }));
       return { ok: true };
