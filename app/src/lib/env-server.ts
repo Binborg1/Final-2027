@@ -11,6 +11,8 @@ import { checkEnv, publicEnvSchema } from "@/lib/env";
  * still runs, and says that drafting or Classroom isn't set up.
  */
 
+const WHOLE = { error: "must be a whole number above 0" };
+
 export const serverEnvSchema = publicEnvSchema
   .extend({
     SUPABASE_SECRET_KEY: z
@@ -18,6 +20,8 @@ export const serverEnvSchema = publicEnvSchema
       .startsWith("sb_secret_", { error: "must be the sb_secret_… key (not the legacy service_role key)" }),
     GEMINI_API_KEY: z.string().optional(),
     FUNZA_AI_MODEL: z.string().optional(),
+    // AI actions per teacher per day (FR-30); unset means 40 (src/lib/ai/allowance.ts).
+    FUNZA_AI_DAILY_LIMIT: z.coerce.number(WHOLE).int(WHOLE).positive(WHOLE).optional(),
     GOOGLE_CLIENT_ID: z.string().endsWith(".apps.googleusercontent.com", { error: "must be an OAuth client ID" }).optional(),
     GOOGLE_CLIENT_SECRET: z.string().optional(),
     FUNZA_SESSION_SECRET: z.string().min(32, { error: "must be at least 32 characters" }).optional(),

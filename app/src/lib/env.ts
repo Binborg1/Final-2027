@@ -33,7 +33,8 @@ export function checkEnv<T extends z.ZodType>(schema: T, source: Record<string, 
   if (parsed.success) return parsed.data;
   const problems = parsed.error.issues.map((issue) => {
     const name = issue.path.map(String).join(".") || "environment";
-    return issue.code === "invalid_type" ? `${name} is missing` : `${name} ${issue.message}`;
+    // A set value of the wrong type (a number setting that isn't a number) is malformed, not missing.
+    return issue.code === "invalid_type" && !(name in set) ? `${name} is missing` : `${name} ${issue.message}`;
   });
   throw new EnvError(problems);
 }

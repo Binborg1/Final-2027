@@ -51,7 +51,22 @@ export class AiError extends Error {
 
 type Completion = { system: string; user: string; maxTokens: number };
 
-export async function complete(input: Completion): Promise<string> {
+/** A reply's text, the model that wrote it, and its token counts (0 when the provider leaves them out), for `ai_usage`. */
+export type CompletionResult = { text: string; model: string; tokensIn: number; tokensOut: number };
+
+/** A token count from a provider reply: a whole number from 0 to the largest Postgres int. */
+function tokens(...values: unknown[]): number {
+  const sum = values.reduce<number>((total, v) => total + (typeof v === "number" && Number.isFinite(v) && v > 0 ? Math.round(v) : 0), 0);
+  return Math.min(sum, 2_147_483_647);
+}
+
+/** The model the provider says answered (an alias can resolve to a newer one), or the one requested. */
+function modelName(reported: unknown, requested: string): string {
+  return typeof reported === "string" && reported.trim() ? reported.trim() : requested;
+}
+
+/** Every caller asks for one JSON object, so the Gemini path requests a JSON reply. */
+export async function complete(input: Completion): Promise<CompletionResult> {
   const cfg = aiConfig();
   if (!cfg) throw new AiError("not-configured", "No AI provider is configured on the server.");
   switch (cfg.provider) {
@@ -84,7 +99,13 @@ async function send(provider: Provider, url: string, init: RequestInit): Promise
   throw new AiError("provider", `The AI provider returned an error (${res.status}).`);
 }
 
-async function openAiCompatible(cfg: AiConfig, defaultBase: string, { system, user, maxTokens }: Completion): Promise<string> {
+type OpenAiReply = {
+  model?: string;
+  choices?: { message?: { content?: string }; finish_reason?: string }[];
+  usage?: { prompt_tokens?: number; completion_tokens?: number };
+};
+
+async function openAiCompatible(cfg: AiConfig, defaultBase: string, { system, user, maxTokens }: Completion): Promise<CompletionResult> {
   // FUNZA_AI_BASE_URL points an OpenAI-compatible provider at another endpoint (a self-hosted model, or a test double).
   const base = (process.env.FUNZA_AI_BASE_URL || defaultBase).replace(/\/+$/, "");
   const res = await send(cfg.provider, `${base}/chat/completions`, {
@@ -99,20 +120,22 @@ async function openAiCompatible(cfg: AiConfig, defaultBase: string, { system, us
       ],
     }),
   });
-  const data = (await res.json()) as { choices?: { message?: { content?: string }; finish_reason?: string }[] };
+  const data = (await res.json()) as OpenAiReply;
   const choice = data.choices?.[0];
   if (choice?.finish_reason === "length") throw new AiError("truncated", "The AI reply was cut off before it finished. Ask for fewer questions and try again.");
   const text = choice?.message?.content?.trim();
   if (!text) throw new AiError("empty", "The model returned no text.");
-  return text;
+  return { text, model: modelName(data.model, cfg.model), tokensIn: tokens(data.usage?.prompt_tokens), tokensOut: tokens(data.usage?.completion_tokens) };
 }
 
 type GeminiReply = {
   candidates?: { content?: { parts?: { text?: string }[] }; finishReason?: string }[];
   promptFeedback?: { blockReason?: string };
+  modelVersion?: string;
+  usageMetadata?: { promptTokenCount?: number; candidatesTokenCount?: number; thoughtsTokenCount?: number };
 };
 
-async function geminiComplete(cfg: AiConfig, { system, user, maxTokens }: Completion): Promise<string> {
+async function geminiComplete(cfg: AiConfig, { system, user, maxTokens }: Completion): Promise<CompletionResult> {
   // The key goes in a header, never in the URL, so it can't end up in request logs.
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(cfg.model)}:generateContent`;
   const res = await send(cfg.provider, url, {
@@ -121,7 +144,7 @@ async function geminiComplete(cfg: AiConfig, { system, user, maxTokens }: Comple
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: system }] },
       contents: [{ role: "user", parts: [{ text: user }] }],
-      generationConfig: { maxOutputTokens: maxTokens },
+      generationConfig: { maxOutputTokens: maxTokens, responseMimeType: "application/json" },
     }),
   });
   const data = (await res.json()) as GeminiReply;
@@ -134,5 +157,7 @@ async function geminiComplete(cfg: AiConfig, { system, user, maxTokens }: Comple
   if (finish === "MAX_TOKENS") throw new AiError("truncated", "The AI reply was cut off before it finished. Ask for fewer questions and try again.");
   const text = candidate?.content?.parts?.map((p) => p.text ?? "").join("").trim();
   if (!text) throw new AiError("empty", "The model returned no text.");
-  return text;
+  // Thinking tokens are billed as output, so they count with the reply's own.
+  const usage = data.usageMetadata;
+  return { text, model: modelName(data.modelVersion, cfg.model), tokensIn: tokens(usage?.promptTokenCount), tokensOut: tokens(usage?.candidatesTokenCount, usage?.thoughtsTokenCount) };
 }
