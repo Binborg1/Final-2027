@@ -70,13 +70,15 @@ where q.id = lq.question_id;
 alter table public.live_questions
   alter column content set not null,
   alter column question_id drop not null,
-  add constraint live_questions_content_shape check (
+  -- coalesce: a missing key makes the test null, and a null check would pass.
+  add constraint live_questions_content_shape check (coalesce(
     jsonb_typeof(content) = 'object'
     and content ->> 'type' in ('mcq', 'tf', 'calc', 'short')
     and char_length(coalesce(content ->> 'stem', '')) between 1 and 5000
     and jsonb_typeof(content -> 'answer') = 'object'
-    and jsonb_typeof(content -> 'marks') = 'number'
-  ),
+    and jsonb_typeof(content -> 'marks') = 'number',
+    false
+  )),
   add constraint live_questions_position_key unique (session_id, position),
   -- Funza's marking of short answers: none yet, running, done or failed.
   add column mark_state text not null default 'none' check (mark_state in ('none', 'running', 'done', 'failed')),
