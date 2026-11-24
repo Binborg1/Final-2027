@@ -1,8 +1,8 @@
 # Funza development steps
 
-**Funza Teacher Studio · v0.7 · 24 November 2026**
+**Funza Teacher Studio · v0.8 · 24 November 2026**
 
-*Changed in v0.7: templates (Release 2 item 8, and the notes templates of item 12) are built early; pins and saving the controls stay in Release 2. Make's Type change now keeps the course and chapters. v0.6: the step 3 sign-in settings are set on the development project; the email templates wait for a custom SMTP sender, and reset links from the default template work in the browser that asked. v0.5: step 5 (Live mode) is built; the whole set runs at once on one shared timer, and the migrations for steps 4 and 5 are applied to the development project. v0.4: step 4 is built (courses and chapters, drafts and approval in the database, the question bank, the daily AI allowance); the chapter rule is decided. v0.3: teacher sign-in is Google, or email and password, instead of an email link (step 3).*
+*Changed in v0.8: the Library is built (step 4, item 9): every approved material by course, with its versions, read-only, replacing the sidebar's Question bank placeholder. v0.7: templates (Release 2 item 8, and the notes templates of item 12) are built early; pins and saving the controls stay in Release 2. Make's Type change now keeps the course and chapters. v0.6: the step 3 sign-in settings are set on the development project; the email templates wait for a custom SMTP sender, and reset links from the default template work in the browser that asked. v0.5: step 5 (Live mode) is built; the whole set runs at once on one shared timer, and the migrations for steps 4 and 5 are applied to the development project. v0.4: step 4 is built (courses and chapters, drafts and approval in the database, the question bank, the daily AI allowance); the chapter rule is decided. v0.3: teacher sign-in is Google, or email and password, instead of an email link (step 3).*
 
 This is the order in which Funza gets built, from creating accounts to the final release. Each step lists what to do and how to know it's done. The *why* behind each choice is in [requirements and architecture](../03_design/02_requirements_and_architecture/requirements_and_architecture.md); the product is summarized in the [repo README](../../README.md).
 
@@ -147,6 +147,7 @@ Built on branch `step-4-courses-and-bank` (23 November). The migration `step4_co
 6. On first sign-in, offer to import drafts saved in that browser. *Dropped: only test drafts existed.*
 7. ✅ Publishing to Classroom builds the Google Doc on the server from the saved approved version, found by its id; the browser sends only the id. Review has a Publish panel for approved versions: print or save as a PDF (`/make/[id]/print`, the same server-built student copy), or post to chosen Classroom classes as a draft or live. Each post is recorded in `publications`.
 8. ✅ Gemini replies are requested as JSON, `complete()` returns token counts, and `/api/teach` sets `maxDuration = 150`.
+9. ✅ **Library** (added 24 Nov): `/library` lists every approved material by course, with kind chips, a course select and search; `/library/[id]` opens any approved version read-only, as the teacher copy or the student copy, with its versions and where each went, and prints that version (`/make/[id]/print?v=N`). A course's Materials card lists approved materials first, then those still in review. No schema change. Plan: [Library](05_library.md).
 
 **Done when:** a teacher makes and approves a quiz on one computer and finds it on another, with its questions in the chapter's bank.
 

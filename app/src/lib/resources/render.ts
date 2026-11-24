@@ -26,7 +26,13 @@ const lines = (s: string) =>
 export type StudentDoc = { kind: ResourceKind; title: string; courseName: string; outcomeCodes: string[]; duration: number | null; school: string; sections: Section[]; style?: TemplateStyle | null };
 
 /** A section title that already says which part it is ("Part B: …", "Section 2 …") gets no letter in front. */
-const HAS_PART = /^\s*(part|section)\s+[A-Z0-9]+\b/i;
+export const HAS_PART = /^\s*(part|section)\s+[A-Z0-9]+\b/i;
+
+/** The order of the right-hand column of a matching question, so it never lines up with the left. */
+export const matchOrder = (count: number) => Array.from({ length: count }, (_, i) => (i + 1) % Math.max(count, 1));
+
+/** Lines left for a written answer. */
+export const answerLines = (type: "short" | "long", marks: number) => (type === "long" ? 8 : Math.min(2 + marks, 6));
 
 export function studentHtml(d: StudentDoc): string {
   const q = isQuestionKind(d.kind);
@@ -74,7 +80,7 @@ export function studentHtml(d: StudentDoc): string {
       if (it.type === "mcq") body.push(`<p style="margin-left:24px">${it.options.map((o) => `${esc(o.id)}) ${esc(o.text)}`).join("<br>")}</p>`);
       if (it.type === "tf") body.push(`<p style="margin-left:24px">True &nbsp;&nbsp;&nbsp; False</p>`);
       if (it.type === "match") {
-        const order = it.pairs.map((_, i) => (i + 1) % Math.max(it.pairs.length, 1));
+        const order = matchOrder(it.pairs.length);
         body.push(
           `<table style="margin-left:24px;border-collapse:collapse">${it.pairs
             .map((p, i) => `<tr><td style="padding:2px 24px 2px 0">${i + 1}. ${esc(p.left)}</td><td>${String.fromCharCode(65 + i)}. ${esc(it.pairs[order[i]]?.right ?? "")}</td></tr>`)
@@ -82,7 +88,7 @@ export function studentHtml(d: StudentDoc): string {
         );
       }
       if (it.type === "calc") body.push(`<p style="margin-left:24px">Answer: ______________________</p>`);
-      if (it.type === "short" || it.type === "long") body.push(`<p style="margin-left:24px">${Array.from({ length: it.type === "long" ? 8 : Math.min(2 + it.marks, 6) }, () => "_".repeat(70)).join("<br>")}</p>`);
+      if (it.type === "short" || it.type === "long") body.push(`<p style="margin-left:24px">${Array.from({ length: answerLines(it.type, it.marks) }, () => "_".repeat(70)).join("<br>")}</p>`);
     }
   }
   return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(d.title)}</title></head><body style="font-family:Arial,sans-serif;font-size:11pt">${body.join("")}</body></html>`;

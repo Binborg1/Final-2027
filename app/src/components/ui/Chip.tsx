@@ -1,4 +1,5 @@
 import { Check, CircleCheck, Clock, PenLine, Send, type LucideIcon } from "lucide-react";
+import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/ui/cn";
 
@@ -33,6 +34,28 @@ const CHIP_SIZE: Record<ChipSize, string> = {
   sm: "h-[30px] px-3 text-meta", // 30 px: Redo chips
 };
 
+/** The chip recipe, for a button or a link. */
+function chipClass(selected: boolean, size: ChipSize, withIcon: boolean, className?: string) {
+  return cn(
+    "inline-flex shrink-0 items-center gap-1.5 rounded-full border transition-colors pointer-coarse:min-h-11 disabled:cursor-not-allowed disabled:opacity-50",
+    CHIP_SIZE[size],
+    selected ? "border-accent bg-accent-tint font-semibold text-accent-ink" : "border-line-2 bg-chip font-medium text-ink hover:bg-white",
+    withIcon && "pl-2.5",
+    className,
+  );
+}
+
+function ChipInner({ selected, icon: Icon, suffix, children }: { selected: boolean; icon?: LucideIcon; suffix?: ReactNode; children: ReactNode }) {
+  const LeadIcon = selected ? Check : Icon;
+  return (
+    <>
+      {LeadIcon ? <LeadIcon aria-hidden size={16} strokeWidth={selected ? 2.2 : 1.75} className={selected ? "text-accent" : "text-ink-2"} /> : null}
+      <span>{children}</span>
+      {suffix ? <span className="text-badge font-medium text-ink-2">{suffix}</span> : null}
+    </>
+  );
+}
+
 /**
  * A toggle chip. Selected = tint, a solid terracotta border and a check, the one
  * "selected" recipe used across F · Oak. Under a coarse pointer it grows to 44 px.
@@ -40,30 +63,29 @@ const CHIP_SIZE: Record<ChipSize, string> = {
 export function ChoiceChip({
   selected = false,
   size = "lg",
-  icon: Icon,
+  icon,
   suffix,
   className,
   children,
   ...rest
 }: { selected?: boolean; size?: ChipSize; icon?: LucideIcon; suffix?: ReactNode; className?: string; children: ReactNode } & ButtonHTMLAttributes<HTMLButtonElement>) {
-  const LeadIcon = selected ? Check : Icon;
   return (
-    <button
-      type="button"
-      aria-pressed={selected}
-      className={cn(
-        "inline-flex shrink-0 items-center gap-1.5 rounded-full border transition-colors pointer-coarse:min-h-11 disabled:cursor-not-allowed disabled:opacity-50",
-        CHIP_SIZE[size],
-        selected ? "border-accent bg-accent-tint font-semibold text-accent-ink" : "border-line-2 bg-chip font-medium text-ink hover:bg-white",
-        LeadIcon && "pl-2.5",
-        className,
-      )}
-      {...rest}
-    >
-      {LeadIcon ? <LeadIcon aria-hidden size={16} strokeWidth={selected ? 2.2 : 1.75} className={selected ? "text-accent" : "text-ink-2"} /> : null}
-      <span>{children}</span>
-      {suffix ? <span className="text-badge font-medium text-ink-2">{suffix}</span> : null}
+    <button type="button" aria-pressed={selected} className={chipClass(selected, size, !!(selected || icon), className)} {...rest}>
+      <ChipInner selected={selected} icon={icon} suffix={suffix}>
+        {children}
+      </ChipInner>
     </button>
+  );
+}
+
+/** A chip that is a link, for choices kept in the address (such as Teacher copy or Student copy). */
+export function ChipLink({ href, selected = false, size = "lg", icon, suffix, className, children }: { href: string; selected?: boolean; size?: ChipSize; icon?: LucideIcon; suffix?: ReactNode; className?: string; children: ReactNode }) {
+  return (
+    <Link href={href} replace scroll={false} aria-current={selected ? "page" : undefined} className={chipClass(selected, size, !!(selected || icon), className)}>
+      <ChipInner selected={selected} icon={icon} suffix={suffix}>
+        {children}
+      </ChipInner>
+    </Link>
   );
 }
 

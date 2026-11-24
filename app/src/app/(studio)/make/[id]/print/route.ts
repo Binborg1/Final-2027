@@ -24,7 +24,9 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   const { id } = await params;
   const teacher = await teacherForRequest(request);
   if (!teacher) return NextResponse.redirect(new URL(`/sign-in?next=${encodeURIComponent(`/make/${id}`)}`, request.url));
-  const copy = await studentCopy(teacher.supabase, teacher.id, id);
+  // ?v=N prints that approved version (from the Library); without it, the current version.
+  const v = Number(request.nextUrl.searchParams.get("v"));
+  const copy = await studentCopy(teacher.supabase, teacher.id, id, Number.isInteger(v) && v > 0 ? v : undefined);
   const headers = { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Robots-Tag": "noindex" };
   if (!copy.ok) {
     return teacher.respond(new NextResponse(PAGE("Can’t print", `<div class="page"><h1>Can’t print this yet</h1><p>${esc(copy.message)}</p></div>`), { status: copy.status, headers }));

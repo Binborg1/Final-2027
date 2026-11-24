@@ -54,7 +54,7 @@ Google Classroom setup (once per deployment):
 | Path | What it holds |
 |---|---|
 | `src/app/layout.tsx`, `globals.css` | The root layout (Figtree, the background photo) and the F · Oak design tokens and frosted-glass utilities (Tailwind 4 through PostCSS) |
-| `src/app/(studio)/` | The teacher pages inside the page shell: Home (`page.tsx`), Make (`make/`, the brief; `make/[id]/`, review), Courses, Live (`live/new` setup, `live/[id]` console, `live/[id]/results`, `live` sessions), Settings |
+| `src/app/(studio)/` | The teacher pages inside the page shell: Home (`page.tsx`), Make (`make/`, the brief; `make/[id]/`, review), Courses, Library (`library/`, every approved material; `library/[id]`, one read-only), Templates, Live (`live/new` setup, `live/[id]` console, `live/[id]/results`, `live` sessions), Settings |
 | `src/app/(projector)/` | The projector view of a live session (`live/[id]/screen`), full screen with no shell and no names |
 | `src/app/(student)/` | The student pages, no account: `join` (code, name, student number) and `play/[session]` (answer, then see my result) |
 | `src/app/sign-in/`, `src/app/setup/`, `src/app/auth/` | Sign-in, first-time setup, and the sign-in and sign-out routes |
@@ -74,6 +74,7 @@ Google Classroom setup (once per deployment):
 | `db/` | The database: `schema.sql` (the current schema, generated), `supabase/migrations/` (one file per change, each named by its applied version), `supabase/tests/` (pgTAP tests of row-level security and the schema's rules) and a log of what was applied where. See [`db/README.md`](db/README.md) |
 | `src/lib/resources/` | The material model (notes, slides, quiz, test, exam), the blueprint computed before any AI call, the starter bank, draft assembly, the review checks, validation of untrusted input, the student-copy renderer, and the browser store (`store.ts`, the working copy, saved through the Server Functions in `actions.ts`), and the bank rows an approval adds (`bank-rows.ts`) |
 | `src/lib/templates/` | Templates: the format model and its checks (`model.ts`), reading an example (`read.ts`: the prompt, the reply check and the copy guard; `condense.ts` in the browser), using one on Make (`apply.ts`), the stored copy for drafting (`server.ts`), loaders and Server Functions |
+| `src/lib/library/` | The Library: which version is in it, filters, groups, history and reading a material (`model.ts`, pure and tested), and what its pages read (`data.ts`). No table of its own: it reads approved `resource_versions` |
 | `src/lib/courses/` | Courses and chapters: the chapter rule (`seed.ts`), their Server Functions (`actions.ts`), what the course pages read (`data.ts`) |
 | `src/lib/curriculum/` | The catalog and its checks (`catalog.ts`), the imported dataset on the server (`dataset.ts`) and in the browser (`client.ts`) |
 | `src/data/curriculum/` | The imported curriculum (`sk.json`) and the import report (`sk-report.md`) |
@@ -110,6 +111,7 @@ CI runs the same tests on every pull request and fails if `src/lib/db/types.ts` 
 | Draft | `/api/teach` re-checks each outcome and its fingerprint, sends the model only those ids and their wording, and validates the reply (`src/lib/resources/ai-reply.ts`). A reply citing any other outcome is rejected whole; malformed questions are dropped and listed |
 | Review | Checks run on every change (`src/lib/resources/checks.ts`): complete questions, catalog outcomes only, rubric totals, answers recomputed by the expression engine, coverage. Every AI or bank part stays marked until the teacher reviews it; any edit returns it to review |
 | Approve | Needs nothing failed and nothing waiting on the teacher. The approved version is frozen; edits start a new version |
+| Library | Every material with an approved version, by course (`/library`). Each approved version opens read-only as the teacher copy or the student copy (`/library/[id]?v=N`) and prints from there (`/make/[id]/print?v=N`). Starting a new version keeps the approved one in the Library |
 | Publish | The student copy (`src/lib/resources/render.ts`) never contains answers, keys, worked solutions or rubrics. Classroom gets it as a Google Doc in the teacher's Drive, then a material or assignment per class, as a draft by default |
 
 ## How Live mode works

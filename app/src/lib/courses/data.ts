@@ -2,6 +2,7 @@ import "server-only";
 import { cache } from "react";
 import { currentTeacher } from "@/lib/auth/teacher";
 import { outcomesOf, seedChapters } from "@/lib/courses/server";
+import { draftAfter, latestApproved, type VersionMeta } from "@/lib/library/model";
 import type { ResourceKind } from "@/lib/resources/types";
 
 /**
@@ -12,7 +13,21 @@ import type { ResourceKind } from "@/lib/resources/types";
 export type CourseSummaryRow = { id: string; title: string; level: number | null; curriculumCourseId: string | null; chapters: number; materials: number };
 export type ChapterRow = { id: string; title: string; position: number; sourceKind: string; outcomeRefs: string[] };
 export type MaterialStatus = "draft" | "in_review" | "approved" | "published";
-export type MaterialRow = { id: string; title: string; kind: ResourceKind; status: MaterialStatus; updatedAt: string; version: number | null; chapterIds: string[] };
+/**
+ * `approved` is the latest approved version (the one in the Library), and `draft`
+ * the number of the draft that follows it, when the teacher has started one.
+ */
+export type MaterialRow = {
+  id: string;
+  title: string;
+  kind: ResourceKind;
+  status: MaterialStatus;
+  updatedAt: string;
+  version: number | null;
+  chapterIds: string[];
+  approved: { version: number; at: string } | null;
+  draft: number | null;
+};
 export type BankQuestionRow = { id: string; type: string; stem: string; marks: number; outcomeRef: string | null; difficulty: number | null };
 export type CourseRow = { id: string; title: string; level: number | null; curriculumCourseId: string | null };
 export type SourceRow = { id: string; title: string; kind: string; hasText: boolean; createdAt: string };
@@ -40,22 +55,31 @@ async function readMaterials(courseId: string): Promise<MaterialRow[]> {
   if (!current) return [];
   const { data, error } = await current.supabase.from("resources").select("id, title, kind, status, updated_at, current_version_id, resource_chapters(chapter_id)").eq("course_id", courseId).order("updated_at", { ascending: false });
   if (error) throw new Error(`Could not read materials: ${error.message}`);
-  const versionIds = data.map((r) => r.current_version_id).filter((v): v is string => !!v);
-  const numbers = new Map<string, number>();
-  if (versionIds.length > 0) {
-    const v = await current.supabase.from("resource_versions").select("id, number").in("id", versionIds);
+  // Every version's number and approval, without the content: the current version's
+  // number, and the latest approved version for the Library's rule (lib/library/model.ts).
+  const ids = data.map((r) => r.id);
+  const metas: VersionMeta[] = [];
+  if (ids.length > 0) {
+    const v = await current.supabase.from("resource_versions").select("id, resource_id, number, approved_at").in("resource_id", ids);
     if (v.error) throw new Error(`Could not read versions: ${v.error.message}`);
-    for (const row of v.data) numbers.set(row.id, row.number);
+    for (const row of v.data) metas.push({ id: row.id, resourceId: row.resource_id, number: row.number, approvedAt: row.approved_at });
   }
-  return data.map((r) => ({
-    id: r.id,
-    title: r.title,
-    kind: r.kind as ResourceKind,
-    status: r.status as MaterialStatus,
-    updatedAt: r.updated_at,
-    version: r.current_version_id ? numbers.get(r.current_version_id) ?? null : null,
-    chapterIds: (r.resource_chapters ?? []).map((x) => x.chapter_id),
-  }));
+  const numbers = new Map(metas.map((m) => [m.id, m.number]));
+  const approved = latestApproved(metas);
+  return data.map((r) => {
+    const latest = approved.get(r.id);
+    return {
+      id: r.id,
+      title: r.title,
+      kind: r.kind as ResourceKind,
+      status: r.status as MaterialStatus,
+      updatedAt: r.updated_at,
+      version: r.current_version_id ? numbers.get(r.current_version_id) ?? null : null,
+      chapterIds: (r.resource_chapters ?? []).map((x) => x.chapter_id),
+      approved: latest ? { version: latest.number, at: latest.at } : null,
+      draft: draftAfter(r.current_version_id, latest),
+    };
+  });
 }
 
 /** A course, its chapters (seeding them from the curriculum the first time) and its materials. */

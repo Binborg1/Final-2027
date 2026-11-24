@@ -1,4 +1,4 @@
-import { BookOpen, ChartColumn, ClipboardCheck, House, Layers, LayoutTemplate, Radio, Settings, type LucideIcon } from "lucide-react";
+import { BookOpen, ChartColumn, ClipboardCheck, House, LayoutTemplate, Library, Radio, Settings, type LucideIcon } from "lucide-react";
 
 /**
  * The sidebar, as drawn in F · Oak. Items without an `href` aren't built yet: they
@@ -14,7 +14,7 @@ export const NAV: NavSection[] = [
       { id: "home", label: "Home", icon: House, href: "/", match: (p) => p === "/" || p.startsWith("/make") },
       { id: "courses", label: "Courses", icon: BookOpen, href: "/courses", match: (p) => p.startsWith("/courses") },
       { id: "review", label: "Review", icon: ClipboardCheck, soon: "Drafts waiting for review are on Home for now" },
-      { id: "bank", label: "Question bank", icon: Layers, soon: "Each chapter’s question bank is on its chapter page; a bank page for all of them arrives later" },
+      { id: "library", label: "Library", icon: Library, href: "/library", match: (p) => p.startsWith("/library") },
       { id: "templates", label: "Templates", icon: LayoutTemplate, href: "/templates", match: (p) => p.startsWith("/templates") },
     ],
   },

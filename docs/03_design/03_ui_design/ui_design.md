@@ -1,8 +1,8 @@
 # UI design: F · Oak
 
-**Funza Teacher Studio · v0.6 · 24 November 2026**
+**Funza Teacher Studio · v0.7 · 24 November 2026**
 
-*Changed in v0.6: templates (section 4d): Word, PowerPoint and Funza materials as examples, saved Make settings, duplicate, pinned questions, printing in the template's style and saving review changes back; and Make's Format panel, which scrolls on its own. v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
+*Changed in v0.7: the Library (section 4e) replaces the sidebar's disabled Question bank item; a course's Materials card lists approved materials first, opening them read-only, then those still in review. v0.6: templates (section 4d): Word, PowerPoint and Funza materials as examples, saved Make settings, duplicate, pinned questions, printing in the template's style and saving review changes back; and Make's Format panel, which scrolls on its own. v0.5: students can press Submit on their phone and wait for Reveal. v0.4: the Live screens of step 5 (setup, console, projector, results, sessions, and the student join and answer screens), section 4c, and the projector clock size.*
 
 *Changed in v0.3: the step 4 screens (Courses, a course, a chapter, sources, publishing), section 4b.*
 
@@ -179,7 +179,7 @@ Each step is saved as the teacher moves on, so a teacher who stops halfway comes
 - **Sidebar:**
   - Desktop (1024 px and wider): 264 px expanded or 64 px collapsed; the setting is remembered.
   - Expanded, it overlaps the panel, which pads its content instead of moving, as in F1.
-  - It lists the drawn items. Those not built yet (Review, Question bank) are shown disabled, with a note saying when they arrive. Templates is built (section 4d).
+  - It lists the drawn items. Those not built yet (Review) are shown disabled, with a note saying when they arrive. Templates (section 4d) and Library (section 4e) are built. The drawn Question bank item became Library: the bank stays on each chapter page.
 - **Ask Funza (Ctrl K):** opens a command dialog. Typed text starts a Make brief; the other entries go to Home, Make or Settings, or sign out. Chatting with Funza is Release 2.
 - **Sign out:** in the account menu on the sidebar's profile row, and in the Ask Funza dialog.
 - **The chapter screen itself** comes with courses and chapters in step 4.
@@ -244,7 +244,7 @@ Built from the shared parts, following the F2 chapter frame (27:531). Screenshot
   - Numbered rows with the chapter title and "N outcomes · from the curriculum". The title opens the chapter page.
   - Four quiet round buttons on each row: rename (in place, with Save and Cancel), up, down, delete (with a confirm dialog saying its questions stay in the bank, retired).
   - An "Add a chapter" field at the end.
-- **Materials card** (right column): each material with its type, version, date and state chip, opening in Review.
+- **Materials card** (right column): approved materials first, each with its kind icon, latest approved version, date and state chip, opening read-only in the Library; then "Still in review", drafts never approved, opening in Review. "See all in Library" in the header (section 4e).
 - **Course settings** (collapsed): rename, and "Delete this course" with a confirm dialog.
 
 ### A chapter (`/courses/[id]/chapters/[chapterId]`)
@@ -358,6 +358,23 @@ Templates are the teacher's own formats. Funza copies how they're made, never wh
   - The chosen template's skeleton shows "· 1 pinned" on sections with pinned questions.
 - **Review (a material made from a template):** when the teacher has changed its structure (a question more or less, other marks, instructions or time), a row says "You changed this material's structure. Save it to your template so the next one starts from it?" with **Save to template** (secondary) and ×. Questions Funza couldn't draft don't count as a change.
 - **Printed copies and Classroom Docs** follow the template: numbering straight through or restarting in each section, marks in brackets, in the margin or not shown, and the cover page (title, name line, totals, instructions) on its own page.
+
+## 4e. Library (built early)
+
+Every material the teacher has approved, in every course, with each approved version kept. Drafts stay in Review until they're approved. The plan, with the logic and data, is in [`docs/04_development/05_library.md`](../../04_development/05_library.md). Not drawn in Figma; built from the shared parts.
+
+- **Library** (`/library`, sidebar, Ctrl K):
+  - **Header:** "Library", "Every material you approved, by course, with each version kept.", and the primary **Make something**.
+  - **Filters:** a "Search titles" field and, with more than one course, an "All courses" select; under them, kind chips with counts: All · Notes · Slides · Quizzes · Unit tests · Exams (a kind with none is hidden). The filters are kept in the address (`?kind=&course=&q=`).
+  - **Groups:** one card per course, in the teacher's course order, with a count and **Open course**. Each row has a kind icon, the title, "Unit test · v2 · approved Nov 24 · {chapters}", "v3 in review" in amber when a draft follows, and the state chip. Newest approvals first.
+  - **Empty:** "Nothing approved yet" and a link to the drafts waiting on Home. **No match:** "Nothing matches" with **Clear filters**.
+- **A material** (`/library/[id]`, `?v=N` for an older version, `?view=student`):
+  - **Header:** crumbs "Library › {course} › {title}", then the state chip, a "vN" pill, the kind with its sections, questions, marks and minutes, and "Approved November 24, 2026".
+  - **Buttons:** **Print or save as PDF** (primary; the student copy of the version on screen, in a new tab), **Open in Review** or **Open draft vN** (secondary), and **Run live** for quizzes, tests and exams when the version on screen is the current one.
+  - **Notices** in amber: an older version ("This is version 1. Version 2 is the latest approved." with **See version 2**), or a draft in progress ("Version 3 is being edited in Review. This approved version stays as it is.").
+  - **Left:** the document in a card, with the chips **Teacher copy** and **Student copy** and a line saying what each holds. The teacher copy marks the correct option "Correct" in sage, as Review does, and shows answers, worked solutions, rubrics and slide speaker notes in a sage box under each question. The student copy follows the printed copy: answer lines, True / False, the matching column reordered, no keys. Assessments start with "Total: N marks · Time: N minutes", and sections read "Part A: {title} (N marks)". Slides are one tile per slide.
+  - **Right:** **Versions**: each approved version, newest first ("v2 · Approved Nov 24"), with "Posted to Google Classroom" or "Printed" and the date under it; the one on screen says "Showing"; a draft in progress is listed first ("v3 · Draft in Review") and opens Review. **Details**: course and chapters (links), outcome code tags, and the date it was first made.
+- **Home:** in "Waiting for review", the Approved rows open the read-only view, with **See all in Library** beside the "Approved" label.
 
 ## 5. Phones (added; not drawn for teacher screens)
 

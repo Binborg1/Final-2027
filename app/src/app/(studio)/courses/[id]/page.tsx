@@ -31,7 +31,7 @@ export default async function CoursePage({ params }: { params: Promise<{ id: str
       />
       <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-[minmax(0,1fr)_420px]">
         <CourseChapters courseId={course.id} chapters={chapters.map((c) => ({ id: c.id, title: c.title, outcomes: c.outcomeRefs.length, fromCurriculum: c.sourceKind !== "custom" }))} />
-        <Materials materials={materials} makeHref={makeHref} empty="Notes, slides, quizzes and exams you make for this course appear here." />
+        <Materials courseId={course.id} materials={materials} makeHref={makeHref} empty="Notes, slides, quizzes and exams you make for this course appear here." />
       </div>
       <CourseSettings courseId={course.id} title={course.title} />
     </div>
