@@ -2,7 +2,7 @@
 
 The Next.js app for **Funza Teacher Studio**: Prepare and Live modes for Saskatchewan Grade 10–12 teachers. What it must do is in [requirements and architecture](../docs/03_design/02_requirements_and_architecture/requirements_and_architecture.md), and the build order is in the [development steps](../docs/04_development/01_development_steps.md).
 
-**State on 21 November 2026 (development step 3).** Teachers sign in with Google or an email link, go through first-time setup (grades, subjects, courses), and land on Home. Make works on the new F · Oak design: brief, AI draft, review, approve. Drafts are kept in the teacher's browser until development step 4 moves them to the database. The design and its tokens are described in [UI design](../docs/03_design/03_ui_design/ui_design.md).
+**State on 23 November 2026 (development step 3).** Teachers sign in with Google, or with an email and password, go through first-time setup (grades, subjects, courses), and land on Home. Make works on the new F · Oak design: brief, AI draft, review, approve. Drafts are kept in the teacher's browser until development step 4 moves them to the database. The design and its tokens are described in [UI design](../docs/03_design/03_ui_design/ui_design.md).
 
 ## Run it
 
@@ -15,19 +15,20 @@ Open http://localhost:3000. Checks: `npm test`, `npm run lint`, `npx tsc --noEmi
 
 ## Sign-in
 
-Teachers sign in through Supabase Auth: Google, or a one-time link sent by email. Students never sign in.
+Teachers sign in through Supabase Auth: Google first, or an email and password (at least 8 characters, checked in the page, the server and Supabase). "Create account" and "Forgot password?" are on the same card. Students never sign in.
 
 | Route | What it does |
 |---|---|
-| `/sign-in` | The sign-in page. `?next=/some/page` returns there afterwards (same-site paths only) |
+| `/sign-in` | The sign-in page. `?next=/some/page` returns there afterwards (same-site paths only); `?mode=create` or `?mode=forgot` opens it on Create account or Forgot password |
 | `/auth/callback` | Google comes back here; the one-time code becomes a session (PKCE) |
-| `/auth/confirm` | The email link comes back here with a token hash; works even when the link is opened on another device |
+| `/auth/confirm` | The two links Funza emails come back here with a token hash: confirm a new account, and reset a password. Works even when the link is opened on another device. A reset goes on to `/new-password` |
+| `/new-password` | Choose a new password, for the signed-in teacher: after a reset link, or from "Change password" in Settings |
 | `/auth/sign-out` | POST only, from Funza's own pages: ends the session and deletes the Google Classroom cookies |
 | `/setup` | First-time setup. Every teacher page sends a teacher here until setup is finished |
 
 **Who can open what.** `src/proxy.ts` refreshes the session cookie on each request and sends a signed-out visitor on a teacher page to `/sign-in`. That is only a quick first check: every teacher page calls `requireTeacher()`, every Server Function `teacherForAction()`, and every API route `teacherForRequest()` (`src/lib/auth/`), which ask Supabase Auth. Signed-out API calls get `401`. Public, with no sign-in: `/sign-in`, `/auth/*`, `/join`, `/play/*`, `/c/*`, `/api/health` and `/api/curriculum/*` (the published Saskatchewan curriculum, with no teacher or student data).
 
-**Supabase settings** (Authentication → URL Configuration): the Site URL is the production address, and the Redirect URLs include `http://localhost:3000/**`, the production address with `/**`, and a pattern for the Vercel previews such as `https://funza-*-<team-slug>.vercel.app/**`. For email links that work across devices, the "Magic Link" and "Confirm signup" templates link to `{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=email`. Supabase's built-in email sender only reaches members of the Supabase organization, a few times an hour; real teachers need a custom SMTP sender.
+**Supabase settings** (Authentication → URL Configuration): the Site URL is the production address, and the Redirect URLs include `http://localhost:3000/**`, the production address with `/**`, and a pattern for the Vercel previews such as `https://funza-*-<team-slug>.vercel.app/**`. Under Sign In / Providers → Email: Email on, minimum password length 8, and "Confirm email" off on the development project for the bazaar (on in production). Under Emails, so the links work across devices, the "Confirm signup" template links to `{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=email` and "Reset password" to `{{ .RedirectTo }}&token_hash={{ .TokenHash }}&type=recovery`. Supabase's built-in email sender only reaches members of the Supabase organization, a few times an hour; real teachers need a custom SMTP sender (for example Resend).
 
 ## Configuration
 

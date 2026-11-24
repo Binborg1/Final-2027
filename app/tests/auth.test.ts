@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { afterEach, test } from "node:test";
 import type { User } from "@supabase/supabase-js";
+import { authMessage, passwordProblem } from "@/lib/auth/email-sign-in";
 import { safeNext, safeReturn } from "@/lib/auth/redirect";
 import { routeKind } from "@/lib/auth/routes";
 import { firstName, initials, teacherName } from "@/lib/auth/teacher-model";
@@ -18,7 +19,7 @@ test("student pages, the sign-in flow and the public APIs stay public", () => {
 });
 
 test("teacher pages need a session, and other APIs answer for themselves", () => {
-  for (const path of ["/", "/make", "/make/r-1", "/setup", "/settings", "/courses", "/joiner", "/cards", "/players"]) assert.equal(routeKind(path), "teacher-page", path);
+  for (const path of ["/", "/make", "/make/r-1", "/setup", "/settings", "/new-password", "/courses", "/joiner", "/cards", "/players"]) assert.equal(routeKind(path), "teacher-page", path);
   for (const path of ["/api/teach", "/api/lms/google/status", "/api/lms/google/callback"]) assert.equal(routeKind(path), "api", path);
 });
 
@@ -89,6 +90,7 @@ test("provider errors and missing codes go back to sign-in with a short code, ne
     [callback.GET(makeRequest("/auth/callback")), "failed"],
     [confirm.GET(makeRequest("/auth/confirm?token_hash=abc&type=recovery")), "failed"],
     [confirm.GET(makeRequest("/auth/confirm?type=email")), "failed"],
+    [confirm.GET(makeRequest("/auth/confirm?token_hash=abc&type=magiclink")), "failed"],
   ];
   for (const [pending, code] of cases) {
     const res = await pending;
@@ -111,6 +113,36 @@ test("after sign-in a teacher lands on next, on Home instead of another site, or
   assert.equal((await finishSignIn(req, done, user, "//evil.example/steal")).headers.get("location"), "http://localhost:3000/");
   assert.equal((await finishSignIn(req, done, user, "https://evil.example")).headers.get("location"), "http://localhost:3000/");
   assert.equal((await finishSignIn(req, fakeDb({ setup_done_at: null }), user, "/make")).headers.get("location"), "http://localhost:3000/setup");
+});
+
+test("a password reset goes to the new-password page, even before setup is finished", async () => {
+  const { finishSignIn } = await import("@/lib/auth/finish");
+  const req = makeRequest("/auth/confirm?token_hash=x&type=recovery");
+  const res = await finishSignIn(req, fakeDb({ setup_done_at: null }), user, "/new-password", { skipSetup: true });
+  assert.equal(res.headers.get("location"), "http://localhost:3000/new-password");
+});
+
+/* ---------- email and password ---------- */
+
+test("a password needs 8 to 72 characters and can't be only spaces", () => {
+  assert.equal(passwordProblem("seven77"), "Use at least 8 characters.");
+  assert.equal(passwordProblem("        "), "A password can’t be only spaces.");
+  assert.equal(passwordProblem("a".repeat(73)), "Use at most 72 characters.");
+  assert.equal(passwordProblem("é".repeat(37)), "Use at most 72 characters.", "the limit counts bytes, as bcrypt does");
+  assert.equal(passwordProblem("eight888"), null);
+  assert.equal(passwordProblem("a".repeat(72)), null);
+});
+
+test("sign-in errors become plain sentences, never the provider's text", () => {
+  assert.match(authMessage({ code: "invalid_credentials", status: 400 }, "sign-in"), /don’t match/);
+  assert.match(authMessage({ code: "email_not_confirmed" }, "sign-in"), /Confirm your email/);
+  assert.match(authMessage({ code: "user_already_exists" }, "create"), /already a Funza account/);
+  assert.match(authMessage({ code: "weak_password" }, "create"), /at least 8 characters/);
+  assert.match(authMessage({ status: 429 }, "forgot"), /Too many tries/);
+  assert.match(authMessage({ code: "over_email_send_rate_limit", status: 429 }, "forgot"), /Too many emails/);
+  assert.match(authMessage({ code: "something_new" }, "create"), /couldn’t create the account/);
+  assert.match(authMessage({ code: "something_new" }, "forgot"), /couldn’t send the email/);
+  assert.match(authMessage({}, "sign-in"), /Sign-in didn’t work/);
 });
 
 /* ---------- sign-out ---------- */

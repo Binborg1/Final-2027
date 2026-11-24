@@ -1,6 +1,8 @@
 # Teacher Studio: requirements and architecture
 
-**Funza Teacher Studio · v0.2 · 21 November 2026**
+**Funza Teacher Studio · v0.3 · 23 November 2026**
+
+*Changed in v0.3: teachers sign in with Google, or with an email and password. The email sign-in link is gone (FR-1, sections 7 and 10, Q13).*
 
 This document covers what the Teacher Studio must do, how well it must do it, and the system that does it. The system is one Next.js app on Vercel, with Supabase in Canada for sign-in, data, files and live updates, and Gemini for the AI. It builds on the agreed [user flows and features plan](../01_user_flows_and_features/), with its questions Q1–Q10 at their defaults. The product is summarized in the [repo README](../../../README.md).
 
@@ -48,7 +50,7 @@ Four of the five proposed tools stay. The Node.js backend is the Next.js app's o
 
 | Tool | Proposed for | Verdict | What it does in Funza |
 |---|---|---|---|
-| **Supabase** | Sign-in and database | **Yes, and more** | Teacher sign-in (Google or an email link), Postgres with row-level security, Storage for PDFs and past exams, and Realtime for live mode. Project region: Canada (Central), `ca-central-1`. |
+| **Supabase** | Sign-in and database | **Yes, and more** | Teacher sign-in (Google, or email and password), Postgres with row-level security, Storage for PDFs and past exams, and Realtime for live mode. Project region: Canada (Central), `ca-central-1`. |
 | **Vercel** | Deployment | **Yes** | Hosts the Next.js app. Every pull request gets a preview URL, and `main` deploys to production. Functions run in Montréal (`yul1`), the same city as the database. Funza goes in the existing **Pro** team, "Aubino Chris' projects", which already pays US$20 a month and includes US$20 of usage credit each month. Funza adds no new fee, and Pro allows commercial use. |
 | **Gemini API key** | AI | **Yes, with billing on** | Suggests and drafts questions, notes and exams, marks short answers, and reads PDFs and scanned past exams. Production uses the paid tier, for two reasons: free-tier prompts and answers can be used to improve Google's products, and free rate limits are too low for a class. The provider switch in `lib/ai/server.ts` stays, so another model can be swapped in with one setting. |
 | **Node.js** | Backend | **Yes, inside Next.js** | The API routes in `app/src/app/api` already run on Node.js. Keeping the backend there means one codebase, one deploy, and the same TypeScript types on the screens and the server. A separate Express server would be a second app to deploy and secure, with nothing gained. |
@@ -97,7 +99,7 @@ Each requirement traces to a use case (UC) in the flows plan. Priority is Must, 
 
 | ID | Requirement | UC | Priority | Release |
 |---|---|---|---|---|
-| FR-1 | A teacher signs up and logs in with Google or an email link. | UC1 | Must | R1 |
+| FR-1 | A teacher signs up and logs in with Google, or with an email and a password of at least 8 characters. A teacher who forgets their password gets a reset link by email. | UC1 | Must | R1 |
 | FR-2 | First-time setup asks for grades, subjects and courses from the Saskatchewan curriculum. | UC2 | Should | R1 |
 | FR-3 | Create, rename, reorder and delete courses and chapters. New chapters start from the curriculum units. | UC3 | Must | R1 |
 | FR-4 | Show the curriculum outcomes for each chapter. *Exists today.* | UC4 | Must | R1 |
@@ -210,7 +212,7 @@ Code runs in three places: the browser, Vercel and Supabase. Google provides the
 | **API routes** | Vercel functions, Node.js, Montréal | `/api/teach` (drafts and edits), `/api/live/*` (start, join, answer, close, reveal, state, end), `/api/lms/*` (Classroom), `/api/curriculum/*`. | Partial |
 | **Shared server code** | Inside the API | `lib/ai` (Gemini and the allowance), `lib/live` (session rules and marking), `lib/db` (Supabase clients), `lib/curriculum`, `lib/lms`. | Partial |
 | **Curriculum data** | A JSON file in the repo | 134 courses and 3,219 outcomes. It is read-only, so it stays a file, and the database stores only the dataset's ids (such as `sk-63` for a course and `sk-63-162290` for an outcome; codes repeat across courses, so never the bare code). | Real |
-| **Auth** | Supabase | Teacher accounts with Google or an email link. Sessions are kept in cookies, so server code knows who is asking. | New |
+| **Auth** | Supabase | Teacher accounts with Google, or email and password. Sessions are kept in cookies, so server code knows who is asking. | New |
 | **Postgres** | Supabase, Canada | Every course, chapter, draft, version, template, bank question, live session, answer and AI usage row, all with row-level security. | New |
 | **Realtime** | Supabase | One channel per live session. The API sends pings; phones and the console listen. | New |
 | **Storage** | Supabase, Canada | Uploaded PDFs, past exams and images, private to each teacher. | New |
@@ -260,7 +262,11 @@ The ranges use the Flash prices on Google's pricing page on 21 November 2026. Li
 
 ## 10. Sign-in and who can see what
 
-- **Teachers.** Supabase Auth with Google, plus an email link as a fallback. Microsoft sign-in can be switched on later if a division needs it.
+- **Teachers.** Supabase Auth. The sign-in page offers Google first, then an email and password form with "Create account" and "Forgot password?".
+  - **Passwords** are at least 8 characters, checked in the page, in the server and by Supabase Auth (its minimum is set to 8). Supabase stores them hashed; Funza never stores or logs them.
+  - **Email is needed only twice:** a link to confirm a new account, and a link to reset a forgotten password. Both land on `/auth/confirm`; a reset link then opens "Choose a new password".
+  - **Before real teachers:** Supabase's built-in email sender only reaches members of the Supabase organization, a few times an hour. Production gets a custom SMTP sender (for example Resend) and has "Confirm email" turned on. For the bazaar demo, "Confirm email" is off on the development project so a visitor can make an account on the spot.
+  - Microsoft sign-in can be switched on later if a division needs it.
 - **Students.** No Supabase account. Joining returns a random token, and only its hash is stored. Every student request carries the token, and the API checks it against that session.
 - **Why not anonymous sign-in.** Supabase can sign students in anonymously, but by default it allows only 30 sign-ins an hour per IP address. A class behind one school IP would hit that limit in its first lesson.
 - **Row-level security.** Every teacher table has the rule "teacher_id equals the signed-in user". Student tables (`participants`, `answers`) have no browser access at all; only the API writes them, using the secret key.
@@ -389,7 +395,7 @@ app/
 R1 is ten days away. Each step leaves the deployed app working. The full checklist, including account setup and Release 2, is in [development steps](../../04_development/01_development_steps.md).
 
 1. **Supabase and the schema (21–22 Nov).** Create dev and production projects in Canada. Write the first migration, with every table in Diagram 4 and its security rules. Add the Vercel settings and the CI workflow.
-2. **Teacher sign-in (23 Nov).** Google and email link; teacher pages require a session. For the bazaar on 24 November: this document, the flows plan, and sign-in plus Make working on the deployed app.
+2. **Teacher sign-in (23 Nov).** Google, or email and password; teacher pages require a session. For the bazaar on 24 November: this document, the flows plan, and sign-in plus Make working on the deployed app.
 3. **Courses, Make and the bank in the database (24–25 Nov).** Save courses, chapters, drafts and versions. Approving saves questions to the bank. Gemini becomes the default, with the allowance, and local drafts can be imported.
 4. **Live mode (26–28 Nov).** Start, the lobby with QR and code, join, pings, answers, close, marking, reveal, results and CSV.
 5. **Course page (29 Nov).** Publish to a link and QR code. This is the first thing to move to R2 if time is short.
@@ -403,7 +409,7 @@ Each question has a default that applies until the team decides otherwise. Numbe
 |---|---|---|---|
 | Q11 | Leave AWS out for now? | **Decided 21 Nov 2026: yes, Vercel.** | Aubin already pays for a Vercel Pro team, so Funza adds no new hosting cost. Revisit if a division asks for its own AWS account. |
 | Q12 | Turn on Gemini billing for production? | Yes, with a US$10 monthly budget alert. | The free key stays for development with made-up data. Free-tier prompts can be used to improve Google's products, which isn't acceptable for student answers. |
-| Q13 | How do teachers sign in? | Google, plus an email link. | Add Microsoft sign-in later if a division needs it. |
+| Q13 | How do teachers sign in? | **Decided 23 Nov 2026:** Google first, then email and password (at least 8 characters), with "Create account" and "Forgot password?". No email sign-in link. | An email link sends an email at every sign-in, and Supabase's built-in sender reaches only the team, a few times an hour. A password needs email only to confirm an account and to reset it. Google stays first because many teachers have a school Google account and Classroom publishing needs Google anyway. Add Microsoft sign-in later if a division needs it. |
 | Q14 | How long are student names and answers kept? | 30 days after the session. | Long enough to review and export results. Anonymous counts per question are kept for difficulty. |
 | Q15 | Daily AI allowance per teacher? | 40 actions a day in R1. | At most about US$2 to 3 per teacher per day. Raise it once real use is known. |
 | Q16 | Release 1 scope? | Every Must row marked R1, plus the course page and CSV if time allows. | Templates, bank reuse, chat edits and practice sets go to R2. |

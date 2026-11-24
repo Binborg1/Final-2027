@@ -1,6 +1,8 @@
 # UI design: F · Oak
 
-**Funza Teacher Studio · v0.1 · 21 November 2026**
+**Funza Teacher Studio · v0.2 · 23 November 2026**
+
+*Changed in v0.2: the sign-in card has an email and password form, with "Create account" and "Forgot password?", instead of the email link, and a new "Choose a new password" screen (section 4).*
 
 This is the design Funza is built on, and how the app turns it into code. The team picked **F · Oak** on 21 November from eight directions (`01_ui_directions.pdf` in this folder). This version covers the tokens, the shared parts and the screens of development step 3 (sign-in, first-time setup, Home, Make, review and Settings). The Live and student screens are added when they are built (steps 5 and 6).
 
@@ -118,13 +120,25 @@ On phones, page titles drop to 28 / 34.
 
 ![Sign in](diagrams/02_sign_in.png)
 
-- **Card:** a centred 472 px glass card with no app chrome. "Continue with Google" comes first, and an email link is the fallback. The copy is as drawn.
+- **Card:** a centred 472 px glass card with no app chrome. "Continue with Google" comes first. Below the "or" divider is an email and password form; the copy above it is as drawn.
+- **Changed from Figma (23 Nov):** the frame still shows the email field with "Email me a sign-in link". The built card replaces it with email and password (the built screenshot in section 8 is the reference until the frame is redrawn):
+  - **Sign in:** School email, Password with a show/hide eye button, "Forgot password?" right-aligned under it, a "Sign in" button (secondary), and "New to Funza? Create an account" under the form.
+  - **Create account:** the same card titled "Create your account", Google still first, the password hint "At least 8 characters", a "Create account" button and "Already have an account? Sign in".
+  - **Forgot password:** "Reset your password", one sentence, the email field and "Email me a reset link". No Google button: one direction on this screen. "Back to sign in" under it.
+  - The three are one card that switches in place; `/sign-in?mode=create` and `?mode=forgot` open it on the other two.
 - **Google mark:** the drawn one is an imitation, so it is replaced with Google's official "G".
 - **Added states (not drawn):**
-  - "Check your email"
-  - errors from the sign-in callback (cancelled, expired link, link opened in another browser)
+  - "Check your email", worded for a new account ("Open the link we sent to … to confirm your account") or a reset ("If there's a Funza account for …, we sent it a link"), so the page never says whether an address has an account
+  - errors in plain sentences: wrong email or password, email not confirmed, an account that already exists, too many tries, a password under 8 characters
+  - errors from the email links (cancelled, expired or already used)
   - "You're signed out"
   - a spinner on the buttons
+
+### Choose a new password (A1b, added; not drawn)
+
+- **Card:** the sign-in card's frame, titled "Choose a new password", with "For name@school.ca" under it, one "New password" field (eye button, hint "At least 8 characters") and a primary "Save password" button. The footer reads "Your password is stored encrypted. Funza never sees it."
+- **Reached from:** the link in the reset email (through `/auth/confirm`), and "Change password" next to "Email and password" in Settings → Profile.
+- **Afterwards:** Settings with "Your new password is saved.", or first-time setup for a teacher who hasn't finished it.
 - **Phone:** the card spans the width with 12 px margins.
 
 ### First-time setup (A2, 47:2)
@@ -199,7 +213,7 @@ Each step is saved as the teacher moves on, so a teacher who stops halfway comes
 
 ![Settings](diagrams/08_settings.png)
 
-- **Profile:** can be edited in place.
+- **Profile:** can be edited in place. The "Signs in with" row reads "Google" or "Email and password"; for email accounts it ends with a "Change password" link to Choose a new password.
 - **Google Classroom:** connect or disconnect.
 - **Student data:** the three fixed facts.
 - **Sign out of this browser.**
@@ -223,7 +237,8 @@ The team should review this before the bazaar.
 **Not drawn, built from the same parts:**
 - hover, pressed and focus states;
 - empty states and toasts (in the style of F5's "Saved" pill);
-- the sign-in sent and error states;
+- the sign-in card's email and password form, its create-account and forgot-password modes, and its email-sent and error states;
+- Choose a new password;
 - setup steps 1 and 3;
 - Make's drafting state and open Adjust rows;
 - failed and waiting checks;
@@ -257,11 +272,15 @@ The team should review this before the bazaar.
 
 ## 8. The built screens (21 November)
 
-These screenshots come from the app on branch `sign-in`. They were taken with a test teacher and a real Gemini draft.
+These screenshots come from the app on branch `sign-in`. They were taken with a test teacher and a real Gemini draft. The sign-in screenshots were retaken on 23 November, after the change to email and password.
 
-| Sign in | Home |
+| Sign in | Create account |
 |---|---|
-| ![Built sign-in](diagrams/09_built_sign_in.png) | ![Built Home](diagrams/10_built_home.png) |
+| ![Built sign-in](diagrams/09_built_sign_in.png) | ![Built create account](diagrams/09b_built_create_account.png) |
+
+| Forgot password | Home |
+|---|---|
+| ![Built forgot password](diagrams/09c_built_forgot_password.png) | ![Built Home](diagrams/10_built_home.png) |
 
 | Make | Review |
 |---|---|

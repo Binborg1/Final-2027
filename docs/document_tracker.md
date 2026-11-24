@@ -68,8 +68,8 @@ Course stage: Design Workshop 4 (low- and high-fidelity prototypes) and Developm
 | # | Document | File | What it must contain | Status | Owner |
 |---|---|---|---|---|---|
 | 3.1 | User flows and features | [`03_design/01_user_flows_and_features/`](03_design/01_user_flows_and_features/) | Live and Prepare flows, exam templates, question bank, what a student sees, use cases UC1–UC23, questions Q1–Q10. HTML, PDF and diagrams | Done (19 Nov) | |
-| 3.2 | Requirements and architecture | [`03_design/02_requirements_and_architecture/`](03_design/02_requirements_and_architecture/) | Requirements, scope, the system on Vercel, Supabase and Gemini, live sessions, the AI request path, sign-in, data model, rate limits, privacy, deployment, cost, risks, Release 1 build order, open questions | Done (v0.2, 21 Nov) | |
-| 3.3 ★ | UI design | `03_design/03_ui_design/ui_design.md` | Low-fidelity wireframes and high-fidelity screens for Release 1 (teacher, Live on the projector, student phone), the shared components, and the Figma link. Markdown with images | In progress (v0.1, 21 Nov): F · Oak picked; tokens, shared parts and the step 3 screens (sign-in, setup, Home, Make, review, Settings). Live and student screens to come | |
+| 3.2 | Requirements and architecture | [`03_design/02_requirements_and_architecture/`](03_design/02_requirements_and_architecture/) | Requirements, scope, the system on Vercel, Supabase and Gemini, live sessions, the AI request path, sign-in, data model, rate limits, privacy, deployment, cost, risks, Release 1 build order, open questions | Done (v0.3, 23 Nov: sign-in is Google, or email and password) | |
+| 3.3 ★ | UI design | `03_design/03_ui_design/ui_design.md` | Low-fidelity wireframes and high-fidelity screens for Release 1 (teacher, Live on the projector, student phone), the shared components, and the Figma link. Markdown with images | In progress (v0.2, 23 Nov): F · Oak picked; tokens, shared parts and the step 3 screens (sign-in with email and password, choose a new password, setup, Home, Make, review, Settings). Live and student screens to come | |
 | 3.4 | Access control | in 3.2, section 10 | Who can do what (teacher; student by session code; later department head) and how Supabase row-level security enforces it. ENSE 477 asks for this "role/attribute-based access control vision" | Draft (in 3.2) | |
 
 ## 4. Development: [`04_development/`](04_development/)
@@ -78,7 +78,7 @@ Course stage: Development Workshops 1–3 and the weekly scrums (from 27 October
 
 | # | Document | File | What it must contain | Status | Owner |
 |---|---|---|---|---|---|
-| 4.1 | Development steps | [`04_development/01_development_steps.md`](04_development/01_development_steps.md) | The build order from accounts to Release 1, with "done when" checks, and the Release 2 outline | Done (v0.2, 21 Nov) | |
+| 4.1 | Development steps | [`04_development/01_development_steps.md`](04_development/01_development_steps.md) | The build order from accounts to Release 1, with "done when" checks, and the Release 2 outline | Done (v0.3, 23 Nov) | |
 | 4.2 | Setup and run guide | [`../app/README.md`](../app/README.md) | How to install, configure and run the app | Updated 21 Nov for teacher sign-in (step 3); add Live as it lands | |
 | 4.3 | Weekly status reports | `04_development/02_status_reports/YYYY-MM-DD.md` | For each week: status (green, yellow or red) and why; what was done; what is planned; issues; changes. Bring to the scrums | Ongoing | |
 | 4.4 | Code quality review report | `04_development/03_code_quality_review.md` | What was reviewed, against which checklist, what was found and fixed | ENSE 477 | |
