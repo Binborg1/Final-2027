@@ -11,6 +11,7 @@ import { ChoiceChip } from "@/components/ui/Chip";
 import { Checkbox } from "@/components/ui/Field";
 import { Disclosure } from "@/components/ui/Disclosure";
 import { EmptyState } from "@/components/ui/Misc";
+import { MultiSelect } from "@/components/ui/MultiSelect";
 import type { TeacherCourse } from "@/lib/auth/teacher";
 import type { CatalogCourse } from "@/lib/curriculum/catalog";
 import { loadCourse } from "@/lib/curriculum/client";
@@ -54,6 +55,10 @@ export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, init
   const fileRef = useRef<HTMLInputElement>(null);
   const startChapter = useRef(initialChapterId);
   const courseChapters = useMemo(() => (course ? chapters[course.id] ?? [] : []), [chapters, course]);
+  const chapterItems = useMemo(
+    () => courseChapters.map((c) => ({ id: c.id, label: c.title, hint: c.outcomeRefs.length > 0 ? `${c.outcomeRefs.length} outcome${c.outcomeRefs.length === 1 ? "" : "s"}` : "No outcomes" })),
+    [courseChapters],
+  );
 
   // Load the course's curriculum (once per course) for the outcome wording and checks.
   useEffect(() => {
@@ -262,11 +267,15 @@ export function MakeBrief({ courses, chapters, sources = {}, initialPrompt, init
                   ) : null}
                 </span>
               ) : (
-                courseChapters.map((c) => (
-                  <ChoiceChip key={c.id} selected={chapterIds.includes(c.id)} onClick={() => toggleChapter(c.id)} title={c.outcomeRefs.length > 0 ? `${c.outcomeRefs.length} outcome${c.outcomeRefs.length === 1 ? "" : "s"}` : "No curriculum outcomes"}>
-                    {c.title}
-                  </ChoiceChip>
-                ))
+                <MultiSelect
+                  label="Chapters"
+                  noun={["chapter", "chapters"]}
+                  placeholder="Search chapters"
+                  min={1}
+                  items={chapterItems}
+                  selected={chapterIds}
+                  onToggle={toggleChapter}
+                />
               )}
               {loadingCourse ? (
                 <span className="inline-flex h-9 items-center gap-2 text-body text-ink-2">
