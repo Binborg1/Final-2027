@@ -41,15 +41,15 @@ export function applyTemplate(b: Brief, t: TemplateChoice): Brief {
   if (categoryOf(b.kind) !== t.category || t.format.category !== t.category) throw new Error("That template is for another kind of material.");
   const f = t.format;
   if (isQuestionFormat(f)) {
-    return { ...b, templateId: t.id, style: f.style, layout: f.sections.map((s) => ({ ...s, rows: s.rows.map((r) => ({ ...r })) })), parts: null, mix: aggregateMix(b.mix, f.sections), duration: f.duration, difficulty: f.difficulty, answerKey: f.extras.answerKey, workedSolutions: f.extras.workedSolutions, rubric: f.extras.rubric };
+    return { ...b, templateId: t.id, style: f.style, drafted: null, layout: f.sections.map((s) => ({ ...s, rows: s.rows.map((r) => ({ ...r })) })), parts: null, mix: aggregateMix(b.mix, f.sections), duration: f.duration, difficulty: f.difficulty, answerKey: f.extras.answerKey, workedSolutions: f.extras.workedSolutions, rubric: f.extras.rubric };
   }
   if (f.category === "notes") {
-    return { ...b, templateId: t.id, style: f.style, layout: null, parts: f.parts.map((p) => ({ ...p })), notesStyle: f.notesStyle ?? b.notesStyle, keyTerms: f.keyTerms, checkQuestions: f.checkQuestions };
+    return { ...b, templateId: t.id, style: f.style, drafted: null, layout: null, parts: f.parts.map((p) => ({ ...p })), notesStyle: f.notesStyle ?? b.notesStyle, keyTerms: f.keyTerms, checkQuestions: f.checkQuestions };
   }
-  return { ...b, templateId: t.id, style: f.style, layout: null, parts: f.parts.map((p) => ({ ...p })), slides: f.slides, speakerNotes: f.speakerNotes };
+  return { ...b, templateId: t.id, style: f.style, drafted: null, layout: null, parts: f.parts.map((p) => ({ ...p })), slides: f.slides, speakerNotes: f.speakerNotes };
 }
 
 /** Back to Funza's own controls: the teacher's earlier settings, or the kind's defaults. */
 export function clearTemplate(b: Brief, controls: Controls): Brief {
-  return { ...b, ...controls, mix: controls.mix.map((r) => ({ ...r })), templateId: null, layout: null, parts: null, style: null };
+  return { ...b, ...controls, mix: controls.mix.map((r) => ({ ...r })), templateId: null, layout: null, parts: null, style: null, drafted: null };
 }

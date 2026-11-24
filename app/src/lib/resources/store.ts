@@ -12,7 +12,8 @@ import { defaultBrief, isQuestionKind, suggestedTitle } from "@/lib/resources/ki
 import { approveMaterial, createMaterial, deleteMaterial, loadWorkspaceData, saveMaterial, startMaterialVersion } from "@/lib/resources/actions";
 import { sanitizeItem, sanitizeSections } from "@/lib/resources/sanitize";
 import { toStoredContent } from "@/lib/resources/stored";
-import { categoryOf } from "@/lib/templates/model";
+import { layoutOfSections } from "@/lib/templates/from";
+import { categoryOf, type TemplateSection } from "@/lib/templates/model";
 import type { Brief, Delivery, Draft, FixAction, Item, MixRow, QType, Resource, ResourceKind, Section } from "@/lib/resources/types";
 
 /**
@@ -287,7 +288,9 @@ async function createResource(b: Brief, draft: Draft): Promise<Saved<{ id: strin
   const now = new Date().toISOString();
   const id = draft.resourceId;
   const place = placeOf(b.outcomeIds);
-  const resource: Resource = { id, kind: b.kind, title: b.title, courseName: place.courseName, unitName: place.unitName, outcomeIds: b.outcomeIds, createdAt: now, updatedAt: now, deliveries: [], brief: { ...b, material: b.material ? { ...b.material, text: "" } : null } };
+  // A material from a template remembers the structure it was drafted with (T7).
+  const drafted = b.templateId && b.layout && isQuestionKind(b.kind) ? layoutOfSections(draft.sections) : null;
+  const resource: Resource = { id, kind: b.kind, title: b.title, courseName: place.courseName, unitName: place.unitName, outcomeIds: b.outcomeIds, createdAt: now, updatedAt: now, deliveries: [], brief: { ...b, drafted, material: b.material ? { ...b.material, text: "" } : null } };
   const full = { ...draft, title: b.title };
   const res = await createMaterial({ id, content: toStoredContent(resource, full) }).catch(() => UNREACHABLE);
   if (!res.ok) return res;
@@ -395,6 +398,15 @@ export function resetGeneration() {
 }
 
 /* ---------- editing a draft ---------- */
+
+/** After the structure was saved to the template: the material's brief now has that layout and time. */
+export function syncTemplateLayout(id: string, layout: TemplateSection[], duration: number) {
+  set((s) => ({ ...s, resources: s.resources.map((r) => (r.id === id ? { ...r, brief: { ...r.brief, layout, drafted: layout, duration } } : r)) }));
+  if (state.drafts[id] && state.drafts[id].status !== "approved") {
+    dirty.add(id);
+    scheduleSave();
+  }
+}
 
 /** Changes a draft in the workspace; `save` (the default) saves it to the database a moment later. */
 function patchDraft(id: string, fn: (d: Draft) => Draft, save = true) {

@@ -106,6 +106,8 @@ export type Brief = {
   parts: TemplatePart[] | null;
   /** The template's wording and print style (numbering, how marks are shown, the cover page), kept for printing. */
   style: TemplateStyle | null;
+  /** The structure the material had when it was drafted from the template, so only the teacher's own changes count as changes (T7). */
+  drafted: TemplateSection[] | null;
 };
 
 export type ResourceStatus = "draft" | "approved";

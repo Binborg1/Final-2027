@@ -183,6 +183,7 @@ export function sanitizeBrief(raw: unknown): Brief | null {
     layout: layout.length > 0 ? layout : null,
     parts: parts.length > 0 ? parts : null,
     style: templateId && isObject(raw.style) ? sanitizeStyle(raw.style) : null,
+    drafted: templateId && questionKind && Array.isArray(raw.drafted) ? sanitizeLayout(raw.drafted) : null,
   };
 }
 

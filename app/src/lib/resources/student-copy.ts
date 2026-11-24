@@ -45,6 +45,7 @@ export async function studentCopy(supabase: SupabaseClient<Database>, teacherId:
     duration: stored.draft.duration,
     school: teacher.data?.school ?? "",
     sections: stored.draft.sections,
+    style: stored.resource.brief.style,
   });
   return { ok: true, title: stored.draft.title, version: v.data.number, html, kind: kind.kind, versionId: v.data.id };
 }

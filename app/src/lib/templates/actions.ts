@@ -144,3 +144,29 @@ export async function materialExample(resourceId: unknown, category: unknown): P
   if (!stored || stored.draft.sections.length === 0) return { ok: false, message: "That material has nothing in it yet." };
   return { ok: true, name: line(stored.draft.title, 120), format: formatFromDraft(stored.draft, stored.resource.brief), text: materialText(stored.draft) };
 }
+
+/**
+ * Saves a material's structure back to the template it came from (T7): its sections,
+ * counts, marks and instructions, and its time. The template's wording style and
+ * cover page stay as they are.
+ */
+export async function saveStructureToTemplate(templateId: unknown, kind: unknown, sections: unknown, duration: unknown): Promise<Result> {
+  const current = await teacherForAction();
+  if (!current) return SIGNED_OUT;
+  const id = guid(templateId);
+  if (!id || typeof kind !== "string" || !["quiz", "test", "exam"].includes(kind)) return NOT_FOUND;
+  const { supabase } = current;
+  const { data, error } = await supabase.from("templates").select("kind, format").eq("id", id).eq("built_in", false).maybeSingle();
+  if (error) return FAILED;
+  if (!data || !isCategory(data.kind)) return NOT_FOUND;
+  if (data.kind !== categoryOf(kind as "quiz" | "test" | "exam")) return { ok: false, message: "That template is for another kind of material." };
+  const before = sanitizeFormat(data.kind, data.format);
+  if (!before) return NOT_FOUND;
+  const format = sanitizeFormat(data.kind, { ...before, sections, duration: typeof duration === "number" ? duration : (before as { duration?: number }).duration });
+  if (!format) return { ok: false, message: "A template needs at least one section with a question in it." };
+  const updated = await supabase.from("templates").update({ format }).eq("id", id).select("id").maybeSingle();
+  if (updated.error) return FAILED;
+  if (!updated.data) return NOT_FOUND;
+  refresh(id);
+  return { ok: true };
+}

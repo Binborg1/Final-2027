@@ -76,3 +76,14 @@ export function formatFromBrief(b: Brief): TemplateFormat | null {
   if (category === "notes") return sanitizeFormat("notes", { ...starter, parts: b.parts ?? (starter.category === "notes" ? starter.parts : []), notesStyle: b.notesStyle, keyTerms: b.keyTerms, checkQuestions: b.checkQuestions, style });
   return sanitizeFormat("slides", { ...starter, parts: b.parts ?? (starter.category === "slides" ? starter.parts : []), slides: b.slides, speakerNotes: b.speakerNotes, style });
 }
+
+const shape = (layout: TemplateSection[]) => JSON.stringify(layout.map((s) => [s.title.trim(), s.instructions.trim(), s.rows.map((r) => [r.type, r.count, r.marks])]));
+
+/**
+ * True when a material's sections no longer match the template layout it was made
+ * from (a section added or renamed, a question more or less, different marks, other
+ * instructions) or its time changed (T7: "Save this to the template?").
+ */
+export function structureChanged(layout: TemplateSection[], sections: Section[], madeWith: number, now: number | null): boolean {
+  return shape(layout) !== shape(layoutOfSections(sections)) || (now !== null && now !== madeWith);
+}

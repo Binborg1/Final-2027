@@ -2,10 +2,11 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { strToU8, zipSync } from "fflate";
 import { blankDraft } from "@/lib/resources/assemble";
+import { studentHtml } from "@/lib/resources/render";
 import { defaultBrief } from "@/lib/resources/kinds";
 import type { Draft } from "@/lib/resources/types";
 import { applyTemplate } from "@/lib/templates/apply";
-import { formatFromBrief, formatFromDraft, layoutOfSections, materialText } from "@/lib/templates/from";
+import { formatFromBrief, formatFromDraft, layoutOfSections, materialText, structureChanged } from "@/lib/templates/from";
 import { formatLine, isQuestionFormat, sanitizeFormat, type QuestionFormat, type TemplateFormat } from "@/lib/templates/model";
 import { docxLines, HEADING_SIZE, officeLines, slideLines } from "@/lib/templates/office";
 
@@ -94,6 +95,51 @@ test("notes and slides from Funza are read as text, with titles and question sta
   assert.match(text, /## Part A: Multiple choice/);
   assert.match(text, /1\. Which is faster\? \(1 mark\)/);
   assert.equal(text.includes("The steeper line"), false, "no solutions or keys");
+});
+
+/* ---------- printing in the template's style ---------- */
+
+test("a printed copy follows the template: numbering per section, marks in brackets, a cover page, no doubled part letters", () => {
+  const d = exam();
+  d.sections.forEach((s) => s.items.forEach((it, i) => Object.assign(it, { prompt: `Question ${s.id}-${i}`, options: it.options.map((o) => ({ ...o, text: "x" })) })));
+  const base = { kind: "exam" as const, title: "Unit test", courseName: "Science 10", outcomeCodes: ["FM2"], duration: 80, school: "", sections: d.sections };
+  const plain = studentHtml(base);
+  assert.match(plain, /<h2>Part A: Multiple choice \(3 marks\)<\/h2>/, "a title that names its part gets no second letter");
+  assert.match(plain, /<b>4\.<\/b>/, "numbered straight through by default");
+  assert.match(plain, /\[1\]<\/span>/);
+  assert.equal(plain.includes("page-break"), false);
+
+  const styled = studentHtml({ ...base, style: { wording: [], numbering: "per-section", marksShown: "brackets", cover: { title: "Science 10 Unit Test", instructions: ["Write your name on every page", "Calculators allowed"] } } });
+  assert.match(styled, /<h1>Science 10 Unit Test<\/h1>/);
+  assert.match(styled, /<li>Calculators allowed<\/li>/);
+  assert.match(styled, /page-break-after:always/);
+  assert.equal(styled.match(/Name: ____/g)?.length, 1, "the name line is on the cover only");
+  const partB = styled.slice(styled.indexOf("Part B: Written"));
+  assert.match(partB, /<b>1\.<\/b>/, "numbering restarts in Part B");
+  assert.match(styled, /\(1 mark\)<\/p>/);
+  assert.match(styled, /\(4 marks\)<\/p>/);
+  const none = studentHtml({ ...base, style: { wording: [], numbering: "continuous", marksShown: "none", cover: null } });
+  assert.equal(/\[\d\]|\(\d marks?\)<\/p>/.test(none), false, "marks not shown on questions");
+  assert.equal(studentHtml({ ...base, style: { wording: [], numbering: "continuous", marksShown: "margin", cover: null } }).includes("float:right"), true);
+});
+
+/* ---------- saving review changes back to the template (T7) ---------- */
+
+test("a structure counts as changed only after the teacher changes it, and differently from the template", () => {
+  const d = exam();
+  const layout = d.sections.map((s, k) => ({ title: s.title, instructions: k === 0 ? "Choose the best answer." : "Show your work.", rows: layoutOfSections([s])[0].rows }));
+  const drafted = layoutOfSections(d.sections);
+  assert.equal(structureChanged(drafted, d.sections, 80, 80), false, "as drafted: nothing to offer");
+  // Funza drafted one question short: not the teacher's change.
+  const short = { ...d, sections: [{ ...d.sections[0], items: d.sections[0].items.slice(0, 2) }, d.sections[1]] };
+  const shortDrafted = layoutOfSections(short.sections);
+  assert.equal(structureChanged(shortDrafted, short.sections, 80, 80), false);
+  // The teacher adds a question to Part B and changes the time.
+  const more = { ...d, sections: [d.sections[0], { ...d.sections[1], items: [...d.sections[1].items, { ...d.sections[1].items[0], id: "new" }] }] };
+  assert.equal(structureChanged(drafted, more.sections, 80, 80), true);
+  assert.equal(structureChanged(layout, more.sections, 80, 80), true);
+  assert.deepEqual(layoutOfSections(more.sections)[1].rows[0], { type: "short", count: 3, marks: 4 });
+  assert.equal(structureChanged(drafted, d.sections, 80, 90), true, "a new time counts too");
 });
 
 /* ---------- Make's settings as a template ---------- */
