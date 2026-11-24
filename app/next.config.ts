@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
     "/api/teach": ["./src/data/curriculum/sk.json"],
     "/setup": ["./src/data/curriculum/sk.json"],
     "/settings": ["./src/data/curriculum/sk.json"],
+    // Make and the course pages approve materials, which rechecks the outcomes on the server.
+    "/": ["./src/data/curriculum/sk.json"],
+    "/make/**": ["./src/data/curriculum/sk.json"],
+    "/courses/**": ["./src/data/curriculum/sk.json"],
+    // Live setup shows outcome codes, and starting a session saves new questions as an approved quiz.
+    "/live/**": ["./src/data/curriculum/sk.json"],
+    "/api/live/start": ["./src/data/curriculum/sk.json"],
   },
 };
 

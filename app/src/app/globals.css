@@ -83,6 +83,9 @@
   --shadow-toggle: 0 2px 5px 0 rgb(58 36 20 / 0.2);
 
   /* Type scale (Figtree): size / line height / weight */
+  /* The projector's clock and join code: readable from the back of a classroom (NFR-18 asks for at least 96 px). */
+  --text-timer: 144px;
+  --text-timer--line-height: 1;
   --text-display: 40px;
   --text-display--line-height: 48px;
   --text-title: 36px;

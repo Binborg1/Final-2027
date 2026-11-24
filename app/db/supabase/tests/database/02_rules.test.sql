@@ -147,8 +147,9 @@ select lives_ok(
   'a code can be reused once its session has ended'
 );
 
-insert into public.live_questions (id, teacher_id, session_id, question_id, position)
-values ('aaaaaaaa-0000-0000-0000-000000000012', '11111111-1111-1111-1111-111111111111', 'aaaaaaaa-0000-0000-0000-000000000011', 'aaaaaaaa-0000-0000-0000-000000000003', 1);
+insert into public.live_questions (id, teacher_id, session_id, question_id, position, content)
+values ('aaaaaaaa-0000-0000-0000-000000000012', '11111111-1111-1111-1111-111111111111', 'aaaaaaaa-0000-0000-0000-000000000011', 'aaaaaaaa-0000-0000-0000-000000000003', 1,
+        '{"type": "mcq", "stem": "Which is an asset?", "options": [{"id": "a", "text": "Cash"}], "answer": {"correctId": "a"}, "marks": 1}');
 insert into public.participants (id, teacher_id, session_id, name, token_hash)
 values ('aaaaaaaa-0000-0000-0000-000000000013', '11111111-1111-1111-1111-111111111111', 'aaaaaaaa-0000-0000-0000-000000000011', 'Sam', repeat('a', 64));
 insert into public.participants (id, teacher_id, session_id, name, token_hash)

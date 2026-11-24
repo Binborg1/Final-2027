@@ -21,7 +21,7 @@ export default async function HomePage() {
       <PageHeader size="display" title={`${greeting()}, ${firstName(teacher)}`} summary={todayLabel()} />
 
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-        <ModeCard icon={Radio} title="Go live" text="Run a timed question set in class. Students join on their phones." soon="Live mode arrives in the next update." />
+        <ModeCard icon={Radio} title="Go live" text="Run a timed question set in class. Students join on their phones." href="/live/new" />
         <ModeCard icon={Sparkles} title="Prepare" text="Make notes, slides, quizzes and exams for your courses." href="/make" />
       </div>
 

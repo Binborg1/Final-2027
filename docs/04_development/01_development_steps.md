@@ -1,8 +1,8 @@
 # Funza development steps
 
-**Funza Teacher Studio · v0.4 · 23 November 2026**
+**Funza Teacher Studio · v0.5 · 23 November 2026**
 
-*Changed in v0.4: step 4 is built (courses and chapters, drafts and approval in the database, the question bank, the daily AI allowance); the chapter rule is decided. v0.3: teacher sign-in is Google, or email and password, instead of an email link (step 3).*
+*Changed in v0.5: step 5 (Live mode) is built; the whole set runs at once on one shared timer, and the migrations for steps 4 and 5 are applied to the development project. v0.4: step 4 is built (courses and chapters, drafts and approval in the database, the question bank, the daily AI allowance); the chapter rule is decided. v0.3: teacher sign-in is Google, or email and password, instead of an email link (step 3).*
 
 This is the order in which Funza gets built, from creating accounts to the final release. Each step lists what to do and how to know it's done. The *why* behind each choice is in [requirements and architecture](../03_design/02_requirements_and_architecture/requirements_and_architecture.md); the product is summarized in the [repo README](../../README.md).
 
@@ -151,24 +151,30 @@ Built on branch `step-4-courses-and-bank` (23 November). The migration `step4_co
 
 ## Step 5. Live mode (26–28 Nov)
 
-1. Build `lib/live`: session states, 6-character codes, the server clock, and exact marking.
-   - Restore the join-code generator and its test from git (`c611d8f^`, `lib/classes/model.ts`): its alphabet leaves out 0, O, 1 and I.
-   - Write the answer checker fresh. The old one in `c611d8f^` marked short answers by keywords and had no true/false or number type.
-   - Mark number answers with a strict number parser and a tolerance. Don't use `lib/math/expr.ts` for student input: it accepts `sqrt(50)` and has no tolerance.
-   - Store each phone's token as a hash and compare it in constant time (the `keyMatches` pattern in `c611d8f^`, `lib/classes/server.ts`).
-2. API routes: `/api/live/start`, `join`, `state`, `answer`, `close`, `reveal`, `end`.
-3. Realtime pings on one channel per session. If the WebSocket can't connect, phones ask for the state every 2 seconds.
-4. Teacher screens:
-   - Funza suggests questions, and the teacher picks them.
-   - Timer and lobby (projector).
-   - Console: names, answer count, close early.
-   - Reveal (projector).
-   - Results with the most-missed questions, and a CSV export.
-5. Student screens: `/join` (code, name, student number) and `/play/[session]` (answer, wait, see my result).
-6. Short-answer marking: one Gemini call per question, with no names. The teacher can flip any mark.
-7. Rate limits on join, answer and state. State-changing routes refuse cross-site requests with `lib/origin.ts`.
+**Decided (23 November 2026):** the whole set runs at once on one shared timer (5:00 by default; the exit-ticket preset is 3 questions in 3:00). Students answer in any order. At Reveal the projector steps through the questions one at a time. No Pause and no leaderboard in R1. The projector never shows names; names are on the console only (Figma L1: "Shown to you, never on the projector").
 
-**Done when:** 5 real phones and 35 simulated ones finish a session with no lost answers. Every phone shows the question within 1 second of the click.
+1. ✅ `lib/live`: session states, 6-character codes, the server clock, and exact marking.
+   - The join-code generator and its test are restored from `c611d8f^` (`lib/classes/model.ts`); the alphabet leaves out 0, O, 1 and I.
+   - The answer checker is new. Numbers use a strict parser (no expressions, no commas; a trailing unit must match the key's) and the 0.5% / 0.01 tolerance, against the recomputed calculation or the key as written.
+   - Each phone's token is stored as a SHA-256 hash and compared in constant time (the `keyMatches` pattern in `c611d8f^`).
+   - States: `lobby → open → closed → revealed → ended`. The first request after the end time plus 2 seconds closes the session if the console is gone. Every change raises a revision number and is a conditional update, so two tabs can't both apply it.
+2. ✅ API routes.
+   - Phones (public, a token in the `x-funza-token` header): `/api/live/join`, `/api/live/state`, `/api/live/answer`.
+   - Teachers (signed in, same site for POSTs, row-level security): `/api/live/start`, and `/api/live/[id]` with `open`, `close`, `mark`, `marks`, `reveal`, `end`, `remove` and `csv`.
+   - Route logic is in `lib/live/handlers/`, tested against an in-memory store.
+3. ✅ Realtime pings on two public broadcast topics per session, named by its random id: `live:<id>` (state changes, for phones, the console and the projector) and `live:<id>:teacher` (answers, the roster, marks, the projector's step). Pings carry only the revision number. If the WebSocket isn't up within 3 seconds, screens ask every 2 seconds; while connected they still check every 15.
+4. ✅ Teacher screens (Figma "F · Live screens"):
+   - Setup (L1, `/live/new`): questions from the chapter's bank, Funza's suggestions (also from a chapter source, with "+3 more", "Easier" and "Harder"), a saved approved quiz or the exit-ticket preset. Questions Funza wrote or the teacher edited are saved as an approved quiz through the same server checks as Make, so every live question is a bank question with its key snapshotted.
+   - Console (`/live/[id]`): the lobby with the code, QR code and names; answering (L2); check marks (L3); Reveal.
+   - Projector (`/live/[id]/screen`, no shell): the lobby's QR code and code, the clock at 144 px, then each revealed question at 40 px.
+   - Results (L5, `/live/[id]/results`): class average, by outcome, the most-missed questions with their most common wrong answer, student scores and the CSV export. `/live` lists every session.
+   - Entry points: Home's "Go live", the sidebar, the command menu, chapter pages, and "Run live" on approved quizzes in Review.
+5. ✅ Student screens: `/join` (code from the QR code, name, student number if asked) and `/play/[session]` (wait, answer one question per screen, see my result). Answers save as the student goes, the newest one wins, and unsent answers survive a reload.
+6. ✅ Short-answer marking: once time is up, one Gemini call per question, with answers under random ids and no names, within the daily allowance (logged as `live-mark`). The teacher can change any mark and undo the change. If Funza can't mark, the answers stay unmarked for the teacher.
+7. ✅ Rate limits in Postgres (`rate_hit()`): joining 10 a minute per phone and 100 per network address, state 60 a minute per token, answers 60 a minute per token (up from 30: text answers save after a pause, and retries count). 60 students per session, 2 open sessions per teacher. Every state-changing route refuses cross-site requests; `/api/teach` now does too.
+8. ✅ Migration `live_mode` (applied 23 Nov 2026), pgTAP tests in `06_live_mode`, and `scripts/live-load.mjs` for the load test.
+
+**Done when:** 5 real phones and 35 simulated ones (`npm run live:load -- --base <preview> --code <code> --phones 35 --realtime …`) finish a session with no lost answers, and every phone shows the questions within 1 second of the click. *Still to run on a preview with real phones.*
 
 ## Step 6. Course page (29 Nov)
 

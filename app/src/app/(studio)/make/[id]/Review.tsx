@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Check, ChevronDown, ChevronRight, Circle, CircleAlert, CircleCheck, Copy, Ellipsis, FileQuestion, Info, Lock, MoveDown, MoveUp, PenLine, RotateCcw, Sparkles, Trash2, X, type LucideIcon } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, ChevronRight, Circle, CircleAlert, CircleCheck, Copy, Ellipsis, FileQuestion, Info, Lock, MoveDown, MoveUp, PenLine, Radio, RotateCcw, Sparkles, Trash2, X, type LucideIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { PageHeader } from "@/components/shell/PageHeader";
 import { Button, ButtonLink } from "@/components/ui/Button";
@@ -11,7 +11,7 @@ import { Input, Textarea } from "@/components/ui/Field";
 import { EmptyState, Progress } from "@/components/ui/Misc";
 import { codeOf } from "@/lib/curriculum/sources";
 import { approvalBlockers, computeChecks, itemReview, numbering, reviewables, sectionReview, totalMarks, type ReviewState } from "@/lib/resources/checks";
-import { kindInfo, QTYPE_LABEL } from "@/lib/resources/kinds";
+import { isQuestionKind, kindInfo, QTYPE_LABEL } from "@/lib/resources/kinds";
 import { acceptAlt, applyFix, approve, deleteItem, discardAlt, dismissNotices, duplicateItem, markReviewed, moveItem, regenerateItem, setGlobal, setTitle, startNewVersion, updateItem, updateSection, useWorkspace } from "@/lib/resources/store";
 import type { CheckRow, Draft, Item, Section } from "@/lib/resources/types";
 import { PublishPanel } from "./PublishPanel";
@@ -102,9 +102,16 @@ export function Review({ id }: { id: string }) {
         }
         actions={
           approved ? (
-            <Button variant="secondary" icon={PenLine} onClick={() => void startNewVersion(id)}>
-              Start a new version
-            </Button>
+            <>
+              <Button variant="secondary" icon={PenLine} onClick={() => void startNewVersion(id)}>
+                Start a new version
+              </Button>
+              {isQuestionKind(draft.kind) ? (
+                <ButtonLink variant="secondary" icon={Radio} href={`/live/new?quiz=${id}`}>
+                  Run live
+                </ButtonLink>
+              ) : null}
+            </>
           ) : blockers.length > 0 ? (
             <>
               <span className="flex items-center gap-2">
@@ -186,7 +193,7 @@ export function Review({ id }: { id: string }) {
       >
         <p className="flex items-start gap-2.5 rounded-tile bg-sage-tint/70 px-4 py-3 text-body font-medium text-sage-ink">
           <CircleCheck aria-hidden size={18} className="mt-px shrink-0" />
-          All {rv.length} parts are checked. Funza checks them again before it approves. Nothing reaches students until you print it or post it to Google Classroom.
+          All {rv.length} parts are checked. Funza checks them again before it approves. Nothing reaches students until you print it, post it to Google Classroom or run it live.
         </p>
       </Dialog>
     </div>

@@ -19,7 +19,7 @@ test("student pages, the sign-in flow and the public APIs stay public", () => {
 });
 
 test("teacher pages need a session, and other APIs answer for themselves", () => {
-  for (const path of ["/", "/make", "/make/r-1", "/setup", "/settings", "/new-password", "/courses", "/joiner", "/cards", "/players"]) assert.equal(routeKind(path), "teacher-page", path);
+  for (const path of ["/", "/make", "/make/r-1", "/setup", "/settings", "/new-password", "/courses", "/joiner", "/cards", "/players", "/live", "/live/new", "/live/x", "/live/x/screen", "/live/x/results"]) assert.equal(routeKind(path), "teacher-page", path);
   for (const path of ["/api/teach", "/api/lms/google/status", "/api/lms/google/callback"]) assert.equal(routeKind(path), "api", path);
 });
 

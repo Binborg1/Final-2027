@@ -74,6 +74,7 @@ export type Database = {
       }
       answers: {
         Row: {
+          ai_marks: number | null
           correct: boolean | null
           id: string
           live_question_id: string
@@ -86,6 +87,7 @@ export type Database = {
           teacher_id: string
         }
         Insert: {
+          ai_marks?: number | null
           correct?: boolean | null
           id?: string
           live_question_id: string
@@ -98,6 +100,7 @@ export type Database = {
           teacher_id: string
         }
         Update: {
+          ai_marks?: number | null
           correct?: boolean | null
           id?: string
           live_question_id?: string
@@ -265,11 +268,15 @@ export type Database = {
       live_questions: {
         Row: {
           answer_count: number | null
+          content: Json
           correct_count: number | null
           ends_at: string | null
           id: string
+          mark_note: string | null
+          mark_started_at: string | null
+          mark_state: string
           position: number
-          question_id: string
+          question_id: string | null
           revealed_at: string | null
           session_id: string
           started_at: string | null
@@ -277,11 +284,15 @@ export type Database = {
         }
         Insert: {
           answer_count?: number | null
+          content: Json
           correct_count?: number | null
           ends_at?: string | null
           id?: string
+          mark_note?: string | null
+          mark_started_at?: string | null
+          mark_state?: string
           position: number
-          question_id: string
+          question_id?: string | null
           revealed_at?: string | null
           session_id: string
           started_at?: string | null
@@ -289,11 +300,15 @@ export type Database = {
         }
         Update: {
           answer_count?: number | null
+          content?: Json
           correct_count?: number | null
           ends_at?: string | null
           id?: string
+          mark_note?: string | null
+          mark_started_at?: string | null
+          mark_state?: string
           position?: number
-          question_id?: string
+          question_id?: string | null
           revealed_at?: string | null
           session_id?: string
           started_at?: string | null
@@ -319,44 +334,75 @@ export type Database = {
       live_sessions: {
         Row: {
           ask_student_no: boolean
+          chapter_id: string | null
+          closed_at: string | null
           code: string
           course_id: string
           created_at: string
           current_question_id: string | null
           ended_at: string | null
+          ends_at: string | null
           id: string
+          opened_at: string | null
+          resource_version_id: string | null
+          rev: number
+          revealed_at: string | null
           state: string
           students_purged_at: string | null
           teacher_id: string
           timer_s: number
+          title: string
         }
         Insert: {
           ask_student_no?: boolean
+          chapter_id?: string | null
+          closed_at?: string | null
           code: string
           course_id: string
           created_at?: string
           current_question_id?: string | null
           ended_at?: string | null
+          ends_at?: string | null
           id?: string
+          opened_at?: string | null
+          resource_version_id?: string | null
+          rev?: number
+          revealed_at?: string | null
           state?: string
           students_purged_at?: string | null
           teacher_id: string
           timer_s?: number
+          title?: string
         }
         Update: {
           ask_student_no?: boolean
+          chapter_id?: string | null
+          closed_at?: string | null
           code?: string
           course_id?: string
           created_at?: string
           current_question_id?: string | null
           ended_at?: string | null
+          ends_at?: string | null
           id?: string
+          opened_at?: string | null
+          resource_version_id?: string | null
+          rev?: number
+          revealed_at?: string | null
           state?: string
           students_purged_at?: string | null
           teacher_id?: string
           timer_s?: number
+          title?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "live_sessions_chapter_id_teacher_id_fkey"
+            columns: ["chapter_id", "teacher_id"]
+            isOneToOne: false
+            referencedRelation: "chapters"
+            referencedColumns: ["id", "teacher_id"]
+          },
           {
             foreignKeyName: "live_sessions_course_id_teacher_id_fkey"
             columns: ["course_id", "teacher_id"]
@@ -370,6 +416,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "live_questions"
             referencedColumns: ["id", "session_id"]
+          },
+          {
+            foreignKeyName: "live_sessions_resource_version_id_teacher_id_fkey"
+            columns: ["resource_version_id", "teacher_id"]
+            isOneToOne: false
+            referencedRelation: "resource_versions"
+            referencedColumns: ["id", "teacher_id"]
           },
         ]
       }
@@ -523,6 +576,24 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      rate_limits: {
+        Row: {
+          hits: number
+          key: string
+          window_start: string
+        }
+        Insert: {
+          hits?: number
+          key: string
+          window_start: string
+        }
+        Update: {
+          hits?: number
+          key?: string
+          window_start?: string
+        }
+        Relationships: []
       }
       resource_chapters: {
         Row: {
@@ -862,7 +933,16 @@ export type Database = {
         Args: { p_questions?: Json; p_version: string }
         Returns: number
       }
+      end_live_session: { Args: { p_session: string }; Returns: undefined }
       purge_student_data: { Args: { older_than?: string }; Returns: number }
+      rate_hit: {
+        Args: { p_key: string; p_limit: number; p_window_s?: number }
+        Returns: boolean
+      }
+      set_live_marks: {
+        Args: { p_by: string; p_marks: Json; p_session: string }
+        Returns: number
+      }
     }
     Enums: {
       [_ in never]: never

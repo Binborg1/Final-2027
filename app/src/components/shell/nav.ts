@@ -21,8 +21,8 @@ export const NAV: NavSection[] = [
   {
     label: "Live",
     items: [
-      { id: "live", label: "Go live", icon: Radio, soon: "Arrives with Live mode" },
-      { id: "sessions", label: "Live sessions", icon: ChartColumn, soon: "Arrives with Live mode" },
+      { id: "live", label: "Go live", icon: Radio, href: "/live/new", match: (p) => p.startsWith("/live/new") },
+      { id: "sessions", label: "Live sessions", icon: ChartColumn, href: "/live", match: (p) => p === "/live" || (p.startsWith("/live/") && !p.startsWith("/live/new")) },
     ],
   },
   { label: null, items: [{ id: "settings", label: "Settings", icon: Settings, href: "/settings", match: (p) => p.startsWith("/settings") }] },

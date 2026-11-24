@@ -14,3 +14,18 @@ export function sameOrigin(request: { headers: Headers; url: string }) {
   }
   return request.headers.get("sec-fetch-site") === "same-origin";
 }
+
+/**
+ * For the public live routes (students have no cookie to protect): a POST is
+ * refused only when its Origin names another site. A request without Origin, such
+ * as the load-test script, is allowed; the student's token still has to match.
+ */
+export function crossSite(request: { headers: Headers; url: string }) {
+  const origin = request.headers.get("origin");
+  if (!origin) return false;
+  try {
+    return new URL(origin).host !== new URL(request.url).host;
+  } catch {
+    return true;
+  }
+}

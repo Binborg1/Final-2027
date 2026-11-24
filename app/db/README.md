@@ -20,6 +20,7 @@ The curriculum is not in the database. It stays a JSON file (`src/data/curriculu
 | `20261122011932_close_rls_auto_enable_rpc` | Takes EXECUTE on the hosted project's own `rls_auto_enable()` event-trigger function away from the API roles (a security advisor finding). Does nothing on a local database, where the function doesn't exist | Applied 21 Nov 2026, 19:19 CST | Project not created yet |
 | `20261124050141_step4_courses_and_bank` | Seeded chapters unique per course; `questions.fingerprint` with a unique index per teacher; `approve_version()`, which approves a version and fills the question bank in one transaction as the signed-in teacher | Applied 23 Nov 2026, 23:01 CST | Project not created yet |
 | `20261124050157_chapter_sources_storage` | The private `sources` Storage bucket (20 MB, PDF and text files) and row-level security on `storage.objects`, so each teacher reaches only their own folder | Applied 23 Nov 2026, 23:01 CST | Project not created yet |
+| `20261124052904_live_mode` | Live mode: the whole-set clock and a revision number on `live_sessions`; an answer-key snapshot on each live question (deleting a bank question no longer deletes live answers); Funza's mark kept beside the teacher's (`answers.ai_marks`); teachers may remove their own students and change marks (column grant); server-only `rate_limits` counters with `rate_hit()` and a pg_cron job that prunes them every 10 minutes; `set_live_marks()` and `end_live_session()` | Applied 23 Nov 2026, 23:29 CST | Project not created yet |
 
 Add a row whenever a migration is applied to a project, and fill in the Production column when it reaches `funza-prod`.
 
@@ -28,8 +29,8 @@ Add a row whenever a migration is applied to a project, and fill in the Producti
 | Role | Access |
 |---|---|
 | `anon` (a browser with no session) | Nothing. Students never use the database directly; their requests go through the API. |
-| `authenticated` (a signed-in teacher) | Their own rows only (`teacher_id = auth.uid()`), in every teacher table. Built-in templates are readable by all. Participants, answers and AI usage are read-only; the Google refresh token column can't be read at all. |
-| `service_role` (the server, with the secret key) | Everything. Used only for student writes, AI usage rows and scheduled work, after the API has checked who is asking. |
+| `authenticated` (a signed-in teacher) | Their own rows only (`teacher_id = auth.uid()`), in every teacher table. Built-in templates are readable by all. AI usage is read-only. Participants are read-only except that a teacher may remove one of their own students; on answers a teacher may change only the mark columns (`correct`, `marks`, `marked_by`, `ai_marks`), never what a student answered. The Google refresh token column can't be read at all. |
+| `service_role` (the server, with the secret key) | Everything. Used only for student writes, AI usage rows, the rate-limit counters (`rate_limits`, `rate_hit()`) and scheduled work, after the API has checked who is asking. |
 
 A child row points at its parent with `(parent_id, teacher_id)`, so it can only belong to a parent of the same teacher, even when the server writes it.
 
