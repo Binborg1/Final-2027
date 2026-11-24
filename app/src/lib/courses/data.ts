@@ -15,6 +15,7 @@ export type MaterialStatus = "draft" | "in_review" | "approved" | "published";
 export type MaterialRow = { id: string; title: string; kind: ResourceKind; status: MaterialStatus; updatedAt: string; version: number | null; chapterIds: string[] };
 export type BankQuestionRow = { id: string; type: string; stem: string; marks: number; outcomeRef: string | null; difficulty: number | null };
 export type CourseRow = { id: string; title: string; level: number | null; curriculumCourseId: string | null };
+export type SourceRow = { id: string; title: string; kind: string; hasText: boolean; createdAt: string };
 
 const countOf = (v: unknown) => (Array.isArray(v) && v[0] && typeof v[0] === "object" && "count" in v[0] ? Number(v[0].count) || 0 : 0);
 
@@ -84,7 +85,11 @@ export async function chapterDetail(courseId: string, chapterId: string) {
   const { data, error } = await current!.supabase.from("questions").select("id, type, stem, marks, outcome_ref, difficulty, created_at").eq("chapter_id", chapter.id).eq("retired", false).order("created_at");
   if (error) throw new Error(`Could not read the question bank: ${error.message}`);
   const questions: BankQuestionRow[] = data.map((q) => ({ id: q.id, type: q.type, stem: q.stem, marks: q.marks, outcomeRef: q.outcome_ref, difficulty: q.difficulty }));
+  const src = await current!.supabase.from("sources").select("id, title, kind, text, created_at").eq("chapter_id", chapter.id).order("created_at");
+  if (src.error) throw new Error(`Could not read sources: ${src.error.message}`);
+  const sources: SourceRow[] = src.data.map((s) => ({ id: s.id, title: s.title, kind: s.kind, hasText: !!s.text, createdAt: s.created_at }));
   return {
+    sources,
     course: detail.course,
     chapter,
     index,
@@ -115,3 +120,14 @@ export async function ensureChapters(): Promise<void> {
   const has = new Set(chapters.data.map((c) => c.course_id));
   for (const c of courses.data) if (!has.has(c.id) && c.curriculum_course_id) await seedChapters(current.supabase, current.teacher.id, c).catch(() => undefined);
 }
+
+/** The sources with text in each chapter, for Make's "Use my notes from this chapter". */
+export const makeSources = cache(async (): Promise<Record<string, { id: string; title: string }[]>> => {
+  const current = await currentTeacher();
+  if (!current) return {};
+  const { data, error } = await current.supabase.from("sources").select("id, chapter_id, title, created_at").not("text", "is", null).order("created_at");
+  if (error) return {};
+  const out: Record<string, { id: string; title: string }[]> = {};
+  for (const s of data) (out[s.chapter_id] ??= []).push({ id: s.id, title: s.title });
+  return out;
+});

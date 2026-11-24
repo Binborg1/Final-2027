@@ -123,7 +123,8 @@ test("Classroom POSTs must come from this site", () => {
 /* ---------- Classroom publishing ---------- */
 
 const opts: PublishOptions = {
-  doc: { kind: "quiz", title: "Quiz", version: 2, courseName: "Science 10", outcomeCodes: ["SCI10-FM2"], duration: 30, school: "", sections: [] },
+  doc: { resourceId: "6f1f2c1e-1111-4a2b-8c3d-0000000000aa" },
+  title: "Quiz",
   fileId: null,
   postAs: "material",
   when: "draft",

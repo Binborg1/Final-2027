@@ -14,6 +14,7 @@ import { approvalBlockers, computeChecks, itemReview, numbering, reviewables, se
 import { kindInfo, QTYPE_LABEL } from "@/lib/resources/kinds";
 import { acceptAlt, applyFix, approve, deleteItem, discardAlt, dismissNotices, duplicateItem, markReviewed, moveItem, regenerateItem, setGlobal, setTitle, startNewVersion, updateItem, updateSection, useWorkspace } from "@/lib/resources/store";
 import type { CheckRow, Draft, Item, Section } from "@/lib/resources/types";
+import { PublishPanel } from "./PublishPanel";
 import { cn } from "@/lib/ui/cn";
 
 type Part = { id: string; kind: "item"; item: Item; section: Section; number: number } | { id: string; kind: "section"; section: Section };
@@ -143,6 +144,8 @@ export function Review({ id }: { id: string }) {
         </div>
       ) : null}
 
+      {approved ? <PublishPanel id={id} title={draft.title} kind={draft.kind} version={draft.version} /> : null}
+
       {/* Columns follow the panel's width (it narrows when the sidebar is open), not the window's. */}
       <div className="@container">
       <div className="grid grid-cols-1 items-start gap-5 @min-[720px]:grid-cols-[minmax(0,1fr)_300px] @min-[1000px]:grid-cols-[220px_minmax(0,1fr)_300px] @min-[1240px]:grid-cols-[268px_minmax(0,1fr)_392px]">
@@ -183,7 +186,7 @@ export function Review({ id }: { id: string }) {
       >
         <p className="flex items-start gap-2.5 rounded-tile bg-sage-tint/70 px-4 py-3 text-body font-medium text-sage-ink">
           <CircleCheck aria-hidden size={18} className="mt-px shrink-0" />
-          All {rv.length} parts are checked. Nothing reaches students until you publish it; publishing to a course page and Google Classroom arrives in the next update.
+          All {rv.length} parts are checked. Funza checks them again before it approves. Nothing reaches students until you print it or post it to Google Classroom.
         </p>
       </Dialog>
     </div>

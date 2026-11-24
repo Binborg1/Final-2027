@@ -13,6 +13,8 @@ export type PublishTarget = { id: string; name: string; link: string | null };
 
 export type PublishOptions = {
   doc: Parameters<typeof lmsCreateDoc>[0];
+  /** The post's title in Classroom. */
+  title: string;
   /** A Doc already made for this version, reused instead of making another. */
   fileId: string | null;
   postAs: "material" | "assignment";
@@ -62,7 +64,7 @@ export async function publishToClassroom(
       courseId: t.id,
       fileId,
       kind: opts.postAs,
-      title: opts.doc.title,
+      title: opts.title,
       description: opts.description,
       state: opts.when === "now" ? "PUBLISHED" : "DRAFT",
       topicId: targets.length === 1 ? opts.topicId : undefined,

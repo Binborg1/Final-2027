@@ -2,7 +2,7 @@
 
 **Funza Teacher Studio · v0.3 · 23 November 2026**
 
-*Changed in v0.3: the step 4 screens (Courses, a course, a chapter), section 4b.*
+*Changed in v0.3: the step 4 screens (Courses, a course, a chapter, sources, publishing), section 4b.*
 
 *Changed in v0.2: the sign-in card has an email and password form, with "Create account" and "Forgot password?", instead of the email link, and a new "Choose a new password" screen (section 4).*
 
@@ -249,14 +249,25 @@ Built from the shared parts, following the F2 chapter frame (27:531). Screenshot
 - **Left column:** Materials, then **Outcomes**, "From the official source": each outcome's code tag and its official wording.
 - **Right column:**
   - **Question bank:** count, a line "N Multiple choice · N True or false · … · N marks in all", and a scrolling list of stems with type and marks (and "% right in class" once live results exist).
-  - **Sources** and **Live sessions:** empty states saying when they arrive.
+  - **Sources:** each file with its type tag ("Notes", "PDF", "Past exam") and "Text ready for Make" or "No text found". The title opens the file; a round button deletes it, with a confirm dialog. Under the list are a small "Notes or PDF / Past exam" select and "Add a source", which reads and uploads the file and shows its progress on the button.
+  - **Live sessions:** an empty state saying it arrives with Live mode.
 - **Changed from Figma:** the frame's bottom tab dock is left out until the page has five sections that hold something.
 
 ### Make
 - **Chapters:** the chips are the course's chapters from the database, so a teacher's renamed or added chapters appear.
 - **Opening Make from a chapter page** starts on that chapter.
+- **Chapter sources:** next to "Attach a source", each chosen chapter's sources with text appear as small "Use {file}" buttons. One click makes it the brief's notes.
 - **No chapters:** a course with none says so and links to its course page.
 - **Daily allowance:** when 5 or fewer AI actions are left today, a quiet line under Make draft says how many. At 0 it says when they reset and that the question bank still works.
+
+### Publish (on Review, once a version is approved)
+- **Card "Publish version N"**, with "The student copy has no answers or keys" beside the title.
+- **Print or save as PDF** (secondary) opens the student copy in a new tab: a white page on the cream background, with a thin bar holding "Student copy · vN · no answers or keys" and a terracotta "Print or save as PDF" button. The bar is hidden when printing.
+- **Google Classroom:**
+  - "Connect Google Classroom" when not connected, then "Choose classes".
+  - Classes appear as checkbox rows. Each row shows that class's progress and result after posting, with a link to the post.
+  - Chips choose Assignment or Material, and "Save as a draft in Classroom" or "Post now".
+  - The primary button reads "Save draft to N classes" or "Post to N classes".
 
 ## 5. Phones (added; not drawn for teacher screens)
 

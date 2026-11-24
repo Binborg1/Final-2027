@@ -305,10 +305,10 @@ export async function startGeneration() {
   if (state.generation.state !== "running") return;
   set((s) => ({ ...s, generation: { ...s.generation, stage: 2 } }));
   controller = new AbortController();
-  let json: { ok: boolean; reason?: string; message?: string; data?: { sections: unknown; notices: string[]; provider: string } };
+  let json: DraftReply;
   try {
-    const res = await fetch("/api/teach", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ task: "resource-draft", brief: b }), signal: controller.signal });
-    json = await res.json();
+    const res = await fetch("/api/teach", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ task: "resource-draft", brief: b, stream: true }), signal: controller.signal });
+    json = (res.headers.get("content-type") ?? "").includes("ndjson") && res.body ? await readDraftStream(res.body, (written) => showProgress(b, written)) : await res.json();
   } catch (e) {
     if (e instanceof DOMException && e.name === "AbortError") return;
     json = { ok: false, reason: "network" };
@@ -334,6 +334,42 @@ export async function startGeneration() {
     return;
   }
   set((s) => ({ ...s, generation: { ...s.generation, state: "done", stage: s.generation.stages.length, resourceId: id } }));
+}
+
+type DraftReply = { ok: boolean; reason?: string; message?: string; data?: { sections: unknown; notices: string[]; provider: string } };
+
+/** Reads a streamed draft: progress counts while Funza writes, then the validated result. */
+async function readDraftStream(body: ReadableStream<Uint8Array>, onProgress: (written: number) => void): Promise<DraftReply> {
+  const reader = body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (value) buffer += decoder.decode(value, { stream: !done });
+    let nl: number;
+    while ((nl = buffer.indexOf("\n")) >= 0) {
+      const line = buffer.slice(0, nl).trim();
+      buffer = buffer.slice(nl + 1);
+      if (!line) continue;
+      let event: { type?: string; written?: number } & DraftReply;
+      try {
+        event = JSON.parse(line);
+      } catch {
+        continue;
+      }
+      if (event.type === "progress" && typeof event.written === "number") onProgress(event.written);
+      if (event.type === "result") return event;
+    }
+    if (done) return { ok: false, reason: "network", message: "The connection closed before the draft was finished. Nothing was saved." };
+  }
+}
+
+/** "Funza has started 7 of 12 questions": the drafting stage's detail while the reply streams in. */
+function showProgress(b: Brief, written: number) {
+  if (state.generation.state !== "running" || written <= 0) return;
+  const total = isQuestionKind(b.kind) ? blueprintOf(b).questions : null;
+  const detail = total ? `Funza has started ${Math.min(written, total)} of ${total} questions.` : `Funza has written ${written} section${written === 1 ? "" : "s"} so far.`;
+  set((s) => ({ ...s, generation: { ...s.generation, stages: s.generation.stages.map((st, i) => (i === 2 ? { ...st, detail } : st)) } }));
 }
 
 export function cancelGeneration() {

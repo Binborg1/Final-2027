@@ -135,14 +135,16 @@ Built on branch `step-4-courses-and-bank` (23 November). The migration `step4_co
      - The teacher renames, reorders or deletes them.
    - Chapters are seeded in setup, on "Add a course", and the first time an older course opens. They store the dataset's outcome ids (Science 10's SCI10-FM2 is `sk-63-110477`).
    - ✅ Removed (23 Nov): the Science 10 hand-copied entry and its `lessonTemplate` rule (the import has the same words and adds the indicators; the starter bank now uses the dataset ids), the lesson-plan content in `bank.ts`, and `scripts/curriculum/schema.sql` and `export-sql.mjs`.
-2. Sources: upload to Storage, extract the text once, and attach the source to its chapter. *Next; needs a Storage bucket migration.*
+2. ✅ Sources: upload to Storage, extract the text once, and attach the source to its chapter.
+   - Files go to the private `sources` bucket under the teacher's own folder (migration `chapter_sources_storage`; row-level security on `storage.objects`). The text is read once in the browser (pdf.js) and kept in `sources.text`.
+   - The chapter page lists, opens and deletes sources. Make offers a chosen chapter's sources as "my notes".
 3. ✅ `lib/resources/store.ts` saves to Supabase. The browser keeps the working copy and saves each change through Server Functions (`lib/resources/actions.ts`). The draft is a resource version's `content`. Approving locks the version; editing starts the next one.
 4. AI:
    - ✅ Every call goes through the daily allowance (`FUNZA_AI_DAILY_LIMIT`, default 40, counted from midnight Saskatchewan time) and is logged in `ai_usage` with its tokens. Make says how many are left when 5 or fewer remain.
-   - Move to the current Flash model, and stream long drafts. *Later.*
+   - ✅ Long drafts stream: Make shows "Funza has started 7 of 12 questions" while Gemini writes. Only a count is streamed; the reply is validated whole, as before. Gemini 2.5 Flash stays the default model.
 5. ✅ Approving saves the questions to the chapter's bank. **Approval is enforced on the server:** it reruns the checks on the saved copy and refuses while anything has failed, waits on the teacher or changed since review. `approve_version()` then approves the version and upserts its questions in one transaction. Unchanged questions keep their bank row.
 6. On first sign-in, offer to import drafts saved in that browser. *Dropped: only test drafts existed.*
-7. Publishing to Classroom builds the Google Doc on the server from a saved approved version, found by its id. *Later: no screen publishes to Classroom yet.*
+7. ✅ Publishing to Classroom builds the Google Doc on the server from the saved approved version, found by its id; the browser sends only the id. Review has a Publish panel for approved versions: print or save as a PDF (`/make/[id]/print`, the same server-built student copy), or post to chosen Classroom classes as a draft or live. Each post is recorded in `publications`.
 8. ✅ Gemini replies are requested as JSON, `complete()` returns token counts, and `/api/teach` sets `maxDuration = 150`.
 
 **Done when:** a teacher makes and approves a quiz on one computer and finds it on another, with its questions in the chapter's bank.
