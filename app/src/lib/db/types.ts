@@ -454,6 +454,7 @@ export type Database = {
           correct_count: number
           created_at: string
           difficulty: number | null
+          fingerprint: string | null
           id: string
           last_used_at: string | null
           marks: number
@@ -473,6 +474,7 @@ export type Database = {
           correct_count?: number
           created_at?: string
           difficulty?: number | null
+          fingerprint?: string | null
           id?: string
           last_used_at?: string | null
           marks?: number
@@ -492,6 +494,7 @@ export type Database = {
           correct_count?: number
           created_at?: string
           difficulty?: number | null
+          fingerprint?: string | null
           id?: string
           last_used_at?: string | null
           marks?: number
@@ -855,6 +858,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      approve_version: {
+        Args: { p_questions?: Json; p_version: string }
+        Returns: number
+      }
       purge_student_data: { Args: { older_than?: string }; Returns: number }
     }
     Enums: {

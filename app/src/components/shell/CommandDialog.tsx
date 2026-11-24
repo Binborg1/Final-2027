@@ -1,6 +1,6 @@
 "use client";
 
-import { CornerDownLeft, House, LogOut, Search, Settings, Sparkles, type LucideIcon } from "lucide-react";
+import { BookOpen, CornerDownLeft, House, LogOut, Plus, Search, Settings, Sparkles, type LucideIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Kbd } from "@/components/ui/Card";
@@ -38,6 +38,8 @@ export function CommandDialog({ open, onClose }: { open: boolean; onClose: () =>
     const all: Command[] = [
       { id: "home", label: "Home", icon: House, run: go("/") },
       { id: "make", label: "Make something", hint: "Notes, a quiz, a test, an exam or slides", icon: Sparkles, run: go("/make") },
+      { id: "courses", label: "Courses", hint: "Chapters, materials and question banks", icon: BookOpen, run: go("/courses") },
+      { id: "add-course", label: "Add a course", icon: Plus, run: go("/courses?add=1") },
       { id: "settings", label: "Settings", icon: Settings, run: go("/settings") },
       {
         id: "sign-out",

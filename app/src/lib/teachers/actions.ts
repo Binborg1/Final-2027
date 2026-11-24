@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { teacherForAction } from "@/lib/auth/teacher";
+import { seedChapters } from "@/lib/courses/server";
 import { loadDataset } from "@/lib/curriculum/dataset";
 import { checkCourses, choicesSchema, firstIssue, planCourseChanges, profileSchema, type CurriculumCourse } from "@/lib/teachers/setup";
 
@@ -62,10 +63,17 @@ export async function saveCourses(input: unknown): Promise<ActionResult> {
   }
   if (plan.insert.length > 0) {
     const start = existing.data.reduce((m, c) => Math.max(m, c.position + 1), 0);
-    const { error } = await supabase.from("courses").insert(plan.insert.map((c, i) => ({ teacher_id: teacher.id, curriculum_course_id: c.curriculumCourseId, level: c.level, title: c.title, position: start + i })));
+    const { data: added, error } = await supabase
+      .from("courses")
+      .insert(plan.insert.map((c, i) => ({ teacher_id: teacher.id, curriculum_course_id: c.curriculumCourseId, level: c.level, title: c.title, position: start + i })))
+      .select("id, curriculum_course_id, level");
     if (error) {
       console.error("Saving courses failed:", error.message);
       return FAILED;
+    }
+    // Each new course starts with its chapters from the curriculum units.
+    for (const course of added ?? []) {
+      await seedChapters(supabase, teacher.id, course).catch((e: unknown) => console.error("Seeding chapters failed:", e instanceof Error ? e.message : "unknown error"));
     }
   }
   revalidatePath("/", "layout");

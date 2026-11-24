@@ -91,6 +91,9 @@ export type Brief = {
   material: { name: string; use: "source" | "inspiration"; text: string } | null;
   reuseId: string | null;
   instructions: string;
+  /** The teacher's course (courses.id) and the chapters it is made from (chapters.id). */
+  courseId: string | null;
+  chapterIds: string[];
 };
 
 export type ResourceStatus = "draft" | "approved";

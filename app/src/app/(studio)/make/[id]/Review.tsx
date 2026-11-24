@@ -37,6 +37,7 @@ export function Review({ id }: { id: string }) {
   const parts = useMemo(() => (draft ? partsOf(draft) : []), [draft]);
   const [selected, setSelected] = useState<string | null>(null);
   const [approving, setApproving] = useState(false);
+  const [approvingBusy, setApprovingBusy] = useState(false);
   const rows = useMemo(() => (draft ? computeChecks(draft) : []), [draft, ws.catalogVersion]); // eslint-disable-line react-hooks/exhaustive-deps
   const blockers = approvalBlockers(rows);
   const rv = draft ? reviewables(draft) : [];
@@ -71,8 +72,8 @@ export function Review({ id }: { id: string }) {
   if (!draft || !resource) {
     return (
       <Card className="p-6">
-        <EmptyState icon={FileQuestion} title="This draft isn’t in this browser" action={<ButtonLink href="/make" icon={Sparkles}>Make something</ButtonLink>}>
-          Drafts are kept in the browser they were made in until the next update saves them to your account.
+        <EmptyState icon={FileQuestion} title="This draft wasn’t found" action={<ButtonLink href="/make" icon={Sparkles}>Make something</ButtonLink>}>
+          It may have been deleted, or it belongs to another account.
         </EmptyState>
       </Card>
     );
@@ -100,7 +101,7 @@ export function Review({ id }: { id: string }) {
         }
         actions={
           approved ? (
-            <Button variant="secondary" icon={PenLine} onClick={() => startNewVersion(id)}>
+            <Button variant="secondary" icon={PenLine} onClick={() => void startNewVersion(id)}>
               Start a new version
             </Button>
           ) : blockers.length > 0 ? (
@@ -167,9 +168,12 @@ export function Review({ id }: { id: string }) {
             </Button>
             <Button
               icon={Check}
-              onClick={() => {
-                approve(id);
-                setApproving(false);
+              loading={approvingBusy}
+              onClick={async () => {
+                setApprovingBusy(true);
+                const ok = await approve(id);
+                setApprovingBusy(false);
+                if (ok) setApproving(false);
               }}
             >
               Approve version {draft.version}

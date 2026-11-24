@@ -25,7 +25,7 @@ export default async function StudioLayout({ children }: { children: ReactNode }
       courses={courses.map((c) => ({ id: c.id, title: c.title }))}
       initialExpanded={jar.get(SIDEBAR_COOKIE)?.value !== "collapsed"}
     >
-      <WorkspaceBoot teacherId={teacher.id} />
+      <WorkspaceBoot />
       {children}
     </ShellFrame>
   );

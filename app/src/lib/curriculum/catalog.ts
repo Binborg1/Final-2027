@@ -6,13 +6,12 @@
  * catalog only with its source, retrieval date and a SHA-256 fingerprint of the
  * exact wording, so any change to the text is detectable.
  *
- * Two kinds of entry:
- * - CATALOG below: outcomes a team member copied by hand (Science 10, FM1 to FM4).
- * - Imported courses: every Saskatchewan Grade 10–12 curriculum, copied by
- *   scripts/curriculum/import-sk.mjs into src/data/curriculum/sk.json. The server
- *   registers all of them (src/lib/curriculum/dataset.ts); the browser registers the
- *   courses it opens (src/lib/curriculum/client.ts). Where both exist, the hand-copied
- *   entry keeps its id and status and gains the imported indicators.
+ * Every Saskatchewan Grade 10–12 curriculum is copied by
+ * scripts/curriculum/import-sk.mjs into src/data/curriculum/sk.json. The server
+ * registers all of them (src/lib/curriculum/dataset.ts); the browser registers the
+ * courses it opens (src/lib/curriculum/client.ts). The hand-copied Science 10 entry
+ * that came first was removed on 23 November 2026: the import has the same words
+ * (checked against the Ministry's CSV) and its indicators.
  */
 
 export type VerificationStatus =
@@ -51,8 +50,6 @@ export type CatalogOutcome = {
   /** Verified indicators, or imported ones (each marked "imported"). Empty while `indicatorsStatus` is "pending". */
   indicators: CatalogIndicator[];
   indicatorsStatus: "verified" | "imported" | "pending";
-  /** Which lesson template exists for this outcome; null means teachers can read it but not yet generate a lesson. */
-  lessonTemplate: "sci10-fm2" | null;
   /** The outcome's own official page. */
   url?: string;
   /** 10, 20 or 30. */
@@ -90,7 +87,7 @@ export type CatalogCourse = {
   /** 10, 20 and/or 30. */
   levels?: number[];
   /** How the course's outcomes were brought into Funza. */
-  origin?: "hand" | "import";
+  origin?: "import";
 };
 
 export type Jurisdiction = { id: string; name: string; courses: CatalogCourse[] };
@@ -104,85 +101,8 @@ export const USABLE_STATUSES: readonly VerificationStatus[] = ["verified", "sour
 /** Statuses no person has checked. */
 export const AUTOMATIC_STATUSES: readonly VerificationStatus[] = ["cross-checked", "imported"];
 
-const RETRIEVED = "2026-11-17";
-const METHOD = "Copied from the official Science 10 outcomes page (curriculum.gov.sk.ca, id=63).";
-
-function sourceChecked(id: string, code: string, statement: string, fingerprint: string, lessonTemplate: CatalogOutcome["lessonTemplate"]): CatalogOutcome {
-  return {
-    id,
-    code,
-    statement,
-    fingerprint,
-    status: "source-checked",
-    checkedOn: RETRIEVED,
-    method: METHOD,
-    secondCheck: "pending",
-    indicators: [],
-    indicatorsStatus: "pending",
-    lessonTemplate,
-  };
-}
-
-export const CATALOG: Jurisdiction[] = [
-  {
-    id: "sk",
-    name: "Saskatchewan",
-    courses: [
-      {
-        id: "sk-science-10",
-        name: "Science 10",
-        grade: 10,
-        curriculumId: 63,
-        subject: "Sciences",
-        levels: [10],
-        origin: "hand",
-        source: {
-          url: "https://curriculum.gov.sk.ca/CurriculumOutcomeContent?id=63",
-          publisher: "Saskatchewan Ministry of Education",
-          retrievedOn: RETRIEVED,
-          versionLabel: null,
-          reuseTerms: null,
-        },
-        units: [
-          {
-            id: "sk-sci10-fm",
-            name: "Force and Motion in Our World",
-            outcomes: [
-              sourceChecked(
-                "sk-sci10-fm1",
-                "SCI10-FM1",
-                "Explore the development of motion-related technologies and their impacts on self and society.",
-                "sha256:3ba9b04ca12dae8339e45d15ee0f16c7ba2adcc90eec857161c526e21f91baaf",
-                null,
-              ),
-              sourceChecked(
-                "sk-sci10-fm2",
-                "SCI10-FM2",
-                "Investigate and represent the motion of objects that travel at a constant speed in a straight line.",
-                "sha256:9b2fd61fb03d229e5f7100e14744f1f7ac1d6470ab7e061cd70b212f968a0631",
-                "sci10-fm2",
-              ),
-              sourceChecked(
-                "sk-sci10-fm3",
-                "SCI10-FM3",
-                "Investigate and represent the motion of objects that undergo acceleration.",
-                "sha256:7ff23004853ce65df8b2cfc4edffc5ac94b62f09995ba082374d5d7fe4a6f159",
-                null,
-              ),
-              sourceChecked(
-                "sk-sci10-fm4",
-                "SCI10-FM4",
-                "Explore the relationship between force and motion for objects moving in one and two dimensions.",
-                "sha256:5a3cd6a2aa2c5f6f757c8cf6d5b802733a3fd727f9e5d27b71f5a9f5e06fdc70",
-                null,
-              ),
-            ],
-          },
-        ],
-      },
-    ],
-  },
-];
+/** The jurisdictions Funza knows. Courses are registered from the imported dataset. */
+export const CATALOG: Jurisdiction[] = [{ id: "sk", name: "Saskatchewan", courses: [] }];
 
 /* ---------- imported courses known to this runtime ---------- */
 
@@ -191,18 +111,17 @@ let current: Jurisdiction[] = CATALOG;
 let version = 0;
 const catalogListeners = new Set<() => void>();
 
-/** Adds imported courses. An imported course replaces the hand-copied course with the same curriculum id. */
+/** Adds imported courses to the catalog this runtime knows. */
 export function registerCourses(courses: CatalogCourse[]) {
   if (courses.length === 0) return;
   for (const c of courses) imported.set(c.id, c);
-  const replaced = new Set([...imported.values()].map((c) => c.curriculumId));
-  current = CATALOG.map((j) => (j.id !== "sk" ? j : { ...j, courses: [...j.courses.filter((c) => c.curriculumId === undefined || !replaced.has(c.curriculumId)), ...imported.values()] }));
+  current = CATALOG.map((j) => (j.id !== "sk" ? j : { ...j, courses: [...j.courses, ...imported.values()] }));
   version++;
   catalogListeners.forEach((l) => l());
 }
 export const registeredCourses = (): CatalogCourse[] => [...imported.values()];
 export const isRegistered = (courseId: string) => imported.has(courseId);
-/** The catalog as this runtime knows it: hand-copied entries plus registered imports. */
+/** The catalog as this runtime knows it: the registered imported courses. */
 export const currentCatalog = (): Jurisdiction[] => current;
 export const catalogVersion = () => version;
 export function subscribeCatalog(listener: () => void) {
@@ -212,7 +131,7 @@ export function subscribeCatalog(listener: () => void) {
   };
 }
 
-/** Funza outcome ids: hand-copied ("sk-sci10-fm2") or imported ("sk-<curriculum id>-<outcome id>"). */
+/** Funza outcome ids: "sk-<curriculum id>-<outcome id>", such as "sk-63-110477". */
 export const OUTCOME_ID = /^sk-[a-z0-9]+(?:-[a-z0-9]+){1,3}$/;
 
 export type FoundOutcome = { jurisdiction: Jurisdiction; course: CatalogCourse; unit: CatalogUnit; outcome: CatalogOutcome };
@@ -266,14 +185,13 @@ export const isAutomatic = (o: CatalogOutcome) => AUTOMATIC_STATUSES.includes(o.
 
 export type UsableOutcome = { ok: true; found: FoundOutcome } | { ok: false; reason: string };
 
-/** The only way lesson generation gets an outcome: it must exist, be checked against its source, and be sound. */
+/** An outcome Funza may build on: it must exist, be checked against its source, and be sound. */
 export function usableOutcome(id: unknown, hasher?: Hasher, catalog: Jurisdiction[] = current): UsableOutcome {
   if (typeof id !== "string" || !id) return { ok: false, reason: "No curriculum outcome was given." };
   const found = findOutcome(id, catalog);
   if (!found) return { ok: false, reason: `"${id.slice(0, 40)}" is not an outcome in Funza's curriculum catalog.` };
   const problems = outcomeProblems(found, hasher);
   if (problems.length > 0) return { ok: false, reason: problems[0] };
-  if (!found.outcome.lessonTemplate) return { ok: false, reason: `Lessons for ${found.outcome.code} are not available yet.` };
   return { ok: true, found };
 }
 

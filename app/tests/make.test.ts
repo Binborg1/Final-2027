@@ -5,7 +5,7 @@ import { chaptersFor, composeInstructions } from "@/lib/make/chapters";
 import { storageKeyFor } from "@/lib/resources/storage-key";
 
 const outcome = (id: string, level: number | null): CatalogOutcome =>
-  ({ id, code: id.toUpperCase(), statement: `Statement ${id}`, fingerprint: "", status: "imported", checkedOn: "", method: "", secondCheck: "pending", indicators: [], indicatorsStatus: "pending", lessonTemplate: null, level }) as CatalogOutcome;
+  ({ id, code: id.toUpperCase(), statement: `Statement ${id}`, fingerprint: "", status: "imported", checkedOn: "", method: "", secondCheck: "pending", indicators: [], indicatorsStatus: "pending", level }) as CatalogOutcome;
 
 const course = (units: CatalogCourse["units"]): CatalogCourse => ({ id: "sk-1", name: "Course", grade: 10, source: { url: "", publisher: "", retrievedOn: "", versionLabel: null, reuseTerms: null }, units });
 

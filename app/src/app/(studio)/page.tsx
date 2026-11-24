@@ -32,15 +32,15 @@ export default async function HomePage() {
             id="courses-title"
             title="Your courses"
             actions={
-              <span className="inline-flex items-center gap-1.5 text-body font-semibold text-ink-2" title="Adding and editing courses arrives in the next update">
+              <Link href="/courses?add=1" className="inline-flex items-center gap-1.5 text-body font-semibold text-accent-ink hover:underline">
                 <Plus aria-hidden size={16} strokeWidth={2} />
                 Add a course
-              </span>
+              </Link>
             }
           />
           {courses.length === 0 ? (
             <EmptyState icon={BookOpen} title="No courses yet">
-              Courses you chose in setup appear here.
+              Add a course to start making materials for it.
             </EmptyState>
           ) : (
             <ul className="mt-3 flex flex-col gap-2.5">
@@ -48,11 +48,11 @@ export default async function HomePage() {
                 const grade = gradeOfLevel(c.level);
                 return (
                   <li key={c.id}>
-                    <Link href={`/make?course=${c.id}`} className="group flex items-center gap-3 rounded-tile border border-white/80 bg-tile px-3.5 py-3 hover:bg-white/80">
+                    <Link href={`/courses/${c.id}`} className="group flex items-center gap-3 rounded-tile border border-white/80 bg-tile px-3.5 py-3 hover:bg-white/80">
                       <span aria-hidden className={cn("size-2.5 shrink-0 rounded-full", i % 2 === 0 ? "bg-accent" : "bg-sage")} />
                       <span className="flex min-w-0 flex-1 flex-col">
                         <span className="truncate text-row font-semibold">{c.title}</span>
-                        <span className="text-meta text-ink-2">Make something for this course</span>
+                        <span className="text-meta text-ink-2">Chapters, materials and question bank</span>
                       </span>
                       {grade ? <Tag>Grade {grade}</Tag> : null}
                       <ArrowRight aria-hidden size={16} className="shrink-0 text-ink-2 transition-transform group-hover:translate-x-0.5" />
