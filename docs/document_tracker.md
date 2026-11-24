@@ -97,7 +97,7 @@ Course stage: Development Workshops 1–3 and the weekly scrums (from 27 October
 
 | # | Document | File | What it must contain | Status | Owner |
 |---|---|---|---|---|---|
-| 6.1 | Work-in-progress demo | `06_presentations/01_work_in_progress_demo/` | Slides (.pptx and .pdf) covering the list under "Next up", plus the demo script. **Due 24 Nov** | To do | |
+| 6.1 | Work-in-progress demo | `06_presentations/01_work_in_progress_demo/` | Slides (.pptx and .pdf) covering the list under "Next up", plus the demo script. **Due 24 Nov** | Draft (v0.2, 23 Nov): 15 slides with speaker notes, PDF, and [demo script](06_presentations/01_work_in_progress_demo/02_demo_script.md) | |
 | 6.2 | Progress vlog 2 | `06_presentations/02_progress_vlog_2/` | Script and shot list, and a link to the video on unlisted YouTube (GitHub rejects files over 100 MB). Covers the team retrospective and next steps. Check the "Vlog 2 requirements" page on UR Courses. **Due 1 Dec, 11:30** | To do | |
 | 6.3 | Project poster | `06_presentations/03_project_poster/` | | ENSE 477 | |
 | 6.4 | Project video demo | `06_presentations/04_project_video_demo/` | At most 10 minutes; link in the folder | ENSE 477 | |
